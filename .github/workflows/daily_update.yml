@@ -1,86 +1,79 @@
-name: Daglig uppdatering och GitHub Pages
+name: Daglig prisuppdatering
 
 on:
   schedule:
-    - cron: "45 17 * * 1-5"
-      timezone: "Europe/Stockholm"
+    # GitHub cron använder UTC. Två tider täcker svensk sommar-/vintertid;
+    # steget nedan låter bara körningen som faktiskt är 17:45 Stockholm fortsätta.
+    - cron: "45 15 * * 1-5"
+    - cron: "45 16 * * 1-5"
   workflow_dispatch:
-    inputs:
-      force_full_price_fetch:
-        description: "Hämta hela den konfigurerade prisperioden på nytt"
-        required: false
-        type: boolean
-        default: false
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: stock-value-pages
+  group: daily-stock-data
   cancel-in-progress: false
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
+      - name: Kontrollera svensk klocktid
+        id: market_time
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif [ "$(TZ=Europe/Stockholm date +'%H:%M')" = "17:45" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Fel UTC-körning för aktuell svensk tidszon; ingen data uppdateras."
+          fi
+
       - name: Checka ut repot
+        if: steps.market_time.outputs.run == 'true'
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Installera Python
+        if: steps.market_time.outputs.run == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
 
       - name: Installera beroenden
-        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
-
-      - name: Kör tester
-        run: python -m pytest
-
-      - name: Hämta om hela prisserien vid manuell begäran
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.force_full_price_fetch }}
-        run: python -m src.fetch_data --full
-
-      - name: Bygg dagens data och webbplats
+        if: steps.market_time.outputs.run == 'true'
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force_full_price_fetch }}" = "true" ]; then
-            python -m src.pipeline --skip-fetch
-          else
-            python -m src.pipeline
-          fi
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
-      - name: Spara genererade data i repot
+      - name: Uppdatera priser och bygg GitHub Pages-data
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.pipeline
+
+      - name: Spara dagens data
+        if: steps.market_time.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs
-          if git diff --cached --quiet; then
-            echo "Inga dataändringar att spara."
+
+          git add docs/data
+
+          if [ -f data/prices/price_updates.csv ]; then
+            git add data/prices/price_updates.csv
           else
-            git commit -m "data: daglig uppdatering"
-            git push
+            echo "Ingen price_updates.csv skapades denna körning."
           fi
 
-      - name: Konfigurera GitHub Pages
-        uses: actions/configure-pages@v5
+          if git diff --cached --quiet; then
+            echo "Inga dataändringar att spara."
+            exit 0
+          fi
 
-      - name: Ladda upp Pages-artefakt
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: docs
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Publicera GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          git commit -m "data: daglig prisuppdatering"
+          git pull --rebase origin main
+          git push origin main
