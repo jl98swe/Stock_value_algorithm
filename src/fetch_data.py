@@ -156,9 +156,23 @@ def update_prices(
                 downloaded_frames.append(result)
         fresh = pd.concat(downloaded_frames, ignore_index=True) if downloaded_frames else pd.DataFrame(columns=RAW_PRICE_COLUMNS)
 
+    # Eftersom varje körning hämtar minst sju dagars överlapp ska Yahoo normalt
+    # alltid returnera data, även om körningen sker på en helg. Ett helt tomt
+    # svar betyder därför sannolikt att hämtningen har fallerat och får inte
+    # behandlas som en lyckad uppdatering.
     if fresh.empty:
-        print("Ingen ny prisdata hittades.")
-        return existing
+        raise RuntimeError(
+            "Yahoo returnerade ingen prisdata alls. Uppdateringen avbryts så att "
+            "GitHub Action inte kan bli falskt grön."
+        )
+
+    returned_tickers = set(fresh["ticker"].astype(str).unique())
+    missing_tickers = sorted(set(tickers).difference(returned_tickers))
+    if missing_tickers:
+        print(
+            f"VARNING: Yahoo returnerade ingen data för {len(missing_tickers)} ticker(s): "
+            + ", ".join(missing_tickers)
+        )
 
     _validate_ohlc(fresh)
 
