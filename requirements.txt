@@ -8,6 +8,7 @@ pyarrow>=16.1.0
 python-dateutil==2.9.0.post0
 pytz==2026.2
 requests==2.34.2
+scikit-learn>=1.5.0
 six==1.17.0
 tzdata==2026.2
 urllib3==2.7.0
