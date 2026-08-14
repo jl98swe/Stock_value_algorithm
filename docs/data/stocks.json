@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-14T17:45:00+02:00",
+  "is_demo": true,
+  "stocks": [
+    {
+      "ticker": "DEMO-VALUE.ST",
+      "name": "Nordic Value AB",
+      "currency": "SEK",
+      "market": "Stockholm",
+      "data_quality": "demo",
+      "latest_date": "2026-08-14",
+      "latest_close": 76.4,
+      "latest_score": 0,
+      "locked": false
+    },
+    {
+      "ticker": "DEMO-GROWTH.ST",
+      "name": "Scandi Growth AB",
+      "currency": "SEK",
+      "market": "Stockholm",
+      "data_quality": "demo",
+      "latest_date": "2026-08-14",
+      "latest_close": 119.24,
+      "latest_score": 76.58,
+      "locked": false
+    },
+    {
+      "ticker": "DEMO-EVENT.ST",
+      "name": "Industria Demo AB",
+      "currency": "SEK",
+      "market": "Stockholm",
+      "data_quality": "demo",
+      "latest_date": "2026-08-14",
+      "latest_close": 87.37,
+      "latest_score": 0,
+      "locked": true
+    }
+  ]
+}
