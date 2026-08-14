@@ -1,10 +1,36 @@
 (() => {
   'use strict';
 
-  const fmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
   let dashboard = null;
   let eventsPayload = null;
   let refreshTimer = null;
+
+  function ensureLegend() {
+    const legend = document.querySelector('.chart-legend');
+    if (!legend) return;
+    legend.innerHTML = `
+      <span><i class="legend-swatch legend-buy"></i>Köpsignal</span>
+      <span><i class="legend-swatch legend-sell"></i>Säljsignal</span>
+      <span><i class="legend-swatch legend-lock"></i>Fundamental spärr</span>
+      <span><i class="ma200-key"></i>MA200</span>
+      <span><i class="event-key report">E</i>Rapport</span>
+      <span><i class="event-key dividend">D</i>Utdelning</span>
+      <span><i class="event-key news">N</i>Nyhet</span>`;
+
+    if (!document.getElementById('chart-enhancement-styles')) {
+      const style = document.createElement('style');
+      style.id = 'chart-enhancement-styles';
+      style.textContent = `
+        .chart-legend > span { display:inline-flex; align-items:center; }
+        .ma200-key { width:18px; height:0; margin-right:6px; border-top:2px solid #626d78; }
+        .event-key { display:inline-grid; place-items:center; width:18px; height:18px; margin-right:5px; border-radius:50%; color:#fff; font-size:10px; font-style:normal; font-weight:900; line-height:1; }
+        .event-key.report { background:#7b61a8; }
+        .event-key.dividend { background:#0b7b72; }
+        .event-key.news { background:#2f6fb0; }
+      `;
+      document.head.appendChild(style);
+    }
+  }
 
   function eventMarker(event) {
     const classification = String(event.classification || '').toLocaleLowerCase('sv-SE');
@@ -39,17 +65,18 @@
   function sliceCandles(candles) {
     const range = selectedRange();
     if (range === 'all') return candles;
-    const n = Math.max(1, Number(range));
-    return candles.slice(-n);
+    return candles.slice(-Math.max(1, Number(range)));
   }
 
   function scheduleRefresh() {
     window.clearTimeout(refreshTimer);
-    refreshTimer = window.setTimeout(applyEnhancements, 40);
+    refreshTimer = window.setTimeout(applyEnhancements, 60);
   }
 
   function applyEnhancements() {
+    ensureLegend();
     if (!dashboard || !eventsPayload || !window.echarts) return;
+
     const chartEl = document.getElementById('market-chart');
     const chart = chartEl ? echarts.getInstanceByDom(chartEl) : null;
     if (!chart) return;
@@ -67,8 +94,10 @@
     const ma200 = candles.map((d) => Number.isFinite(Number(d.ma200)) ? Number(d.ma200) : null);
 
     const current = chart.getOption();
-    const priceSeries = current.series?.[0] || {};
-    const existingPoints = priceSeries.markPoint?.[0]?.data || priceSeries.markPoint?.data || [];
+    const series = current.series || [];
+    const priceSeries = series.find((item) => item.name === 'Pris') || series[0] || {};
+    const markPoint = Array.isArray(priceSeries.markPoint) ? priceSeries.markPoint[0] : priceSeries.markPoint;
+    const existingPoints = markPoint?.data || [];
     const signalPoints = existingPoints.filter((point) => /^(BUY|SELL)\b/.test(String(point.name || '')));
 
     const visibleEvents = (eventsPayload.events || []).filter((event) => {
@@ -96,20 +125,29 @@
           borderColor: event.locking ? '#c88722' : '#ffffff',
           borderWidth: event.locking ? 2.5 : 1.5
         },
-        label: {
-          show: true,
-          formatter: marker.code,
-          color: '#ffffff',
-          fontSize: 10,
-          fontWeight: 900
-        },
+        label: { show: true, formatter: marker.code, color: '#ffffff', fontSize: 10, fontWeight: 900 },
         eventTooltip: `<strong>${marker.code} · ${marker.label}</strong><br>${day}${source}<br>${event.title}`
       };
     }).filter(Boolean);
 
-    const series = current.series || [];
-    const withoutMa = series.filter((item) => item.name !== 'MA200');
-    const maSeries = {
+    const updatedSeries = series.filter((item) => item.name !== 'MA200').map((item) => ({ ...item }));
+    const priceIndex = Math.max(0, updatedSeries.findIndex((item) => item.name === 'Pris'));
+    updatedSeries[priceIndex] = {
+      ...updatedSeries[priceIndex],
+      markPoint: {
+        ...(markPoint || {}),
+        data: [...signalPoints, ...eventPoints],
+        tooltip: {
+          show: true,
+          trigger: 'item',
+          formatter(params) {
+            return params.data?.eventTooltip || params.name || '';
+          }
+        }
+      }
+    };
+
+    updatedSeries.splice(priceIndex + 1, 0, {
       name: 'MA200',
       type: 'line',
       data: ma200,
@@ -119,46 +157,13 @@
       lineStyle: { width: 1.8, color: '#626d78' },
       emphasis: { disabled: true },
       z: 4
-    };
+    });
 
-    if (withoutMa[0]) {
-      withoutMa[0] = {
-        ...withoutMa[0],
-        markPoint: {
-          ...(withoutMa[0].markPoint || {}),
-          data: [...signalPoints, ...eventPoints],
-          tooltip: {
-            show: true,
-            trigger: 'item',
-            formatter(params) {
-              return params.data?.eventTooltip || params.name || '';
-            }
-          }
-        }
-      };
-    }
-
-    withoutMa.splice(1, 0, maSeries);
-    chart.setOption({ series: withoutMa }, { replaceMerge: ['series'] });
-
-    chart.off('showTip', showMaTooltip);
-    chart.on('showTip', showMaTooltip);
-  }
-
-  function showMaTooltip(params) {
-    if (!dashboard || params?.dataIndex == null) return;
-    const ticker = selectedTicker();
-    const stock = dashboard.stocks?.[ticker];
-    if (!stock) return;
-    const candles = sliceCandles(stock.candles || []);
-    const candle = candles[params.dataIndex];
-    const ma = Number(candle?.ma200);
-    const el = document.querySelector('.echarts-tooltip');
-    if (!el || !Number.isFinite(ma) || el.textContent.includes('MA200')) return;
-    el.insertAdjacentHTML('beforeend', `<br>MA200 <strong>${fmt.format(ma)}</strong>`);
+    chart.setOption({ series: updatedSeries }, { replaceMerge: ['series'] });
   }
 
   async function init() {
+    ensureLegend();
     try {
       [dashboard, eventsPayload] = await Promise.all([
         fetch('./data/dashboard.json', { cache: 'no-store' }).then((r) => r.json()),
@@ -169,6 +174,7 @@
         if (event.target.closest('[data-range]') || event.target.closest('.stock-button')) scheduleRefresh();
       });
       window.addEventListener('popstate', scheduleRefresh);
+      window.addEventListener('resize', scheduleRefresh);
     } catch (error) {
       console.warn('Kunde inte aktivera MA200/E/D/N-förbättringar:', error);
     }
