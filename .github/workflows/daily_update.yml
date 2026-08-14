@@ -60,11 +60,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/prices/price_updates.csv docs/data
+
+          git add docs/data
+
+          if [ -f data/prices/price_updates.csv ]; then
+            git add data/prices/price_updates.csv
+          else
+            echo "Ingen price_updates.csv skapades denna körning."
+          fi
+
           if git diff --cached --quiet; then
             echo "Inga dataändringar att spara."
             exit 0
           fi
+
           git commit -m "data: daglig prisuppdatering"
           git pull --rebase origin main
           git push origin main
