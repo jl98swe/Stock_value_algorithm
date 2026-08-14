@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Stock Value Algorithm</title>
+  <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="./assets/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark" aria-hidden="true">SV</div>
+        <div>
+          <div class="brand-title">Stock Value Algorithm</div>
+          <div class="brand-subtitle">Verifierad fundamentaldata · signal vid stängning · handel nästa öppning</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="secondary-button header-review-link" href="./review.html">Granska nyheter och data</a>
+        <div class="update-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <span class="status-label">Senast byggd</span>
+            <strong id="last-updated">Laddar…</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="demo-banner" class="demo-banner" hidden>
+      <strong>Exempeldata:</strong> priser, rapporter och nyheter i denna version är syntetiska. Strukturen är färdig för riktiga tickers och point-in-time-data.
+    </div>
+
+    <main class="workspace">
+      <aside class="sidebar" aria-label="Aktielista">
+        <div class="sidebar-heading">
+          <div>
+            <span class="eyebrow">Bevakning</span>
+            <h2>Aktier</h2>
+          </div>
+          <span id="stock-count" class="count-pill">0</span>
+        </div>
+        <label class="search-field">
+          <span class="sr-only">Sök aktie</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+          <input id="stock-search" type="search" placeholder="Sök namn eller ticker" autocomplete="off">
+        </label>
+        <div id="stock-list" class="stock-list" role="listbox" aria-label="Välj aktie"></div>
+
+        <section class="rules-card" aria-labelledby="rules-title">
+          <div class="card-kicker">Live-regler</div>
+          <h3 id="rules-title">Originalstrategi</h3>
+          <dl id="rules-list" class="compact-dl"></dl>
+          <p class="fine-print">Köp- och säljcoldown räknas separat. Ingen blankning. En handelsspärr blockerar signalen utan att ändra EPS.</p>
+        </section>
+      </aside>
+
+      <section class="dashboard" aria-live="polite">
+        <div id="loading-state" class="loading-state">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Laddar dashboard…</p>
+        </div>
+
+        <div id="dashboard-content" hidden>
+          <section class="stock-hero">
+            <div>
+              <div class="stock-id-row">
+                <span id="stock-ticker" class="ticker-chip"></span>
+                <span id="data-badge" class="badge badge-neutral"></span>
+                <span id="quality-badge" class="badge badge-neutral"></span>
+                <span id="lock-badge" class="badge badge-warning" hidden></span>
+              </div>
+              <h1 id="stock-name"></h1>
+              <p id="stock-date" class="muted"></p>
+            </div>
+            <div class="hero-price">
+              <span id="latest-price" class="price-value">–</span>
+              <span id="price-change" class="change-value">–</span>
+            </div>
+          </section>
+
+          <div id="lock-alert" class="lock-alert" hidden>
+            <div class="lock-icon" aria-hidden="true">!</div>
+            <div>
+              <strong>Handelssignal spärrad</strong>
+              <p id="lock-reason"></p>
+            </div>
+          </div>
+
+          <section class="metric-grid" aria-label="Senaste värden">
+            <article class="metric-card score-card">
+              <div class="metric-label">Värderingspoäng</div>
+              <div class="metric-row">
+                <strong id="metric-score" class="metric-value">–</strong>
+                <span id="metric-zone" class="zone-pill">–</span>
+              </div>
+              <div class="metric-foot">Köp 0 · Sälj 100</div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-label">P/E TTM</div>
+              <strong id="metric-pe" class="metric-value">–</strong>
+              <div id="metric-eps" class="metric-foot">EPS –</div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-label">Modellposition</div>
+              <strong id="metric-position" class="metric-value">–</strong>
+              <div id="metric-unrealized" class="metric-foot">–</div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-label">Nästa åtgärd</div>
+              <strong id="metric-action" class="metric-value metric-action">–</strong>
+              <div id="metric-action-detail" class="metric-foot">–</div>
+            </article>
+          </section>
+
+          <section class="panel chart-panel" aria-labelledby="chart-title">
+            <div class="panel-header chart-header">
+              <div>
+                <span class="eyebrow">Pris och värdering</span>
+                <h2 id="chart-title">Daglig utveckling</h2>
+              </div>
+              <div class="range-buttons" role="group" aria-label="Välj tidsperiod">
+                <button type="button" data-range="60">3M</button>
+                <button type="button" data-range="125">6M</button>
+                <button type="button" data-range="250">1Å</button>
+                <button type="button" data-range="all">Allt</button>
+              </div>
+            </div>
+            <div id="market-chart" class="market-chart" role="img" aria-label="Candlestickdiagram och värderingspoäng"></div>
+            <div id="chart-message" class="chart-message" hidden></div>
+            <div class="chart-legend">
+              <span><i class="legend-swatch legend-buy"></i>Köpsignal</span>
+              <span><i class="legend-swatch legend-sell"></i>Säljsignal</span>
+              <span><i class="legend-swatch legend-lock"></i>Fundamental spärr</span>
+              <span><i class="legend-swatch legend-news"></i>Bolagsnyhet</span>
+            </div>
+          </section>
+
+          <section class="detail-grid">
+            <article class="panel" aria-labelledby="position-title">
+              <div class="panel-header split-header">
+                <div>
+                  <span class="eyebrow">Strategi</span>
+                  <h2 id="position-title">Position och signaler</h2>
+                </div>
+                <a id="trade-workflow-link" class="secondary-button" href="#" target="_blank" rel="noopener">Registrera faktisk handel</a>
+              </div>
+              <div id="position-content"></div>
+            </article>
+
+            <article class="panel" aria-labelledby="report-title">
+              <div class="panel-header split-header">
+                <div>
+                  <span class="eyebrow">Fundamentalt</span>
+                  <h2 id="report-title">Rapportstatus</h2>
+                </div>
+                <a id="report-workflow-link" class="secondary-button" href="#" target="_blank" rel="noopener">Lägg till verifierad EPS</a>
+              </div>
+              <div id="report-content"></div>
+            </article>
+          </section>
+
+          <section class="panel" aria-labelledby="news-title">
+            <div class="panel-header split-header">
+              <div>
+                <span class="eyebrow">Manuell granskning</span>
+                <h2 id="news-title">Bolagsnyheter</h2>
+                <p class="panel-description">Texten klassificeras inte automatiskt. Läs originalet och registrera beslutet i GitHub Actions.</p>
+              </div>
+              <a id="review-workflow-link" class="secondary-button" href="#" target="_blank" rel="noopener">Öppna granskningsflöde</a>
+            </div>
+            <div id="news-list" class="news-list"></div>
+          </section>
+
+          <section class="detail-grid">
+            <article class="panel" aria-labelledby="comparison-title">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Alternativ</span>
+                  <h2 id="comparison-title">Strategijämförelse</h2>
+                </div>
+              </div>
+              <div class="table-wrap"><table id="strategy-table" class="data-table"></table></div>
+            </article>
+
+            <article class="panel" aria-labelledby="trades-title">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Historik</span>
+                  <h2 id="trades-title">Senaste avslut</h2>
+                </div>
+              </div>
+              <div class="table-wrap"><table id="trades-table" class="data-table"></table></div>
+            </article>
+          </section>
+        </div>
+
+        <div id="error-state" class="error-state" hidden>
+          <h2>Dashboarden kunde inte laddas</h2>
+          <p id="error-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Poängen beräknas på verifierad EPS TTM och dagens stängningskurs. Signaler avser nästa handelsdags öppning och är orderkandidater, inte automatisk handel eller investeringsråd.</p>
+    </footer>
+  </div>
+</body>
+</html>

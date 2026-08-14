@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Granskning och inmatning · Stock Value Algorithm</title>
+  <meta name="description" content="Läs bolagsnyheter och skapa säkra manuella kommandon för granskning, EPS, rapportkalender och faktiska affärer.">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./assets/review.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <a class="brand-mark brand-link" href="./" aria-label="Till dashboarden">SV</a>
+        <div>
+          <div class="brand-title">Granskning och inmatning</div>
+          <div class="brand-subtitle">Originalkällan först · manuellt beslut · verifierad data</div>
+        </div>
+      </div>
+      <nav class="top-actions" aria-label="Huvudnavigering">
+        <a class="secondary-button" href="./">Till dashboarden</a>
+        <a id="repository-link" class="secondary-button" href="#" target="_blank" rel="noopener">GitHub-repo</a>
+      </nav>
+    </header>
+
+    <main class="review-page">
+      <section class="review-intro panel">
+        <span class="eyebrow">Säker arbetsgång</span>
+        <h1>Läs nyheten själv innan något påverkar handelsspärren</h1>
+        <p>Den här sidan klassificerar inte rubriker eller artikeltext. Den visar originalkällan och genererar ett granskningskommando. GitHub Pages är statisk och skriver därför inte direkt till repot eller exponerar någon token.</p>
+      </section>
+
+      <section class="review-layout">
+        <aside class="panel review-sidebar">
+          <div class="form-field">
+            <label for="review-stock">Aktie</label>
+            <select id="review-stock"></select>
+          </div>
+          <div class="form-field">
+            <label for="review-event">Bolagsnyhet</label>
+            <select id="review-event"></select>
+          </div>
+          <div id="review-event-list" class="review-event-list"></div>
+        </aside>
+
+        <div class="review-main">
+          <section class="panel" aria-labelledby="event-heading">
+            <div id="event-empty" class="empty-state">Välj en bolagsnyhet.</div>
+            <div id="event-detail" hidden>
+              <div class="panel-header split-header">
+                <div>
+                  <span id="event-source" class="eyebrow"></span>
+                  <h2 id="event-heading"></h2>
+                  <p id="event-time" class="muted"></p>
+                </div>
+                <a id="event-original" class="primary-link" href="#" target="_blank" rel="noopener noreferrer">Läs original</a>
+              </div>
+              <p id="event-summary" class="news-summary review-summary"></p>
+              <dl class="review-meta compact-dl">
+                <div><dt>Event-id</dt><dd id="event-id"></dd></div>
+                <div><dt>Status</dt><dd id="event-status"></dd></div>
+                <div><dt>Nuvarande klassning</dt><dd id="event-current-classification"></dd></div>
+                <div><dt>Spärrar nu</dt><dd id="event-locking"></dd></div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="review-form-title">
+            <div class="panel-header">
+              <div>
+                <span class="eyebrow">Steg 1</span>
+                <h2 id="review-form-title">Registrera din bedömning</h2>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="classification">Klassificering</label>
+                <select id="classification">
+                  <option value="not_material">Inte materiell för EPS</option>
+                  <option value="negative_profit_warning">Vinstvarning</option>
+                  <option value="positive_profit_warning">Omvänd vinstvarning</option>
+                  <option value="preliminary_results">Preliminärt resultat</option>
+                  <option value="report_release">Rapport publicerad</option>
+                  <option value="other">Annat</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="lock-action">Handelsspärr</label>
+                <select id="lock-action">
+                  <option value="release">Släpp spärren</option>
+                  <option value="lock_until_verified_report">Spärra tills verifierad rapport-EPS</option>
+                  <option value="none">Ändra inte</option>
+                </select>
+              </div>
+              <div class="form-field form-field-wide">
+                <label for="review-note">Notering</label>
+                <textarea id="review-note" rows="3" placeholder="Vad i originalnyheten låg bakom beslutet?"></textarea>
+              </div>
+            </div>
+            <div class="command-box">
+              <code id="review-command"></code>
+              <button id="copy-review-command" class="text-button" type="button">Kopiera kommando</button>
+              <span id="review-copy-status" class="copy-feedback"></span>
+            </div>
+            <div class="action-row">
+              <a id="review-action-link" class="primary-link" href="#" target="_blank" rel="noopener">Öppna GitHub Actions</a>
+              <span class="fine-print">Klistra in event-id och samma val i arbetsflödet.</span>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="eps-form-title">
+            <div class="panel-header">
+              <div>
+                <span class="eyebrow">Steg 2 vid rapport</span>
+                <h2 id="eps-form-title">Lägg till verifierad EPS TTM</h2>
+                <p class="panel-description">EPS ändras aldrig av vinstvarningen. Spärren släpps först när en riktig rapporterad EPS har lagts in och verifierats.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-field"><label for="eps-ticker">Ticker</label><input id="eps-ticker" type="text"></div>
+              <div class="form-field"><label for="eps-period">Rapportperiod</label><input id="eps-period" type="text" placeholder="2026-Q2"></div>
+              <div class="form-field"><label for="eps-period-end">Periodslut</label><input id="eps-period-end" type="date"></div>
+              <div class="form-field"><label for="eps-published">Publicerad</label><input id="eps-published" type="text" placeholder="2026-07-17T07:00:00+02:00"></div>
+              <div class="form-field"><label for="eps-effective">Effektiv handelsdag</label><input id="eps-effective" type="date"></div>
+              <div class="form-field"><label for="eps-value">EPS TTM</label><input id="eps-value" type="number" step="any"></div>
+              <div class="form-field"><label for="eps-source">Källa</label><input id="eps-source" type="text" value="manuell rapportgranskning"></div>
+              <div class="form-field"><label for="eps-note">Notering</label><input id="eps-note" type="text"></div>
+            </div>
+            <div class="command-box">
+              <code id="eps-command"></code>
+              <button id="copy-eps-command" class="text-button" type="button">Kopiera kommando</button>
+              <span id="eps-copy-status" class="copy-feedback"></span>
+            </div>
+            <a id="eps-action-link" class="primary-link" href="#" target="_blank" rel="noopener">Öppna EPS-arbetsflöde</a>
+          </section>
+
+          <section class="detail-grid review-tools">
+            <article class="panel" aria-labelledby="calendar-title">
+              <span class="eyebrow">Rapportförvarning</span>
+              <h2 id="calendar-title">Lägg till rapportdatum</h2>
+              <div class="form-grid one-column">
+                <div class="form-field"><label for="cal-ticker">Ticker</label><input id="cal-ticker" type="text"></div>
+                <div class="form-field"><label for="cal-period">Rapportperiod</label><input id="cal-period" type="text"></div>
+                <div class="form-field"><label for="cal-scheduled">Planerad tid</label><input id="cal-scheduled" type="text" placeholder="2026-10-22T07:00:00+02:00"></div>
+                <div class="form-field"><label for="cal-lock">Spärr från (valfritt)</label><input id="cal-lock" type="date"></div>
+                <div class="form-field"><label for="cal-source">Källa</label><input id="cal-source" type="text" value="bolagets IR-kalender"></div>
+                <div class="form-field"><label for="cal-url">Källänk</label><input id="cal-url" type="url"></div>
+              </div>
+              <div class="command-box compact-command"><code id="calendar-command"></code><button id="copy-calendar-command" class="text-button" type="button">Kopiera</button></div>
+              <a id="calendar-action-link" class="secondary-button" href="#" target="_blank" rel="noopener">Öppna kalenderflöde</a>
+            </article>
+
+            <article class="panel" aria-labelledby="trade-title">
+              <span class="eyebrow">Faktiskt innehav</span>
+              <h2 id="trade-title">Registrera utförd handel</h2>
+              <div class="form-grid one-column">
+                <div class="form-field"><label for="trade-ticker">Ticker</label><input id="trade-ticker" type="text"></div>
+                <div class="form-field"><label for="trade-date">Datum</label><input id="trade-date" type="date"></div>
+                <div class="form-field"><label for="trade-side">Sida</label><select id="trade-side"><option value="BUY">Köp</option><option value="SELL">Sälj</option></select></div>
+                <div class="form-field"><label for="trade-quantity">Antal</label><input id="trade-quantity" type="number" step="any"></div>
+                <div class="form-field"><label for="trade-price">Kurs</label><input id="trade-price" type="number" step="any"></div>
+                <div class="form-field"><label for="trade-note">Notering</label><input id="trade-note" type="text"></div>
+              </div>
+              <div class="command-box compact-command"><code id="trade-command"></code><button id="copy-trade-command" class="text-button" type="button">Kopiera</button></div>
+              <a id="trade-action-link" class="secondary-button" href="#" target="_blank" rel="noopener">Öppna handelsflöde</a>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

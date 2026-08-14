@@ -1,0 +1,17 @@
+# Anpassa endast höger sida när den köpta tjänstens exportformat är känt.
+# Vänster sida är projektets kanoniska kolumnnamn.
+columns:
+  ticker: ticker
+  period_end: period_end
+  report_period: report_period
+  published_at: published_at
+  effective_date: effective_date
+  eps_ttm: eps_ttm
+  source: source
+  verified: verified
+  verified_at: verified_at
+  notes: notes
+
+defaults:
+  source: historisk betaltjänst
+  verified: true
