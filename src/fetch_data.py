@@ -174,31 +174,45 @@ def update_prices(
             + ", ".join(missing_tickers)
         )
 
+    # Validera endast data som Yahoo just hämtade. Den frysta basfilen kan
+    # innehålla äldre Yahoo-reparationer där historiska OHLC-fält inte alltid är
+    # strikt konsistenta. Sådana redan accepterade historikrader ska inte stoppa
+    # en normal daglig uppdatering.
     _validate_ohlc(fresh)
 
     old_updates = pd.DataFrame(columns=RAW_PRICE_COLUMNS)
     if updates_file.exists() and updates_file.stat().st_size:
         old_updates = _normalise_stored(pd.read_csv(updates_file))[RAW_PRICE_COLUMNS]
 
-    # Spara endast rader som ligger utanför den frysta basfilen eller korrigerar
-    # redan sparade uppdateringar. CSV ger Git små, diff-vänliga commits i stället
-    # för att skriva om en fler-MB Parquetfil varje handelsdag.
     base = _normalise_stored(pd.read_parquet(base_file))[RAW_PRICE_COLUMNS]
     base_last = base.groupby("ticker")["date"].max().to_dict()
     keep = fresh.apply(lambda row: row["date"] > base_last.get(row["ticker"], pd.Timestamp.min), axis=1)
     candidate_updates = fresh.loc[keep, RAW_PRICE_COLUMNS]
 
-    updates = pd.concat([old_updates, candidate_updates], ignore_index=True)
+    if old_updates.empty:
+        updates = candidate_updates.copy()
+    elif candidate_updates.empty:
+        updates = old_updates.copy()
+    else:
+        updates = pd.concat([old_updates, candidate_updates], ignore_index=True)
+
     updates = (
         updates.sort_values(["ticker", "date"])
         .drop_duplicates(["ticker", "date"], keep="last")
         .reset_index(drop=True)
     )
+
+    # Om inga rader ligger efter respektive tickers slutdatum i basfilen finns
+    # inget att spara. Det är normalt när basfilen redan innehåller senaste dag.
+    if updates.empty:
+        print("Ingen ny rad att lägga till i price_updates.csv.")
+        return existing
+
+    _validate_ohlc(updates)
     updates_file.parent.mkdir(parents=True, exist_ok=True)
     updates.to_csv(updates_file, index=False, date_format="%Y-%m-%d")
 
     combined = load_price_history(base_file, updates_file)
-    _validate_ohlc(combined)
     print(
         f"Prisdata klar: {len(combined):,} rader, {combined['ticker'].nunique()} tickers, "
         f"senaste datum {combined['date'].max().date()}."
