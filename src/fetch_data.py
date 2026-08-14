@@ -8,13 +8,12 @@ from pathlib import Path
 import pandas as pd
 import yfinance as yf
 
-DEFAULT_DATA_FILE = Path(os.getenv("PRICE_DATA_FILE", "data/prices/price_history.parquet"))
+DEFAULT_DATA_FILE = Path(os.getenv("PRICE_DATA_FILE", "data/prices/prisdata_initial.parquet"))
 DEFAULT_FULL_START = os.getenv("PRICE_HISTORY_START", "2016-01-01")
 PRICE_COLUMNS = ["date", "open", "high", "low", "close", "volume", "ticker", "ma200"]
 
 
 def _normalize_download(downloaded: pd.DataFrame, tickers: list[str]) -> pd.DataFrame:
-    """Normalisera yfinance-data till projektets gemener + snake_case-schema."""
     frames: list[pd.DataFrame] = []
 
     for ticker in tickers:
@@ -28,11 +27,8 @@ def _normalize_download(downloaded: pd.DataFrame, tickers: list[str]) -> pd.Data
         if df.empty or "Close" not in df.columns or not df["Close"].notna().any():
             continue
 
-        # yf.download använder ett gemensamt datumindex för alla tickers.
-        # Ta därför bort datum där just denna aktie saknar verklig prisdata.
         df = df.dropna(subset=["Close"]).reset_index()
         df["ticker"] = ticker
-
         keep = [
             c
             for c in ["Date", "Open", "High", "Low", "Close", "Volume", "ticker"]
@@ -55,7 +51,6 @@ def _normalize_download(downloaded: pd.DataFrame, tickers: list[str]) -> pd.Data
 
     out = pd.concat(frames, ignore_index=True)
     out["date"] = pd.to_datetime(out["date"]).dt.tz_localize(None)
-
     return (
         out.sort_values(["ticker", "date"])
         .drop_duplicates(subset=["ticker", "date"], keep="last")
@@ -70,10 +65,10 @@ def _validate_existing(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError(f"Prisfilen saknar kolumner: {', '.join(missing)}")
 
     df = df.copy()
-    df["date"] = pd.to_datetime(df["date"]).dt.tz_localize(None)
+    df.columns = [str(column).strip().lower() for column in df.columns]
+    df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.tz_localize(None)
     df = df.dropna(subset=["date", "close", "ticker"])
     df["ticker"] = df["ticker"].astype(str)
-
     return (
         df.sort_values(["ticker", "date"])
         .drop_duplicates(subset=["ticker", "date"], keep="last")
@@ -111,22 +106,9 @@ def _recalculate_ma200(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def update_prices(data_file: Path = DEFAULT_DATA_FILE, *, full: bool = False) -> pd.DataFrame:
-    """
-    Uppdatera den permanenta prisfilen.
-
-    Normal körning:
-      - läser tickers från den befintliga historikfilen
-      - hämtar bara perioden som saknas, med några dagars överlapp
-      - merge:ar på ticker + date
-      - räknar om MA200 från den kompletta close-serien
-
-    --full:
-      - laddar om samtliga tickers från PRICE_HISTORY_START/2016-01-01
-    """
     if not data_file.exists():
         raise FileNotFoundError(
-            f"Prisfilen finns inte: {data_file}. "
-            "Lägg den initiala historikfilen där först."
+            f"Prisfilen finns inte: {data_file}. Lägg den initiala historikfilen där först."
         )
 
     existing = _validate_existing(pd.read_parquet(data_file))
@@ -134,8 +116,6 @@ def update_prices(data_file: Path = DEFAULT_DATA_FILE, *, full: bool = False) ->
     if not tickers:
         raise ValueError("Prisfilen innehåller inga tickers.")
 
-    # yfinance behandlar end som exklusivt. I morgon gör att dagens färdiga
-    # handelsstapel kan följa med efter kvällskörningen.
     end = (date.today() + timedelta(days=1)).isoformat()
 
     if full:
@@ -145,14 +125,9 @@ def update_prices(data_file: Path = DEFAULT_DATA_FILE, *, full: bool = False) ->
         combined = fresh
     else:
         latest = existing.groupby("ticker")["date"].max()
-
-        # De flesta aktier har samma senaste handelsdag. Gruppera efter startdatum
-        # så att vi kan hämta många tickers i samma Yahoo-anrop utan 119 separata anrop.
         groups: dict[str, list[str]] = {}
         for ticker in tickers:
             latest_date = latest.loc[ticker].date()
-            # Kalenderöverlapp fångar korrigeringar och gör körningen självläkande
-            # efter missade helger/handelsdagar. Dubbletter tas bort efteråt.
             start = (latest_date - timedelta(days=7)).isoformat()
             groups.setdefault(start, []).append(ticker)
 
@@ -168,7 +143,10 @@ def update_prices(data_file: Path = DEFAULT_DATA_FILE, *, full: bool = False) ->
             combined = existing
         else:
             fresh = pd.concat(new_frames, ignore_index=True)
-            combined = pd.concat([existing.drop(columns=["ma200"], errors="ignore"), fresh], ignore_index=True)
+            combined = pd.concat(
+                [existing.drop(columns=["ma200"], errors="ignore"), fresh],
+                ignore_index=True,
+            )
             combined = (
                 combined.sort_values(["ticker", "date"])
                 .drop_duplicates(subset=["ticker", "date"], keep="last")
@@ -177,7 +155,6 @@ def update_prices(data_file: Path = DEFAULT_DATA_FILE, *, full: bool = False) ->
 
     combined = _recalculate_ma200(combined)
 
-    # Enkel OHLC-rimlighetskontroll. Vi stoppar hellre körningen än sparar korrupt data.
     invalid = combined[
         (combined["low"] > combined[["open", "close", "high"]].min(axis=1))
         | (combined["high"] < combined[["open", "close", "low"]].max(axis=1))
@@ -212,7 +189,6 @@ def main() -> None:
         help="Hämta om hela prisserien från PRICE_HISTORY_START/2016-01-01.",
     )
     args = parser.parse_args()
-
     update_prices(args.file, full=args.full)
 
 
