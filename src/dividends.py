@@ -16,7 +16,7 @@ BASE_DIVIDENDS_FILE = Path(
 UPDATES_DIVIDENDS_FILE = Path(
     os.getenv("DIVIDEND_UPDATES_FILE", "data/dividends/dividend_updates.csv")
 )
-LOOKBACK_DAYS = int(os.getenv("DIVIDEND_LOOKBACK_DAYS", "120"))
+LOOKBACK_DAYS = int(os.getenv("DIVIDEND_LOOKBACK_DAYS", "365"))
 DIVIDEND_COLUMNS = ["ticker", "ex_date", "dividend"]
 
 
