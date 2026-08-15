@@ -263,6 +263,11 @@ def convert_values_to_currency(
         result[output_column] = pd.NA
         return result
 
+    # Anroparen kan redan ha reserverat en FX_RATE-kolumn. Ta bort den innan
+    # merge_asof så att pandas inte skapar FX_RATE_x/FX_RATE_y.
+    if rate_column in result.columns:
+        result = result.drop(columns=[rate_column])
+
     pair = pair.sort_values("date").rename(columns={"date": "fx_date", "rate": rate_column})
     left = result.sort_values(date_column).reset_index(drop=True)
     merged = pd.merge_asof(
