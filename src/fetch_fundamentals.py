@@ -104,6 +104,8 @@ def _quarterly_candidate(ticker: str) -> dict[str, object] | None:
 def _json_value(value: object) -> object:
     if value is None or pd.isna(value):
         return None
+    if isinstance(value, bool):
+        return value
     if isinstance(value, (float, int)):
         return float(value)
     return value
