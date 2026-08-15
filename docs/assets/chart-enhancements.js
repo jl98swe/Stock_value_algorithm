@@ -5,6 +5,16 @@
   let eventsPayload = null;
   let refreshTimer = null;
 
+  function esc(value) {
+    return String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
+  }
+
+  function prettyDate(value) {
+    if (!value) return '–';
+    const date = new Date(String(value).length === 10 ? `${value}T12:00:00` : value);
+    return Number.isNaN(date.valueOf()) ? String(value) : new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
+  }
+
   function ensureNavigation() {
     const actions = document.querySelector('.header-actions');
     if (!actions || document.getElementById('portfolio-nav')) return;
@@ -41,6 +51,11 @@
         .event-key.report { background:#7b61a8; }
         .event-key.dividend { background:#0b7b72; }
         .event-key.news { background:#2f6fb0; }
+        .dividend-history-list { display:grid; gap:0; }
+        .dividend-history-row { display:flex; justify-content:space-between; gap:18px; align-items:center; padding:10px 0; border-bottom:1px solid #e7ecef; }
+        .dividend-history-row:last-child { border-bottom:0; }
+        .dividend-history-row strong { font-size:13px; }
+        .dividend-history-row span { color:#66727a; font-size:12px; white-space:nowrap; }
         @media (max-width: 900px) { #portfolio-nav { display:none !important; } }
       `;
       document.head.appendChild(style);
@@ -69,7 +84,7 @@
   }
 
   function selectedTicker() {
-    return new URLSearchParams(window.location.search).get('ticker') || Object.keys(dashboard?.stocks || {})[0] || null;
+    return new URLSearchParams(window.location.search).get('ticker') || document.getElementById('stock-ticker')?.textContent?.trim() || Object.keys(dashboard?.stocks || {})[0] || null;
   }
 
   function selectedRange() {
@@ -83,6 +98,71 @@
     return candles.slice(-Math.max(1, Number(range)));
   }
 
+  function ensureDividendPanel() {
+    let panel = document.getElementById('dividend-history-panel');
+    if (panel) return panel;
+    const newsSection = document.getElementById('news-title')?.closest('section.panel');
+    if (!newsSection) return null;
+
+    panel = document.createElement('section');
+    panel.id = 'dividend-history-panel';
+    panel.className = 'panel';
+    panel.setAttribute('aria-labelledby', 'dividend-history-title');
+    panel.innerHTML = `
+      <div class="panel-header">
+        <div>
+          <span class="eyebrow">Historik</span>
+          <h2 id="dividend-history-title">Utdelningar</h2>
+          <p class="panel-description">Verifierade kontantutdelningar. D-markörerna ligger kvar i prisgrafen.</p>
+        </div>
+      </div>
+      <div id="dividend-history-list" class="dividend-history-list"></div>`;
+    newsSection.insertAdjacentElement('beforebegin', panel);
+    return panel;
+  }
+
+  function renderSeparatedEvents(ticker) {
+    if (!eventsPayload) return;
+    const tickerEvents = (eventsPayload.events || []).filter((event) => event.ticker === ticker);
+    const news = tickerEvents.filter((event) => eventMarker(event).code === 'N');
+    const dividends = tickerEvents
+      .filter((event) => eventMarker(event).code === 'D')
+      .sort((a, b) => eventDay(b).localeCompare(eventDay(a)));
+
+    const newsList = document.getElementById('news-list');
+    if (newsList) {
+      newsList.innerHTML = news.length ? news.map((event) => {
+        const locking = Boolean(event.locking);
+        const status = event.review_status === 'reviewed' ? 'Granskad' : 'Ogranskad';
+        const meta = [prettyDate(event.published_at), event.source, event.is_regulatory ? 'Regulatorisk' : 'Bolagsnyhet'].filter(Boolean).map(esc).join(' · ');
+        return `
+          <article class="news-item">
+            <div class="news-item-top">
+              <div>
+                <h3>${esc(event.title)}</h3>
+                <div class="news-meta">${meta}</div>
+              </div>
+              <span class="news-badge ${locking ? 'locking' : ''}">${locking ? 'Spärrar' : status}</span>
+            </div>
+            <p class="news-summary">${esc(event.summary || '')}</p>
+            <a href="./review.html?ticker=${encodeURIComponent(ticker)}&event=${encodeURIComponent(event.event_id)}">Granska nyheten</a>
+          </article>`;
+      }).join('') : '<div class="empty-state">Inga bolagsnyheter för aktien.</div>';
+    }
+
+    ensureDividendPanel();
+    const dividendList = document.getElementById('dividend-history-list');
+    if (dividendList) {
+      dividendList.innerHTML = dividends.length
+        ? dividends.slice(0, 10).map((event) => `
+            <div class="dividend-history-row">
+              <strong>${esc(event.title || 'Utdelning')}</strong>
+              <span>${esc(prettyDate(eventDay(event)))}</span>
+            </div>`).join('')
+        : '<div class="empty-state">Ingen registrerad utdelningshistorik för aktien.</div>';
+    }
+  }
+
   function scheduleRefresh() {
     window.clearTimeout(refreshTimer);
     refreshTimer = window.setTimeout(applyEnhancements, 60);
@@ -91,15 +171,17 @@
   function applyEnhancements() {
     ensureNavigation();
     ensureLegend();
-    if (!dashboard || !eventsPayload || !window.echarts) return;
-
-    const chartEl = document.getElementById('market-chart');
-    const chart = chartEl ? echarts.getInstanceByDom(chartEl) : null;
-    if (!chart) return;
+    if (!dashboard || !eventsPayload) return;
 
     const ticker = selectedTicker();
     const stock = dashboard.stocks?.[ticker];
     if (!stock) return;
+    renderSeparatedEvents(ticker);
+
+    if (!window.echarts) return;
+    const chartEl = document.getElementById('market-chart');
+    const chart = chartEl ? echarts.getInstanceByDom(chartEl) : null;
+    if (!chart) return;
 
     const candles = sliceCandles(stock.candles || []);
     if (!candles.length) return;
@@ -193,7 +275,7 @@
       window.addEventListener('popstate', scheduleRefresh);
       window.addEventListener('resize', scheduleRefresh);
     } catch (error) {
-      console.warn('Kunde inte aktivera MA200/E/D/N-förbättringar:', error);
+      console.warn('Kunde inte aktivera dashboard-förbättringar:', error);
     }
   }
 
