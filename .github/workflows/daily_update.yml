@@ -59,6 +59,10 @@ jobs:
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
 
+      - name: Begränsa dashboard från 2024-01-01
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.limit_dashboard_window
+
       - name: Uppdatera direkt EPS TTM
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.earnings
