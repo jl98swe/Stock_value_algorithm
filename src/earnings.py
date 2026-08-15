@@ -279,7 +279,7 @@ def _write_csv(frame: pd.DataFrame, path: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     output = _normalise_earnings(frame).copy()
     for column in ("period_end", "report_date", "observed_date"):
-        output[column] = output[column].dt.strftime("%Y-%m-%d")
+        output[column] = pd.to_datetime(output[column], errors="coerce").dt.strftime("%Y-%m-%d")
     output.to_csv(target, index=False)
 
 
