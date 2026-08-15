@@ -1,1 +1,0 @@
-Run current market pipeline integration after pipeline/model/fundamental upgrades.
