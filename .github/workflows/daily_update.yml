@@ -55,17 +55,25 @@ jobs:
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.fx
 
-      - name: Uppdatera priser, utdelningar och bygg GitHub Pages-data
+      - name: Uppdatera priser och utdelningar
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
+
+      - name: Uppdatera Yahoo trailingDilutedEPS
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.earnings
+
+      - name: Synka ny Yahoo EPS till kanoniska rapporter
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.sync_yahoo_eps_reports
+
+      - name: Bygg om dashboard med dagens EPS
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.pipeline --skip-fetch --skip-dividends
 
       - name: Begränsa dashboard från 2024-01-01
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.limit_dashboard_window
-
-      - name: Uppdatera direkt EPS TTM
-        if: steps.market_time.outputs.run == 'true'
-        run: python -m src.earnings
 
       - name: Validera data och webbexport
         if: steps.market_time.outputs.run == 'true'
@@ -78,6 +86,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add docs/data
+          git add data/fundamentals/reports.csv
 
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
@@ -117,5 +126,5 @@ jobs:
           fi
 
           git commit -m "data: daglig marknadsuppdatering"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push origin main
