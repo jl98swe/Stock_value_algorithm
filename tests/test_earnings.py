@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.earnings import _normalise_earnings, _select_latest_report_date
+from src.earnings import EARNINGS_COLUMNS, _normalise_earnings, _select_latest_report_date
 
 
 def test_select_latest_past_report_with_reported_eps() -> None:
@@ -46,7 +46,7 @@ def test_future_earnings_date_is_never_selected() -> None:
     assert selected == pd.Timestamp("2026-07-16")
 
 
-def test_legacy_earnings_file_without_report_date_is_supported() -> None:
+def test_legacy_earnings_file_is_supported_until_metric_migration() -> None:
     legacy = pd.DataFrame(
         [
             {
@@ -60,11 +60,29 @@ def test_legacy_earnings_file_without_report_date_is_supported() -> None:
 
     normalised = _normalise_earnings(legacy)
 
-    assert list(normalised.columns) == [
-        "ticker",
-        "report_date",
-        "observed_date",
-        "eps_ttm",
-        "source",
-    ]
+    assert list(normalised.columns) == EARNINGS_COLUMNS
+    assert pd.isna(normalised.loc[0, "period_end"])
     assert pd.isna(normalised.loc[0, "report_date"])
+    assert normalised.loc[0, "eps_currency"] == ""
+
+
+def test_new_diluted_eps_schema_preserves_period_and_currency() -> None:
+    frame = pd.DataFrame(
+        [
+            {
+                "ticker": "ABB.ST",
+                "period_end": "2026-06-30",
+                "report_date": "2026-07-16",
+                "observed_date": "2026-08-15",
+                "eps_ttm": 2.76,
+                "eps_currency": "usd",
+                "source": "Yahoo Finance / trailingDilutedEPS",
+            }
+        ]
+    )
+
+    normalised = _normalise_earnings(frame)
+
+    assert normalised.loc[0, "period_end"] == pd.Timestamp("2026-06-30")
+    assert normalised.loc[0, "eps_currency"] == "USD"
+    assert normalised.loc[0, "eps_ttm"] == 2.76
