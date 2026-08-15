@@ -25,22 +25,20 @@ Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får inte påverka his
 
 Systemet härleder inte detta automatiskt. Det är avsiktligt för att undvika look-ahead och fel runt helger, halvdagar och publiceringstidpunkter.
 
-## Automatisk Yahoo-kandidat
+## Aktuell Yahoo EPS TTM
 
-Den dagliga Action-körningen hämtar `Diluted EPS` från Yahoo-resultaträkningen och sparar en granskningsfil:
+Den dagliga Action-körningen hämtar nu direkt Yahoo `trailingEps`. Kvartals-EPS summeras inte längre.
+
+Aktuella snapshot-värden lagras separat enligt samma mönster som pris och utdelning:
 
 ```text
-data/fundamentals/yahoo_eps_candidates.csv
+data/earnings/earnings_initial.csv
+data/earnings/earnings_updates.csv
 ```
 
-Om fyra kvartal finns härleds även en preliminär EPS TTM som summan av de fyra senaste kvartalens `Diluted EPS`.
+`earnings_initial.csv` bootstrappar den första lyckade aktuella snapshoten och lämnas därefter orörd. När Yahoo senare visar ett annat EPS TTM-värde sparas det som en ny rad i `earnings_updates.csv` med den dag då systemet först observerade ändringen.
 
-Viktigt:
-
-- `Reported EPS` från `earnings_dates` används inte.
-- Yahoo-kandidater har alltid `verified=false`.
-- kandidater saknar tillförlitlig `published_at` och `effective_date` och får därför aldrig automatiskt flyttas till `reports.csv`.
-- granskningssidan läser även `docs/data/fundamental_candidates.json` och kan fylla EPS-formuläret, men publiceringstid och effective date måste fortfarande verifieras mot originalrapporten.
+Denna snapshot är användbar för aktuell kontroll, men `observed_date` är inte automatiskt samma sak som rapportens verkliga publiceringstid. Historisk point-in-time-värdering fortsätter därför att använda verifierade `published_at` och `effective_date` i `reports.csv`.
 
 ## Historikimport
 
