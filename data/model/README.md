@@ -1,6 +1,6 @@
 # GBM-modell för värderingsalgoritmen
 
-Filerna `gbm_model.b85.part1`–`part5` innehåller den exakta 100-trädsmodell som ligger inbäddad i Pine v3.0.
+Filerna `gbm_model.b85.part1`–`part6` innehåller den exakta 100-trädsmodell som ligger inbäddad i Pine v3.0.
 
 Modellen har extraherats utan ominlärning eller avrundning och lagras här som en förlustfri zlib + Base85-kodning för att hålla Git-filerna hanterbara.
 
