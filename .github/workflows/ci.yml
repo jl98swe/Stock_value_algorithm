@@ -41,6 +41,9 @@ jobs:
       - name: Bygg webbdata utan nätverkshämtning
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
+      - name: Validera data och webbexport
+        run: python -m src.validate_outputs
+
       - name: Kontrollera grundläggande konsistens
         run: |
           python - <<'PY'
