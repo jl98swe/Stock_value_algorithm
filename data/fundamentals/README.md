@@ -1,8 +1,8 @@
 # Fundamentaldata
 
-`reports.csv` är den kanoniska point-in-time-källan för EPS TTM.
+`reports.csv` är den kanoniska point-in-time-källan för EPS TTM. Endast verifierade rader i den filen får påverka P/E, värderingsscore eller signaler.
 
-## Schema
+## Kanoniskt schema
 
 | Kolumn | Betydelse |
 |---|---|
@@ -25,6 +25,23 @@ Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får inte påverka his
 
 Systemet härleder inte detta automatiskt. Det är avsiktligt för att undvika look-ahead och fel runt helger, halvdagar och publiceringstidpunkter.
 
+## Automatisk Yahoo-kandidat
+
+Den dagliga Action-körningen hämtar `Diluted EPS` från Yahoo-resultaträkningen och sparar en granskningsfil:
+
+```text
+data/fundamentals/yahoo_eps_candidates.csv
+```
+
+Om fyra kvartal finns härleds även en preliminär EPS TTM som summan av de fyra senaste kvartalens `Diluted EPS`.
+
+Viktigt:
+
+- `Reported EPS` från `earnings_dates` används inte.
+- Yahoo-kandidater har alltid `verified=false`.
+- kandidater saknar tillförlitlig `published_at` och `effective_date` och får därför aldrig automatiskt flyttas till `reports.csv`.
+- granskningssidan läser även `docs/data/fundamental_candidates.json` och kan fylla EPS-formuläret, men publiceringstid och effective date måste fortfarande verifieras mot originalrapporten.
+
 ## Historikimport
 
 Köpt historisk data importeras via:
@@ -35,7 +52,11 @@ python -m src.import_history --input <fil> --mapping config/history_import_mappi
 
 Importen vägrar använda rader som saknar `published_at`, `effective_date`, `eps_ttm` eller verifiering.
 
-## Manuell ny rapport
+## Ny verifierad rapport
+
+Det enklaste produktionsflödet är GitHub Actions-workflowet **Lägg till verifierad EPS TTM**. Det skriver posten till `reports.csv`, bygger om dashboarden och kör valideringen innan commit.
+
+Lokalt kan samma sak göras med:
 
 ```powershell
 python -m src.add_report `
@@ -48,4 +69,4 @@ python -m src.add_report `
   --source "Bolagets rapport"
 ```
 
-Efter commit/push kan pipelinen använda posten i nästa webbbygge.
+Efter verifieringen kan pipelinen direkt beräkna point-in-time P/E, Pine v3.0-score och strategi för den historik där EPS finns.
