@@ -1,0 +1,70 @@
+name: Komplettera historisk EPS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/fundamentals/eps_ttm_history.csv"
+      - "data/metadata/stocks.csv"
+      - "config/ticker_mapping.csv"
+      - "src/enrich_historical_eps.py"
+      - ".github/workflows/enrich_historical_eps.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: enrich-historical-eps
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Installera Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installera beroenden
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Mappa tickers och hämta historiska rapportdatum
+        run: python -m src.enrich_historical_eps
+
+      - name: Visa täckning
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          audit = pd.read_csv('data/derived/eps_report_date_audit.csv')
+          print(audit[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
+          print()
+          print(audit['status'].value_counts(dropna=False).to_string())
+          PY
+
+      - name: Spara berikade filer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/fundamentals/eps_ttm_history_enriched.csv
+          git add data/metadata/stocks_yahoo.csv
+          git add data/derived/eps_report_date_audit.csv
+
+          if git diff --cached --quiet; then
+            echo "Inga ändringar att spara."
+            exit 0
+          fi
+
+          git commit -m "data: enrich historical EPS report dates"
+          git pull --rebase origin main
+          git push origin main
