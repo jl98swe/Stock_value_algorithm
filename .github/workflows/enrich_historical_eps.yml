@@ -25,7 +25,7 @@ permissions:
 
 concurrency:
   group: enrich-historical-eps
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   enrich:
@@ -78,6 +78,9 @@ jobs:
       - name: Begränsa dashboard från 2024-01-01
         run: python -m src.limit_dashboard_window
 
+      - name: Återställ nyhetsfilen orörd
+        run: git restore docs/data/events.json
+
       - name: Jämför Yahoo EPS med senaste historiska EPS
         run: python -m src.compare_latest_eps
 
@@ -103,7 +106,7 @@ jobs:
           fallback = (alignment.alignment_status == 'fallback_user_history').sum()
           print(f'Historiska rader direkt Yahoo trailingDilutedEPS: {direct}/{len(alignment)}')
           print(f'Historiska rader rekonstruerade enbart från Yahoo diluted EPS: {reconstructed}/{len(alignment)}')
-          print(f'Historiska explicit taggade fallback-rader: {fallback}/{len(alignment)}')
+          print(f'Historiska referens-fallbacks som inte används i värderingen: {fallback}/{len(alignment)}')
           print(f'EPS-rader utan rapportdatum: {len(missing)}')
           print(f'Tickers med historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
           print(f'Tickers med strategisignal: {(valuation.signals_total > 0).sum()}/{len(valuation)}')
@@ -116,6 +119,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # Nyhetsagentens events.json ska aldrig committas av EPS-flödet.
+          git restore docs/data/events.json
+
           git add data/fundamentals/eps_ttm_history_enriched.csv
           git add data/fundamentals/eps_ttm_history_aligned.csv
           git add data/fundamentals/reports.csv
@@ -127,7 +133,7 @@ jobs:
           git add data/derived/eps_alignment_audit.csv
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
-          git add docs/data
+          git add docs/data/dashboard.json docs/data/stocks.json docs/data/earnings.json
 
           if [ -f data/fx/fx_initial.csv ]; then git add data/fx/fx_initial.csv; fi
           if [ -f data/fx/fx_updates.csv ]; then git add data/fx/fx_updates.csv; fi
