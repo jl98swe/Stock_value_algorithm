@@ -33,14 +33,20 @@ jobs:
       - name: Hämta valutakurser
         run: python -m src.fx
 
-      - name: Kör hela marknadspipelinen mot Yahoo
+      - name: Kör marknadspipelinen mot Yahoo
         run: python -m src.pipeline
+
+      - name: Hämta Yahoo trailingDilutedEPS
+        run: python -m src.earnings
+
+      - name: Synka ny Yahoo EPS till reports.csv
+        run: python -m src.sync_yahoo_eps_reports
+
+      - name: Bygg om dashboard med dagens EPS
+        run: python -m src.pipeline --skip-fetch --skip-dividends
 
       - name: Begränsa dashboard från 2024-01-01
         run: python -m src.limit_dashboard_window
-
-      - name: Hämta direkt EPS TTM
-        run: python -m src.earnings
 
       - name: Validera resultatet
         run: python -m src.validate_outputs
@@ -49,7 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv
+          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
           fi
@@ -66,6 +72,6 @@ jobs:
             echo "Integrationen är grön och inga data behöver committas."
             exit 0
           fi
-          git commit -m "data: verifierad full integration"
-          git pull --rebase origin main
+          git commit -m "data: verifierad Yahoo diluted EPS integration"
+          git pull --rebase --autostash origin main
           git push origin main
