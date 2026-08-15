@@ -2,10 +2,23 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 from .fundamentals import REPORT_COLUMNS, load_reports, normalise_reports, save_reports
+
+STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
+
+
+def _same_day_effective_date(published_at: str) -> str:
+    timestamp = pd.to_datetime(published_at, errors="coerce")
+    if pd.isna(timestamp):
+        raise ValueError("published_at är inte en giltig tidpunkt")
+    timestamp = pd.Timestamp(timestamp)
+    if timestamp.tzinfo is None:
+        raise ValueError("published_at måste innehålla tidszon")
+    return timestamp.tz_convert(STOCKHOLM_TZ).date().isoformat()
 
 
 def add_report(
@@ -14,16 +27,27 @@ def add_report(
     report_period: str,
     period_end: str,
     published_at: str,
-    effective_date: str,
     eps_ttm: float,
     source: str,
     notes: str = "",
+    effective_date: str | None = None,
 ) -> pd.DataFrame:
     """Lägg till eller ersätt en verifierad EPS TTM-post.
 
-    ``effective_date`` måste anges explicit för att undvika look-ahead. Om samma
-    ticker + report_period redan finns ersätts den av den nya verifierade raden.
+    Projektregeln är att en verifierad EPS alltid gäller samma svenska
+    kalenderdag som rapporten publiceras. ``effective_date`` härleds därför från
+    ``published_at``. Ett explicit effective_date accepteras bara för
+    bakåtkompatibilitet och måste då vara exakt samma dag.
     """
+    same_day = _same_day_effective_date(published_at)
+    if effective_date:
+        explicit = pd.to_datetime(effective_date, errors="coerce")
+        if pd.isna(explicit) or pd.Timestamp(explicit).date().isoformat() != same_day:
+            raise ValueError(
+                f"effective_date måste enligt same-day-regeln vara {same_day} "
+                f"(svenskt publiceringsdatum)"
+            )
+
     row = pd.DataFrame(
         [
             {
@@ -31,7 +55,7 @@ def add_report(
                 "period_end": period_end,
                 "report_period": report_period.strip(),
                 "published_at": published_at,
-                "effective_date": effective_date,
+                "effective_date": same_day,
                 "eps_ttm": eps_ttm,
                 "source": source.strip(),
                 "verified": True,
@@ -51,11 +75,6 @@ def add_report(
     if missing:
         raise ValueError(f"Rapportposten saknar giltiga fält: {', '.join(missing)}")
 
-    published_day = pd.Timestamp(item["published_at"]).tz_convert(None).normalize()
-    effective_day = pd.Timestamp(item["effective_date"]).normalize()
-    if effective_day < published_day:
-        raise ValueError("effective_date får inte ligga före publiceringsdatum")
-
     existing = load_reports()
     keep = ~(
         (existing["ticker"] == item["ticker"])
@@ -68,7 +87,7 @@ def add_report(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Lägg in verifierad EPS TTM efter en publicerad rapport."
+        description="Lägg in verifierad EPS TTM. EPS gäller alltid samma svenska dag som publiceringen."
     )
     parser.add_argument("--ticker", required=True, help="Yahoo-ticker, t.ex. ESSITY-B.ST")
     parser.add_argument("--report-period", required=True, help="T.ex. 2026-Q2")
@@ -80,8 +99,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--effective-date",
-        required=True,
-        help="Första handelsdag då EPS får användas, YYYY-MM-DD",
+        required=False,
+        default=None,
+        help="Valfritt bakåtkompatibelt fält; måste vara samma svenska dag som published_at.",
     )
     parser.add_argument("--eps-ttm", required=True, type=float)
     parser.add_argument("--source", default="Manuellt verifierad bolagsrapport")
@@ -104,7 +124,8 @@ def main() -> None:
     ].iloc[-1]
     print(
         f"Sparade {latest['ticker']} {latest['report_period']}: "
-        f"EPS TTM {latest['eps_ttm']} från {latest['effective_date'].date()}"
+        f"EPS TTM {latest['eps_ttm']} från {latest['effective_date'].date()} "
+        "(same-day-policy)"
     )
 
 
