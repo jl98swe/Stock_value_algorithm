@@ -10,6 +10,9 @@ on:
       - "config/ticker_mapping.csv"
       - "src/enrich_historical_eps.py"
       - "src/apply_report_date_overrides.py"
+      - "src/import_enriched_eps.py"
+      - "src/audit_historical_valuation.py"
+      - "src/compare_latest_eps.py"
       - ".github/workflows/enrich_historical_eps.yml"
 
 permissions:
@@ -46,37 +49,74 @@ jobs:
       - name: Applicera verifierade rapportdatum
         run: python -m src.apply_report_date_overrides
 
+      - name: Importera historisk EPS till kanoniska rapporter
+        run: python -m src.import_enriched_eps
+
+      - name: Uppdatera valutakurser
+        run: python -m src.fx
+
+      - name: Bygg dashboard med historisk EPS
+        run: python -m src.pipeline --skip-fetch --skip-dividends
+
+      - name: Hämta aktuell Yahoo EPS TTM
+        run: python -m src.earnings
+
+      - name: Jämför Yahoo EPS med senaste historiska EPS
+        run: python -m src.compare_latest_eps
+
+      - name: Auditera historisk P E score och signaler
+        run: python -m src.audit_historical_valuation
+
+      - name: Validera data och webbexport
+        run: python -m src.validate_outputs
+
       - name: Visa täckning
         run: |
           python - <<'PY'
           import pandas as pd
+
           audit = pd.read_csv('data/derived/eps_report_date_audit.csv')
           missing = pd.read_csv('data/derived/eps_report_date_missing.csv')
           applied = pd.read_csv('data/derived/eps_report_date_overrides_applied.csv')
+          valuation = pd.read_csv('data/derived/historical_valuation_audit.csv')
+          comparison = pd.read_csv('data/derived/latest_eps_yahoo_comparison.csv')
+
           print(audit[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
           print()
           print(f'Officiella overrides applicerade: {len(applied)}')
           print(f'EPS-rader utan rapportdatum efter overrides: {len(missing)}')
-          if not missing.empty:
-            print(missing[['ticker', 'report_period']].to_string(index=False))
+          print(f'Tickers med historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
+          print(f'Tickers med strategisignal: {(valuation.signals_total > 0).sum()}/{len(valuation)}')
+          print(f'Yahoo EPS hämtad: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
+          print(f'Yahoo EPS match/near: {comparison.value_status.isin(["match", "near"]).sum()}/{len(comparison)}')
+          print(f'Yahoo rapportdatum exakt match: {(comparison.report_date_status == "match").sum()}/{len(comparison)}')
           PY
 
-      - name: Spara berikade filer
+      - name: Spara berikade filer och audit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/fundamentals/eps_ttm_history_enriched.csv
+          git add data/fundamentals/reports.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_report_date_audit.csv
           git add data/derived/eps_report_date_missing.csv
           git add data/derived/eps_report_date_overrides_applied.csv
+          git add data/derived/historical_valuation_audit.csv
+          git add data/derived/latest_eps_yahoo_comparison.csv
+          git add docs/data
+
+          if [ -f data/fx/fx_initial.csv ]; then git add data/fx/fx_initial.csv; fi
+          if [ -f data/fx/fx_updates.csv ]; then git add data/fx/fx_updates.csv; fi
+          if [ -f data/earnings/earnings_initial.csv ]; then git add data/earnings/earnings_initial.csv; fi
+          if [ -f data/earnings/earnings_updates.csv ]; then git add data/earnings/earnings_updates.csv; fi
 
           if git diff --cached --quiet; then
             echo "Inga ändringar att spara."
             exit 0
           fi
 
-          git commit -m "data: enrich historical EPS report dates"
+          git commit -m "data: integrate historical EPS into valuation"
           git pull --rebase origin main
           git push origin main
