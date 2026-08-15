@@ -23,7 +23,23 @@
   }
 
   function esc(value) {
-    return String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[c]));
+    return String(value ?? '').replace(/[&<>'\"]/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '\"':'&quot;' }[c]));
+  }
+
+  function eventType(event) {
+    const classification = String(event.classification || '').toLocaleLowerCase('sv-SE');
+    const explicitType = String(event.event_type || event.type || '').toLocaleLowerCase('sv-SE');
+    const categories = Array.isArray(event.categories)
+      ? event.categories.map((value) => String(value).toLocaleLowerCase('sv-SE'))
+      : [];
+    const tokens = [classification, explicitType, ...categories].join(' ');
+    if (tokens.includes('report') || tokens.includes('earnings')) return 'report';
+    if (tokens.includes('dividend') || tokens.includes('utdelning')) return 'dividend';
+    return 'news';
+  }
+
+  function isNewsEvent(event) {
+    return eventType(event) === 'news';
   }
 
   function currentEvent() {
@@ -52,6 +68,7 @@
     const url = new URL(location.href);
     if (state.selectedTicker) url.searchParams.set('ticker', state.selectedTicker);
     if (state.selectedEventId) url.searchParams.set('event', state.selectedEventId);
+    else url.searchParams.delete('event');
     history.replaceState({}, '', url);
   }
 
@@ -67,7 +84,7 @@
     }
     $('review-event').innerHTML = events.length
       ? events.map((event) => `<option value="${esc(event.event_id)}">${esc(event.title)}</option>`).join('')
-      : '<option value="">Inga nyheter</option>';
+      : '<option value="">Inga bolagsnyheter</option>';
     $('review-event').value = state.selectedEventId;
 
     $('review-event-list').innerHTML = events.map((event) => `
@@ -142,18 +159,22 @@
 
   function renderEvent() {
     const event = currentEvent();
+    const reviewForm = $('review-form-title')?.closest('section.panel');
     $('eps-ticker').value = state.selectedTicker;
     $('cal-ticker').value = state.selectedTicker;
     $('trade-ticker').value = state.selectedTicker;
     renderEarnings();
 
     if (!event) {
+      $('event-empty').textContent = 'Inga bolagsnyheter för aktien.';
       $('event-empty').hidden = false;
       $('event-detail').hidden = true;
+      if (reviewForm) reviewForm.hidden = true;
       updateCommands();
       return;
     }
 
+    if (reviewForm) reviewForm.hidden = false;
     $('event-empty').hidden = true;
     $('event-detail').hidden = false;
     $('event-source').textContent = `${event.source || 'Okänd källa'}${event.is_regulatory ? ' · regulatorisk' : ''}`;
@@ -282,14 +303,14 @@
         loadJsonOptional('./data/earnings.json')
       ]);
       state.stocks = stocksPayload.stocks || [];
-      state.events = eventsPayload.events || [];
+      state.events = (eventsPayload.events || []).filter(isNewsEvent);
       state.earnings = earningsPayload?.latest || [];
       if (!state.stocks.length) throw new Error('Ingen aktielista hittades.');
 
       const params = new URLSearchParams(location.search);
       const wantedTicker = params.get('ticker');
       state.selectedTicker = state.stocks.some((s) => s.ticker === wantedTicker) ? wantedTicker : state.stocks[0].ticker;
-      const events = state.events.filter((e) => e.ticker === state.selectedTicker);
+      const events = eventsForTicker();
       const wantedEvent = params.get('event');
       state.selectedEventId = events.some((e) => e.event_id === wantedEvent) ? wantedEvent : (events[0]?.event_id || '');
 
