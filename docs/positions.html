@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Aktiva positioner · Stock Value Algorithm</title>
+  <meta name="description" content="Översikt över aktiva modellpositioner i Stock Value Algorithm.">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/overview.css">
+  <script defer src="./assets/overview.js"></script>
+</head>
+<body data-overview="positions">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand-wrap brand-link" href="./index.html">
+        <div class="brand-mark" aria-hidden="true">SV</div>
+        <div><div class="brand-title">Stock Value Algorithm</div><div class="brand-subtitle">Portföljöversikt</div></div>
+      </a>
+      <div class="header-actions">
+        <nav class="page-nav" aria-label="Huvudnavigation">
+          <a class="secondary-button" href="./index.html">Aktier</a>
+          <a class="secondary-button" href="./signals.html">Kommande signaler</a>
+          <a class="secondary-button" href="./review.html">Granska data</a>
+        </nav>
+        <div class="update-status"><span class="status-dot" aria-hidden="true"></span><div><span class="status-label">Senast byggd</span><strong id="last-updated">Laddar…</strong></div></div>
+      </div>
+    </header>
+
+    <main class="overview-wrap">
+      <div class="overview-head">
+        <div>
+          <span class="eyebrow">Portfölj</span>
+          <h1>Aktiva positioner</h1>
+          <p class="muted">Alla aktier där modellen har minst en aktiv delpost. Väntande köp- eller säljsignal visas först.</p>
+        </div>
+        <div class="overview-controls">
+          <input id="overview-search" class="overview-search" type="search" placeholder="Sök ticker eller namn" autocomplete="off" aria-label="Sök bland aktiva positioner">
+        </div>
+      </div>
+
+      <div class="summary-row" aria-label="Positionssammanfattning">
+        <span class="summary-pill"><strong id="summary-count">0</strong> visade</span>
+        <span class="summary-pill"><strong id="summary-total">0</strong> aktiva totalt</span>
+        <span class="summary-pill"><strong id="summary-pending">0</strong> väntande signaler</span>
+        <span class="summary-pill"><strong id="summary-locked">0</strong> spärrade</span>
+      </div>
+
+      <div id="loading-state" class="loading-state"><div class="spinner" aria-hidden="true"></div><p>Laddar positioner…</p></div>
+      <section id="overview-content" class="panel overview-panel" hidden>
+        <table class="overview-table">
+          <thead><tr><th>Aktie</th><th>Delposter</th><th>Snittinköp</th><th>Senaste kurs</th><th>Orealiserat</th><th>Score</th><th>Status</th><th>Nästa åtgärd</th></tr></thead>
+          <tbody id="overview-body"></tbody>
+        </table>
+      </section>
+      <div id="error-state" class="error-state" hidden><h2>Kunde inte ladda översikten</h2><p id="error-message"></p></div>
+    </main>
+  </div>
+</body>
+</html>
