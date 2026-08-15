@@ -19,6 +19,7 @@ SOURCE_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency
 OUTPUT_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
 STOCKHOLM_TZ = "Europe/Stockholm"
 MAX_LATEST_REPORT_AGE_DAYS = 240
+MAX_REPORT_GAP_DAYS = 140
 
 
 def _read_csv(path: Path) -> pd.DataFrame:
@@ -83,6 +84,19 @@ def _stockholm_calendar_date(value: object) -> pd.Timestamp | None:
     return pd.Timestamp(timestamp.tz_convert(STOCKHOLM_TZ).date())
 
 
+def _latest_contiguous_quarterly_suffix(dates: list[pd.Timestamp]) -> list[pd.Timestamp]:
+    ordered = sorted(set(dates))
+    if not ordered:
+        return []
+    suffix = [ordered[-1]]
+    for previous in reversed(ordered[:-1]):
+        gap_days = (suffix[0] - previous).days
+        if gap_days > MAX_REPORT_GAP_DAYS:
+            break
+        suffix.insert(0, previous)
+    return suffix
+
+
 def _past_earnings_dates(yahoo_ticker: str, wanted: int) -> list[pd.Timestamp]:
     limit = min(100, max(20, wanted + 8))
     dates = yf.Ticker(yahoo_ticker).get_earnings_dates(limit=limit, offset=1)
@@ -115,7 +129,11 @@ def _past_earnings_dates(yahoo_ticker: str, wanted: int) -> list[pd.Timestamp]:
             f"Yahoo-historiken är för gammal: senaste datum {result[-1].date().isoformat()} "
             f"({latest_age} dagar sedan)"
         )
-    return result
+
+    # Yahoo kan ha luckor på flera kvartal eller år. Om vi bara tog de senaste
+    # N datumen skulle alla äldre perioder då förskjutas. Använd därför bara
+    # den senaste sammanhängande kvartalssekvensen och lämna äldre luckor tomma.
+    return _latest_contiguous_quarterly_suffix(result)
 
 
 def _align_dates(periods: list[str], dates: list[pd.Timestamp]) -> dict[str, pd.Timestamp]:
@@ -123,8 +141,6 @@ def _align_dates(periods: list[str], dates: list[pd.Timestamp]) -> dict[str, pd.
     if not dates:
         return {}
     count = min(len(ordered_periods), len(dates))
-    # Align from the newest end. If Yahoo has incomplete older history, the
-    # newest EPS periods still get the newest public report dates.
     selected_periods = ordered_periods[-count:]
     selected_dates = sorted(dates)[-count:]
     return dict(zip(selected_periods, selected_dates, strict=True))
