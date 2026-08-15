@@ -178,7 +178,10 @@ def update_dividends(
         old_updates.sort_values(["ticker", "ex_date"])
         .reset_index(drop=True)
     )
-    changed = not updates.equals(old_sorted)
+    if updates.empty and old_sorted.empty:
+        changed = False
+    else:
+        changed = not updates.equals(old_sorted)
 
     if changed:
         updates_file.parent.mkdir(parents=True, exist_ok=True)
