@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Aktiva positioner · Stock Value Algorithm</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./assets/overview.js"></script>
+  <style>
+    .overview-wrap{max-width:1380px;margin:0 auto;padding:24px}.overview-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:16px}.overview-head h1{margin:0;font-size:32px}.overview-controls{display:flex;gap:10px;align-items:center}.overview-search{min-width:280px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}.summary-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef3f4;color:var(--brand);font-weight:800;font-size:12px}.overview-table{width:100%;border-collapse:collapse}.overview-table th,.overview-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:12px}.overview-table th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.stock-link{display:flex;flex-direction:column;text-decoration:none}.stock-link span{color:var(--muted);font-size:10px;margin-top:2px}.status-chip{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:800;background:#eef2f3}.status-chip.ok{background:#e8f6ef;color:#246f53}.status-chip.warning{background:#fff0d9;color:#8a5a10}.status-chip.action{background:#e8eff8;color:#285f94}.empty-cell{text-align:center!important;color:var(--muted);padding:28px!important}.page-nav{display:flex;gap:8px;align-items:center}.page-nav a{text-decoration:none}.panel{overflow:auto}@media(max-width:800px){.overview-wrap{padding:16px}.overview-head{align-items:stretch;flex-direction:column}.overview-controls{align-items:stretch;flex-direction:column}.overview-search{min-width:0;width:100%}.page-nav{flex-wrap:wrap}.overview-table{min-width:900px}}
+  </style>
+</head>
+<body data-overview="positions">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand-wrap brand-link" href="./index.html">
+        <div class="brand-mark" aria-hidden="true">SV</div>
+        <div><div class="brand-title">Stock Value Algorithm</div><div class="brand-subtitle">Portföljöversikt</div></div>
+      </a>
+      <div class="header-actions">
+        <nav class="page-nav" aria-label="Huvudnavigation">
+          <a class="secondary-button" href="./index.html">Aktier</a>
+          <a class="secondary-button" href="./signals.html">Kommande signaler</a>
+          <a class="secondary-button" href="./review.html">Granska data</a>
+        </nav>
+        <div class="update-status"><span class="status-dot" aria-hidden="true"></span><div><span class="status-label">Senast byggd</span><strong id="last-updated">Laddar…</strong></div></div>
+      </div>
+    </header>
+
+    <main class="overview-wrap">
+      <div class="overview-head">
+        <div><span class="eyebrow">Portfölj</span><h1>Aktiva positioner</h1><p class="muted">Alla aktier där modellen har minst en aktiv delpost.</p></div>
+        <div class="overview-controls"><input id="overview-search" class="overview-search" type="search" placeholder="Sök ticker eller namn"><span class="summary-pill"><strong id="summary-count">0</strong> positioner</span></div>
+      </div>
+
+      <div id="loading-state" class="loading-state"><div class="spinner" aria-hidden="true"></div><p>Laddar positioner…</p></div>
+      <section id="overview-content" class="panel" hidden>
+        <table class="overview-table">
+          <thead><tr><th>Aktie</th><th>Delposter</th><th>Snittinköp</th><th>Senaste kurs</th><th>Orealiserat</th><th>Score</th><th>Status</th><th>Nästa åtgärd</th></tr></thead>
+          <tbody id="overview-body"></tbody>
+        </table>
+      </section>
+      <div id="error-state" class="error-state" hidden><h2>Kunde inte ladda översikten</h2><p id="error-message"></p></div>
+    </main>
+  </div>
+</body>
+</html>
