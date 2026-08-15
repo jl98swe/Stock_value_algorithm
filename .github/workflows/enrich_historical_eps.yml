@@ -10,7 +10,10 @@ on:
       - "config/ticker_mapping.csv"
       - "src/enrich_historical_eps.py"
       - "src/apply_report_date_overrides.py"
+      - "src/audit_yahoo_trailing_timeseries.py"
+      - "src/align_historical_eps_to_yahoo.py"
       - "src/import_enriched_eps.py"
+      - "src/sync_yahoo_eps_reports.py"
       - "src/audit_historical_valuation.py"
       - "src/compare_latest_eps.py"
       - "src/limit_dashboard_window.py"
@@ -50,20 +53,29 @@ jobs:
       - name: Applicera verifierade rapportdatum
         run: python -m src.apply_report_date_overrides
 
-      - name: Importera historisk EPS till kanoniska rapporter
-        run: python -m src.import_enriched_eps
-
       - name: Uppdatera valutakurser
         run: python -m src.fx
 
-      - name: Bygg dashboard med historisk EPS
+      - name: Hämta aktuell Yahoo trailingDilutedEPS
+        run: python -m src.earnings
+
+      - name: Hämta historisk Yahoo trailingDilutedEPS
+        run: python -m src.audit_yahoo_trailing_timeseries
+
+      - name: Aligna historiken till samma Yahoo EPS-definition
+        run: python -m src.align_historical_eps_to_yahoo
+
+      - name: Importera alignad historisk EPS till kanoniska rapporter
+        run: python -m src.import_enriched_eps
+
+      - name: Synka nya Yahoo-perioder till kanoniska rapporter
+        run: python -m src.sync_yahoo_eps_reports
+
+      - name: Bygg dashboard med jämförbar historisk och framtida EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
       - name: Begränsa dashboard från 2024-01-01
         run: python -m src.limit_dashboard_window
-
-      - name: Hämta aktuell Yahoo EPS TTM
-        run: python -m src.earnings
 
       - name: Jämför Yahoo EPS med senaste historiska EPS
         run: python -m src.compare_latest_eps
@@ -79,21 +91,21 @@ jobs:
           python - <<'PY'
           import pandas as pd
 
-          audit = pd.read_csv('data/derived/eps_report_date_audit.csv')
+          report_dates = pd.read_csv('data/derived/eps_report_date_audit.csv')
           missing = pd.read_csv('data/derived/eps_report_date_missing.csv')
-          applied = pd.read_csv('data/derived/eps_report_date_overrides_applied.csv')
           valuation = pd.read_csv('data/derived/historical_valuation_audit.csv')
           comparison = pd.read_csv('data/derived/latest_eps_yahoo_comparison.csv')
+          alignment = pd.read_csv('data/derived/eps_alignment_audit.csv')
 
-          print(audit[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
-          print()
-          print(f'Officiella overrides applicerade: {len(applied)}')
-          print(f'EPS-rader utan rapportdatum efter overrides: {len(missing)}')
+          direct = (alignment.alignment_status == 'yahoo_trailing_diluted').sum()
+          fallback = (alignment.alignment_status != 'yahoo_trailing_diluted').sum()
+          print(f'Historiska rader direkt Yahoo trailingDilutedEPS: {direct}/{len(alignment)}')
+          print(f'Historiska explicit taggade fallback-rader: {fallback}/{len(alignment)}')
+          print(f'EPS-rader utan rapportdatum: {len(missing)}')
           print(f'Tickers med historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
           print(f'Tickers med strategisignal: {(valuation.signals_total > 0).sum()}/{len(valuation)}')
           print(f'Yahoo EPS hämtad: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
-          print(f'Yahoo EPS match/near: {comparison.value_status.isin(["match", "near"]).sum()}/{len(comparison)}')
-          print(f'Yahoo rapportdatum exakt match: {(comparison.report_date_status == "match").sum()}/{len(comparison)}')
+          print(report_dates[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
           PY
 
       - name: Spara berikade filer och audit
@@ -102,11 +114,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/fundamentals/eps_ttm_history_enriched.csv
+          git add data/fundamentals/eps_ttm_history_aligned.csv
           git add data/fundamentals/reports.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_report_date_audit.csv
           git add data/derived/eps_report_date_missing.csv
           git add data/derived/eps_report_date_overrides_applied.csv
+          git add data/derived/yahoo_trailing_eps_timeseries_audit.csv
+          git add data/derived/eps_alignment_audit.csv
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
           git add docs/data
@@ -121,6 +136,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m "data: integrate historical EPS into valuation"
-          git pull --rebase origin main
+          git commit -m "data: integrate Yahoo-comparable historical EPS"
+          git pull --rebase --autostash origin main
           git push origin main
