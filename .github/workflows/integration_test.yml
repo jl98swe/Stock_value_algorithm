@@ -30,6 +30,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Hämta valutakurser
+        run: python -m src.fx
+
       - name: Kör hela marknadspipelinen mot Yahoo
         run: python -m src.pipeline
 
@@ -43,12 +46,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data data/earnings/earnings_initial.csv
+          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
           fi
           if [ -f data/dividends/dividend_updates.csv ]; then
             git add data/dividends/dividend_updates.csv
+          fi
+          if [ -f data/fx/fx_updates.csv ]; then
+            git add data/fx/fx_updates.csv
           fi
           if [ -f data/earnings/earnings_updates.csv ]; then
             git add data/earnings/earnings_updates.csv
