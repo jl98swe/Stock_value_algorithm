@@ -33,6 +33,9 @@ jobs:
       - name: Kör hela marknadspipelinen mot Yahoo
         run: python -m src.pipeline
 
+      - name: Hämta EPS-kandidater
+        run: python -m src.fetch_fundamentals
+
       - name: Validera resultatet
         run: python -m src.validate_outputs
 
@@ -46,6 +49,9 @@ jobs:
           fi
           if [ -f data/dividends/dividend_updates.csv ]; then
             git add data/dividends/dividend_updates.csv
+          fi
+          if [ -f data/fundamentals/yahoo_eps_candidates.csv ]; then
+            git add data/fundamentals/yahoo_eps_candidates.csv
           fi
           if git diff --cached --quiet; then
             echo "Integrationen är grön och inga data behöver committas."
