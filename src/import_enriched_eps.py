@@ -13,6 +13,10 @@ SOURCE_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_aligned.csv"
 IMPORT_MARKER = "historical_eps_yahoo_diluted_v2"
 LEGACY_IMPORT_MARKER = "historical_eps_same_day_policy_v1"
 DEFAULT_IMPORT_SOURCE = "Yahoo Finance / trailingDilutedEPS historical timeseries"
+COMPARABLE_STATUSES = {
+    "yahoo_trailing_diluted",
+    "yahoo_reconstructed_diluted_ttm",
+}
 
 
 def _load_source(path: Path) -> pd.DataFrame:
@@ -78,8 +82,12 @@ def _validate_currencies(source: pd.DataFrame, metadata: pd.DataFrame) -> None:
 
 
 def _generated_reports(source: pd.DataFrame) -> pd.DataFrame:
+    # Endast rader som verkligen har samma diluted EPS-definition som framtida
+    # Yahoo-data får bli kanoniska. Den uppladdade fallbackhistoriken ligger kvar
+    # i aligned/audit-filerna som referens men påverkar inte P/E eller score.
+    comparable = source.loc[source["alignment_status"].astype(str).isin(COMPARABLE_STATUSES)].copy()
     rows: list[dict[str, object]] = []
-    for row in source.itertuples(index=False):
+    for row in comparable.itertuples(index=False):
         report_date = pd.Timestamp(row.report_date).date().isoformat()
         period_end = pd.Timestamp(row.period_end).date().isoformat() if pd.notna(row.period_end) else ""
         eps_source = str(row.eps_source or DEFAULT_IMPORT_SOURCE).strip()
@@ -97,7 +105,7 @@ def _generated_reports(source: pd.DataFrame) -> pd.DataFrame:
                 "notes": (
                     f"{IMPORT_MARKER}; effective_date=report_date; "
                     f"report_currency={row.currency}; alignment_status={row.alignment_status}; "
-                    "metric=trailingDilutedEPS where Yahoo history is available; exact publication time not tracked"
+                    "metric=trailingDilutedEPS; exact publication time not tracked"
                 ),
             }
         )
@@ -125,15 +133,16 @@ def import_history(
 
     # Riktigt manuella/andra verifierade poster har alltid företräde. Däremot
     # ersätter v2-importen den gamla användar-/Börsdata-baserade historikimporten
-    # så att samma Yahoo trailingDilutedEPS-definition används bakåt och framåt.
+    # så att endast samma Yahoo diluted-definition används bakåt och framåt.
     generated_mask = _historical_generated_mask(existing["notes"]) if not existing.empty else pd.Series(dtype=bool)
     manual = existing.loc[~generated_mask].copy() if not existing.empty else existing.copy()
     manual_keys = set(zip(manual["ticker"].astype(str), manual["report_period"].astype(str)))
-    if manual_keys:
+    if manual_keys and not generated.empty:
         generated = generated.loc[
             ~generated.apply(lambda row: (str(row["ticker"]), str(row["report_period"])) in manual_keys, axis=1)
         ].copy()
 
+    expected = len(generated)
     combined = pd.concat([manual, generated], ignore_index=True)
     save_reports(combined, reports_file)
     saved = load_reports(reports_file)
@@ -141,11 +150,8 @@ def import_history(
     imported = saved.loc[
         saved["notes"].astype(str).str.contains(IMPORT_MARKER, regex=False, na=False)
     ].copy()
-    expected = len(source) - len(
-        {(ticker, period) for ticker, period in manual_keys if ((source["ticker"] == ticker) & (source["report_period"] == period)).any()}
-    )
     if len(imported) != expected:
-        raise ValueError(f"Importerade {len(imported)} historiska rapporter, förväntade {expected}")
+        raise ValueError(f"Importerade {len(imported)} jämförbara historiska rapporter, förväntade {expected}")
 
     source_dates = source.set_index(["ticker", "report_period"])["report_date"]
     imported_keys = pd.MultiIndex.from_frame(imported[["ticker", "report_period"]])
@@ -159,9 +165,9 @@ def import_history(
     yahoo_reconstructed = int(statuses.eq("yahoo_reconstructed_diluted_ttm").sum())
     fallback = int(statuses.eq("fallback_user_history").sum())
     print(
-        f"Historisk EPS importerad: {len(imported)} rader för {imported['ticker'].nunique()} tickers. "
-        f"{yahoo_direct} direkta Yahoo trailingDilutedEPS, {yahoo_reconstructed} Yahoo-rekonstruerade diluted TTM "
-        f"och {fallback} explicit taggade fallback-rader. "
+        f"Historisk EPS importerad: {len(imported)} jämförbara rader för {imported['ticker'].nunique()} tickers. "
+        f"Underlaget har {yahoo_direct} direkta Yahoo trailingDilutedEPS, "
+        f"{yahoo_reconstructed} Yahoo-rekonstruerade diluted TTM och {fallback} referens-fallbacks som INTE importeras. "
         "effective_date = report_date för samtliga importerade rader."
     )
     return saved
@@ -170,7 +176,7 @@ def import_history(
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Importera Yahoo-alignad historisk EPS till reports.csv med samma trailingDilutedEPS-definition som framtida data."
+            "Importera endast Yahoo-jämförbar historisk diluted EPS till reports.csv; fallbackhistorik hålls utanför värderingen."
         )
     )
     parser.add_argument("--source", type=Path, default=SOURCE_FILE)
