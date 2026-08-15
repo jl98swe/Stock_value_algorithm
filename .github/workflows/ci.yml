@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "src/**"
+      - "tests/**"
       - "requirements.txt"
       - "data/model/**"
       - ".github/workflows/ci.yml"
@@ -30,6 +31,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+
+      - name: Kör kärntester
+        run: python -m pytest -q
 
       - name: Verifiera inbäddad GBM-modell
         run: python -m src.model_data
