@@ -5,9 +5,11 @@ on:
   push:
     paths:
       - "data/fundamentals/eps_ttm_history.csv"
+      - "data/fundamentals/report_date_overrides.csv"
       - "data/metadata/stocks.csv"
       - "config/ticker_mapping.csv"
       - "src/enrich_historical_eps.py"
+      - "src/apply_report_date_overrides.py"
       - ".github/workflows/enrich_historical_eps.yml"
 
 permissions:
@@ -41,14 +43,22 @@ jobs:
       - name: Mappa tickers och hämta historiska rapportdatum
         run: python -m src.enrich_historical_eps
 
+      - name: Applicera verifierade rapportdatum
+        run: python -m src.apply_report_date_overrides
+
       - name: Visa täckning
         run: |
           python - <<'PY'
           import pandas as pd
           audit = pd.read_csv('data/derived/eps_report_date_audit.csv')
+          missing = pd.read_csv('data/derived/eps_report_date_missing.csv')
+          applied = pd.read_csv('data/derived/eps_report_date_overrides_applied.csv')
           print(audit[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
           print()
-          print(audit['status'].value_counts(dropna=False).to_string())
+          print(f'Officiella overrides applicerade: {len(applied)}')
+          print(f'EPS-rader utan rapportdatum efter overrides: {len(missing)}')
+          if not missing.empty:
+            print(missing[['ticker', 'report_period']].to_string(index=False))
           PY
 
       - name: Spara berikade filer
@@ -59,6 +69,8 @@ jobs:
           git add data/fundamentals/eps_ttm_history_enriched.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_report_date_audit.csv
+          git add data/derived/eps_report_date_missing.csv
+          git add data/derived/eps_report_date_overrides_applied.csv
 
           if git diff --cached --quiet; then
             echo "Inga ändringar att spara."
