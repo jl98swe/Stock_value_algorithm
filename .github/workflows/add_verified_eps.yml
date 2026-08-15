@@ -24,7 +24,7 @@ on:
         required: true
         type: string
       eps_ttm:
-        description: "Verifierad EPS TTM"
+        description: "Verifierad EPS TTM i bolagets rapportvaluta"
         required: true
         type: string
       source:
@@ -86,6 +86,9 @@ jobs:
             --source "$SOURCE" \
             --notes "$NOTES"
 
+      - name: Uppdatera valutakurser
+        run: python -m src.fx
+
       - name: Bygg om dashboard med verifierad EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
@@ -99,7 +102,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fundamentals/reports.csv docs/data
+          git add data/fundamentals/reports.csv docs/data data/fx/fx_initial.csv
+          if [ -f data/fx/fx_updates.csv ]; then
+            git add data/fx/fx_updates.csv
+          fi
           if [ -f data/earnings/earnings_initial.csv ]; then
             git add data/earnings/earnings_initial.csv
           fi
