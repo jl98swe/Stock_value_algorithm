@@ -3,7 +3,7 @@
 
   const REPO = 'https://github.com/jl98swe/Stock_value_algorithm';
   const $ = (id) => document.getElementById(id);
-  const state = { stocks: [], events: [], candidates: [], selectedTicker: '', selectedEventId: '' };
+  const state = { stocks: [], events: [], earnings: [], selectedTicker: '', selectedEventId: '' };
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'medium', timeStyle: 'short' });
   const numFmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 6 });
 
@@ -30,8 +30,8 @@
     return state.events.find((event) => event.event_id === state.selectedEventId) || null;
   }
 
-  function currentCandidate() {
-    return state.candidates.find((candidate) => candidate.ticker === state.selectedTicker) || null;
+  function currentEarnings() {
+    return state.earnings.find((item) => item.ticker === state.selectedTicker) || null;
   }
 
   function eventsForTicker() {
@@ -87,7 +87,7 @@
     });
   }
 
-  function ensureCandidatePanel() {
+  function ensureEarningsPanel() {
     if ($('eps-candidate-panel')) return;
     const epsValue = $('eps-value');
     const section = epsValue?.closest('section.panel');
@@ -101,33 +101,32 @@
     panel.innerHTML = `
       <div class="lock-icon">i</div>
       <div style="width:100%">
-        <strong id="eps-candidate-title">Yahoo EPS-kandidat</strong>
+        <strong id="eps-candidate-title">Yahoo EPS TTM</strong>
         <p id="eps-candidate-summary" style="margin:.35rem 0 .65rem"></p>
         <div id="eps-candidate-meta" class="fine-print"></div>
-        <button id="use-eps-candidate" class="secondary-button" type="button" style="margin-top:.75rem">Fyll formuläret med kandidaten</button>
+        <button id="use-eps-candidate" class="secondary-button" type="button" style="margin-top:.75rem">Fyll EPS-värdet</button>
       </div>`;
     header.insertAdjacentElement('afterend', panel);
 
     $('use-eps-candidate').addEventListener('click', () => {
-      const candidate = currentCandidate();
-      if (!candidate) return;
-      if (candidate.period_end) $('eps-period-end').value = candidate.period_end;
-      if (candidate.derived_eps_ttm != null) $('eps-value').value = candidate.derived_eps_ttm;
-      $('eps-source').value = 'Bolagets rapport (Yahoo-kandidat som kontroll)';
-      $('eps-note').value = `Yahoo Diluted EPS-kandidat hämtad ${candidate.fetched_at || ''}. Kontrollera mot originalrapport före körning.`;
+      const item = currentEarnings();
+      if (!item) return;
+      $('eps-value').value = item.eps_ttm ?? '';
+      $('eps-source').value = item.source || 'Yahoo Finance / trailingEps';
+      $('eps-note').value = `Yahoo EPS TTM observerad ${item.observed_date || ''}. Kontrollera originalrapportens publiceringstid och effective_date före verifiering.`;
       updateCommands();
       $('eps-published').focus();
     });
   }
 
-  function renderCandidate() {
-    ensureCandidatePanel();
+  function renderEarnings() {
+    ensureEarningsPanel();
     const panel = $('eps-candidate-panel');
     if (!panel) return;
-    const candidate = currentCandidate();
-    if (!candidate) {
+    const item = currentEarnings();
+    if (!item) {
       panel.hidden = false;
-      $('eps-candidate-title').textContent = `Ingen Yahoo EPS-kandidat för ${state.selectedTicker}`;
+      $('eps-candidate-title').textContent = `Ingen Yahoo EPS TTM för ${state.selectedTicker}`;
       $('eps-candidate-summary').textContent = 'Detta hindrar inte manuell inmatning från bolagets originalrapport.';
       $('eps-candidate-meta').textContent = '';
       $('use-eps-candidate').hidden = true;
@@ -135,12 +134,10 @@
     }
 
     panel.hidden = false;
-    $('use-eps-candidate').hidden = candidate.derived_eps_ttm == null;
-    $('eps-candidate-title').textContent = `Yahoo-kandidat · ${candidate.ticker}`;
-    $('eps-candidate-summary').textContent = candidate.derived_eps_ttm == null
-      ? `Senaste Diluted EPS ${formatNumber(candidate.quarterly_diluted_eps)}. Färre än fyra kvartal kunde summeras.`
-      : `Härledd EPS TTM ${formatNumber(candidate.derived_eps_ttm)} från ${candidate.quarter_count || 4} rapporterade kvartal.`;
-    $('eps-candidate-meta').textContent = `Periodslut ${candidate.period_end || '–'} · senaste kvartals-EPS ${formatNumber(candidate.quarterly_diluted_eps)} · EJ VERIFIERAD`;
+    $('use-eps-candidate').hidden = false;
+    $('eps-candidate-title').textContent = `Yahoo EPS TTM · ${item.ticker}`;
+    $('eps-candidate-summary').textContent = `Aktuell trailing EPS TTM ${formatNumber(item.eps_ttm)}.`;
+    $('eps-candidate-meta').textContent = `Observerad ${item.observed_date || '–'} · ${item.source || 'Yahoo Finance'} · kvartal summeras inte`;
   }
 
   function renderEvent() {
@@ -148,7 +145,7 @@
     $('eps-ticker').value = state.selectedTicker;
     $('cal-ticker').value = state.selectedTicker;
     $('trade-ticker').value = state.selectedTicker;
-    renderCandidate();
+    renderEarnings();
 
     if (!event) {
       $('event-empty').hidden = false;
@@ -279,22 +276,22 @@
 
   async function init() {
     try {
-      const [stocksPayload, eventsPayload, candidatesPayload] = await Promise.all([
+      const [stocksPayload, eventsPayload, earningsPayload] = await Promise.all([
         loadJson('./data/stocks.json'),
         loadJson('./data/events.json'),
-        loadJsonOptional('./data/fundamental_candidates.json')
+        loadJsonOptional('./data/earnings.json')
       ]);
       state.stocks = stocksPayload.stocks || [];
       state.events = eventsPayload.events || [];
-      state.candidates = candidatesPayload?.candidates || [];
+      state.earnings = earningsPayload?.latest || [];
       if (!state.stocks.length) throw new Error('Ingen aktielista hittades.');
 
       const params = new URLSearchParams(location.search);
       const wantedTicker = params.get('ticker');
       state.selectedTicker = state.stocks.some((s) => s.ticker === wantedTicker) ? wantedTicker : state.stocks[0].ticker;
-      const candidates = state.events.filter((e) => e.ticker === state.selectedTicker);
+      const events = state.events.filter((e) => e.ticker === state.selectedTicker);
       const wantedEvent = params.get('event');
-      state.selectedEventId = candidates.some((e) => e.event_id === wantedEvent) ? wantedEvent : (candidates[0]?.event_id || '');
+      state.selectedEventId = events.some((e) => e.event_id === wantedEvent) ? wantedEvent : (events[0]?.event_id || '');
 
       setWorkflowLinks();
       populateStocks();
