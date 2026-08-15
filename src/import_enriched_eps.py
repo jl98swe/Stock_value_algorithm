@@ -154,13 +154,14 @@ def import_history(
     if not actual_dates.equals(expected_dates):
         raise ValueError("Same-day-regeln för effective_date kunde inte verifieras")
 
-    yahoo_direct = int(
-        source["alignment_status"].astype(str).eq("yahoo_trailing_diluted").sum()
-    )
-    fallback = len(source) - yahoo_direct
+    statuses = source["alignment_status"].astype(str)
+    yahoo_direct = int(statuses.eq("yahoo_trailing_diluted").sum())
+    yahoo_reconstructed = int(statuses.eq("yahoo_reconstructed_diluted_ttm").sum())
+    fallback = int(statuses.eq("fallback_user_history").sum())
     print(
         f"Historisk EPS importerad: {len(imported)} rader för {imported['ticker'].nunique()} tickers. "
-        f"{yahoo_direct} rader använder Yahoo trailingDilutedEPS direkt och {fallback} är explicit taggade fallback-rader. "
+        f"{yahoo_direct} direkta Yahoo trailingDilutedEPS, {yahoo_reconstructed} Yahoo-rekonstruerade diluted TTM "
+        f"och {fallback} explicit taggade fallback-rader. "
         "effective_date = report_date för samtliga importerade rader."
     )
     return saved
