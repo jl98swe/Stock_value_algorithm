@@ -1,2 +1,1 @@
-ticker,report_date,observed_date,eps_ttm,source
-SWEC-B.ST,2026-07-17,2026-08-15,6.31,Yahoo Finance / trailingEps + get_earnings_dates
+ticker,period_end,report_date,observed_date,eps_ttm,eps_currency,source

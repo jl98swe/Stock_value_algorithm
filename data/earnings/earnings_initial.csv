@@ -1,120 +1,120 @@
-ticker,report_date,observed_date,eps_ttm,source
-AAK.ST,2026-07-16,2026-08-15,13.87,Yahoo Finance / trailingEps + get_earnings_dates
-ABB.ST,2026-07-15,2026-08-15,26.04,Yahoo Finance / trailingEps + get_earnings_dates
-ADDT-B.ST,2026-07-14,2026-08-15,8.25,Yahoo Finance / trailingEps + get_earnings_dates
-ALIG.ST,2026-07-16,2026-08-15,5.14,Yahoo Finance / trailingEps + get_earnings_dates
-ALIV-SDB.ST,2026-07-17,2026-08-15,81.06,Yahoo Finance / trailingEps + get_earnings_dates
-ALLEI.ST,2026-07-17,2026-08-15,3.66,Yahoo Finance / trailingEps + get_earnings_dates
-ANOD-B.ST,2026-07-14,2026-08-15,2.4,Yahoo Finance / trailingEps + get_earnings_dates
-ARJO-B.ST,2026-07-13,2026-08-15,1.42,Yahoo Finance / trailingEps + get_earnings_dates
-ASSA-B.ST,2026-07-17,2026-08-15,14.74,Yahoo Finance / trailingEps + get_earnings_dates
-ATCO-A.ST,2026-07-16,2026-08-15,5.46,Yahoo Finance / trailingEps + get_earnings_dates
-ATCO-B.ST,,2026-08-15,5.45,Yahoo Finance / trailingEps + get_earnings_dates
-ATRLJ-B.ST,2026-07-02,2026-08-15,0.91,Yahoo Finance / trailingEps + get_earnings_dates
-ATT.ST,2026-05-06,2026-08-15,5.87,Yahoo Finance / trailingEps + get_earnings_dates
-AXFO.ST,2026-07-15,2026-08-15,11.22,Yahoo Finance / trailingEps + get_earnings_dates
-AZA.ST,2026-07-13,2026-08-15,17.91,Yahoo Finance / trailingEps + get_earnings_dates
-AZN.ST,2026-07-27,2026-08-15,64.04,Yahoo Finance / trailingEps + get_earnings_dates
-BAHN-B.ST,2026-02-17,2026-08-15,1.74,Yahoo Finance / trailingEps + get_earnings_dates
-BALD-B.ST,2026-07-14,2026-08-15,5.18,Yahoo Finance / trailingEps + get_earnings_dates
-BEIA-B.ST,2026-07-16,2026-08-15,12.45,Yahoo Finance / trailingEps + get_earnings_dates
-BEIJ-B.ST,2026-07-16,2026-08-15,4.67,Yahoo Finance / trailingEps + get_earnings_dates
-BERG-B.ST,2026-07-15,2026-08-15,8.55,Yahoo Finance / trailingEps + get_earnings_dates
-BETS-B.ST,2026-07-16,2026-08-15,10.59,Yahoo Finance / trailingEps + get_earnings_dates
-BILI-A.ST,2026-07-17,2026-08-15,9.07,Yahoo Finance / trailingEps + get_earnings_dates
-BIOG-B.ST,2026-07-16,2026-08-15,3.44,Yahoo Finance / trailingEps + get_earnings_dates
-BOL.ST,2026-07-20,2026-08-15,44.73,Yahoo Finance / trailingEps + get_earnings_dates
-BORG.ST,2026-04-29,2026-08-15,3.88,Yahoo Finance / trailingEps + get_earnings_dates
-BRAV.ST,2026-07-13,2026-08-15,6.85,Yahoo Finance / trailingEps + get_earnings_dates
-BTS-B.ST,2026-08-14,2026-08-15,4.91,Yahoo Finance / trailingEps + get_earnings_dates
-CAST.ST,2026-07-15,2026-08-15,5.58,Yahoo Finance / trailingEps + get_earnings_dates
-CATE.ST,2026-07-05,2026-08-15,34.04,Yahoo Finance / trailingEps + get_earnings_dates
-CIBUS.ST,2026-07-16,2026-08-15,11.36,Yahoo Finance / trailingEps + get_earnings_dates
-CLA-B.ST,2026-07-14,2026-08-15,2.98,Yahoo Finance / trailingEps + get_earnings_dates
-CLAS-B.ST,2026-06-03,2026-08-15,18.29,Yahoo Finance / trailingEps + get_earnings_dates
-COOR.ST,2026-07-15,2026-08-15,2.8,Yahoo Finance / trailingEps + get_earnings_dates
-CTT.ST,2023-02-07,2026-08-15,2.92,Yahoo Finance / trailingEps + get_earnings_dates
-DIOS.ST,2018-10-25,2026-08-15,7.97,Yahoo Finance / trailingEps + get_earnings_dates
-DOM.ST,2026-07-13,2026-08-15,0.96,Yahoo Finance / trailingEps + get_earnings_dates
-DUNI.ST,2018-07-13,2026-08-15,4.33,Yahoo Finance / trailingEps + get_earnings_dates
-DYVOX.ST,2026-07-22,2026-08-15,2.12,Yahoo Finance / trailingEps + get_earnings_dates
-EAST.ST,2026-07-07,2026-08-15,3.09,Yahoo Finance / trailingEps + get_earnings_dates
-EKTA-B.ST,2026-05-28,2026-08-15,-1.36,Yahoo Finance / trailingEps + get_earnings_dates
-EMBRAC-B.ST,2026-08-13,2026-08-15,-30.57,Yahoo Finance / trailingEps + get_earnings_dates
-EPI-A.ST,2026-07-17,2026-08-15,7.3,Yahoo Finance / trailingEps + get_earnings_dates
-EPI-B.ST,,2026-08-15,7.3,Yahoo Finance / trailingEps + get_earnings_dates
-EQL.ST,2026-05-08,2026-08-15,-0.49,Yahoo Finance / trailingEps + get_earnings_dates
-EQT.ST,,2026-08-15,9.82,Yahoo Finance / trailingEps + get_earnings_dates
-ERIC-B.ST,2026-07-14,2026-08-15,7.38,Yahoo Finance / trailingEps + get_earnings_dates
-ESSITY-B.ST,2026-07-15,2026-08-15,17.73,Yahoo Finance / trailingEps + get_earnings_dates
-EVO.ST,2026-07-17,2026-08-15,58.55,Yahoo Finance / trailingEps + get_earnings_dates
-FABG.ST,2026-07-05,2026-08-15,1.37,Yahoo Finance / trailingEps + get_earnings_dates
-FOI-B.ST,2023-02-09,2026-08-15,1.98,Yahoo Finance / trailingEps + get_earnings_dates
-GENO.ST,2026-04-28,2026-08-15,0.31,Yahoo Finance / trailingEps + get_earnings_dates
-GETI-B.ST,2026-07-17,2026-08-15,9.82,Yahoo Finance / trailingEps + get_earnings_dates
-HANZA.ST,2026-07-20,2026-08-15,6.26,Yahoo Finance / trailingEps + get_earnings_dates
-HEXA-B.ST,2026-07-28,2026-08-15,8.69,Yahoo Finance / trailingEps + get_earnings_dates
-HMS.ST,2026-07-13,2026-08-15,10.99,Yahoo Finance / trailingEps + get_earnings_dates
-HOLM-A.ST,,2026-08-15,17.71,Yahoo Finance / trailingEps + get_earnings_dates
-HPOL-B.ST,2026-07-20,2026-08-15,5.3,Yahoo Finance / trailingEps + get_earnings_dates
-HTRO.ST,2026-07-14,2026-08-15,0.19,Yahoo Finance / trailingEps + get_earnings_dates
-HUFV-A.ST,2026-05-08,2026-08-15,5.29,Yahoo Finance / trailingEps + get_earnings_dates
-INDT.ST,2026-07-15,2026-08-15,7.35,Yahoo Finance / trailingEps + get_earnings_dates
-INDU-A.ST,,2026-08-15,145.52,Yahoo Finance / trailingEps + get_earnings_dates
-INTRUM.ST,2026-05-07,2026-08-15,-2.97,Yahoo Finance / trailingEps + get_earnings_dates
-INVE-A.ST,2018-01-23,2026-08-15,85.69,Yahoo Finance / trailingEps + get_earnings_dates
-INWI.ST,2026-07-14,2026-08-15,9.1,Yahoo Finance / trailingEps + get_earnings_dates
-KAMBI.ST,2026-07-22,2026-08-15,4.56,Yahoo Finance / trailingEps + get_earnings_dates
-KNOW.ST,2026-07-16,2026-08-15,-10.62,Yahoo Finance / trailingEps + get_earnings_dates
-LAGR-B.ST,2026-07-17,2026-08-15,6.08,Yahoo Finance / trailingEps + get_earnings_dates
-LIFCO-B.ST,2026-07-14,2026-08-15,8.48,Yahoo Finance / trailingEps + get_earnings_dates
-LIME.ST,2026-07-14,2026-08-15,8.99,Yahoo Finance / trailingEps + get_earnings_dates
-LOOMIS.ST,2026-07-24,2026-08-15,27.61,Yahoo Finance / trailingEps + get_earnings_dates
-LUMI.ST,2026-08-05,2026-08-15,15.0,Yahoo Finance / trailingEps + get_earnings_dates
-MCAP.ST,2026-07-20,2026-08-15,16.09,Yahoo Finance / trailingEps + get_earnings_dates
-MCOV-B.ST,,2026-08-15,6.16,Yahoo Finance / trailingEps + get_earnings_dates
-MSAB-B.ST,2026-04-28,2026-08-15,3.76,Yahoo Finance / trailingEps + get_earnings_dates
-MTG-B.ST,2026-07-21,2026-08-15,1.43,Yahoo Finance / trailingEps + get_earnings_dates
-MTRS.ST,2026-07-17,2026-08-15,2.79,Yahoo Finance / trailingEps + get_earnings_dates
-MYCR.ST,2026-07-13,2026-08-15,8.89,Yahoo Finance / trailingEps + get_earnings_dates
-NDA-SE.ST,2026-07-15,2026-08-15,15.11,Yahoo Finance / trailingEps + get_earnings_dates
-NEWA-B.ST,2026-04-23,2026-08-15,5.78,Yahoo Finance / trailingEps + get_earnings_dates
-NIBE-B.ST,2026-05-19,2026-08-15,1.19,Yahoo Finance / trailingEps + get_earnings_dates
-NMAN.ST,2026-07-15,2026-08-15,6.99,Yahoo Finance / trailingEps + get_earnings_dates
-NOLA-B.ST,2026-07-16,2026-08-15,2.65,Yahoo Finance / trailingEps + get_earnings_dates
-NORION.ST,2026-04-23,2026-08-15,6.04,Yahoo Finance / trailingEps + get_earnings_dates
-PACT.ST,2026-07-16,2026-08-15,7.51,Yahoo Finance / trailingEps + get_earnings_dates
-PEAB-B.ST,2026-07-13,2026-08-15,7.27,Yahoo Finance / trailingEps + get_earnings_dates
-PLAZ-B.ST,2026-07-02,2026-08-15,6.15,Yahoo Finance / trailingEps + get_earnings_dates
-PNDX-B.ST,2026-07-14,2026-08-15,16.37,Yahoo Finance / trailingEps + get_earnings_dates
-REJL-B.ST,2026-07-15,2026-08-15,7.52,Yahoo Finance / trailingEps + get_earnings_dates
-SAAB-B.ST,2026-07-16,2026-08-15,13.16,Yahoo Finance / trailingEps + get_earnings_dates
-SAGA-A.ST,2012-10-25,2026-08-15,15.08,Yahoo Finance / trailingEps + get_earnings_dates
-SAVE.ST,2026-07-16,2026-08-15,12.97,Yahoo Finance / trailingEps + get_earnings_dates
-SCA-B.ST,2026-07-21,2026-08-15,3.16,Yahoo Finance / trailingEps + get_earnings_dates
-SCST.ST,2026-07-16,2026-08-15,6.66,Yahoo Finance / trailingEps + get_earnings_dates
-SEB-A.ST,2026-07-15,2026-08-15,15.67,Yahoo Finance / trailingEps + get_earnings_dates
-SECARE.ST,2026-07-21,2026-08-15,0.5,Yahoo Finance / trailingEps + get_earnings_dates
-SECT-B.ST,2026-06-05,2026-08-15,2.92,Yahoo Finance / trailingEps + get_earnings_dates
-SECU-B.ST,2026-07-23,2026-08-15,9.75,Yahoo Finance / trailingEps + get_earnings_dates
-SFAST.ST,2026-02-19,2026-08-15,1.46,Yahoo Finance / trailingEps + get_earnings_dates
-SHB-A.ST,2026-07-14,2026-08-15,11.97,Yahoo Finance / trailingEps + get_earnings_dates
-SHOT.ST,2026-07-14,2026-08-15,3.37,Yahoo Finance / trailingEps + get_earnings_dates
-SINT.ST,2026-02-17,2026-08-15,3.14,Yahoo Finance / trailingEps + get_earnings_dates
-SOBI.ST,2026-07-15,2026-08-15,3.92,Yahoo Finance / trailingEps + get_earnings_dates
-SVED-B.ST,2026-04-23,2026-08-15,4.02,Yahoo Finance / trailingEps + get_earnings_dates
-SWEC-A.ST,,2026-08-15,6.3,Yahoo Finance / trailingEps + get_earnings_dates
-SWEC-B.ST,2026-07-17,2026-08-15,6.3,Yahoo Finance / trailingEps + get_earnings_dates
-SWED-A.ST,2026-07-16,2026-08-15,27.59,Yahoo Finance / trailingEps + get_earnings_dates
-SYSR.ST,2026-06-10,2026-08-15,3.67,Yahoo Finance / trailingEps + get_earnings_dates
-TEL2-B.ST,2026-07-15,2026-08-15,14.49,Yahoo Finance / trailingEps + get_earnings_dates
-THULE.ST,2026-07-19,2026-08-15,10.8,Yahoo Finance / trailingEps + get_earnings_dates
-TREL-B.ST,2026-07-15,2026-08-15,16.85,Yahoo Finance / trailingEps + get_earnings_dates
-VBG-B.ST,2026-07-17,2026-08-15,16.42,Yahoo Finance / trailingEps + get_earnings_dates
-VIT-B.ST,2026-07-14,2026-08-15,11.7,Yahoo Finance / trailingEps + get_earnings_dates
-VITR.ST,2026-07-15,2026-08-15,-36.8,Yahoo Finance / trailingEps + get_earnings_dates
-VIVA.ST,2025-11-20,2026-08-15,2.37,Yahoo Finance / trailingEps + get_earnings_dates
-VOLV-A.ST,,2026-08-15,17.62,Yahoo Finance / trailingEps + get_earnings_dates
-WALL-B.ST,2026-07-06,2026-08-15,4.1,Yahoo Finance / trailingEps + get_earnings_dates
-WIHL.ST,2025-10-23,2026-08-15,7.11,Yahoo Finance / trailingEps + get_earnings_dates
-ZZ-B.ST,2025-11-19,2026-08-15,9.85,Yahoo Finance / trailingEps + get_earnings_dates
+ticker,period_end,report_date,observed_date,eps_ttm,eps_currency,source
+AAK.ST,2026-06-30,2026-07-16,2026-08-15,13.87,SEK,Yahoo Finance / trailingDilutedEPS
+ABB.ST,2026-06-30,2026-07-15,2026-08-15,2.76,USD,Yahoo Finance / trailingDilutedEPS
+ADDT-B.ST,2026-06-30,2026-07-14,2026-08-15,8.25,SEK,Yahoo Finance / trailingDilutedEPS
+ALIG.ST,2026-06-30,2026-07-16,2026-08-15,5.14,SEK,Yahoo Finance / trailingDilutedEPS
+ALIV-SDB.ST,2026-06-30,2026-07-17,2026-08-15,8.48,USD,Yahoo Finance / trailingDilutedEPS
+ALLEI.ST,2026-06-30,2026-07-17,2026-08-15,3.65,SEK,Yahoo Finance / trailingDilutedEPS
+ANOD-B.ST,2026-06-30,2026-07-14,2026-08-15,2.4,SEK,Yahoo Finance / trailingDilutedEPS
+ARJO-B.ST,2026-06-30,2026-07-13,2026-08-15,1.42,SEK,Yahoo Finance / trailingDilutedEPS
+ASSA-B.ST,2026-06-30,2026-07-17,2026-08-15,14.75,SEK,Yahoo Finance / trailingDilutedEPS
+ATCO-A.ST,2026-06-30,2026-07-16,2026-08-15,5.46,SEK,Yahoo Finance / trailingDilutedEPS
+ATCO-B.ST,2026-06-30,,2026-08-15,5.46,SEK,Yahoo Finance / trailingDilutedEPS
+ATRLJ-B.ST,2026-06-30,2026-07-02,2026-08-15,0.91,SEK,Yahoo Finance / trailingDilutedEPS
+ATT.ST,2026-03-31,2026-05-06,2026-08-15,5.88,SEK,Yahoo Finance / trailingDilutedEPS
+AXFO.ST,2026-06-30,2026-07-15,2026-08-15,11.22,SEK,Yahoo Finance / trailingDilutedEPS
+AZA.ST,2026-06-30,2026-07-13,2026-08-15,17.91,SEK,Yahoo Finance / trailingDilutedEPS
+AZN.ST,2026-06-30,2026-07-27,2026-08-15,6.68,USD,Yahoo Finance / trailingDilutedEPS
+BAHN-B.ST,2026-03-31,2026-02-17,2026-08-15,1.74,SEK,Yahoo Finance / trailingDilutedEPS
+BALD-B.ST,2026-06-30,2026-07-14,2026-08-15,5.18,SEK,Yahoo Finance / trailingDilutedEPS
+BEIA-B.ST,2026-06-30,2026-07-16,2026-08-15,12.456137,SEK,Yahoo Finance / trailingDilutedEPS
+BEIJ-B.ST,2026-06-30,2026-07-16,2026-08-15,4.67,SEK,Yahoo Finance / trailingDilutedEPS
+BERG-B.ST,2026-06-30,2026-07-15,2026-08-15,8.55,SEK,Yahoo Finance / trailingDilutedEPS
+BETS-B.ST,2026-06-30,2026-07-16,2026-08-15,0.96,EUR,Yahoo Finance / trailingDilutedEPS
+BILI-A.ST,2026-06-30,2026-07-17,2026-08-15,9.08,SEK,Yahoo Finance / trailingDilutedEPS
+BIOG-B.ST,2026-06-30,2026-07-16,2026-08-15,3.43,SEK,Yahoo Finance / trailingDilutedEPS
+BOL.ST,2026-06-30,2026-07-20,2026-08-15,44.74,SEK,Yahoo Finance / trailingDilutedEPS
+BORG.ST,2026-03-31,2026-04-29,2026-08-15,3.7,SEK,Yahoo Finance / trailingDilutedEPS
+BRAV.ST,2026-06-30,2026-05-05,2026-08-15,6.85,SEK,Yahoo Finance / trailingDilutedEPS
+BTS-B.ST,2026-03-31,2026-08-14,2026-08-15,6.98,SEK,Yahoo Finance / trailingDilutedEPS
+CAST.ST,2026-06-30,2026-07-15,2026-08-15,5.59,SEK,Yahoo Finance / trailingDilutedEPS
+CATE.ST,2026-06-30,2026-07-05,2026-08-15,34.05,SEK,Yahoo Finance / trailingDilutedEPS
+CIBUS.ST,2026-06-30,2026-07-16,2026-08-15,1.03,EUR,Yahoo Finance / trailingDilutedEPS
+CLA-B.ST,2026-06-30,2026-07-14,2026-08-15,2.98,SEK,Yahoo Finance / trailingDilutedEPS
+CLAS-B.ST,2026-04-30,2026-06-03,2026-08-15,18.29,SEK,Yahoo Finance / trailingDilutedEPS
+COOR.ST,2026-06-30,2026-07-15,2026-08-15,2.8,SEK,Yahoo Finance / trailingDilutedEPS
+CTT.ST,2026-06-30,2023-02-07,2026-08-15,2.92,SEK,Yahoo Finance / trailingDilutedEPS
+DIOS.ST,2026-06-30,2018-10-25,2026-08-15,7.97,SEK,Yahoo Finance / trailingDilutedEPS
+DOM.ST,2026-06-30,2026-07-13,2026-08-15,0.96,SEK,Yahoo Finance / trailingDilutedEPS
+DUNI.ST,2026-06-30,2018-07-13,2026-08-15,4.33,SEK,Yahoo Finance / trailingDilutedEPS
+DYVOX.ST,2026-06-30,2026-07-22,2026-08-15,2.12,SEK,Yahoo Finance / trailingDilutedEPS
+EAST.ST,2026-06-30,2026-07-07,2026-08-15,0.28,EUR,Yahoo Finance / trailingDilutedEPS
+EKTA-B.ST,2026-04-30,2026-05-28,2026-08-15,-1.36,SEK,Yahoo Finance / trailingDilutedEPS
+EMBRAC-B.ST,2026-03-31,2026-08-13,2026-08-15,-27.67,SEK,Yahoo Finance / trailingDilutedEPS
+EPI-A.ST,2026-06-30,2026-07-17,2026-08-15,7.31,SEK,Yahoo Finance / trailingDilutedEPS
+EPI-B.ST,2026-06-30,,2026-08-15,7.31,SEK,Yahoo Finance / trailingDilutedEPS
+EQL.ST,2026-06-30,2026-05-08,2026-08-15,-0.49,SEK,Yahoo Finance / trailingDilutedEPS
+EQT.ST,2025-12-31,,2026-08-15,0.618,EUR,Yahoo Finance / trailingDilutedEPS
+ERIC-B.ST,2026-06-30,2026-07-14,2026-08-15,7.38,SEK,Yahoo Finance / trailingDilutedEPS
+ESSITY-B.ST,2026-06-30,2026-07-15,2026-08-15,17.73,SEK,Yahoo Finance / trailingDilutedEPS
+EVO.ST,2026-06-30,2026-07-17,2026-08-15,5.31,EUR,Yahoo Finance / trailingDilutedEPS
+FABG.ST,2026-06-30,2026-07-05,2026-08-15,1.37,SEK,Yahoo Finance / trailingDilutedEPS
+FOI-B.ST,2026-06-30,2023-02-09,2026-08-15,0.179,EUR,Yahoo Finance / trailingDilutedEPS
+GENO.ST,2026-06-30,2026-04-28,2026-08-15,0.31,SEK,Yahoo Finance / trailingDilutedEPS
+GETI-B.ST,2026-06-30,2026-07-17,2026-08-15,9.83,SEK,Yahoo Finance / trailingDilutedEPS
+HANZA.ST,2026-06-30,2026-07-20,2026-08-15,6.26,SEK,Yahoo Finance / trailingDilutedEPS
+HEXA-B.ST,2026-06-30,2026-07-28,2026-08-15,0.788,EUR,Yahoo Finance / trailingDilutedEPS
+HMS.ST,2026-06-30,2026-07-13,2026-08-15,11.01,SEK,Yahoo Finance / trailingDilutedEPS
+HOLM-A.ST,2026-03-31,,2026-08-15,17.7,SEK,Yahoo Finance / trailingDilutedEPS
+HPOL-B.ST,2026-06-30,2026-07-20,2026-08-15,5.3,SEK,Yahoo Finance / trailingDilutedEPS
+HTRO.ST,2026-06-30,2026-07-14,2026-08-15,0.19,SEK,Yahoo Finance / trailingDilutedEPS
+HUFV-A.ST,2026-03-31,2026-05-08,2026-08-15,5.29,SEK,Yahoo Finance / trailingDilutedEPS
+INDT.ST,2026-06-30,2026-07-15,2026-08-15,7.36,SEK,Yahoo Finance / trailingDilutedEPS
+INDU-A.ST,2026-06-30,,2026-08-15,145.54,SEK,Yahoo Finance / trailingDilutedEPS
+INTRUM.ST,2026-03-31,2026-05-07,2026-08-15,-2.97296,SEK,Yahoo Finance / trailingDilutedEPS
+INVE-A.ST,2026-06-30,2018-01-23,2026-08-15,85.69,SEK,Yahoo Finance / trailingDilutedEPS
+INWI.ST,2026-06-30,2026-07-14,2026-08-15,9.1,SEK,Yahoo Finance / trailingDilutedEPS
+KAMBI.ST,2026-06-30,2026-07-22,2026-08-15,0.413,EUR,Yahoo Finance / trailingDilutedEPS
+KNOW.ST,2026-06-30,2026-07-16,2026-08-15,-10.62,SEK,Yahoo Finance / trailingDilutedEPS
+LAGR-B.ST,2026-06-30,2026-07-17,2026-08-15,6.07,SEK,Yahoo Finance / trailingDilutedEPS
+LIFCO-B.ST,2026-06-30,2026-07-14,2026-08-15,8.48,SEK,Yahoo Finance / trailingDilutedEPS
+LIME.ST,2026-06-30,2026-07-14,2026-08-15,8.98,SEK,Yahoo Finance / trailingDilutedEPS
+LOOMIS.ST,2026-06-30,2026-07-24,2026-08-15,27.6,SEK,Yahoo Finance / trailingDilutedEPS
+LUMI.ST,2026-06-30,2026-08-05,2026-08-15,1.75,USD,Yahoo Finance / trailingDilutedEPS
+MCAP.ST,2026-06-30,2026-07-20,2026-08-15,16.1,SEK,Yahoo Finance / trailingDilutedEPS
+MCOV-B.ST,2026-06-30,2026-07-21,2026-08-15,0.559,EUR,Yahoo Finance / trailingDilutedEPS
+MSAB-B.ST,2026-06-30,2026-04-28,2026-08-15,3.76,SEK,Yahoo Finance / trailingDilutedEPS
+MTG-B.ST,2026-06-30,2026-07-21,2026-08-15,1.43,SEK,Yahoo Finance / trailingDilutedEPS
+MTRS.ST,2026-06-30,2026-07-17,2026-08-15,2.68,SEK,Yahoo Finance / trailingDilutedEPS
+MYCR.ST,2026-06-30,2026-07-13,2026-08-15,8.88,SEK,Yahoo Finance / trailingDilutedEPS
+NDA-SE.ST,2026-06-30,2026-07-15,2026-08-15,1.37,EUR,Yahoo Finance / trailingDilutedEPS
+NEWA-B.ST,2026-03-31,2026-04-23,2026-08-15,5.78,SEK,Yahoo Finance / trailingDilutedEPS
+NIBE-B.ST,2026-03-31,2026-05-19,2026-08-15,1.19,SEK,Yahoo Finance / trailingDilutedEPS
+NMAN.ST,2026-06-30,2026-07-15,2026-08-15,6.99,SEK,Yahoo Finance / trailingDilutedEPS
+NOLA-B.ST,2026-06-30,2026-07-16,2026-08-15,2.65,SEK,Yahoo Finance / trailingDilutedEPS
+NORION.ST,2026-06-30,2026-04-23,2026-08-15,6.04,SEK,Yahoo Finance / trailingDilutedEPS
+PACT.ST,2026-06-30,2026-07-16,2026-08-15,7.51,SEK,Yahoo Finance / trailingDilutedEPS
+PEAB-B.ST,2026-06-30,2026-07-13,2026-08-15,7.27,SEK,Yahoo Finance / trailingDilutedEPS
+PLAZ-B.ST,2026-06-30,2026-07-02,2026-08-15,6.15,SEK,Yahoo Finance / trailingDilutedEPS
+PNDX-B.ST,2026-06-30,2026-07-14,2026-08-15,16.37,SEK,Yahoo Finance / trailingDilutedEPS
+REJL-B.ST,2026-06-30,2026-07-15,2026-08-15,7.52,SEK,Yahoo Finance / trailingDilutedEPS
+SAAB-B.ST,2026-06-30,2026-07-16,2026-08-15,13.14,SEK,Yahoo Finance / trailingDilutedEPS
+SAGA-A.ST,2026-06-30,2012-10-25,2026-08-15,15.08,SEK,Yahoo Finance / trailingDilutedEPS
+SAVE.ST,2026-06-30,2026-07-16,2026-08-15,12.97,SEK,Yahoo Finance / trailingDilutedEPS
+SCA-B.ST,2026-06-30,2026-07-21,2026-08-15,3.16,SEK,Yahoo Finance / trailingDilutedEPS
+SCST.ST,2026-06-30,2026-07-16,2026-08-15,6.65,SEK,Yahoo Finance / trailingDilutedEPS
+SEB-A.ST,2026-06-30,2026-07-15,2026-08-15,15.68,SEK,Yahoo Finance / trailingDilutedEPS
+SECARE.ST,2026-06-30,2026-07-21,2026-08-15,0.5,SEK,Yahoo Finance / trailingDilutedEPS
+SECT-B.ST,2026-04-30,2026-06-05,2026-08-15,2.93,SEK,Yahoo Finance / trailingDilutedEPS
+SECU-B.ST,2026-06-30,2026-07-23,2026-08-15,9.75,SEK,Yahoo Finance / trailingDilutedEPS
+SFAST.ST,2026-06-30,2026-02-19,2026-08-15,1.46,SEK,Yahoo Finance / trailingDilutedEPS
+SHB-A.ST,2026-06-30,2026-07-14,2026-08-15,11.83,SEK,Yahoo Finance / trailingDilutedEPS
+SHOT.ST,2026-06-30,2026-07-14,2026-08-15,3.37,SEK,Yahoo Finance / trailingDilutedEPS
+SINT.ST,2026-03-31,2026-02-17,2026-08-15,3.14,SEK,Yahoo Finance / trailingDilutedEPS
+SOBI.ST,2026-06-30,2026-07-15,2026-08-15,3.92,SEK,Yahoo Finance / trailingDilutedEPS
+SVED-B.ST,2026-06-30,2026-04-23,2026-08-15,4.02,SEK,Yahoo Finance / trailingDilutedEPS
+SWEC-A.ST,2026-06-30,,2026-08-15,6.3,SEK,Yahoo Finance / trailingDilutedEPS
+SWEC-B.ST,2026-06-30,2026-07-17,2026-08-15,6.3,SEK,Yahoo Finance / trailingDilutedEPS
+SWED-A.ST,2026-06-30,2026-07-16,2026-08-15,27.6,SEK,Yahoo Finance / trailingDilutedEPS
+SYSR.ST,2026-04-30,2026-06-10,2026-08-15,3.67,SEK,Yahoo Finance / trailingDilutedEPS
+TEL2-B.ST,2026-06-30,2026-07-15,2026-08-15,14.5,SEK,Yahoo Finance / trailingDilutedEPS
+THULE.ST,2026-06-30,2026-07-19,2026-08-15,10.8,SEK,Yahoo Finance / trailingDilutedEPS
+TREL-B.ST,2026-06-30,2026-07-15,2026-08-15,16.85,SEK,Yahoo Finance / trailingDilutedEPS
+VBG-B.ST,2026-06-30,2026-07-17,2026-08-15,16.41,SEK,Yahoo Finance / trailingDilutedEPS
+VIT-B.ST,2026-06-30,2026-07-14,2026-08-15,11.7,SEK,Yahoo Finance / trailingDilutedEPS
+VITR.ST,2026-06-30,2026-07-15,2026-08-15,-36.8,SEK,Yahoo Finance / trailingDilutedEPS
+VIVA.ST,2026-03-31,2025-11-20,2026-08-15,2.37,SEK,Yahoo Finance / trailingDilutedEPS
+VOLV-A.ST,2026-06-30,,2026-08-15,17.62,SEK,Yahoo Finance / trailingDilutedEPS
+WALL-B.ST,2026-06-30,2026-07-06,2026-08-15,4.1,SEK,Yahoo Finance / trailingDilutedEPS
+WIHL.ST,2026-06-30,2025-10-23,2026-08-15,7.11,SEK,Yahoo Finance / trailingDilutedEPS
+ZZ-B.ST,2026-03-31,2025-11-19,2026-08-15,9.85,SEK,Yahoo Finance / trailingDilutedEPS
