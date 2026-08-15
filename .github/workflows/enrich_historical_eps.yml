@@ -99,8 +99,10 @@ jobs:
           alignment = pd.read_csv('data/derived/eps_alignment_audit.csv')
 
           direct = (alignment.alignment_status == 'yahoo_trailing_diluted').sum()
-          fallback = (alignment.alignment_status != 'yahoo_trailing_diluted').sum()
+          reconstructed = (alignment.alignment_status == 'yahoo_reconstructed_diluted_ttm').sum()
+          fallback = (alignment.alignment_status == 'fallback_user_history').sum()
           print(f'Historiska rader direkt Yahoo trailingDilutedEPS: {direct}/{len(alignment)}')
+          print(f'Historiska rader rekonstruerade enbart från Yahoo diluted EPS: {reconstructed}/{len(alignment)}')
           print(f'Historiska explicit taggade fallback-rader: {fallback}/{len(alignment)}')
           print(f'EPS-rader utan rapportdatum: {len(missing)}')
           print(f'Tickers med historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
