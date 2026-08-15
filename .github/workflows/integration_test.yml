@@ -1,0 +1,59 @@
+name: Full integration test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/integration_trigger.txt"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: full-stock-integration
+  cancel-in-progress: false
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Installera Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installera beroenden
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Kör hela marknadspipelinen mot Yahoo
+        run: python -m src.pipeline
+
+      - name: Validera resultatet
+        run: python -m src.validate_outputs
+
+      - name: Spara verifierad integrationsdata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if [ -f data/prices/price_updates.csv ]; then
+            git add data/prices/price_updates.csv
+          fi
+          if [ -f data/dividends/dividend_updates.csv ]; then
+            git add data/dividends/dividend_updates.csv
+          fi
+          if git diff --cached --quiet; then
+            echo "Integrationen är grön och inga data behöver committas."
+            exit 0
+          fi
+          git commit -m "data: verifierad full integration"
+          git pull --rebase origin main
+          git push origin main
