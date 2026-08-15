@@ -17,6 +17,8 @@ AUDIT_FILE = ROOT / "data" / "derived" / "eps_report_date_audit.csv"
 
 SOURCE_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
 OUTPUT_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
+STOCKHOLM_TZ = "Europe/Stockholm"
+MAX_LATEST_REPORT_AGE_DAYS = 240
 
 
 def _read_csv(path: Path) -> pd.DataFrame:
@@ -71,32 +73,49 @@ def _load_source(path: Path = SOURCE_FILE) -> pd.DataFrame:
     return frame
 
 
+def _stockholm_calendar_date(value: object) -> pd.Timestamp | None:
+    timestamp = pd.to_datetime(value, errors="coerce")
+    if pd.isna(timestamp):
+        return None
+    timestamp = pd.Timestamp(timestamp)
+    if timestamp.tzinfo is None:
+        timestamp = timestamp.tz_localize("UTC")
+    return pd.Timestamp(timestamp.tz_convert(STOCKHOLM_TZ).date())
+
+
 def _past_earnings_dates(yahoo_ticker: str, wanted: int) -> list[pd.Timestamp]:
-    limit = max(20, wanted + 8)
+    limit = min(100, max(20, wanted + 8))
     dates = yf.Ticker(yahoo_ticker).get_earnings_dates(limit=limit, offset=1)
     if dates is None or dates.empty:
         return []
 
-    now = pd.Timestamp.now(tz="UTC")
-    preferred: list[pd.Timestamp] = []
-    fallback: list[pd.Timestamp] = []
-    has_reported_eps = "Reported EPS" in dates.columns
+    now_utc = pd.Timestamp.now(tz="UTC")
+    calendar_dates: list[pd.Timestamp] = []
 
-    for index, row in dates.iterrows():
+    for index in dates.index:
         timestamp = pd.to_datetime(index, errors="coerce")
         if pd.isna(timestamp):
             continue
         timestamp = pd.Timestamp(timestamp)
         comparison = timestamp.tz_localize("UTC") if timestamp.tzinfo is None else timestamp.tz_convert("UTC")
-        if comparison > now:
+        if comparison > now_utc:
             continue
-        calendar_date = pd.Timestamp(timestamp.date())
-        fallback.append(calendar_date)
-        if not has_reported_eps or pd.notna(row.get("Reported EPS")):
-            preferred.append(calendar_date)
+        local_date = _stockholm_calendar_date(timestamp)
+        if local_date is not None:
+            calendar_dates.append(local_date)
 
-    chosen = preferred if preferred else fallback
-    return sorted(set(chosen))
+    result = sorted(set(calendar_dates))
+    if not result:
+        return []
+
+    today_stockholm = pd.Timestamp.now(tz=STOCKHOLM_TZ).tz_localize(None).normalize()
+    latest_age = (today_stockholm - result[-1]).days
+    if latest_age > MAX_LATEST_REPORT_AGE_DAYS:
+        raise ValueError(
+            f"Yahoo-historiken är för gammal: senaste datum {result[-1].date().isoformat()} "
+            f"({latest_age} dagar sedan)"
+        )
+    return result
 
 
 def _align_dates(periods: list[str], dates: list[pd.Timestamp]) -> dict[str, pd.Timestamp]:
@@ -109,6 +128,15 @@ def _align_dates(periods: list[str], dates: list[pd.Timestamp]) -> dict[str, pd.
     selected_periods = ordered_periods[-count:]
     selected_dates = sorted(dates)[-count:]
     return dict(zip(selected_periods, selected_dates, strict=True))
+
+
+def _sibling_share_class_proxy(yahoo_ticker: str, available: set[str]) -> str | None:
+    for own, other in (("-B.ST", "-A.ST"), ("-A.ST", "-B.ST")):
+        if yahoo_ticker.endswith(own):
+            candidate = yahoo_ticker[: -len(own)] + other
+            if candidate in available:
+                return candidate
+    return None
 
 
 def _canonical_metadata(mapping: pd.DataFrame, path: Path = METADATA_FILE) -> pd.DataFrame:
@@ -146,6 +174,7 @@ def enrich(
         unknown = sorted(source.loc[source["ticker"].isna(), "source_ticker"].unique().tolist())
         raise ValueError(f"Saknar Yahoo-mappning för: {', '.join(unknown)}")
 
+    available_yahoo = set(source["ticker"].astype(str))
     output_parts: list[pd.DataFrame] = []
     audit_rows: list[dict[str, object]] = []
 
@@ -153,6 +182,7 @@ def enrich(
         yahoo_ticker = str(group["ticker"].iloc[0])
         periods = group["report_period"].astype(str).tolist()
         existing_dates = group.set_index("report_period")["report_date"].to_dict()
+        date_source_ticker = yahoo_ticker
 
         try:
             yahoo_dates = _past_earnings_dates(yahoo_ticker, len(periods))
@@ -160,7 +190,21 @@ def enrich(
         except Exception as exc:
             yahoo_dates = []
             error = str(exc)
-            print(f"VARNING {yahoo_ticker}: kunde inte hämta historiska rapportdatum: {exc}")
+            print(f"VARNING {yahoo_ticker}: kunde inte använda Yahoo-rapportdatum: {exc}")
+
+        if not yahoo_dates:
+            proxy = _sibling_share_class_proxy(yahoo_ticker, available_yahoo)
+            if proxy is not None:
+                try:
+                    yahoo_dates = _past_earnings_dates(proxy, len(periods))
+                    if yahoo_dates:
+                        date_source_ticker = proxy
+                        error = f"Rapportdatum hämtade via systeraktien {proxy}"
+                except Exception as exc:
+                    if error:
+                        error += f"; proxy {proxy}: {exc}"
+                    else:
+                        error = f"proxy {proxy}: {exc}"
 
         aligned = _align_dates(periods, yahoo_dates)
         enriched = group.copy()
@@ -180,6 +224,7 @@ def enrich(
             {
                 "source_ticker": source_ticker,
                 "yahoo_ticker": yahoo_ticker,
+                "date_source_ticker": date_source_ticker,
                 "periods": len(enriched),
                 "yahoo_dates_found": len(yahoo_dates),
                 "dates_mapped": mapped_count,
@@ -189,7 +234,10 @@ def enrich(
                 "error": error,
             }
         )
-        print(f"{source_ticker} -> {yahoo_ticker}: {mapped_count}/{len(enriched)} rapportdatum ({status})")
+        print(
+            f"{source_ticker} -> {yahoo_ticker}: {mapped_count}/{len(enriched)} "
+            f"rapportdatum ({status}, källa {date_source_ticker})"
+        )
         output_parts.append(enriched)
 
     output = pd.concat(output_parts, ignore_index=True)
