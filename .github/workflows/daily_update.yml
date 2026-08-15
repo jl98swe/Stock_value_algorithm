@@ -55,6 +55,10 @@ jobs:
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
 
+      - name: Hämta EPS-kandidater för manuell verifiering
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.fetch_fundamentals
+
       - name: Validera data och webbexport
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.validate_outputs
@@ -77,6 +81,12 @@ jobs:
             git add data/dividends/dividend_updates.csv
           else
             echo "Ingen dividend_updates.csv skapades denna körning."
+          fi
+
+          if [ -f data/fundamentals/yahoo_eps_candidates.csv ]; then
+            git add data/fundamentals/yahoo_eps_candidates.csv
+          else
+            echo "Ingen yahoo_eps_candidates.csv skapades denna körning."
           fi
 
           if git diff --cached --quiet; then
