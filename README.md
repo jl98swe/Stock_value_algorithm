@@ -79,7 +79,7 @@ Import stöder CSV, XLSX/XLS och JSON. Mappningen justeras när leverantörens f
 
 ## Värderingsmodell
 
-`src/valuation.py` är Python-porten av Pine v3.0. Den exakta GBM-modellen ligger versionshanterad i fem Base85-delar under `data/model/` och materialiseras/valideras av `src/model_data.py` före användning.
+`src/valuation.py` är Python-porten av Pine v3.0. Den exakta GBM-modellen ligger versionshanterad i sex Base85-delar under `data/model/` och materialiseras/valideras av `src/model_data.py` före användning.
 
 Strategiregler:
 
