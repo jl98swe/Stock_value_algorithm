@@ -9,9 +9,10 @@ from .config import ROOT
 from .fundamentals import REPORTS_FILE, load_reports, save_reports
 from .fx import STOCK_METADATA_FILE, load_stock_currencies
 
-SOURCE_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
-IMPORT_MARKER = "historical_eps_same_day_policy_v1"
-IMPORT_SOURCE = "User-supplied historical EPS TTM; report date from Yahoo/official override"
+SOURCE_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_aligned.csv"
+IMPORT_MARKER = "historical_eps_yahoo_diluted_v2"
+LEGACY_IMPORT_MARKER = "historical_eps_same_day_policy_v1"
+DEFAULT_IMPORT_SOURCE = "Yahoo Finance / trailingDilutedEPS historical timeseries"
 
 
 def _load_source(path: Path) -> pd.DataFrame:
@@ -24,16 +25,29 @@ def _load_source(path: Path) -> pd.DataFrame:
     if missing:
         raise ValueError(f"Historisk EPS saknar kolumner: {', '.join(missing)}")
 
-    frame = frame[required].copy()
+    for column, default in (
+        ("period_end", ""),
+        ("eps_source", DEFAULT_IMPORT_SOURCE),
+        ("alignment_status", "legacy_input"),
+    ):
+        if column not in frame.columns:
+            frame[column] = default
+
+    columns = required + ["period_end", "eps_source", "alignment_status"]
+    frame = frame[columns].copy()
     frame["ticker"] = frame["ticker"].astype(str).str.strip()
     frame["report_period"] = frame["report_period"].astype(str).str.strip()
     frame["report_date"] = pd.to_datetime(frame["report_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
+    frame["period_end"] = pd.to_datetime(frame["period_end"], errors="coerce").dt.tz_localize(None).dt.normalize()
     frame["eps_ttm"] = pd.to_numeric(frame["eps_ttm"], errors="coerce")
     frame["currency"] = frame["currency"].astype(str).str.strip().str.upper()
+    frame["eps_source"] = frame["eps_source"].fillna(DEFAULT_IMPORT_SOURCE).astype(str).str.strip()
+    frame["alignment_status"] = frame["alignment_status"].fillna("unknown").astype(str).str.strip()
 
-    if frame[["ticker", "report_period", "report_date", "eps_ttm", "currency"]].isna().any().any():
+    required_for_row = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
+    if frame[required_for_row].isna().any().any():
         bad = frame.loc[
-            frame[["ticker", "report_period", "report_date", "eps_ttm", "currency"]].isna().any(axis=1),
+            frame[required_for_row].isna().any(axis=1),
             ["ticker", "report_period"],
         ]
         raise ValueError(f"Historisk EPS innehåller ofullständiga rader: {bad.head(10).to_dict('records')}")
@@ -67,26 +81,35 @@ def _generated_reports(source: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for row in source.itertuples(index=False):
         report_date = pd.Timestamp(row.report_date).date().isoformat()
+        period_end = pd.Timestamp(row.period_end).date().isoformat() if pd.notna(row.period_end) else ""
+        eps_source = str(row.eps_source or DEFAULT_IMPORT_SOURCE).strip()
         rows.append(
             {
                 "ticker": row.ticker,
-                "period_end": "",
+                "period_end": period_end,
                 "report_period": row.report_period,
-                # Exakt publiceringstid lagras inte historiskt. Projektregeln är
-                # medvetet att EPS alltid gäller samma börsdag som report_date.
                 "published_at": "",
                 "effective_date": report_date,
                 "eps_ttm": float(row.eps_ttm),
-                "source": IMPORT_SOURCE,
+                "source": eps_source,
                 "verified": True,
                 "verified_at": "",
                 "notes": (
                     f"{IMPORT_MARKER}; effective_date=report_date; "
-                    f"report_currency={row.currency}; exact publication time not tracked"
+                    f"report_currency={row.currency}; alignment_status={row.alignment_status}; "
+                    "metric=trailingDilutedEPS where Yahoo history is available; exact publication time not tracked"
                 ),
             }
         )
     return pd.DataFrame(rows)
+
+
+def _historical_generated_mask(notes: pd.Series) -> pd.Series:
+    text = notes.astype(str)
+    return (
+        text.str.contains(IMPORT_MARKER, regex=False, na=False)
+        | text.str.contains(LEGACY_IMPORT_MARKER, regex=False, na=False)
+    )
 
 
 def import_history(
@@ -100,10 +123,11 @@ def import_history(
     generated = _generated_reports(source)
     existing = load_reports(reports_file)
 
-    # Rader som lagts in manuellt eller via andra verifieringsflöden har
-    # företräde. Endast tidigare rader från just denna historikimport ersätts.
-    existing_notes = existing["notes"].astype(str) if not existing.empty else pd.Series(dtype=str)
-    manual = existing.loc[~existing_notes.str.contains(IMPORT_MARKER, regex=False, na=False)].copy()
+    # Riktigt manuella/andra verifierade poster har alltid företräde. Däremot
+    # ersätter v2-importen den gamla användar-/Börsdata-baserade historikimporten
+    # så att samma Yahoo trailingDilutedEPS-definition används bakåt och framåt.
+    generated_mask = _historical_generated_mask(existing["notes"]) if not existing.empty else pd.Series(dtype=bool)
+    manual = existing.loc[~generated_mask].copy() if not existing.empty else existing.copy()
     manual_keys = set(zip(manual["ticker"].astype(str), manual["report_period"].astype(str)))
     if manual_keys:
         generated = generated.loc[
@@ -114,30 +138,39 @@ def import_history(
     save_reports(combined, reports_file)
     saved = load_reports(reports_file)
 
-    imported_count = int(saved["notes"].astype(str).str.contains(IMPORT_MARKER, regex=False, na=False).sum())
+    imported = saved.loc[
+        saved["notes"].astype(str).str.contains(IMPORT_MARKER, regex=False, na=False)
+    ].copy()
     expected = len(source) - len(
         {(ticker, period) for ticker, period in manual_keys if ((source["ticker"] == ticker) & (source["report_period"] == period)).any()}
     )
-    if imported_count != expected:
-        raise ValueError(f"Importerade {imported_count} historiska rapporter, förväntade {expected}")
+    if len(imported) != expected:
+        raise ValueError(f"Importerade {len(imported)} historiska rapporter, förväntade {expected}")
 
-    same_day = saved.loc[saved["notes"].astype(str).str.contains(IMPORT_MARKER, regex=False, na=False)]
-    if not (same_day["effective_date"].dt.normalize() == pd.to_datetime(source.set_index(["ticker", "report_period"])["report_date"])
-            .reindex(pd.MultiIndex.from_frame(same_day[["ticker", "report_period"]]))
-            .reset_index(drop=True)
-            .dt.normalize()).all():
+    source_dates = source.set_index(["ticker", "report_period"])["report_date"]
+    imported_keys = pd.MultiIndex.from_frame(imported[["ticker", "report_period"]])
+    expected_dates = source_dates.reindex(imported_keys).reset_index(drop=True).dt.normalize()
+    actual_dates = imported["effective_date"].reset_index(drop=True).dt.normalize()
+    if not actual_dates.equals(expected_dates):
         raise ValueError("Same-day-regeln för effective_date kunde inte verifieras")
 
+    yahoo_direct = int(
+        source["alignment_status"].astype(str).eq("yahoo_trailing_diluted").sum()
+    )
+    fallback = len(source) - yahoo_direct
     print(
-        f"Historisk EPS importerad: {imported_count} rader för "
-        f"{same_day['ticker'].nunique()} tickers. effective_date = report_date för samtliga importerade rader."
+        f"Historisk EPS importerad: {len(imported)} rader för {imported['ticker'].nunique()} tickers. "
+        f"{yahoo_direct} rader använder Yahoo trailingDilutedEPS direkt och {fallback} är explicit taggade fallback-rader. "
+        "effective_date = report_date för samtliga importerade rader."
     )
     return saved
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Importera berikad historisk EPS till reports.csv med same-day effective_date."
+        description=(
+            "Importera Yahoo-alignad historisk EPS till reports.csv med samma trailingDilutedEPS-definition som framtida data."
+        )
     )
     parser.add_argument("--source", type=Path, default=SOURCE_FILE)
     parser.add_argument("--reports", type=Path, default=REPORTS_FILE)
