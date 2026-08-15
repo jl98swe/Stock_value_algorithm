@@ -5,6 +5,20 @@
   let eventsPayload = null;
   let refreshTimer = null;
 
+  function ensureNavigation() {
+    const actions = document.querySelector('.header-actions');
+    if (!actions || document.getElementById('portfolio-nav')) return;
+    const nav = document.createElement('nav');
+    nav.id = 'portfolio-nav';
+    nav.setAttribute('aria-label', 'Översikter');
+    nav.style.display = 'flex';
+    nav.style.gap = '8px';
+    nav.innerHTML = `
+      <a class="secondary-button" href="./positions.html">Aktiva positioner</a>
+      <a class="secondary-button" href="./signals.html">Kommande signaler</a>`;
+    actions.insertBefore(nav, actions.firstChild);
+  }
+
   function ensureLegend() {
     const legend = document.querySelector('.chart-legend');
     if (!legend) return;
@@ -27,6 +41,7 @@
         .event-key.report { background:#7b61a8; }
         .event-key.dividend { background:#0b7b72; }
         .event-key.news { background:#2f6fb0; }
+        @media (max-width: 900px) { #portfolio-nav { display:none !important; } }
       `;
       document.head.appendChild(style);
     }
@@ -74,6 +89,7 @@
   }
 
   function applyEnhancements() {
+    ensureNavigation();
     ensureLegend();
     if (!dashboard || !eventsPayload || !window.echarts) return;
 
@@ -163,6 +179,7 @@
   }
 
   async function init() {
+    ensureNavigation();
     ensureLegend();
     try {
       [dashboard, eventsPayload] = await Promise.all([
