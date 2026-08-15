@@ -9,8 +9,10 @@ import yfinance as yf
 
 from .config import ROOT
 from .fetch_data import BASE_DATA_FILE, UPDATES_FILE, load_price_history
+from .utils import write_json_atomic
 
 CANDIDATES_FILE = ROOT / "data" / "fundamentals" / "yahoo_eps_candidates.csv"
+CANDIDATES_JSON = ROOT / "docs" / "data" / "fundamental_candidates.json"
 CANDIDATE_COLUMNS = [
     "ticker",
     "period_end",
@@ -22,13 +24,6 @@ CANDIDATE_COLUMNS = [
     "verified",
     "notes",
 ]
-
-
-def _numeric(value: object) -> float | None:
-    number = pd.to_numeric(value, errors="coerce")
-    if pd.isna(number):
-        return None
-    return float(number)
 
 
 def _row(frame: pd.DataFrame, names: tuple[str, ...]) -> pd.Series | None:
@@ -59,19 +54,20 @@ def _quarterly_candidate(ticker: str) -> dict[str, object] | None:
 
     if diluted is not None and not diluted.empty:
         series = pd.to_numeric(diluted, errors="coerce").dropna()
-        if not series.empty:
-            # yfinance använder periodslut som kolumner. Sortera explicit nyast först.
-            parsed = []
-            for column, value in series.items():
-                parsed_date = pd.to_datetime(column, errors="coerce")
-                if pd.notna(parsed_date):
-                    parsed.append((pd.Timestamp(parsed_date).tz_localize(None), float(value)))
-            parsed.sort(key=lambda item: item[0], reverse=True)
-            if parsed:
-                period_end = parsed[0][0].date().isoformat()
-                latest_quarter_eps = parsed[0][1]
-                if len(parsed) >= 4:
-                    derived_ttm = float(sum(value for _, value in parsed[:4]))
+        parsed: list[tuple[pd.Timestamp, float]] = []
+        for column, value in series.items():
+            parsed_date = pd.to_datetime(column, errors="coerce")
+            if pd.notna(parsed_date):
+                timestamp = pd.Timestamp(parsed_date)
+                if timestamp.tzinfo is not None:
+                    timestamp = timestamp.tz_convert(None)
+                parsed.append((timestamp, float(value)))
+        parsed.sort(key=lambda item: item[0], reverse=True)
+        if parsed:
+            period_end = parsed[0][0].date().isoformat()
+            latest_quarter_eps = parsed[0][1]
+            if len(parsed) >= 4:
+                derived_ttm = float(sum(value for _, value in parsed[:4]))
 
     ttm_eps: float | None = None
     try:
@@ -82,7 +78,6 @@ def _quarterly_candidate(ticker: str) -> dict[str, object] | None:
             if not values.empty:
                 ttm_eps = float(values.iloc[0])
     except Exception as exc:
-        # TTM-tabellen finns inte för alla Yahoo-symboler. Det är bara en kandidatkälla.
         print(f"INFO {ticker}: ingen användbar ttm_income_stmt: {exc}")
 
     if latest_quarter_eps is None and derived_ttm is None and ttm_eps is None:
@@ -108,6 +103,28 @@ def _quarterly_candidate(ticker: str) -> dict[str, object] | None:
     }
 
 
+def _json_value(value: object) -> object:
+    if value is None or pd.isna(value):
+        return None
+    if isinstance(value, (float, int)):
+        return float(value)
+    return value
+
+
+def _publish_review_json(frame: pd.DataFrame) -> None:
+    records: list[dict[str, object]] = []
+    for row in frame.to_dict(orient="records"):
+        records.append({key: _json_value(value) for key, value in row.items()})
+    write_json_atomic(
+        CANDIDATES_JSON,
+        {
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "warning": "Yahoo-värden är endast granskningskandidater och används inte i score förrän de finns verifierade i reports.csv.",
+            "candidates": records,
+        },
+    )
+
+
 def update_fundamental_candidates(
     output_file: Path = CANDIDATES_FILE,
     *,
@@ -131,6 +148,7 @@ def update_fundamental_candidates(
     frame = pd.DataFrame(rows, columns=CANDIDATE_COLUMNS)
     output_file.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output_file, index=False)
+    _publish_review_json(frame)
     print(f"Sparade {len(frame)} Yahoo EPS-kandidater till {output_file}")
     return frame
 
