@@ -51,13 +51,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Uppdatera utdelningar
-        if: steps.market_time.outputs.run == 'true'
-        run: python -m src.dividends
-
-      - name: Uppdatera priser och bygg GitHub Pages-data
+      - name: Uppdatera marknadsdata och bygg GitHub Pages-data
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
+
+      - name: Validera data och webbexport
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.validate_outputs
 
       - name: Spara dagens data
         if: steps.market_time.outputs.run == 'true'
