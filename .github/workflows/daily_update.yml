@@ -51,13 +51,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Uppdatera marknadsdata och bygg GitHub Pages-data
+      - name: Uppdatera priser, utdelningar och bygg GitHub Pages-data
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
 
-      - name: Hämta EPS-kandidater för manuell verifiering
+      - name: Uppdatera direkt EPS TTM
         if: steps.market_time.outputs.run == 'true'
-        run: python -m src.fetch_fundamentals
+        run: python -m src.earnings
 
       - name: Validera data och webbexport
         if: steps.market_time.outputs.run == 'true'
@@ -83,10 +83,14 @@ jobs:
             echo "Ingen dividend_updates.csv skapades denna körning."
           fi
 
-          if [ -f data/fundamentals/yahoo_eps_candidates.csv ]; then
-            git add data/fundamentals/yahoo_eps_candidates.csv
+          if [ -f data/earnings/earnings_initial.csv ]; then
+            git add data/earnings/earnings_initial.csv
+          fi
+
+          if [ -f data/earnings/earnings_updates.csv ]; then
+            git add data/earnings/earnings_updates.csv
           else
-            echo "Ingen yahoo_eps_candidates.csv skapades denna körning."
+            echo "Ingen earnings_updates.csv skapades denna körning."
           fi
 
           if git diff --cached --quiet; then
