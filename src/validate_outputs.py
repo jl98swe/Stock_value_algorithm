@@ -7,8 +7,14 @@ import numpy as np
 import pandas as pd
 
 from .config import ROOT
+from .earnings import (
+    BASE_EARNINGS_FILE,
+    EARNINGS_COLUMNS,
+    EARNINGS_JSON,
+    UPDATES_EARNINGS_FILE,
+    load_earnings_history,
+)
 from .fetch_data import BASE_DATA_FILE, PRICE_COLUMNS, UPDATES_FILE, load_price_history
-from .fetch_fundamentals import CANDIDATE_COLUMNS, CANDIDATES_FILE, CANDIDATES_JSON
 from .fundamentals import load_reports, verified_reports
 from .model_data import ensure_gbm_model
 from .valuation import GBMModel
@@ -26,8 +32,12 @@ def _load_json(path: Path) -> dict[str, object]:
     return payload
 
 
+def _resolve(path: Path) -> Path:
+    return path if path.is_absolute() else ROOT / path
+
+
 def _validate_price_updates(prices: pd.DataFrame) -> None:
-    target = ROOT / UPDATES_FILE if not UPDATES_FILE.is_absolute() else UPDATES_FILE
+    target = _resolve(UPDATES_FILE)
     if not target.exists() or target.stat().st_size == 0:
         return
 
@@ -50,33 +60,55 @@ def _validate_price_updates(prices: pd.DataFrame) -> None:
         raise ValueError("MA200 i price_updates.csv stämmer inte med kombinerad prishistorik")
 
 
-def _validate_fundamental_candidates(price_tickers: set[str]) -> None:
-    if not CANDIDATES_FILE.exists():
-        raise ValueError("Yahoo EPS-kandidatfilen saknas efter daglig fundamentalhämtning")
+def _validate_earnings(price_tickers: set[str]) -> None:
+    base_path = _resolve(BASE_EARNINGS_FILE)
+    if not base_path.exists():
+        raise ValueError("earnings_initial.csv saknas")
 
-    candidates = pd.read_csv(CANDIDATES_FILE)
-    missing = [column for column in CANDIDATE_COLUMNS if column not in candidates.columns]
-    if missing:
-        raise ValueError(f"yahoo_eps_candidates.csv saknar kolumner: {', '.join(missing)}")
-    if not candidates.empty:
-        if candidates["ticker"].duplicated().any():
-            raise ValueError("yahoo_eps_candidates.csv innehåller mer än en rad per ticker")
-        unknown = sorted(set(candidates["ticker"].astype(str)).difference(price_tickers))
-        if unknown:
-            raise ValueError(f"EPS-kandidater innehåller okända tickers: {', '.join(unknown[:10])}")
-        if candidates["verified"].astype(str).str.lower().isin({"true", "1", "yes", "ja"}).any():
-            raise ValueError("Automatiska Yahoo-kandidater får aldrig vara verifierade")
-        quarter_count = pd.to_numeric(candidates["quarter_count"], errors="coerce")
-        if quarter_count.isna().any() or ((quarter_count < 1) | (quarter_count > 4)).any():
-            raise ValueError("Ogiltigt quarter_count i Yahoo EPS-kandidater")
-        derived = pd.to_numeric(candidates["derived_eps_ttm"], errors="coerce")
-        if (quarter_count.eq(4) & derived.isna()).any():
-            raise ValueError("Fyra EPS-kvartal finns men derived_eps_ttm saknas")
+    for path, label in (
+        (base_path, "earnings_initial.csv"),
+        (_resolve(UPDATES_EARNINGS_FILE), "earnings_updates.csv"),
+    ):
+        if not path.exists() or path.stat().st_size == 0:
+            continue
+        frame = pd.read_csv(path)
+        missing = [column for column in EARNINGS_COLUMNS if column not in frame.columns]
+        if missing:
+            raise ValueError(f"{label} saknar kolumner: {', '.join(missing)}")
+        if frame.empty:
+            continue
+        frame["observed_date"] = pd.to_datetime(frame["observed_date"], errors="coerce")
+        frame["eps_ttm"] = pd.to_numeric(frame["eps_ttm"], errors="coerce")
+        if frame[["ticker", "observed_date", "eps_ttm"]].isna().any().any():
+            raise ValueError(f"{label} innehåller ogiltig ticker, observed_date eller eps_ttm")
+        if frame.duplicated(["ticker", "observed_date"]).any():
+            raise ValueError(f"{label} innehåller dubbla ticker+observed_date")
 
-    payload = _load_json(CANDIDATES_JSON)
-    rows = payload.get("candidates", [])
-    if not isinstance(rows, list) or len(rows) != len(candidates):
-        raise ValueError("fundamental_candidates.json matchar inte CSV-kandidatfilen")
+    history = load_earnings_history()
+    if history.empty:
+        # Tillåtet före den första lyckade EPS-hämtningen.
+        return
+
+    unknown = sorted(set(history["ticker"].astype(str)).difference(price_tickers))
+    if unknown:
+        raise ValueError(f"Earnings innehåller okända tickers: {', '.join(unknown[:10])}")
+
+    payload = _load_json(EARNINGS_JSON)
+    rows = payload.get("latest", [])
+    if not isinstance(rows, list):
+        raise ValueError("earnings.json: latest måste vara en lista")
+
+    latest = (
+        history.sort_values(["ticker", "observed_date"])
+        .groupby("ticker", sort=False)
+        .tail(1)
+    )
+    if len(rows) != len(latest):
+        raise ValueError("earnings.json matchar inte senaste EPS-raderna")
+
+    json_tickers = {str(row.get("ticker")) for row in rows if isinstance(row, dict)}
+    if json_tickers != set(latest["ticker"].astype(str)):
+        raise ValueError("earnings.json har fel tickeruppsättning")
 
 
 def _validate_dashboard(prices: pd.DataFrame) -> None:
@@ -130,7 +162,7 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
     if not any(isinstance(item, dict) and item.get("event_type") == "dividend" for item in event_rows):
         raise ValueError("Inga utdelningshändelser exporterades till events.json")
 
-    _validate_fundamental_candidates(price_tickers)
+    _validate_earnings(price_tickers)
 
 
 def validate() -> None:
@@ -139,7 +171,7 @@ def validate() -> None:
     if len(model.tree_root) != 100:
         raise ValueError(f"GBM-modellen har {len(model.tree_root)} träd, förväntade 100")
 
-    base_path = ROOT / BASE_DATA_FILE if not BASE_DATA_FILE.is_absolute() else BASE_DATA_FILE
+    base_path = _resolve(BASE_DATA_FILE)
     if not base_path.exists():
         raise FileNotFoundError(base_path)
 
