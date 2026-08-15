@@ -51,6 +51,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Uppdatera valutakurser
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.fx
+
       - name: Uppdatera priser, utdelningar och bygg GitHub Pages-data
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
@@ -81,6 +85,16 @@ jobs:
             git add data/dividends/dividend_updates.csv
           else
             echo "Ingen dividend_updates.csv skapades denna körning."
+          fi
+
+          if [ -f data/fx/fx_initial.csv ]; then
+            git add data/fx/fx_initial.csv
+          fi
+
+          if [ -f data/fx/fx_updates.csv ]; then
+            git add data/fx/fx_updates.csv
+          else
+            echo "Ingen fx_updates.csv skapades denna körning."
           fi
 
           if [ -f data/earnings/earnings_initial.csv ]; then
