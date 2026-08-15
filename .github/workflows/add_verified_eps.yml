@@ -89,6 +89,9 @@ jobs:
       - name: Bygg om dashboard med verifierad EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
+      - name: Uppdatera Yahoo EPS-kandidater
+        run: python -m src.fetch_fundamentals
+
       - name: Validera data och webbexport
         run: python -m src.validate_outputs
 
@@ -96,7 +99,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fundamentals/reports.csv docs/data
+          git add data/fundamentals/reports.csv data/fundamentals/yahoo_eps_candidates.csv docs/data
           if git diff --cached --quiet; then
             echo "Inga ändringar att spara."
             exit 0
