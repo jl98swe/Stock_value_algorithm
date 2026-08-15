@@ -22,22 +22,9 @@ METRICS = [
 ]
 
 
-def _fetch_one(ticker: str, period1: int, period2: int) -> list[dict[str, object]]:
-    symbol = yf.Ticker(ticker)
-    url = (
-        f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}"
-        f"?symbol={ticker}&type={','.join(METRICS)}&period1={period1}&period2={period2}"
-    )
-    try:
-        response = symbol._data.cache_get(url=url)
-        payload = json.loads(response.text)
-    except Exception as exc:
-        print(f"VARNING {ticker}: EPS-timeseries kunde inte hämtas: {exc}")
-        return []
-
-    result = (payload.get("timeseries") or {}).get("result") or []
+def _parse_payload(ticker: str, payload: dict[str, object]) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
-    for block in result:
+    for block in (payload.get("timeseries") or {}).get("result") or []:
         for metric in METRICS:
             values = block.get(metric)
             if not isinstance(values, list):
@@ -59,6 +46,29 @@ def _fetch_one(ticker: str, period1: int, period2: int) -> list[dict[str, object
     return rows
 
 
+def _fetch_one(ticker: str, period1: int, period2_values: list[int]) -> list[dict[str, object]]:
+    """Hämta flera Yahoo-fönster och slå ihop dem.
+
+    Fundamentals-timeseries returnerar ett begränsat antal observationer per
+    anrop. Historiska slutdatum gör att annars utelämnade kvartal (framför allt
+    2025-Q3 i den första kontrollen) kan hämtas utan någon betaltjänst.
+    """
+    symbol = yf.Ticker(ticker)
+    rows: list[dict[str, object]] = []
+    for period2 in period2_values:
+        url = (
+            f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}"
+            f"?symbol={ticker}&type={','.join(METRICS)}&period1={period1}&period2={period2}"
+        )
+        try:
+            response = symbol._data.cache_get(url=url)
+            payload = json.loads(response.text)
+            rows.extend(_parse_payload(ticker, payload))
+        except Exception as exc:
+            print(f"VARNING {ticker}: EPS-timeseries-fönster kunde inte hämtas: {exc}")
+    return rows
+
+
 def audit(
     history_file: Path = HISTORY_FILE,
     output_file: Path = OUTPUT_FILE,
@@ -70,14 +80,23 @@ def audit(
     if not tickers:
         raise ValueError("Ingen tickerhistorik hittades.")
 
-    start = pd.Timestamp("2023-01-01", tz="UTC")
-    end = pd.Timestamp(datetime.now(ZoneInfo("Europe/Stockholm")) + timedelta(days=2)).tz_convert("UTC")
+    start = pd.Timestamp("2022-01-01", tz="UTC")
+    now = pd.Timestamp(datetime.now(ZoneInfo("Europe/Stockholm")) + timedelta(days=2)).tz_convert("UTC")
+    checkpoints = [
+        now,
+        pd.Timestamp("2026-01-15", tz="UTC"),
+        pd.Timestamp("2025-01-15", tz="UTC"),
+        pd.Timestamp("2024-08-01", tz="UTC"),
+    ]
     period1 = int(start.timestamp())
-    period2 = int(end.timestamp())
+    period2_values = sorted({int(value.timestamp()) for value in checkpoints}, reverse=True)
 
     rows: list[dict[str, object]] = []
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(tickers)))) as executor:
-        futures = {executor.submit(_fetch_one, ticker, period1, period2): ticker for ticker in tickers}
+        futures = {
+            executor.submit(_fetch_one, ticker, period1, period2_values): ticker
+            for ticker in tickers
+        }
         for index, future in enumerate(as_completed(futures), start=1):
             ticker = futures[future]
             try:
