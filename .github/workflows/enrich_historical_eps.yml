@@ -13,6 +13,7 @@ on:
       - "src/import_enriched_eps.py"
       - "src/audit_historical_valuation.py"
       - "src/compare_latest_eps.py"
+      - "src/limit_dashboard_window.py"
       - ".github/workflows/enrich_historical_eps.yml"
 
 permissions:
@@ -57,6 +58,9 @@ jobs:
 
       - name: Bygg dashboard med historisk EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
+
+      - name: Begränsa dashboard från 2024-01-01
+        run: python -m src.limit_dashboard_window
 
       - name: Hämta aktuell Yahoo EPS TTM
         run: python -m src.earnings
