@@ -11,6 +11,8 @@ from .earnings import (
     BASE_EARNINGS_FILE,
     EARNINGS_COLUMNS,
     EARNINGS_JSON,
+    EPS_METRIC,
+    EPS_SOURCE,
     UPDATES_EARNINGS_FILE,
     load_earnings_history,
 )
@@ -28,6 +30,8 @@ from .model_data import ensure_gbm_model
 from .valuation import GBMModel
 
 DOCS_DATA = ROOT / "docs" / "data"
+HISTORICAL_YAHOO_MARKER = "historical_eps_yahoo_diluted_v2"
+FALLBACK_HISTORY_MARKER = "alignment_status=fallback_user_history"
 
 
 def _load_json(path: Path) -> dict[str, object]:
@@ -105,6 +109,37 @@ def _validate_fx() -> None:
         raise ValueError(f"Saknar FX-historik för valutapar: {missing_pairs}")
 
 
+def _validate_canonical_reports() -> None:
+    reports = load_reports()
+    if reports.empty:
+        return
+
+    notes = reports["notes"].fillna("").astype(str)
+    if notes.str.contains(FALLBACK_HISTORY_MARKER, regex=False).any():
+        bad = reports.loc[
+            notes.str.contains(FALLBACK_HISTORY_MARKER, regex=False),
+            ["ticker", "report_period"],
+        ]
+        raise ValueError(
+            "Kanoniska reports.csv innehåller fallback-historik som inte är jämförbar med Yahoo "
+            f"{EPS_METRIC}: {bad.head(10).to_dict('records')}"
+        )
+
+    historical = reports.loc[notes.str.contains(HISTORICAL_YAHOO_MARKER, regex=False)].copy()
+    if not historical.empty:
+        invalid_source = ~historical["source"].fillna("").astype(str).str.startswith(
+            "Yahoo Finance / trailingDilutedEPS"
+        )
+        if invalid_source.any():
+            bad = historical.loc[invalid_source, ["ticker", "report_period", "source"]]
+            raise ValueError(
+                "Historisk kanonisk EPS använder annan definition än Yahoo trailingDilutedEPS: "
+                f"{bad.head(10).to_dict('records')}"
+            )
+        if historical[["period_end", "effective_date", "eps_ttm"]].isna().any().any():
+            raise ValueError("Historisk Yahoo-alignad EPS saknar period_end, effective_date eller eps_ttm")
+
+
 def _validate_earnings(price_tickers: set[str]) -> None:
     base_path = _resolve(BASE_EARNINGS_FILE)
     if not base_path.exists():
@@ -122,10 +157,19 @@ def _validate_earnings(price_tickers: set[str]) -> None:
             raise ValueError(f"{label} saknar kolumner: {', '.join(missing)}")
         if frame.empty:
             continue
-        frame["observed_date"] = pd.to_datetime(frame["observed_date"], errors="coerce")
+        for column in ("period_end", "observed_date"):
+            frame[column] = pd.to_datetime(frame[column], errors="coerce")
         frame["eps_ttm"] = pd.to_numeric(frame["eps_ttm"], errors="coerce")
-        if frame[["ticker", "observed_date", "eps_ttm"]].isna().any().any():
-            raise ValueError(f"{label} innehåller ogiltig ticker, observed_date eller eps_ttm")
+        if frame[["ticker", "period_end", "observed_date", "eps_ttm"]].isna().any().any():
+            raise ValueError(
+                f"{label} innehåller ogiltig ticker, period_end, observed_date eller eps_ttm"
+            )
+        if frame["eps_currency"].fillna("").astype(str).str.strip().eq("").any():
+            raise ValueError(f"{label} innehåller EPS utan currencyCode")
+        if not frame["source"].fillna("").astype(str).eq(EPS_SOURCE).all():
+            raise ValueError(
+                f"{label} blandar EPS-definitioner; endast {EPS_SOURCE!r} får användas framåt"
+            )
         if frame.duplicated(["ticker", "observed_date"]).any():
             raise ValueError(f"{label} innehåller dubbla ticker+observed_date")
 
@@ -134,11 +178,22 @@ def _validate_earnings(price_tickers: set[str]) -> None:
         # Tillåtet före den första lyckade EPS-hämtningen.
         return
 
+    if not history["source"].fillna("").astype(str).eq(EPS_SOURCE).all():
+        raise ValueError("Kombinerad Earnings-historik innehåller annan metric än trailingDilutedEPS")
+    if history["period_end"].isna().any():
+        raise ValueError("Kombinerad Earnings-historik saknar period_end")
+    if history["eps_currency"].fillna("").astype(str).str.strip().eq("").any():
+        raise ValueError("Kombinerad Earnings-historik saknar EPS-valuta")
+
     unknown = sorted(set(history["ticker"].astype(str)).difference(price_tickers))
     if unknown:
         raise ValueError(f"Earnings innehåller okända tickers: {', '.join(unknown[:10])}")
 
     payload = _load_json(EARNINGS_JSON)
+    if payload.get("metric") != EPS_METRIC:
+        raise ValueError(
+            f"earnings.json använder metric {payload.get('metric')!r}, förväntade {EPS_METRIC!r}"
+        )
     rows = payload.get("latest", [])
     if not isinstance(rows, list):
         raise ValueError("earnings.json: latest måste vara en lista")
@@ -207,6 +262,7 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
     if not any(isinstance(item, dict) and item.get("event_type") == "dividend" for item in event_rows):
         raise ValueError("Inga utdelningshändelser exporterades till events.json")
 
+    _validate_canonical_reports()
     _validate_earnings(price_tickers)
 
 
@@ -233,7 +289,7 @@ def validate() -> None:
     _validate_dashboard(prices)
     print(
         f"Validering OK: {prices['ticker'].nunique()} tickers, "
-        f"{len(prices):,} prisrader, GBM 100 träd, FX och webbdata konsistenta."
+        f"{len(prices):,} prisrader, GBM 100 träd, FX och Yahoo trailingDilutedEPS konsistenta."
     )
 
 
