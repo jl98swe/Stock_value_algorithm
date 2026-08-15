@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -17,8 +18,18 @@ from .utils import write_json_atomic
 BASE_EARNINGS_FILE = Path("data/earnings/earnings_initial.csv")
 UPDATES_EARNINGS_FILE = Path("data/earnings/earnings_updates.csv")
 EARNINGS_JSON = ROOT / "docs" / "data" / "earnings.json"
-EARNINGS_COLUMNS = ["ticker", "report_date", "observed_date", "eps_ttm", "source"]
-EPS_SOURCE = "Yahoo Finance / trailingEps + get_earnings_dates"
+EARNINGS_COLUMNS = [
+    "ticker",
+    "period_end",
+    "report_date",
+    "observed_date",
+    "eps_ttm",
+    "eps_currency",
+    "source",
+]
+EPS_METRIC = "trailingDilutedEPS"
+EPS_SOURCE = "Yahoo Finance / trailingDilutedEPS"
+LEGACY_SOURCE_TOKEN = "trailingEps"
 
 
 def _resolve(path: Path) -> Path:
@@ -32,10 +43,14 @@ def _normalise_earnings(frame: pd.DataFrame) -> pd.DataFrame:
     result = frame.copy()
     result.columns = [str(column).strip().lower() for column in result.columns]
 
-    # Bakåtkompatibilitet med den första versionen av earnings-filerna, som
-    # saknade report_date. Nästa skrivning migrerar automatiskt till nya schemat.
+    # Bakåtkompatibilitet med äldre snapshot-filer. De migreras till
+    # trailingDilutedEPS vid nästa lyckade update_earnings-körning.
+    if "period_end" not in result.columns:
+        result["period_end"] = pd.NaT
     if "report_date" not in result.columns:
         result["report_date"] = pd.NaT
+    if "eps_currency" not in result.columns:
+        result["eps_currency"] = ""
 
     required = {"ticker", "observed_date", "eps_ttm", "source"}
     missing = sorted(required.difference(result.columns))
@@ -44,18 +59,19 @@ def _normalise_earnings(frame: pd.DataFrame) -> pd.DataFrame:
 
     result = result[EARNINGS_COLUMNS].copy()
     result["ticker"] = result["ticker"].astype(str).str.strip()
-    for column in ("report_date", "observed_date"):
+    for column in ("period_end", "report_date", "observed_date"):
         result[column] = (
             pd.to_datetime(result[column], errors="coerce")
             .dt.tz_localize(None)
             .dt.normalize()
         )
     result["eps_ttm"] = pd.to_numeric(result["eps_ttm"], errors="coerce")
+    result["eps_currency"] = result["eps_currency"].fillna("").astype(str).str.strip().str.upper()
     result["source"] = result["source"].astype(str).str.strip()
     result = result.dropna(subset=["ticker", "observed_date", "eps_ttm"])
     result = result.loc[result["ticker"].str.len() > 0]
     return (
-        result.sort_values(["ticker", "observed_date"])
+        result.sort_values(["ticker", "observed_date", "period_end"], na_position="last")
         .drop_duplicates(["ticker", "observed_date"], keep="last")
         .reset_index(drop=True)
     )
@@ -99,22 +115,56 @@ def latest_earnings(
 
 
 def _fetch_eps_one(ticker: str, observed_date: str) -> dict[str, object] | None:
+    """Hämta senaste Yahoo trailingDilutedEPS i dess rapportvaluta.
+
+    Detta är samma Yahoo-metric som används för den alignade historiken. Till
+    skillnad från quoteSummary-fältet trailingEps ger fundamentals-timeseries
+    även period_end och currencyCode, vilket gör historik och framtid direkt
+    jämförbara innan projektets separata FX-konvertering.
+    """
+    now = datetime.now(ZoneInfo("Europe/Stockholm"))
+    period1 = int((now - timedelta(days=1000)).timestamp())
+    period2 = int((now + timedelta(days=2)).timestamp())
+    symbol = yf.Ticker(ticker)
+    url = (
+        f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}"
+        f"?symbol={ticker}&type={EPS_METRIC}&period1={period1}&period2={period2}"
+    )
     try:
-        info = yf.Ticker(ticker).get_info()
+        response = symbol._data.cache_get(url=url)
+        payload = json.loads(response.text)
     except Exception as exc:
-        print(f"VARNING {ticker}: Yahoo trailingEps kunde inte hämtas: {exc}")
+        print(f"VARNING {ticker}: Yahoo {EPS_METRIC} kunde inte hämtas: {exc}")
         return None
 
-    value = pd.to_numeric(info.get("trailingEps"), errors="coerce")
-    if pd.isna(value) or not math.isfinite(float(value)):
-        print(f"INFO {ticker}: Yahoo saknar användbar trailingEps.")
+    candidates: list[tuple[pd.Timestamp, float, str]] = []
+    for block in (payload.get("timeseries") or {}).get("result") or []:
+        values = block.get(EPS_METRIC)
+        if not isinstance(values, list):
+            continue
+        block_currency = str((block.get("meta") or {}).get("currencyCode") or "").strip().upper()
+        for item in values:
+            raw = pd.to_numeric((item.get("reportedValue") or {}).get("raw"), errors="coerce")
+            period_end = pd.to_datetime(item.get("asOfDate"), errors="coerce")
+            if pd.isna(raw) or pd.isna(period_end) or not math.isfinite(float(raw)):
+                continue
+            currency = str(item.get("currencyCode") or block_currency or "").strip().upper()
+            if not currency:
+                continue
+            candidates.append((pd.Timestamp(period_end).tz_localize(None).normalize(), float(raw), currency))
+
+    if not candidates:
+        print(f"INFO {ticker}: Yahoo saknar användbar {EPS_METRIC}.")
         return None
 
+    period_end, value, currency = max(candidates, key=lambda item: item[0])
     return {
         "ticker": ticker,
+        "period_end": period_end,
         "report_date": pd.NaT,
         "observed_date": observed_date,
-        "eps_ttm": float(value),
+        "eps_ttm": value,
+        "eps_currency": currency,
         "source": EPS_SOURCE,
     }
 
@@ -124,11 +174,7 @@ def _select_latest_report_date(
     *,
     now: pd.Timestamp | None = None,
 ) -> pd.Timestamp | None:
-    """Välj senaste redan inträffade Yahoo-rapportdatum.
-
-    ``get_earnings_dates`` kan även innehålla framtida estimat. Om kolumnen
-    ``Reported EPS`` finns prioriteras rader där faktiskt EPS har rapporterats.
-    """
+    """Välj senaste redan inträffade Yahoo-rapportdatum."""
     if earnings_dates is None or earnings_dates.empty:
         return None
 
@@ -153,7 +199,6 @@ def _select_latest_report_date(
         candidates.append((comparison, timestamp))
 
     if not candidates and "Reported EPS" in earnings_dates.columns:
-        # Vissa Yahoo-symboler saknar Reported EPS trots att rapportdatumet finns.
         for index in earnings_dates.index:
             timestamp = pd.to_datetime(index, errors="coerce")
             if pd.isna(timestamp):
@@ -167,9 +212,6 @@ def _select_latest_report_date(
         return None
 
     _, latest = max(candidates, key=lambda item: item[0])
-    # Behåll kalenderdatumet som Yahoo anger för rapporthändelsen. Tidszonen
-    # behövs inte i den här snapshot-filen; exakt publiceringstid verifieras i
-    # reports.csv när värdet ska bli point-in-time-exekverbart.
     return pd.Timestamp(latest.date())
 
 
@@ -235,10 +277,9 @@ def _fetch_current_eps(tickers: list[str], workers: int) -> pd.DataFrame:
 def _write_csv(frame: pd.DataFrame, path: Path) -> None:
     target = _resolve(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    output = frame.copy()
-    if not output.empty:
-        for column in ("report_date", "observed_date"):
-            output[column] = output[column].dt.strftime("%Y-%m-%d")
+    output = _normalise_earnings(frame).copy()
+    for column in ("period_end", "report_date", "observed_date"):
+        output[column] = output[column].dt.strftime("%Y-%m-%d")
     output.to_csv(target, index=False)
 
 
@@ -257,13 +298,11 @@ def _publish_json(history: pd.DataFrame) -> None:
         rows.append(
             {
                 "ticker": row.ticker,
-                "report_date": (
-                    pd.Timestamp(row.report_date).date().isoformat()
-                    if pd.notna(row.report_date)
-                    else None
-                ),
+                "period_end": pd.Timestamp(row.period_end).date().isoformat() if pd.notna(row.period_end) else None,
+                "report_date": pd.Timestamp(row.report_date).date().isoformat() if pd.notna(row.report_date) else None,
                 "observed_date": pd.Timestamp(row.observed_date).date().isoformat(),
                 "eps_ttm": float(row.eps_ttm),
+                "eps_currency": row.eps_currency or None,
                 "source": row.source,
             }
         )
@@ -272,10 +311,30 @@ def _publish_json(history: pd.DataFrame) -> None:
         {
             "generated_at": datetime.now(ZoneInfo("Europe/Stockholm")).isoformat(timespec="seconds"),
             "source": EPS_SOURCE,
-            "note": "Direkt Yahoo trailing EPS TTM. report_date hämtas från senaste inträffade get_earnings_dates-händelse; observed_date är dagen systemet såg EPS-värdet. Kvartal summeras inte.",
+            "metric": EPS_METRIC,
+            "note": (
+                "Yahoo trailingDilutedEPS hämtas direkt från fundamentals-timeseries i den valuta Yahoo anger för EPS. "
+                "Det är samma metric som används för den alignade historiken. report_date kommer från senaste "
+                "inträffade get_earnings_dates-händelse; observed_date är dagen systemet först såg perioden/värdet."
+            ),
             "latest": rows,
         },
     )
+
+
+def _is_current_metric(history: pd.DataFrame) -> bool:
+    if history.empty:
+        return False
+    sources = history["source"].fillna("").astype(str)
+    return bool((sources == EPS_SOURCE).all() and history["eps_currency"].astype(str).str.len().gt(0).all())
+
+
+def _signature(row: pd.Series | object) -> tuple[str, float, str]:
+    period_end = getattr(row, "period_end", pd.NaT)
+    eps_ttm = getattr(row, "eps_ttm", math.nan)
+    currency = getattr(row, "eps_currency", "")
+    period_text = pd.Timestamp(period_end).date().isoformat() if pd.notna(period_end) else ""
+    return period_text, float(eps_ttm), str(currency or "").upper()
 
 
 def update_earnings(
@@ -294,44 +353,54 @@ def update_earnings(
     history = load_earnings_history(base_file, updates_file)
     fetched = _fetch_current_eps(tickers, workers)
     if fetched.empty:
-        raise RuntimeError("Yahoo returnerade ingen EPS TTM för någon ticker.")
+        raise RuntimeError(f"Yahoo returnerade ingen {EPS_METRIC} för någon ticker.")
 
     missing = sorted(set(tickers).difference(set(fetched["ticker"].astype(str))))
     if missing:
-        print(f"VARNING: trailingEps saknas för {len(missing)} ticker(s): {', '.join(missing[:20])}")
+        print(f"VARNING: {EPS_METRIC} saknas för {len(missing)} ticker(s): {', '.join(missing[:20])}")
 
-    # Första lyckade körningen bootstrappar den frysta basfilen. Rapportdatum
-    # hämtas endast för rader som faktiskt ska sparas, vilket håller de dagliga
-    # Yahoo-anropen små efter initialiseringen.
-    if base.empty and old_updates.empty:
+    # Första körningen efter metricbytet migrerar bort gamla quoteSummary-
+    # trailingEps snapshots. Vi blandar aldrig två EPS-definitioner i samma
+    # tidsserie.
+    metric_migration = (not history.empty) and not _is_current_metric(history)
+    if (base.empty and old_updates.empty) or metric_migration:
         fetched = _attach_report_dates(fetched, workers)
         _write_csv(fetched, base_file)
+        _write_csv(pd.DataFrame(columns=EARNINGS_COLUMNS), updates_file)
         _publish_json(fetched)
-        print(f"EPS-bas skapad: {len(fetched)} aktuella TTM-värden i {_resolve(base_file)}")
+        action = "migrerad till" if metric_migration else "skapad med"
+        print(
+            f"EPS-bas {action} Yahoo {EPS_METRIC}: {len(fetched)} aktuella värden i {_resolve(base_file)}. "
+            "Äldre trailingEps-snapshots blandas inte med den nya serien."
+        )
         return fetched
 
-    latest_values: dict[str, float] = {}
+    latest_rows: dict[str, object] = {}
     if not history.empty:
-        latest = (
-            history.sort_values(["ticker", "observed_date"])
-            .groupby("ticker", sort=False)
-            .tail(1)
-        )
-        latest_values = {
-            str(row.ticker): float(row.eps_ttm)
-            for row in latest.itertuples(index=False)
-        }
+        latest = history.sort_values(["ticker", "observed_date"]).groupby("ticker", sort=False).tail(1)
+        latest_rows = {str(row.ticker): row for row in latest.itertuples(index=False)}
 
     changed_rows: list[dict[str, object]] = []
     for row in fetched.itertuples(index=False):
-        previous = latest_values.get(str(row.ticker))
-        if previous is None or not math.isclose(float(row.eps_ttm), previous, rel_tol=1e-12, abs_tol=1e-12):
+        previous = latest_rows.get(str(row.ticker))
+        changed = previous is None
+        if previous is not None:
+            old_period, old_value, old_currency = _signature(previous)
+            new_period, new_value, new_currency = _signature(row)
+            changed = (
+                old_period != new_period
+                or old_currency != new_currency
+                or not math.isclose(new_value, old_value, rel_tol=1e-12, abs_tol=1e-12)
+            )
+        if changed:
             changed_rows.append(
                 {
                     "ticker": row.ticker,
+                    "period_end": row.period_end,
                     "report_date": pd.NaT,
                     "observed_date": row.observed_date,
                     "eps_ttm": row.eps_ttm,
+                    "eps_currency": row.eps_currency,
                     "source": row.source,
                 }
             )
@@ -341,9 +410,9 @@ def update_earnings(
         changes = _attach_report_dates(changes, workers)
         updates = _normalise_earnings(pd.concat([old_updates, changes], ignore_index=True))
         _write_csv(updates, updates_file)
-        print(f"EPS-uppdateringar sparade: {len(changes)} nya/ändrade värden.")
+        print(f"EPS-uppdateringar sparade: {len(changes)} nya/ändrade perioder eller värden.")
     else:
-        print("Ingen EPS TTM har ändrats sedan föregående körning.")
+        print(f"Ingen Yahoo {EPS_METRIC} har ändrats sedan föregående körning.")
 
     combined = load_earnings_history(base_file, updates_file)
     _publish_json(combined)
@@ -352,7 +421,9 @@ def update_earnings(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Hämta aktuell Yahoo EPS TTM med senaste rapportdatum och spara endast ändrade värden."
+        description=(
+            "Hämta aktuell Yahoo trailingDilutedEPS i rapportvaluta med periodslut/rapportdatum och spara endast ändringar."
+        )
     )
     parser.add_argument("--base-file", type=Path, default=BASE_EARNINGS_FILE)
     parser.add_argument("--updates-file", type=Path, default=UPDATES_EARNINGS_FILE)
