@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Kommande signaler · Stock Value Algorithm</title>
+  <meta name="description" content="Översikt över väntande och potentiella kommande köp- och säljsignaler.">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/overview.css">
+  <script defer src="./assets/overview.js"></script>
+</head>
+<body data-overview="signals">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand-wrap brand-link" href="./index.html">
+        <div class="brand-mark" aria-hidden="true">SV</div>
+        <div><div class="brand-title">Stock Value Algorithm</div><div class="brand-subtitle">Signalbevakning</div></div>
+      </a>
+      <div class="header-actions">
+        <nav class="page-nav" aria-label="Huvudnavigation">
+          <a class="secondary-button" href="./index.html">Aktier</a>
+          <a class="secondary-button" href="./positions.html">Aktiva positioner</a>
+          <a class="secondary-button" href="./review.html">Granska data</a>
+        </nav>
+        <div class="update-status"><span class="status-dot" aria-hidden="true"></span><div><span class="status-label">Senast byggd</span><strong id="last-updated">Laddar…</strong></div></div>
+      </div>
+    </header>
+
+    <main class="overview-wrap">
+      <div class="overview-head">
+        <div>
+          <span class="eyebrow">Bevakning</span>
+          <h1>Kommande signaler</h1>
+          <p class="muted">Faktiska signaler visas alltid. Övriga kandidater sorteras efter avstånd till köpgräns 0 eller säljgräns 100.</p>
+        </div>
+        <div class="overview-controls">
+          <input id="overview-search" class="overview-search" type="search" placeholder="Sök ticker eller namn" autocomplete="off" aria-label="Sök bland signalkandidater">
+          <select id="signal-window" class="overview-select" aria-label="Maximalt avstånd till signalgräns">
+            <option value="5" selected>Inom 5 poäng</option>
+            <option value="10">Inom 10 poäng</option>
+            <option value="20">Inom 20 poäng</option>
+            <option value="all">Alla kandidater</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="summary-row" aria-label="Signalsammanfattning">
+        <span class="summary-pill"><strong id="summary-count">0</strong> visade</span>
+        <span class="summary-pill"><strong id="summary-actual">0</strong> signaler nu</span>
+        <span class="summary-pill"><strong id="summary-buy">0</strong> köp</span>
+        <span class="summary-pill"><strong id="summary-sell">0</strong> sälj</span>
+        <span class="summary-pill"><strong id="summary-locked">0</strong> spärrade</span>
+      </div>
+
+      <div id="loading-state" class="loading-state"><div class="spinner" aria-hidden="true"></div><p>Laddar signalbevakning…</p></div>
+      <section id="overview-content" class="panel overview-panel" hidden>
+        <table class="overview-table">
+          <thead><tr><th>Aktie</th><th>Riktning</th><th>Score</th><th>Närhet</th><th>Position</th><th>Återaktiverad</th><th>Spärr</th><th>Kommentar</th></tr></thead>
+          <tbody id="overview-body"></tbody>
+        </table>
+      </section>
+      <div id="error-state" class="error-state" hidden><h2>Kunde inte ladda signalbevakningen</h2><p id="error-message"></p></div>
+    </main>
+  </div>
+</body>
+</html>
