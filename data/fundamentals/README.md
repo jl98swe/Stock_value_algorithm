@@ -11,7 +11,7 @@
 | `report_period` | Stabil periodetikett, t.ex. `2026-Q2` |
 | `published_at` | När rapporten blev offentlig, med tidszon |
 | `effective_date` | Första handelsdag då denna EPS TTM får användas av algoritmen |
-| `eps_ttm` | Verifierad EPS TTM |
+| `eps_ttm` | Verifierad EPS TTM i bolagets rapportvaluta |
 | `source` | Var siffran verifierades |
 | `verified` | `true` endast när posten får användas |
 | `verified_at` | Tidpunkt för verifiering |
@@ -40,6 +40,14 @@ data/earnings/earnings_updates.csv
 
 Denna snapshot är användbar för aktuell kontroll, men `observed_date` är inte automatiskt samma sak som rapportens verkliga publiceringstid. Historisk point-in-time-värdering fortsätter därför att använda verifierade `published_at` och `effective_date` i `reports.csv`.
 
+## Valuta
+
+EPS lagras i bolagets ursprungliga rapportvaluta. Aktiens handelsvaluta och rapportvaluta finns i `data/metadata/stocks_yahoo.csv`.
+
+Om valutorna skiljer sig konverteras EPS till aktiens handelsvaluta **innan** P/E beräknas. Valutahistoriken ligger i `data/fx/` och hämtas från Yahoo. Exempelvis används `USDSEK=X` för USD -> SEK och `EURSEK=X` för EUR -> SEK.
+
+För att undvika look-ahead används den senaste fullt avslutade FX-dagskursen före aktiedagen. Den rapporterade siffran bevaras samtidigt som `EPS_TTM_RAW`; den valutajusterade serien används som `EPS_TTM` i värderingen. Om ett nödvändigt valutapar saknas får systemet inte behandla två olika valutor som om de vore samma.
+
 ## Historikimport
 
 Köpt historisk data importeras via:
@@ -67,4 +75,4 @@ python -m src.add_report `
   --source "Bolagets rapport"
 ```
 
-Efter verifieringen kan pipelinen direkt beräkna point-in-time P/E, Pine v3.0-score och strategi för den historik där EPS finns.
+Efter verifieringen kan pipelinen direkt beräkna point-in-time P/E, värderingsscore och strategi för den historik där EPS finns.
