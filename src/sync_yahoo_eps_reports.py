@@ -14,6 +14,7 @@ HISTORICAL_MARKERS = (
     "historical_eps_same_day_policy_v1",
 )
 MAX_REPORT_LAG_DAYS = 140
+MAX_OBSERVED_FALLBACK_LAG_DAYS = 180
 
 
 def _is_replaceable_generated_report(row: pd.Series) -> bool:
@@ -21,9 +22,36 @@ def _is_replaceable_generated_report(row: pd.Series) -> bool:
     return AUTO_MARKER in notes or any(marker in notes for marker in HISTORICAL_MARKERS)
 
 
-def _new_report_row(earning: pd.Series, report_period: str) -> dict[str, object]:
+def _valid_report_date(value: object, period_end: pd.Timestamp) -> pd.Timestamp | None:
+    timestamp = pd.to_datetime(value, errors="coerce")
+    if pd.isna(timestamp):
+        return None
+    report_date = pd.Timestamp(timestamp).tz_localize(None).normalize()
+    lag_days = int((report_date - period_end).days)
+    if lag_days < 0 or lag_days > MAX_REPORT_LAG_DAYS:
+        return None
+    return report_date
+
+
+def _observed_fallback_date(value: object, period_end: pd.Timestamp) -> pd.Timestamp | None:
+    timestamp = pd.to_datetime(value, errors="coerce")
+    if pd.isna(timestamp):
+        return None
+    observed_date = pd.Timestamp(timestamp).tz_localize(None).normalize()
+    lag_days = int((observed_date - period_end).days)
+    if lag_days < 0 or lag_days > MAX_OBSERVED_FALLBACK_LAG_DAYS:
+        return None
+    return observed_date
+
+
+def _new_report_row(
+    earning: pd.Series,
+    report_period: str,
+    *,
+    effective_date: pd.Timestamp,
+    date_basis: str,
+) -> dict[str, object]:
     period_end = pd.Timestamp(earning["period_end"]).normalize()
-    report_date = pd.Timestamp(earning["report_date"]).normalize()
     observed_date = pd.Timestamp(earning["observed_date"]).normalize()
     currency = str(earning["eps_currency"]).strip().upper()
     return {
@@ -31,14 +59,15 @@ def _new_report_row(earning: pd.Series, report_period: str) -> dict[str, object]
         "period_end": period_end,
         "report_period": report_period,
         "published_at": pd.NaT,
-        "effective_date": report_date,
+        "effective_date": pd.Timestamp(effective_date).normalize(),
         "eps_ttm": float(earning["eps_ttm"]),
         "source": EPS_SOURCE,
         "verified": True,
         "verified_at": datetime.now(timezone.utc),
         "notes": (
             f"{AUTO_MARKER}; metric=trailingDilutedEPS; eps_currency={currency}; "
-            f"observed_date={observed_date.date().isoformat()}; effective_date=report_date"
+            f"observed_date={observed_date.date().isoformat()}; "
+            f"date_basis={date_basis}; effective_date={pd.Timestamp(effective_date).date().isoformat()}"
         ),
     }
 
@@ -54,10 +83,13 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
         return load_reports()
 
     earnings = earnings.loc[earnings["source"].astype(str) == EPS_SOURCE].copy()
-    earnings = earnings.dropna(subset=["ticker", "period_end", "report_date", "observed_date", "eps_ttm"])
+    # report_date får vara tomt. För en genuint ny Yahoo-period används då
+    # observed_date som konservativ fallback i stället för att stoppa den fria
+    # uppdateringskedjan. Det ger sen, aldrig tidig, aktivering.
+    earnings = earnings.dropna(subset=["ticker", "period_end", "observed_date", "eps_ttm"])
     earnings = earnings.loc[earnings["eps_currency"].astype(str).str.len() > 0]
     if earnings.empty:
-        print("Inga kompletta trailingDilutedEPS-rader med rapportdatum att synka.")
+        print("Inga kompletta trailingDilutedEPS-rader att synka.")
         return load_reports()
 
     metadata = load_stock_currencies()
@@ -67,13 +99,13 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
 
     added = 0
     updated = 0
+    observed_fallbacks = 0
     skipped_stale = 0
     skipped_currency = 0
     skipped_manual = 0
 
     # Samma period kan observeras flera gånger vid en Yahoo-korrigering. Sista
-    # observationen för perioden vinner, men periodens effective_date förblir
-    # rapportdatumet enligt projektets same-day-regel.
+    # observationen för perioden vinner.
     earnings = (
         earnings.sort_values(["ticker", "period_end", "observed_date"])
         .drop_duplicates(["ticker", "period_end"], keep="last")
@@ -103,34 +135,49 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
             continue
 
         period_end = pd.Timestamp(earning.period_end).normalize()
-        report_date = pd.Timestamp(earning.report_date).normalize()
-        lag_days = int((report_date - period_end).days)
-        if lag_days < 0 or lag_days > MAX_REPORT_LAG_DAYS:
-            skipped_stale += 1
-            print(
-                f"VARNING {ticker}: orimlig period/report-lag {lag_days} dagar "
-                f"({period_end.date()} -> {report_date.date()}); synkas inte."
-            )
-            continue
-
+        observed_date = pd.Timestamp(earning.observed_date).normalize()
+        yahoo_report_date = _valid_report_date(earning.report_date, period_end)
         ticker_reports = reports.loc[reports["ticker"] == ticker].copy()
         same_period = ticker_reports.loc[
             ticker_reports["period_end"].notna()
             & (ticker_reports["period_end"].dt.normalize() == period_end)
         ]
-
         earning_series = pd.Series(earning._asdict())
+
         if not same_period.empty:
             existing_idx = same_period.index[-1]
             existing = reports.loc[existing_idx]
             if not _is_replaceable_generated_report(existing):
                 skipped_manual += 1
                 continue
-            replacement = _new_report_row(earning_series, str(existing["report_period"]))
+
+            # En historisk same-day-datering som redan finns flyttas inte bara
+            # för att Yahoo get_earnings_dates är en dag fel eller saknas.
+            if pd.notna(existing["effective_date"]):
+                effective_date = pd.Timestamp(existing["effective_date"]).normalize()
+                date_basis = "existing_effective_date"
+            elif yahoo_report_date is not None:
+                effective_date = yahoo_report_date
+                date_basis = "yahoo_report_date"
+            else:
+                fallback = _observed_fallback_date(observed_date, period_end)
+                if fallback is None:
+                    skipped_stale += 1
+                    continue
+                effective_date = fallback
+                date_basis = "observed_date_fallback"
+                observed_fallbacks += 1
+
+            replacement = _new_report_row(
+                earning_series,
+                str(existing["report_period"]),
+                effective_date=effective_date,
+                date_basis=date_basis,
+            )
             changed = (
                 pd.isna(existing["eps_ttm"])
                 or abs(float(existing["eps_ttm"]) - float(replacement["eps_ttm"])) > 1e-12
-                or pd.Timestamp(existing["effective_date"]).normalize() != report_date
+                or pd.Timestamp(existing["period_end"]).normalize() != period_end
                 or str(existing["source"]) != EPS_SOURCE
             )
             if changed:
@@ -139,32 +186,66 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
                 updated += 1
             continue
 
-        # Fallback-historik kan sakna period_end. Om Yahoo nu ger samma
-        # rapportdatum fyller vi period_end och ersätter EPS med den jämförbara
-        # diluted-definitionen i stället för att skapa en dubblett.
-        same_report_day = ticker_reports.loc[
-            ticker_reports["effective_date"].notna()
-            & (ticker_reports["effective_date"].dt.normalize() == report_date)
-            & ticker_reports["period_end"].isna()
-        ]
-        if not same_report_day.empty:
-            existing_idx = same_report_day.index[-1]
-            existing = reports.loc[existing_idx]
-            if _is_replaceable_generated_report(existing):
-                replacement = _new_report_row(earning_series, str(existing["report_period"]))
-                for column in REPORT_COLUMNS:
-                    reports.at[existing_idx, column] = replacement[column]
-                updated += 1
-                continue
+        # Om historiken har en explicit fallback utan period_end kan vi ersätta
+        # den när Yahoo både har en giltig rapportdag och samma same-day-datum.
+        if yahoo_report_date is not None:
+            same_report_day = ticker_reports.loc[
+                ticker_reports["effective_date"].notna()
+                & (ticker_reports["effective_date"].dt.normalize() == yahoo_report_date)
+                & ticker_reports["period_end"].isna()
+            ]
+            if not same_report_day.empty:
+                existing_idx = same_report_day.index[-1]
+                existing = reports.loc[existing_idx]
+                if _is_replaceable_generated_report(existing):
+                    replacement = _new_report_row(
+                        earning_series,
+                        str(existing["report_period"]),
+                        effective_date=yahoo_report_date,
+                        date_basis="yahoo_report_date",
+                    )
+                    for column in REPORT_COLUMNS:
+                        reports.at[existing_idx, column] = replacement[column]
+                    updated += 1
+                    continue
 
         known_period_ends = ticker_reports["period_end"].dropna()
         if not known_period_ends.empty and period_end <= known_period_ends.max().normalize():
             # Saknar vi en exakt match inne i historiken ska vi inte gissa ett
-            # kvartal. Den alignade historiken/fallbacken behålls då orörd.
+            # gammalt kvartal. Den alignade historiken/fallbacken behålls då.
             skipped_stale += 1
             continue
 
-        new_row = _new_report_row(earning_series, _auto_period_label(period_end))
+        # Genuint ny period: Yahoo report_date används om det är logiskt. Om
+        # datumet saknas eller pekar på en gammal rapport används dagen då vi
+        # först såg den nya diluted-perioden. Detta är konservativt för live-
+        # drift: EPS kan aktiveras sent, men aldrig före den observerats.
+        if yahoo_report_date is not None:
+            effective_date = yahoo_report_date
+            date_basis = "yahoo_report_date"
+        else:
+            fallback = _observed_fallback_date(observed_date, period_end)
+            if fallback is None:
+                skipped_stale += 1
+                print(
+                    f"VARNING {ticker}: ny Yahoo-period {period_end.date()} saknar rimligt "
+                    "rapport-/observationsdatum; synkas inte."
+                )
+                continue
+            effective_date = fallback
+            date_basis = "observed_date_fallback"
+            observed_fallbacks += 1
+            print(
+                f"INFO {ticker}: ny Yahoo-period {period_end.date()} använder observed_date "
+                f"{effective_date.date()} eftersom Yahoo rapportdatum saknas/är orimligt."
+            )
+
+        new_row = _new_report_row(
+            earning_series,
+            _auto_period_label(period_end),
+            effective_date=effective_date,
+            date_basis=date_basis,
+        )
         reports = pd.concat([reports, pd.DataFrame([new_row], columns=REPORT_COLUMNS)], ignore_index=True)
         added += 1
 
@@ -173,8 +254,8 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
     saved = load_reports()
     print(
         f"Yahoo trailingDilutedEPS -> reports.csv: {added} nya perioder, {updated} uppdaterade, "
-        f"{skipped_stale} historiska/stale hoppade över, {skipped_currency} valutakonflikter, "
-        f"{skipped_manual} manuella poster bevarade."
+        f"{observed_fallbacks} observed-date-fallbacks, {skipped_stale} historiska/stale hoppade över, "
+        f"{skipped_currency} valutakonflikter, {skipped_manual} manuella poster bevarade."
     )
     return saved
 
