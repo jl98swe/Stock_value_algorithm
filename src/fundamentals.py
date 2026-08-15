@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ROOT
+from .fx import convert_values_to_currency
 
 REPORTS_FILE = ROOT / "data" / "fundamentals" / "reports.csv"
 REPORT_COLUMNS = [
@@ -107,15 +108,87 @@ def latest_verified_report(ticker: str, frame: pd.DataFrame | None = None) -> pd
     return None if subset.empty else subset.iloc[-1]
 
 
+def _attach_currency_conversion(
+    frame: pd.DataFrame,
+    ticker: str,
+    *,
+    date_column: str,
+    stock_metadata: pd.DataFrame | None,
+    fx_history: pd.DataFrame | None,
+) -> pd.DataFrame:
+    result = frame.copy()
+    result["EPS_TTM_RAW"] = pd.to_numeric(result["EPS_TTM"], errors="coerce")
+    result["EPS_CURRENCY"] = pd.NA
+    result["PRICE_CURRENCY"] = pd.NA
+    result["FX_RATE"] = pd.NA
+
+    # Bakåtkompatibelt API för tester och fristående användning. Produktions-
+    # pipelinen skickar alltid metadata + FX explicit och använder då strikt
+    # valutakontroll.
+    if stock_metadata is None:
+        return result
+
+    metadata = stock_metadata.copy()
+    if metadata.empty or "ticker" not in metadata.columns:
+        result["EPS_TTM"] = pd.NA
+        return result
+
+    row = metadata.loc[metadata["ticker"].astype(str) == str(ticker)]
+    if row.empty:
+        # Ingen gissning: score blockeras tills valuta för tickern finns.
+        result["EPS_TTM"] = pd.NA
+        return result
+
+    report_currency = str(row.iloc[-1].get("report_currency", "")).strip().upper()
+    price_currency = str(row.iloc[-1].get("price_currency", "")).strip().upper()
+    result["EPS_CURRENCY"] = report_currency or pd.NA
+    result["PRICE_CURRENCY"] = price_currency or pd.NA
+
+    if not report_currency or not price_currency:
+        result["EPS_TTM"] = pd.NA
+        return result
+
+    if report_currency == price_currency:
+        result["FX_RATE"] = 1.0
+        result["EPS_TTM"] = result["EPS_TTM_RAW"]
+        return result
+
+    if fx_history is None or fx_history.empty:
+        result["EPS_TTM"] = pd.NA
+        return result
+
+    converted = convert_values_to_currency(
+        result,
+        value_column="EPS_TTM_RAW",
+        date_column=date_column,
+        base_currency=report_currency,
+        quote_currency=price_currency,
+        fx_history=fx_history,
+        output_column="EPS_TTM",
+        rate_column="FX_RATE",
+    )
+    return converted
+
+
 def attach_eps_ttm(
     price_frame: pd.DataFrame,
     ticker: str,
     reports: pd.DataFrame | None = None,
+    *,
+    stock_metadata: pd.DataFrame | None = None,
+    fx_history: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
-    Endast verifierade rader används. En EPS-rad börjar gälla på explicit
-    ``effective_date`` och forward-fillas därefter tills nästa verifierade rad.
+    Endast verifierade rapporter används. EPS börjar gälla på explicit
+    ``effective_date`` och forward-fillas därefter. Om produktionspipelinen
+    skickar bolagsmetadata konverteras EPS från rapportvaluta till aktiens
+    handelsvaluta. Valutaomräkningen använder den senaste fullt avslutade
+    FX-dagskursen före respektive handelsdag, så dagens värdering använder
+    aldrig en valutastängning som ligger senare samma dag.
+
+    ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
+    är värdet som ska användas i P/E-beräkningen.
     """
     result = price_frame.copy()
     date_column = "Date" if "Date" in result.columns else "date"
@@ -129,17 +202,30 @@ def attach_eps_ttm(
     subset = verified.loc[verified["ticker"] == ticker, ["effective_date", "eps_ttm"]].copy()
     if subset.empty:
         result["EPS_TTM"] = pd.NA
-        return result
+        return _attach_currency_conversion(
+            result,
+            ticker,
+            date_column=date_column,
+            stock_metadata=stock_metadata,
+            fx_history=fx_history,
+        )
 
     subset = (
         subset.sort_values("effective_date")
         .drop_duplicates("effective_date", keep="last")
         .rename(columns={"effective_date": date_column, "eps_ttm": "EPS_TTM"})
     )
-    return pd.merge_asof(
+    result = pd.merge_asof(
         result,
         subset,
         on=date_column,
         direction="backward",
         allow_exact_matches=True,
+    )
+    return _attach_currency_conversion(
+        result,
+        ticker,
+        date_column=date_column,
+        stock_metadata=stock_metadata,
+        fx_history=fx_history,
     )
