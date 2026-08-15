@@ -1,0 +1,140 @@
+.overview-wrap {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.overview-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+.overview-head h1 {
+  margin: 0;
+  font-size: 32px;
+}
+.overview-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.overview-search,
+.overview-select {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 11px;
+  background: #fff;
+  color: var(--text);
+}
+.overview-search {
+  min-width: 280px;
+}
+.overview-select {
+  min-width: 150px;
+}
+.summary-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+}
+.summary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #eef3f4;
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 12px;
+}
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.overview-table th,
+.overview-table td {
+  padding: 11px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.overview-table th {
+  color: var(--muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 1;
+}
+.stock-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.stock-link:hover strong {
+  text-decoration: underline;
+}
+.stock-link span {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 2px;
+}
+.status-chip {
+  display: inline-flex;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  background: #eef2f3;
+}
+.status-chip.ok,
+.status-chip.buy {
+  background: #e8f6ef;
+  color: #246f53;
+}
+.status-chip.warning {
+  background: #fff0d9;
+  color: #8a5a10;
+}
+.status-chip.action {
+  background: #e8eff8;
+  color: #285f94;
+}
+.status-chip.sell {
+  background: #fde9e9;
+  color: #9f3232;
+}
+.empty-cell {
+  text-align: center !important;
+  color: var(--muted);
+  padding: 28px !important;
+}
+.page-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.page-nav a {
+  text-decoration: none;
+}
+.overview-panel {
+  overflow: auto;
+  max-height: calc(100vh - 260px);
+}
+@media (max-width: 900px) {
+  .overview-wrap { padding: 16px; }
+  .overview-head { align-items: stretch; flex-direction: column; }
+  .overview-controls { align-items: stretch; flex-direction: column; }
+  .overview-search, .overview-select { min-width: 0; width: 100%; }
+  .page-nav { flex-wrap: wrap; }
+  .overview-table { min-width: 940px; }
+  .overview-panel { max-height: none; }
+}
