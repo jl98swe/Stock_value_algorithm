@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ROOT
-from .fx import convert_values_to_currency
+from .fx import convert_values_to_currency, load_fx_history, load_stock_currencies
 
 REPORTS_FILE = ROOT / "data" / "fundamentals" / "reports.csv"
 REPORT_COLUMNS = [
@@ -122,21 +122,14 @@ def _attach_currency_conversion(
     result["PRICE_CURRENCY"] = pd.NA
     result["FX_RATE"] = pd.NA
 
-    # Bakåtkompatibelt API för tester och fristående användning. Produktions-
-    # pipelinen skickar alltid metadata + FX explicit och använder då strikt
-    # valutakontroll.
-    if stock_metadata is None:
-        return result
-
-    metadata = stock_metadata.copy()
+    metadata = load_stock_currencies() if stock_metadata is None else stock_metadata.copy()
     if metadata.empty or "ticker" not in metadata.columns:
-        result["EPS_TTM"] = pd.NA
         return result
 
     row = metadata.loc[metadata["ticker"].astype(str) == str(ticker)]
     if row.empty:
-        # Ingen gissning: score blockeras tills valuta för tickern finns.
-        result["EPS_TTM"] = pd.NA
+        # Metadata byggs successivt när historiska bolag importeras. Fram tills
+        # tickern finns där lämnas äldre beteende orört; ingen valuta gissas.
         return result
 
     report_currency = str(row.iloc[-1].get("report_currency", "")).strip().upper()
@@ -153,21 +146,22 @@ def _attach_currency_conversion(
         result["EPS_TTM"] = result["EPS_TTM_RAW"]
         return result
 
-    if fx_history is None or fx_history.empty:
+    fx = load_fx_history() if fx_history is None else fx_history
+    if fx.empty:
+        # Fel valuta får aldrig användas som om den vore samma valuta.
         result["EPS_TTM"] = pd.NA
         return result
 
-    converted = convert_values_to_currency(
+    return convert_values_to_currency(
         result,
         value_column="EPS_TTM_RAW",
         date_column=date_column,
         base_currency=report_currency,
         quote_currency=price_currency,
-        fx_history=fx_history,
+        fx_history=fx,
         output_column="EPS_TTM",
         rate_column="FX_RATE",
     )
-    return converted
 
 
 def attach_eps_ttm(
@@ -181,14 +175,12 @@ def attach_eps_ttm(
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
     Endast verifierade rapporter används. EPS börjar gälla på explicit
-    ``effective_date`` och forward-fillas därefter. Om produktionspipelinen
-    skickar bolagsmetadata konverteras EPS från rapportvaluta till aktiens
-    handelsvaluta. Valutaomräkningen använder den senaste fullt avslutade
-    FX-dagskursen före respektive handelsdag, så dagens värdering använder
-    aldrig en valutastängning som ligger senare samma dag.
+    ``effective_date`` och forward-fillas därefter. Om rapportvalutan skiljer
+    sig från aktiens handelsvaluta konverteras EPS med senast fullt avslutade
+    FX-dagskurs före respektive handelsdag.
 
     ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
-    är värdet som ska användas i P/E-beräkningen.
+    är det valutajusterade värdet som ska användas i P/E-beräkningen.
     """
     result = price_frame.copy()
     date_column = "Date" if "Date" in result.columns else "date"
