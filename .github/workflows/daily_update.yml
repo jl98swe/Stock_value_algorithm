@@ -1,4 +1,4 @@
-name: Daglig prisuppdatering
+name: Daglig marknadsuppdatering
 
 on:
   schedule:
@@ -51,6 +51,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Uppdatera utdelningar
+        if: steps.market_time.outputs.run == 'true'
+        run: python -m src.dividends
+
       - name: Uppdatera priser och bygg GitHub Pages-data
         if: steps.market_time.outputs.run == 'true'
         run: python -m src.pipeline
@@ -69,11 +73,17 @@ jobs:
             echo "Ingen price_updates.csv skapades denna körning."
           fi
 
+          if [ -f data/dividends/dividend_updates.csv ]; then
+            git add data/dividends/dividend_updates.csv
+          else
+            echo "Ingen dividend_updates.csv skapades denna körning."
+          fi
+
           if git diff --cached --quiet; then
             echo "Inga dataändringar att spara."
             exit 0
           fi
 
-          git commit -m "data: daglig prisuppdatering"
+          git commit -m "data: daglig marknadsuppdatering"
           git pull --rebase origin main
           git push origin main
