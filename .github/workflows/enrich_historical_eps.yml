@@ -10,6 +10,7 @@ on:
       - "config/ticker_mapping.csv"
       - "src/enrich_historical_eps.py"
       - "src/apply_report_date_overrides.py"
+      - "src/earnings.py"
       - "src/audit_yahoo_trailing_timeseries.py"
       - "src/align_historical_eps_to_yahoo.py"
       - "src/import_enriched_eps.py"
