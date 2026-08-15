@@ -16,6 +16,14 @@ from .earnings import (
 )
 from .fetch_data import BASE_DATA_FILE, PRICE_COLUMNS, UPDATES_FILE, load_price_history
 from .fundamentals import load_reports, verified_reports
+from .fx import (
+    FX_BASE_FILE,
+    FX_COLUMNS,
+    FX_UPDATES_FILE,
+    load_fx_history,
+    load_stock_currencies,
+    required_currency_pairs,
+)
 from .model_data import ensure_gbm_model
 from .valuation import GBMModel
 
@@ -58,6 +66,43 @@ def _validate_price_updates(prices: pd.DataFrame) -> None:
     expected_values = pd.to_numeric(check["expected_ma200"], errors="coerce").to_numpy(dtype=float)
     if not np.allclose(actual, expected_values, equal_nan=True, rtol=1e-10, atol=1e-10):
         raise ValueError("MA200 i price_updates.csv stämmer inte med kombinerad prishistorik")
+
+
+def _validate_fx() -> None:
+    base_path = _resolve(FX_BASE_FILE)
+    if not base_path.exists():
+        raise ValueError("fx_initial.csv saknas")
+
+    metadata = load_stock_currencies()
+    required_pairs = required_currency_pairs(metadata)
+    if not required_pairs:
+        return
+
+    for path, label in (
+        (base_path, "fx_initial.csv"),
+        (_resolve(FX_UPDATES_FILE), "fx_updates.csv"),
+    ):
+        if not path.exists() or path.stat().st_size == 0:
+            continue
+        frame = pd.read_csv(path)
+        missing = [column for column in FX_COLUMNS if column not in frame.columns]
+        if missing:
+            raise ValueError(f"{label} saknar kolumner: {', '.join(missing)}")
+
+    history = load_fx_history()
+    if history.empty:
+        raise ValueError("Valutaomräkning krävs men FX-historiken är tom")
+    if history.duplicated(["base_currency", "quote_currency", "date"]).any():
+        raise ValueError("FX-historiken innehåller dubbla valutapar+datum")
+
+    rates = pd.to_numeric(history["rate"], errors="coerce").to_numpy(dtype=float)
+    if not np.isfinite(rates).all() or (rates <= 0).any():
+        raise ValueError("FX-historiken innehåller ogiltiga valutakurser")
+
+    present = set(zip(history["base_currency"], history["quote_currency"]))
+    missing_pairs = [pair for pair in required_pairs if pair not in present]
+    if missing_pairs:
+        raise ValueError(f"Saknar FX-historik för valutapar: {missing_pairs}")
 
 
 def _validate_earnings(price_tickers: set[str]) -> None:
@@ -184,10 +229,11 @@ def validate() -> None:
         raise ValueError("Prisdata innehåller inga tickers")
 
     _validate_price_updates(prices)
+    _validate_fx()
     _validate_dashboard(prices)
     print(
         f"Validering OK: {prices['ticker'].nunique()} tickers, "
-        f"{len(prices):,} prisrader, GBM 100 träd, webbdata konsistent."
+        f"{len(prices):,} prisrader, GBM 100 träd, FX och webbdata konsistenta."
     )
 
 
