@@ -15,7 +15,7 @@
 | `source` | Datakälla och metric |
 | `verified` | `true` när posten får användas |
 | `verified_at` | Tidpunkt för verifiering/import |
-| `notes` | Audit trail och eventuell fallback-status |
+| `notes` | Audit trail och eventuell härledning |
 
 ## Fast EPS-definition
 
@@ -29,17 +29,17 @@ Denna metric används eftersom Yahoo samtidigt anger:
 
 Det gör att historiska och framtida värden kan jämföras på samma grund innan projektets separata FX-konvertering. Vi blandar inte längre framtida `trailingEps` från quoteSummary med en annan historisk EPS-definition.
 
-**Ingen ytterligare betald EPS-data behövs framåt.** Den dagliga uppdateringen hämtar nya `trailingDilutedEPS`-perioder gratis från Yahoo och synkar dem till `reports.csv` när period, rapportdatum och valuta är konsistenta.
+**Ingen ytterligare betald EPS-data behövs framåt.** Den dagliga uppdateringen hämtar nya `trailingDilutedEPS`-perioder gratis från Yahoo och synkar dem till `reports.csv` när period och valuta är konsistenta.
 
 ## Same-day-regel för EPS
 
-`period_end` och `effective_date` är två helt olika saker. Algoritmen använder aldrig en rapport före dess rapportdatum.
+`period_end` och `effective_date` är två helt olika saker. Algoritmen använder aldrig en ny Yahoo-period före den dag den kan knytas till en inträffad rapport eller faktiskt har observerats av systemet.
 
-Projektets fasta regel är att ny EPS TTM gäller **samma svenska kalenderdag som rapporten publiceras**. Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får börja påverka P/E och värderingsscore med stängningskursen den 17 juli. Vi flyttar alltså inte EPS till nästa handelsdag beroende på exakt publiceringstid.
+Projektets fasta regel är att ny EPS TTM gäller **samma svenska kalenderdag som rapporten publiceras** när rapportdatumet är känt och rimligt. Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får börja påverka P/E och värderingsscore med stängningskursen den 17 juli. Vi flyttar alltså inte EPS till nästa handelsdag beroende på exakt publiceringstid.
 
-För historik där bara `report_date` finns sätts därför `effective_date = report_date`. Vid manuell verifiering härleder `src.add_report` automatiskt `effective_date` från `published_at` i tidszonen `Europe/Stockholm` och accepterar inte ett avvikande explicit datum.
+För historik där `report_date` finns sätts `effective_date = report_date`. Vid manuell verifiering härleder `src.add_report` automatiskt `effective_date` från `published_at` i tidszonen `Europe/Stockholm` och accepterar inte ett avvikande explicit datum.
 
-Detta är en medveten modellregel. Den kan i undantagsfall innebära att en rapport som faktiskt publicerades efter börsstängning ändå räknas från samma dags stängning.
+För en **genuint ny framtida Yahoo-period** där Yahoo saknar ett rimligt rapportdatum används i stället `observed_date`, alltså dagen systemet först såg den nya `trailingDilutedEPS`-perioden. Det är en konservativ reservregel: värdet kan då börja användas senare än den verkliga rapportdagen men aldrig före systemet hade tillgång till det.
 
 ## Daglig Yahoo EPS
 
@@ -78,20 +78,28 @@ För att undvika look-ahead används den senaste fullt avslutade FX-dagskursen f
 
 ## Historisk EPS och jämförbarhet
 
-Det ursprungliga historiska underlaget ligger kvar som referens i `data/fundamentals/eps_ttm_history.csv`. Det används inte okritiskt som slutlig EPS-definition.
+Det ursprungliga historiska underlaget ligger kvar som referens i `data/fundamentals/eps_ttm_history.csv`. Det används inte som kanonisk EPS när det inte kan göras jämförbart med den framtida Yahoo-definitionen.
 
 Historikflödet är:
 
 1. `src.enrich_historical_eps` mappar ticker och rapportdatum.
-2. `src.audit_yahoo_trailing_timeseries` hämtar Yahoo historisk `trailingDilutedEPS` i flera tidsfönster.
-3. `src.align_historical_eps_to_yahoo` ersätter historiska rader med Yahoo `trailingDilutedEPS` där Yahoo har exakt användbar periodhistorik.
-4. Rader där Yahoo saknar historisk punkt behålls som explicit taggad fallback, aldrig som om de vore Yahoo-data.
-5. `src.import_enriched_eps` importerar den alignade serien till `reports.csv` med `effective_date = report_date`.
+2. `src.audit_yahoo_trailing_timeseries` hämtar historisk Yahoo `trailingDilutedEPS` samt diluted kvartalskomponenter i flera tidsfönster.
+3. `src.align_historical_eps_to_yahoo` använder direkt Yahoo `trailingDilutedEPS` där den finns. Om en enskild TTM-punkt saknas men Yahoo har tillräckliga diluted-komponenter rekonstrueras samma TTM-definition matematiskt från Yahoo-data.
+4. Rader som fortfarande inte kan göras jämförbara behålls endast som **referens-fallback** i `eps_ttm_history_aligned.csv` och `eps_alignment_audit.csv`. De importeras inte till `reports.csv` och påverkar inte P/E, score eller signaler.
+5. `src.import_enriched_eps` importerar endast direkt eller Yahoo-rekonstruerad diluted EPS till `reports.csv`, med `effective_date = report_date`.
 
-Den nuvarande första historikbatchen innehåller 490 rapportperioder för 49 tickers. Yahoo kan direkt ge `trailingDilutedEPS` för merparten av dessa perioder; kvarvarande luckor är tydligt märkta som fallback i `data/derived/eps_alignment_audit.csv`. Detta gör övergången till framtida Yahoo-data spårbar i stället för att blanda olika EPS-definitioner utan markering.
+För den första historikbatchen med 490 rapportperioder och 49 tickers är utfallet:
+
+- **430** perioder har direkt Yahoo `trailingDilutedEPS`.
+- **42** perioder kan rekonstrueras enbart från Yahoo diluted EPS-komponenter med samma TTM-definition.
+- **18** perioder saknar tillräcklig Yahoo-historik och ligger därför kvar enbart som referens; de används inte i värderingen.
+
+Det innebär att den kanoniska värderingshistoriken inte längre blandar den gamla EPS-definitionen med den framtida Yahoo-definitionen. Om en av de 18 referensperioderna ligger mellan två kanoniska perioder får den senaste föregående jämförbara diluted EPS i stället fortsätta gälla fram till nästa jämförbara uppdatering.
 
 ## Produktionsprincip
 
 Framåt är Yahoo `trailingDilutedEPS` normalflödet. Manuell bolagsrapport används endast som undantagsväg om Yahoo saknar eller ger inkonsistent data. Ingen betald datatjänst ingår i den framtida EPS-pipelinen.
 
 Den dagliga Action-körningen uppdaterar först marknadsdata och FX, hämtar sedan Yahoo EPS, synkar eventuellt ny EPS till `reports.csv` och bygger därefter om dashboarden så att dagens värdering använder den senaste godkända EPS-perioden.
+
+`src.validate_outputs` blockerar nu regressioner där Earnings-snapshots blandar in en annan EPS-metric eller där referens-fallback skulle råka hamna i den kanoniska `reports.csv`.
