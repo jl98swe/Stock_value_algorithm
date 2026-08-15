@@ -8,14 +8,28 @@
 |---|---|
 | `ticker` | Yahoo-ticker, t.ex. `ESSITY-B.ST` |
 | `period_end` | Rapporteringsperiodens slutdatum |
-| `report_period` | Stabil periodetikett, t.ex. `2026-Q2` |
+| `report_period` | Stabil periodetikett, t.ex. `2026-Q2` eller automatiskt `YAHOO-YYYY-MM-DD` för nya Yahoo-perioder |
 | `published_at` | När rapporten blev offentlig, med tidszon när exakt tid finns |
 | `effective_date` | Datum då denna EPS TTM börjar användas av algoritmen |
-| `eps_ttm` | Verifierad EPS TTM i bolagets rapportvaluta |
-| `source` | Var siffran verifierades |
-| `verified` | `true` endast när posten får användas |
-| `verified_at` | Tidpunkt för verifiering |
-| `notes` | Fri kommentar/audit trail |
+| `eps_ttm` | EPS TTM i bolagets rapportvaluta |
+| `source` | Datakälla och metric |
+| `verified` | `true` när posten får användas |
+| `verified_at` | Tidpunkt för verifiering/import |
+| `notes` | Audit trail och eventuell fallback-status |
+
+## Fast EPS-definition
+
+Projektets gemensamma EPS-definition bakåt och framåt är Yahoo Finance **`trailingDilutedEPS`** från fundamentals-timeseries.
+
+Denna metric används eftersom Yahoo samtidigt anger:
+
+- EPS TTM efter utspädning,
+- periodslut (`asOfDate`),
+- EPS-valuta (`currencyCode`).
+
+Det gör att historiska och framtida värden kan jämföras på samma grund innan projektets separata FX-konvertering. Vi blandar inte längre framtida `trailingEps` från quoteSummary med en annan historisk EPS-definition.
+
+**Ingen ytterligare betald EPS-data behövs framåt.** Den dagliga uppdateringen hämtar nya `trailingDilutedEPS`-perioder gratis från Yahoo och synkar dem till `reports.csv` när period, rapportdatum och valuta är konsistenta.
 
 ## Same-day-regel för EPS
 
@@ -25,22 +39,34 @@ Projektets fasta regel är att ny EPS TTM gäller **samma svenska kalenderdag so
 
 För historik där bara `report_date` finns sätts därför `effective_date = report_date`. Vid manuell verifiering härleder `src.add_report` automatiskt `effective_date` från `published_at` i tidszonen `Europe/Stockholm` och accepterar inte ett avvikande explicit datum.
 
-Detta är en medveten modellregel. Den förenklar point-in-time-hanteringen men kan i undantagsfall innebära att en rapport som faktiskt publicerades efter börsstängning ändå räknas från samma dags stängning.
+Detta är en medveten modellregel. Den kan i undantagsfall innebära att en rapport som faktiskt publicerades efter börsstängning ändå räknas från samma dags stängning.
 
-## Aktuell Yahoo EPS TTM
+## Daglig Yahoo EPS
 
-Den dagliga Action-körningen hämtar direkt Yahoo `trailingEps`. Kvartals-EPS summeras inte.
+`src.earnings` hämtar den senaste Yahoo `trailingDilutedEPS` direkt från fundamentals-timeseries. Varje snapshot innehåller:
 
-Aktuella snapshot-värden lagras separat enligt samma mönster som pris och utdelning:
+```text
+ticker
+period_end
+report_date
+observed_date
+eps_ttm
+eps_currency
+source
+```
+
+Snapshot-värden lagras i:
 
 ```text
 data/earnings/earnings_initial.csv
 data/earnings/earnings_updates.csv
 ```
 
-`earnings_initial.csv` bootstrappar den första lyckade aktuella snapshoten och lämnas därefter orörd. När Yahoo senare visar ett annat EPS TTM-värde sparas det som en ny rad i `earnings_updates.csv` med den dag då systemet först observerade ändringen.
+En ny rad sparas när Yahoo visar en ny period, ett nytt värde eller en annan EPS-valuta. En ny period sparas alltså även om EPS råkar vara oförändrad.
 
-Yahoo-snapshoten är ett kontroll- och uppdateringsunderlag. Historiska och exekverbara värden kommer fortsatt från verifierade poster i `reports.csv`.
+`src.sync_yahoo_eps_reports` flyttar kompletta nya Yahoo-perioder till `reports.csv`. Före automatisk synk kontrolleras bland annat att Yahoo EPS-valutan är samma som bolagets lagrade rapportvaluta. Manuella rapportposter skrivs aldrig över av den automatiska synken.
+
+Om Yahoo ännu inte har publicerat en ny `trailingDilutedEPS` efter en rapport behålls den senaste tidigare diluted-serien; systemet gissar inte och faller inte tillbaka till en annan EPS-definition.
 
 ## Valuta
 
@@ -48,28 +74,24 @@ EPS lagras i bolagets ursprungliga rapportvaluta. Aktiens handelsvaluta och rapp
 
 Om valutorna skiljer sig konverteras EPS till aktiens handelsvaluta **innan** P/E beräknas. Valutahistoriken ligger i `data/fx/` och hämtas från Yahoo. Exempelvis används `USDSEK=X` för USD -> SEK och `EURSEK=X` för EUR -> SEK.
 
-För att undvika look-ahead används den senaste fullt avslutade FX-dagskursen före aktiedagen. Den rapporterade siffran bevaras samtidigt som `EPS_TTM_RAW`; den valutajusterade serien används som `EPS_TTM` i värderingen. Om ett nödvändigt valutapar saknas får systemet inte behandla två olika valutor som om de vore samma.
+För att undvika look-ahead används den senaste fullt avslutade FX-dagskursen före aktiedagen. Den rapporterade siffran bevaras som `EPS_TTM_RAW`; den valutajusterade serien används som `EPS_TTM` i värderingen. Om ett nödvändigt valutapar saknas får systemet inte behandla två olika valutor som om de vore samma.
 
-## Historisk EPS
+## Historisk EPS och jämförbarhet
 
-Det lokala underlaget lagras först i `data/fundamentals/eps_ttm_history.csv`. `src.enrich_historical_eps` mappar tickers och kompletterar rapportdatum. Verifierade datumöverrides appliceras där Yahoo-historiken är ofullständig. Därefter importerar `src.import_enriched_eps` den berikade serien till `reports.csv` med same-day-regeln.
+Det ursprungliga historiska underlaget ligger kvar som referens i `data/fundamentals/eps_ttm_history.csv`. Det används inte okritiskt som slutlig EPS-definition.
 
-Det samlade arbetsflödet finns i GitHub Actions-workflowet **Komplettera historisk EPS**. Det kontrollerar även valutahantering, historisk P/E/score/strategi och jämför senaste Yahoo EPS TTM med den senast uppladdade historiska EPS-raden.
+Historikflödet är:
 
-## Ny verifierad rapport
+1. `src.enrich_historical_eps` mappar ticker och rapportdatum.
+2. `src.audit_yahoo_trailing_timeseries` hämtar Yahoo historisk `trailingDilutedEPS` i flera tidsfönster.
+3. `src.align_historical_eps_to_yahoo` ersätter historiska rader med Yahoo `trailingDilutedEPS` där Yahoo har exakt användbar periodhistorik.
+4. Rader där Yahoo saknar historisk punkt behålls som explicit taggad fallback, aldrig som om de vore Yahoo-data.
+5. `src.import_enriched_eps` importerar den alignade serien till `reports.csv` med `effective_date = report_date`.
 
-Det enklaste produktionsflödet är GitHub Actions-workflowet **Lägg till verifierad EPS TTM**. Du anger rapportens publiceringstid, men inte längre ett separat effective date; systemet använder automatiskt samma svenska datum.
+Den nuvarande första historikbatchen innehåller 490 rapportperioder för 49 tickers. Yahoo kan direkt ge `trailingDilutedEPS` för merparten av dessa perioder; kvarvarande luckor är tydligt märkta som fallback i `data/derived/eps_alignment_audit.csv`. Detta gör övergången till framtida Yahoo-data spårbar i stället för att blanda olika EPS-definitioner utan markering.
 
-Lokalt kan samma sak göras med:
+## Produktionsprincip
 
-```powershell
-python -m src.add_report `
-  --ticker ESSITY-B.ST `
-  --report-period 2026-Q2 `
-  --period-end 2026-06-30 `
-  --published-at 2026-07-17T07:00:00+02:00 `
-  --eps-ttm 12.34 `
-  --source "Bolagets rapport"
-```
+Framåt är Yahoo `trailingDilutedEPS` normalflödet. Manuell bolagsrapport används endast som undantagsväg om Yahoo saknar eller ger inkonsistent data. Ingen betald datatjänst ingår i den framtida EPS-pipelinen.
 
-Efter verifieringen kan pipelinen direkt beräkna P/E, värderingsscore och strategi för den historik där EPS finns.
+Den dagliga Action-körningen uppdaterar först marknadsdata och FX, hämtar sedan Yahoo EPS, synkar eventuellt ny EPS till `reports.csv` och bygger därefter om dashboarden så att dagens värdering använder den senaste godkända EPS-perioden.
