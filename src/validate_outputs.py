@@ -8,6 +8,7 @@ import pandas as pd
 
 from .config import ROOT
 from .fetch_data import BASE_DATA_FILE, PRICE_COLUMNS, UPDATES_FILE, load_price_history
+from .fetch_fundamentals import CANDIDATE_COLUMNS, CANDIDATES_FILE, CANDIDATES_JSON
 from .fundamentals import load_reports, verified_reports
 from .model_data import ensure_gbm_model
 from .valuation import GBMModel
@@ -31,8 +32,7 @@ def _validate_price_updates(prices: pd.DataFrame) -> None:
         return
 
     updates = pd.read_csv(target)
-    expected = PRICE_COLUMNS
-    missing = [column for column in expected if column not in updates.columns]
+    missing = [column for column in PRICE_COLUMNS if column not in updates.columns]
     if missing:
         raise ValueError(f"price_updates.csv saknar kolumner: {', '.join(missing)}")
 
@@ -48,6 +48,35 @@ def _validate_price_updates(prices: pd.DataFrame) -> None:
     expected_values = pd.to_numeric(check["expected_ma200"], errors="coerce").to_numpy(dtype=float)
     if not np.allclose(actual, expected_values, equal_nan=True, rtol=1e-10, atol=1e-10):
         raise ValueError("MA200 i price_updates.csv stämmer inte med kombinerad prishistorik")
+
+
+def _validate_fundamental_candidates(price_tickers: set[str]) -> None:
+    if not CANDIDATES_FILE.exists():
+        raise ValueError("Yahoo EPS-kandidatfilen saknas efter daglig fundamentalhämtning")
+
+    candidates = pd.read_csv(CANDIDATES_FILE)
+    missing = [column for column in CANDIDATE_COLUMNS if column not in candidates.columns]
+    if missing:
+        raise ValueError(f"yahoo_eps_candidates.csv saknar kolumner: {', '.join(missing)}")
+    if not candidates.empty:
+        if candidates["ticker"].duplicated().any():
+            raise ValueError("yahoo_eps_candidates.csv innehåller mer än en rad per ticker")
+        unknown = sorted(set(candidates["ticker"].astype(str)).difference(price_tickers))
+        if unknown:
+            raise ValueError(f"EPS-kandidater innehåller okända tickers: {', '.join(unknown[:10])}")
+        if candidates["verified"].astype(str).str.lower().isin({"true", "1", "yes", "ja"}).any():
+            raise ValueError("Automatiska Yahoo-kandidater får aldrig vara verifierade")
+        quarter_count = pd.to_numeric(candidates["quarter_count"], errors="coerce")
+        if quarter_count.isna().any() or ((quarter_count < 1) | (quarter_count > 4)).any():
+            raise ValueError("Ogiltigt quarter_count i Yahoo EPS-kandidater")
+        derived = pd.to_numeric(candidates["derived_eps_ttm"], errors="coerce")
+        if (quarter_count.eq(4) & derived.isna()).any():
+            raise ValueError("Fyra EPS-kvartal finns men derived_eps_ttm saknas")
+
+    payload = _load_json(CANDIDATES_JSON)
+    rows = payload.get("candidates", [])
+    if not isinstance(rows, list) or len(rows) != len(candidates):
+        raise ValueError("fundamental_candidates.json matchar inte CSV-kandidatfilen")
 
 
 def _validate_dashboard(prices: pd.DataFrame) -> None:
@@ -100,6 +129,8 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
         raise ValueError("Demo-event finns kvar i live-data")
     if not any(isinstance(item, dict) and item.get("event_type") == "dividend" for item in event_rows):
         raise ValueError("Inga utdelningshändelser exporterades till events.json")
+
+    _validate_fundamental_candidates(price_tickers)
 
 
 def validate() -> None:
