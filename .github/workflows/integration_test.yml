@@ -36,6 +36,9 @@ jobs:
       - name: Kör hela marknadspipelinen mot Yahoo
         run: python -m src.pipeline
 
+      - name: Begränsa dashboard från 2024-01-01
+        run: python -m src.limit_dashboard_window
+
       - name: Hämta direkt EPS TTM
         run: python -m src.earnings
 
