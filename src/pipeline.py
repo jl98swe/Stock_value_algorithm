@@ -19,6 +19,7 @@ from .events import (
 )
 from .fetch_data import BASE_DATA_FILE, UPDATES_FILE, load_price_history, update_prices
 from .fundamentals import attach_eps_ttm, latest_verified_report, load_reports
+from .model_data import ensure_gbm_model
 from .strategy import run_strategy
 from .utils import write_json_atomic
 from .valuation import GBMModel, calculate_valuation
@@ -165,7 +166,7 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
         return {
             "type": "NONE",
             "label": "Ingen signal",
-            "detail": "Score aktiveras när verifierad EPS TTM och GBM-modellen finns.",
+            "detail": "Score aktiveras när verifierad EPS TTM finns.",
         }
     if not strategy:
         return {"type": "NONE", "label": "Ingen signal", "detail": "Ingen exekverbar signal."}
@@ -265,7 +266,6 @@ def _stock_payload(
     has_verified_eps = bool(pd.to_numeric(working["EPS_TTM"], errors="coerce").notna().any())
     if model is not None and has_verified_eps:
         valued = calculate_valuation(working, model=model)
-        # Bevara låsen efter valuation, som i sin tur bevarar övriga kolumner.
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
         if valued["Score"].notna().any():
@@ -404,11 +404,13 @@ def build_dashboard(
     generated_at = datetime.now(ZoneInfo("Europe/Stockholm")).isoformat(timespec="seconds")
 
     try:
-        model = GBMModel.load()
+        model_path = ensure_gbm_model()
+        model = GBMModel.load(model_path)
         model_status = "ready"
-    except FileNotFoundError:
+    except (FileNotFoundError, ValueError, json.JSONDecodeError) as exc:
         model = None
-        model_status = "missing"
+        model_status = "invalid_or_missing"
+        print(f"VARNING: GBM-modellen kunde inte aktiveras: {exc}")
 
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
@@ -461,7 +463,7 @@ def build_dashboard(
         f"Senaste prisdatum: {prices['date'].max().date()}"
     )
     if model is None:
-        print("INFO: GBM-modellen saknas. Pris, MA200, utdelningar och event visas, men score väntar.")
+        print("INFO: Pris, MA200, utdelningar och event visas, men score väntar på giltig GBM-modell.")
     return dashboard_payload
 
 
