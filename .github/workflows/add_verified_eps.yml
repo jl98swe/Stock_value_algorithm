@@ -16,11 +16,7 @@ on:
         required: true
         type: string
       published_at:
-        description: "Publiceringstid med tidszon, t.ex. 2026-07-17T07:00:00+02:00"
-        required: true
-        type: string
-      effective_date:
-        description: "Första handelsdag då EPS får användas, YYYY-MM-DD"
+        description: "Publiceringstid med tidszon; EPS gäller automatiskt samma svenska dag"
         required: true
         type: string
       eps_ttm:
@@ -71,7 +67,6 @@ jobs:
           REPORT_PERIOD: ${{ inputs.report_period }}
           PERIOD_END: ${{ inputs.period_end }}
           PUBLISHED_AT: ${{ inputs.published_at }}
-          EFFECTIVE_DATE: ${{ inputs.effective_date }}
           EPS_TTM: ${{ inputs.eps_ttm }}
           SOURCE: ${{ inputs.source }}
           NOTES: ${{ inputs.notes }}
@@ -81,7 +76,6 @@ jobs:
             --report-period "$REPORT_PERIOD" \
             --period-end "$PERIOD_END" \
             --published-at "$PUBLISHED_AT" \
-            --effective-date "$EFFECTIVE_DATE" \
             --eps-ttm "$EPS_TTM" \
             --source "$SOURCE" \
             --notes "$NOTES"
@@ -91,6 +85,9 @@ jobs:
 
       - name: Bygg om dashboard med verifierad EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
+
+      - name: Begränsa dashboard från 2024-01-01
+        run: python -m src.limit_dashboard_window
 
       - name: Uppdatera direkt Yahoo EPS TTM
         run: python -m src.earnings
