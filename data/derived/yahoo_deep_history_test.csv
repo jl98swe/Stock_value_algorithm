@@ -1,0 +1,2 @@
+tested_at,requested_start,windows_per_ticker,universe_tickers,pre_2022_trailing_diluted_points,pre_2022_tickers,year_2016_trailing_diluted_points,year_2016_tickers,production_decision,note
+2026-08-16,2016-01-01,23,119,4,4,0,0,do_not_use_for_2016_backfill,"Yahoo fundamentals-timeseries was tested with historical endpoint windows back toward 2016. It did not expose usable trailingDilutedEPS history for 2016. Production fetch was restored to the stable 2022+ window. Historical EPS is only activated when a separately mapped report_date exists."
