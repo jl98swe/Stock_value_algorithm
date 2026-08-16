@@ -6,11 +6,15 @@ import pandas as pd
 
 from .config import ROOT
 
-ALIGNMENT_FILE = ROOT / "data" / "derived" / "eps_alignment_audit.csv"
+ALIGNMENT_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_aligned.csv"
 YAHOO_HISTORY_FILE = ROOT / "data" / "fundamentals" / "yahoo_history_all.csv"
 REFERENCE_GAPS_FILE = ROOT / "data" / "derived" / "eps_reference_gap_audit.csv"
 CONTINUITY_FILE = ROOT / "data" / "derived" / "yahoo_history_continuity_audit.csv"
-COMPARABLE = {"yahoo_trailing_diluted", "yahoo_reconstructed_diluted_ttm"}
+COMPARABLE = {
+    "yahoo_trailing_diluted",
+    "yahoo_reconstructed_diluted_ttm",
+    "strict_user_history_gap_fill",
+}
 
 
 def _audit_reference_gaps(alignment_file: Path) -> pd.DataFrame:
@@ -36,10 +40,10 @@ def _audit_reference_gaps(alignment_file: Path) -> pd.DataFrame:
 
             if prev_row is not None and next_row is not None:
                 position = "internal"
-                action = "borsdata_reference_plus_report_verification"
+                action = "issuer_report_or_other_verified_source_required"
             elif prev_row is None and next_row is not None:
                 position = "leading"
-                action = "optional_backfill_only"
+                action = "optional_backfill_requires_verified_source"
             elif prev_row is not None and next_row is None:
                 position = "trailing"
                 action = "verify_latest_period"
@@ -63,7 +67,7 @@ def _audit_reference_gaps(alignment_file: Path) -> pd.DataFrame:
                     "days_from_previous": int((report_date - prev_date).days) if pd.notna(report_date) and pd.notna(prev_date) else pd.NA,
                     "days_to_next": int((next_date - report_date).days) if pd.notna(report_date) and pd.notna(next_date) else pd.NA,
                     "stale_window_days": int((next_date - report_date).days) if position == "internal" and pd.notna(next_date) and pd.notna(report_date) else pd.NA,
-                    "reference_eps_ttm": row.get("original_eps_ttm", row.get("aligned_eps_ttm", pd.NA)),
+                    "reference_eps_ttm": row.get("eps_ttm", pd.NA),
                     "currency": row.get("currency", ""),
                     "recommended_action": action,
                 }
@@ -160,13 +164,13 @@ def audit(
     continuity.to_csv(continuity_output, index=False)
 
     if reference.empty:
-        print("Inga referens-fallbacks finns i den första historikbatchen.")
+        print("Inga olösta referens-fallbacks finns i den första historikbatchen.")
     else:
         counts = reference["gap_position"].value_counts().to_dict()
-        print(f"Referensluckor: {len(reference)} totalt; positioner {counts}.")
+        print(f"Olösta referensluckor efter strikt <1%-gap-fill: {len(reference)} totalt; positioner {counts}.")
         internal = reference.loc[reference["gap_position"] == "internal"]
         if not internal.empty:
-            print("Interna luckor där Börsdata kan användas som kontrollreferens:")
+            print("Interna luckor som kräver bolagsrapport eller annan verifierad källa:")
             print(
                 internal[
                     ["ticker", "report_period", "report_date", "previous_comparable_period", "next_comparable_period", "stale_window_days"]
