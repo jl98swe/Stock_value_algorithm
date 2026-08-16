@@ -62,7 +62,7 @@ jobs:
       - name: Hämta aktuell Yahoo trailingDilutedEPS
         run: python -m src.earnings
 
-      - name: Testa historisk Yahoo trailingDilutedEPS tillbaka till 2016
+      - name: Hämta stabil historisk Yahoo trailingDilutedEPS
         run: python -m src.audit_yahoo_trailing_timeseries
 
       - name: Bygg direkt Yahoo-historik endast med separata rapportdatum
@@ -110,14 +110,13 @@ jobs:
       - name: Validera data och webbexport
         run: python -m src.validate_outputs
 
-      - name: Visa täckning strikt kompatibilitet och äldre Yahoo-historik
+      - name: Visa täckning och strikt kompatibilitet
         run: |
           python - <<'PY'
           import pandas as pd
 
           valuation = pd.read_csv('data/derived/historical_valuation_audit.csv')
           all_history = pd.read_csv('data/derived/yahoo_history_all_audit.csv')
-          yahoo_history = pd.read_csv('data/fundamentals/yahoo_history_all.csv')
           reference_gaps = pd.read_csv('data/derived/eps_reference_gap_audit.csv')
           compatibility = pd.read_csv('data/derived/eps_reference_compatibility_audit.csv')
           continuity = pd.read_csv('data/derived/yahoo_history_continuity_audit.csv')
@@ -126,27 +125,19 @@ jobs:
           internal_reference = reference_gaps.loc[reference_gaps.gap_position == 'internal'] if not reference_gaps.empty else reference_gaps
           internal_period = continuity.loc[continuity.gap_type == 'internal_missing_yahoo_period'] if not continuity.empty else continuity
           internal_date = continuity.loc[continuity.gap_type == 'internal_missing_report_date'] if not continuity.empty else continuity
-
-          yahoo_history['period_end'] = pd.to_datetime(yahoo_history['period_end'], errors='coerce')
-          yahoo_history['report_date'] = pd.to_datetime(yahoo_history['report_date'], errors='coerce')
-          older = yahoo_history.loc[yahoo_history.period_end.dt.year <= 2021]
-          older_dated = older.loc[older.report_date.notna()]
-          y2016 = yahoo_history.loc[yahoo_history.period_end.dt.year == 2016]
-          y2016_dated = y2016.loc[y2016.report_date.notna()]
+          strict = compatibility.loc[compatibility.strict_compatible == True]
 
           print(f'Yahoo-historik tickers: {len(all_history)}')
           print(f'Tickers med minst en historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
           print(f'Tickers med historiskt P/E: {(valuation.pe_rows > 0).sum()}/{len(valuation)}')
           print(f'Aktuellt Yahoo EPS hämtat: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
-          print(f'Strikt kompatibla Börsdata-tickers (<1% i VARJE överlapp): {compatibility.strict_compatible.astype(bool).sum()}/{len(compatibility)}')
+          print(f'Strikt kompatibla referens-tickers (<1% i VARJE överlapp): {len(strict)}/{len(compatibility)}')
           print(f'Kvarvarande referensluckor från första batchen: {len(reference_gaps)} varav {len(internal_reference)} interna')
           print(f'Interna Yahoo-periodluckor i hela universumet: {len(internal_period)}')
           print(f'Interna Yahoo-perioder utan säkert rapportdatum: {len(internal_date)}')
-          print(f'Yahoo diluted TTM före 2022: {len(older)} perioder för {older.ticker.nunique()} tickers; med säkert rapportdatum {len(older_dated)} för {older_dated.ticker.nunique()} tickers')
-          print(f'Yahoo diluted TTM under 2016: {len(y2016)} perioder för {y2016.ticker.nunique()} tickers; med säkert rapportdatum {len(y2016_dated)} för {y2016_dated.ticker.nunique()} tickers')
-          if not older_dated.empty:
-              print('Äldsta Yahoo-period per ticker som faktiskt kan användas eftersom rapportdatum finns:')
-              print(older_dated.groupby('ticker').period_end.min().sort_values().head(30).to_string())
+          if not strict.empty:
+              print('Strikt kompatibla tickers:')
+              print(strict[['ticker','overlap_periods','max_abs_diff_pct']].to_string(index=False))
           if not internal_reference.empty:
               print('Kvarvarande interna referensluckor efter strikt <1%-gap-fill:')
               print(internal_reference[['ticker','report_period','report_date','previous_comparable_period','next_comparable_period','stale_window_days']].to_string(index=False))
@@ -188,6 +179,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m "data: test Yahoo EPS history back to 2016"
+          git commit -m "data: enforce strict historical EPS compatibility"
           git pull --rebase --autostash origin main
           git push origin main
