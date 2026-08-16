@@ -11,8 +11,8 @@ import yfinance as yf
 
 from .config import ROOT
 from .earnings import latest_earnings
+from .fetch_data import load_price_history
 
-HISTORY_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
 OUTPUT_FILE = ROOT / "data" / "derived" / "yahoo_trailing_eps_timeseries_audit.csv"
 METRICS = [
     "trailingDilutedEPS",
@@ -50,8 +50,8 @@ def _fetch_one(ticker: str, period1: int, period2_values: list[int]) -> list[dic
     """Hämta flera Yahoo-fönster och slå ihop dem.
 
     Fundamentals-timeseries returnerar ett begränsat antal observationer per
-    anrop. Historiska slutdatum gör att annars utelämnade kvartal (framför allt
-    2025-Q3 i den första kontrollen) kan hämtas utan någon betaltjänst.
+    anrop. Historiska slutdatum gör att annars utelämnade kvartal kan hämtas
+    utan någon betaltjänst.
     """
     symbol = yf.Ticker(ticker)
     rows: list[dict[str, object]] = []
@@ -70,15 +70,20 @@ def _fetch_one(ticker: str, period1: int, period2_values: list[int]) -> list[dic
 
 
 def audit(
-    history_file: Path = HISTORY_FILE,
     output_file: Path = OUTPUT_FILE,
     *,
     workers: int = 4,
 ) -> pd.DataFrame:
-    history = pd.read_csv(history_file, encoding="utf-8-sig")
-    tickers = sorted(history["ticker"].dropna().astype(str).str.strip().unique().tolist())
+    """Hämta Yahoo EPS-timeseries för hela prisuniversumet.
+
+    Historikhämtningen är medvetet frikopplad från Börsdata-/referensfilerna.
+    Prisuniversumet är källan till vilka aktier som ska hämtas, så nya aktier
+    kan få historik direkt från Yahoo utan att först finnas i en köpt fil.
+    """
+    prices = load_price_history()
+    tickers = sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
     if not tickers:
-        raise ValueError("Ingen tickerhistorik hittades.")
+        raise ValueError("Prisuniversumet innehåller inga tickers.")
 
     start = pd.Timestamp("2022-01-01", tz="UTC")
     now = pd.Timestamp(datetime.now(ZoneInfo("Europe/Stockholm")) + timedelta(days=2)).tz_convert("UTC")
@@ -87,6 +92,8 @@ def audit(
         pd.Timestamp("2026-01-15", tz="UTC"),
         pd.Timestamp("2025-01-15", tz="UTC"),
         pd.Timestamp("2024-08-01", tz="UTC"),
+        pd.Timestamp("2024-01-15", tz="UTC"),
+        pd.Timestamp("2023-07-15", tz="UTC"),
     ]
     period1 = int(start.timestamp())
     period2_values = sorted({int(value.timestamp()) for value in checkpoints}, reverse=True)
@@ -131,18 +138,12 @@ def audit(
     output_file.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(output_file, index=False)
 
-    print(f"Yahoo EPS-timeseries: {len(result)} datapunkter för {result['ticker'].nunique() if not result.empty else 0}/{len(tickers)} tickers.")
+    covered = result["ticker"].nunique() if not result.empty else 0
+    print(f"Yahoo EPS-timeseries: {len(result)} datapunkter för {covered}/{len(tickers)} tickers.")
     if not result.empty:
         counts = result.groupby(["ticker", "metric"]).size().unstack(fill_value=0)
         print("Antal datapunkter per metric, sammanfattning:")
         print(counts.describe().to_string())
-        mismatches = {"ATRLJ-B.ST", "BALD-B.ST", "CAST.ST", "CATE.ST", "CIBUS.ST", "DIOS.ST", "EAST.ST", "EMBRAC-B.ST", "FABG.ST"}
-        sample = result.loc[
-            result["ticker"].isin(mismatches) & result["is_latest_metric_row"],
-            ["ticker", "metric", "as_of_date", "value", "currency_code", "current_trailing_eps"],
-        ]
-        print("Senaste Yahoo EPS-metrics för tidigare avvikelser:")
-        print(sample.to_string(index=False))
     return result
 
 
