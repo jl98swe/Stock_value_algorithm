@@ -69,6 +69,23 @@ def _fetch_one(ticker: str, period1: int, period2_values: list[int]) -> list[dic
     return rows
 
 
+def _historical_checkpoints(now: pd.Timestamp) -> list[pd.Timestamp]:
+    """Skapa halvårsvisa Yahoo-slutpunkter för att försöka nå historik från 2016.
+
+    Starten sätts till 2015 eftersom diluted TTM för tidiga 2016-perioder kan
+    behöva kvartalskomponenter från 2015 vid rekonstruktion. Värden får senare
+    bara importeras till värderingen om ett säkert rapportdatum också kan
+    kopplas till perioden.
+    """
+    checkpoints: list[pd.Timestamp] = [now]
+    for year in range(2016, int(now.year) + 1):
+        for month in (1, 7):
+            value = pd.Timestamp(year=year, month=month, day=15, tz="UTC")
+            if value <= now:
+                checkpoints.append(value)
+    return sorted(set(checkpoints), reverse=True)
+
+
 def audit(
     output_file: Path = OUTPUT_FILE,
     *,
@@ -79,24 +96,26 @@ def audit(
     Historikhämtningen är medvetet frikopplad från Börsdata-/referensfilerna.
     Prisuniversumet är källan till vilka aktier som ska hämtas, så nya aktier
     kan få historik direkt från Yahoo utan att först finnas i en köpt fil.
+
+    Vi försöker nu nå tillbaka till 2016. Detta steg hämtar bara EPS-serien;
+    bygg/import-steget kräver separat att ett säkert rapportdatum finns innan
+    en historisk period får aktiveras i reports.csv.
     """
     prices = load_price_history()
     tickers = sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
     if not tickers:
         raise ValueError("Prisuniversumet innehåller inga tickers.")
 
-    start = pd.Timestamp("2022-01-01", tz="UTC")
+    start = pd.Timestamp("2015-01-01", tz="UTC")
     now = pd.Timestamp(datetime.now(ZoneInfo("Europe/Stockholm")) + timedelta(days=2)).tz_convert("UTC")
-    checkpoints = [
-        now,
-        pd.Timestamp("2026-01-15", tz="UTC"),
-        pd.Timestamp("2025-01-15", tz="UTC"),
-        pd.Timestamp("2024-08-01", tz="UTC"),
-        pd.Timestamp("2024-01-15", tz="UTC"),
-        pd.Timestamp("2023-07-15", tz="UTC"),
-    ]
+    checkpoints = _historical_checkpoints(now)
     period1 = int(start.timestamp())
-    period2_values = sorted({int(value.timestamp()) for value in checkpoints}, reverse=True)
+    period2_values = [int(value.timestamp()) for value in checkpoints]
+
+    print(
+        f"Testar Yahoo EPS-historik från 2016 med {len(period2_values)} historiska fönster per ticker. "
+        "Endast perioder med säkert rapportdatum får senare importeras."
+    )
 
     rows: list[dict[str, object]] = []
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(tickers)))) as executor:
@@ -144,6 +163,16 @@ def audit(
         counts = result.groupby(["ticker", "metric"]).size().unstack(fill_value=0)
         print("Antal datapunkter per metric, sammanfattning:")
         print(counts.describe().to_string())
+        trailing = result.loc[result["metric"] == "trailingDilutedEPS"].copy()
+        trailing_dates = pd.to_datetime(trailing["as_of_date"], errors="coerce")
+        old = trailing.loc[trailing_dates.dt.year <= 2021]
+        old_2016 = trailing.loc[trailing_dates.dt.year == 2016]
+        print(
+            f"Äldre trailingDilutedEPS: {len(old)} datapunkter före 2022 för "
+            f"{old['ticker'].nunique() if not old.empty else 0} tickers; "
+            f"2016 specifikt {len(old_2016)} datapunkter för "
+            f"{old_2016['ticker'].nunique() if not old_2016.empty else 0} tickers."
+        )
     return result
 
 
