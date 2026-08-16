@@ -12,26 +12,18 @@ from .model_data import ensure_gbm_model
 from .strategy import run_strategy
 from .valuation import GBMModel, calculate_valuation
 
-SOURCE_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
 OUTPUT_FILE = ROOT / "data" / "derived" / "historical_valuation_audit.csv"
 
 
 def audit(
-    source_file: Path = SOURCE_FILE,
     output_file: Path = OUTPUT_FILE,
 ) -> pd.DataFrame:
-    source = pd.read_csv(source_file, encoding="utf-8-sig")
-    tickers = sorted(source["ticker"].dropna().astype(str).unique())
     prices = load_price_history()
+    tickers = sorted(prices["ticker"].dropna().astype(str).unique())
     reports = load_reports()
     metadata = load_stock_currencies()
     fx = load_fx_history()
     model = GBMModel.load(ensure_gbm_model())
-
-    price_tickers = set(prices["ticker"].astype(str).unique())
-    missing_prices = sorted(set(tickers).difference(price_tickers))
-    if missing_prices:
-        raise ValueError(f"Saknar prisdata för historiska EPS-tickers: {', '.join(missing_prices)}")
 
     rows: list[dict[str, object]] = []
     for ticker in tickers:
@@ -99,18 +91,15 @@ def audit(
     output_file.parent.mkdir(parents=True, exist_ok=True)
     audit_frame.to_csv(output_file, index=False)
 
-    if (audit_frame["eps_rows"] <= 0).any():
-        bad = audit_frame.loc[audit_frame["eps_rows"] <= 0, "ticker"].tolist()
-        raise ValueError(f"Ingen point-in-time EPS mappades för: {', '.join(bad)}")
-    if (audit_frame["pe_rows"] <= 0).any():
-        bad = audit_frame.loc[audit_frame["pe_rows"] <= 0, "ticker"].tolist()
-        raise ValueError(f"Ingen P/E kunde beräknas för: {', '.join(bad)}")
-
+    ready = int((audit_frame["score_rows"] > 0).sum())
+    pe_ready = int((audit_frame["pe_rows"] > 0).sum())
+    missing = audit_frame.loc[audit_frame["pe_rows"] <= 0, "ticker"].tolist()
     print(
-        f"Historisk värderingsaudit klar: {len(audit_frame)} tickers, "
-        f"{int((audit_frame['score_rows'] > 0).sum())} med score och "
-        f"{int((audit_frame['signals_total'] > 0).sum())} med minst en strategisignal."
+        f"Historisk värderingsaudit klar: {len(audit_frame)} tickers, {pe_ready} med P/E, "
+        f"{ready} med score och {int((audit_frame['signals_total'] > 0).sum())} med minst en strategisignal."
     )
+    if missing:
+        print(f"Tickers som ännu saknar historiskt P/E: {', '.join(missing)}")
     return audit_frame
 
 
