@@ -12,8 +12,11 @@ on:
       - "src/apply_report_date_overrides.py"
       - "src/earnings.py"
       - "src/audit_yahoo_trailing_timeseries.py"
+      - "src/build_yahoo_history_all.py"
       - "src/align_historical_eps_to_yahoo.py"
       - "src/import_enriched_eps.py"
+      - "src/import_yahoo_history_all.py"
+      - "src/audit_eps_gaps.py"
       - "src/sync_yahoo_eps_reports.py"
       - "src/audit_historical_valuation.py"
       - "src/compare_latest_eps.py"
@@ -48,29 +51,38 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Mappa tickers och hämta historiska rapportdatum
+      - name: Mappa första historikbatchen och rapportdatum
         run: python -m src.enrich_historical_eps
 
       - name: Applicera verifierade rapportdatum
         run: python -m src.apply_report_date_overrides
 
-      - name: Uppdatera valutakurser
-        run: python -m src.fx
-
       - name: Hämta aktuell Yahoo trailingDilutedEPS
         run: python -m src.earnings
 
-      - name: Hämta historisk Yahoo trailingDilutedEPS
+      - name: Hämta historisk Yahoo trailingDilutedEPS för hela universumet
         run: python -m src.audit_yahoo_trailing_timeseries
 
-      - name: Aligna historiken till samma Yahoo EPS-definition
+      - name: Bygg direkt Yahoo-historik för hela universumet
+        run: python -m src.build_yahoo_history_all
+
+      - name: Uppdatera valutakurser för hela universumet
+        run: python -m src.fx
+
+      - name: Aligna första batchen till samma Yahoo EPS-definition
         run: python -m src.align_historical_eps_to_yahoo
 
-      - name: Importera alignad historisk EPS till kanoniska rapporter
+      - name: Importera alignad första batch till kanoniska rapporter
         run: python -m src.import_enriched_eps
+
+      - name: Importera direkt Yahoo-historik för övriga perioder och aktier
+        run: python -m src.import_yahoo_history_all
 
       - name: Synka nya Yahoo-perioder till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
+
+      - name: Klassificera historiska EPS-luckor
+        run: python -m src.audit_eps_gaps
 
       - name: Bygg dashboard med jämförbar historisk och framtida EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
@@ -84,37 +96,40 @@ jobs:
       - name: Jämför Yahoo EPS med senaste historiska EPS
         run: python -m src.compare_latest_eps
 
-      - name: Auditera historisk P E score och signaler
+      - name: Auditera historisk P E score och signaler för hela universumet
         run: python -m src.audit_historical_valuation
 
       - name: Validera data och webbexport
         run: python -m src.validate_outputs
 
-      - name: Visa täckning
+      - name: Visa täckning och luckor
         run: |
           python - <<'PY'
           import pandas as pd
 
-          report_dates = pd.read_csv('data/derived/eps_report_date_audit.csv')
-          missing = pd.read_csv('data/derived/eps_report_date_missing.csv')
           valuation = pd.read_csv('data/derived/historical_valuation_audit.csv')
+          all_history = pd.read_csv('data/derived/yahoo_history_all_audit.csv')
+          reference_gaps = pd.read_csv('data/derived/eps_reference_gap_audit.csv')
+          continuity = pd.read_csv('data/derived/yahoo_history_continuity_audit.csv')
           comparison = pd.read_csv('data/derived/latest_eps_yahoo_comparison.csv')
-          alignment = pd.read_csv('data/derived/eps_alignment_audit.csv')
 
-          direct = (alignment.alignment_status == 'yahoo_trailing_diluted').sum()
-          reconstructed = (alignment.alignment_status == 'yahoo_reconstructed_diluted_ttm').sum()
-          fallback = (alignment.alignment_status == 'fallback_user_history').sum()
-          print(f'Historiska rader direkt Yahoo trailingDilutedEPS: {direct}/{len(alignment)}')
-          print(f'Historiska rader rekonstruerade enbart från Yahoo diluted EPS: {reconstructed}/{len(alignment)}')
-          print(f'Historiska referens-fallbacks som inte används i värderingen: {fallback}/{len(alignment)}')
-          print(f'EPS-rader utan rapportdatum: {len(missing)}')
-          print(f'Tickers med historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
-          print(f'Tickers med strategisignal: {(valuation.signals_total > 0).sum()}/{len(valuation)}')
-          print(f'Yahoo EPS hämtad: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
-          print(report_dates[['yahoo_ticker', 'periods', 'dates_mapped', 'status']].to_string(index=False))
+          internal_reference = reference_gaps.loc[reference_gaps.gap_position == 'internal'] if not reference_gaps.empty else reference_gaps
+          internal_period = continuity.loc[continuity.gap_type == 'internal_missing_yahoo_period'] if not continuity.empty else continuity
+          internal_date = continuity.loc[continuity.gap_type == 'internal_missing_report_date'] if not continuity.empty else continuity
+
+          print(f'Yahoo-historik tickers: {len(all_history)}')
+          print(f'Tickers med minst en historisk score: {(valuation.score_rows > 0).sum()}/{len(valuation)}')
+          print(f'Tickers med historiskt P/E: {(valuation.pe_rows > 0).sum()}/{len(valuation)}')
+          print(f'Aktuellt Yahoo EPS hämtat: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
+          print(f'Kvarvarande referensluckor från första batchen: {len(reference_gaps)} varav {len(internal_reference)} interna')
+          print(f'Interna Yahoo-periodluckor i hela universumet: {len(internal_period)}')
+          print(f'Interna Yahoo-perioder utan säkert rapportdatum: {len(internal_date)}')
+          if not internal_reference.empty:
+              print('Interna referensluckor som kan motivera Börsdata/rapportkontroll:')
+              print(internal_reference[['ticker','report_period','report_date','previous_comparable_period','next_comparable_period','stale_window_days']].to_string(index=False))
           PY
 
-      - name: Spara berikade filer och audit
+      - name: Spara Yahoo-historik och audit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -124,13 +139,17 @@ jobs:
 
           git add data/fundamentals/eps_ttm_history_enriched.csv
           git add data/fundamentals/eps_ttm_history_aligned.csv
+          git add data/fundamentals/yahoo_history_all.csv
           git add data/fundamentals/reports.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_report_date_audit.csv
           git add data/derived/eps_report_date_missing.csv
           git add data/derived/eps_report_date_overrides_applied.csv
           git add data/derived/yahoo_trailing_eps_timeseries_audit.csv
+          git add data/derived/yahoo_history_all_audit.csv
           git add data/derived/eps_alignment_audit.csv
+          git add data/derived/eps_reference_gap_audit.csv
+          git add data/derived/yahoo_history_continuity_audit.csv
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
           git add docs/data/dashboard.json docs/data/stocks.json docs/data/earnings.json
@@ -145,6 +164,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m "data: integrate Yahoo-comparable historical EPS"
+          git commit -m "data: bootstrap full Yahoo EPS history"
           git pull --rebase --autostash origin main
           git push origin main
