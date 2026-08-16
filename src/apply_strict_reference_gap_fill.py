@@ -5,12 +5,14 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ROOT
+from .fundamentals import REPORTS_FILE, load_reports, save_reports
 
 ALIGNED_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_aligned.csv"
 ALIGNMENT_AUDIT_FILE = ROOT / "data" / "derived" / "eps_alignment_audit.csv"
 COMPATIBILITY_FILE = ROOT / "data" / "derived" / "eps_reference_compatibility_audit.csv"
 STRICT_THRESHOLD_PCT = 1.0
 MIN_OVERLAPS = 4
+STRICT_IMPORT_MARKER = "strict_reference_gap_fill_v1"
 YAHOO_STATUSES = {
     "yahoo_trailing_diluted",
     "yahoo_reconstructed_diluted_ttm",
@@ -42,6 +44,17 @@ def _compatibility(audit: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values("ticker").reset_index(drop=True)
 
 
+def _remove_previous_strict_imports(reports_file: Path = REPORTS_FILE) -> int:
+    reports = load_reports(reports_file)
+    if reports.empty:
+        return 0
+    mask = reports["notes"].fillna("").astype(str).str.contains(STRICT_IMPORT_MARKER, regex=False)
+    removed = int(mask.sum())
+    if removed:
+        save_reports(reports.loc[~mask].copy(), reports_file)
+    return removed
+
+
 def apply(
     aligned_file: Path = ALIGNED_FILE,
     audit_file: Path = ALIGNMENT_AUDIT_FILE,
@@ -64,11 +77,13 @@ def apply(
     aligned.to_csv(aligned_file, index=False)
     compatibility_file.parent.mkdir(parents=True, exist_ok=True)
     compatibility.to_csv(compatibility_file, index=False)
+    removed = _remove_previous_strict_imports()
 
     print(
         f"Strikt Börsdata-referenspolicy: {int(compatibility['strict_compatible'].sum())}/{len(compatibility)} "
         f"tickers klarar kravet att VARJE Yahoo-överlapp är <{STRICT_THRESHOLD_PCT:.0f}%. "
-        f"{int(mask.sum())} tidigare luckrader får användas som historisk gap-fill."
+        f"{int(mask.sum())} tidigare luckrader får användas som historisk gap-fill. "
+        f"{removed} gamla strict-gap-fill-rader rensades före återimport."
     )
     failed = compatibility.loc[~compatibility["strict_compatible"].astype(bool)]
     if not failed.empty:
