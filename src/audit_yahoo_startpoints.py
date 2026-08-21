@@ -9,6 +9,7 @@ from .fetch_data import load_price_history
 
 HISTORY_FILE = ROOT / "data" / "fundamentals" / "yahoo_history_all.csv"
 OUTPUT_FILE = ROOT / "data" / "derived" / "yahoo_eps_startpoints.csv"
+SUMMARY_FILE = ROOT / "data" / "derived" / "yahoo_eps_startpoints_summary.csv"
 
 
 def _quarter_label(value: pd.Timestamp | pd.NaT) -> str:
@@ -21,6 +22,7 @@ def _quarter_label(value: pd.Timestamp | pd.NaT) -> str:
 def audit(
     history_file: Path = HISTORY_FILE,
     output_file: Path = OUTPUT_FILE,
+    summary_file: Path = SUMMARY_FILE,
 ) -> pd.DataFrame:
     prices = load_price_history()
     universe = pd.DataFrame(
@@ -96,6 +98,32 @@ def audit(
     result.to_csv(output_file, index=False)
 
     usable = result.loc[result["start_status"] == "usable"].copy()
+    summary_rows: list[dict[str, object]] = []
+    for quarter, group in usable.groupby("earliest_usable_quarter", sort=True):
+        summary_rows.append(
+            {
+                "start_status": "usable",
+                "earliest_usable_quarter": quarter,
+                "count": len(group),
+                "tickers": ";".join(group["ticker"].tolist()),
+            }
+        )
+    for status, group in result.loc[result["start_status"] != "usable"].groupby("start_status", sort=True):
+        summary_rows.append(
+            {
+                "start_status": status,
+                "earliest_usable_quarter": "",
+                "count": len(group),
+                "tickers": ";".join(group["ticker"].tolist()),
+            }
+        )
+    summary = pd.DataFrame(
+        summary_rows,
+        columns=["start_status", "earliest_usable_quarter", "count", "tickers"],
+    )
+    summary_file.parent.mkdir(parents=True, exist_ok=True)
+    summary.to_csv(summary_file, index=False)
+
     print(f"Yahoo startpunkter: {len(usable)}/{len(result)} tickers har EPS + säkert rapportdatum.")
     if not usable.empty:
         print("Fördelning av första användbara kvartal:")
