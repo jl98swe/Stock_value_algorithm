@@ -1,0 +1,98 @@
+name: Historisk MFN-nyhetsimport
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Tidigaste datum (YYYY-MM-DD)"
+        required: true
+        default: "2024-01-01"
+        type: string
+      ticker:
+        description: "Valfri Yahoo-ticker, t.ex. ERIC-B.ST. Tomt = hela universum."
+        required: false
+        default: ""
+        type: string
+      max_pages:
+        description: "Max MFN-svar per aktie"
+        required: true
+        default: "40"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: historical-company-news
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Installera Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installera beroenden
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Backfilla MFN-historik
+        shell: bash
+        env:
+          START_DATE: ${{ inputs.start_date }}
+          TICKER: ${{ inputs.ticker }}
+          MAX_PAGES: ${{ inputs.max_pages }}
+        run: |
+          args=(--history --start "$START_DATE" --max-pages "$MAX_PAGES")
+          if [ -n "$TICKER" ]; then
+            args+=(--ticker "$TICKER")
+          fi
+          python -m src.news_curated "${args[@]}"
+
+      - name: Sammanfatta täckning
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          status = json.loads(Path("data/news/status.json").read_text(encoding="utf-8"))
+          summary = status.get("summary", {})
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          unresolved = [ticker for ticker, row in status.get("stocks", {}).items() if row.get("status") != "ok"]
+          partial = [ticker for ticker, row in status.get("stocks", {}).items() if row.get("history_complete") is False]
+          if unresolved:
+              print("Olösta MFN-källor:", ", ".join(unresolved))
+          if partial:
+              print("Historik som inte kunde verifieras tillbaka till startåret:", ", ".join(partial))
+          PY
+
+      - name: Spara historik, status och publicerade N-händelser
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/news docs/data/events.json
+          if [ -d data/raw/news ]; then
+            find data/raw/news -type f -name '*.json' -print0 | xargs -0 -r git add --
+          fi
+
+          if git diff --cached --quiet; then
+            echo "Ingen ny historik att spara."
+            exit 0
+          fi
+
+          git commit -m "data: backfilla bolagsnyheter från MFN"
+          git pull --rebase origin main
+          git push origin main
