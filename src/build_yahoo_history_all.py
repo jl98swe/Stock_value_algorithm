@@ -16,7 +16,7 @@ OUTPUT_FILE = ROOT / "data" / "fundamentals" / "yahoo_history_all.csv"
 AUDIT_FILE = ROOT / "data" / "derived" / "yahoo_history_all_audit.csv"
 METADATA_FILE = ROOT / "data" / "metadata" / "stocks_yahoo.csv"
 STOCKHOLM_TZ = "Europe/Stockholm"
-MAX_REPORT_LAG_DAYS = 140
+MAX_REPORT_LAG_DAYS = 90
 
 
 def _stockholm_date(value: object) -> pd.Timestamp | None:
@@ -97,6 +97,22 @@ def _current_snapshot_dates() -> dict[tuple[str, pd.Timestamp], pd.Timestamp]:
     return result
 
 
+def _date_fits_period(
+    candidate: pd.Timestamp | None,
+    period_end: pd.Timestamp,
+    next_period_end: pd.Timestamp | None,
+) -> bool:
+    if candidate is None:
+        return False
+    candidate = pd.Timestamp(candidate).normalize()
+    lag = int((candidate - period_end).days)
+    if lag < 0 or lag > MAX_REPORT_LAG_DAYS:
+        return False
+    if next_period_end is not None and candidate >= pd.Timestamp(next_period_end).normalize():
+        return False
+    return True
+
+
 def _map_report_dates(
     ticker: str,
     periods: pd.DataFrame,
@@ -104,33 +120,37 @@ def _map_report_dates(
     existing_dates: dict[tuple[str, pd.Timestamp], pd.Timestamp],
     snapshot_dates: dict[tuple[str, pd.Timestamp], pd.Timestamp],
 ) -> pd.DataFrame:
-    result = periods.sort_values("as_of_date").copy()
+    result = periods.sort_values("as_of_date").copy().reset_index(drop=True)
     result["report_date"] = pd.NaT
     result["date_status"] = "missing"
+    result["report_lag_days"] = pd.NA
 
     used: set[pd.Timestamp] = set()
     previous_report: pd.Timestamp | None = None
-    for idx, row in result.iterrows():
-        period_end = pd.Timestamp(row["as_of_date"]).normalize()
+    period_ends = [pd.Timestamp(value).normalize() for value in result["as_of_date"]]
+
+    for position, row in result.iterrows():
+        period_end = period_ends[position]
+        next_period_end = period_ends[position + 1] if position + 1 < len(period_ends) else None
         key = (ticker, period_end)
 
         chosen = existing_dates.get(key)
         status = "existing_canonical"
+        if not _date_fits_period(chosen, period_end, next_period_end):
+            chosen = None
+
         if chosen is None:
             candidate = snapshot_dates.get(key)
-            if candidate is not None:
-                lag = int((candidate - period_end).days)
-                if 0 <= lag <= MAX_REPORT_LAG_DAYS:
-                    chosen = candidate
-                    status = "current_snapshot"
+            if _date_fits_period(candidate, period_end, next_period_end):
+                chosen = candidate
+                status = "current_snapshot"
 
         if chosen is None:
             candidates = [
                 date
                 for date in yahoo_dates
                 if date not in used
-                and date >= period_end
-                and int((date - period_end).days) <= MAX_REPORT_LAG_DAYS
+                and _date_fits_period(date, period_end, next_period_end)
                 and (previous_report is None or date > previous_report)
             ]
             if candidates:
@@ -139,8 +159,9 @@ def _map_report_dates(
 
         if chosen is not None:
             chosen = pd.Timestamp(chosen).normalize()
-            result.at[idx, "report_date"] = chosen
-            result.at[idx, "date_status"] = status
+            result.at[position, "report_date"] = chosen
+            result.at[position, "date_status"] = status
+            result.at[position, "report_lag_days"] = int((chosen - period_end).days)
             used.add(chosen)
             previous_report = chosen
 
@@ -271,6 +292,7 @@ def build(
                 "ticker",
                 "period_end",
                 "report_date",
+                "report_lag_days",
                 "eps_ttm",
                 "currency",
                 "alignment_status",
@@ -290,6 +312,7 @@ def build(
                 "report_dates_missing": int(mapped["report_date"].isna().sum()),
                 "first_period_end": pd.to_datetime(mapped["period_end"]).min().date().isoformat(),
                 "last_period_end": pd.to_datetime(mapped["period_end"]).max().date().isoformat(),
+                "max_report_lag_days": int(pd.to_numeric(mapped["report_lag_days"], errors="coerce").max()) if mapped["report_lag_days"].notna().any() else pd.NA,
             }
         )
 
