@@ -79,6 +79,12 @@ def audit(
     Historikhämtningen är medvetet frikopplad från Börsdata-/referensfilerna.
     Prisuniversumet är källan till vilka aktier som ska hämtas, så nya aktier
     kan få historik direkt från Yahoo utan att först finnas i en köpt fil.
+
+    Vi börjar vid 2022-01-01 och använder täta historiska slutdatum även under
+    2022 och första halvåret 2023. Det behövs eftersom Yahoo endast returnerar
+    ett begränsat antal fundamentala observationer per anrop. På så sätt kan vi
+    faktiskt testa hur tidigt varje ticker har trailingDilutedEPS, i stället
+    för att anta att hela universumet börjar samma kvartal.
     """
     prices = load_price_history()
     tickers = sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
@@ -94,6 +100,11 @@ def audit(
         pd.Timestamp("2024-08-01", tz="UTC"),
         pd.Timestamp("2024-01-15", tz="UTC"),
         pd.Timestamp("2023-07-15", tz="UTC"),
+        pd.Timestamp("2023-04-15", tz="UTC"),
+        pd.Timestamp("2023-01-15", tz="UTC"),
+        pd.Timestamp("2022-10-15", tz="UTC"),
+        pd.Timestamp("2022-07-15", tz="UTC"),
+        pd.Timestamp("2022-04-15", tz="UTC"),
     ]
     period1 = int(start.timestamp())
     period2_values = sorted({int(value.timestamp()) for value in checkpoints}, reverse=True)
