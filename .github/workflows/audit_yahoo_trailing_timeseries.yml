@@ -57,6 +57,7 @@ jobs:
           git add data/fundamentals/yahoo_history_all.csv
           git add data/derived/yahoo_history_all_audit.csv
           git add data/derived/yahoo_eps_startpoints.csv
+          git add data/derived/yahoo_eps_startpoints_summary.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_alignment_audit.csv
           git add data/fundamentals/eps_ttm_history_aligned.csv
