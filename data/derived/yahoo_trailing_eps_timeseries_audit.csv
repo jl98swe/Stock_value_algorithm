@@ -413,7 +413,8 @@ ATT.ST,trailingBasicEPS,2024-12-31,2.86,SEK,5.88,False
 ATT.ST,trailingBasicEPS,2025-03-31,3.34,SEK,5.88,False
 ATT.ST,trailingBasicEPS,2025-06-30,3.66,SEK,5.88,False
 ATT.ST,trailingBasicEPS,2025-12-31,5.45,SEK,5.88,False
-ATT.ST,trailingBasicEPS,2026-03-31,5.92,SEK,5.88,True
+ATT.ST,trailingBasicEPS,2026-03-31,5.92,SEK,5.88,False
+ATT.ST,trailingBasicEPS,2026-06-30,6.64,SEK,5.88,True
 ATT.ST,trailingDilutedEPS,2023-09-30,1.696214,SEK,5.88,False
 ATT.ST,trailingDilutedEPS,2023-12-31,2.33,SEK,5.88,False
 ATT.ST,trailingDilutedEPS,2024-03-31,2.55,SEK,5.88,False
@@ -423,7 +424,8 @@ ATT.ST,trailingDilutedEPS,2024-12-31,2.85,SEK,5.88,False
 ATT.ST,trailingDilutedEPS,2025-03-31,3.33,SEK,5.88,False
 ATT.ST,trailingDilutedEPS,2025-06-30,3.64,SEK,5.88,False
 ATT.ST,trailingDilutedEPS,2025-12-31,5.42,SEK,5.88,False
-ATT.ST,trailingDilutedEPS,2026-03-31,5.88,SEK,5.88,True
+ATT.ST,trailingDilutedEPS,2026-03-31,5.88,SEK,5.88,False
+ATT.ST,trailingDilutedEPS,2026-06-30,6.61,SEK,5.88,True
 AXFO.ST,quarterlyBasicEPS,2024-12-31,1.62,SEK,11.22,False
 AXFO.ST,quarterlyBasicEPS,2025-03-31,2.09,SEK,11.22,False
 AXFO.ST,quarterlyBasicEPS,2025-06-30,2.85,SEK,11.22,False
@@ -1842,7 +1844,8 @@ HOLM-A.ST,trailingBasicEPS,2024-12-31,18.0,SEK,17.7,False
 HOLM-A.ST,trailingBasicEPS,2025-03-31,18.1,SEK,17.7,False
 HOLM-A.ST,trailingBasicEPS,2025-06-30,17.3,SEK,17.7,False
 HOLM-A.ST,trailingBasicEPS,2025-12-31,18.5,SEK,17.7,False
-HOLM-A.ST,trailingBasicEPS,2026-03-31,17.7,SEK,17.7,True
+HOLM-A.ST,trailingBasicEPS,2026-03-31,17.7,SEK,17.7,False
+HOLM-A.ST,trailingBasicEPS,2026-06-30,17.3,SEK,17.7,True
 HOLM-A.ST,trailingDilutedEPS,2023-09-30,27.4,SEK,17.7,False
 HOLM-A.ST,trailingDilutedEPS,2023-12-31,23.0,SEK,17.7,False
 HOLM-A.ST,trailingDilutedEPS,2024-03-31,19.2,SEK,17.7,False
@@ -1852,7 +1855,8 @@ HOLM-A.ST,trailingDilutedEPS,2024-12-31,18.0,SEK,17.7,False
 HOLM-A.ST,trailingDilutedEPS,2025-03-31,18.1,SEK,17.7,False
 HOLM-A.ST,trailingDilutedEPS,2025-06-30,17.3,SEK,17.7,False
 HOLM-A.ST,trailingDilutedEPS,2025-12-31,18.5,SEK,17.7,False
-HOLM-A.ST,trailingDilutedEPS,2026-03-31,17.7,SEK,17.7,True
+HOLM-A.ST,trailingDilutedEPS,2026-03-31,17.7,SEK,17.7,False
+HOLM-A.ST,trailingDilutedEPS,2026-06-30,17.3,SEK,17.7,True
 HPOL-B.ST,quarterlyBasicEPS,2024-12-31,1.02,SEK,5.3,False
 HPOL-B.ST,quarterlyBasicEPS,2025-03-31,1.75,SEK,5.3,False
 HPOL-B.ST,quarterlyBasicEPS,2025-06-30,1.56,SEK,5.3,False
@@ -2590,7 +2594,8 @@ NEWA-B.ST,trailingBasicEPS,2024-09-30,6.8,SEK,5.78,False
 NEWA-B.ST,trailingBasicEPS,2025-03-31,6.81,SEK,5.78,False
 NEWA-B.ST,trailingBasicEPS,2025-06-30,6.47,SEK,5.78,False
 NEWA-B.ST,trailingBasicEPS,2025-12-31,5.9,SEK,5.78,False
-NEWA-B.ST,trailingBasicEPS,2026-03-31,5.78,SEK,5.78,True
+NEWA-B.ST,trailingBasicEPS,2026-03-31,5.78,SEK,5.78,False
+NEWA-B.ST,trailingBasicEPS,2026-06-30,6.05,SEK,5.78,True
 NEWA-B.ST,trailingDilutedEPS,2023-09-30,9.03,SEK,5.78,False
 NEWA-B.ST,trailingDilutedEPS,2024-03-31,7.67,SEK,5.78,False
 NEWA-B.ST,trailingDilutedEPS,2024-06-30,7.3,SEK,5.78,False
@@ -2598,7 +2603,8 @@ NEWA-B.ST,trailingDilutedEPS,2024-09-30,6.8,SEK,5.78,False
 NEWA-B.ST,trailingDilutedEPS,2025-03-31,6.81,SEK,5.78,False
 NEWA-B.ST,trailingDilutedEPS,2025-06-30,6.47,SEK,5.78,False
 NEWA-B.ST,trailingDilutedEPS,2025-12-31,5.9,SEK,5.78,False
-NEWA-B.ST,trailingDilutedEPS,2026-03-31,5.78,SEK,5.78,True
+NEWA-B.ST,trailingDilutedEPS,2026-03-31,5.78,SEK,5.78,False
+NEWA-B.ST,trailingDilutedEPS,2026-06-30,6.05,SEK,5.78,True
 NIBE-B.ST,quarterlyBasicEPS,2024-12-31,0.68,SEK,1.19,False
 NIBE-B.ST,quarterlyBasicEPS,2025-03-31,0.19,SEK,1.19,False
 NIBE-B.ST,quarterlyBasicEPS,2025-06-30,0.24,SEK,1.19,False
@@ -3323,7 +3329,8 @@ SINT.ST,trailingBasicEPS,2024-12-31,4.85,SEK,3.14,False
 SINT.ST,trailingBasicEPS,2025-03-31,5.06,SEK,3.14,False
 SINT.ST,trailingBasicEPS,2025-06-30,4.83,SEK,3.14,False
 SINT.ST,trailingBasicEPS,2025-12-31,3.49,SEK,3.14,False
-SINT.ST,trailingBasicEPS,2026-03-31,3.14,SEK,3.14,True
+SINT.ST,trailingBasicEPS,2026-03-31,3.14,SEK,3.14,False
+SINT.ST,trailingBasicEPS,2026-06-30,2.71,SEK,3.14,True
 SINT.ST,trailingDilutedEPS,2023-09-30,4.87,SEK,3.14,False
 SINT.ST,trailingDilutedEPS,2024-03-31,5.92,SEK,3.14,False
 SINT.ST,trailingDilutedEPS,2024-06-30,6.53,SEK,3.14,False
@@ -3332,7 +3339,8 @@ SINT.ST,trailingDilutedEPS,2024-12-31,4.85,SEK,3.14,False
 SINT.ST,trailingDilutedEPS,2025-03-31,5.06,SEK,3.14,False
 SINT.ST,trailingDilutedEPS,2025-06-30,4.83,SEK,3.14,False
 SINT.ST,trailingDilutedEPS,2025-12-31,3.49,SEK,3.14,False
-SINT.ST,trailingDilutedEPS,2026-03-31,3.14,SEK,3.14,True
+SINT.ST,trailingDilutedEPS,2026-03-31,3.14,SEK,3.14,False
+SINT.ST,trailingDilutedEPS,2026-06-30,2.71,SEK,3.14,True
 SOBI.ST,quarterlyBasicEPS,2024-12-31,4.07,SEK,3.92,False
 SOBI.ST,quarterlyBasicEPS,2025-03-31,2.55,SEK,3.92,False
 SOBI.ST,quarterlyBasicEPS,2025-06-30,1.85,SEK,3.92,False
@@ -3746,7 +3754,8 @@ VIVA.ST,trailingBasicEPS,2025-03-31,1.72,SEK,2.37,False
 VIVA.ST,trailingBasicEPS,2025-06-30,1.84,SEK,2.37,False
 VIVA.ST,trailingBasicEPS,2025-09-30,1.94,SEK,2.37,False
 VIVA.ST,trailingBasicEPS,2025-12-31,2.32,SEK,2.37,False
-VIVA.ST,trailingBasicEPS,2026-03-31,2.37,SEK,2.37,True
+VIVA.ST,trailingBasicEPS,2026-03-31,2.37,SEK,2.37,False
+VIVA.ST,trailingBasicEPS,2026-06-30,2.32,SEK,2.37,True
 VIVA.ST,trailingDilutedEPS,2023-09-30,1.71,SEK,2.37,False
 VIVA.ST,trailingDilutedEPS,2023-12-31,1.19,SEK,2.37,False
 VIVA.ST,trailingDilutedEPS,2024-06-30,1.25,SEK,2.37,False
@@ -3756,7 +3765,8 @@ VIVA.ST,trailingDilutedEPS,2025-03-31,1.72,SEK,2.37,False
 VIVA.ST,trailingDilutedEPS,2025-06-30,1.84,SEK,2.37,False
 VIVA.ST,trailingDilutedEPS,2025-09-30,1.94,SEK,2.37,False
 VIVA.ST,trailingDilutedEPS,2025-12-31,2.32,SEK,2.37,False
-VIVA.ST,trailingDilutedEPS,2026-03-31,2.37,SEK,2.37,True
+VIVA.ST,trailingDilutedEPS,2026-03-31,2.37,SEK,2.37,False
+VIVA.ST,trailingDilutedEPS,2026-06-30,2.32,SEK,2.37,True
 VOLV-A.ST,quarterlyBasicEPS,2024-12-31,5.28,SEK,17.62,False
 VOLV-A.ST,quarterlyBasicEPS,2025-03-31,4.86,SEK,17.62,False
 VOLV-A.ST,quarterlyBasicEPS,2025-06-30,3.64,SEK,17.62,False
