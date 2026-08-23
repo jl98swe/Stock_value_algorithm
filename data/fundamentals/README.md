@@ -78,7 +78,7 @@ För att undvika look-ahead används den senaste fullt avslutade FX-dagskursen f
 
 ## Historisk EPS och jämförbarhet
 
-Det ursprungliga historiska underlaget ligger kvar som referens i `data/fundamentals/eps_ttm_history.csv`. Det används inte som kanonisk EPS när det inte kan göras jämförbart med den framtida Yahoo-definitionen.
+Det historiska referensunderlaget ligger i `data/fundamentals/eps_ttm_history.csv`. Det används inte som kanonisk EPS när det inte kan göras jämförbart med den framtida Yahoo-definitionen.
 
 Historikflödet är:
 
@@ -88,13 +88,14 @@ Historikflödet är:
 4. Rader som fortfarande inte kan göras jämförbara behålls endast som **referens-fallback** i `eps_ttm_history_aligned.csv` och `eps_alignment_audit.csv`. De importeras inte till `reports.csv` och påverkar inte P/E, score eller signaler.
 5. `src.import_enriched_eps` importerar endast direkt eller Yahoo-rekonstruerad diluted EPS till `reports.csv`, med `effective_date = report_date`.
 
-För den första historikbatchen med 490 rapportperioder och 49 tickers är utfallet:
+Täckningen förändras när `eps_ttm_history.csv` utökas eller när Yahoo får mer historik. Därför ska inga fasta rad- eller tickerantal dokumenteras här. Aktuell status finns i de genererade auditfilerna, framför allt:
 
-- **430** perioder har direkt Yahoo `trailingDilutedEPS`.
-- **42** perioder kan rekonstrueras enbart från Yahoo diluted EPS-komponenter med samma TTM-definition.
-- **18** perioder saknar tillräcklig Yahoo-historik och ligger därför kvar enbart som referens; de används inte i värderingen.
+- `data/derived/eps_alignment_audit.csv` för matchning mellan referenshistorik och Yahoo diluted EPS,
+- `data/derived/eps_reference_compatibility_audit.csv` för den strikta kompatibilitetskontrollen,
+- `data/derived/eps_reference_gap_audit.csv` för kvarvarande historiska luckor,
+- `data/derived/yahoo_history_continuity_audit.csv` för luckor i den direkt hämtade Yahoo-historiken.
 
-Det innebär att den kanoniska värderingshistoriken inte längre blandar den gamla EPS-definitionen med den framtida Yahoo-definitionen. Om en av de 18 referensperioderna ligger mellan två kanoniska perioder får den senaste föregående jämförbara diluted EPS i stället fortsätta gälla fram till nästa jämförbara uppdatering.
+Endast rader med `alignment_status = yahoo_trailing_diluted` eller `yahoo_reconstructed_diluted_ttm` får importeras till den kanoniska värderingshistoriken. `fallback_user_history` är enbart referens. Om en sådan referensrad ligger mellan två kanoniska perioder fortsätter den senaste föregående jämförbara diluted EPS att gälla fram till nästa jämförbara uppdatering.
 
 ## Produktionsprincip
 
