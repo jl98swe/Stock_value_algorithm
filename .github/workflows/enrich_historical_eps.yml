@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "data/fundamentals/eps_ttm_history.csv"
+      - "data/fundamentals/eps_report_date_cache.csv"
       - "data/fundamentals/report_date_overrides.csv"
       - "data/metadata/stocks.csv"
       - "config/ticker_mapping.csv"
@@ -54,7 +55,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Mappa första historikbatchen och rapportdatum
+      - name: Mappa historiskt referensunderlag och rapportdatum
         run: python -m src.enrich_historical_eps
 
       - name: Applicera verifierade rapportdatum
@@ -75,13 +76,13 @@ jobs:
       - name: Uppdatera valutakurser för hela universumet
         run: python -m src.fx
 
-      - name: Aligna första batchen till samma Yahoo EPS-definition
+      - name: Aligna referensunderlaget till samma Yahoo EPS-definition
         run: python -m src.align_historical_eps_to_yahoo
 
       - name: Applicera strikt under 1 procent-regel för referenshistorik
         run: python -m src.apply_strict_reference_gap_fill
 
-      - name: Importera Yahoo-alignad första batch till kanoniska rapporter
+      - name: Importera Yahoo-alignad historik till kanoniska rapporter
         run: python -m src.import_enriched_eps
 
       - name: Importera endast strikt kompatibla referensluckor
@@ -139,7 +140,7 @@ jobs:
           print(f'Tickers med historiskt P/E: {(valuation.pe_rows > 0).sum()}/{len(valuation)}')
           print(f'Aktuellt Yahoo EPS hämtat: {comparison.yahoo_eps_ttm.notna().sum()}/{len(comparison)}')
           print(f'Strikt kompatibla referens-tickers (<1% i VARJE överlapp): {len(strict)}/{len(compatibility)}')
-          print(f'Kvarvarande referensluckor från första batchen: {len(reference_gaps)} varav {len(internal_reference)} interna')
+          print(f'Kvarvarande referensluckor: {len(reference_gaps)} varav {len(internal_reference)} interna')
           print(f'Interna Yahoo-periodluckor i hela universumet: {len(internal_period)}')
           print(f'Interna Yahoo-perioder utan säkert rapportdatum: {len(internal_date)}')
           if not usable_starts.empty:
@@ -161,6 +162,7 @@ jobs:
           # Nyhetsagentens events.json ska aldrig committas av EPS-flödet.
           git restore docs/data/events.json
 
+          git add data/fundamentals/eps_report_date_cache.csv
           git add data/fundamentals/eps_ttm_history_enriched.csv
           git add data/fundamentals/eps_ttm_history_aligned.csv
           git add data/fundamentals/yahoo_history_all.csv
