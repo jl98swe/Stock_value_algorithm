@@ -11,7 +11,7 @@ ASSA-B.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,14.75,SEK,14.75,SEK
 ATCO-A.ST,2026-Q2,2026-06-30,2026-07-16,2026-07-16,0.0,match,5.46,SEK,5.46,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 ATCO-B.ST,2026-Q2,2026-06-30,2026-07-16,,,missing_yahoo,5.46,SEK,5.46,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 ATRLJ-B.ST,2026-Q2,2026-06-30,2026-07-03,2026-07-02,1.0,near,0.91,SEK,0.91,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
-ATT.ST,,2026-06-30,,2026-08-19,,no_same_period_history,,,6.61,SEK,,no_same_period_history,,2026-08-23
+ATT.ST,2026-Q2,2026-06-30,2026-08-20,2026-08-19,1.0,near,6.61,SEK,6.61,SEK,0.0,match,yahoo_trailing_diluted,2026-08-23
 AXFO.ST,2026-Q2,2026-06-30,2026-07-15,2026-07-15,0.0,match,11.22,SEK,11.22,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 AZA.ST,2026-Q2,2026-06-30,2026-07-14,2026-07-13,1.0,near,17.91,SEK,17.91,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 AZN.ST,2026-Q2,2026-06-30,2026-07-27,2026-07-27,0.0,match,6.68,USD,6.68,USD,0.0,match,yahoo_trailing_diluted,2026-08-15
@@ -55,7 +55,7 @@ GETI-B.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,9.83,SEK,9.83,SEK,0
 HANZA.ST,2026-Q2,2026-06-30,2026-07-21,2026-07-20,1.0,near,6.26,SEK,6.26,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 HEXA-B.ST,2026-Q2,2026-06-30,2026-07-29,2026-07-28,1.0,near,0.788,EUR,0.788,EUR,0.0,match,yahoo_trailing_diluted,2026-08-15
 HMS.ST,2026-Q2,2026-06-30,2026-07-14,2026-07-13,1.0,near,11.01,SEK,11.01,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
-HOLM-A.ST,,2026-06-30,,,,no_same_period_history,,,17.3,SEK,,no_same_period_history,,2026-08-23
+HOLM-A.ST,2026-Q2,2026-06-30,2026-08-20,,,missing_yahoo,17.3,SEK,17.3,SEK,0.0,match,yahoo_trailing_diluted,2026-08-23
 HPOL-B.ST,2026-Q2,2026-06-30,2026-07-20,2026-07-20,0.0,match,5.3,SEK,5.3,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 HTRO.ST,2026-Q2,2026-06-30,2026-07-15,2026-07-14,1.0,near,0.19,SEK,0.19,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 HUFV-A.ST,2026-Q1,2026-06-30,2026-08-20,2026-08-19,1.0,near,5.92,SEK,5.92,SEK,0.0,match,yahoo_trailing_diluted,2026-08-23
@@ -113,7 +113,7 @@ TREL-B.ST,2026-Q2,2026-06-30,2026-07-16,2026-07-15,1.0,near,16.85,SEK,16.85,SEK,
 VBG-B.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,16.41,SEK,16.41,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 VIT-B.ST,2026-Q2,2026-06-30,2026-07-14,2026-07-14,0.0,match,11.7,SEK,11.7,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 VITR.ST,2026-Q2,2026-06-30,2026-07-16,2026-07-15,1.0,near,-36.8,SEK,-36.8,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
-VIVA.ST,,2026-06-30,,2026-02-19,,no_same_period_history,,,2.32,SEK,,no_same_period_history,,2026-08-23
+VIVA.ST,2026-Q2,2026-06-30,2026-08-20,2026-02-19,182.0,mismatch,2.32,SEK,2.32,SEK,0.0,match,yahoo_trailing_diluted,2026-08-23
 VOLV-A.ST,,2026-06-30,,,,no_same_period_history,,,17.62,SEK,,no_same_period_history,,2026-08-15
 WALL-B.ST,2026-Q2,2026-06-30,2026-07-06,2026-07-06,0.0,match,4.1,SEK,4.1,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 WIHL.ST,,2026-06-30,,2025-10-23,,no_same_period_history,,,7.11,SEK,,no_same_period_history,,2026-08-15

@@ -11,7 +11,7 @@ ASSA-B.ST,9,0.0764525993883775,0,True,every comparable Yahoo period must be <1%;
 ATCO-A.ST,10,0.3466204506065784,0,True,every comparable Yahoo period must be <1%; median is ignored
 ATCO-B.ST,10,0.3466204506065784,0,True,every comparable Yahoo period must be <1%; median is ignored
 ATRLJ-B.ST,10,275.6130182790905,10,False,every comparable Yahoo period must be <1%; median is ignored
-ATT.ST,10,1.2750455373406244,2,False,every comparable Yahoo period must be <1%; median is ignored
+ATT.ST,11,2.936857562408213,3,False,every comparable Yahoo period must be <1%; median is ignored
 AXFO.ST,10,0.5415162454873691,0,True,every comparable Yahoo period must be <1%; median is ignored
 AZA.ST,10,0.3119575335228551,0,True,every comparable Yahoo period must be <1%; median is ignored
 AZN.ST,9,0.961744982459474,0,True,every comparable Yahoo period must be <1%; median is ignored
@@ -54,6 +54,7 @@ GETI-B.ST,10,0.1841620626150973,0,True,every comparable Yahoo period must be <1%
 HANZA.ST,10,5.930742893908423,3,False,every comparable Yahoo period must be <1%; median is ignored
 HEXA-B.ST,9,5.066666666666672,4,False,every comparable Yahoo period must be <1%; median is ignored
 HMS.ST,10,0.5549389567147496,0,True,every comparable Yahoo period must be <1%; median is ignored
+HOLM-A.ST,1,0.5813953488372177,0,False,every comparable Yahoo period must be <1%; median is ignored
 HPOL-B.ST,10,0.1883239171374724,0,True,every comparable Yahoo period must be <1%; median is ignored
 HTRO.ST,10,124.99999999999996,3,False,every comparable Yahoo period must be <1%; median is ignored
 HUFV-A.ST,10,252.50397321881445,9,False,every comparable Yahoo period must be <1%; median is ignored

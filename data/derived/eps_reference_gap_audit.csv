@@ -1,6 +1,7 @@
 ticker,report_period,report_date,gap_position,previous_comparable_period,previous_comparable_date,next_comparable_period,next_comparable_date,days_from_previous,days_to_next,stale_window_days,reference_eps_ttm,currency,recommended_action
 ANOD-B.ST,2024-Q4,2025-01-31,internal,2024-Q3,2024-10-24,2025-Q1,2025-04-25,99,84,84,3.01,SEK,issuer_report_or_other_verified_source_required
 BAHN-B.ST,2025-Q2,2025-05-06,internal,2025-Q1,2025-05-06,2025-Q3,2025-08-19,0,105,105,2.09,SEK,issuer_report_or_other_verified_source_required
+BAHN-B.ST,2026-Q2,2026-08-18,trailing,2026-Q1,2026-02-17,,,182,,,1.71,SEK,verify_latest_period
 BORG.ST,2024-Q3,2024-08-16,internal,2024-Q2,2024-08-16,2024-Q4,2024-11-15,0,91,91,3.087,SEK,issuer_report_or_other_verified_source_required
 DIOS.ST,2024-Q4,2025-02-14,internal,2024-Q3,2024-10-25,2025-Q1,2025-04-29,112,74,74,5.0077,SEK,issuer_report_or_other_verified_source_required
 EMBRAC-B.ST,2025-Q4,2025-05-22,internal,2025-Q3,2025-02-13,2026-Q1,2025-08-14,98,84,84,12.31,SEK,issuer_report_or_other_verified_source_required
@@ -13,6 +14,7 @@ EQT.ST,2024-Q2,2024-07-18,internal,2023-Q4,2024-01-18,2024-Q4,2025-01-23,182,189
 EQT.ST,2026-Q2,2026-07-17,trailing,2025-Q4,2026-01-22,,,176,,,0.8922,EUR,verify_latest_period
 EVO.ST,2025-Q1,2025-04-30,internal,2024-Q4,2025-01-30,2025-Q2,2025-07-17,90,78,78,6.01,EUR,issuer_report_or_other_verified_source_required
 HEXA-B.ST,2025-Q1,2025-04-30,internal,2024-Q4,2025-01-31,2025-Q2,2025-07-25,89,86,86,0.36,EUR,issuer_report_or_other_verified_source_required
+HUFV-A.ST,2026-Q2,2026-08-20,trailing,2026-Q1,2026-08-20,,,0,,,6.63,SEK,verify_latest_period
 INTRUM.ST,2023-Q4,2024-01-25,leading,,,2024-Q1,2024-04-24,,90,,-1.5597,SEK,optional_backfill_requires_verified_source
 INTRUM.ST,2024-Q4,2025-01-30,internal,2024-Q3,2024-10-23,2025-Q1,2025-05-07,99,97,97,-30.67,SEK,issuer_report_or_other_verified_source_required
 LIME.ST,2024-Q1,2024-04-25,leading,,,2024-Q2,2024-07-12,,78,,6.47,SEK,optional_backfill_requires_verified_source
@@ -20,6 +22,7 @@ LIME.ST,2024-Q4,2025-02-12,internal,2024-Q3,2024-10-23,2025-Q1,2025-04-24,112,71
 LUMI.ST,2024-Q4,2025-02-20,internal,2024-Q3,2024-11-06,2025-Q1,2025-05-08,106,77,77,0.0144,USD,issuer_report_or_other_verified_source_required
 LUMI.ST,2025-Q3,2025-11-06,internal,2025-Q2,2025-08-06,2025-Q4,2026-02-20,92,106,106,0.2137,USD,issuer_report_or_other_verified_source_required
 NEWA-B.ST,2024-Q3,2025-02-06,internal,2024-Q2,2024-11-07,2024-Q4,2025-04-24,91,77,77,7.17,SEK,issuer_report_or_other_verified_source_required
+NIBE-B.ST,2026-Q2,2026-08-21,trailing,2026-Q1,2026-08-21,,,0,,,1.31,SEK,verify_latest_period
 NORION.ST,2025-Q1,2025-02-05,internal,2024-Q4,2024-10-18,2025-Q2,2025-04-24,110,78,78,6.5683,SEK,issuer_report_or_other_verified_source_required
 SVED-B.ST,2025-Q1,2025-02-11,internal,2024-Q4,2024-10-25,2025-Q2,2025-04-29,109,77,77,3.21,SEK,issuer_report_or_other_verified_source_required
 VIT-B.ST,2024-Q4,2025-02-05,internal,2024-Q3,2024-10-17,2025-Q1,2025-04-23,111,77,77,10.74,SEK,issuer_report_or_other_verified_source_required
