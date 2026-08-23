@@ -196,7 +196,24 @@
     const priceSeries = series.find((item) => item.name === 'Pris') || series[0] || {};
     const markPoint = Array.isArray(priceSeries.markPoint) ? priceSeries.markPoint[0] : priceSeries.markPoint;
     const existingPoints = markPoint?.data || [];
-    const signalPoints = existingPoints.filter((point) => /^(BUY|SELL)\b/.test(String(point.name || '')));
+    const rawSignalPoints = existingPoints.filter((point) => /^(BUY|SELL)\b/.test(String(point.name || '')));
+    const signalPoints = rawSignalPoints.map((point) => {
+      const rawName = String(point.name || '');
+      const match = rawName.match(/^(BUY|SELL)\s*(.*)$/);
+      const side = match?.[1] || '';
+      const status = (match?.[2] || '').trim();
+      const day = String(point.coord?.[0] || '').slice(0, 10);
+      const nonExecuted = status.includes('deferred_cooldown') || status.includes('suppressed_capacity');
+      const blocked = status.includes('blocked');
+      const color = nonExecuted || blocked ? '#c88722' : side === 'BUY' ? '#1f8f67' : '#c74747';
+      return {
+        ...point,
+        name: `${side} ${status}`.trim(),
+        itemStyle: { ...(point.itemStyle || {}), color },
+        signalTooltip: `<strong>${side}${status ? ` · ${status}` : ''}</strong><br>${day}`
+      };
+    });
+    const signalDays = new Set(signalPoints.map((point) => String(point.coord?.[0] || '').slice(0, 10)).filter(Boolean));
 
     const visibleEvents = (eventsPayload.events || []).filter((event) => {
       const day = eventDay(event);
@@ -212,12 +229,13 @@
       const stackIndex = countByDay.get(day) || 0;
       countByDay.set(day, stackIndex + 1);
       const source = event.source ? ` · ${event.source}` : '';
+      const signalOffset = signalDays.has(day) ? 24 : 0;
       return {
         name: `${marker.code} · ${event.title}`,
         coord: [day, candle.high * 1.03],
         symbol: 'circle',
         symbolSize: 22,
-        symbolOffset: [0, -stackIndex * 24],
+        symbolOffset: [0, -(signalOffset + stackIndex * 24)],
         itemStyle: {
           color: marker.color,
           borderColor: event.locking ? '#c88722' : '#ffffff',
@@ -239,7 +257,7 @@
           show: true,
           trigger: 'item',
           formatter(params) {
-            return params.data?.eventTooltip || params.name || '';
+            return params.data?.signalTooltip || params.data?.eventTooltip || params.name || '';
           }
         }
       }
