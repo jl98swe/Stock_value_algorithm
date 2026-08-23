@@ -1,1 +1,8 @@
 ticker,period_end,report_date,observed_date,eps_ttm,eps_currency,source
+ATT.ST,2026-06-30,2026-08-19,2026-08-23,6.61,SEK,Yahoo Finance / trailingDilutedEPS
+HOLM-A.ST,2026-06-30,,2026-08-23,17.3,SEK,Yahoo Finance / trailingDilutedEPS
+HUFV-A.ST,2026-06-30,2026-08-19,2026-08-23,5.92,SEK,Yahoo Finance / trailingDilutedEPS
+NEWA-B.ST,2026-06-30,2026-08-20,2026-08-23,6.05,SEK,Yahoo Finance / trailingDilutedEPS
+NIBE-B.ST,2026-06-30,2026-08-21,2026-08-23,1.31,SEK,Yahoo Finance / trailingDilutedEPS
+SINT.ST,2026-06-30,2026-04-29,2026-08-23,2.71,SEK,Yahoo Finance / trailingDilutedEPS
+VIVA.ST,2026-06-30,2026-02-19,2026-08-23,2.32,SEK,Yahoo Finance / trailingDilutedEPS

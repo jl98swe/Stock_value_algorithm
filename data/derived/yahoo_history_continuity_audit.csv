@@ -15,7 +15,9 @@ AZN.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted T
 AZN.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 BAHN-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 BAHN-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-BALD-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+BAHN-B.ST,trailing_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+BALD-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
+BALD-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 BIOG-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 BIOG-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 BIOG-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -83,7 +85,8 @@ HOLM-A.ST,internal_missing_report_date,2025-03-31,,,,EPS-värdet finns hos Yahoo
 HOLM-A.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HOLM-A.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HOLM-A.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-HOLM-A.ST,trailing_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+HOLM-A.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+HOLM-A.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HPOL-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 HUFV-A.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 INDU-A.ST,leading_missing_report_date,,2022-12-31,,,Första Yahoo-perioden saknar säkert rapportdatum.
@@ -116,10 +119,12 @@ INVE-A.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo
 INVE-A.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 INVE-A.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 INVE-A.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-INWI.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+INWI.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+INWI.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 KAMBI.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 LIFCO-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
-LIFCO-B.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+LIFCO-B.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+LIFCO-B.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 LIME.ST,internal_missing_yahoo_period,2023-12-31,2024-06-30,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 LIME.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 LOOMIS.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
@@ -130,25 +135,28 @@ MCAP.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted 
 MCAP.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-MCAP.ST,internal_missing_report_date,2024-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MCAP.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2025-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCAP.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MCAP.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCOV-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 MCOV-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCOV-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCOV-B.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MCOV-B.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-MSAB-B.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-MSAB-B.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MCOV-B.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MSAB-B.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MSAB-B.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MYCR.ST,leading_missing_report_date,,2022-12-31,,,Första Yahoo-perioden saknar säkert rapportdatum.
 MYCR.ST,internal_missing_yahoo_period,2022-12-31,2023-09-30,273,2,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 MYCR.ST,leading_missing_report_date,2022-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MYCR.ST,internal_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-MYCR.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MYCR.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MYCR.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 MYCR.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+MYCR.ST,internal_missing_report_date,2024-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 NEWA-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 NEWA-B.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 NMAN.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
@@ -162,6 +170,8 @@ NMAN.ST,internal_missing_report_date,2025-03-31,,,,EPS-värdet finns hos Yahoo m
 NMAN.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 NMAN.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 NMAN.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+NMAN.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+NOLA-B.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 NORION.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 PACT.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 PLAZ-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
@@ -170,13 +180,18 @@ PLAZ-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo 
 PLAZ-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2024-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+PLAZ-B.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2025-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 PLAZ-B.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+PLAZ-B.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+PNDX-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
+PNDX-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 REJL-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 REJL-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 REJL-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+REJL-B.ST,internal_missing_report_date,2024-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SAGA-A.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 SAGA-A.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SAGA-A.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -192,6 +207,7 @@ SAGA-A.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo
 SAGA-A.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SCST.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 SCST.ST,internal_missing_yahoo_period,2024-12-31,2025-06-30,181,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
+SCST.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SECT-B.ST,leading_missing_report_date,,2023-10-31,,,Första Yahoo-perioden saknar säkert rapportdatum.
 SECT-B.ST,internal_missing_yahoo_period,2024-01-31,2024-07-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 SECT-B.ST,leading_missing_report_date,2023-10-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -199,6 +215,7 @@ SECT-B.ST,internal_missing_report_date,2024-01-31,,,,EPS-värdet finns hos Yahoo
 SECT-B.ST,internal_missing_report_date,2024-07-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SECT-B.ST,internal_missing_report_date,2024-10-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SECT-B.ST,internal_missing_report_date,2025-01-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+SECT-B.ST,internal_missing_report_date,2025-04-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SFAST.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 SFAST.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SFAST.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -213,6 +230,7 @@ SFAST.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo 
 SINT.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 SINT.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 SINT.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+SINT.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 SVED-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 SVED-B.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 SVED-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -236,10 +254,12 @@ TREL-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo dilute
 VIT-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VIT-B.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VITR.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
+VITR.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 VIVA.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 VIVA.ST,internal_missing_yahoo_period,2023-12-31,2024-06-30,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VIVA.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-VIVA.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+VIVA.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+VIVA.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 VOLV-A.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 VOLV-A.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 VOLV-A.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -254,11 +274,13 @@ VOLV-A.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo
 VOLV-A.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 VOLV-A.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 WALL-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
+WALL-B.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 WIHL.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 WIHL.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 WIHL.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 ZZ-B.ST,internal_missing_yahoo_period,2023-12-31,2024-06-30,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 ZZ-B.ST,internal_missing_yahoo_period,2025-03-31,2025-09-30,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 ZZ-B.ST,internal_missing_report_date,2024-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-ZZ-B.ST,internal_missing_report_date,2025-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+ZZ-B.ST,internal_missing_report_date,2024-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 ZZ-B.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+ZZ-B.ST,trailing_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
