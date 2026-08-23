@@ -88,6 +88,10 @@ Historikflödet är:
 4. Rader som fortfarande inte kan göras jämförbara behålls endast som **referens-fallback** i `eps_ttm_history_aligned.csv` och `eps_alignment_audit.csv`. De importeras inte till `reports.csv` och påverkar inte P/E, score eller signaler.
 5. `src.import_enriched_eps` importerar endast direkt eller Yahoo-rekonstruerad diluted EPS till `reports.csv`, med `effective_date = report_date`.
 
+Etablerade historiska rapportdatum lagras dessutom i `data/fundamentals/eps_report_date_cache.csv`. För en redan känd kombination av `ticker + report_period` återanvänds det etablerade datumet vid framtida körningar; ett nytillkommet Yahoo-event får alltså inte flytta äldre perioder ett kvartal framåt. Prioriteten är: explicit datum i referensfilen, därefter stabil cache och först därefter ny Yahoo-mappning. Verifierade `report_date_overrides.csv` skrivs också tillbaka till cachen. Endast helt nya perioder får därmed få ett nytt automatiskt rapportdatum.
+
+När historikimporten bygger om `reports.csv` ersätts maskin-genererade Yahoo-rader som kolliderar med den etablerade historiken på `ticker + period_end` **eller** återanvänder samma `ticker + report_period` med ett annat periodslut. Manuellt verifierade rader bevaras. Framtida Yahoo-perioder utanför referenshistoriken får i stället egna stabila etiketter av typen `YAHOO-YYYY-MM-DD`.
+
 Täckningen förändras när `eps_ttm_history.csv` utökas eller när Yahoo får mer historik. Därför ska inga fasta rad- eller tickerantal dokumenteras här. Aktuell status finns i de genererade auditfilerna, framför allt:
 
 - `data/derived/eps_alignment_audit.csv` för matchning mellan referenshistorik och Yahoo diluted EPS,
