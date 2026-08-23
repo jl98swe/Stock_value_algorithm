@@ -12,11 +12,13 @@ SOURCE_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history.csv"
 MAPPING_FILE = ROOT / "config" / "ticker_mapping.csv"
 METADATA_FILE = ROOT / "data" / "metadata" / "stocks.csv"
 OUTPUT_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
+REPORT_DATE_CACHE_FILE = ROOT / "data" / "fundamentals" / "eps_report_date_cache.csv"
 OUTPUT_METADATA_FILE = ROOT / "data" / "metadata" / "stocks_yahoo.csv"
 AUDIT_FILE = ROOT / "data" / "derived" / "eps_report_date_audit.csv"
 
 SOURCE_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
 OUTPUT_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
+CACHE_COLUMNS = ["ticker", "report_period", "report_date"]
 STOCKHOLM_TZ = "Europe/Stockholm"
 MAX_LATEST_REPORT_AGE_DAYS = 240
 MAX_REPORT_GAP_DAYS = 140
@@ -72,6 +74,46 @@ def _load_source(path: Path = SOURCE_FILE) -> pd.DataFrame:
     for period in frame["report_period"]:
         _period_key(period)
     return frame
+
+
+def _load_report_date_cache(path: Path = REPORT_DATE_CACHE_FILE) -> dict[tuple[str, str], pd.Timestamp]:
+    if not path.exists() or path.stat().st_size == 0:
+        return {}
+
+    frame = pd.read_csv(path, encoding="utf-8-sig")
+    missing = [column for column in CACHE_COLUMNS if column not in frame.columns]
+    if missing:
+        raise ValueError(f"Rapportdatum-cachen saknar kolumner: {', '.join(missing)}")
+
+    frame = frame[CACHE_COLUMNS].copy()
+    frame["ticker"] = frame["ticker"].astype(str).str.strip()
+    frame["report_period"] = frame["report_period"].astype(str).str.strip()
+    frame["report_date"] = pd.to_datetime(frame["report_date"], errors="coerce")
+    frame = frame.dropna(subset=["ticker", "report_period", "report_date"])
+    frame = frame.drop_duplicates(["ticker", "report_period"], keep="last")
+
+    return {
+        (str(row.ticker), str(row.report_period)): pd.Timestamp(row.report_date).normalize()
+        for row in frame.itertuples(index=False)
+    }
+
+
+def _write_report_date_cache(
+    cache: dict[tuple[str, str], pd.Timestamp],
+    path: Path = REPORT_DATE_CACHE_FILE,
+) -> None:
+    rows = [
+        {"ticker": ticker, "report_period": period, "report_date": pd.Timestamp(report_date).date().isoformat()}
+        for (ticker, period), report_date in cache.items()
+    ]
+    frame = pd.DataFrame(rows, columns=CACHE_COLUMNS)
+    if not frame.empty:
+        frame = frame.sort_values(
+            ["ticker", "report_period"],
+            key=lambda column: column if column.name == "ticker" else column.map(_period_key),
+        ).reset_index(drop=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    frame.to_csv(path, index=False)
 
 
 def _stockholm_calendar_date(value: object) -> pd.Timestamp | None:
@@ -176,6 +218,7 @@ def enrich(
     source_file: Path = SOURCE_FILE,
     mapping_file: Path = MAPPING_FILE,
     output_file: Path = OUTPUT_FILE,
+    report_date_cache_file: Path = REPORT_DATE_CACHE_FILE,
     metadata_file: Path = METADATA_FILE,
     output_metadata_file: Path = OUTPUT_METADATA_FILE,
     audit_file: Path = AUDIT_FILE,
@@ -183,6 +226,7 @@ def enrich(
     source = _load_source(source_file)
     mapping = _load_mapping(mapping_file)
     lookup = mapping.set_index("borsdata_ticker")["yahoo_ticker"]
+    report_date_cache = _load_report_date_cache(report_date_cache_file)
 
     source["source_ticker"] = source["ticker"]
     source["ticker"] = source["source_ticker"].map(lookup)
@@ -197,7 +241,7 @@ def enrich(
     for source_ticker, group in source.groupby("source_ticker", sort=True):
         yahoo_ticker = str(group["ticker"].iloc[0])
         periods = group["report_period"].astype(str).tolist()
-        existing_dates = group.set_index("report_period")["report_date"].to_dict()
+        source_dates = group.set_index("report_period")["report_date"].to_dict()
         date_source_ticker = yahoo_ticker
 
         try:
@@ -225,13 +269,28 @@ def enrich(
         aligned = _align_dates(periods, yahoo_dates)
         enriched = group.copy()
         filled = 0
+        reused = 0
+
         for idx, row in enriched.iterrows():
             period = str(row["report_period"])
-            existing = existing_dates.get(period)
-            if pd.notna(existing):
-                enriched.at[idx, "report_date"] = existing
+            cache_key = (yahoo_ticker, period)
+            explicit = source_dates.get(period)
+            cached = report_date_cache.get(cache_key)
+
+            # Prioritet: explicit datum i källfilen > redan etablerat datum i cache
+            # > ny Yahoo-mappning. Därmed kan en nytillkommen Yahoo-rapport aldrig
+            # flytta äldre ticker + report_period ett kvartal framåt.
+            if pd.notna(explicit):
+                chosen = pd.Timestamp(explicit).normalize()
+                enriched.at[idx, "report_date"] = chosen
+                report_date_cache[cache_key] = chosen
+            elif cached is not None:
+                enriched.at[idx, "report_date"] = cached
+                reused += 1
             elif period in aligned:
-                enriched.at[idx, "report_date"] = aligned[period]
+                chosen = pd.Timestamp(aligned[period]).normalize()
+                enriched.at[idx, "report_date"] = chosen
+                report_date_cache[cache_key] = chosen
                 filled += 1
 
         mapped_count = int(enriched["report_date"].notna().sum())
@@ -244,6 +303,7 @@ def enrich(
                 "periods": len(enriched),
                 "yahoo_dates_found": len(yahoo_dates),
                 "dates_mapped": mapped_count,
+                "cached_dates_reused": reused,
                 "new_dates_filled": filled,
                 "status": status,
                 "latest_yahoo_date": yahoo_dates[-1].date().isoformat() if yahoo_dates else "",
@@ -252,7 +312,7 @@ def enrich(
         )
         print(
             f"{source_ticker} -> {yahoo_ticker}: {mapped_count}/{len(enriched)} "
-            f"rapportdatum ({status}, källa {date_source_ticker})"
+            f"rapportdatum ({status}, {reused} från cache, {filled} nya, källa {date_source_ticker})"
         )
         output_parts.append(enriched)
 
@@ -266,6 +326,7 @@ def enrich(
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output.to_csv(output_file, index=False)
+    _write_report_date_cache(report_date_cache, report_date_cache_file)
 
     canonical_metadata = _canonical_metadata(mapping, metadata_file)
     output_metadata_file.parent.mkdir(parents=True, exist_ok=True)
@@ -290,8 +351,14 @@ def main() -> None:
     parser.add_argument("--source", type=Path, default=SOURCE_FILE)
     parser.add_argument("--mapping", type=Path, default=MAPPING_FILE)
     parser.add_argument("--output", type=Path, default=OUTPUT_FILE)
+    parser.add_argument("--report-date-cache", type=Path, default=REPORT_DATE_CACHE_FILE)
     args = parser.parse_args()
-    enrich(source_file=args.source, mapping_file=args.mapping, output_file=args.output)
+    enrich(
+        source_file=args.source,
+        mapping_file=args.mapping,
+        output_file=args.output,
+        report_date_cache_file=args.report_date_cache,
+    )
 
 
 if __name__ == "__main__":
