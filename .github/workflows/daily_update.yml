@@ -5,6 +5,11 @@ on:
     - cron: "45 17 * * 1-5"
       timezone: "Europe/Stockholm"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/daily_update.yml"
 
 permissions:
   contents: write
