@@ -7,21 +7,40 @@ import pandas as pd
 from .config import ROOT
 
 HISTORY_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
+REPORT_DATE_CACHE_FILE = ROOT / "data" / "fundamentals" / "eps_report_date_cache.csv"
 OVERRIDES_FILE = ROOT / "data" / "fundamentals" / "report_date_overrides.csv"
 MISSING_FILE = ROOT / "data" / "derived" / "eps_report_date_missing.csv"
 APPLIED_FILE = ROOT / "data" / "derived" / "eps_report_date_overrides_applied.csv"
 
 OVERRIDE_COLUMNS = ["ticker", "report_period", "report_date", "source"]
+CACHE_COLUMNS = ["ticker", "report_period", "report_date"]
+
+
+def _load_cache(path: Path) -> pd.DataFrame:
+    if not path.exists() or path.stat().st_size == 0:
+        return pd.DataFrame(columns=CACHE_COLUMNS)
+    cache = pd.read_csv(path, encoding="utf-8-sig")
+    missing = [column for column in CACHE_COLUMNS if column not in cache.columns]
+    if missing:
+        raise ValueError(f"Rapportdatum-cachen saknar kolumner: {', '.join(missing)}")
+    cache = cache[CACHE_COLUMNS].copy()
+    cache["ticker"] = cache["ticker"].astype(str).str.strip()
+    cache["report_period"] = cache["report_period"].astype(str).str.strip()
+    cache["report_date"] = pd.to_datetime(cache["report_date"], errors="coerce")
+    cache = cache.dropna(subset=CACHE_COLUMNS)
+    return cache.drop_duplicates(["ticker", "report_period"], keep="last")
 
 
 def apply_overrides(
     history_file: Path = HISTORY_FILE,
     overrides_file: Path = OVERRIDES_FILE,
+    cache_file: Path = REPORT_DATE_CACHE_FILE,
     missing_file: Path = MISSING_FILE,
     applied_file: Path = APPLIED_FILE,
 ) -> pd.DataFrame:
     history = pd.read_csv(history_file, encoding="utf-8-sig")
     overrides = pd.read_csv(overrides_file, encoding="utf-8-sig")
+    cache = _load_cache(cache_file)
 
     required_history = {"ticker", "report_period", "report_date", "eps_ttm", "currency"}
     missing_columns = sorted(required_history.difference(history.columns))
@@ -47,6 +66,11 @@ def apply_overrides(
         if overrides.duplicated(["ticker", "report_period"]).any():
             raise ValueError("Override-filen innehåller dubbla ticker + report_period")
 
+    cache_lookup = {
+        (str(row.ticker), str(row.report_period)): pd.Timestamp(row.report_date).normalize()
+        for row in cache.itertuples(index=False)
+    }
+
     history_keys = set(zip(history["ticker"], history["report_period"], strict=False))
     applied_rows: list[dict[str, object]] = []
     for row in overrides.itertuples(index=False):
@@ -57,6 +81,7 @@ def apply_overrides(
         old = history.loc[mask, "report_date"].iloc[0]
         new = pd.Timestamp(row.report_date).normalize()
         history.loc[mask, "report_date"] = new
+        cache_lookup[key] = new
         applied_rows.append(
             {
                 "ticker": key[0],
@@ -70,6 +95,16 @@ def apply_overrides(
     history = history.sort_values(["ticker", "report_period"]).reset_index(drop=True)
     history["report_date"] = history["report_date"].dt.strftime("%Y-%m-%d")
     history.to_csv(history_file, index=False)
+
+    cache_rows = [
+        {"ticker": ticker, "report_period": period, "report_date": report_date.date().isoformat()}
+        for (ticker, period), report_date in cache_lookup.items()
+    ]
+    cache_output = pd.DataFrame(cache_rows, columns=CACHE_COLUMNS)
+    if not cache_output.empty:
+        cache_output = cache_output.sort_values(["ticker", "report_period"]).reset_index(drop=True)
+    cache_file.parent.mkdir(parents=True, exist_ok=True)
+    cache_output.to_csv(cache_file, index=False)
 
     missing = history.loc[history["report_date"].isna() | history["report_date"].eq("")].copy()
     missing_file.parent.mkdir(parents=True, exist_ok=True)
