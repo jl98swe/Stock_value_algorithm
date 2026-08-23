@@ -1,113 +1,113 @@
 ticker,report_period,previous_report_date,report_date,source
-ATRLJ-B.ST,2024-Q1,,2024-04-12,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2024-Q2,,2024-07-09,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2024-Q3,,2024-10-11,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2024-Q4,,2025-01-31,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2025-Q1,,2025-04-11,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2025-Q2,,2025-07-04,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2025-Q3,,2025-10-10,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2025-Q4,,2026-01-30,Atrium Ljungberg financial reports archive
-ATRLJ-B.ST,2026-Q1,,2026-04-10,Atrium Ljungberg financial reports archive
-ATT.ST,2023-Q4,,2024-02-08,Attendo official report release
-ATT.ST,2024-Q1,2024-07-19,2024-04-24,Attendo official report release
-AZN.ST,2024-Q1,,2024-04-25,AstraZeneca results and presentations
-BAHN-B.ST,2023-Q4,,2024-02-13,Bahnhof news archive
-BAHN-B.ST,2024-Q1,,2024-05-07,Bahnhof news archive
-BAHN-B.ST,2024-Q2,,2024-08-20,Bahnhof news archive
-BAHN-B.ST,2024-Q3,,2024-11-12,Bahnhof news archive
-BAHN-B.ST,2024-Q4,,2025-02-18,Bahnhof news archive
-BAHN-B.ST,2025-Q1,,2025-05-06,Bahnhof news archive
-BALD-B.ST,2024-Q1,,2024-05-03,Balder financial reports
-BALD-B.ST,2024-Q2,,2024-07-16,Balder financial reports
-BALD-B.ST,2024-Q3,,2024-10-25,Balder financial reports
-BALD-B.ST,2024-Q4,,2025-02-07,Balder financial reports
-BALD-B.ST,2025-Q1,,2025-05-08,Balder financial reports
-BALD-B.ST,2025-Q2,,2025-07-15,Balder financial reports
-BALD-B.ST,2025-Q3,,2025-10-28,Balder financial reports
-BALD-B.ST,2025-Q4,,2026-02-06,Balder financial reports
-BIOG-B.ST,2024-Q1,,2024-05-07,BioGaia official report release
-BIOG-B.ST,2024-Q2,,2024-07-23,BioGaia official report release
-BIOG-B.ST,2024-Q3,,2024-10-22,BioGaia official report release
-BIOG-B.ST,2024-Q4,,2025-02-12,BioGaia financial reports
-BIOG-B.ST,2025-Q1,,2025-05-07,BioGaia official report release
-BORG.ST,2024-Q1,,2024-05-16,Bjorn Borg reports archive
-BORG.ST,2024-Q2,,2024-08-16,Bjorn Borg reports archive
-CATE.ST,2024-Q1,,2024-04-25,Catena press release archive
-CATE.ST,2024-Q2,,2024-07-05,Catena press release archive
-CATE.ST,2024-Q3,,2024-10-25,Catena press release archive
-CATE.ST,2024-Q4,,2025-02-20,Catena press release archive
-CATE.ST,2025-Q1,,2025-04-28,Catena press release archive
-CATE.ST,2025-Q2,,2025-07-04,Catena press release archive
-CATE.ST,2025-Q3,,2025-10-24,Catena press release archive
-CATE.ST,2025-Q4,,2026-02-20,Catena press release archive
-CATE.ST,2026-Q1,,2026-04-23,Catena press release archive
-CIBUS.ST,2024-Q1,,2024-04-23,Cibus official interim report
-CIBUS.ST,2024-Q2,,2024-07-17,Cibus official interim report
-CIBUS.ST,2024-Q3,,2024-11-05,Cibus official interim report
-CIBUS.ST,2024-Q4,,2025-02-19,Cibus financial reports archive
-CIBUS.ST,2025-Q1,,2025-04-23,Cibus official interim report
-CIBUS.ST,2025-Q2,,2025-07-17,Cibus official interim report
-CLAS-B.ST,2024-Q3,,2024-03-06,Clas Ohlson reports archive Q3 2023/24
-CLAS-B.ST,2024-Q4,,2024-06-05,Clas Ohlson reports archive year-end 2023/24
-CLAS-B.ST,2025-Q1,,2024-09-04,Clas Ohlson reports archive Q1 2024/25
-CLAS-B.ST,2025-Q2,,2024-12-04,Clas Ohlson reports archive Q2 2024/25
-CLAS-B.ST,2025-Q3,,2025-03-12,Clas Ohlson reports archive Q3 2024/25
-CLAS-B.ST,2025-Q4,,2025-06-12,Clas Ohlson reports archive year-end 2024/25
-CLAS-B.ST,2026-Q1,,2025-09-10,Clas Ohlson reports archive Q1 2025/26
-CLAS-B.ST,2026-Q2,,2025-12-10,Clas Ohlson reports archive Q2 2025/26
-CLAS-B.ST,2026-Q3,,2026-03-11,Clas Ohlson reports archive Q3 2025/26
-CTT.ST,2024-Q1,,2024-04-26,CTT Systems report archive
-CTT.ST,2024-Q2,,2024-07-19,CTT Systems report archive
-CTT.ST,2024-Q3,,2024-10-25,CTT Systems report archive
-CTT.ST,2024-Q4,,2025-02-07,CTT Systems report archive
-CTT.ST,2025-Q1,,2025-04-25,CTT Systems report archive
-CTT.ST,2025-Q2,,2025-07-18,CTT Systems report archive
-CTT.ST,2025-Q3,,2025-10-24,CTT Systems report archive
-CTT.ST,2025-Q4,,2026-02-06,CTT Systems report archive
-CTT.ST,2026-Q1,,2026-04-28,CTT Systems report archive
-CTT.ST,2026-Q2,,2026-07-21,CTT Systems report archive
-DIOS.ST,2024-Q1,,2024-04-26,Dios reports and presentations
-DIOS.ST,2024-Q2,,2024-07-05,Dios reports and presentations
-DIOS.ST,2024-Q3,,2024-10-25,Dios reports and presentations
-DIOS.ST,2024-Q4,,2025-02-14,Dios reports and presentations
-DIOS.ST,2025-Q1,,2025-04-29,Dios reports and presentations
-DIOS.ST,2025-Q2,,2025-07-04,Dios reports and presentations
-DIOS.ST,2025-Q3,,2025-10-24,Dios reports and presentations
-DIOS.ST,2025-Q4,,2026-02-13,Dios reports and presentations
-DIOS.ST,2026-Q1,,2026-04-29,Dios reports and presentations
-DIOS.ST,2026-Q2,,2026-07-06,Dios reports and presentations
-DUNI.ST,2024-Q1,,2024-04-24,Duni Group reports
-DUNI.ST,2024-Q2,,2024-07-12,Duni Group reports
-DUNI.ST,2024-Q3,,2024-10-24,Duni Group reports
-DUNI.ST,2024-Q4,,2025-02-11,Duni Group reports
-DUNI.ST,2025-Q1,,2025-04-25,Duni Group reports
-DUNI.ST,2025-Q2,,2025-07-11,Duni Group reports
-DUNI.ST,2025-Q3,,2025-10-24,Duni Group reports
-DUNI.ST,2025-Q4,,2026-02-06,Duni Group reports
-DUNI.ST,2026-Q1,,2026-04-24,Duni Group reports
-DUNI.ST,2026-Q2,,2026-07-14,Duni Group reports
-DYVOX.ST,2024-Q1,,2024-04-23,Dynavox Group financial reports
-DYVOX.ST,2024-Q2,,2024-07-18,Dynavox Group financial reports
-DYVOX.ST,2024-Q3,,2024-10-23,Dynavox Group financial reports
-DYVOX.ST,2024-Q4,,2025-02-05,Dynavox Group financial reports
-DYVOX.ST,2025-Q1,,2025-04-25,Dynavox Group financial reports
-EAST.ST,2024-Q1,,2024-04-24,Eastnine financial reports
-EAST.ST,2024-Q2,,2024-07-04,Eastnine financial reports
-EAST.ST,2024-Q3,,2024-10-24,Eastnine financial reports
-EAST.ST,2024-Q4,,2025-02-05,Eastnine financial reports
-EAST.ST,2025-Q1,,2025-04-28,Eastnine financial reports
-EAST.ST,2025-Q2,,2025-07-07,Eastnine financial reports
-EAST.ST,2025-Q3,,2025-10-23,Eastnine financial reports
-EAST.ST,2025-Q4,,2026-02-05,Eastnine financial reports
-EAST.ST,2026-Q1,,2026-04-28,Eastnine financial reports
-EQL.ST,2024-Q4,,2024-05-14,EQL Pharma year-end report 2023/24
-EQT.ST,2021-Q4,,2022-01-19,EQT year-end report 2021
-EQT.ST,2022-Q2,,2022-07-14,EQT half-year report 2022
-EQT.ST,2022-Q4,,2023-01-18,EQT year-end report 2022
-EQT.ST,2023-Q2,,2023-07-14,EQT half-year report 2023
-EQT.ST,2023-Q4,,2024-01-18,EQT year-end report 2023
-EQT.ST,2024-Q2,,2024-07-18,EQT half-year report 2024
-EQT.ST,2024-Q4,,2025-01-23,EQT year-end report 2024
-EQT.ST,2025-Q2,,2025-07-17,EQT half-year report 2025
-EQT.ST,2025-Q4,,2026-01-22,EQT year-end report 2025
-EQT.ST,2026-Q2,,2026-07-17,EQT half-year report 2026
+ATRLJ-B.ST,2024-Q1,2024-04-12,2024-04-12,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2024-Q2,2024-07-09,2024-07-09,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2024-Q3,2024-10-11,2024-10-11,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2024-Q4,2025-01-31,2025-01-31,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2025-Q1,2025-04-11,2025-04-11,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2025-Q2,2025-07-04,2025-07-04,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2025-Q3,2025-10-10,2025-10-10,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2025-Q4,2026-01-30,2026-01-30,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2026-Q1,2026-04-10,2026-04-10,Atrium Ljungberg financial reports archive
+ATT.ST,2023-Q4,2024-02-08,2024-02-08,Attendo official report release
+ATT.ST,2024-Q1,2024-04-24,2024-04-24,Attendo official report release
+AZN.ST,2024-Q1,2024-04-25,2024-04-25,AstraZeneca results and presentations
+BAHN-B.ST,2023-Q4,2024-02-13,2024-02-13,Bahnhof news archive
+BAHN-B.ST,2024-Q1,2024-05-07,2024-05-07,Bahnhof news archive
+BAHN-B.ST,2024-Q2,2024-08-20,2024-08-20,Bahnhof news archive
+BAHN-B.ST,2024-Q3,2024-11-12,2024-11-12,Bahnhof news archive
+BAHN-B.ST,2024-Q4,2025-02-18,2025-02-18,Bahnhof news archive
+BAHN-B.ST,2025-Q1,2025-05-06,2025-05-06,Bahnhof news archive
+BALD-B.ST,2024-Q1,2024-05-03,2024-05-03,Balder financial reports
+BALD-B.ST,2024-Q2,2024-07-16,2024-07-16,Balder financial reports
+BALD-B.ST,2024-Q3,2024-10-25,2024-10-25,Balder financial reports
+BALD-B.ST,2024-Q4,2025-02-07,2025-02-07,Balder financial reports
+BALD-B.ST,2025-Q1,2025-05-08,2025-05-08,Balder financial reports
+BALD-B.ST,2025-Q2,2025-07-15,2025-07-15,Balder financial reports
+BALD-B.ST,2025-Q3,2025-10-28,2025-10-28,Balder financial reports
+BALD-B.ST,2025-Q4,2026-02-06,2026-02-06,Balder financial reports
+BIOG-B.ST,2024-Q1,2024-05-07,2024-05-07,BioGaia official report release
+BIOG-B.ST,2024-Q2,2024-07-23,2024-07-23,BioGaia official report release
+BIOG-B.ST,2024-Q3,2024-10-22,2024-10-22,BioGaia official report release
+BIOG-B.ST,2024-Q4,2025-02-12,2025-02-12,BioGaia financial reports
+BIOG-B.ST,2025-Q1,2025-05-07,2025-05-07,BioGaia official report release
+BORG.ST,2024-Q1,2024-05-16,2024-05-16,Bjorn Borg reports archive
+BORG.ST,2024-Q2,2024-08-16,2024-08-16,Bjorn Borg reports archive
+CATE.ST,2024-Q1,2024-04-25,2024-04-25,Catena press release archive
+CATE.ST,2024-Q2,2024-07-05,2024-07-05,Catena press release archive
+CATE.ST,2024-Q3,2024-10-25,2024-10-25,Catena press release archive
+CATE.ST,2024-Q4,2025-02-20,2025-02-20,Catena press release archive
+CATE.ST,2025-Q1,2025-04-28,2025-04-28,Catena press release archive
+CATE.ST,2025-Q2,2025-07-04,2025-07-04,Catena press release archive
+CATE.ST,2025-Q3,2025-10-24,2025-10-24,Catena press release archive
+CATE.ST,2025-Q4,2026-02-20,2026-02-20,Catena press release archive
+CATE.ST,2026-Q1,2026-04-23,2026-04-23,Catena press release archive
+CIBUS.ST,2024-Q1,2024-04-23,2024-04-23,Cibus official interim report
+CIBUS.ST,2024-Q2,2024-07-17,2024-07-17,Cibus official interim report
+CIBUS.ST,2024-Q3,2024-11-05,2024-11-05,Cibus official interim report
+CIBUS.ST,2024-Q4,2025-02-19,2025-02-19,Cibus financial reports archive
+CIBUS.ST,2025-Q1,2025-04-23,2025-04-23,Cibus official interim report
+CIBUS.ST,2025-Q2,2025-07-17,2025-07-17,Cibus official interim report
+CLAS-B.ST,2024-Q3,2024-03-06,2024-03-06,Clas Ohlson reports archive Q3 2023/24
+CLAS-B.ST,2024-Q4,2024-06-05,2024-06-05,Clas Ohlson reports archive year-end 2023/24
+CLAS-B.ST,2025-Q1,2024-09-04,2024-09-04,Clas Ohlson reports archive Q1 2024/25
+CLAS-B.ST,2025-Q2,2024-12-04,2024-12-04,Clas Ohlson reports archive Q2 2024/25
+CLAS-B.ST,2025-Q3,2025-03-12,2025-03-12,Clas Ohlson reports archive Q3 2024/25
+CLAS-B.ST,2025-Q4,2025-06-12,2025-06-12,Clas Ohlson reports archive year-end 2024/25
+CLAS-B.ST,2026-Q1,2025-09-10,2025-09-10,Clas Ohlson reports archive Q1 2025/26
+CLAS-B.ST,2026-Q2,2025-12-10,2025-12-10,Clas Ohlson reports archive Q2 2025/26
+CLAS-B.ST,2026-Q3,2026-03-11,2026-03-11,Clas Ohlson reports archive Q3 2025/26
+CTT.ST,2024-Q1,2024-04-26,2024-04-26,CTT Systems report archive
+CTT.ST,2024-Q2,2024-07-19,2024-07-19,CTT Systems report archive
+CTT.ST,2024-Q3,2024-10-25,2024-10-25,CTT Systems report archive
+CTT.ST,2024-Q4,2025-02-07,2025-02-07,CTT Systems report archive
+CTT.ST,2025-Q1,2025-04-25,2025-04-25,CTT Systems report archive
+CTT.ST,2025-Q2,2025-07-18,2025-07-18,CTT Systems report archive
+CTT.ST,2025-Q3,2025-10-24,2025-10-24,CTT Systems report archive
+CTT.ST,2025-Q4,2026-02-06,2026-02-06,CTT Systems report archive
+CTT.ST,2026-Q1,2026-04-28,2026-04-28,CTT Systems report archive
+CTT.ST,2026-Q2,2026-07-21,2026-07-21,CTT Systems report archive
+DIOS.ST,2024-Q1,2024-04-26,2024-04-26,Dios reports and presentations
+DIOS.ST,2024-Q2,2024-07-05,2024-07-05,Dios reports and presentations
+DIOS.ST,2024-Q3,2024-10-25,2024-10-25,Dios reports and presentations
+DIOS.ST,2024-Q4,2025-02-14,2025-02-14,Dios reports and presentations
+DIOS.ST,2025-Q1,2025-04-29,2025-04-29,Dios reports and presentations
+DIOS.ST,2025-Q2,2025-07-04,2025-07-04,Dios reports and presentations
+DIOS.ST,2025-Q3,2025-10-24,2025-10-24,Dios reports and presentations
+DIOS.ST,2025-Q4,2026-02-13,2026-02-13,Dios reports and presentations
+DIOS.ST,2026-Q1,2026-04-29,2026-04-29,Dios reports and presentations
+DIOS.ST,2026-Q2,2026-07-06,2026-07-06,Dios reports and presentations
+DUNI.ST,2024-Q1,2024-04-24,2024-04-24,Duni Group reports
+DUNI.ST,2024-Q2,2024-07-12,2024-07-12,Duni Group reports
+DUNI.ST,2024-Q3,2024-10-24,2024-10-24,Duni Group reports
+DUNI.ST,2024-Q4,2025-02-11,2025-02-11,Duni Group reports
+DUNI.ST,2025-Q1,2025-04-25,2025-04-25,Duni Group reports
+DUNI.ST,2025-Q2,2025-07-11,2025-07-11,Duni Group reports
+DUNI.ST,2025-Q3,2025-10-24,2025-10-24,Duni Group reports
+DUNI.ST,2025-Q4,2026-02-06,2026-02-06,Duni Group reports
+DUNI.ST,2026-Q1,2026-04-24,2026-04-24,Duni Group reports
+DUNI.ST,2026-Q2,2026-07-14,2026-07-14,Duni Group reports
+DYVOX.ST,2024-Q1,2024-04-23,2024-04-23,Dynavox Group financial reports
+DYVOX.ST,2024-Q2,2024-07-18,2024-07-18,Dynavox Group financial reports
+DYVOX.ST,2024-Q3,2024-10-23,2024-10-23,Dynavox Group financial reports
+DYVOX.ST,2024-Q4,2025-02-05,2025-02-05,Dynavox Group financial reports
+DYVOX.ST,2025-Q1,2025-04-25,2025-04-25,Dynavox Group financial reports
+EAST.ST,2024-Q1,2024-04-24,2024-04-24,Eastnine financial reports
+EAST.ST,2024-Q2,2024-07-04,2024-07-04,Eastnine financial reports
+EAST.ST,2024-Q3,2024-10-24,2024-10-24,Eastnine financial reports
+EAST.ST,2024-Q4,2025-02-05,2025-02-05,Eastnine financial reports
+EAST.ST,2025-Q1,2025-04-28,2025-04-28,Eastnine financial reports
+EAST.ST,2025-Q2,2025-07-07,2025-07-07,Eastnine financial reports
+EAST.ST,2025-Q3,2025-10-23,2025-10-23,Eastnine financial reports
+EAST.ST,2025-Q4,2026-02-05,2026-02-05,Eastnine financial reports
+EAST.ST,2026-Q1,2026-04-28,2026-04-28,Eastnine financial reports
+EQL.ST,2024-Q4,2024-05-14,2024-05-14,EQL Pharma year-end report 2023/24
+EQT.ST,2021-Q4,2022-01-19,2022-01-19,EQT year-end report 2021
+EQT.ST,2022-Q2,2022-07-14,2022-07-14,EQT half-year report 2022
+EQT.ST,2022-Q4,2023-01-18,2023-01-18,EQT year-end report 2022
+EQT.ST,2023-Q2,2023-07-14,2023-07-14,EQT half-year report 2023
+EQT.ST,2023-Q4,2024-01-18,2024-01-18,EQT year-end report 2023
+EQT.ST,2024-Q2,2024-07-18,2024-07-18,EQT half-year report 2024
+EQT.ST,2024-Q4,2025-01-23,2025-01-23,EQT year-end report 2024
+EQT.ST,2025-Q2,2025-07-17,2025-07-17,EQT half-year report 2025
+EQT.ST,2025-Q4,2026-01-22,2026-01-22,EQT year-end report 2025
+EQT.ST,2026-Q2,2026-07-17,2026-07-17,EQT half-year report 2026
