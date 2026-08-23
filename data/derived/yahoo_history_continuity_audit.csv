@@ -86,7 +86,6 @@ HOLM-A.ST,internal_missing_report_date,2025-06-30,,,,EPS-värdet finns hos Yahoo
 HOLM-A.ST,internal_missing_report_date,2025-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HOLM-A.ST,internal_missing_report_date,2025-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HOLM-A.ST,internal_missing_report_date,2026-03-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-HOLM-A.ST,trailing_missing_report_date,2026-06-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 HPOL-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 HUFV-A.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 INDU-A.ST,leading_missing_report_date,,2022-12-31,,,Första Yahoo-perioden saknar säkert rapportdatum.

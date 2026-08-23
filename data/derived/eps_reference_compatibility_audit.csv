@@ -54,7 +54,7 @@ GETI-B.ST,10,0.1841620626150973,0,True,every comparable Yahoo period must be <1%
 HANZA.ST,10,5.930742893908423,3,False,every comparable Yahoo period must be <1%; median is ignored
 HEXA-B.ST,9,5.066666666666672,4,False,every comparable Yahoo period must be <1%; median is ignored
 HMS.ST,10,0.5549389567147496,0,True,every comparable Yahoo period must be <1%; median is ignored
-HOLM-A.ST,1,0.5813953488372177,0,False,every comparable Yahoo period must be <1%; median is ignored
+HOLM-A.ST,2,0.5813953488372177,0,False,every comparable Yahoo period must be <1%; median is ignored
 HPOL-B.ST,10,0.1883239171374724,0,True,every comparable Yahoo period must be <1%; median is ignored
 HTRO.ST,10,124.99999999999996,3,False,every comparable Yahoo period must be <1%; median is ignored
 HUFV-A.ST,10,252.50397321881445,9,False,every comparable Yahoo period must be <1%; median is ignored
@@ -76,7 +76,7 @@ MTRS.ST,10,80.73089700996677,6,False,every comparable Yahoo period must be <1%; 
 MYCR.ST,6,99.89247311827955,1,False,every comparable Yahoo period must be <1%; median is ignored
 NDA-SE.ST,10,1.396877567789645,4,False,every comparable Yahoo period must be <1%; median is ignored
 NEWA-B.ST,9,11.342894393741853,9,False,every comparable Yahoo period must be <1%; median is ignored
-NIBE-B.ST,10,105.17241379310344,10,False,every comparable Yahoo period must be <1%; median is ignored
+NIBE-B.ST,10,105.17241379310344,9,False,every comparable Yahoo period must be <1%; median is ignored
 NMAN.ST,1,0.0,0,False,every comparable Yahoo period must be <1%; median is ignored
 NOLA-B.ST,1,0.3759398496240688,0,False,every comparable Yahoo period must be <1%; median is ignored
 NORION.ST,9,8.704536166734789,6,False,every comparable Yahoo period must be <1%; median is ignored
@@ -109,5 +109,5 @@ TREL-B.ST,10,162.9572399273949,7,False,every comparable Yahoo period must be <1%
 VBG-B.ST,10,2.7761370348493943,1,False,every comparable Yahoo period must be <1%; median is ignored
 VIT-B.ST,9,33.14203730272596,3,False,every comparable Yahoo period must be <1%; median is ignored
 VITR.ST,3,0.0543773790103208,0,False,every comparable Yahoo period must be <1%; median is ignored
-VIVA.ST,8,34.89583333333333,7,False,every comparable Yahoo period must be <1%; median is ignored
+VIVA.ST,8,34.89583333333333,6,False,every comparable Yahoo period must be <1%; median is ignored
 WALL-B.ST,1,162.73630246715794,1,False,every comparable Yahoo period must be <1%; median is ignored
