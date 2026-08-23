@@ -125,35 +125,55 @@ def _overlapping_auto_mask(existing: pd.DataFrame, generated: pd.DataFrame) -> p
     """Identifiera auto-Yahoo-rader som överlappar den kända historikbatchen.
 
     En live-synkad Yahoo-period kan redan finnas i reports.csv med ett mindre
-    tillförlitligt get_earnings_dates-datum. Om samma ticker + period_end finns i
-    den alignade historiken ska historikens etablerade report_date/same-day-datum
-    vinna. Auto-rader utanför historikbatchen bevaras däremot orörda.
+    tillförlitligt get_earnings_dates-datum eller med ett periodnamn som blev
+    fel under en tidigare historikmappning. Historikens etablerade identitet ska
+    då vinna.
+
+    En auto-rad tas därför bort när antingen ticker + period_end överlappar den
+    nya historikbatchen ELLER när ticker + report_period överlappar men pekar på
+    ett annat period_end. Auto-rader med framtida YAHOO-etiketter utanför
+    historikbatchen bevaras orörda. Manuella rader berörs aldrig av masken.
     """
     if existing.empty:
         return pd.Series(False, index=existing.index, dtype=bool)
     if generated.empty:
         return pd.Series(False, index=existing.index, dtype=bool)
 
-    generated_periods = generated[["ticker", "period_end"]].copy()
+    generated_periods = generated[["ticker", "period_end", "report_period"]].copy()
     generated_periods["period_end"] = pd.to_datetime(
         generated_periods["period_end"], errors="coerce"
     ).dt.tz_localize(None).dt.normalize()
-    generated_periods = generated_periods.dropna(subset=["period_end"])
-    keys = set(
+
+    period_end_keys = set(
         zip(
-            generated_periods["ticker"].astype(str),
-            generated_periods["period_end"],
+            generated_periods.loc[generated_periods["period_end"].notna(), "ticker"].astype(str),
+            generated_periods.loc[generated_periods["period_end"].notna(), "period_end"],
         )
     )
-    if not keys:
-        return pd.Series(False, index=existing.index, dtype=bool)
+    report_period_keys = set(
+        zip(
+            generated_periods["ticker"].astype(str),
+            generated_periods["report_period"].astype(str),
+        )
+    )
 
     notes = existing["notes"].fillna("").astype(str)
     is_auto = notes.str.contains(AUTO_IMPORT_MARKER, regex=False, na=False)
     periods = pd.to_datetime(existing["period_end"], errors="coerce").dt.tz_localize(None).dt.normalize()
     overlap_values = [
-        bool(auto and pd.notna(period) and (str(ticker), period) in keys)
-        for auto, ticker, period in zip(is_auto, existing["ticker"], periods)
+        bool(
+            auto
+            and (
+                (pd.notna(period_end) and (str(ticker), period_end) in period_end_keys)
+                or (str(ticker), str(report_period)) in report_period_keys
+            )
+        )
+        for auto, ticker, period_end, report_period in zip(
+            is_auto,
+            existing["ticker"],
+            periods,
+            existing["report_period"],
+        )
     ]
     return pd.Series(overlap_values, index=existing.index, dtype=bool)
 
@@ -171,9 +191,8 @@ def import_history(
 
     # Riktigt manuella/andra verifierade poster har alltid företräde. Den nya
     # historikimporten ersätter äldre historikimporter samt auto-Yahoo-rader som
-    # avser exakt samma period_end. Det gör att historikens etablerade report_date
-    # vinner över en eventuell en-dagsförskjutning i Yahoo get_earnings_dates,
-    # samtidigt som framtida auto-Yahoo-perioder utanför batchen lämnas kvar.
+    # avser samma period_end eller återanvänder ett report_period från batchen.
+    # Framtida auto-Yahoo-perioder med egna YAHOO-etiketter lämnas kvar.
     if not existing.empty:
         generated_mask = _historical_generated_mask(existing["notes"])
         generated_mask = generated_mask | _overlapping_auto_mask(existing, generated)
