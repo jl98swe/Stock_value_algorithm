@@ -5,10 +5,12 @@ on:
   push:
     paths:
       - "data/fundamentals/eps_ttm_history.csv"
+      - "data/fundamentals/eps_ttm_history_manual_updates.csv"
       - "data/fundamentals/eps_report_date_cache.csv"
       - "data/fundamentals/report_date_overrides.csv"
       - "data/metadata/stocks.csv"
       - "config/ticker_mapping.csv"
+      - "src/apply_manual_eps_history_updates.py"
       - "src/enrich_historical_eps.py"
       - "src/apply_report_date_overrides.py"
       - "src/earnings.py"
@@ -54,6 +56,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+
+      - name: Applicera manuella EPS-kompletteringar
+        run: python -m src.apply_manual_eps_history_updates
 
       - name: Mappa historiskt referensunderlag och rapportdatum
         run: python -m src.enrich_historical_eps
@@ -162,6 +167,7 @@ jobs:
           # Nyhetsagentens events.json ska aldrig committas av EPS-flödet.
           git restore docs/data/events.json
 
+          git add data/fundamentals/eps_ttm_history.csv
           git add data/fundamentals/eps_report_date_cache.csv
           git add data/fundamentals/eps_ttm_history_enriched.csv
           git add data/fundamentals/eps_ttm_history_aligned.csv
