@@ -32,20 +32,37 @@
         min-height: 30px;
       }
 
+      .stock-list .stock-button.stock-score-buy {
+        background: rgba(31, 143, 103, 0.16) !important;
+        border-color: rgba(31, 143, 103, 0.30) !important;
+      }
+
+      .stock-list .stock-button.stock-score-sell {
+        background: rgba(199, 71, 71, 0.16) !important;
+        border-color: rgba(199, 71, 71, 0.30) !important;
+      }
+
+      .stock-list .stock-button.stock-score-mid {
+        background: rgba(104, 118, 132, 0.09) !important;
+        border-color: rgba(104, 118, 132, 0.18) !important;
+      }
+
       .stock-list .stock-button:hover {
         transform: none !important;
         box-shadow: none !important;
+        filter: brightness(0.98);
       }
 
       .stock-list .stock-button.active {
-        box-shadow: inset 2px 0 0 var(--brand-2) !important;
+        border-color: var(--brand-2) !important;
+        box-shadow: inset 3px 0 0 var(--brand-2) !important;
       }
 
       .stock-list .row-top {
-        display: grid !important;
-        grid-template-columns: 8px minmax(0, 1fr) auto;
+        display: flex !important;
         align-items: center;
-        gap: 7px !important;
+        justify-content: space-between;
+        gap: 8px !important;
       }
 
       .stock-list .stock-name-small {
@@ -61,27 +78,8 @@
         font-size: 11px !important;
         line-height: 1.1;
         color: var(--text) !important;
+        font-weight: 800;
         font-variant-numeric: tabular-nums;
-      }
-
-      .stock-process-dot {
-        display: block;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #9aa5ad;
-      }
-
-      .stock-score-buy .stock-process-dot {
-        background: var(--green, #1f8f67);
-      }
-
-      .stock-score-sell .stock-process-dot {
-        background: var(--red, #c74747);
-      }
-
-      .stock-score-mid .stock-process-dot {
-        background: #9aa5ad;
       }
     `;
     document.head.appendChild(style);
@@ -98,13 +96,8 @@
     button.classList.remove(...SCORE_CLASSES);
     button.classList.add(scoreClass(score));
 
-    let dot = row.querySelector('.stock-process-dot');
-    if (!dot) {
-      dot = document.createElement('span');
-      dot.className = 'stock-process-dot';
-      dot.setAttribute('aria-hidden', 'true');
-      row.insertBefore(dot, row.firstChild);
-    }
+    const oldDot = row.querySelector('.stock-process-dot');
+    if (oldDot) oldDot.remove();
 
     const ticker = row.querySelector('strong')?.textContent?.trim() || '';
     const stockName = button.querySelector('.stock-name-small')?.textContent?.trim() || '';
