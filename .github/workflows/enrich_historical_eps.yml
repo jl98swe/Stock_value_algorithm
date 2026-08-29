@@ -6,11 +6,13 @@ on:
     paths:
       - "data/fundamentals/eps_ttm_history.csv"
       - "data/fundamentals/eps_ttm_history_manual_updates.csv"
+      - "data/fundamentals/tradingview_eps_overrides.csv"
       - "data/fundamentals/eps_report_date_cache.csv"
       - "data/fundamentals/report_date_overrides.csv"
       - "data/metadata/stocks.csv"
       - "config/ticker_mapping.csv"
       - "src/apply_manual_eps_history_updates.py"
+      - "src/apply_tradingview_eps_overrides.py"
       - "src/enrich_historical_eps.py"
       - "src/apply_report_date_overrides.py"
       - "src/earnings.py"
@@ -60,6 +62,9 @@ jobs:
       - name: Applicera manuella EPS-kompletteringar
         run: python -m src.apply_manual_eps_history_updates
 
+      - name: Applicera TradingView EPS-overrides
+        run: python -m src.apply_tradingview_eps_overrides
+
       - name: Mappa historiskt referensunderlag och rapportdatum
         run: python -m src.enrich_historical_eps
 
@@ -98,6 +103,9 @@ jobs:
 
       - name: Synka nya Yahoo-perioder till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
+
+      - name: Återapplicera TradingView EPS-overrides
+        run: python -m src.apply_tradingview_eps_overrides
 
       - name: Klassificera kvarvarande historiska EPS-luckor
         run: python -m src.audit_eps_gaps
