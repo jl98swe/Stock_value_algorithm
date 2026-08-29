@@ -192,7 +192,7 @@ BAHN-B.ST,2025-03-31,2025-05-06,36,2.07,SEK,yahoo_trailing_diluted,Yahoo Finance
 BAHN-B.ST,2025-06-30,2025-08-19,50,2.09,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BAHN-B.ST,2025-09-30,2025-11-11,42,2.06,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BAHN-B.ST,2025-12-31,2026-02-17,48,1.7,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
-BAHN-B.ST,2026-03-31,,,1.74,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+BAHN-B.ST,2026-03-31,2026-05-05,35,1.74,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BALD-B.ST,2023-09-30,,,-0.96,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
 BALD-B.ST,2023-12-31,2024-02-09,40,-6.03,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BALD-B.ST,2024-03-31,2024-05-03,33,-6.5,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
@@ -472,6 +472,7 @@ EKTA-B.ST,2025-07-31,2025-08-27,27,0.72,SEK,yahoo_trailing_diluted,Yahoo Finance
 EKTA-B.ST,2025-10-31,2025-11-26,26,0.76,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 EKTA-B.ST,2026-01-31,2026-03-05,33,-0.1,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 EKTA-B.ST,2026-04-30,2026-05-28,28,-1.36,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
+EKTA-B.ST,2026-07-31,2026-08-26,26,-0.95,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 EMBRAC-B.ST,2023-09-30,2023-11-16,47,3.49,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 EMBRAC-B.ST,2023-12-31,2024-02-15,46,0.61,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 EMBRAC-B.ST,2024-03-31,2024-05-23,53,-15.28,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
@@ -645,7 +646,7 @@ HOLM-A.ST,2025-03-31,,,18.1,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingD
 HOLM-A.ST,2025-06-30,,,17.3,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
 HOLM-A.ST,2025-09-30,,,18.2,SEK,yahoo_reconstructed_diluted_ttm,Yahoo Finance / trailingDilutedEPS reconstructed from quarterlyDilutedEPS,missing
 HOLM-A.ST,2025-12-31,,,18.5,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
-HOLM-A.ST,2026-03-31,,,17.7,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+HOLM-A.ST,2026-03-31,2026-04-28,28,17.7,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 HOLM-A.ST,2026-06-30,2026-08-20,51,17.3,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 HPOL-B.ST,2023-09-30,2023-10-27,27,7.67,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 HPOL-B.ST,2024-03-31,2024-04-26,26,7.29,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
@@ -1309,7 +1310,7 @@ VIVA.ST,2025-03-31,2025-05-15,45,1.72,SEK,yahoo_trailing_diluted,Yahoo Finance /
 VIVA.ST,2025-06-30,2025-08-28,59,1.84,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 VIVA.ST,2025-09-30,2025-11-20,51,1.94,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 VIVA.ST,2025-12-31,2026-02-19,50,2.32,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
-VIVA.ST,2026-03-31,,,2.37,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+VIVA.ST,2026-03-31,2026-05-07,37,2.37,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 VIVA.ST,2026-06-30,2026-08-20,51,2.32,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 VOLV-A.ST,2023-09-30,,,21.83,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
 VOLV-A.ST,2023-12-31,,,24.5,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
@@ -1354,3 +1355,4 @@ ZZ-B.ST,2025-03-31,2025-05-20,50,5.12,SEK,yahoo_trailing_diluted,Yahoo Finance /
 ZZ-B.ST,2025-09-30,2025-11-19,50,6.54,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 ZZ-B.ST,2025-12-31,,,8.64,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
 ZZ-B.ST,2026-03-31,,,9.85,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+ZZ-B.ST,2026-06-30,2026-08-26,57,11.02,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical

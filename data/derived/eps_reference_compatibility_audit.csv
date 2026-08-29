@@ -37,7 +37,7 @@ CTT.ST,10,0.1093218361155197,0,True,every comparable Yahoo period must be <1%; m
 DIOS.ST,9,143.7636761487965,9,False,every comparable Yahoo period must be <1%; median is ignored
 DOM.ST,10,1.0309278350515474,1,False,every comparable Yahoo period must be <1%; median is ignored
 DUNI.ST,10,0.4273504273504372,0,True,every comparable Yahoo period must be <1%; median is ignored
-DYVOX.ST,10,1.9736842105263173,4,False,every comparable Yahoo period must be <1%; median is ignored
+DYVOX.ST,11,0.9900990099009894,0,True,every comparable Yahoo period must be <1%; median is ignored
 EAST.ST,10,475.5299818291944,10,False,every comparable Yahoo period must be <1%; median is ignored
 EKTA-B.ST,9,0.3816793893129689,0,True,every comparable Yahoo period must be <1%; median is ignored
 EMBRAC-B.ST,8,118.5616076150185,8,False,every comparable Yahoo period must be <1%; median is ignored

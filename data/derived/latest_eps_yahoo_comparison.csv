@@ -39,7 +39,7 @@ DOM.ST,2026-Q2,2026-06-30,2026-07-14,2026-07-13,1.0,near,0.96,SEK,0.96,SEK,0.0,m
 DUNI.ST,2026-Q2,2026-06-30,2026-07-14,2018-07-13,2923.0,mismatch,4.33,SEK,4.33,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 DYVOX.ST,2026-Q2,2026-06-30,2026-07-22,2026-07-22,0.0,match,2.12,SEK,2.12,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 EAST.ST,2026-Q2,2026-06-30,2026-07-07,2026-07-07,0.0,match,0.28,EUR,0.28,EUR,0.0,match,yahoo_trailing_diluted,2026-08-15
-EKTA-B.ST,2026-Q4,2026-04-30,2026-05-28,2026-05-28,0.0,match,-1.36,SEK,-1.36,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
+EKTA-B.ST,,2026-07-31,,2026-08-26,,no_same_period_history,,,-0.95,SEK,,no_same_period_history,,2026-08-29
 EMBRAC-B.ST,2026-Q4,2026-03-31,2026-05-20,2026-08-13,85.0,mismatch,-27.67,SEK,-27.67,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 EPI-A.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,7.31,SEK,7.31,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 EPI-B.ST,2026-Q2,2026-06-30,2026-07-17,,,missing_yahoo,7.31,SEK,7.31,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
@@ -117,4 +117,4 @@ VIVA.ST,2026-Q2,2026-06-30,2026-08-20,2026-02-19,182.0,mismatch,2.32,SEK,2.32,SE
 VOLV-A.ST,,2026-06-30,,,,no_same_period_history,,,17.62,SEK,,no_same_period_history,,2026-08-15
 WALL-B.ST,2026-Q2,2026-06-30,2026-07-06,2026-07-06,0.0,match,4.1,SEK,4.1,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 WIHL.ST,,2026-06-30,,2025-10-23,,no_same_period_history,,,7.11,SEK,,no_same_period_history,,2026-08-15
-ZZ-B.ST,,2026-03-31,,2025-11-19,,no_same_period_history,,,9.85,SEK,,no_same_period_history,,2026-08-15
+ZZ-B.ST,,2026-06-30,,2025-11-19,,no_same_period_history,,,11.02,SEK,,no_same_period_history,,2026-08-26
