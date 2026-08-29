@@ -34,7 +34,7 @@ jobs:
         run: python -m src.fx
 
       - name: Kör marknadspipelinen mot Yahoo
-        run: python -m src.pipeline
+        run: python -m src.pipeline --defer-score-history
 
       - name: Hämta Yahoo trailingDilutedEPS
         run: python -m src.earnings
@@ -55,7 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv
+          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv data/derived/valuation_score_history.csv.gz
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
           fi

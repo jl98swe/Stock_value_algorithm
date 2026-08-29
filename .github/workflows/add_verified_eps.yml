@@ -99,7 +99,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fundamentals/reports.csv docs/data data/fx/fx_initial.csv
+          git add data/fundamentals/reports.csv data/derived/valuation_score_history.csv.gz docs/data data/fx/fx_initial.csv
           if [ -f data/fx/fx_updates.csv ]; then
             git add data/fx/fx_updates.csv
           fi
