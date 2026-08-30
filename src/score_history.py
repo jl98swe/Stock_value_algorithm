@@ -19,6 +19,7 @@ from .valuation import price_zone
 SCORE_HISTORY_FILE = ROOT / "data" / "derived" / "valuation_score_history.csv.gz"
 SCORE_HISTORY_COLUMNS = ["ticker", "date", "score", "calculation_mode", "frozen_at"]
 DEFAULT_CALCULATION_MODE = "report_date_state"
+HISTORICAL_REBUILD_MIN_EXTENSION_DAYS = 45
 
 
 def empty_score_history() -> pd.DataFrame:
@@ -126,6 +127,22 @@ def apply_frozen_scores(
     else:
         ticker_rows = history.loc[history["ticker"].astype(str) == str(ticker)].copy()
         existing = normalise_score_history(ticker_rows)
+
+    # A newly verified historical series can extend further back than the
+    # ticker's frozen score history. Because the valuation model carries
+    # rolling state forward, appending only the newly discovered early dates
+    # would leave the already frozen continuation internally inconsistent.
+    # Rebuild this ticker once; after the new earliest date is stored, later
+    # runs return to normal append-only behaviour.
+    valid_candidate_dates = dates.loc[candidate_scores.notna()]
+    if (
+        not existing.empty
+        and not valid_candidate_dates.empty
+        and (
+            existing["date"].min() - valid_candidate_dates.min()
+        ).days >= HISTORICAL_REBUILD_MIN_EXTENSION_DAYS
+    ):
+        existing = empty_score_history()
 
     # A deliberate calculation-mode migration may happen when the market is
     # closed and no newer trading day exists. Replace only that final published

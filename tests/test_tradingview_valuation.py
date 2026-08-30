@@ -57,8 +57,14 @@ def test_abb_tv_values_stay_in_sek_and_reproduce_2026_08_28_score():
     )
     reports = load_reports()
     mode = valuation_calculation_mode(ticker, reports)
+    abb_reports = reports.loc[
+        (reports["ticker"] == ticker)
+        & reports["source"].astype(str).str.startswith("TradingView")
+    ].sort_values("period_end")
 
     assert mode == TV_PERIOD_END_STATE
+    assert len(abb_reports) == 32
+    assert abb_reports.iloc[0]["report_period"] == "2018-Q3"
     working = attach_eps_ttm(prices, ticker, reports, calculation_mode=mode)
     valued = calculate_valuation(
         working,
@@ -70,3 +76,4 @@ def test_abb_tv_values_stay_in_sek_and_reproduce_2026_08_28_score():
     assert working.iloc[-1]["FX_RATE"] == pytest.approx(1.0)
     assert valued.iloc[-1]["EPS_TTM"] == pytest.approx(26.4067)
     assert valued.iloc[-1]["Score"] == pytest.approx(43.1413822598, abs=1e-8)
+    assert valued.loc[valued["Score"].notna(), "Date"].iloc[0].strftime("%Y-%m-%d") == "2018-11-22"

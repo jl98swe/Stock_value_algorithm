@@ -77,9 +77,25 @@ def _apply_history(
         (str(row.ticker), str(row.report_period)): str(row.currency).strip().upper()
         for row in history.itertuples(index=False)
     }
+    ticker_currencies = (
+        history.assign(currency=history["currency"].astype(str).str.strip().str.upper())
+        .groupby("ticker")["currency"]
+        .agg(lambda values: set(values))
+        .to_dict()
+    )
+
+    def reference_currency(row: pd.Series) -> str | None:
+        ticker = str(row["ticker"])
+        period = str(row["report_period"])
+        exact = history_currency.get((ticker, period))
+        if exact:
+            return exact
+        known = ticker_currencies.get(ticker, set())
+        return next(iter(known)) if len(known) == 1 else None
+
     compatible = override_history.apply(
         lambda row: (
-            history_currency.get((str(row["ticker"]), str(row["report_period"])))
+            reference_currency(row)
             in {None, str(row["currency"]).strip().upper()}
         ),
         axis=1,

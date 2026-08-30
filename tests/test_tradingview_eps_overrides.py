@@ -29,6 +29,14 @@ def test_history_override_skips_cross_currency_reference(tmp_path: Path):
         [
             {
                 "ticker": "ABB",
+                "report_period": "2018-Q3",
+                "report_date": pd.Timestamp("2018-10-25"),
+                "eps_ttm": 9.3457,
+                "currency": "SEK",
+                "source": "TradingView / EARNINGS_PER_SHARE_DILUTED TTM",
+            },
+            {
+                "ticker": "ABB",
                 "report_period": "2026-Q2",
                 "report_date": pd.Timestamp("2026-07-16"),
                 "eps_ttm": 26.4067,
@@ -49,7 +57,9 @@ def test_history_override_skips_cross_currency_reference(tmp_path: Path):
     applied, skipped = _apply_history(overrides, history_file)
     result = pd.read_csv(history_file, encoding="utf-8-sig").set_index("ticker")
 
-    assert (applied, skipped) == (1, 1)
+    assert (applied, skipped) == (1, 2)
+    rows = result.reset_index()
+    assert not ((rows["ticker"] == "ABB") & (rows["report_period"] == "2018-Q3")).any()
     assert result.loc["ABB", "eps_ttm"] == 2.75
     assert result.loc["ABB", "currency"] == "USD"
     assert result.loc["DYVOX", "eps_ttm"] == 2.1177

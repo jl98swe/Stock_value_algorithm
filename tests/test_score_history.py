@@ -157,3 +157,43 @@ def test_mode_change_replaces_only_latest_frozen_score_without_new_market_day():
     assert latest["date"] == pd.Timestamp("2026-08-28")
     assert latest["score"] == 43.1413822598
     assert latest["calculation_mode"] == "tv_period_end_state"
+
+
+def test_earlier_verified_history_rebuilds_the_ticker_once():
+    valued = pd.DataFrame(
+        {
+            "Date": pd.to_datetime(["2025-12-30", "2026-08-27", "2026-08-28"]),
+            "Score": [10.0, 20.0, 30.0],
+        }
+    )
+    history = pd.DataFrame(
+        {
+            "ticker": ["ABB.ST", "ABB.ST"],
+            "date": pd.to_datetime(["2026-08-27", "2026-08-28"]),
+            "score": [91.0, 92.0],
+            "calculation_mode": ["tv_period_end_state"] * 2,
+            "frozen_at": ["old"] * 2,
+        }
+    )
+
+    result, additions = apply_frozen_scores(
+        valued,
+        "ABB.ST",
+        history,
+        frozen_at="new",
+        calculation_mode="tv_period_end_state",
+    )
+
+    assert result["Score"].tolist() == [10.0, 20.0, 30.0]
+    assert additions["score"].tolist() == [10.0, 20.0, 30.0]
+    merged = merge_score_history(history, additions)
+    assert merged["score"].tolist() == [10.0, 20.0, 30.0]
+
+    _, second_additions = apply_frozen_scores(
+        valued,
+        "ABB.ST",
+        merged,
+        frozen_at="later",
+        calculation_mode="tv_period_end_state",
+    )
+    assert second_additions.empty

@@ -6,7 +6,7 @@ import pandas as pd
 
 from .config import ROOT
 from .fetch_data import load_price_history
-from .fundamentals import attach_eps_ttm, load_reports
+from .fundamentals import attach_eps_ttm, load_reports, valuation_calculation_mode
 from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
 from .strategy import run_strategy
@@ -45,6 +45,7 @@ def audit(
             reports,
             stock_metadata=metadata,
             fx_history=fx,
+            calculation_mode=valuation_calculation_mode(ticker, reports),
         )
         valued = calculate_valuation(mapped, model=model)
         valued["FundamentalLock"] = False
