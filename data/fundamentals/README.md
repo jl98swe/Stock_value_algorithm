@@ -33,13 +33,19 @@ Det gör att historiska och framtida värden kan jämföras på samma grund inna
 
 ## Same-day-regel för EPS
 
-`period_end` och `effective_date` är två helt olika saker. Algoritmen använder aldrig en ny Yahoo-period före den dag den kan knytas till en inträffad rapport eller faktiskt har observerats av systemet.
+`period_end` och `effective_date` är två helt olika saker. Den kanoniska rapporthistoriken, rapportlås och vanliga Yahoo-baserade värderingar använder aldrig en ny period före den dag den kan knytas till en inträffad rapport eller faktiskt har observerats av systemet.
 
 Projektets fasta regel är att ny EPS TTM gäller **samma svenska kalenderdag som rapporten publiceras** när rapportdatumet är känt och rimligt. Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får börja påverka P/E och värderingsscore med stängningskursen den 17 juli. Vi flyttar alltså inte EPS till nästa handelsdag beroende på exakt publiceringstid.
 
 För historik där `report_date` finns sätts `effective_date = report_date`. Vid manuell verifiering härleder `src.add_report` automatiskt `effective_date` från `published_at` i tidszonen `Europe/Stockholm` och accepterar inte ett avvikande explicit datum.
 
 För en **genuint ny framtida Yahoo-period** där Yahoo saknar ett rimligt rapportdatum används i stället `observed_date`, alltså dagen systemet först såg den nya `trailingDilutedEPS`-perioden. Det är en konservativ reservregel: värdet kan då börja användas senare än den verkliga rapportdagen men aldrig före systemet hade tillgång till det.
+
+## TradingView-läge för värderingsstate
+
+En ticker aktiverar `tv_period_end_state` endast när den har verifierade EPS-rader vars källa börjar med `TradingView /`. Då kopplar värderingsmotorn EPS TTM till `period_end`, med `effective_date` som reserv om periodslut saknas. Detta efterliknar hur TradingView placerar historiska fundamentalvärden utan att ändra rapportdatumet i den kanoniska datan.
+
+Detta läge är avsiktligt inte ett traditionellt point-in-time-backtest: när en ny rapport blir känd räknas det interna rullande tillståndet om från periodslutet. Den publicerade grafen skyddas i stället av `data/derived/valuation_score_history.csv.gz`. Befintliga datum återanvänds oförändrade och endast datum efter tickerns senast frysta dag får läggas till. Därmed påverkar ett nytt EPS-värde endast kommande synliga poäng.
 
 ## Daglig Yahoo EPS
 

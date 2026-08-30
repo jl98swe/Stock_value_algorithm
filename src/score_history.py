@@ -132,7 +132,18 @@ def apply_frozen_scores(
     use_existing = frozen_scores.notna()
     result.loc[use_existing, "Score"] = frozen_scores.loc[use_existing].to_numpy(dtype=float)
 
-    new_mask = dates.notna() & candidate_scores.notna() & ~dates.isin(frozen_by_date.index)
+    after_frozen_history = pd.Series(True, index=result.index)
+    if not existing.empty:
+        latest_frozen_date = existing["date"].max()
+        after_frozen_history = dates.gt(latest_frozen_date)
+        historical_gap = dates.le(latest_frozen_date) & ~dates.isin(frozen_by_date.index)
+        result.loc[historical_gap, "Score"] = np.nan
+    new_mask = (
+        dates.notna()
+        & candidate_scores.notna()
+        & ~dates.isin(frozen_by_date.index)
+        & after_frozen_history
+    )
     additions = pd.DataFrame(
         {
             "ticker": str(ticker),
@@ -160,6 +171,6 @@ def save_score_history(frame: pd.DataFrame, path: str | Path = SCORE_HISTORY_FIL
     output["date"] = output["date"].dt.strftime("%Y-%m-%d")
     output["score"] = output["score"].round(10)
     temp = target.with_suffix(target.suffix + ".tmp")
-    compression = "gzip" if target.suffix == ".gz" else None
+    compression = {"method": "gzip", "mtime": 0} if target.suffix == ".gz" else None
     output.to_csv(temp, index=False, compression=compression)
     temp.replace(target)

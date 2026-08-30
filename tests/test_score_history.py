@@ -24,9 +24,9 @@ def test_existing_score_is_immutable_and_only_new_date_is_added():
     )
     recalculated = pd.DataFrame(
         {
-            "Date": pd.to_datetime(["2026-08-27", "2026-08-28"]),
-            "Score": [98.0, 54.321],
-            "PriceZone": ["Övervärderad", "Neutral"],
+            "Date": pd.to_datetime(["2026-08-26", "2026-08-27", "2026-08-28"]),
+            "Score": [77.0, 98.0, 54.321],
+            "PriceZone": ["Relativt dyr", "Övervärderad", "Neutral"],
         }
     )
 
@@ -35,13 +35,16 @@ def test_existing_score_is_immutable_and_only_new_date_is_added():
         "TEST.ST",
         history,
         frozen_at="2026-08-28T18:00:00+02:00",
+        calculation_mode="tv_period_end_state",
     )
 
-    assert frozen["Score"].tolist() == [12.3456, 54.321]
-    assert frozen["PriceZone"].tolist() == ["Undervärderad", "Neutral"]
+    assert pd.isna(frozen.loc[0, "Score"])
+    assert frozen.loc[1:, "Score"].tolist() == [12.3456, 54.321]
+    assert frozen["PriceZone"].tolist() == ["N/A", "Undervärderad", "Neutral"]
     assert additions[["ticker", "date", "score"]].to_dict("records") == [
         {"ticker": "TEST.ST", "date": pd.Timestamp("2026-08-28"), "score": 54.321}
     ]
+    assert additions.iloc[0]["calculation_mode"] == "tv_period_end_state"
 
 
 def test_dashboard_migration_preserves_published_values(tmp_path):
@@ -90,3 +93,24 @@ def test_score_history_roundtrip_is_unique_and_stable(tmp_path):
 
     assert loaded.iloc[0]["score"] == 86.5390123457
     assert loaded.iloc[0]["date"] == pd.Timestamp("2026-08-28")
+
+
+def test_gzip_score_history_is_byte_stable(tmp_path):
+    target = tmp_path / "valuation_score_history.csv.gz"
+    frame = pd.DataFrame(
+        [
+            {
+                "ticker": "TEST.ST",
+                "date": "2026-08-28",
+                "score": 86.539021,
+                "calculation_mode": "tv_period_end_state",
+                "frozen_at": "2026-08-29T12:00:00+02:00",
+            }
+        ]
+    )
+
+    save_score_history(frame, target)
+    first = target.read_bytes()
+    save_score_history(frame, target)
+
+    assert target.read_bytes() == first

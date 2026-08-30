@@ -54,7 +54,7 @@ Kanonisk rapportfil:
 data/fundamentals/reports.csv
 ```
 
-Endast verifierade EPS TTM-rader med explicit `effective_date` används av algoritmen. `period_end` får aldrig automatiskt användas som effective date eftersom det skulle kunna skapa look-ahead i backtest.
+Endast verifierade EPS TTM-rader med explicit `effective_date` används. Den kanoniska rapport- och låslogiken följer alltid detta datum. För tickers med manuellt verifierad TradingView-historik använder värderingsmotorns interna tillstånd i stället `period_end`, så att EPS-serien beter sig som TradingViews historiska fundamentalserie. Publicerade poäng ligger i en separat append-only-historik och räknas därför inte om retroaktivt när en ny rapport tillkommer.
 
 Enstaka verifierad rapport kan läggas in med:
 

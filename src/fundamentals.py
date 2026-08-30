@@ -20,6 +20,9 @@ REPORT_COLUMNS = [
     "verified_at",
     "notes",
 ]
+REPORT_DATE_STATE = "report_date_state"
+TV_PERIOD_END_STATE = "tv_period_end_state"
+TRADINGVIEW_SOURCE_PREFIX = "TradingView /"
 
 
 def empty_reports() -> pd.DataFrame:
@@ -108,6 +111,24 @@ def latest_verified_report(ticker: str, frame: pd.DataFrame | None = None) -> pd
     return None if subset.empty else subset.iloc[-1]
 
 
+def valuation_calculation_mode(
+    ticker: str,
+    frame: pd.DataFrame | None = None,
+) -> str:
+    """Select TV timing only when the ticker has verified TradingView EPS data."""
+
+    reports = verified_reports(frame)
+    subset = reports.loc[reports["ticker"].astype(str) == str(ticker)]
+    if subset.empty:
+        return REPORT_DATE_STATE
+    sources = subset["source"].fillna("").astype(str).str.strip()
+    return (
+        TV_PERIOD_END_STATE
+        if sources.str.startswith(TRADINGVIEW_SOURCE_PREFIX).any()
+        else REPORT_DATE_STATE
+    )
+
+
 def _attach_currency_conversion(
     frame: pd.DataFrame,
     ticker: str,
@@ -171,13 +192,15 @@ def attach_eps_ttm(
     *,
     stock_metadata: pd.DataFrame | None = None,
     fx_history: pd.DataFrame | None = None,
+    calculation_mode: str = REPORT_DATE_STATE,
 ) -> pd.DataFrame:
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
-    Endast verifierade rapporter används. EPS börjar gälla på explicit
-    ``effective_date`` och forward-fillas därefter. Om rapportvalutan skiljer
-    sig från aktiens handelsvaluta konverteras EPS med senast fullt avslutade
-    FX-dagskurs före respektive handelsdag.
+    Endast verifierade rapporter används. I ``report_date_state`` börjar EPS
+    gälla på explicit ``effective_date``. I ``tv_period_end_state`` kopplas
+    värdet i stället till ``period_end``, vilket efterliknar TradingViews
+    historiska fundamentaldataserie. Rapportdatum används som reserv om
+    periodslut saknas. Båda serierna forward-fillas därefter.
 
     ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
     är det valutajusterade värdet som ska användas i P/E-beräkningen.
@@ -190,8 +213,14 @@ def attach_eps_ttm(
     result[date_column] = pd.to_datetime(result[date_column], errors="coerce").dt.tz_localize(None)
     result = result.sort_values(date_column).reset_index(drop=True)
 
+    if calculation_mode not in {REPORT_DATE_STATE, TV_PERIOD_END_STATE}:
+        raise ValueError(f"Okänt EPS-beräkningsläge: {calculation_mode}")
+
     verified = verified_reports(reports)
-    subset = verified.loc[verified["ticker"] == ticker, ["effective_date", "eps_ttm"]].copy()
+    subset = verified.loc[
+        verified["ticker"] == ticker,
+        ["period_end", "effective_date", "eps_ttm"],
+    ].copy()
     if subset.empty:
         result["EPS_TTM"] = pd.NA
         return _attach_currency_conversion(
@@ -202,10 +231,14 @@ def attach_eps_ttm(
             fx_history=fx_history,
         )
 
+    subset["valuation_date"] = subset["effective_date"]
+    if calculation_mode == TV_PERIOD_END_STATE:
+        subset["valuation_date"] = subset["period_end"].fillna(subset["effective_date"])
     subset = (
-        subset.sort_values("effective_date")
-        .drop_duplicates("effective_date", keep="last")
-        .rename(columns={"effective_date": date_column, "eps_ttm": "EPS_TTM"})
+        subset.sort_values(["valuation_date", "effective_date"])
+        .drop_duplicates("valuation_date", keep="last")
+        .rename(columns={"valuation_date": date_column, "eps_ttm": "EPS_TTM"})
+        [[date_column, "EPS_TTM"]]
     )
     result = pd.merge_asof(
         result,

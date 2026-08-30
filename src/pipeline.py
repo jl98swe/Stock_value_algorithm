@@ -19,7 +19,12 @@ from .events import (
     load_reviews,
 )
 from .fetch_data import BASE_DATA_FILE, UPDATES_FILE, load_price_history, update_prices
-from .fundamentals import attach_eps_ttm, latest_verified_report, load_reports
+from .fundamentals import (
+    attach_eps_ttm,
+    latest_verified_report,
+    load_reports,
+    valuation_calculation_mode,
+)
 from .model_data import ensure_gbm_model
 from .score_history import (
     SCORE_HISTORY_FILE,
@@ -86,7 +91,12 @@ def _candles(frame: pd.DataFrame) -> list[dict[str, object]]:
     return rows
 
 
-def _valuation_input(price_frame: pd.DataFrame, ticker: str, reports: pd.DataFrame) -> pd.DataFrame:
+def _valuation_input(
+    price_frame: pd.DataFrame,
+    ticker: str,
+    reports: pd.DataFrame,
+    calculation_mode: str,
+) -> pd.DataFrame:
     frame = price_frame.rename(
         columns={
             "date": "Date",
@@ -98,7 +108,12 @@ def _valuation_input(price_frame: pd.DataFrame, ticker: str, reports: pd.DataFra
             "ma200": "MA200",
         }
     ).copy()
-    return attach_eps_ttm(frame, ticker, reports)
+    return attach_eps_ttm(
+        frame,
+        ticker,
+        reports,
+        calculation_mode=calculation_mode,
+    )
 
 
 def _score_rows(frame: pd.DataFrame) -> list[dict[str, object]]:
@@ -259,7 +274,8 @@ def _stock_payload(
     )
 
     news = load_news(ticker)
-    working = _valuation_input(frame, ticker, reports)
+    calculation_mode = valuation_calculation_mode(ticker, reports)
+    working = _valuation_input(frame, ticker, reports, calculation_mode)
     locks = build_lock_series(
         working["Date"],
         ticker,
@@ -283,6 +299,7 @@ def _stock_payload(
             ticker,
             score_history,
             frozen_at=frozen_at,
+            calculation_mode=calculation_mode,
         )
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
