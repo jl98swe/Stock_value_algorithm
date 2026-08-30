@@ -47,6 +47,8 @@ En ticker aktiverar `tv_period_end_state` endast när den har verifierade EPS-ra
 
 TradingView kan leverera EPS i aktiens handelsvaluta även när bolaget rapporterar i en annan valuta. Valutan i varje verifierad rapports audit trail (`report_currency=...`) har därför företräde framför bolagets generella rapportvaluta. Det gör exempelvis att ABB:s manuellt verifierade TradingView-värden i SEK inte konverteras en andra gång från USD, samtidigt som äldre och framtida Yahoo-rader i USD fortfarande valutajusteras.
 
+Om TradingView-valutan avviker från referenshistorikens valuta skrivs den separata `tradingview_eps_overrides.csv` endast till den kanoniska rapportfilen. Referensraden behålls då i sin ursprungliga valuta så att Yahoo-kompatibilitetskontrollen inte jämför exempelvis SEK med USD.
+
 Detta läge är avsiktligt inte ett traditionellt point-in-time-backtest: när en ny rapport blir känd räknas det interna rullande tillståndet om från periodslutet. Den publicerade grafen skyddas i stället av `data/derived/valuation_score_history.csv.gz`. Befintliga datum återanvänds oförändrade och endast datum efter tickerns senast frysta dag får läggas till. Därmed påverkar ett nytt EPS-värde endast kommande synliga poäng.
 
 ## Daglig Yahoo EPS

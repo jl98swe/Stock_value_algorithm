@@ -59,8 +59,11 @@ def _load_mapping(path: Path = MAPPING_FILE) -> dict[str, str]:
     return dict(zip(mapping["borsdata_ticker"], mapping["yahoo_ticker"], strict=False))
 
 
-def _apply_history(overrides: pd.DataFrame) -> None:
-    history = pd.read_csv(HISTORY_FILE, encoding="utf-8-sig")
+def _apply_history(
+    overrides: pd.DataFrame,
+    path: Path = HISTORY_FILE,
+) -> tuple[int, int]:
+    history = pd.read_csv(path, encoding="utf-8-sig")
     missing = [column for column in HISTORY_COLUMNS if column not in history.columns]
     if missing:
         raise ValueError(f"EPS-historiken saknar kolumner: {', '.join(missing)}")
@@ -70,6 +73,19 @@ def _apply_history(overrides: pd.DataFrame) -> None:
     history["report_period"] = history["report_period"].astype(str).str.strip()
 
     override_history = overrides[HISTORY_COLUMNS].copy()
+    history_currency = {
+        (str(row.ticker), str(row.report_period)): str(row.currency).strip().upper()
+        for row in history.itertuples(index=False)
+    }
+    compatible = override_history.apply(
+        lambda row: (
+            history_currency.get((str(row["ticker"]), str(row["report_period"])))
+            in {None, str(row["currency"]).strip().upper()}
+        ),
+        axis=1,
+    )
+    skipped = int((~compatible).sum())
+    override_history = override_history.loc[compatible].copy()
     override_keys = pd.MultiIndex.from_frame(override_history[["ticker", "report_period"]])
     history_keys = pd.MultiIndex.from_frame(history[["ticker", "report_period"]])
     history = history.loc[~history_keys.isin(override_keys)].copy()
@@ -77,7 +93,8 @@ def _apply_history(overrides: pd.DataFrame) -> None:
     merged = pd.concat([history, override_history], ignore_index=True)
     merged["report_date"] = pd.to_datetime(merged["report_date"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
     merged = merged.sort_values(["ticker", "report_period"]).reset_index(drop=True)
-    merged.to_csv(HISTORY_FILE, index=False, encoding="utf-8-sig")
+    merged.to_csv(path, index=False, encoding="utf-8-sig")
+    return len(override_history), skipped
 
 
 def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
@@ -122,11 +139,12 @@ def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
 def main() -> None:
     overrides = _load_overrides()
     mapping = _load_mapping()
-    _apply_history(overrides)
+    history_applied, history_skipped = _apply_history(overrides)
     _apply_reports(overrides, mapping)
     print(
         f"Applicerade {len(overrides)} TradingView EPS TTM-overrides i "
-        f"{HISTORY_FILE.name} och reports.csv."
+        f"reports.csv; {history_applied} skrevs till {HISTORY_FILE.name} och "
+        f"{history_skipped} behöll sin referensvaluta där."
     )
 
 
