@@ -5,6 +5,7 @@ import pandas as pd
 from src.score_history import (
     apply_frozen_scores,
     load_score_history,
+    merge_score_history,
     save_score_history,
     seed_score_history_from_dashboard,
 )
@@ -149,3 +150,10 @@ def test_mode_change_replaces_only_latest_frozen_score_without_new_market_day():
             "calculation_mode": "tv_period_end_state",
         }
     ]
+
+    merged = merge_score_history(history, additions)
+    latest = merged.loc[merged["ticker"] == "ABB.ST"].iloc[-1]
+    assert len(merged.loc[merged["ticker"] == "ABB.ST"]) == 3
+    assert latest["date"] == pd.Timestamp("2026-08-28")
+    assert latest["score"] == 43.1413822598
+    assert latest["calculation_mode"] == "tv_period_end_state"

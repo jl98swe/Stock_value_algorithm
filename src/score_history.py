@@ -173,6 +173,23 @@ def apply_frozen_scores(
     return result, additions
 
 
+def merge_score_history(
+    history: pd.DataFrame,
+    additions: pd.DataFrame,
+) -> pd.DataFrame:
+    """Merge additions, replacing only explicitly returned ticker/date keys."""
+
+    existing = normalise_score_history(history)
+    incoming = normalise_score_history(additions)
+    if incoming.empty:
+        return existing
+
+    incoming_keys = pd.MultiIndex.from_frame(incoming[["ticker", "date"]])
+    existing_keys = pd.MultiIndex.from_frame(existing[["ticker", "date"]])
+    existing = existing.loc[~existing_keys.isin(incoming_keys)].copy()
+    return normalise_score_history(pd.concat([existing, incoming], ignore_index=True))
+
+
 def save_score_history(frame: pd.DataFrame, path: str | Path = SCORE_HISTORY_FILE) -> None:
     target = Path(path)
     if not target.is_absolute():

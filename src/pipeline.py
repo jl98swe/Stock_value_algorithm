@@ -30,7 +30,7 @@ from .score_history import (
     SCORE_HISTORY_FILE,
     apply_frozen_scores,
     load_score_history,
-    normalise_score_history,
+    merge_score_history,
     save_score_history,
     seed_score_history_from_dashboard,
 )
@@ -474,10 +474,9 @@ def build_dashboard(
             score_additions.append(additions)
 
     if persist_score_history:
-        combined_history = normalise_score_history(
-            pd.concat([score_history, *score_additions], ignore_index=True)
-            if score_additions
-            else score_history
+        combined_history = merge_score_history(
+            score_history,
+            pd.concat(score_additions, ignore_index=True) if score_additions else pd.DataFrame(),
         )
         save_score_history(combined_history, score_history_file)
 
