@@ -1,0 +1,263 @@
+name: Apply strategy 1/99 costs and dividends
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/apply_strategy_1_99_costs.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch strategy and website
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(text: str, old: str, new: str, label: str) -> str:
+              count = text.count(old)
+              if count != 1:
+                  raise RuntimeError(f"{label}: expected exactly one match, got {count}")
+              return text.replace(old, new, 1)
+
+          strategy_path = Path("src/strategy.py")
+          s = strategy_path.read_text(encoding="utf-8")
+
+          s = replace_once(
+              s,
+              "from dataclasses import dataclass\nfrom typing import Any\n",
+              "from dataclasses import dataclass\nfrom functools import lru_cache\nfrom typing import Any\n",
+              "strategy imports",
+          )
+          s = replace_once(
+              s,
+              "from .utils import normalize_date_column\n",
+              "from .dividends import load_dividend_history\nfrom .utils import normalize_date_column\n",
+              "dividend import",
+          )
+          s = replace_once(
+              s,
+              "    buy_threshold: float = 0.0\n    sell_threshold: float = 100.0\n",
+              "    buy_threshold: float = 1.0\n    sell_threshold: float = 99.0\n",
+              "threshold defaults",
+          )
+          s = replace_once(
+              s,
+              "    initial_capital: float = 1.0\n",
+              "    initial_capital: float = 1.0\n    commission_rate: float = 0.0025\n",
+              "commission parameter",
+          )
+          s = replace_once(
+              s,
+              "    entry_price: float\n    quantity: float\n",
+              "    entry_price: float\n    quantity: float\n    entry_fee: float\n    dividends_received: float = 0.0\n",
+              "lot cashflow fields",
+          )
+          s = replace_once(
+              s,
+              "def _signal_id(ticker: str, date_value: str, side: str, sequence: int) -> str:\n    safe = ticker.replace(\".\", \"-\")\n    return f\"{safe}-{date_value}-{side.lower()}-{sequence}\"\n\n\n",
+              "def _signal_id(ticker: str, date_value: str, side: str, sequence: int) -> str:\n    safe = ticker.replace(\".\", \"-\")\n    return f\"{safe}-{date_value}-{side.lower()}-{sequence}\"\n\n\n@lru_cache(maxsize=1)\ndef _cached_dividend_history() -> pd.DataFrame:\n    return load_dividend_history()\n\n\n",
+              "dividend cache helper",
+          )
+          s = replace_once(
+              s,
+              "    * buy when the clipped score is 0 (or configured threshold);\n    * sell when it is 100, but only while a position exists;\n",
+              "    * buy when the clipped score is strictly below 1 (or configured threshold);\n    * sell when it is strictly above 99, but only while a position exists;\n",
+              "strategy doc rules",
+          )
+          s = replace_once(
+              s,
+              "    if \"LockReason\" not in data.columns:\n        data[\"LockReason\"] = \"\"\n\n",
+              "    if \"LockReason\" not in data.columns:\n        data[\"LockReason\"] = \"\"\n    if \"Dividend\" not in data.columns:\n        history = _cached_dividend_history()\n        ticker_dividends = history.loc[history[\"ticker\"].astype(str) == ticker].copy()\n        dividend_map = {\n            pd.Timestamp(row.ex_date).normalize(): float(row.dividend)\n            for row in ticker_dividends.itertuples(index=False)\n        }\n        data[\"Dividend\"] = data[\"Date\"].map(\n            lambda value: dividend_map.get(pd.Timestamp(value).normalize(), 0.0)\n        )\n    else:\n        data[\"Dividend\"] = pd.to_numeric(data[\"Dividend\"], errors=\"coerce\").fillna(0.0)\n\n",
+              "attach dividends",
+          )
+          s = replace_once(
+              s,
+              "        lock_reason = str(row.get(\"LockReason\", \"\") or \"\")\n        executed_today: list[str] = []\n",
+              "        lock_reason = str(row.get(\"LockReason\", \"\") or \"\")\n        dividend_per_share = float(row.get(\"Dividend\", 0.0) or 0.0)\n        executed_today: list[str] = []\n",
+              "row dividend",
+          )
+          s = replace_once(
+              s,
+              "        awaiting_side = \"\"\n\n        # Execute the prior close's signal at this session's open. A newly\n",
+              "        awaiting_side = \"\"\n\n        # Ex-date cash belongs to lots held before today's open. This means a\n        # lot sold on the ex-date still receives the dividend, while a lot bought\n        # on the ex-date does not.\n        if np.isfinite(dividend_per_share) and dividend_per_share > 0 and open_lots:\n            for lot in open_lots:\n                dividend_cash = lot.quantity * dividend_per_share\n                cash += dividend_cash\n                lot.dividends_received += dividend_cash\n\n        # Execute the prior close's signal at this session's open. A newly\n",
+              "credit dividends",
+          )
+          s = replace_once(
+              s,
+              "                        quantity = allocation / open_price\n                        lot = Lot(\n                            lot_id=f\"{ticker.replace('.', '-')}-lot-{lot_sequence}\",\n                            cycle_id=cycle_id,\n                            entry_signal_date=signal[\"signal_date\"],\n                            entry_date=date_string,\n                            entry_index=index,\n                            entry_price=open_price,\n                            quantity=quantity,\n                        )\n                        open_lots.append(lot)\n                        cash -= allocation\n",
+              "                        trade_value = allocation / (1.0 + p.commission_rate)\n                        quantity = trade_value / open_price\n                        entry_fee = trade_value * p.commission_rate\n                        lot = Lot(\n                            lot_id=f\"{ticker.replace('.', '-')}-lot-{lot_sequence}\",\n                            cycle_id=cycle_id,\n                            entry_signal_date=signal[\"signal_date\"],\n                            entry_date=date_string,\n                            entry_index=index,\n                            entry_price=open_price,\n                            quantity=quantity,\n                            entry_fee=entry_fee,\n                        )\n                        open_lots.append(lot)\n                        cash -= trade_value + entry_fee\n",
+              "buy commission accounting",
+          )
+          s = replace_once(
+              s,
+              "                                \"quantity\": quantity,\n                            }\n",
+              "                                \"quantity\": quantity,\n                                \"commission_fee\": entry_fee,\n                            }\n",
+              "buy signal fee",
+          )
+          s = replace_once(
+              s,
+              "                    proceeds = lot.quantity * open_price\n                    cash += proceeds\n                    return_pct = (open_price / lot.entry_price - 1.0) * 100.0\n",
+              "                    gross_proceeds = lot.quantity * open_price\n                    exit_fee = gross_proceeds * p.commission_rate\n                    net_proceeds = gross_proceeds - exit_fee\n                    cash += net_proceeds\n                    entry_cost = lot.quantity * lot.entry_price + lot.entry_fee\n                    total_value = net_proceeds + lot.dividends_received\n                    return_pct = (total_value / entry_cost - 1.0) * 100.0\n",
+              "sell commission accounting",
+          )
+          s = replace_once(
+              s,
+              "                            \"quantity\": lot.quantity,\n                            \"return_pct\": return_pct,\n",
+              "                            \"quantity\": lot.quantity,\n                            \"entry_fee\": lot.entry_fee,\n                            \"exit_fee\": exit_fee,\n                            \"commission_total\": lot.entry_fee + exit_fee,\n                            \"dividends_received\": lot.dividends_received,\n                            \"return_pct\": return_pct,\n",
+              "trade cashflow fields",
+          )
+          s = replace_once(
+              s,
+              "                            \"quantity\": lot.quantity,\n                        }\n",
+              "                            \"quantity\": lot.quantity,\n                            \"commission_fee\": exit_fee,\n                        }\n",
+              "sell signal fee",
+          )
+          s = replace_once(
+              s,
+              "            if score > p.buy_threshold + p.threshold_epsilon:\n",
+              "            if score >= p.buy_threshold:\n",
+              "buy rearm strict",
+          )
+          s = replace_once(
+              s,
+              "            if score < p.sell_threshold - p.threshold_epsilon:\n",
+              "            if score <= p.sell_threshold:\n",
+              "sell rearm strict",
+          )
+          s = replace_once(
+              s,
+              "            buy_hit = score <= p.buy_threshold + p.threshold_epsilon\n            sell_hit = score >= p.sell_threshold - p.threshold_epsilon\n",
+              "            buy_hit = score < p.buy_threshold\n            sell_hit = score > p.sell_threshold\n",
+              "strict threshold hits",
+          )
+          s = replace_once(
+              s,
+              "        weighted_cost = sum(lot.quantity * lot.entry_price for lot in open_lots)\n",
+              "        weighted_cost = sum(lot.quantity * lot.entry_price + lot.entry_fee for lot in open_lots)\n",
+              "open position entry costs",
+          )
+          s = replace_once(
+              s,
+              "            \"current_return_pct\": ((latest_close / lot.entry_price - 1.0) * 100.0 if np.isfinite(latest_close) else None),\n",
+              "            \"entry_fee\": lot.entry_fee,\n            \"dividends_received\": lot.dividends_received,\n            \"current_return_pct\": (\n                ((latest_close * lot.quantity + lot.dividends_received) / (lot.entry_price * lot.quantity + lot.entry_fee) - 1.0) * 100.0\n                if np.isfinite(latest_close) else None\n            ),\n",
+              "open lot total return",
+          )
+          strategy_path.write_text(s, encoding="utf-8")
+
+          pipeline_path = Path("src/pipeline.py")
+          p = pipeline_path.read_text(encoding="utf-8")
+          p = replace_once(
+              p,
+              "        \"buy_score\": 0,\n        \"sell_score\": 100,\n",
+              "        \"buy_score\": 1,\n        \"sell_score\": 99,\n        \"buy_condition\": \"Score < 1\",\n        \"sell_condition\": \"Score > 99\",\n        \"commission_buy_pct\": 0.25,\n        \"commission_sell_pct\": 0.25,\n        \"dividends_in_returns\": True,\n",
+              "dashboard rules",
+          )
+          pipeline_path.write_text(p, encoding="utf-8")
+
+          app_path = Path("docs/assets/app.js")
+          a = app_path.read_text(encoding="utf-8")
+          a = replace_once(
+              a,
+              "      ['Köp', `Score ${rules.buy_score ?? 0}`],\n      ['Sälj', `Score ${rules.sell_score ?? 100}`],\n      ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],\n      ['Max köp', `${rules.max_buys_per_cycle ?? 2} per cykel`],\n      ['Exekvering', rules.execution || 'Nästa öppning']\n",
+              "      ['Köp', rules.buy_condition || 'Score < 1'],\n      ['Sälj', rules.sell_condition || 'Score > 99'],\n      ['Courtage', `${rules.commission_buy_pct ?? 0.25} % köp + ${rules.commission_sell_pct ?? 0.25} % sälj`],\n      ['Utdelning', rules.dividends_in_returns === false ? 'Ingår inte' : 'Ingår i trade-resultat'],\n      ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],\n      ['Max köp', `${rules.max_buys_per_cycle ?? 2} per cykel`],\n      ['Exekvering', rules.execution || 'Nästa öppning']\n",
+              "rules UI",
+          )
+          a = replace_once(
+              a,
+              "      <thead><tr><th>In</th><th>Ut</th><th>Inkurs</th><th>Utkurs</th><th>Resultat</th></tr></thead>\n      <tbody>${trades.length ? trades.map((row) => `<tr><td>${prettyDate(row.entry_date)}</td><td>${prettyDate(row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${fmt.format(row.exit_price)}</td><td class=\"${row.return_pct >= 0 ? 'positive' : 'negative'}\">${pct(row.return_pct)}</td></tr>`).join('') : '<tr><td colspan=\"5\">Inga avslut.</td></tr>'}</tbody>`;\n",
+              "      <thead><tr><th>In</th><th>Ut</th><th>Inkurs</th><th>Utkurs</th><th>Utdelning</th><th>Courtage</th><th>Resultat</th></tr></thead>\n      <tbody>${trades.length ? trades.map((row) => `<tr><td>${prettyDate(row.entry_date)}</td><td>${prettyDate(row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${fmt.format(row.exit_price)}</td><td>${fmt.format(row.dividends_received || 0)}</td><td>${fmt.format(row.commission_total || 0)}</td><td class=\"${row.return_pct >= 0 ? 'positive' : 'negative'}\">${pct(row.return_pct)}</td></tr>`).join('') : '<tr><td colspan=\"7\">Inga avslut.</td></tr>'}</tbody>`;\n",
+              "trade table cashflows",
+          )
+          app_path.write_text(a, encoding="utf-8")
+
+          tests_path = Path("tests/test_strategy.py")
+          t = tests_path.read_text(encoding="utf-8")
+          t += r'''
+
+
+def test_strict_one_and_ninety_nine_thresholds():
+    dates = pd.bdate_range("2026-03-02", periods=7)
+    frame = pd.DataFrame(
+        {
+            "Date": dates,
+            "Open": [100.0] * 7,
+            "Close": [100.0] * 7,
+            "Score": [50.0, 1.0, 0.999, 50.0, 99.0, 99.001, 50.0],
+            "Dividend": [0.0] * 7,
+            "FundamentalLock": [False] * 7,
+            "LockReason": [""] * 7,
+        }
+    )
+
+    result = run_strategy(frame, "TEST.ST")
+    executed = [signal for signal in result["signals"] if signal["status"] == "executed"]
+
+    assert [(signal["side"], signal["signal_date"]) for signal in executed] == [
+        ("BUY", dates[2].date().isoformat()),
+        ("SELL", dates[5].date().isoformat()),
+    ]
+
+
+def test_trade_return_includes_commission_and_dividend():
+    dates = pd.bdate_range("2026-04-01", periods=5)
+    frame = pd.DataFrame(
+        {
+            "Date": dates,
+            "Open": [100.0] * 5,
+            "Close": [100.0] * 5,
+            "Score": [50.0, 0.0, 50.0, 100.0, 50.0],
+            "Dividend": [0.0, 0.0, 0.0, 10.0, 0.0],
+            "FundamentalLock": [False] * 5,
+            "LockReason": [""] * 5,
+        }
+    )
+
+    result = run_strategy(frame, "TEST.ST")
+    assert len(result["trades"]) == 1
+    trade = result["trades"][0]
+
+    expected_dividend = trade["quantity"] * 10.0
+    expected_return = (
+        (trade["quantity"] * 100.0 - trade["exit_fee"] + expected_dividend)
+        / (trade["quantity"] * 100.0 + trade["entry_fee"])
+        - 1.0
+    ) * 100.0
+
+    assert abs(trade["dividends_received"] - expected_dividend) < 1e-12
+    assert abs(trade["commission_total"] - (trade["entry_fee"] + trade["exit_fee"])) < 1e-12
+    assert abs(trade["return_pct"] - expected_return) < 1e-12
+'''
+          tests_path.write_text(t, encoding="utf-8")
+          PY
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run strategy tests
+        run: python -m pytest tests/test_strategy.py -q
+
+      - name: Rebuild website data
+        run: python -m src.pipeline --skip-fetch --skip-dividends --defer-score-history
+
+      - name: Validate diff
+        run: |
+          git diff --check
+          git status --short
+
+      - name: Commit applied changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/strategy.py src/pipeline.py tests/test_strategy.py docs/assets/app.js docs/data/dashboard.json docs/data/stocks.json docs/data/events.json
+          git commit -m "feat: use strict 1/99 signals with fees and dividends"
+          git push
