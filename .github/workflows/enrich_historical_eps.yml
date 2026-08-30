@@ -28,7 +28,10 @@ on:
       - "src/sync_yahoo_eps_reports.py"
       - "src/audit_historical_valuation.py"
       - "src/compare_latest_eps.py"
+      - "src/fundamentals.py"
       - "src/limit_dashboard_window.py"
+      - "src/pipeline.py"
+      - "src/score_history.py"
       - ".github/workflows/enrich_historical_eps.yml"
 
 permissions:
