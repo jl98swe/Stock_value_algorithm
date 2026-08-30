@@ -2,7 +2,16 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.apply_tradingview_eps_overrides import _apply_history
+from src.apply_tradingview_eps_overrides import _apply_history, _load_overrides
+
+
+def test_abb_override_history_covers_2018_q3_through_2026_q2():
+    overrides = _load_overrides()
+    abb = overrides.loc[overrides["ticker"] == "ABB"].sort_values("report_period")
+
+    assert len(abb) == 32
+    assert abb.iloc[0]["report_period"] == "2018-Q3"
+    assert abb.iloc[-1]["report_period"] == "2026-Q2"
 
 
 def test_history_override_skips_cross_currency_reference(tmp_path: Path):
