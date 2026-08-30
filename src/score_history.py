@@ -126,6 +126,18 @@ def apply_frozen_scores(
     else:
         ticker_rows = history.loc[history["ticker"].astype(str) == str(ticker)].copy()
         existing = normalise_score_history(ticker_rows)
+
+    # A deliberate calculation-mode migration may happen when the market is
+    # closed and no newer trading day exists. Replace only that final published
+    # day once; older scores remain frozen. The replacement stores the new mode,
+    # so later runs return to normal append-only behaviour.
+    if (
+        not existing.empty
+        and dates.max() <= existing["date"].max()
+        and str(existing.iloc[-1]["calculation_mode"]) != str(calculation_mode)
+    ):
+        latest_date = existing.iloc[-1]["date"]
+        existing = existing.loc[existing["date"] < latest_date].copy()
     frozen_by_date = existing.set_index("date")["score"] if not existing.empty else pd.Series(dtype=float)
 
     frozen_scores = dates.map(frozen_by_date)

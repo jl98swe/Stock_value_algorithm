@@ -23,6 +23,7 @@ REPORT_COLUMNS = [
 REPORT_DATE_STATE = "report_date_state"
 TV_PERIOD_END_STATE = "tv_period_end_state"
 TRADINGVIEW_SOURCE_PREFIX = "TradingView /"
+REPORT_CURRENCY_NOTE_PATTERN = r"(?:^|;\s*)report_currency=([A-Za-z]{3})(?:;|$)"
 
 
 def empty_reports() -> pd.DataFrame:
@@ -139,7 +140,13 @@ def _attach_currency_conversion(
 ) -> pd.DataFrame:
     result = frame.copy()
     result["EPS_TTM_RAW"] = pd.to_numeric(result["EPS_TTM"], errors="coerce")
-    result["EPS_CURRENCY"] = pd.NA
+    source_currency = (
+        result.pop("EPS_CURRENCY_SOURCE").astype("string").str.strip().str.upper()
+        if "EPS_CURRENCY_SOURCE" in result.columns
+        else pd.Series(pd.NA, index=result.index, dtype="string")
+    )
+    source_currency = source_currency.where(source_currency.str.len().eq(3))
+    result["EPS_CURRENCY"] = source_currency
     result["PRICE_CURRENCY"] = pd.NA
     result["FX_RATE"] = pd.NA
 
@@ -155,34 +162,48 @@ def _attach_currency_conversion(
 
     report_currency = str(row.iloc[-1].get("report_currency", "")).strip().upper()
     price_currency = str(row.iloc[-1].get("price_currency", "")).strip().upper()
-    result["EPS_CURRENCY"] = report_currency or pd.NA
+    result["EPS_CURRENCY"] = result["EPS_CURRENCY"].fillna(report_currency or pd.NA)
     result["PRICE_CURRENCY"] = price_currency or pd.NA
 
     if not report_currency or not price_currency:
         result["EPS_TTM"] = pd.NA
         return result
 
-    if report_currency == price_currency:
-        result["FX_RATE"] = 1.0
-        result["EPS_TTM"] = result["EPS_TTM_RAW"]
+    result["EPS_TTM"] = pd.NA
+    same_currency = result["EPS_CURRENCY"].eq(price_currency)
+    result.loc[same_currency, "FX_RATE"] = 1.0
+    result.loc[same_currency, "EPS_TTM"] = result.loc[same_currency, "EPS_TTM_RAW"]
+
+    conversion_needed = (
+        result["EPS_TTM_RAW"].notna()
+        & result["EPS_CURRENCY"].notna()
+        & ~same_currency
+    )
+    if not conversion_needed.any():
         return result
 
     fx = load_fx_history() if fx_history is None else fx_history
     if fx.empty:
         # Fel valuta får aldrig användas som om den vore samma valuta.
-        result["EPS_TTM"] = pd.NA
         return result
 
-    return convert_values_to_currency(
-        result,
-        value_column="EPS_TTM_RAW",
-        date_column=date_column,
-        base_currency=report_currency,
-        quote_currency=price_currency,
-        fx_history=fx,
-        output_column="EPS_TTM",
-        rate_column="FX_RATE",
-    )
+    for base_currency in sorted(result.loc[conversion_needed, "EPS_CURRENCY"].unique()):
+        mask = conversion_needed & result["EPS_CURRENCY"].eq(base_currency)
+        part = result.loc[mask].copy()
+        part["_original_index"] = part.index
+        converted = convert_values_to_currency(
+            part,
+            value_column="EPS_TTM_RAW",
+            date_column=date_column,
+            base_currency=str(base_currency),
+            quote_currency=price_currency,
+            fx_history=fx,
+            output_column="EPS_TTM",
+            rate_column="FX_RATE",
+        ).set_index("_original_index")
+        result.loc[converted.index, "FX_RATE"] = converted["FX_RATE"]
+        result.loc[converted.index, "EPS_TTM"] = converted["EPS_TTM"]
+    return result
 
 
 def attach_eps_ttm(
@@ -219,7 +240,7 @@ def attach_eps_ttm(
     verified = verified_reports(reports)
     subset = verified.loc[
         verified["ticker"] == ticker,
-        ["period_end", "effective_date", "eps_ttm"],
+        ["period_end", "effective_date", "eps_ttm", "notes"],
     ].copy()
     if subset.empty:
         result["EPS_TTM"] = pd.NA
@@ -232,13 +253,19 @@ def attach_eps_ttm(
         )
 
     subset["valuation_date"] = subset["effective_date"]
+    subset["EPS_CURRENCY_SOURCE"] = (
+        subset["notes"]
+        .astype("string")
+        .str.extract(REPORT_CURRENCY_NOTE_PATTERN, expand=False)
+        .str.upper()
+    )
     if calculation_mode == TV_PERIOD_END_STATE:
         subset["valuation_date"] = subset["period_end"].fillna(subset["effective_date"])
     subset = (
         subset.sort_values(["valuation_date", "effective_date"])
         .drop_duplicates("valuation_date", keep="last")
         .rename(columns={"valuation_date": date_column, "eps_ttm": "EPS_TTM"})
-        [[date_column, "EPS_TTM"]]
+        [[date_column, "EPS_TTM", "EPS_CURRENCY_SOURCE"]]
     )
     result = pd.merge_asof(
         result,

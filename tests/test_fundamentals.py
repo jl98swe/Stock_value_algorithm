@@ -134,3 +134,50 @@ def test_report_currency_is_converted_before_pe_input():
     assert mapped.loc[0, "EPS_TTM"] == 19.0
     assert mapped.loc[1, "FX_RATE"] == 9.60
     assert mapped.loc[1, "EPS_TTM"] == 19.2
+
+
+def test_tradingview_override_can_use_price_currency_for_one_report():
+    prices = pd.DataFrame(
+        {
+            "Date": pd.to_datetime(["2026-03-31", "2026-06-30", "2026-07-01"]),
+            "Close": [200.0, 210.0, 211.0],
+        }
+    )
+    usd_report = _verified_report(ticker="TEST.ST", eps_ttm=2.0)
+    usd_report.loc[0, ["period_end", "effective_date"]] = ["2026-03-31", "2026-04-17"]
+    usd_report.loc[0, "report_period"] = "2026-Q1"
+    usd_report.loc[0, "notes"] = "metric=trailingDilutedEPS; report_currency=USD"
+
+    tv_report = _verified_report(ticker="TEST.ST", eps_ttm=26.4067)
+    tv_report.loc[0, ["period_end", "effective_date"]] = ["2026-06-30", "2026-07-16"]
+    tv_report.loc[0, "source"] = "TradingView / EARNINGS_PER_SHARE_DILUTED TTM"
+    tv_report.loc[0, "notes"] = "metric=EARNINGS_PER_SHARE_DILUTED TTM; report_currency=SEK"
+    reports = normalise_reports(pd.concat([usd_report, tv_report], ignore_index=True))
+    metadata = pd.DataFrame(
+        [{"ticker": "TEST.ST", "price_currency": "SEK", "report_currency": "USD"}]
+    )
+    fx = pd.DataFrame(
+        {
+            "date": pd.to_datetime(["2026-03-30", "2026-06-29", "2026-06-30"]),
+            "base_currency": ["USD", "USD", "USD"],
+            "quote_currency": ["SEK", "SEK", "SEK"],
+            "rate": [10.0, 9.5, 9.6],
+            "yahoo_ticker": ["USDSEK=X", "USDSEK=X", "USDSEK=X"],
+        }
+    )
+
+    mapped = attach_eps_ttm(
+        prices,
+        "TEST.ST",
+        reports,
+        stock_metadata=metadata,
+        fx_history=fx,
+        calculation_mode=TV_PERIOD_END_STATE,
+    )
+
+    assert mapped.loc[0, "EPS_CURRENCY"] == "USD"
+    assert mapped.loc[0, "EPS_TTM"] == 20.0
+    assert mapped.loc[1, "EPS_CURRENCY"] == "SEK"
+    assert mapped.loc[1, "FX_RATE"] == 1.0
+    assert mapped.loc[1, "EPS_TTM"] == 26.4067
+    assert mapped.loc[2, "EPS_TTM"] == 26.4067

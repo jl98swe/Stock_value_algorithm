@@ -114,3 +114,38 @@ def test_gzip_score_history_is_byte_stable(tmp_path):
     save_score_history(frame, target)
 
     assert target.read_bytes() == first
+
+
+def test_mode_change_replaces_only_latest_frozen_score_without_new_market_day():
+    valued = pd.DataFrame(
+        {
+            "Date": pd.to_datetime(["2026-08-26", "2026-08-27", "2026-08-28"]),
+            "Score": [10.0, 20.0, 43.1413822598],
+        }
+    )
+    history = pd.DataFrame(
+        {
+            "ticker": ["ABB.ST", "ABB.ST", "ABB.ST"],
+            "date": pd.to_datetime(["2026-08-26", "2026-08-27", "2026-08-28"]),
+            "score": [11.0, 21.0, 46.7469],
+            "calculation_mode": ["report_date_state"] * 3,
+            "frozen_at": ["old"] * 3,
+        }
+    )
+
+    result, additions = apply_frozen_scores(
+        valued,
+        "ABB.ST",
+        history,
+        frozen_at="new",
+        calculation_mode="tv_period_end_state",
+    )
+
+    assert result["Score"].tolist() == [11.0, 21.0, 43.1413822598]
+    assert additions[["ticker", "score", "calculation_mode"]].to_dict("records") == [
+        {
+            "ticker": "ABB.ST",
+            "score": 43.1413822598,
+            "calculation_mode": "tv_period_end_state",
+        }
+    ]
