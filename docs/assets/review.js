@@ -3,7 +3,7 @@
 
   const REPO = 'https://github.com/jl98swe/Stock_value_algorithm';
   const $ = (id) => document.getElementById(id);
-  const state = { stocks: [], events: [], earnings: [], selectedTicker: '', selectedEventId: '' };
+  const state = { stocks: [], events: [], earnings: [], quarterly: [], selectedTicker: '', selectedEventId: '' };
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'medium', timeStyle: 'short' });
   const numFmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 6 });
 
@@ -118,22 +118,28 @@
     panel.innerHTML = `
       <div class="lock-icon">i</div>
       <div style="width:100%">
-        <strong id="eps-candidate-title">Yahoo EPS TTM</strong>
+        <strong id="eps-candidate-title">Automatiskt TTM-underlag</strong>
         <p id="eps-candidate-summary" style="margin:.35rem 0 .65rem"></p>
         <div id="eps-candidate-meta" class="fine-print"></div>
-        <button id="use-eps-candidate" class="secondary-button" type="button" style="margin-top:.75rem">Fyll EPS-värdet</button>
       </div>`;
     header.insertAdjacentElement('afterend', panel);
+  }
 
-    $('use-eps-candidate').addEventListener('click', () => {
-      const item = currentEarnings();
-      if (!item) return;
-      $('eps-value').value = item.eps_ttm ?? '';
-      $('eps-source').value = item.source || 'Yahoo Finance / trailingEps';
-      $('eps-note').value = `Yahoo EPS TTM observerad ${item.observed_date || ''}. Kontrollera originalrapportens publiceringstid och effective_date före verifiering.`;
-      updateCommands();
-      $('eps-published').focus();
-    });
+  function priorYearQuarter() {
+    const periodText = $('eps-period-end')?.value;
+    if (!periodText) return null;
+    const target = new Date(`${periodText}T12:00:00Z`);
+    if (Number.isNaN(target.valueOf())) return null;
+    target.setUTCFullYear(target.getUTCFullYear() - 1);
+    const priority = { manualDilutedEPS: 0, quarterlyDilutedEPS: 1, reportedEPS: 2 };
+    return state.quarterly
+      .filter((item) => item.ticker === state.selectedTicker && item.period_end)
+      .map((item) => {
+        const date = new Date(`${item.period_end}T12:00:00Z`);
+        return { item, distance: Math.abs(date.valueOf() - target.valueOf()) / 86400000 };
+      })
+      .filter((entry) => Number.isFinite(entry.distance) && entry.distance <= 21)
+      .sort((a, b) => a.distance - b.distance || (priority[a.item.metric] ?? 99) - (priority[b.item.metric] ?? 99))[0]?.item || null;
   }
 
   function renderEarnings() {
@@ -141,20 +147,22 @@
     const panel = $('eps-candidate-panel');
     if (!panel) return;
     const item = currentEarnings();
+    const prior = priorYearQuarter();
+    panel.hidden = false;
+    $('eps-candidate-title').textContent = `Automatiskt TTM-underlag · ${state.selectedTicker}`;
+
     if (!item) {
-      panel.hidden = false;
-      $('eps-candidate-title').textContent = `Ingen Yahoo EPS TTM för ${state.selectedTicker}`;
-      $('eps-candidate-summary').textContent = 'Detta hindrar inte manuell inmatning från bolagets originalrapport.';
-      $('eps-candidate-meta').textContent = '';
-      $('use-eps-candidate').hidden = true;
+      $('eps-candidate-summary').textContent = 'Ingen sparad Yahoo EPS TTM hittades. Arbetsflödet stoppar om TTM inte kan härledas säkert.';
+      $('eps-candidate-meta').textContent = prior
+        ? `Samma kvartal föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}).`
+        : 'Välj periodslut för att kontrollera föregående års kvartals-EPS.';
       return;
     }
 
-    panel.hidden = false;
-    $('use-eps-candidate').hidden = false;
-    $('eps-candidate-title').textContent = `Yahoo EPS TTM · ${item.ticker}`;
-    $('eps-candidate-summary').textContent = `Aktuell trailing EPS TTM ${formatNumber(item.eps_ttm)}.`;
-    $('eps-candidate-meta').textContent = `Observerad ${item.observed_date || '–'} · ${item.source || 'Yahoo Finance'} · kvartal summeras inte`;
+    $('eps-candidate-summary').textContent = `Senast sparad Yahoo trailing EPS TTM: ${formatNumber(item.eps_ttm)}${item.period_end ? ` för perioden ${item.period_end}` : ''}.`;
+    $('eps-candidate-meta').textContent = prior
+      ? `Samma kvartal föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}). Backend väljer rätt föregående TTM-period och validerar valuta innan ny TTM sparas.`
+      : 'Välj periodslut för att kontrollera om jämförelsekvartalet finns sparat. Saknas det stoppas inmatningen i stället för att ett värde gissas.';
   }
 
   function renderEvent() {
@@ -213,7 +221,7 @@
       `period_end=${$('eps-period-end').value}`,
       `published_at=${quoted($('eps-published').value)}`,
       `effective_date=${$('eps-effective').value}`,
-      `eps_ttm=${$('eps-value').value}`,
+      `eps=${$('eps-value').value}`,
       `source=${quoted($('eps-source').value)}`,
       `note=${quoted($('eps-note').value)}`
     ];
@@ -282,6 +290,7 @@
         control.addEventListener('change', updateCommands);
       }
     });
+    $('eps-period-end')?.addEventListener('change', renderEarnings);
 
     bindCopy('copy-review-command', 'review-command', 'review-copy-status');
     bindCopy('copy-eps-command', 'eps-command', 'eps-copy-status');
@@ -297,14 +306,16 @@
 
   async function init() {
     try {
-      const [stocksPayload, eventsPayload, earningsPayload] = await Promise.all([
+      const [stocksPayload, eventsPayload, earningsPayload, quarterlyPayload] = await Promise.all([
         loadJson('./data/stocks.json'),
         loadJson('./data/events.json'),
-        loadJsonOptional('./data/earnings.json')
+        loadJsonOptional('./data/earnings.json'),
+        loadJsonOptional('./data/quarterly_eps.json')
       ]);
       state.stocks = stocksPayload.stocks || [];
       state.events = (eventsPayload.events || []).filter(isNewsEvent);
       state.earnings = earningsPayload?.latest || [];
+      state.quarterly = quarterlyPayload?.history || [];
       if (!state.stocks.length) throw new Error('Ingen aktielista hittades.');
 
       const params = new URLSearchParams(location.search);
