@@ -6,6 +6,7 @@ on:
     paths:
       - "src/audit_yahoo_trailing_timeseries.py"
       - "src/quarterly_eps.py"
+      - "src/backfill_quarterly_eps_statement.py"
       - "src/build_yahoo_history_all.py"
       - "src/audit_yahoo_startpoints.py"
       - "src/align_historical_eps_to_yahoo.py"
@@ -41,8 +42,11 @@ jobs:
       - name: Hämta Yahoo trailing EPS-timeseries
         run: python -m src.audit_yahoo_trailing_timeseries
 
-      - name: Backfilla kvartals-EPS för hela aktieuniversumet
+      - name: Backfilla Yahoo quarterlyDilutedEPS
         run: python -m src.quarterly_eps --backfill
+
+      - name: Fyll diluted EPS-luckor från Yahoo resultaträkningar
+        run: python -m src.backfill_quarterly_eps_statement
 
       - name: Bygg Yahoo-historik med separata rapportdatum
         run: python -m src.build_yahoo_history_all
