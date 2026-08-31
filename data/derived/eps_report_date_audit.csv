@@ -33,10 +33,10 @@ CIBUS,CIBUS.ST,CIBUS.ST,10,4,10,10,0,complete,2026-07-16,
 CLA B,CLA-B.ST,CLA-B.ST,10,25,10,10,0,complete,2026-07-15,
 CLAS B,CLAS-B.ST,CLAS-B.ST,10,1,10,10,0,complete,2026-06-03,
 COOR,COOR.ST,COOR.ST,10,25,10,10,0,complete,2026-07-15,
-CTT,CTT.ST,CTT.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2023-02-07 (1300 dagar sedan)
-DIOS,DIOS.ST,DIOS.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-10-25 (2866 dagar sedan)
+CTT,CTT.ST,CTT.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2023-02-07 (1301 dagar sedan)
+DIOS,DIOS.ST,DIOS.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-10-25 (2867 dagar sedan)
 DOM,DOM.ST,DOM.ST,10,25,10,10,0,complete,2026-07-14,
-DUNI,DUNI.ST,DUNI.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-07-13 (2970 dagar sedan)
+DUNI,DUNI.ST,DUNI.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-07-13 (2971 dagar sedan)
 DYVOX,DYVOX.ST,DYVOX.ST,19,5,19,0,0,complete,2026-07-22,
 EAST,EAST.ST,EAST.ST,10,1,10,10,0,complete,2026-07-07,
 EKTA B,EKTA-B.ST,EKTA-B.ST,10,25,10,10,0,complete,2026-08-27,
@@ -49,7 +49,7 @@ ERIC B,ERIC-B.ST,ERIC-B.ST,10,25,10,10,0,complete,2026-07-14,
 ESSITY B,ESSITY-B.ST,ESSITY-B.ST,10,25,10,10,0,complete,2026-07-16,
 EVO,EVO.ST,EVO.ST,10,25,10,10,0,complete,2026-07-17,
 FABG,FABG.ST,FABG.ST,10,25,10,10,0,complete,2026-07-06,
-FOI B,FOI-B.ST,FOI-B.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2023-02-09 (1298 dagar sedan)
+FOI B,FOI-B.ST,FOI-B.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2023-02-09 (1299 dagar sedan)
 GENO,GENO.ST,GENO.ST,10,16,10,10,0,complete,2026-04-28,
 GETI B,GETI-B.ST,GETI-B.ST,10,25,10,10,0,complete,2026-07-17,
 HANZA,HANZA.ST,HANZA.ST,10,25,10,10,0,complete,2026-07-21,
@@ -62,7 +62,7 @@ HUFV A,HUFV-A.ST,HUFV-A.ST,11,25,11,9,0,complete,2026-08-20,
 INDT,INDT.ST,INDT.ST,10,25,10,10,0,complete,2026-07-16,
 INDU A,INDU-A.ST,INDU-A.ST,10,0,0,0,0,missing,,
 INTRUM,INTRUM.ST,INTRUM.ST,10,25,10,10,0,complete,2026-05-07,
-INVE A,INVE-A.ST,INVE-A.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2018-01-23 (3141 dagar sedan)
+INVE A,INVE-A.ST,INVE-A.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2018-01-23 (3142 dagar sedan)
 INWI,INWI.ST,INWI.ST,10,8,8,8,0,partial,2026-07-15,
 KAMBI,KAMBI.ST,KAMBI.ST,10,15,10,10,0,complete,2026-07-22,
 KNOW,KNOW.ST,KNOW.ST,10,25,10,10,0,complete,2026-07-17,
@@ -89,7 +89,7 @@ PLAZ B,PLAZ-B.ST,PLAZ-B.ST,10,1,1,1,0,partial,2026-07-03,
 PNDX B,PNDX-B.ST,PNDX-B.ST,10,11,10,10,0,complete,2026-07-15,
 REJL B,REJL-B.ST,REJL-B.ST,10,9,9,9,0,partial,2026-07-15,
 SAAB B,SAAB-B.ST,SAAB-B.ST,10,25,10,10,0,complete,2026-07-17,
-SAGA A,SAGA-A.ST,SAGA-A.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2012-10-26 (5056 dagar sedan)
+SAGA A,SAGA-A.ST,SAGA-A.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2012-10-26 (5057 dagar sedan)
 SAVE,SAVE.ST,SAVE.ST,10,23,10,10,0,complete,2026-07-17,
 SCA B,SCA-B.ST,SCA-B.ST,10,25,10,10,0,complete,2026-07-22,
 SCST,SCST.ST,SCST.ST,10,7,7,7,0,partial,2026-07-17,
@@ -116,5 +116,5 @@ VITR,VITR.ST,VITR.ST,10,3,3,3,0,partial,2026-07-16,
 VIVA,VIVA.ST,VIVA.ST,10,9,9,7,0,partial,2026-02-19,
 VOLV A,VOLV-A.ST,VOLV-A.ST,10,0,0,0,0,missing,,
 WALL B,WALL-B.ST,WALL-B.ST,10,1,1,1,0,partial,2026-07-06,
-WIHL,WIHL.ST,WIHL.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2025-10-23 (311 dagar sedan)
-ZZ B,ZZ-B.ST,ZZ-B.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2025-11-19 (284 dagar sedan)
+WIHL,WIHL.ST,WIHL.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2025-10-23 (312 dagar sedan)
+ZZ B,ZZ-B.ST,ZZ-B.ST,10,0,0,0,0,missing,,Yahoo-historiken är för gammal: senaste datum 2025-11-19 (285 dagar sedan)
