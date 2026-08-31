@@ -7,7 +7,8 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from .fundamentals import REPORT_COLUMNS, load_reports, normalise_reports, save_reports
-from .quarterly_eps import derive_manual_eps_ttm, upsert_manual_quarterly_eps
+from .manual_eps import derive_manual_eps_ttm_safe
+from .quarterly_eps import upsert_manual_quarterly_eps
 
 STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
 
@@ -36,18 +37,17 @@ def add_report(
 ) -> pd.DataFrame:
     """Lägg till eller ersätt en verifierad rapportpost.
 
-    Normalvägen tar endast kvartalets utspädda EPS. Då hämtas föregående Yahoo
-    trailingDilutedEPS och motsvarande kvartals-EPS ett år tidigare från den
-    sparade historiken. Ny TTM härleds som::
+    Normalvägen tar endast periodens utspädda EPS. Ny TTM härleds från föregående
+    Yahoo trailingDilutedEPS och motsvarande utspädda period-EPS ett år tidigare::
 
-        ny_TTM = föregående_TTM + aktuell_kvartals_EPS - EPS_samma_kvartal_fjol
+        ny_TTM = föregående_TTM + aktuell_period_EPS - EPS_samma_period_fjol
 
-    Den härledda posten märks i audit trail så att den senare får ersättas av
-    Yahoos faktiska trailingDilutedEPS för samma period. ``eps_ttm`` finns kvar
-    som bakåtkompatibel expertväg men används inte av webbformuläret.
+    Endast manuellt verifierad utspädd EPS eller Yahoo quarterlyDilutedEPS får
+    användas för jämförelseperioden. Yahoo Reported EPS används inte i formeln,
+    eftersom dess definition kan skilja sig från diluted EPS.
     """
     if (eps is None) == (eps_ttm is None):
-        raise ValueError("Ange exakt ett av eps (kvartals-EPS) eller eps_ttm")
+        raise ValueError("Ange exakt ett av eps (period-EPS) eller eps_ttm")
 
     same_day = _same_day_effective_date(published_at)
     if effective_date:
@@ -62,10 +62,10 @@ def add_report(
     final_notes = str(notes or "").strip()
     final_eps_ttm: float
     if eps is not None:
-        derivation = derive_manual_eps_ttm(
+        derivation = derive_manual_eps_ttm_safe(
             ticker=ticker.strip(),
             period_end=period_end,
-            current_quarter_eps=float(eps),
+            current_period_eps=float(eps),
         )
         final_eps_ttm = float(derivation["eps_ttm"])
         derivation_note = str(derivation["audit_note"])
@@ -124,8 +124,8 @@ def add_report(
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Lägg in verifierad kvartals-EPS. EPS TTM härleds automatiskt från sparad Yahoo-historik "
-            "och gäller samma svenska dag som publiceringen."
+            "Lägg in verifierad utspädd EPS för rapportperioden. EPS TTM härleds automatiskt "
+            "från sparad Yahoo-historik och gäller samma svenska dag som publiceringen."
         )
     )
     parser.add_argument("--ticker", required=True, help="Yahoo-ticker, t.ex. ESSITY-B.ST")
@@ -146,7 +146,7 @@ def main() -> None:
         "--eps",
         required=False,
         type=float,
-        help="Kvartalets verifierade utspädda EPS i bolagets rapportvaluta.",
+        help="Verifierad utspädd EPS för rapportperioden i bolagets rapportvaluta.",
     )
     parser.add_argument(
         "--eps-ttm",
@@ -177,7 +177,7 @@ def main() -> None:
     ].iloc[-1]
     if args.eps is not None:
         print(
-            f"Sparade {latest['ticker']} {latest['report_period']}: kvartals-EPS {args.eps} -> "
+            f"Sparade {latest['ticker']} {latest['report_period']}: period-EPS {args.eps} -> "
             f"härledd EPS TTM {latest['eps_ttm']} från {latest['effective_date'].date()} "
             "(same-day-policy)"
         )
