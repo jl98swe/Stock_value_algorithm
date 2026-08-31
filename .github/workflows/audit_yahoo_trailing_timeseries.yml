@@ -7,6 +7,7 @@ on:
       - "src/audit_yahoo_trailing_timeseries.py"
       - "src/quarterly_eps.py"
       - "src/backfill_quarterly_eps_statement.py"
+      - "src/audit_quarterly_eps_readiness.py"
       - "src/build_yahoo_history_all.py"
       - "src/audit_yahoo_startpoints.py"
       - "src/align_historical_eps_to_yahoo.py"
@@ -48,6 +49,9 @@ jobs:
       - name: Fyll diluted EPS-luckor från Yahoo resultaträkningar
         run: python -m src.backfill_quarterly_eps_statement
 
+      - name: Kontrollera fyra sammanhängande diluted EPS-perioder
+        run: python -m src.audit_quarterly_eps_readiness
+
       - name: Bygg Yahoo-historik med separata rapportdatum
         run: python -m src.build_yahoo_history_all
 
@@ -65,6 +69,8 @@ jobs:
           git add data/earnings/quarterly_eps.csv
           git add data/derived/quarterly_eps_coverage.csv
           git add data/derived/quarterly_eps_coverage_summary.json
+          git add data/derived/quarterly_eps_readiness.csv
+          git add data/derived/quarterly_eps_readiness_summary.json
           git add docs/data/quarterly_eps.json
           git add data/fundamentals/yahoo_history_all.csv
           git add data/derived/yahoo_history_all_audit.csv
