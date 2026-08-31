@@ -42,6 +42,9 @@ jobs:
       - name: Uppdatera Yahoo trailingDilutedEPS
         run: python -m src.earnings
 
+      - name: Uppdatera Yahoo kvartals-EPS
+        run: python -m src.quarterly_eps
+
       - name: Synka ny Yahoo EPS till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
 
@@ -93,6 +96,12 @@ jobs:
             git add data/earnings/earnings_updates.csv
           else
             echo "Ingen earnings_updates.csv skapades denna körning."
+          fi
+
+          if [ -f data/earnings/quarterly_eps.csv ]; then
+            git add data/earnings/quarterly_eps.csv
+          else
+            echo "Ingen quarterly_eps.csv skapades denna körning."
           fi
 
           if git diff --cached --quiet; then
