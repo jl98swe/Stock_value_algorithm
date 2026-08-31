@@ -114,8 +114,8 @@
             <div class="panel-header">
               <div>
                 <span class="eyebrow">Steg 2 vid rapport</span>
-                <h2 id="eps-form-title">Lägg till verifierad kvartals-EPS</h2>
-                <p class="panel-description">Mata bara in rapportens utspädda EPS för kvartalet. Systemet hämtar föregående Yahoo EPS TTM och samma kvartals EPS föregående år från den sparade historiken och räknar fram ny EPS TTM. Om underlaget saknas eller valutan inte stämmer stoppas inmatningen i stället för att ett värde gissas.</p>
+                <h2 id="eps-form-title">Lägg till verifierad EPS</h2>
+                <p class="panel-description">Mata bara in rapportens utspädda EPS för rapportperioden. För bolag med kvartalsvis finansiell rapportering hämtar systemet föregående Yahoo EPS TTM och motsvarande utspädda EPS ett år tidigare och räknar fram ny EPS TTM. Om jämförbar diluted EPS saknas eller valutan inte stämmer stoppas inmatningen i stället för att ett värde gissas. Effektiv handelsdag sätts automatiskt till publiceringsdagen i svensk tid.</p>
               </div>
             </div>
             <div class="form-grid">
@@ -123,8 +123,7 @@
               <div class="form-field"><label for="eps-period">Rapportperiod</label><input id="eps-period" type="text" placeholder="2026-Q2"></div>
               <div class="form-field"><label for="eps-period-end">Periodslut</label><input id="eps-period-end" type="date"></div>
               <div class="form-field"><label for="eps-published">Publicerad</label><input id="eps-published" type="text" placeholder="2026-07-17T07:00:00+02:00"></div>
-              <div class="form-field"><label for="eps-effective">Effektiv handelsdag</label><input id="eps-effective" type="date"></div>
-              <div class="form-field"><label for="eps-value">Kvartals-EPS (utspädd)</label><input id="eps-value" type="number" step="any"></div>
+              <div class="form-field"><label for="eps-value">EPS för rapportperioden (utspädd)</label><input id="eps-value" type="number" step="any"></div>
               <div class="form-field"><label for="eps-source">Källa</label><input id="eps-source" type="text" value="manuell rapportgranskning"></div>
               <div class="form-field"><label for="eps-note">Notering</label><input id="eps-note" type="text"></div>
             </div>
