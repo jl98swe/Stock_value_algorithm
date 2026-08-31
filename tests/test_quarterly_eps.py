@@ -4,13 +4,8 @@ import pandas as pd
 import pytest
 
 from src.earnings import EPS_SOURCE
-from src.quarterly_eps import (
-    DILUTED_METRIC,
-    MANUAL_METRIC,
-    REPORTED_METRIC,
-    derive_manual_eps_ttm,
-    find_prior_year_eps,
-)
+from src.manual_eps import derive_manual_eps_ttm_safe, find_prior_year_diluted_eps
+from src.quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, REPORTED_METRIC
 
 
 def _quarterly_rows() -> pd.DataFrame:
@@ -67,18 +62,18 @@ def _earnings_rows(currency: str = "USD") -> pd.DataFrame:
 
 
 def test_prior_year_selection_prefers_manual_verified_eps() -> None:
-    row = find_prior_year_eps("ABB.ST", "2026-06-30", _quarterly_rows())
+    row = find_prior_year_diluted_eps("ABB.ST", "2026-06-30", _quarterly_rows())
 
     assert row is not None
     assert row["metric"] == MANUAL_METRIC
     assert row["eps"] == pytest.approx(0.64)
 
 
-def test_manual_quarterly_eps_derives_new_ttm() -> None:
-    result = derive_manual_eps_ttm(
+def test_manual_period_eps_derives_new_ttm() -> None:
+    result = derive_manual_eps_ttm_safe(
         ticker="ABB.ST",
         period_end="2026-06-30",
-        current_quarter_eps=0.68,
+        current_period_eps=0.68,
         quarterly_frame=_quarterly_rows(),
         earnings_frame=_earnings_rows(),
     )
@@ -89,23 +84,39 @@ def test_manual_quarterly_eps_derives_new_ttm() -> None:
     assert "manual_quarterly_eps_derived_v1" in result["audit_note"]
 
 
-def test_derivation_stops_on_currency_conflict() -> None:
-    with pytest.raises(ValueError, match="Valutakonflikt"):
-        derive_manual_eps_ttm(
+def test_reported_eps_alone_is_not_accepted_as_diluted_component() -> None:
+    reported_only = _quarterly_rows().loc[lambda frame: frame["metric"] == REPORTED_METRIC]
+
+    row = find_prior_year_diluted_eps("ABB.ST", "2026-06-30", reported_only)
+
+    assert row is None
+    with pytest.raises(ValueError, match="Yahoo Reported EPS används inte"):
+        derive_manual_eps_ttm_safe(
             ticker="ABB.ST",
             period_end="2026-06-30",
-            current_quarter_eps=0.68,
+            current_period_eps=0.68,
+            quarterly_frame=reported_only,
+            earnings_frame=_earnings_rows(),
+        )
+
+
+def test_derivation_stops_on_currency_conflict() -> None:
+    with pytest.raises(ValueError, match="Valutakonflikt"):
+        derive_manual_eps_ttm_safe(
+            ticker="ABB.ST",
+            period_end="2026-06-30",
+            current_period_eps=0.68,
             quarterly_frame=_quarterly_rows(),
             earnings_frame=_earnings_rows(currency="SEK"),
         )
 
 
-def test_derivation_stops_when_prior_year_quarter_is_missing() -> None:
-    with pytest.raises(ValueError, match="Saknar sparad EPS"):
-        derive_manual_eps_ttm(
+def test_derivation_stops_when_prior_year_period_is_missing() -> None:
+    with pytest.raises(ValueError, match="Saknar sparad utspädd EPS"):
+        derive_manual_eps_ttm_safe(
             ticker="ABB.ST",
             period_end="2026-09-30",
-            current_quarter_eps=0.70,
+            current_period_eps=0.70,
             quarterly_frame=_quarterly_rows(),
             earnings_frame=_earnings_rows(),
         )
