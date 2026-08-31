@@ -1,24 +1,46 @@
-# Earnings / EPS TTM
+# Earnings / EPS
 
-Den här mappen följer samma upplägg som pris- och utdelningsdata:
+Den här mappen lagrar både Yahoos EPS TTM och separata EPS-komponenter för rapportperioder.
+
+## EPS TTM
 
 - `earnings_initial.csv` är den frysta basen.
-- `earnings_updates.csv` skapas av den dagliga körningen och innehåller endast senare EPS TTM-värden som faktiskt har ändrats.
+- `earnings_updates.csv` skapas av den dagliga körningen och innehåller senare Yahoo `trailingDilutedEPS`-värden som faktiskt har ändrats.
 
-## Schema
+Viktiga kolumner är `ticker`, `period_end`, `report_date`, `observed_date`, `eps_ttm`, `eps_currency` och `source`. Exakt publiceringstid och handelsmässig `effective_date` verifieras separat i `data/fundamentals/reports.csv`.
+
+## EPS för enskilda rapportperioder
+
+`quarterly_eps.csv` sparar de separata EPS-värden som behövs när en ny rapport matas in manuellt.
 
 | Kolumn | Betydelse |
 |---|---|
 | `ticker` | Yahoo-ticker, t.ex. `ESSITY-B.ST` |
-| `report_date` | Senaste redan inträffade rapportdatum som Yahoo `get_earnings_dates()` kopplar till bolaget när EPS-värdet sparas |
-| `observed_date` | Första dag den dagliga pipelinen observerade detta EPS TTM-värde |
-| `eps_ttm` | Direkt Yahoo `trailingEps` |
-| `source` | Källa för EPS och rapportdatum |
+| `period_end` | Rapportperiodens slut |
+| `report_date` | Rapportdatum när det finns |
+| `observed_date` | Datum då värdet observerades/sparades |
+| `metric` | `quarterlyDilutedEPS`, `manualDilutedEPS` eller informationsfältet `reportedEPS` |
+| `eps` | EPS för rapportperioden |
+| `eps_currency` | Rapportvalutan |
+| `source` | Spårbar källa |
 
-Kvartals-EPS summeras inte i detta flöde.
+Den dagliga körningen hämtar Yahoo `quarterlyDilutedEPS` för hela aktieuniversumet och sparar nya perioder löpande. Historikjobbet backfyller samma mått från Yahoos fundamentals-timeseries.
 
-Första lyckade körningen bootstrappar `earnings_initial.csv` med den då aktuella EPS TTM-snapshoten och senaste historiska rapportdatumet från Yahoo. Därefter lämnas initialfilen orörd. När `trailingEps` ändras sparas det nya värdet i `earnings_updates.csv` tillsammans med det senaste redan inträffade rapportdatumet.
+### Manuell rapportinmatning
 
-Rapportdatum hämtas bara för EPS-rader som faktiskt ska sparas. Efter bootstrap innebär det normalt bara några få extra Yahoo-anrop kring rapportperioder i stället för att hämta rapportkalender för hela aktieuniversumet varje dag.
+För normala kvartalsrapporterande bolag behöver användaren bara mata in **utspädd EPS för den nya rapportperioden**. Systemet härleder en provisorisk EPS TTM enligt:
 
-`report_date` är betydligt bättre än `observed_date` för att koppla ett EPS-skifte till en rapport, men det är fortfarande Yahoo-metadata. Exakt `published_at` och den handelsmässiga `effective_date` som används i historisk point-in-time-värdering verifieras separat i `data/fundamentals/reports.csv`.
+`ny TTM = föregående Yahoo trailingDilutedEPS + aktuell period-EPS - motsvarande period-EPS föregående år`
+
+Automatisk härledning får bara använda:
+
+1. `manualDilutedEPS` som verifierats manuellt, eller
+2. Yahoo `quarterlyDilutedEPS`.
+
+Yahoo `Reported EPS` sparas endast som referens/audit och får **inte** användas i TTM-formeln, eftersom måttdefinitionen kan skilja sig från diluted EPS. Om jämförbar diluted EPS, föregående Yahoo TTM eller korrekt valuta saknas stoppas inmatningen i stället för att ett värde uppskattas.
+
+När Yahoo senare publicerar faktisk `trailingDilutedEPS` för samma period ersätter den den provisoriskt härledda TTM-posten utan att rapportens verifierade `effective_date` flyttas.
+
+### Bolag utan kvartalsvisa finansiella rapporter
+
+Alla bolag har inte en verklig kvartals-EPS. Ett exempel i nuvarande universum är `EQT.ST`, som publicerar finansiella rapporter med EPS halvårsvis och vid bokslut medan Q1/Q3 är operativa kvartalsredogörelser. Systemet ska därför inte skapa en Q1/Q3-EPS-proxy för sådana bolag.
