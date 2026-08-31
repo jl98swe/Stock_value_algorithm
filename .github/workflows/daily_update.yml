@@ -42,8 +42,11 @@ jobs:
       - name: Uppdatera Yahoo trailingDilutedEPS
         run: python -m src.earnings
 
-      - name: Uppdatera Yahoo kvartals-EPS
+      - name: Uppdatera Yahoo quarterlyDilutedEPS
         run: python -m src.quarterly_eps
+
+      - name: Fyll stale diluted EPS-luckor från Yahoo resultaträkningar
+        run: python -m src.backfill_quarterly_eps_statement --stale-only
 
       - name: Synka ny Yahoo EPS till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
