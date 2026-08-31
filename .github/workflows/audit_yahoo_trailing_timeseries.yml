@@ -7,6 +7,8 @@ on:
       - "src/audit_yahoo_trailing_timeseries.py"
       - "src/quarterly_eps.py"
       - "src/backfill_quarterly_eps_statement.py"
+      - "src/apply_verified_quarterly_eps_overrides.py"
+      - "data/earnings/quarterly_eps_verified_overrides.csv"
       - "src/derive_missing_quarterly_eps.py"
       - "src/audit_quarterly_eps_readiness.py"
       - "src/build_yahoo_history_all.py"
@@ -49,6 +51,9 @@ jobs:
 
       - name: Fyll diluted EPS-luckor från Yahoo resultaträkningar
         run: python -m src.backfill_quarterly_eps_statement
+
+      - name: Applicera verifierade diluted EPS-undantag
+        run: python -m src.apply_verified_quarterly_eps_overrides
 
       - name: Härled exakta diluted EPS-luckor från Yahoo TTM
         run: python -m src.derive_missing_quarterly_eps
