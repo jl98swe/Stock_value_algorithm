@@ -19,14 +19,32 @@ from .quarterly_eps import (
     save_quarterly_eps,
 )
 
-SOURCE = "Yahoo Finance / quarterly_income_stmt DilutedEPS"
+DIRECT_SOURCE = "Yahoo Finance / quarterly_income_stmt DilutedEPS"
+RATIO_SOURCE = "Yahoo Finance / quarterly_income_stmt diluted net income / diluted average shares"
 STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
 STALE_DAYS = 115
+NUMERATOR_CANDIDATES = (
+    "DilutedNIAvailtoComStockholders",
+    "NetIncomeCommonStockholders",
+)
+DENOMINATOR_CANDIDATES = (
+    "DilutedAverageShares",
+)
 
 
 def _ticker_universe() -> list[str]:
     prices = load_price_history()
     return sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
+
+
+def _statement_series(statement: pd.DataFrame, candidates: tuple[str, ...]) -> pd.Series | None:
+    row_name = next((name for name in candidates if name in statement.index), None)
+    if row_name is None:
+        return None
+    series = statement.loc[row_name]
+    if isinstance(series, pd.DataFrame):
+        series = series.iloc[0]
+    return pd.to_numeric(series, errors="coerce")
 
 
 def _extract_diluted_eps(ticker: str, observed_date: str, currency: str) -> list[dict[str, object]]:
@@ -38,21 +56,41 @@ def _extract_diluted_eps(ticker: str, observed_date: str, currency: str) -> list
     if statement is None or statement.empty:
         return []
 
-    row_name = next(
-        (name for name in ("DilutedEPS", "Diluted EPS") if name in statement.index),
-        None,
-    )
-    if row_name is None:
-        return []
+    direct = _statement_series(statement, ("DilutedEPS", "Diluted EPS"))
+    numerator = _statement_series(statement, NUMERATOR_CANDIDATES)
+    denominator = _statement_series(statement, DENOMINATOR_CANDIDATES)
 
+    periods = list(statement.columns)
     rows: list[dict[str, object]] = []
-    series = statement.loc[row_name]
-    if isinstance(series, pd.DataFrame):
-        series = series.iloc[0]
-    for period_end, value in series.items():
+    for period_end in periods:
         period = pd.to_datetime(period_end, errors="coerce")
-        eps = pd.to_numeric(value, errors="coerce")
-        if pd.isna(period) or pd.isna(eps) or not math.isfinite(float(eps)):
+        if pd.isna(period):
+            continue
+
+        eps: float | None = None
+        source = ""
+        if direct is not None and period_end in direct.index:
+            value = pd.to_numeric(direct.get(period_end), errors="coerce")
+            if pd.notna(value) and math.isfinite(float(value)):
+                eps = float(value)
+                source = DIRECT_SOURCE
+
+        if eps is None and numerator is not None and denominator is not None:
+            net_income = pd.to_numeric(numerator.get(period_end), errors="coerce")
+            diluted_shares = pd.to_numeric(denominator.get(period_end), errors="coerce")
+            if (
+                pd.notna(net_income)
+                and pd.notna(diluted_shares)
+                and math.isfinite(float(net_income))
+                and math.isfinite(float(diluted_shares))
+                and float(diluted_shares) != 0.0
+            ):
+                value = float(net_income) / float(diluted_shares)
+                if math.isfinite(value):
+                    eps = value
+                    source = RATIO_SOURCE
+
+        if eps is None:
             continue
         rows.append(
             {
@@ -63,7 +101,7 @@ def _extract_diluted_eps(ticker: str, observed_date: str, currency: str) -> list
                 "metric": DILUTED_METRIC,
                 "eps": float(eps),
                 "eps_currency": currency,
-                "source": SOURCE,
+                "source": source,
             }
         )
     return rows
@@ -117,7 +155,7 @@ def backfill_statement_gaps(*, workers: int = 4, stale_only: bool = False) -> pd
 
     fetched = pd.DataFrame(rows, columns=QUARTERLY_COLUMNS)
     if fetched.empty:
-        print("Yahoo income-statement fallback: inga DilutedEPS-rader returnerades.")
+        print("Yahoo income-statement fallback: inga diluted EPS-komponenter returnerades.")
         return existing
 
     existing_keys = set(
@@ -143,9 +181,11 @@ def backfill_statement_gaps(*, workers: int = 4, stale_only: bool = False) -> pd
     save_quarterly_eps(combined)
     saved = load_quarterly_eps()
     _publish_json(saved)
+    direct_count = int((fetched["source"] == DIRECT_SOURCE).sum())
+    ratio_count = int((fetched["source"] == RATIO_SOURCE).sum())
     print(
         f"Yahoo income-statement fallback: fyllde {len(fetched)} saknade diluted EPS-perioder "
-        f"för {fetched['ticker'].nunique()} tickers."
+        f"för {fetched['ticker'].nunique()} tickers ({direct_count} direkt, {ratio_count} från nettoresultat/utspädda aktier)."
     )
     return saved
 
