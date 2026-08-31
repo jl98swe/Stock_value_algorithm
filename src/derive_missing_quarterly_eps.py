@@ -69,28 +69,16 @@ def _currency_and_value(trailing_row: pd.Series, components: list[pd.Series]) ->
     currency = trailing_currency or component_currency
     if not currency:
         return None
-
-    trailing_value = float(trailing_row["value"])
-    derived_eps = trailing_value - sum(float(row["eps"]) for row in components)
-    if not math.isfinite(derived_eps):
-        return None
-    return currency, float(derived_eps)
+    value = float(trailing_row["value"]) - sum(float(row["eps"]) for row in components)
+    return (currency, value) if math.isfinite(value) else None
 
 
-def _derived_row(
-    *,
-    ticker: str,
-    period_end: pd.Timestamp,
-    eps: float,
-    currency: str,
-    observed_date: str,
-    method: str,
-) -> dict[str, object]:
+def _row(ticker: str, period: pd.Timestamp, eps: float, currency: str, observed: str, method: str) -> dict[str, object]:
     return {
-        "ticker": str(ticker),
-        "period_end": pd.Timestamp(period_end).normalize(),
+        "ticker": ticker,
+        "period_end": pd.Timestamp(period).normalize(),
         "report_date": pd.NaT,
-        "observed_date": observed_date,
+        "observed_date": observed,
         "metric": DILUTED_METRIC,
         "eps": float(eps),
         "eps_currency": currency,
@@ -109,12 +97,11 @@ def _infer_next_quarter(period: pd.Timestamp) -> pd.Timestamp:
 def derive_missing_quarters() -> pd.DataFrame:
     if not AUDIT_FILE.exists() or AUDIT_FILE.stat().st_size == 0:
         raise FileNotFoundError(f"Saknar {AUDIT_FILE}")
-
     audit = pd.read_csv(AUDIT_FILE)
     required = {"ticker", "metric", "as_of_date", "value", "currency_code"}
-    missing_columns = sorted(required.difference(audit.columns))
-    if missing_columns:
-        raise ValueError(f"Yahoo-audit saknar kolumner: {', '.join(missing_columns)}")
+    missing = sorted(required.difference(audit.columns))
+    if missing:
+        raise ValueError(f"Yahoo-audit saknar kolumner: {', '.join(missing)}")
 
     trailing = audit.loc[audit["metric"].astype(str) == "trailingDilutedEPS"].copy()
     trailing["as_of_date"] = pd.to_datetime(trailing["as_of_date"], errors="coerce").dt.normalize()
@@ -124,114 +111,84 @@ def derive_missing_quarters() -> pd.DataFrame:
 
     existing = load_quarterly_eps()
     working = _safe_diluted_rows(existing)
-    observed_date = datetime.now(STOCKHOLM_TZ).date().isoformat()
+    observed = datetime.now(STOCKHOLM_TZ).date().isoformat()
     derived_rows: list[dict[str, object]] = []
 
     for ticker, ticker_trailing in trailing.groupby("ticker", sort=True):
-        series = (
-            ticker_trailing.sort_values("as_of_date")
-            .drop_duplicates("as_of_date", keep="last")
-            .reset_index(drop=True)
-        )
+        series = ticker_trailing.sort_values("as_of_date").drop_duplicates("as_of_date", keep="last").reset_index(drop=True)
         ticker_working = working.loc[working["ticker"].astype(str) == str(ticker)].copy()
 
-        # Metod 1: Yahoo har TTM för den saknade perioden. Då är periodens
-        # diluted EPS exakt TTM minus de tre föregående periodkomponenterna.
-        for index in range(3, len(series)):
-            current = series.iloc[index]
-            current_period = pd.Timestamp(current["as_of_date"]).normalize()
-            if (ticker_working["period_end"] == current_period).any():
-                continue
-
-            previous_periods = [pd.Timestamp(series.iloc[pos]["as_of_date"]).normalize() for pos in range(index - 3, index)]
-            all_periods = previous_periods + [current_period]
-            gaps = [int((right - left).days) for left, right in zip(all_periods, all_periods[1:], strict=False)]
-            span_days = int((current_period - previous_periods[0]).days)
-            if not gaps or max(gaps) > MAX_PERIOD_GAP_DAYS:
-                continue
-            if span_days < MIN_WINDOW_SPAN_DAYS or span_days > MAX_WINDOW_SPAN_DAYS:
-                continue
-
-            components = [_select_component(ticker_working, period) for period in previous_periods]
-            if any(component is None for component in components):
-                continue
-            resolved = _currency_and_value(current, [component for component in components if component is not None])
-            if resolved is None:
-                continue
-            currency, derived_eps = resolved
-            row = _derived_row(
-                ticker=str(ticker),
-                period_end=current_period,
-                eps=derived_eps,
-                currency=currency,
-                observed_date=observed_date,
-                method="same-period TTM",
-            )
-            derived_rows.append(row)
-            ticker_working = _safe_diluted_rows(
-                pd.concat([ticker_working, pd.DataFrame([row], columns=QUARTERLY_COLUMNS)], ignore_index=True)
-            )
-
-        # Metod 2: Yahoo hoppar både kvartalsraden och TTM-raden för ett kvartal
-        # (detta sker systematiskt för många Q3 2025-rader). Om det finns ett
-        # tvåkvartalsgap Q2 -> Q4 kan Q3 lösas exakt från TTM vid Q4:
-        # Q3 = TTM(Q4) - Q1 - Q2 - Q4.
         changed = True
         while changed:
             changed = False
+
+            # A) Om Yahoo har TTM för en period som saknar diluted EPS, använd
+            # de tre närmast föregående *sparade kvartalsperioderna*. Detta gör
+            # att en period som nyss lösts av metod B kan användas direkt här.
+            for trailing_row in series.itertuples(index=False):
+                current = pd.Timestamp(trailing_row.as_of_date).normalize()
+                if (ticker_working["period_end"] == current).any():
+                    continue
+                previous_periods = sorted(
+                    set(ticker_working.loc[ticker_working["period_end"] < current, "period_end"].dropna().tolist())
+                )[-3:]
+                if len(previous_periods) != 3:
+                    continue
+                window = previous_periods + [current]
+                gaps = [int((right - left).days) for left, right in zip(window, window[1:], strict=False)]
+                span = int((current - previous_periods[0]).days)
+                if max(gaps) > MAX_PERIOD_GAP_DAYS or not (MIN_WINDOW_SPAN_DAYS <= span <= MAX_WINDOW_SPAN_DAYS):
+                    continue
+                components = [_select_component(ticker_working, period) for period in previous_periods]
+                if any(component is None for component in components):
+                    continue
+                trailing_series = pd.Series(trailing_row._asdict())
+                resolved = _currency_and_value(trailing_series, [c for c in components if c is not None])
+                if resolved is None:
+                    continue
+                currency, eps = resolved
+                new_row = _row(str(ticker), current, eps, currency, observed, "same-period TTM")
+                derived_rows.append(new_row)
+                ticker_working = _safe_diluted_rows(pd.concat([ticker_working, pd.DataFrame([new_row])], ignore_index=True))
+                changed = True
+                break
+            if changed:
+                continue
+
+            # B) Om Yahoo hoppar både kvartals- och TTM-raden i mitten av ett
+            # Q2->Q4-gap: missing Q3 = TTM(Q4) - Q1 - Q2 - Q4.
             periods = sorted(set(ticker_working["period_end"].dropna().tolist()))
-            for index in range(1, len(periods)):
+            for index in range(2, len(periods)):
+                previous = pd.Timestamp(periods[index - 2]).normalize()
                 left = pd.Timestamp(periods[index - 1]).normalize()
                 right = pd.Timestamp(periods[index]).normalize()
-                gap_days = int((right - left).days)
-                if gap_days < MIN_DOUBLE_QUARTER_GAP_DAYS or gap_days > MAX_DOUBLE_QUARTER_GAP_DAYS:
+                gap = int((right - left).days)
+                if not (MIN_DOUBLE_QUARTER_GAP_DAYS <= gap <= MAX_DOUBLE_QUARTER_GAP_DAYS):
                     continue
-                if index < 2:
-                    continue
-
-                previous = pd.Timestamp(periods[index - 2]).normalize()
                 if int((left - previous).days) > MAX_SINGLE_QUARTER_GAP_DAYS:
                     continue
-
                 inferred = _infer_next_quarter(left)
                 if not (left < inferred < right):
                     continue
-                if int((inferred - left).days) > MAX_SINGLE_QUARTER_GAP_DAYS:
+                if int((inferred - left).days) > MAX_SINGLE_QUARTER_GAP_DAYS or int((right - inferred).days) > MAX_SINGLE_QUARTER_GAP_DAYS:
                     continue
-                if int((right - inferred).days) > MAX_SINGLE_QUARTER_GAP_DAYS:
-                    continue
-                if (ticker_working["period_end"] == inferred).any():
-                    continue
-
                 trailing_right = _matching_trailing(series, right)
                 if trailing_right is None:
                     continue
-                component_rows = [
+                components = [
                     _select_component(ticker_working, previous),
                     _select_component(ticker_working, left),
                     _select_component(ticker_working, right),
                 ]
-                if any(component is None for component in component_rows):
+                if any(component is None for component in components):
                     continue
-                resolved = _currency_and_value(
-                    trailing_right,
-                    [component for component in component_rows if component is not None],
-                )
+                resolved = _currency_and_value(trailing_right, [c for c in components if c is not None])
                 if resolved is None:
                     continue
-                currency, derived_eps = resolved
-                row = _derived_row(
-                    ticker=str(ticker),
-                    period_end=inferred,
-                    eps=derived_eps,
-                    currency=currency,
-                    observed_date=observed_date,
-                    method="next-period TTM bridge",
-                )
-                derived_rows.append(row)
-                ticker_working = _safe_diluted_rows(
-                    pd.concat([ticker_working, pd.DataFrame([row], columns=QUARTERLY_COLUMNS)], ignore_index=True)
-                )
+                currency, eps = resolved
+                new_row = _row(str(ticker), inferred, eps, currency, observed, "next-period TTM bridge")
+                derived_rows.append(new_row)
+                ticker_working = _safe_diluted_rows(pd.concat([ticker_working, pd.DataFrame([new_row])], ignore_index=True))
                 changed = True
                 break
 
@@ -244,8 +201,7 @@ def derive_missing_quarters() -> pd.DataFrame:
     save_quarterly_eps(combined)
     saved = load_quarterly_eps()
     _publish_json(saved)
-
-    audit_output = {
+    summary = {
         "generated_at": datetime.now(STOCKHOLM_TZ).isoformat(timespec="seconds"),
         "derived_periods": len(derived),
         "derived_tickers": int(derived["ticker"].nunique()),
@@ -255,12 +211,10 @@ def derive_missing_quarters() -> pd.DataFrame:
             "next_period_bridge": "missing quarter = trailingDilutedEPS(next quarter) - other three quarters in that TTM window",
         },
     }
-    out = ROOT / "data" / "derived" / "quarterly_eps_derived_summary.json"
-    out.write_text(json.dumps(audit_output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(
-        f"Yahoo derived diluted EPS: härledde {len(derived)} saknade perioder "
-        f"för {derived['ticker'].nunique()} tickers."
+    (ROOT / "data" / "derived" / "quarterly_eps_derived_summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    print(f"Yahoo derived diluted EPS: härledde {len(derived)} saknade perioder för {derived['ticker'].nunique()} tickers.")
     return saved
 
 
