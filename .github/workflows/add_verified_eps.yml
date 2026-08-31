@@ -1,4 +1,4 @@
-name: Lägg till verifierad EPS TTM
+name: Lägg till verifierad kvartals-EPS
 
 on:
   workflow_dispatch:
@@ -19,8 +19,8 @@ on:
         description: "Publiceringstid med tidszon; EPS gäller automatiskt samma svenska dag"
         required: true
         type: string
-      eps_ttm:
-        description: "Verifierad EPS TTM i bolagets rapportvaluta"
+      eps:
+        description: "Verifierad utspädd EPS för kvartalet i bolagets rapportvaluta"
         required: true
         type: string
       source:
@@ -61,13 +61,16 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Lägg in verifierad EPS
+      - name: Uppdatera sparad Yahoo kvartals-EPS
+        run: python -m src.quarterly_eps
+
+      - name: Lägg in verifierad kvartals-EPS
         env:
           TICKER: ${{ inputs.ticker }}
           REPORT_PERIOD: ${{ inputs.report_period }}
           PERIOD_END: ${{ inputs.period_end }}
           PUBLISHED_AT: ${{ inputs.published_at }}
-          EPS_TTM: ${{ inputs.eps_ttm }}
+          EPS: ${{ inputs.eps }}
           SOURCE: ${{ inputs.source }}
           NOTES: ${{ inputs.notes }}
         run: |
@@ -76,7 +79,7 @@ jobs:
             --report-period "$REPORT_PERIOD" \
             --period-end "$PERIOD_END" \
             --published-at "$PUBLISHED_AT" \
-            --eps-ttm "$EPS_TTM" \
+            --eps "$EPS" \
             --source "$SOURCE" \
             --notes "$NOTES"
 
@@ -92,6 +95,9 @@ jobs:
       - name: Uppdatera direkt Yahoo EPS TTM
         run: python -m src.earnings
 
+      - name: Ersätt provisorisk TTM om Yahoo hunnit publicera perioden
+        run: python -m src.sync_yahoo_eps_reports
+
       - name: Validera data och webbexport
         run: python -m src.validate_outputs
 
@@ -100,6 +106,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fundamentals/reports.csv data/derived/valuation_score_history.csv.gz docs/data data/fx/fx_initial.csv
+          git add data/earnings/quarterly_eps.csv
           if [ -f data/fx/fx_updates.csv ]; then
             git add data/fx/fx_updates.csv
           fi
@@ -113,6 +120,6 @@ jobs:
             echo "Inga ändringar att spara."
             exit 0
           fi
-          git commit -m "fundamentals: verifierad EPS ${{ inputs.ticker }} ${{ inputs.report_period }}"
+          git commit -m "fundamentals: verifierad kvartals-EPS ${{ inputs.ticker }} ${{ inputs.report_period }}"
           git pull --rebase origin main
           git push origin main
