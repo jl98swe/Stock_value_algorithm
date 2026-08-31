@@ -1,0 +1,1680 @@
+ticker,period_end,report_date,observed_date,metric,eps,eps_currency,source
+AAK.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,3.1,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,3.34,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,3.59,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,3.1,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,3.35,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,3.58,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.46,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,3.26,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,3.64,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,3.69,SEK,Yahoo Finance / Reported EPS
+AAK.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+AAK.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.06,SEK,Yahoo Finance / Reported EPS
+ABB.ST,2023-09-30,2023-10-18,2026-08-31,reportedEPS,0.54,USD,Yahoo Finance / Reported EPS
+ABB.ST,2023-12-31,2024-02-01,2026-08-31,reportedEPS,0.59,USD,Yahoo Finance / Reported EPS
+ABB.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,0.57,USD,Yahoo Finance / Reported EPS
+ABB.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,0.67,USD,Yahoo Finance / Reported EPS
+ABB.ST,2024-09-30,2024-10-17,2026-08-31,reportedEPS,0.68,USD,Yahoo Finance / Reported EPS
+ABB.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.53,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,0.65,USD,Yahoo Finance / Reported EPS
+ABB.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.6,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2025-03-31,2025-04-17,2026-08-31,reportedEPS,0.61,USD,Yahoo Finance / Reported EPS
+ABB.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.63,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,0.7,USD,Yahoo Finance / Reported EPS
+ABB.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.7,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,0.73,USD,Yahoo Finance / Reported EPS
+ABB.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.73,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,0.84,USD,Yahoo Finance / Reported EPS
+ABB.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.68,USD,Yahoo Finance / quarterlyDilutedEPS
+ABB.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,0.8,USD,Yahoo Finance / Reported EPS
+ADDT-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2024-03-31,2024-05-16,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2024-12-31,2025-02-04,2026-08-31,reportedEPS,1.65,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.95,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2025-03-31,2025-05-15,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2026-03-31,2026-05-20,2026-08-31,reportedEPS,2.25,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+ADDT-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2023-12-31,2024-02-12,2026-08-31,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,1.66,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,1.81,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2024-09-30,2024-10-29,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2024-12-31,2025-02-13,2026-08-31,reportedEPS,2.21,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,1.78,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.73,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.97,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2025-12-31,2026-02-10,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.38,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,1.38,SEK,Yahoo Finance / Reported EPS
+ALIG.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALIG.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.57,SEK,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,1.66,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2023-12-31,2024-01-26,2026-08-31,reportedEPS,3.74,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,1.58,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,1.87,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2024-09-30,2024-10-18,2026-08-31,reportedEPS,1.84,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.1,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,3.05,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.14,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2025-03-31,2025-04-16,2026-08-31,reportedEPS,2.15,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.16,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.16,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.98,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,3.19,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.88,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2026-03-31,2026-04-17,2026-08-31,reportedEPS,2.05,USD,Yahoo Finance / Reported EPS
+ALIV-SDB.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.35,USD,Yahoo Finance / quarterlyDilutedEPS
+ALIV-SDB.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,2.43,USD,Yahoo Finance / Reported EPS
+ALLEI.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,0.99,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,1.24,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,2.23,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,1.02,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.18,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2024-12-31,2025-01-24,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,1.65,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.35,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2025-12-31,2026-01-27,2026-08-31,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.16,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2026-03-31,2026-04-27,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+ALLEI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.2,SEK,Yahoo Finance / quarterlyDilutedEPS
+ALLEI.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.57,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.26,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2023-12-31,2024-02-02,2026-08-31,reportedEPS,0.82,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,0.9,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,0.67,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,0.78,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2025-12-31,2026-02-03,2026-08-31,reportedEPS,1.01,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,0.83,SEK,Yahoo Finance / Reported EPS
+ANOD-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+ANOD-B.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,0.15,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,0.45,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2024-09-30,2024-10-17,2026-08-31,reportedEPS,0.28,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,0.44,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,0.43,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,0.43,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.46,SEK,Yahoo Finance / quarterlyDilutedEPS
+ARJO-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,0.46,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,3.31,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,3.56,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,3.12,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,3.54,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,3.63,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+ASSA-B.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,3.81,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,3.2,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,3.85,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
+ASSA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+ASSA-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.98,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,1.4,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.33,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.36,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2025-12-31,2026-01-27,2026-08-31,reportedEPS,1.41,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,1.29,SEK,Yahoo Finance / Reported EPS
+ATCO-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.45,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-A.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+ATCO-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.36,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATCO-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.45,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2023-09-30,2023-10-12,2026-08-31,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2023-12-31,2024-01-31,2026-08-31,reportedEPS,0.54,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2024-03-31,2024-04-12,2026-08-31,reportedEPS,0.59,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2024-06-30,2024-07-09,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2024-09-30,2024-10-11,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,0.46,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.91,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2025-03-31,2025-04-11,2026-08-31,reportedEPS,0.5,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2025-06-30,2025-07-04,2026-08-31,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,0.52,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.32,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATRLJ-B.ST,2026-06-30,2026-07-03,2026-08-31,reportedEPS,0.49,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,0.68,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.5,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATT.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.87,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATT.ST,2025-03-31,2025-05-07,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.59,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATT.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.85,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.75,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATT.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.65,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.33,SEK,Yahoo Finance / quarterlyDilutedEPS
+ATT.ST,2026-03-31,2026-05-06,2026-08-31,reportedEPS,1.33,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2026-06-30,2026-08-20,2026-08-31,reportedEPS,1.32,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,2.59,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,3.25,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,2.08,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,2.22,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,2.96,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.59,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,2.69,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.41,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,2.43,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.93,SEK,Yahoo Finance / quarterlyDilutedEPS
+AXFO.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,2.95,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,3.25,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2023-12-31,2024-01-19,2026-08-31,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2024-03-31,2024-04-19,2026-08-31,reportedEPS,3.53,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,3.21,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2024-09-30,2024-10-18,2026-08-31,reportedEPS,3.61,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.97,SEK,Yahoo Finance / quarterlyDilutedEPS
+AZA.ST,2024-12-31,2025-01-21,2026-08-31,reportedEPS,3.97,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.48,SEK,Yahoo Finance / quarterlyDilutedEPS
+AZA.ST,2025-03-31,2025-04-15,2026-08-31,reportedEPS,4.48,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+AZA.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,3.81,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+AZA.ST,2025-12-31,2026-01-21,2026-08-31,reportedEPS,3.88,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,4.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+AZA.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,4.96,SEK,Yahoo Finance / Reported EPS
+AZN.ST,2023-09-30,2023-11-09,2026-08-31,reportedEPS,1.73,USD,Yahoo Finance / Reported EPS
+AZN.ST,2024-06-30,2024-07-25,2026-08-31,reportedEPS,1.98,USD,Yahoo Finance / Reported EPS
+AZN.ST,2024-09-30,2024-11-12,2026-08-31,reportedEPS,2.08,USD,Yahoo Finance / Reported EPS
+AZN.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.96,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.87,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,2.49,USD,Yahoo Finance / Reported EPS
+AZN.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.57,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2025-06-30,2025-07-29,2026-08-31,reportedEPS,2.17,USD,Yahoo Finance / Reported EPS
+AZN.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.49,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2025-12-31,2026-02-10,2026-08-31,reportedEPS,2.12,USD,Yahoo Finance / Reported EPS
+AZN.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.97,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,2.58,USD,Yahoo Finance / Reported EPS
+AZN.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.61,USD,Yahoo Finance / quarterlyDilutedEPS
+AZN.ST,2026-06-30,2026-07-27,2026-08-31,reportedEPS,2.63,USD,Yahoo Finance / Reported EPS
+BAHN-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.54,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,0.54,SEK,Yahoo Finance / Reported EPS
+BAHN-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-06-30,2025-08-19,2026-08-31,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+BAHN-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-09-30,2025-11-11,2026-08-31,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+BAHN-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-12-31,2026-02-17,2026-08-31,reportedEPS,0.09,SEK,Yahoo Finance / Reported EPS
+BAHN-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2023-12-31,2024-02-09,2026-08-31,reportedEPS,1.05,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,1.04,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.9,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,1.29,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2025-03-31,2025-05-08,2026-08-31,reportedEPS,1.22,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2026-03-31,2026-05-08,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+BALD-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+BALD-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,2.49,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2023-12-31,2024-02-15,2026-08-31,reportedEPS,1.21,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,2.48,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,2.43,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,2.24,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,2.21,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,2.72,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.36,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2025-12-31,2026-02-06,2026-08-31,reportedEPS,2.55,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,3.4,SEK,Yahoo Finance / Reported EPS
+BEIA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.59,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIA-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.59,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2023-12-31,2024-01-31,2026-08-31,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,0.79,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.3,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.56,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+BEIJ-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2023-12-31,2024-02-09,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2024-03-31,2024-05-15,2026-08-31,reportedEPS,1.7,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.95,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-7.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2025-03-31,2025-05-09,2026-08-31,reportedEPS,2.25,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2025-06-30,2025-07-16,2026-08-31,reportedEPS,2.05,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,2.15,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2026-03-31,2026-05-13,2026-08-31,reportedEPS,2.25,SEK,Yahoo Finance / Reported EPS
+BERG-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+BERG-B.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,2.1,SEK,Yahoo Finance / Reported EPS
+BETS-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,4.11,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2023-12-31,2024-02-15,2026-08-31,reportedEPS,3.38,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,3.51,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,3.84,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,3.54,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.37,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,4.31,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.34,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,3.72,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,3.96,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.24,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,2.55,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,1.94,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.21,EUR,Yahoo Finance / quarterlyDilutedEPS
+BETS-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,2.32,EUR,Yahoo Finance / Reported EPS
+BILI-A.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,1.83,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,2.16,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,1.7,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,2.23,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,1.56,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,1.18,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.86,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,3.11,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,1.65,SEK,Yahoo Finance / Reported EPS
+BILI-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+BILI-A.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,2.92,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.87,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2026-03-31,2026-05-07,2026-08-31,reportedEPS,0.78,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+BIOG-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.11,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,4.96,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,6.06,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,4.16,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,14.24,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,8.34,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,10.95,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,10.95,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,7.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,7.99,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.02,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,15.31,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2025-12-31,2026-02-03,2026-08-31,reportedEPS,15.31,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,13.45,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,13.45,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,7.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+BOL.ST,2026-06-30,2026-07-21,2026-08-31,reportedEPS,7.81,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2024-06-30,2024-08-16,2026-08-31,reportedEPS,0.26,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2024-09-30,2024-11-15,2026-08-31,reportedEPS,1.39,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2024-12-31,2025-02-20,2026-08-31,reportedEPS,0.4,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.43,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2025-03-31,2025-05-15,2026-08-31,reportedEPS,1.43,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.16,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2025-06-30,2025-08-15,2026-08-31,reportedEPS,0.16,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2025-09-30,2025-11-14,2026-08-31,reportedEPS,1.47,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2025-12-31,2026-02-13,2026-08-31,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+BORG.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+BORG.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,1.47,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,1.21,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2023-12-31,2024-02-15,2026-08-31,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2024-03-31,2024-05-07,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,1.16,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,0.96,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2024-12-31,2025-02-11,2026-08-31,reportedEPS,2.06,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.11,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,1.11,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.31,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,1.31,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.41,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2025-12-31,2026-02-18,2026-08-31,reportedEPS,2.49,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2026-03-31,2026-05-05,2026-08-31,reportedEPS,1.17,SEK,Yahoo Finance / Reported EPS
+BRAV.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+BRAV.ST,2026-06-30,2026-07-13,2026-08-31,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2023-09-30,2023-11-10,2026-08-31,reportedEPS,1.12,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2023-12-31,2024-02-22,2026-08-31,reportedEPS,5.66,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2024-03-31,2024-05-03,2026-08-31,reportedEPS,2.75,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2024-06-30,2024-08-15,2026-08-31,reportedEPS,3.11,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2024-09-30,2024-11-08,2026-08-31,reportedEPS,9.78,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2024-12-31,2025-02-26,2026-08-31,reportedEPS,4.31,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.33,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2025-03-31,2025-05-16,2026-08-31,reportedEPS,1.33,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.026415,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2025-06-30,2025-08-22,2026-08-31,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2025-09-30,2025-11-12,2026-08-31,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2025-12-31,2026-02-20,2026-08-31,reportedEPS,2.84,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.42,SEK,Yahoo Finance / quarterlyDilutedEPS
+BTS-B.ST,2026-03-31,2026-05-21,2026-08-31,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2023-12-31,2024-02-14,2026-08-31,reportedEPS,2.6,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2024-03-31,2024-05-03,2026-08-31,reportedEPS,2.04,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,2.42,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,2.53,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.04,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2024-12-31,2025-02-19,2026-08-31,reportedEPS,2.34,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2025-03-31,2025-05-05,2026-08-31,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.38,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.23,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2025-12-31,2026-02-18,2026-08-31,reportedEPS,2.32,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,1.99,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+CAST.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,2.36,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,4.11,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,3.92,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2024-06-30,2024-07-05,2026-08-31,reportedEPS,4.65,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,3.61,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,8.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2024-12-31,2025-02-20,2026-08-31,reportedEPS,5.07,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,7.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2025-03-31,2025-04-28,2026-08-31,reportedEPS,5.22,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2025-06-30,2025-07-04,2026-08-31,reportedEPS,5.36,SEK,Yahoo Finance / Reported EPS
+CATE.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,8.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,7.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,10.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+CATE.ST,2026-06-30,2026-07-06,2026-08-31,reportedEPS,5.81,SEK,Yahoo Finance / Reported EPS
+CIBUS.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.03,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.42,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.17,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.33,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-12-31,2026-03-19,2026-08-31,reportedEPS,0.22,EUR,Yahoo Finance / Reported EPS
+CIBUS.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.3,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,0.21,EUR,Yahoo Finance / Reported EPS
+CIBUS.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,0.23,EUR,Yahoo Finance / Reported EPS
+CLA-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2023-12-31,2024-01-26,2026-08-31,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,0.29,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.45,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2024-12-31,2025-01-29,2026-08-31,reportedEPS,0.55,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2025-03-31,2025-05-07,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.41,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,0.8,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2026-03-31,2026-05-06,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLA-B.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,0.77,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2024-07-31,2024-09-04,2026-08-31,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2024-10-31,2024-12-04,2026-08-31,reportedEPS,3.63,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2025-01-31,,2026-08-31,quarterlyDilutedEPS,6.68,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2025-01-31,2025-03-12,2026-08-31,reportedEPS,6.68,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2025-04-30,,2026-08-31,quarterlyDilutedEPS,1.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2025-04-30,2025-06-12,2026-08-31,reportedEPS,1.25,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2025-07-31,,2026-08-31,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2025-07-31,2025-09-10,2026-08-31,reportedEPS,3.25,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2025-10-31,,2026-08-31,quarterlyDilutedEPS,4.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2025-10-31,2025-12-10,2026-08-31,reportedEPS,4.83,SEK,Yahoo Finance / Reported EPS
+CLAS-B.ST,2026-01-31,,2026-08-31,quarterlyDilutedEPS,8.04,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2026-04-30,,2026-08-31,quarterlyDilutedEPS,2.17,SEK,Yahoo Finance / quarterlyDilutedEPS
+CLAS-B.ST,2026-04-30,2026-06-03,2026-08-31,reportedEPS,2.17,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,0.71,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,0.92,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,0.81,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,0.34,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,0.52,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,0.84,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2025-12-31,2026-02-11,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+COOR.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,1.0,SEK,Yahoo Finance / Reported EPS
+CTT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.93,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.45,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+DIOS.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.36,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2023-12-31,2024-01-31,2026-08-31,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2024-03-31,2024-04-19,2026-08-31,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,-5.99,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-3.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2024-12-31,2025-01-29,2026-08-31,reportedEPS,0.08,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2025-12-31,2026-01-28,2026-08-31,reportedEPS,-0.67,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.86,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.75,SEK,Yahoo Finance / quarterlyDilutedEPS
+DOM.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,1.27,SEK,Yahoo Finance / Reported EPS
+DUNI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.14,SEK,Yahoo Finance / quarterlyDilutedEPS
+DUNI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+DUNI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+DUNI.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+DUNI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+DUNI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,-0.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,0.1,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,0.34,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,0.43,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.51,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,0.51,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.22,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.71,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.71,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,0.35,SEK,Yahoo Finance / Reported EPS
+DYVOX.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+DYVOX.ST,2026-06-30,2026-07-22,2026-08-31,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+EAST.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.0,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.23,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.06,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.05,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.66,EUR,Yahoo Finance / Reported EPS
+EAST.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.08,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.05,EUR,Yahoo Finance / quarterlyDilutedEPS
+EAST.ST,2026-06-30,2026-07-07,2026-08-31,reportedEPS,0.62,EUR,Yahoo Finance / Reported EPS
+EKTA-B.ST,2023-10-31,2023-11-30,2026-08-31,reportedEPS,0.9,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2024-01-31,2024-02-29,2026-08-31,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2024-04-30,2024-06-05,2026-08-31,reportedEPS,1.15,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2024-07-31,2024-08-28,2026-08-31,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2024-10-31,2024-11-27,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2025-01-31,,2026-08-31,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2025-01-31,2025-02-20,2026-08-31,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2025-04-30,,2026-08-31,quarterlyDilutedEPS,-1.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2025-07-31,,2026-08-31,quarterlyDilutedEPS,0.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2025-07-31,2025-08-27,2026-08-31,reportedEPS,0.31,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2025-10-31,,2026-08-31,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2025-10-31,2025-11-26,2026-08-31,reportedEPS,0.64,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2026-01-31,,2026-08-31,quarterlyDilutedEPS,0.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2026-01-31,2026-03-05,2026-08-31,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2026-04-30,,2026-08-31,quarterlyDilutedEPS,-2.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+EKTA-B.ST,2026-04-30,2026-05-28,2026-08-31,reportedEPS,0.57,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2026-07-31,2026-08-27,2026-08-31,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2023-09-30,2023-11-16,2026-08-31,reportedEPS,4.68,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2023-12-31,2024-02-15,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2024-03-31,2024-05-23,2026-08-31,reportedEPS,9.0,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2024-09-30,2024-11-14,2026-08-31,reportedEPS,1.02,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2024-12-31,2025-02-13,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,36.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2025-06-30,2025-08-14,2026-08-31,reportedEPS,-0.69,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,-0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2025-09-30,2025-11-13,2026-08-31,reportedEPS,-0.67,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,6.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,1.76,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-32.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+EMBRAC-B.ST,2026-03-31,2026-05-20,2026-08-31,reportedEPS,0.51,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,1.86,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,1.74,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,1.94,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.83,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2025-12-31,2026-01-26,2026-08-31,reportedEPS,1.91,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,1.75,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-A.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
+EPI-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2024-03-31,2024-05-14,2026-08-31,reportedEPS,0.16,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2024-06-30,2024-08-08,2026-08-31,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2024-09-30,2024-11-06,2026-08-31,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,0.35,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2025-03-31,2025-05-08,2026-08-31,reportedEPS,0.44,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2025-06-30,2025-08-08,2026-08-31,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2025-12-31,2026-02-03,2026-08-31,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-0.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2026-03-31,2026-05-08,2026-08-31,reportedEPS,-0.13,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,-0.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2023-09-30,2023-10-17,2026-08-31,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2023-12-31,2024-01-23,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2024-03-31,2024-04-16,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,0.64,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2024-09-30,2024-10-15,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2024-12-31,2025-01-24,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2025-03-31,2025-04-15,2026-08-31,reportedEPS,1.46,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,1.51,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2025-12-31,2026-01-23,2026-08-31,reportedEPS,2.82,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2026-03-31,2026-04-17,2026-08-31,reportedEPS,1.07,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.22,SEK,Yahoo Finance / quarterlyDilutedEPS
+ERIC-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,1.35,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,4.9,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2023-12-31,2024-01-25,2026-08-31,reportedEPS,4.54,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,4.33,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,5.13,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,4.93,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2024-12-31,2025-01-23,2026-08-31,reportedEPS,4.85,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.43,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,4.39,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,4.51,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,4.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2025-12-31,2026-01-22,2026-08-31,reportedEPS,4.84,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.23,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,4.44,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+ESSITY-B.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,4.59,SEK,Yahoo Finance / Reported EPS
+EVO.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.26,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,1.25,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,1.28,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.57,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.83,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,1.83,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.24,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.22,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,1.22,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.54,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.54,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.26,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,1.26,EUR,Yahoo Finance / Reported EPS
+EVO.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.27,EUR,Yahoo Finance / quarterlyDilutedEPS
+EVO.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.27,EUR,Yahoo Finance / Reported EPS
+FABG.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,1.08,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2024-06-30,2024-07-05,2026-08-31,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,0.2,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.45,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,0.7,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-0.48,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2025-03-31,2025-04-14,2026-08-31,reportedEPS,0.47,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2025-06-30,2025-07-07,2026-08-31,reportedEPS,1.03,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.72,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+FABG.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.23,SEK,Yahoo Finance / quarterlyDilutedEPS
+FABG.ST,2026-06-30,2026-07-06,2026-08-31,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
+FOI-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-0.23,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.01,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.72,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.46,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.37,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,-0.92,EUR,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2023-09-30,2023-11-15,2026-08-31,reportedEPS,0.06,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2024-03-31,2024-05-15,2026-08-31,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2024-06-30,2024-08-20,2026-08-31,reportedEPS,0.03,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2024-09-30,2024-11-08,2026-08-31,reportedEPS,0.08,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.07,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2024-12-31,2025-02-14,2026-08-31,reportedEPS,0.07,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2025-03-31,2025-05-21,2026-08-31,reportedEPS,0.05,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2025-06-30,2025-08-12,2026-08-31,reportedEPS,0.08,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.12,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2025-09-30,2025-11-07,2026-08-31,reportedEPS,0.12,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,0.1,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+GENO.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,0.06,SEK,Yahoo Finance / Reported EPS
+GENO.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2023-09-30,2023-10-23,2026-08-31,reportedEPS,2.66,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2023-12-31,2024-02-01,2026-08-31,reportedEPS,3.11,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2024-03-31,2024-04-22,2026-08-31,reportedEPS,1.92,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2024-09-30,2024-10-18,2026-08-31,reportedEPS,2.24,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,5.28,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2025-03-31,2025-04-22,2026-08-31,reportedEPS,2.18,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.92,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.25,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2025-12-31,2026-01-27,2026-08-31,reportedEPS,4.45,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2026-03-31,2026-04-21,2026-08-31,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+GETI-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+GETI-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.59,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2023-09-30,2023-11-07,2026-08-31,reportedEPS,1.21,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2023-12-31,2024-02-13,2026-08-31,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2024-03-31,2024-05-07,2026-08-31,reportedEPS,0.77,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2024-06-30,2024-07-23,2026-08-31,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2024-09-30,2024-10-29,2026-08-31,reportedEPS,1.62,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.71,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2024-12-31,2025-02-11,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2025-06-30,2025-07-22,2026-08-31,reportedEPS,1.13,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2025-12-31,2026-02-24,2026-08-31,reportedEPS,2.16,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2026-03-31,2026-05-05,2026-08-31,reportedEPS,2.15,SEK,Yahoo Finance / Reported EPS
+HANZA.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.85,SEK,Yahoo Finance / quarterlyDilutedEPS
+HANZA.ST,2026-06-30,2026-07-21,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+HEXA-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.11,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2023-12-31,2024-02-01,2026-08-31,reportedEPS,0.12,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,0.1,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2024-06-30,2024-07-26,2026-08-31,reportedEPS,0.11,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.1,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.108,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,0.12,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.07,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.063,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2025-06-30,2025-07-25,2026-08-31,reportedEPS,0.1,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.088,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,0.12,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.594,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.07,EUR,Yahoo Finance / Reported EPS
+HEXA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.092,EUR,Yahoo Finance / quarterlyDilutedEPS
+HEXA-B.ST,2026-06-30,2026-07-29,2026-08-31,reportedEPS,0.08,EUR,Yahoo Finance / Reported EPS
+HMS.ST,2023-09-30,2023-10-18,2026-08-31,reportedEPS,3.68,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2024-03-31,2024-04-16,2026-08-31,reportedEPS,2.35,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,1.4,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2024-09-30,2024-10-18,2026-08-31,reportedEPS,2.51,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.48,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,2.6,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,3.17,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,2.52,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.43,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2025-12-31,2026-01-27,2026-08-31,reportedEPS,4.17,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.23,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,3.78,SEK,Yahoo Finance / Reported EPS
+HMS.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+HMS.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,3.65,SEK,Yahoo Finance / Reported EPS
+HOLM-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,1.62,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.75,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,1.75,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.56,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2026-03-31,2026-05-04,2026-08-31,reportedEPS,1.47,SEK,Yahoo Finance / Reported EPS
+HPOL-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+HPOL-B.ST,2026-06-30,2026-07-20,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.85,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2023-12-31,2024-02-09,2026-08-31,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,0.31,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,0.44,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.52,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.42,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.42,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.38,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,0.45,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+HTRO.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2023-09-30,2023-11-09,2026-08-31,reportedEPS,1.12,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2024-03-31,2024-05-08,2026-08-31,reportedEPS,1.03,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2024-06-30,2024-08-22,2026-08-31,reportedEPS,1.17,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2024-09-30,2024-11-07,2026-08-31,reportedEPS,1.19,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+HUFV-A.ST,2024-12-31,2025-02-13,2026-08-31,reportedEPS,1.09,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+HUFV-A.ST,2025-03-31,2025-05-08,2026-08-31,reportedEPS,1.18,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.91,SEK,Yahoo Finance / quarterlyDilutedEPS
+HUFV-A.ST,2025-06-30,2025-08-20,2026-08-31,reportedEPS,1.19,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.59,SEK,Yahoo Finance / quarterlyDilutedEPS
+HUFV-A.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,1.27,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.51,SEK,Yahoo Finance / quarterlyDilutedEPS
+HUFV-A.ST,2026-03-31,2026-05-08,2026-08-31,reportedEPS,1.3,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2026-06-30,2026-08-20,2026-08-31,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,2.2,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2023-12-31,2024-02-01,2026-08-31,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,1.92,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,2.35,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,2.37,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.71,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,2.06,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.75,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,2.1,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.72,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
+INDT.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDT.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,2.15,SEK,Yahoo Finance / Reported EPS
+INDU-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-7.38,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,17.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,42.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,28.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,57.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,-3.41,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,-1.98,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,-11.06,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,-10.03,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-1.519557,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.16639,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2025-03-31,2025-05-07,2026-08-31,reportedEPS,1.25,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.539262,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2025-06-30,2025-07-25,2026-08-31,reportedEPS,2.69,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.601408,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-3.343828,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,5.27,SEK,Yahoo Finance / Reported EPS
+INTRUM.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-0.551291,SEK,Yahoo Finance / quarterlyDilutedEPS
+INTRUM.ST,2026-03-31,2026-05-07,2026-08-31,reportedEPS,-2.75,SEK,Yahoo Finance / Reported EPS
+INVE-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-10.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-0.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,14.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,18.07,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,38.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,3.16,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,0.57,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,3.22,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.16,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2024-12-31,2025-02-04,2026-08-31,reportedEPS,3.16,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.68,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,2.89,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.87,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2025-12-31,2026-02-03,2026-08-31,reportedEPS,3.21,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.18,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,0.18,SEK,Yahoo Finance / Reported EPS
+INWI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+INWI.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,3.55,SEK,Yahoo Finance / Reported EPS
+KAMBI.ST,2023-09-30,2023-11-01,2026-08-31,reportedEPS,0.12,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,0.11,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2024-06-30,2024-07-24,2026-08-31,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2024-09-30,2024-11-06,2026-08-31,reportedEPS,0.08,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.17,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2024-12-31,2025-02-26,2026-08-31,reportedEPS,0.22,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.027,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2025-03-31,2025-04-30,2026-08-31,reportedEPS,0.03,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.009,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2025-06-30,2025-07-23,2026-08-31,reportedEPS,0.01,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.172,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2025-12-31,2026-02-18,2026-08-31,reportedEPS,0.2,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.086,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,0.09,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.127,EUR,Yahoo Finance / quarterlyDilutedEPS
+KAMBI.ST,2026-06-30,2026-07-22,2026-08-31,reportedEPS,0.14,EUR,Yahoo Finance / Reported EPS
+KNOW.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,1.46,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,3.32,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2024-03-31,2024-05-03,2026-08-31,reportedEPS,2.23,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,0.59,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.12,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.43,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,1.43,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,1.4,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.04,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-12.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2025-12-31,2026-02-06,2026-08-31,reportedEPS,-12.56,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
+KNOW.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.12,SEK,Yahoo Finance / quarterlyDilutedEPS
+KNOW.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,0.99,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2023-12-31,2024-02-06,2026-08-31,reportedEPS,1.09,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2024-03-31,2024-05-17,2026-08-31,reportedEPS,1.16,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,1.08,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,1.08,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,1.3,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.48,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2025-03-31,2025-05-20,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,1.24,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.52,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2025-12-31,2026-02-06,2026-08-31,reportedEPS,1.5,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.76,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2026-03-31,2026-05-19,2026-08-31,reportedEPS,1.69,SEK,Yahoo Finance / Reported EPS
+LAGR-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+LAGR-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.46,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,2.16,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,1.84,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.91,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,1.93,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,1.99,SEK,Yahoo Finance / Reported EPS
+LIFCO-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIFCO-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,2.26,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,1.36,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2023-12-31,2024-02-14,2026-08-31,reportedEPS,1.86,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,2.21,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.95,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2025-06-30,2025-07-12,2026-08-31,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,2.4,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.27,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2026-03-31,2026-04-21,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+LIME.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,2.39,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,5.95,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2023-12-31,2024-01-31,2026-08-31,reportedEPS,5.5,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2024-03-31,2024-05-06,2026-08-31,reportedEPS,5.17,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2024-06-30,2024-07-24,2026-08-31,reportedEPS,6.66,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2024-09-30,2024-10-29,2026-08-31,reportedEPS,7.57,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,5.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,5.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2025-03-31,2025-05-07,2026-08-31,reportedEPS,6.8,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,6.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2025-06-30,2025-07-25,2026-08-31,reportedEPS,7.99,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.87,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,6.06,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,7.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2026-03-31,2026-05-07,2026-08-31,reportedEPS,7.88,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,9.06,SEK,Yahoo Finance / quarterlyDilutedEPS
+LOOMIS.ST,2026-06-30,2026-07-24,2026-08-31,reportedEPS,9.37,SEK,Yahoo Finance / Reported EPS
+LUMI.ST,2023-09-30,2023-11-01,2026-08-31,reportedEPS,0.11,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2023-12-31,2024-02-22,2026-08-31,reportedEPS,0.1,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2024-03-31,2024-05-01,2026-08-31,reportedEPS,0.06,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2024-06-30,2024-07-30,2026-08-31,reportedEPS,0.16,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2024-09-30,2024-11-06,2026-08-31,reportedEPS,0.09,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-0.57,USD,Yahoo Finance / quarterlyDilutedEPS
+LUMI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.15,USD,Yahoo Finance / quarterlyDilutedEPS
+LUMI.ST,2025-03-31,2025-05-08,2026-08-31,reportedEPS,0.11,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.27,USD,Yahoo Finance / quarterlyDilutedEPS
+LUMI.ST,2025-06-30,2025-08-06,2026-08-31,reportedEPS,0.11,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2025-12-31,2026-02-20,2026-08-31,reportedEPS,0.43,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.33,USD,Yahoo Finance / quarterlyDilutedEPS
+LUMI.ST,2026-03-31,2026-05-06,2026-08-31,reportedEPS,0.31,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.34,USD,Yahoo Finance / quarterlyDilutedEPS
+LUMI.ST,2026-06-30,2026-08-06,2026-08-31,reportedEPS,0.3,USD,Yahoo Finance / Reported EPS
+MCAP.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,2.8,SEK,Yahoo Finance / Reported EPS
+MCAP.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,3.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,4.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,4.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+MCAP.ST,2026-06-30,2026-07-21,2026-08-31,reportedEPS,4.6,SEK,Yahoo Finance / Reported EPS
+MCOV-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.058,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2024-12-31,2025-02-12,2026-08-31,reportedEPS,0.06,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.133,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,0.15,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.127,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2025-06-30,2025-07-24,2026-08-31,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.124,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2025-12-31,2026-02-10,2026-08-31,reportedEPS,0.15,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.146,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.161,EUR,Yahoo Finance / quarterlyDilutedEPS
+MCOV-B.ST,2026-06-30,2026-07-22,2026-08-31,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+MSAB-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2023-12-31,2024-01-25,2026-08-31,reportedEPS,0.05,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2024-03-31,2024-04-30,2026-08-31,reportedEPS,0.64,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,-0.15,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.32,SEK,Yahoo Finance / quarterlyDilutedEPS
+MSAB-B.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,1.32,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-0.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+MSAB-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,-0.15,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+MSAB-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,-0.78,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+MSAB-B.ST,2025-12-31,2026-01-27,2026-08-31,reportedEPS,1.69,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-0.31,SEK,Yahoo Finance / quarterlyDilutedEPS
+MSAB-B.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,-0.31,SEK,Yahoo Finance / Reported EPS
+MSAB-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.51,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,1.66,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,-0.76,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,-0.1,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,-0.86,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.62,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-2.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,-0.87,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,3.2,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.52,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.71,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2025-09-30,2025-11-13,2026-08-31,reportedEPS,3.08,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,2.88,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.16,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,4.62,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTG-B.ST,2026-06-30,2026-07-21,2026-08-31,reportedEPS,3.93,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,1.57,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2023-12-31,2024-01-22,2026-08-31,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,1.36,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,1.97,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,1.58,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.88747,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,1.32,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,-0.66,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.503995,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.71,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-0.043826,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,0.59,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.679298,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,0.82,SEK,Yahoo Finance / Reported EPS
+MTRS.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.106598,SEK,Yahoo Finance / quarterlyDilutedEPS
+MTRS.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,0.92,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,2.5,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.18,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,2.28,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.42,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,3.66,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
+MYCR.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,2.81,SEK,Yahoo Finance / Reported EPS
+NDA-SE.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,0.38,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2023-12-31,2024-02-05,2026-08-31,reportedEPS,0.31,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,0.38,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2024-06-30,2024-07-15,2026-08-31,reportedEPS,0.37,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2024-09-30,2024-10-17,2026-08-31,reportedEPS,0.37,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.32,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2024-12-31,2025-01-30,2026-08-31,reportedEPS,0.32,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.35,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2025-03-31,2025-04-16,2026-08-31,reportedEPS,0.35,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.35,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,0.35,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.34,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,0.34,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.32,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,0.36,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.36,EUR,Yahoo Finance / quarterlyDilutedEPS
+NDA-SE.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,0.36,EUR,Yahoo Finance / Reported EPS
+NEWA-B.ST,2023-09-30,2023-11-07,2026-08-31,reportedEPS,2.04,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,0.91,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2024-06-30,2024-08-15,2026-08-31,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2024-09-30,2024-11-07,2026-08-31,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+NEWA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+NEWA-B.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,1.09,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+NEWA-B.ST,2025-06-30,2025-08-14,2026-08-31,reportedEPS,1.26,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.31,SEK,Yahoo Finance / quarterlyDilutedEPS
+NEWA-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,2.31,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.97,SEK,Yahoo Finance / quarterlyDilutedEPS
+NEWA-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2026-06-30,2026-08-20,2026-08-31,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2023-09-30,2023-11-15,2026-08-31,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2023-12-31,2024-02-16,2026-08-31,reportedEPS,0.49,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2024-03-31,2024-05-16,2026-08-31,reportedEPS,0.02,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2024-06-30,2024-08-16,2026-08-31,reportedEPS,0.11,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2024-09-30,2024-11-15,2026-08-31,reportedEPS,0.22,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.68,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2024-12-31,2025-02-14,2026-08-31,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2025-03-31,2025-05-15,2026-08-31,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2025-06-30,2025-08-22,2026-08-31,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2025-09-30,2025-11-14,2026-08-31,reportedEPS,0.3,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,0.46,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+NIBE-B.ST,2026-03-31,2026-05-19,2026-08-31,reportedEPS,0.25,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2026-06-30,2026-08-21,2026-08-31,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+NMAN.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.97,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.86,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.31,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.54,SEK,Yahoo Finance / quarterlyDilutedEPS
+NMAN.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,1.31,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2023-12-31,2024-02-06,2026-08-31,reportedEPS,0.46,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2024-03-31,2024-05-06,2026-08-31,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.6051,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.79,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+NOLA-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,1.51,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,1.53,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2024-09-30,2024-10-18,2026-08-31,reportedEPS,1.5,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.46,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,1.81,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.59,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.54,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,1.05,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2024-03-31,2024-05-07,2026-08-31,reportedEPS,2.22,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,2.13,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,1.92,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.87,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2024-12-31,2025-02-11,2026-08-31,reportedEPS,1.87,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2025-06-30,2025-07-14,2026-08-31,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2025-12-31,2026-02-10,2026-08-31,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.04,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2026-03-31,2026-05-05,2026-08-31,reportedEPS,3.04,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+PACT.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,1.85,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2023-12-31,2024-02-02,2026-08-31,reportedEPS,-0.25,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2024-03-31,2024-05-06,2026-08-31,reportedEPS,-0.45,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,2.59,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,3.63,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-1.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2025-03-31,2025-05-06,2026-08-31,reportedEPS,-1.24,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,0.2,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,2.69,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-0.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,-0.6,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+PEAB-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,2.45,SEK,Yahoo Finance / Reported EPS
+PLAZ-B.ST,2024-09-30,2025-01-28,2026-08-31,reportedEPS,2.64,SEK,Yahoo Finance / Reported EPS
+PLAZ-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,-0.46,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2026-06-30,2026-07-03,2026-08-31,reportedEPS,1.97,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,2.52,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,3.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,3.02,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,8.68,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,2.07,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,3.29,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
+PNDX-B.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,3.48,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2024-06-30,2024-07-15,2026-08-31,reportedEPS,2.2,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.75,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,3.75,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,2.96,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,1.88,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,2.91,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,2.88,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.21,SEK,Yahoo Finance / quarterlyDilutedEPS
+REJL-B.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.21,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2023-12-31,2024-02-09,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,1.43,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,1.85,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,2.59,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,2.35,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.83,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,4.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,4.73,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,2.65,SEK,Yahoo Finance / Reported EPS
+SAAB-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.96,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAAB-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.96,SEK,Yahoo Finance / Reported EPS
+SAGA-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.76,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAGA-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.41,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAGA-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.22,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAGA-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,5.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAGA-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAGA-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,2.49,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2023-12-31,2024-01-30,2026-08-31,reportedEPS,2.55,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,2.74,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2024-06-30,2024-07-23,2026-08-31,reportedEPS,2.86,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,2.7,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,2.56,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,3.13,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,2.84,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2025-12-31,2026-01-28,2026-08-31,reportedEPS,3.05,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.32,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,3.32,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+SAVE.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.8,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.96,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2023-12-31,2024-01-26,2026-08-31,reportedEPS,1.22,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,1.12,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2024-06-30,2024-07-26,2026-08-31,reportedEPS,1.37,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2024-12-31,2025-01-31,2026-08-31,reportedEPS,1.17,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2025-03-31,2025-04-25,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2025-06-30,2025-07-25,2026-08-31,reportedEPS,1.55,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.69,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2025-12-31,2026-01-30,2026-08-31,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.54,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2026-03-31,2026-04-24,2026-08-31,reportedEPS,0.54,SEK,Yahoo Finance / Reported EPS
+SCA-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCA-B.ST,2026-06-30,2026-07-22,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2024-03-31,2024-05-03,2026-08-31,reportedEPS,1.07,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,1.09,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.61,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,1.29,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,1.47,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,1.55,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+SCST.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,5.03,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2023-12-31,2024-01-25,2026-08-31,reportedEPS,4.0,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,4.56,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,4.54,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,4.57,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2024-12-31,2025-01-29,2026-08-31,reportedEPS,3.65,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,3.84,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2025-06-30,2025-07-16,2026-08-31,reportedEPS,4.08,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,3.88,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,3.79,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,4.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+SEB-A.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,4.39,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2023-09-30,2023-10-25,2026-08-31,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2023-12-31,2024-02-15,2026-08-31,reportedEPS,-0.08,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,0.23,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2024-06-30,2024-07-25,2026-08-31,reportedEPS,0.14,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,0.17,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2024-12-31,2025-02-13,2026-08-31,reportedEPS,0.17,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,0.15,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,-0.04,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2025-06-30,2025-07-23,2026-08-31,reportedEPS,0.16,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2025-12-31,2026-02-12,2026-08-31,reportedEPS,0.11,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.11,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.11,SEK,Yahoo Finance / Reported EPS
+SECARE.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.15,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECARE.ST,2026-06-30,2026-07-22,2026-08-31,reportedEPS,0.15,SEK,Yahoo Finance / Reported EPS
+SECT-B.ST,2025-01-31,,2026-08-31,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2025-04-30,,2026-08-31,quarterlyDilutedEPS,0.68,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2025-07-31,,2026-08-31,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2025-07-31,2025-09-04,2026-08-31,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+SECT-B.ST,2025-10-31,,2026-08-31,quarterlyDilutedEPS,0.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2025-10-31,2025-12-12,2026-08-31,reportedEPS,0.77,SEK,Yahoo Finance / Reported EPS
+SECT-B.ST,2026-01-31,,2026-08-31,quarterlyDilutedEPS,0.81,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2026-01-31,2026-03-06,2026-08-31,reportedEPS,0.81,SEK,Yahoo Finance / Reported EPS
+SECT-B.ST,2026-04-30,,2026-08-31,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECT-B.ST,2026-04-30,2026-06-05,2026-08-31,reportedEPS,0.82,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2023-09-30,2023-11-07,2026-08-31,reportedEPS,2.66,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,2.44,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2024-03-31,2024-05-08,2026-08-31,reportedEPS,2.12,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2024-06-30,2024-07-30,2026-08-31,reportedEPS,2.6,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2024-09-30,2024-11-06,2026-08-31,reportedEPS,3.05,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.86,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,3.05,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2025-03-31,2025-05-08,2026-08-31,reportedEPS,2.36,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.56,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2025-06-30,2025-07-30,2026-08-31,reportedEPS,2.79,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,3.06,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
+SECU-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.88,SEK,Yahoo Finance / quarterlyDilutedEPS
+SECU-B.ST,2026-06-30,2026-07-24,2026-08-31,reportedEPS,2.94,SEK,Yahoo Finance / Reported EPS
+SFAST.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2025-12-31,2026-02-19,2026-08-31,reportedEPS,0.29,SEK,Yahoo Finance / Reported EPS
+SFAST.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+SFAST.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2023-09-30,2023-10-18,2026-08-31,reportedEPS,4.02,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2023-12-31,2024-02-07,2026-08-31,reportedEPS,3.55,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,3.43,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,3.5,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,3.58,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.457021,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,3.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2025-03-31,2025-04-30,2026-08-31,reportedEPS,3.24,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2025-06-30,2025-07-16,2026-08-31,reportedEPS,2.86,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,3.01,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.21,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,3.65,SEK,Yahoo Finance / Reported EPS
+SHB-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHB-A.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,2.62,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,2.51,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2023-12-31,2024-02-14,2026-08-31,reportedEPS,0.75,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,-1.1,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2024-09-30,2024-10-30,2026-08-31,reportedEPS,2.55,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2024-12-31,2025-02-19,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,-0.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2025-03-31,2025-04-15,2026-08-31,reportedEPS,-0.58,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,1.69,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.07,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2025-12-31,2026-02-18,2026-08-31,reportedEPS,0.07,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,-0.91,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,-0.91,SEK,Yahoo Finance / Reported EPS
+SHOT.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+SHOT.ST,2026-06-30,2026-07-15,2026-08-31,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2024-06-30,2024-08-21,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2024-09-30,2024-11-06,2026-08-31,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.04,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2024-12-31,2025-02-19,2026-08-31,reportedEPS,1.04,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2025-03-31,2025-04-30,2026-08-31,reportedEPS,1.08,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2025-06-30,2025-08-20,2026-08-31,reportedEPS,1.24,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2025-12-31,2026-02-17,2026-08-31,reportedEPS,0.55,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,0.73,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2023-09-30,2023-10-30,2026-08-31,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2023-12-31,2024-02-08,2026-08-31,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,0.72,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,4.31,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2024-12-31,2025-02-05,2026-08-31,reportedEPS,3.98,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.52,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,2.72,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2025-06-30,2025-07-16,2026-08-31,reportedEPS,2.36,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,5.34,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,5.65,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,3.77,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,4.07,SEK,Yahoo Finance / Reported EPS
+SOBI.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.14,SEK,Yahoo Finance / quarterlyDilutedEPS
+SOBI.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,3.96,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2023-12-31,2024-02-29,2026-08-31,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,0.95,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2024-09-30,2024-10-25,2026-08-31,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.94,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,0.99,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.97,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2025-06-30,2025-07-18,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.2,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2025-12-31,2026-02-04,2026-08-31,reportedEPS,1.2,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.13,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,1.13,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.86,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2023-12-31,2024-02-09,2026-08-31,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2024-03-31,2024-05-16,2026-08-31,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,1.5,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2024-09-30,2024-10-30,2026-08-31,reportedEPS,1.13,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,1.74,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,1.87,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2025-06-30,2025-07-16,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2025-12-31,2026-02-11,2026-08-31,reportedEPS,1.97,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2026-03-31,2026-04-28,2026-08-31,reportedEPS,1.76,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,1.77,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,8.09,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2023-12-31,2024-01-24,2026-08-31,reportedEPS,7.38,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,7.47,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2024-06-30,2024-07-16,2026-08-31,reportedEPS,7.61,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,8.3,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,7.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2024-12-31,2025-01-23,2026-08-31,reportedEPS,7.5,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,7.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2025-03-31,2025-04-29,2026-08-31,reportedEPS,7.26,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,6.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,6.99,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,7.22,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,7.22,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,6.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,6.5,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,6.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWED-A.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,6.37,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2023-10-31,2023-12-07,2026-08-31,reportedEPS,1.18,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2024-01-31,2024-03-05,2026-08-31,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2024-04-30,2024-06-04,2026-08-31,reportedEPS,0.8,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2024-07-31,2024-08-29,2026-08-31,reportedEPS,1.02,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2024-10-31,2024-12-04,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2025-01-31,,2026-08-31,quarterlyDilutedEPS,0.62,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2025-01-31,2025-03-06,2026-08-31,reportedEPS,0.66,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2025-04-30,,2026-08-31,quarterlyDilutedEPS,0.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2025-07-31,,2026-08-31,quarterlyDilutedEPS,0.92,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2025-07-31,2025-08-28,2026-08-31,reportedEPS,0.92,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2025-10-31,,2026-08-31,quarterlyDilutedEPS,1.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2025-10-31,2025-12-04,2026-08-31,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2026-01-31,,2026-08-31,quarterlyDilutedEPS,0.63,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2026-01-31,2026-03-05,2026-08-31,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+SYSR.ST,2026-04-30,,2026-08-31,quarterlyDilutedEPS,0.83,SEK,Yahoo Finance / quarterlyDilutedEPS
+SYSR.ST,2026-04-30,2026-06-10,2026-08-31,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2023-09-30,2023-10-18,2026-08-31,reportedEPS,1.58,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,1.43,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,1.67,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.39,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.72,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,1.81,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,1.76,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2025-12-31,2026-01-28,2026-08-31,reportedEPS,1.87,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,9.16,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2026-03-31,2026-04-22,2026-08-31,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+TEL2-B.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,1.82,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2024-03-31,2024-04-26,2026-08-31,reportedEPS,2.83,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,5.28,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,2.84,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,-0.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2024-12-31,2025-02-07,2026-08-31,reportedEPS,-0.35,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.46,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2025-03-31,2025-04-28,2026-08-31,reportedEPS,2.46,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.75,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2025-06-30,2025-07-15,2026-08-31,reportedEPS,4.97,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.2,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2025-12-31,2026-02-10,2026-08-31,reportedEPS,0.2,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.71,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2026-03-31,2026-04-29,2026-08-31,reportedEPS,2.71,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,4.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+THULE.ST,2026-06-30,2026-07-20,2026-08-31,reportedEPS,5.14,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2023-09-30,2023-10-26,2026-08-31,reportedEPS,4.19,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,4.23,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2024-06-30,2024-07-18,2026-08-31,reportedEPS,4.49,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,3.78,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,3.99,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2024-12-31,2025-01-28,2026-08-31,reportedEPS,4.24,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.08,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,4.28,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,4.31,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.71,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2025-12-31,2026-01-29,2026-08-31,reportedEPS,4.3,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,4.5,SEK,Yahoo Finance / Reported EPS
+TREL-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,4.85,SEK,Yahoo Finance / quarterlyDilutedEPS
+TREL-B.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,5.07,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,6.35,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2023-12-31,2024-02-20,2026-08-31,reportedEPS,5.18,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2024-03-31,2024-04-25,2026-08-31,reportedEPS,7.83,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2024-06-30,2024-07-19,2026-08-31,reportedEPS,6.71,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2024-09-30,2024-10-23,2026-08-31,reportedEPS,4.49,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,4.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2024-12-31,2025-02-19,2026-08-31,reportedEPS,4.49,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2025-03-31,2025-04-28,2026-08-31,reportedEPS,4.58,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,4.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,4.0,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,4.44,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2025-12-31,2026-02-18,2026-08-31,reportedEPS,4.44,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.53,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2026-03-31,2026-04-27,2026-08-31,reportedEPS,4.53,SEK,Yahoo Finance / Reported EPS
+VBG-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,3.58,SEK,Yahoo Finance / quarterlyDilutedEPS
+VBG-B.ST,2026-06-30,2026-07-17,2026-08-31,reportedEPS,3.58,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2023-09-30,2023-10-19,2026-08-31,reportedEPS,2.26,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2024-06-30,2024-07-12,2026-08-31,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2024-09-30,2024-10-17,2026-08-31,reportedEPS,3.13,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.42,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2025-03-31,2025-04-23,2026-08-31,reportedEPS,3.73,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,2.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2025-06-30,2025-07-11,2026-08-31,reportedEPS,3.85,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2025-12-31,2026-02-06,2026-08-31,reportedEPS,7.91,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,3.84,SEK,Yahoo Finance / Reported EPS
+VIT-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,2.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIT-B.ST,2026-06-30,2026-07-14,2026-08-31,reportedEPS,4.59,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2023-09-30,2023-10-27,2026-08-31,reportedEPS,0.49,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2023-12-31,2024-02-02,2026-08-31,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2024-03-31,2024-04-18,2026-08-31,reportedEPS,0.85,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2024-06-30,2024-07-17,2026-08-31,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,0.85,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.02,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2025-03-31,2025-04-24,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2025-06-30,2025-07-17,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,-39.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2025-12-31,2026-02-03,2026-08-31,reportedEPS,0.66,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2026-03-31,2026-04-23,2026-08-31,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.95,SEK,Yahoo Finance / quarterlyDilutedEPS
+VITR.ST,2026-06-30,2026-07-16,2026-08-31,reportedEPS,0.95,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2024-06-30,2024-08-28,2026-08-31,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2024-09-30,2024-11-20,2026-08-31,reportedEPS,0.5,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIVA.ST,2024-12-31,2025-02-20,2026-08-31,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.24,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIVA.ST,2025-03-31,2025-05-15,2026-08-31,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.5,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIVA.ST,2025-06-30,2025-08-28,2026-08-31,reportedEPS,0.5,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIVA.ST,2025-09-30,2025-11-20,2026-08-31,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+VIVA.ST,2025-12-31,2026-02-19,2026-08-31,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
+VIVA.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.29,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,5.28,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,4.86,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,3.64,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,4.73,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.09,SEK,Yahoo Finance / quarterlyDilutedEPS
+VOLV-A.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,5.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2023-09-30,2023-10-20,2026-08-31,reportedEPS,0.45,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2024-03-31,2024-04-24,2026-08-31,reportedEPS,0.32,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2024-06-30,2024-07-08,2026-08-31,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2024-09-30,2024-10-22,2026-08-31,reportedEPS,-0.14,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2024-12-31,2025-02-06,2026-08-31,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2025-03-31,2025-04-28,2026-08-31,reportedEPS,0.52,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,0.0,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2025-06-30,2025-10-21,2026-08-31,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.1,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2025-12-31,2026-02-05,2026-08-31,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+WALL-B.ST,2026-06-30,2026-07-06,2026-08-31,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2023-09-30,2023-10-24,2026-08-31,reportedEPS,1.11,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2024-03-31,2024-04-23,2026-08-31,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2024-06-30,2024-07-08,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2024-09-30,2024-10-24,2026-08-31,reportedEPS,1.01,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,2.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+WIHL.ST,2024-12-31,2025-02-11,2026-08-31,reportedEPS,1.16,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.4,SEK,Yahoo Finance / quarterlyDilutedEPS
+WIHL.ST,2025-03-31,2025-04-28,2026-08-31,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
+WIHL.ST,2025-06-30,2025-07-07,2026-08-31,reportedEPS,1.27,SEK,Yahoo Finance / Reported EPS
+WIHL.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,2.76,SEK,Yahoo Finance / quarterlyDilutedEPS
+WIHL.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+WIHL.ST,2026-06-30,,2026-08-31,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2023-09-30,2023-11-16,2026-08-31,reportedEPS,1.56,SEK,Yahoo Finance / Reported EPS
+ZZ-B.ST,2023-12-31,2024-02-27,2026-08-31,reportedEPS,1.26,SEK,Yahoo Finance / Reported EPS
+ZZ-B.ST,2024-06-30,2024-08-30,2026-08-31,reportedEPS,1.31,SEK,Yahoo Finance / Reported EPS
+ZZ-B.ST,2024-12-31,,2026-08-31,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2025-03-31,,2026-08-31,quarterlyDilutedEPS,1.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2025-03-31,2025-05-20,2026-08-31,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
+ZZ-B.ST,2025-06-30,,2026-08-31,quarterlyDilutedEPS,1.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,2.35,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2025-09-30,2025-11-19,2026-08-31,reportedEPS,2.35,SEK,Yahoo Finance / Reported EPS
+ZZ-B.ST,2025-12-31,,2026-08-31,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
