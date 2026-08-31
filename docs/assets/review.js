@@ -125,21 +125,21 @@
     header.insertAdjacentElement('afterend', panel);
   }
 
-  function priorYearQuarter() {
+  function priorYearPeriod() {
     const periodText = $('eps-period-end')?.value;
     if (!periodText) return null;
     const target = new Date(`${periodText}T12:00:00Z`);
     if (Number.isNaN(target.valueOf())) return null;
     target.setUTCFullYear(target.getUTCFullYear() - 1);
-    const priority = { manualDilutedEPS: 0, quarterlyDilutedEPS: 1, reportedEPS: 2 };
+    const priority = { manualDilutedEPS: 0, quarterlyDilutedEPS: 1 };
     return state.quarterly
-      .filter((item) => item.ticker === state.selectedTicker && item.period_end)
+      .filter((item) => item.ticker === state.selectedTicker && item.period_end && Object.hasOwn(priority, item.metric))
       .map((item) => {
         const date = new Date(`${item.period_end}T12:00:00Z`);
         return { item, distance: Math.abs(date.valueOf() - target.valueOf()) / 86400000 };
       })
       .filter((entry) => Number.isFinite(entry.distance) && entry.distance <= 21)
-      .sort((a, b) => a.distance - b.distance || (priority[a.item.metric] ?? 99) - (priority[b.item.metric] ?? 99))[0]?.item || null;
+      .sort((a, b) => a.distance - b.distance || priority[a.item.metric] - priority[b.item.metric])[0]?.item || null;
   }
 
   function renderEarnings() {
@@ -147,22 +147,28 @@
     const panel = $('eps-candidate-panel');
     if (!panel) return;
     const item = currentEarnings();
-    const prior = priorYearQuarter();
+    const prior = priorYearPeriod();
     panel.hidden = false;
     $('eps-candidate-title').textContent = `Automatiskt TTM-underlag · ${state.selectedTicker}`;
+
+    if (state.selectedTicker === 'EQT.ST') {
+      $('eps-candidate-summary').textContent = 'EQT publicerar inte kvartalsvisa finansiella rapporter med EPS. Yahoo saknar därför jämförbar quarterlyDilutedEPS för bolaget.';
+      $('eps-candidate-meta').textContent = 'EQT:s Q1/Q3-redogörelser ska inte ges en konstruerad EPS. Halvårs- och bokslutsrapport hanteras utan att blanda in en proxy.';
+      return;
+    }
 
     if (!item) {
       $('eps-candidate-summary').textContent = 'Ingen sparad Yahoo EPS TTM hittades. Arbetsflödet stoppar om TTM inte kan härledas säkert.';
       $('eps-candidate-meta').textContent = prior
-        ? `Samma kvartal föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}).`
-        : 'Välj periodslut för att kontrollera föregående års kvartals-EPS.';
+        ? `Motsvarande period föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}).`
+        : 'Välj periodslut för att kontrollera motsvarande utspädda EPS föregående år.';
       return;
     }
 
     $('eps-candidate-summary').textContent = `Senast sparad Yahoo trailing EPS TTM: ${formatNumber(item.eps_ttm)}${item.period_end ? ` för perioden ${item.period_end}` : ''}.`;
     $('eps-candidate-meta').textContent = prior
-      ? `Samma kvartal föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}). Backend väljer rätt föregående TTM-period och validerar valuta innan ny TTM sparas.`
-      : 'Välj periodslut för att kontrollera om jämförelsekvartalet finns sparat. Saknas det stoppas inmatningen i stället för att ett värde gissas.';
+      ? `Motsvarande period föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}). Backend väljer rätt föregående TTM-period och validerar valuta innan ny TTM sparas.`
+      : 'Välj periodslut för att kontrollera om jämförelseperiodens diluted EPS finns sparad. Saknas den stoppas inmatningen i stället för att ett värde gissas.';
   }
 
   function renderEvent() {
@@ -220,7 +226,6 @@
       `period=${$('eps-period').value}`,
       `period_end=${$('eps-period-end').value}`,
       `published_at=${quoted($('eps-published').value)}`,
-      `effective_date=${$('eps-effective').value}`,
       `eps=${$('eps-value').value}`,
       `source=${quoted($('eps-source').value)}`,
       `note=${quoted($('eps-note').value)}`
