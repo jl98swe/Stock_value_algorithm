@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "src/backfill_quarterly_eps_statement.py"
+      - "src/backfill_quarterly_eps_components.py"
       - "src/derive_missing_quarterly_eps.py"
       - "src/audit_quarterly_eps_readiness.py"
       - ".github/workflows/quarterly_eps_gapfill.yml"
@@ -38,6 +39,9 @@ jobs:
 
       - name: Fyll diluted EPS-luckor från Yahoo resultaträkningar
         run: python -m src.backfill_quarterly_eps_statement
+
+      - name: Fyll diluted EPS-luckor från Yahoo timeseries-komponenter
+        run: python -m src.backfill_quarterly_eps_components
 
       - name: Härled återstående diluted EPS från Yahoo trailing EPS
         run: python -m src.derive_missing_quarterly_eps
