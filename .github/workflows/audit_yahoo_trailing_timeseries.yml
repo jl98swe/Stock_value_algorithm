@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "src/audit_yahoo_trailing_timeseries.py"
+      - "src/quarterly_eps.py"
       - "src/build_yahoo_history_all.py"
       - "src/audit_yahoo_startpoints.py"
       - "src/align_historical_eps_to_yahoo.py"
@@ -40,6 +41,9 @@ jobs:
       - name: Hämta Yahoo trailing EPS-timeseries
         run: python -m src.audit_yahoo_trailing_timeseries
 
+      - name: Backfilla kvartals-EPS för hela aktieuniversumet
+        run: python -m src.quarterly_eps --backfill
+
       - name: Bygg Yahoo-historik med separata rapportdatum
         run: python -m src.build_yahoo_history_all
 
@@ -49,11 +53,15 @@ jobs:
       - name: Aligna historisk EPS till trailingDilutedEPS
         run: python -m src.align_historical_eps_to_yahoo
 
-      - name: Spara audit, startpunkter och alignad historik
+      - name: Spara audit, kvartals-EPS, startpunkter och alignad historik
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/derived/yahoo_trailing_eps_timeseries_audit.csv
+          git add data/earnings/quarterly_eps.csv
+          git add data/derived/quarterly_eps_coverage.csv
+          git add data/derived/quarterly_eps_coverage_summary.json
+          git add docs/data/quarterly_eps.json
           git add data/fundamentals/yahoo_history_all.csv
           git add data/derived/yahoo_history_all_audit.csv
           git add data/derived/yahoo_eps_startpoints.csv
@@ -65,6 +73,6 @@ jobs:
             echo "Inga ändringar att spara."
             exit 0
           fi
-          git commit -m "data: audit Yahoo EPS startpoints"
+          git commit -m "data: update Yahoo quarterly EPS coverage"
           git pull --rebase --autostash origin main
           git push origin main
