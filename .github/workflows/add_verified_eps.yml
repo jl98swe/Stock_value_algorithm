@@ -1,4 +1,4 @@
-name: Lägg till verifierad kvartals-EPS
+name: Lägg till verifierad EPS
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
         required: true
         type: string
       eps:
-        description: "Verifierad utspädd EPS för kvartalet i bolagets rapportvaluta"
+        description: "Verifierad utspädd EPS för rapportperioden i bolagets rapportvaluta"
         required: true
         type: string
       source:
@@ -61,10 +61,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Uppdatera sparad Yahoo kvartals-EPS
+      - name: Uppdatera sparad Yahoo diluted EPS
         run: python -m src.quarterly_eps
 
-      - name: Lägg in verifierad kvartals-EPS
+      - name: Lägg in verifierad period-EPS
         env:
           TICKER: ${{ inputs.ticker }}
           REPORT_PERIOD: ${{ inputs.report_period }}
@@ -120,6 +120,6 @@ jobs:
             echo "Inga ändringar att spara."
             exit 0
           fi
-          git commit -m "fundamentals: verifierad kvartals-EPS ${{ inputs.ticker }} ${{ inputs.report_period }}"
+          git commit -m "fundamentals: verifierad period-EPS ${{ inputs.ticker }} ${{ inputs.report_period }}"
           git pull --rebase origin main
           git push origin main
