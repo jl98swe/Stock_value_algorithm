@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-08-31T22:46:28+02:00",
+  "derived_periods": 114,
+  "derived_tickers": 106,
+  "source": "Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS",
+  "methods": {
+    "same_period": "quarter = trailingDilutedEPS(same period) - previous three quarterlyDilutedEPS",
+    "next_period_bridge": "missing quarter = trailingDilutedEPS(next quarter) - other three quarters in that TTM window"
+  }
+}

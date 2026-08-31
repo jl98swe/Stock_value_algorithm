@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-31T22:46:29+02:00",
+  "universe_tickers": 119,
+  "quarterly_tickers": 118,
+  "non_quarterly_tickers": [
+    "EQT.ST"
+  ],
+  "quarterly_ready": 118,
+  "quarterly_not_ready": 0,
+  "not_ready_tickers": [],
+  "criterion": "For the next quarterly report after the latest Yahoo trailingDilutedEPS period: a comparable manualDilutedEPS/quarterlyDilutedEPS period one year earlier must exist within 21 days and use the same non-empty report currency."
+}
