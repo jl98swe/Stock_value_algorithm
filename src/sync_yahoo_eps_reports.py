@@ -7,6 +7,7 @@ import pandas as pd
 from .earnings import EPS_SOURCE, load_earnings_history
 from .fundamentals import REPORT_COLUMNS, load_reports, normalise_reports, save_reports
 from .fx import load_stock_currencies
+from .quarterly_eps import DERIVED_MANUAL_MARKER
 
 AUTO_MARKER = "yahoo_eps_auto_v1"
 HISTORICAL_MARKERS = (
@@ -19,7 +20,11 @@ MAX_OBSERVED_FALLBACK_LAG_DAYS = 180
 
 def _is_replaceable_generated_report(row: pd.Series) -> bool:
     notes = str(row.get("notes") or "")
-    return AUTO_MARKER in notes or any(marker in notes for marker in HISTORICAL_MARKERS)
+    return (
+        AUTO_MARKER in notes
+        or DERIVED_MANUAL_MARKER in notes
+        or any(marker in notes for marker in HISTORICAL_MARKERS)
+    )
 
 
 def _valid_report_date(value: object, period_end: pd.Timestamp) -> pd.Timestamp | None:
@@ -83,9 +88,6 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
         return load_reports()
 
     earnings = earnings.loc[earnings["source"].astype(str) == EPS_SOURCE].copy()
-    # report_date får vara tomt. För en genuint ny Yahoo-period används då
-    # observed_date som konservativ fallback i stället för att stoppa den fria
-    # uppdateringskedjan. Det ger sen, aldrig tidig, aktivering.
     earnings = earnings.dropna(subset=["ticker", "period_end", "observed_date", "eps_ttm"])
     earnings = earnings.loc[earnings["eps_currency"].astype(str).str.len() > 0]
     if earnings.empty:
@@ -104,8 +106,6 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
     skipped_currency = 0
     skipped_manual = 0
 
-    # Samma period kan observeras flera gånger vid en Yahoo-korrigering. Sista
-    # observationen för perioden vinner.
     earnings = (
         earnings.sort_values(["ticker", "period_end", "observed_date"])
         .drop_duplicates(["ticker", "period_end"], keep="last")
@@ -115,9 +115,6 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
     for earning in earnings.itertuples(index=False):
         ticker = str(earning.ticker)
         if ticker not in eligible_tickers:
-            # Vi synkar bara bolag som redan har en etablerad historisk
-            # fundamentaserie. När nästa historikbatch importeras blir de
-            # automatiskt berättigade.
             continue
         if metadata_map.empty or ticker not in metadata_map.index:
             skipped_currency += 1
@@ -151,8 +148,10 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
                 skipped_manual += 1
                 continue
 
-            # En historisk same-day-datering som redan finns flyttas inte bara
-            # för att Yahoo get_earnings_dates är en dag fel eller saknas.
+            # En manuell kvartals-EPS kan skapa en provisorisk TTM-post på
+            # rapportdagen. När Yahoo senare publicerar faktisk trailingDilutedEPS
+            # för samma period ersätts bara TTM-värdet/källan; det etablerade
+            # effective_date bevaras så att rapportens timing inte flyttas.
             if pd.notna(existing["effective_date"]):
                 effective_date = pd.Timestamp(existing["effective_date"]).normalize()
                 date_basis = "existing_effective_date"
@@ -186,8 +185,6 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
                 updated += 1
             continue
 
-        # Om historiken har en explicit fallback utan period_end kan vi ersätta
-        # den när Yahoo både har en giltig rapportdag och samma same-day-datum.
         if yahoo_report_date is not None:
             same_report_day = ticker_reports.loc[
                 ticker_reports["effective_date"].notna()
@@ -211,15 +208,9 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
 
         known_period_ends = ticker_reports["period_end"].dropna()
         if not known_period_ends.empty and period_end <= known_period_ends.max().normalize():
-            # Saknar vi en exakt match inne i historiken ska vi inte gissa ett
-            # gammalt kvartal. Den alignade historiken/fallbacken behålls då.
             skipped_stale += 1
             continue
 
-        # Genuint ny period: Yahoo report_date används om det är logiskt. Om
-        # datumet saknas eller pekar på en gammal rapport används dagen då vi
-        # först såg den nya diluted-perioden. Detta är konservativt för live-
-        # drift: EPS kan aktiveras sent, men aldrig före den observerats.
         if yahoo_report_date is not None:
             effective_date = yahoo_report_date
             date_basis = "yahoo_report_date"
