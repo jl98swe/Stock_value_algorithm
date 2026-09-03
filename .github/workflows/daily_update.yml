@@ -1,6 +1,13 @@
 name: Daglig marknadsuppdatering
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/daily_update.yml"
+      - "src/pipeline.py"
+      - "src/validate_outputs.py"
   schedule:
     - cron: "45 17 * * 1-5"
       timezone: "Europe/Stockholm"
@@ -37,7 +44,7 @@ jobs:
         run: python -m src.fx
 
       - name: Uppdatera priser och utdelningar
-        run: python -m src.pipeline --defer-score-history
+        run: python -m src.pipeline
 
       - name: Uppdatera Yahoo trailingDilutedEPS
         run: python -m src.earnings
@@ -67,7 +74,6 @@ jobs:
 
           git add docs/data
           git add data/fundamentals/reports.csv
-          git add data/derived/valuation_score_history.csv.gz
 
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv

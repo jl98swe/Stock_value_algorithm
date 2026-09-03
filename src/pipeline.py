@@ -26,14 +26,6 @@ from .fundamentals import (
     valuation_calculation_mode,
 )
 from .model_data import ensure_gbm_model
-from .score_history import (
-    SCORE_HISTORY_FILE,
-    apply_frozen_scores,
-    load_score_history,
-    merge_score_history,
-    save_score_history,
-    seed_score_history_from_dashboard,
-)
 from .strategy import run_strategy
 from .utils import write_json_atomic
 from .valuation import GBMModel, calculate_valuation
@@ -261,9 +253,7 @@ def _stock_payload(
     reviews: list[dict[str, object]],
     calendar: pd.DataFrame,
     model: GBMModel | None,
-    score_history: pd.DataFrame,
-    frozen_at: str,
-) -> tuple[dict[str, object], dict[str, object], pd.DataFrame]:
+) -> tuple[dict[str, object], dict[str, object]]:
     frame = frame.sort_values("date").reset_index(drop=True)
     latest_price = frame.iloc[-1]
     previous_close = frame.iloc[-2]["close"] if len(frame) > 1 else np.nan
@@ -289,18 +279,10 @@ def _stock_payload(
     working["LockReason"] = working["LockReason"].fillna("")
 
     valued: pd.DataFrame | None = None
-    score_additions = pd.DataFrame()
     strategy: dict[str, object] | None = None
     has_verified_eps = bool(pd.to_numeric(working["EPS_TTM"], errors="coerce").notna().any())
     if model is not None and has_verified_eps:
         valued = calculate_valuation(working, model=model)
-        valued, score_additions = apply_frozen_scores(
-            valued,
-            ticker,
-            score_history,
-            frozen_at=frozen_at,
-            calculation_mode=calculation_mode,
-        )
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
         if valued["Score"].notna().any():
@@ -350,7 +332,7 @@ def _stock_payload(
         "strategy_comparison": _strategy_comparison(strategy),
         "closed_trades": strategy.get("trades", []) if strategy else [],
     }
-    return ticker_meta, dashboard_stock, score_additions
+    return ticker_meta, dashboard_stock
 
 
 def _dividend_events(dividends: pd.DataFrame) -> list[dict[str, object]]:
@@ -430,9 +412,6 @@ def _news_events(tickers: list[str], reviews: list[dict[str, object]]) -> list[d
 def build_dashboard(
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
-    score_history_file: Path = SCORE_HISTORY_FILE,
-    *,
-    persist_score_history: bool = True,
 ) -> dict[str, object]:
     prices = load_price_history(base_file, updates_file)
     reports = load_reports()
@@ -440,9 +419,6 @@ def build_dashboard(
     calendar = load_report_calendar()
     dividends = load_dividend_history()
     generated_at = datetime.now(ZoneInfo("Europe/Stockholm")).isoformat(timespec="seconds")
-    score_history = load_score_history(score_history_file)
-    if score_history.empty:
-        score_history = seed_score_history_from_dashboard(DASHBOARD_JSON, frozen_at=generated_at)
 
     try:
         model_path = ensure_gbm_model()
@@ -455,30 +431,18 @@ def build_dashboard(
 
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
-    score_additions: list[pd.DataFrame] = []
     tickers = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
     for ticker, group in prices.groupby("ticker", sort=True):
-        meta, payload, additions = _stock_payload(
+        meta, payload = _stock_payload(
             str(ticker),
             group,
             reports,
             reviews,
             calendar,
             model,
-            score_history,
-            generated_at,
         )
         stock_list.append(meta)
         dashboard_stocks[str(ticker)] = payload
-        if not additions.empty:
-            score_additions.append(additions)
-
-    if persist_score_history:
-        combined_history = merge_score_history(
-            score_history,
-            pd.concat(score_additions, ignore_index=True) if score_additions else pd.DataFrame(),
-        )
-        save_score_history(combined_history, score_history_file)
 
     rules = {
         "buy_score": 0,
@@ -534,19 +498,12 @@ def run(
     skip_dividends: bool = False,
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
-    score_history_file: Path = SCORE_HISTORY_FILE,
-    persist_score_history: bool = True,
 ) -> None:
     if not skip_fetch:
         update_prices(base_file, updates_file, full=full)
     if not skip_dividends:
         update_dividends()
-    build_dashboard(
-        base_file,
-        updates_file,
-        score_history_file,
-        persist_score_history=persist_score_history,
-    )
+    build_dashboard(base_file, updates_file)
 
 
 def main() -> None:
@@ -558,12 +515,6 @@ def main() -> None:
     parser.add_argument("--full", action="store_true", help="Hämta om Yahoo-prisserien före byggning.")
     parser.add_argument("--base-file", type=Path, default=BASE_DATA_FILE)
     parser.add_argument("--updates-file", type=Path, default=UPDATES_FILE)
-    parser.add_argument("--score-history-file", type=Path, default=SCORE_HISTORY_FILE)
-    parser.add_argument(
-        "--defer-score-history",
-        action="store_true",
-        help="Bygg dashboard utan att frysa nya poängrader; används före dagens EPS-synk.",
-    )
     args = parser.parse_args()
     run(
         skip_fetch=args.skip_fetch,
@@ -571,8 +522,6 @@ def main() -> None:
         skip_dividends=args.skip_dividends,
         base_file=args.base_file,
         updates_file=args.updates_file,
-        score_history_file=args.score_history_file,
-        persist_score_history=not args.defer_score_history,
     )
 
 

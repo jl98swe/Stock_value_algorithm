@@ -49,7 +49,7 @@ TradingView kan leverera EPS i aktiens handelsvaluta även när bolaget rapporte
 
 Om TradingView-valutan avviker från referenshistorikens valuta skrivs den separata `tradingview_eps_overrides.csv` endast till den kanoniska rapportfilen. Referensraden behålls då i sin ursprungliga valuta så att Yahoo-kompatibilitetskontrollen inte jämför exempelvis SEK med USD.
 
-Detta läge är avsiktligt inte ett traditionellt point-in-time-backtest: när en ny rapport blir känd räknas det interna rullande tillståndet om från periodslutet. Den publicerade grafen skyddas i stället av `data/derived/valuation_score_history.csv.gz`. Befintliga datum återanvänds oförändrade och endast datum efter tickerns senast frysta dag får läggas till. Därmed påverkar ett nytt EPS-värde endast kommande synliga poäng.
+Detta läge är avsiktligt inte ett traditionellt point-in-time-backtest: när en ny rapport blir känd räknas det interna rullande tillståndet om från periodslutet. Dashboardens värderings- och signalhistorik räknas om i sin helhet vid varje bygge. När verifierad historisk EPS kompletteras kan därför även äldre poäng och signaler ändras.
 
 ## Daglig Yahoo EPS
 

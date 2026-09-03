@@ -54,7 +54,7 @@ Kanonisk rapportfil:
 data/fundamentals/reports.csv
 ```
 
-Endast verifierade EPS TTM-rader med explicit `effective_date` används. Den kanoniska rapport- och låslogiken följer alltid detta datum. För tickers med manuellt verifierad TradingView-historik använder värderingsmotorns interna tillstånd i stället `period_end`, så att EPS-serien beter sig som TradingViews historiska fundamentalserie. Publicerade poäng ligger i en separat append-only-historik och räknas därför inte om retroaktivt när en ny rapport tillkommer. Om verifierad historik senare förlängs bakåt förbi tickerns första frysta poäng görs däremot en engångsomräkning av hela tickern, eftersom modellens rullande tillstånd annars skulle bli inkonsekvent.
+Endast verifierade EPS TTM-rader med explicit `effective_date` används. Den kanoniska rapport- och låslogiken följer alltid detta datum. För tickers med manuellt verifierad TradingView-historik använder värderingsmotorns interna tillstånd i stället `period_end`, så att EPS-serien beter sig som TradingViews historiska fundamentalserie. Hela värderings- och signalhistoriken räknas om vid varje dashboardbygge med aktuella regler och aktuellt verifierat dataunderlag. När historisk EPS kompletteras kan därför även äldre poäng och signaler ändras.
 
 Enstaka verifierad rapport kan läggas in med:
 
