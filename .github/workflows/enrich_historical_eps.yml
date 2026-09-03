@@ -31,7 +31,6 @@ on:
       - "src/fundamentals.py"
       - "src/limit_dashboard_window.py"
       - "src/pipeline.py"
-      - "src/score_history.py"
       - ".github/workflows/enrich_historical_eps.yml"
 
 permissions:
@@ -197,7 +196,6 @@ jobs:
           git add data/derived/yahoo_history_continuity_audit.csv
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
-          git add data/derived/valuation_score_history.csv.gz
           git add docs/data/dashboard.json docs/data/stocks.json docs/data/earnings.json
 
           if [ -f data/fx/fx_initial.csv ]; then git add data/fx/fx_initial.csv; fi
