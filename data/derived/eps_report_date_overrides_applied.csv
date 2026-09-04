@@ -47,14 +47,14 @@ CIBUS.ST,2024-Q3,2024-11-05,2024-11-05,Cibus official interim report
 CIBUS.ST,2024-Q4,2025-02-19,2025-02-19,Cibus financial reports archive
 CIBUS.ST,2025-Q1,2025-04-23,2025-04-23,Cibus official interim report
 CIBUS.ST,2025-Q2,2025-07-17,2025-07-17,Cibus official interim report
-CLAS-B.ST,2024-Q3,2024-03-06,2024-03-06,Clas Ohlson reports archive Q3 2023/24
-CLAS-B.ST,2024-Q4,2024-06-05,2024-06-05,Clas Ohlson reports archive year-end 2023/24
-CLAS-B.ST,2025-Q1,2024-09-04,2024-09-04,Clas Ohlson reports archive Q1 2024/25
-CLAS-B.ST,2025-Q2,2024-12-04,2024-12-04,Clas Ohlson reports archive Q2 2024/25
-CLAS-B.ST,2025-Q3,2025-03-12,2025-03-12,Clas Ohlson reports archive Q3 2024/25
-CLAS-B.ST,2025-Q4,2025-06-12,2025-06-12,Clas Ohlson reports archive year-end 2024/25
-CLAS-B.ST,2026-Q1,2025-09-10,2025-09-10,Clas Ohlson reports archive Q1 2025/26
-CLAS-B.ST,2026-Q2,2025-12-10,2025-12-10,Clas Ohlson reports archive Q2 2025/26
+CLAS-B.ST,2024-Q3,2024-09-04,2024-03-06,Clas Ohlson reports archive Q3 2023/24
+CLAS-B.ST,2024-Q4,2024-12-04,2024-06-05,Clas Ohlson reports archive year-end 2023/24
+CLAS-B.ST,2025-Q1,2025-03-12,2024-09-04,Clas Ohlson reports archive Q1 2024/25
+CLAS-B.ST,2025-Q2,2025-06-12,2024-12-04,Clas Ohlson reports archive Q2 2024/25
+CLAS-B.ST,2025-Q3,2025-09-10,2025-03-12,Clas Ohlson reports archive Q3 2024/25
+CLAS-B.ST,2025-Q4,2025-12-10,2025-06-12,Clas Ohlson reports archive year-end 2024/25
+CLAS-B.ST,2026-Q1,2026-03-11,2025-09-10,Clas Ohlson reports archive Q1 2025/26
+CLAS-B.ST,2026-Q2,2026-06-03,2025-12-10,Clas Ohlson reports archive Q2 2025/26
 CLAS-B.ST,2026-Q3,2026-03-11,2026-03-11,Clas Ohlson reports archive Q3 2025/26
 CTT.ST,2024-Q1,2024-04-26,2024-04-26,CTT Systems report archive
 CTT.ST,2024-Q2,2024-07-19,2024-07-19,CTT Systems report archive
@@ -100,7 +100,7 @@ EAST.ST,2025-Q2,2025-07-07,2025-07-07,Eastnine financial reports
 EAST.ST,2025-Q3,2025-10-23,2025-10-23,Eastnine financial reports
 EAST.ST,2025-Q4,2026-02-05,2026-02-05,Eastnine financial reports
 EAST.ST,2026-Q1,2026-04-28,2026-04-28,Eastnine financial reports
-EQL.ST,2024-Q4,2024-05-14,2024-05-14,EQL Pharma year-end report 2023/24
+EQL.ST,2024-Q4,2025-02-05,2024-05-14,EQL Pharma year-end report 2023/24
 EQT.ST,2021-Q4,2022-01-19,2022-01-19,EQT year-end report 2021
 EQT.ST,2022-Q2,2022-07-14,2022-07-14,EQT half-year report 2022
 EQT.ST,2022-Q4,2023-01-18,2023-01-18,EQT year-end report 2022

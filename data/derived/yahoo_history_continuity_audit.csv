@@ -29,6 +29,8 @@ CIBUS.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted
 CIBUS.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 CLAS-B.ST,leading_missing_report_date,,2023-10-31,,,Första Yahoo-perioden saknar säkert rapportdatum.
 CLAS-B.ST,leading_missing_report_date,2023-10-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+CLAS-B.ST,internal_missing_report_date,2024-01-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
+CLAS-B.ST,internal_missing_report_date,2024-04-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 CTT.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 CTT.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 CTT.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
