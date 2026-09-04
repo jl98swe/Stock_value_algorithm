@@ -12,6 +12,17 @@ def test_abb_override_history_covers_2018_q3_through_2026_q2():
     assert len(abb) == 32
     assert abb.iloc[0]["report_period"] == "2018-Q3"
     assert abb.iloc[-1]["report_period"] == "2026-Q2"
+    assert abb["period_end"].notna().all()
+
+
+def test_all_tickers_have_tradingview_history_and_current_duplicates_are_removed():
+    overrides = _load_overrides()
+    mapping = pd.read_csv("config/ticker_mapping.csv", encoding="utf-8-sig")
+
+    assert overrides["ticker"].nunique() == len(mapping)
+    assert set(overrides["ticker"]) == set(mapping["borsdata_ticker"])
+    latest = overrides.sort_values("period_end").groupby("ticker").tail(1)
+    assert latest["report_period"].value_counts().to_dict() == {"2026-Q2": 117, "2026-Q3": 2}
 
 
 def test_history_override_skips_cross_currency_reference(tmp_path: Path):

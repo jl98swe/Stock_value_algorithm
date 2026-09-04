@@ -99,16 +99,26 @@ def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
 
 def verified_reports(frame: pd.DataFrame | None = None) -> pd.DataFrame:
     reports = normalise_reports(frame) if frame is not None else load_reports()
+    tradingview_with_period_end = (
+        reports["source"].fillna("").astype(str).str.startswith(TRADINGVIEW_SOURCE_PREFIX)
+        & reports["period_end"].notna()
+    )
     return reports.loc[
         reports["verified"]
-        & reports["effective_date"].notna()
+        & (reports["effective_date"].notna() | tradingview_with_period_end)
         & reports["eps_ttm"].notna()
     ].copy()
 
 
 def latest_verified_report(ticker: str, frame: pd.DataFrame | None = None) -> pd.Series | None:
     reports = verified_reports(frame)
-    subset = reports.loc[reports["ticker"] == ticker].sort_values(["effective_date", "published_at"])
+    subset = reports.loc[reports["ticker"] == ticker].copy()
+    tradingview = subset["source"].fillna("").astype(str).str.startswith(TRADINGVIEW_SOURCE_PREFIX)
+    subset["_latest_date"] = subset["effective_date"]
+    subset.loc[tradingview, "_latest_date"] = subset.loc[tradingview, "period_end"].fillna(
+        subset.loc[tradingview, "effective_date"]
+    )
+    subset = subset.sort_values(["_latest_date", "published_at"])
     return None if subset.empty else subset.iloc[-1]
 
 
@@ -240,7 +250,7 @@ def attach_eps_ttm(
     verified = verified_reports(reports)
     subset = verified.loc[
         verified["ticker"] == ticker,
-        ["period_end", "effective_date", "eps_ttm", "notes"],
+        ["period_end", "effective_date", "eps_ttm", "notes", "source"],
     ].copy()
     if subset.empty:
         result["EPS_TTM"] = pd.NA
@@ -260,7 +270,20 @@ def attach_eps_ttm(
         .str.upper()
     )
     if calculation_mode == TV_PERIOD_END_STATE:
+        tradingview_rows = subset["source"].fillna("").astype(str).str.startswith(
+            TRADINGVIEW_SOURCE_PREFIX
+        )
+        if tradingview_rows.any():
+            subset = subset.loc[tradingview_rows].copy()
         subset["valuation_date"] = subset["period_end"].fillna(subset["effective_date"])
+        observed_before_period_end = (
+            subset["effective_date"].notna()
+            & subset["period_end"].notna()
+            & (subset["effective_date"] < subset["period_end"])
+        )
+        subset.loc[observed_before_period_end, "valuation_date"] = subset.loc[
+            observed_before_period_end, "effective_date"
+        ]
     subset = (
         subset.sort_values(["valuation_date", "effective_date"])
         .drop_duplicates("valuation_date", keep="last")

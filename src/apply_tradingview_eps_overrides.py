@@ -13,7 +13,16 @@ HISTORY_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history.csv"
 MAPPING_FILE = ROOT / "config" / "ticker_mapping.csv"
 MARKER = "tradingview_eps_manual_override_v1"
 
-OVERRIDE_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency", "source"]
+OVERRIDE_COLUMNS = [
+    "ticker",
+    "report_period",
+    "period_end",
+    "report_date",
+    "eps_ttm",
+    "currency",
+    "source",
+    "report_date_status",
+]
 HISTORY_COLUMNS = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
 
 
@@ -27,19 +36,29 @@ def _period_end(report_period: str) -> pd.Timestamp:
 
 def _load_overrides(path: Path = OVERRIDES_FILE) -> pd.DataFrame:
     frame = pd.read_csv(path, encoding="utf-8-sig")
-    missing = [column for column in OVERRIDE_COLUMNS if column not in frame.columns]
+    required_columns = ["ticker", "report_period", "eps_ttm", "currency", "source"]
+    missing = [column for column in required_columns if column not in frame.columns]
     if missing:
         raise ValueError(f"TradingView-overrides saknar kolumner: {', '.join(missing)}")
 
+    for column in OVERRIDE_COLUMNS:
+        if column not in frame.columns:
+            frame[column] = pd.NA
     frame = frame[OVERRIDE_COLUMNS].copy()
     frame["ticker"] = frame["ticker"].astype(str).str.strip()
     frame["report_period"] = frame["report_period"].astype(str).str.strip()
+    frame["period_end"] = pd.to_datetime(frame["period_end"], errors="coerce").dt.normalize()
     frame["report_date"] = pd.to_datetime(frame["report_date"], errors="coerce").dt.normalize()
     frame["eps_ttm"] = pd.to_numeric(frame["eps_ttm"], errors="coerce")
     frame["currency"] = frame["currency"].astype(str).str.strip().str.upper()
     frame["source"] = frame["source"].astype(str).str.strip()
+    frame["report_date_status"] = frame["report_date_status"].fillna("").astype(str).str.strip()
 
-    required = ["ticker", "report_period", "report_date", "eps_ttm", "currency", "source"]
+    frame["period_end"] = frame["period_end"].where(
+        frame["period_end"].notna(),
+        frame["report_period"].map(_period_end),
+    )
+    required = ["ticker", "report_period", "period_end", "eps_ttm", "currency", "source"]
     if frame[required].isna().any().any():
         raise ValueError("TradingView-overrides innehåller saknade obligatoriska värden")
     if frame.duplicated(["ticker", "report_period"]).any():
@@ -122,11 +141,12 @@ def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
         yahoo_ticker = mapping.get(str(row.ticker))
         if not yahoo_ticker:
             raise ValueError(f"Saknar Yahoo-mappning för TradingView-override: {row.ticker}")
-        report_date = pd.Timestamp(row.report_date).normalize()
+        report_date = pd.Timestamp(row.report_date).normalize() if pd.notna(row.report_date) else pd.NaT
+        period_end = pd.Timestamp(row.period_end).normalize()
         rows.append(
             {
                 "ticker": yahoo_ticker,
-                "period_end": _period_end(str(row.report_period)),
+                "period_end": period_end,
                 "report_period": str(row.report_period),
                 "published_at": pd.NaT,
                 "effective_date": report_date,
@@ -136,7 +156,8 @@ def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
                 "verified_at": now,
                 "notes": (
                     f"{MARKER}; metric=EARNINGS_PER_SHARE_DILUTED TTM; "
-                    f"report_currency={row.currency}; effective_date=report_date; "
+                    f"report_currency={row.currency}; report_date_status={row.report_date_status}; "
+                    f"effective_date={'report_date' if pd.notna(report_date) else 'missing'}; "
                     "value manually verified in TradingView"
                 ),
             }

@@ -175,9 +175,59 @@ def test_tradingview_override_can_use_price_currency_for_one_report():
         calculation_mode=TV_PERIOD_END_STATE,
     )
 
-    assert mapped.loc[0, "EPS_CURRENCY"] == "USD"
-    assert mapped.loc[0, "EPS_TTM"] == 20.0
+    assert pd.isna(mapped.loc[0, "EPS_TTM"])
     assert mapped.loc[1, "EPS_CURRENCY"] == "SEK"
     assert mapped.loc[1, "FX_RATE"] == 1.0
     assert mapped.loc[1, "EPS_TTM"] == 26.4067
     assert mapped.loc[2, "EPS_TTM"] == 26.4067
+
+
+def test_tradingview_period_end_is_usable_when_report_date_is_unknown():
+    prices = pd.DataFrame(
+        {
+            "Date": pd.to_datetime(["2018-09-28", "2018-10-01"]),
+            "Close": [100.0, 101.0],
+        }
+    )
+    report = _verified_report(ticker="TV.ST", eps_ttm=5.0)
+    report.loc[0, ["period_end", "effective_date"]] = ["2018-09-30", pd.NaT]
+    report.loc[0, "report_period"] = "2018-Q3"
+    report.loc[0, "source"] = "TradingView / EARNINGS_PER_SHARE_DILUTED TTM"
+    report.loc[0, "notes"] = "report_currency=SEK"
+    reports = normalise_reports(report)
+
+    assert len(verified_reports(reports)) == 1
+    mapped = attach_eps_ttm(
+        prices,
+        "TV.ST",
+        reports,
+        calculation_mode=TV_PERIOD_END_STATE,
+    )
+
+    assert pd.isna(mapped.loc[0, "EPS_TTM"])
+    assert mapped.loc[1, "EPS_TTM"] == 5.0
+
+
+def test_current_tradingview_value_applies_when_observed_before_period_end():
+    prices = pd.DataFrame(
+        {
+            "Date": pd.to_datetime(["2026-09-03", "2026-09-04"]),
+            "Close": [100.0, 101.0],
+        }
+    )
+    report = _verified_report(ticker="TV.ST", eps_ttm=6.0)
+    report.loc[0, ["period_end", "effective_date"]] = ["2026-09-30", "2026-09-04"]
+    report.loc[0, "report_period"] = "2026-Q3"
+    report.loc[0, "source"] = "TradingView / EARNINGS_PER_SHARE_DILUTED TTM"
+    report.loc[0, "notes"] = "report_currency=SEK; report_date_status=observed_in_export"
+    reports = normalise_reports(report)
+
+    mapped = attach_eps_ttm(
+        prices,
+        "TV.ST",
+        reports,
+        calculation_mode=TV_PERIOD_END_STATE,
+    )
+
+    assert pd.isna(mapped.loc[0, "EPS_TTM"])
+    assert mapped.loc[1, "EPS_TTM"] == 6.0
