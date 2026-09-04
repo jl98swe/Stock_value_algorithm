@@ -99,6 +99,7 @@
       actual,
       locked: Boolean(latest.fundamental_lock),
       lots: Number(position.lots || 0),
+      maxLots: Number(position.max_lots || 2),
       armed: side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false,
       action
     };
@@ -118,10 +119,16 @@
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
       <td>${row.actual ? '<strong>Signal nu</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
-      <td>${row.lots} / 2</td>
+      <td>${row.lots} / ${row.maxLots}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? '<span class="status-chip warning">Spärrad</span>' : '<span class="status-chip ok">Fri</span>'}</td>
-      <td>${row.actual ? row.action.detail || row.action.label : 'Bevaka nästa stängning'}</td>
+      <td>${row.actual
+        ? row.action.detail || row.action.label
+        : row.side === 'BUY' && row.distance === 0
+          ? row.lots >= row.maxLots
+            ? 'Position full, inväntar sälj'
+            : 'Köp – signalgränsen är nådd'
+          : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
   }
 
