@@ -59,6 +59,7 @@ def _strict_default_params() -> StrategyParameters:
     return StrategyParameters(
         buy_threshold=BUY_THRESHOLD - _STRICT_OFFSET,
         sell_threshold=SELL_THRESHOLD + _STRICT_OFFSET,
+        max_lots=1,
     )
 
 
