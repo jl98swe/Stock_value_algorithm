@@ -84,10 +84,10 @@ Import stöder CSV, XLSX/XLS och JSON. Mappningen justeras när leverantörens f
 Strategiregler:
 
 - score klipps till 0–100,
-- köp vid score 1 eller lägre,
-- sälj vid score 99 eller högre,
+- köp när score passerar under 1,
+- sälj när score passerar över 99,
 - signalen beslutas på stängningskurs och exekveras nästa handelsdags öppning,
-- högst två köp per positionscykel,
+- högst en aktiv position per aktie,
 - minst fem handelsdagar mellan köp respektive mellan sälj,
 - samma gräns måste lämnas och återbesökas innan ny signal,
 - ingen blankning.
