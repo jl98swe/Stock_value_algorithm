@@ -17,7 +17,7 @@ class StrategyParameters:
     sell_threshold: float = 100.0
     threshold_epsilon: float = 1e-9
     cooldown_trading_days: int = 5
-    max_lots: int = 2
+    max_lots: int = 1
     sell_lot_policy: str = "fifo"
     respect_fundamental_locks: bool = True
     initial_capital: float = 1.0
@@ -60,7 +60,7 @@ def run_strategy(
     * buy and sell cooldowns are independent and measured in trading rows;
     * a cooldown-delayed re-entry remains eligible if the score stays at the
       boundary until the five-day minimum has elapsed;
-    * at most two buy lots are allowed in one position cycle;
+    * at most one active position is allowed per stock;
     * a fundamental lock blocks or cancels a signal without consuming the
       threshold event, so it may fire after verified EPS arrives.
     """
@@ -162,7 +162,7 @@ def run_strategy(
                             "status": "cancelled_capacity",
                             "execution_date": date_string,
                             "execution_price": None,
-                            "status_reason": "Max antal delposter uppnått",
+                            "status_reason": "Aktiv position finns redan",
                         }
                     )
                 else:
@@ -305,7 +305,7 @@ def run_strategy(
                         date_string=date_string,
                         score=score,
                         status="suppressed_capacity",
-                        reason="Max antal köp i positionscykeln",
+                        reason="Max en aktiv position per aktie",
                     )
                     buy_armed = False
                 elif not cooldown_ok:
