@@ -3,18 +3,18 @@ import pandas as pd
 from src.strategy import run_strategy
 
 
-def test_two_buys_require_rearm_and_five_trading_days():
-    dates = pd.bdate_range("2026-01-02", periods=10)
+def test_only_one_position_can_be_active_per_stock():
+    dates = pd.bdate_range("2026-01-02", periods=12)
     frame = pd.DataFrame(
         {
             "Date": dates,
-            "Open": [100.0] * 10,
-            "Close": [100.0] * 10,
-            # Första köp idx 1. Score lämnar köpzonen på idx 3, återkommer idx 4,
-            # men får inte signalera igen förrän idx 6 (= fem handelssteg senare).
-            "Score": [50.0, 0.999, 0.999, 20.0, 0.999, 0.999, 0.999, 20.0, 99.001, 50.0],
-            "FundamentalLock": [False] * 10,
-            "LockReason": [""] * 10,
+            "Open": [100.0] * 12,
+            "Close": [100.0] * 12,
+            # Det andra köpläget ignoreras medan positionen är aktiv. Efter
+            # försäljningen får en ny position öppnas i en ny cykel.
+            "Score": [50.0, 0.999, 0.999, 20.0, 0.999, 0.999, 0.999, 20.0, 99.001, 50.0, 0.999, 20.0],
+            "FundamentalLock": [False] * 12,
+            "LockReason": [""] * 12,
         }
     )
 
@@ -33,13 +33,15 @@ def test_two_buys_require_rearm_and_five_trading_days():
     assert len(buy_signals) == 2
     assert buy_signals[0]["signal_date"] == dates[1].date().isoformat()
     assert buy_signals[0]["execution_date"] == dates[2].date().isoformat()
-    assert buy_signals[1]["signal_date"] == dates[6].date().isoformat()
-    assert buy_signals[1]["execution_date"] == dates[7].date().isoformat()
+    assert buy_signals[1]["signal_date"] == dates[10].date().isoformat()
+    assert buy_signals[1]["execution_date"] == dates[11].date().isoformat()
 
     assert len(sell_signals) == 1
     assert sell_signals[0]["signal_date"] == dates[8].date().isoformat()
     assert sell_signals[0]["execution_date"] == dates[9].date().isoformat()
     assert result["summary"]["active_lots"] == 1
+    assert result["state"]["PositionLots"].max() == 1
+    assert any(signal["status"] == "suppressed_capacity" for signal in result["signals"])
 
 
 def test_fundamental_lock_blocks_without_consuming_buy_boundary():
