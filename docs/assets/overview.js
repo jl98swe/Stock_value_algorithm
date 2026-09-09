@@ -50,7 +50,7 @@
       const action = row.data.next_action || {};
       return `<tr>
         <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
-        <td>${p.lots || 0} / ${p.max_lots || 2}</td>
+        <td>Aktiv</td>
         <td>${money(p.avg_entry, row.currency)}</td>
         <td>${money(latest.close, row.currency)}</td>
         <td class="${number(p.unrealized_pct) >= 0 ? 'positive' : 'negative'}">${pct(p.unrealized_pct)}</td>
@@ -70,24 +70,20 @@
 
     const buy = number(rules.buy_score) ?? 1;
     const sell = number(rules.sell_score) ?? 99;
-    const lots = Number(position.lots || 0);
-    const maxLots = Number(position.max_lots ?? rules.max_buys_per_cycle ?? 1);
-    const canBuy = lots < maxLots;
-    const canSell = lots > 0;
+    const hasPosition = Number(position.lots || 0) > 0;
     const actual = action.type === 'BUY' || action.type === 'SELL';
-    const actualEligible = action.type === 'BUY' ? canBuy : action.type === 'SELL' ? canSell : false;
     const buyDistance = Math.max(0, value - buy);
     const sellDistance = Math.max(0, sell - value);
 
     let side = null;
     let distance = null;
-    if (actual && actualEligible) {
+    if (actual) {
       side = action.type;
       distance = 0;
-    } else if (canBuy && buyDistance <= 5) {
+    } else if (buyDistance <= 5) {
       side = 'BUY';
       distance = buyDistance;
-    } else if (canSell && sellDistance <= 5) {
+    } else if (hasPosition && sellDistance <= 5) {
       side = 'SELL';
       distance = sellDistance;
     } else {
@@ -102,8 +98,8 @@
       distance,
       actual,
       locked: Boolean(latest.fundamental_lock),
-      lots,
-      maxLots,
+      lots: Number(position.lots || 0),
+      maxLots: Number(position.max_lots || 1),
       armed: side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false,
       reached: actual || (side === 'BUY' ? value < buy : value > sell),
       action
@@ -124,13 +120,15 @@
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
       <td>${row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
-      <td>${row.lots} / ${row.maxLots}</td>
+      <td>${row.lots ? 'Aktiv' : 'Ingen'}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? 'Spärrad' : 'Fri'}</td>
       <td>${row.reached
         ? row.side === 'SELL'
           ? 'Sälj – signalgränsen är nådd'
-          : 'Köp – signalgränsen är nådd'
+          : row.lots >= row.maxLots
+            ? 'Position full, inväntar sälj'
+            : 'Köp – signalgränsen är nådd'
         : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
   }
