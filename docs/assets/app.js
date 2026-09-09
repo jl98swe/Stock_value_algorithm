@@ -75,7 +75,7 @@
       ['Köp', `Score ${rules.buy_score ?? 1}`],
       ['Sälj', `Score ${rules.sell_score ?? 99}`],
       ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],
-      ['Max köp', `${rules.max_buys_per_cycle ?? 2} per cykel`],
+      ['Max positioner', `${rules.max_active_positions_per_stock ?? rules.max_buys_per_cycle ?? 1} per aktie`],
       ['Exekvering', rules.execution || 'Nästa öppning']
     ];
     $('rules-list').innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
@@ -140,7 +140,7 @@
     $('metric-zone').className = `zone-pill ${zoneClass(latest.score)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
     $('metric-eps').textContent = latest.eps_ttm == null ? 'EPS –' : `EPS TTM ${fmt.format(latest.eps_ttm)}`;
-    $('metric-position').textContent = `${position.lots || 0} / ${position.max_lots || 2} delposter`;
+    $('metric-position').textContent = position.lots ? '1 aktiv position' : 'Ingen aktiv position';
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
     $('metric-action').className = `metric-value metric-action ${action.type === 'BUY' ? 'positive' : action.type === 'SELL' ? 'negative' : ''}`;
@@ -154,7 +154,7 @@
 
     $('position-content').innerHTML = `
       <div class="status-stack">
-        <div class="status-line"><span>Aktiva delposter</span><strong>${p.lots || 0} av ${p.max_lots || 2}</strong></div>
+        <div class="status-line"><span>Aktiv position</span><strong>${p.lots ? 'Ja' : 'Nej'}</strong></div>
         <div class="status-line"><span>Genomsnittligt inköp</span><strong>${p.avg_entry ? money(p.avg_entry) : '–'}</strong></div>
         <div class="status-line"><span>Senaste köp</span><strong>${prettyDate(p.last_buy_date)}</strong></div>
         <div class="status-line"><span>Köp återaktiverat</span><strong>${p.buy_armed ? 'Ja' : 'Nej'}</strong></div>
