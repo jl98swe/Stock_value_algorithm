@@ -55,7 +55,7 @@
         <td>${money(latest.close, row.currency)}</td>
         <td class="${number(p.unrealized_pct) >= 0 ? 'positive' : 'negative'}">${pct(p.unrealized_pct)}</td>
         <td>${score(latest.score)}</td>
-        <td>${latest.fundamental_lock ? '<span class="status-chip warning">Spärr</span>' : '<span class="status-chip ok">Öppen</span>'}</td>
+        <td>${latest.fundamental_lock ? 'Spärrad' : 'Fri'}</td>
         <td>${action.type && action.type !== 'NONE' ? `<span class="status-chip action">${action.label}</span>` : '–'}</td>
       </tr>`;
     }).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktiva positioner matchar filtret.</td></tr>';
@@ -68,8 +68,8 @@
     const value = number(latest.score);
     if (value === null) return null;
 
-    const buy = number(rules.buy_score) ?? 0;
-    const sell = number(rules.sell_score) ?? 100;
+    const buy = number(rules.buy_score) ?? 1;
+    const sell = number(rules.sell_score) ?? 99;
     const hasPosition = Number(position.lots || 0) > 0;
     const actual = action.type === 'BUY' || action.type === 'SELL';
     const buyDistance = Math.max(0, value - buy);
@@ -121,7 +121,7 @@
       <td>${row.distance === 0 ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
       <td>${row.lots} / ${row.maxLots}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
-      <td>${row.locked ? '<span class="status-chip warning">Spärrad</span>' : '<span class="status-chip ok">Fri</span>'}</td>
+      <td>${row.locked ? 'Spärrad' : 'Fri'}</td>
       <td>${row.distance === 0
         ? row.side === 'SELL'
           ? 'Sälj – signalgränsen är nådd'
