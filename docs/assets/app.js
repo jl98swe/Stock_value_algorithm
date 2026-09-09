@@ -72,8 +72,8 @@
   function renderRules() {
     const rules = state.dashboard.meta?.rules || {};
     const rows = [
-      ['Köp', `Score ${rules.buy_score ?? 0}`],
-      ['Sälj', `Score ${rules.sell_score ?? 100}`],
+      ['Köp', `Score ${rules.buy_score ?? 1}`],
+      ['Sälj', `Score ${rules.sell_score ?? 99}`],
       ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],
       ['Max köp', `${rules.max_buys_per_cycle ?? 2} per cykel`],
       ['Exekvering', rules.execution || 'Nästa öppning']
@@ -315,7 +315,7 @@
           name: 'Score', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#2f6fb0' },
           areaStyle: { color: 'rgba(47,111,176,.05)' },
           markArea: { silent: true, data: [[{ yAxis: 0, itemStyle: { color: 'rgba(31,143,103,.10)' } }, { yAxis: 25 }], [{ yAxis: 75, itemStyle: { color: 'rgba(199,71,71,.10)' } }, { yAxis: 100 }]] },
-          markLine: { silent: true, symbol: ['none','none'], label: { show: true, position: 'insideEndTop', fontSize: 9 }, lineStyle: { type: 'dashed', width: 1 }, data: [{ yAxis: 0, name: 'Köp 0', lineStyle: { color: '#1f8f67' } }, { yAxis: 100, name: 'Sälj 100', lineStyle: { color: '#c74747' } }] }
+          markLine: { silent: true, symbol: ['none','none'], label: { show: true, position: 'insideEndTop', fontSize: 9 }, lineStyle: { type: 'dashed', width: 1 }, data: [{ yAxis: 1, name: 'Köp 1', lineStyle: { color: '#1f8f67' } }, { yAxis: 99, name: 'Sälj 99', lineStyle: { color: '#c74747' } }] }
         }
       ]
     };
