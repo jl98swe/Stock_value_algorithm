@@ -10,9 +10,9 @@ def test_two_buys_require_rearm_and_five_trading_days():
             "Date": dates,
             "Open": [100.0] * 10,
             "Close": [100.0] * 10,
-            # Första köp idx 1. Score lämnar 1 på idx 3, återkommer idx 4,
+            # Första köp idx 1. Score lämnar köpzonen på idx 3, återkommer idx 4,
             # men får inte signalera igen förrän idx 6 (= fem handelssteg senare).
-            "Score": [50.0, 1.0, 1.0, 20.0, 1.0, 1.0, 1.0, 20.0, 99.0, 50.0],
+            "Score": [50.0, 0.999, 0.999, 20.0, 0.999, 0.999, 0.999, 20.0, 99.001, 50.0],
             "FundamentalLock": [False] * 10,
             "LockReason": [""] * 10,
         }
@@ -49,7 +49,7 @@ def test_fundamental_lock_blocks_without_consuming_buy_boundary():
             "Date": dates,
             "Open": [100.0] * 4,
             "Close": [100.0] * 4,
-            "Score": [50.0, 1.0, 1.0, 20.0],
+            "Score": [50.0, 0.999, 0.999, 20.0],
             "FundamentalLock": [False, True, False, False],
             "LockReason": ["", "Ogranskad regulatorisk nyhet", "", ""],
         }
