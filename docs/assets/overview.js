@@ -70,20 +70,24 @@
 
     const buy = number(rules.buy_score) ?? 1;
     const sell = number(rules.sell_score) ?? 99;
-    const hasPosition = Number(position.lots || 0) > 0;
+    const lots = Number(position.lots || 0);
+    const maxLots = Number(position.max_lots ?? rules.max_buys_per_cycle ?? 1);
+    const canBuy = lots < maxLots;
+    const canSell = lots > 0;
     const actual = action.type === 'BUY' || action.type === 'SELL';
+    const actualEligible = action.type === 'BUY' ? canBuy : action.type === 'SELL' ? canSell : false;
     const buyDistance = Math.max(0, value - buy);
     const sellDistance = Math.max(0, sell - value);
 
     let side = null;
     let distance = null;
-    if (actual) {
+    if (actual && actualEligible) {
       side = action.type;
       distance = 0;
-    } else if (buyDistance <= 5) {
+    } else if (canBuy && buyDistance <= 5) {
       side = 'BUY';
       distance = buyDistance;
-    } else if (hasPosition && sellDistance <= 5) {
+    } else if (canSell && sellDistance <= 5) {
       side = 'SELL';
       distance = sellDistance;
     } else {
@@ -98,8 +102,8 @@
       distance,
       actual,
       locked: Boolean(latest.fundamental_lock),
-      lots: Number(position.lots || 0),
-      maxLots: Number(position.max_lots || 2),
+      lots,
+      maxLots,
       armed: side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false,
       reached: actual || (side === 'BUY' ? value < buy : value > sell),
       action
@@ -126,9 +130,7 @@
       <td>${row.reached
         ? row.side === 'SELL'
           ? 'Sälj – signalgränsen är nådd'
-          : row.lots >= row.maxLots
-            ? 'Position full, inväntar sälj'
-            : 'Köp – signalgränsen är nådd'
+          : 'Köp – signalgränsen är nådd'
         : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
   }
