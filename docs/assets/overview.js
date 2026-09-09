@@ -101,6 +101,7 @@
       lots: Number(position.lots || 0),
       maxLots: Number(position.max_lots || 2),
       armed: side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false,
+      reached: actual || (side === 'BUY' ? value < buy : value > sell),
       action
     };
   }
@@ -118,11 +119,11 @@
       <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
-      <td>${row.distance === 0 ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
       <td>${row.lots} / ${row.maxLots}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? 'Spärrad' : 'Fri'}</td>
-      <td>${row.distance === 0
+      <td>${row.reached
         ? row.side === 'SELL'
           ? 'Sälj – signalgränsen är nådd'
           : row.lots >= row.maxLots
