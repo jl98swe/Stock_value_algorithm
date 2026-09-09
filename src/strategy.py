@@ -13,8 +13,8 @@ from .utils import normalize_date_column
 
 @dataclass(frozen=True)
 class StrategyParameters:
-    buy_threshold: float = 1.0
-    sell_threshold: float = 99.0
+    buy_threshold: float = 0.0
+    sell_threshold: float = 100.0
     threshold_epsilon: float = 1e-9
     cooldown_trading_days: int = 5
     max_lots: int = 2
@@ -53,8 +53,8 @@ def run_strategy(
     """Run the strategy over daily closes and execute at the next session open.
 
     Rules:
-    * buy when the clipped score is 1 or lower (or configured threshold);
-    * sell when it is 99 or higher, but only while a position exists;
+    * buy when the clipped score is 0 (or configured threshold);
+    * sell when it is 100, but only while a position exists;
     * the score must leave and re-enter the same-side boundary before another
       same-side signal can occur;
     * buy and sell cooldowns are independent and measured in trading rows;
