@@ -445,8 +445,8 @@ def build_dashboard(
         dashboard_stocks[str(ticker)] = payload
 
     rules = {
-        "buy_score": 0,
-        "sell_score": 100,
+        "buy_score": 1,
+        "sell_score": 99,
         "cooldown_trading_days": 5,
         "max_buys_per_cycle": 2,
         "execution": "Nästa handelsdags öppning",
