@@ -132,7 +132,7 @@ def _signal_rows(strategy: dict[str, object] | None) -> list[dict[str, object]]:
 def _position_payload(strategy: dict[str, object] | None) -> dict[str, object]:
     default = {
         "lots": 0,
-        "max_lots": 2,
+        "max_lots": 1,
         "avg_entry": None,
         "unrealized_pct": None,
         "last_buy_date": None,
@@ -168,7 +168,7 @@ def _position_payload(strategy: dict[str, object] | None) -> dict[str, object]:
 
     return {
         "lots": int(summary.get("active_lots", len(lots)) or 0),
-        "max_lots": 2,
+        "max_lots": 1,
         "avg_entry": _json_number(avg_entry, 4),
         "unrealized_pct": _json_number(summary.get("unrealized_pct"), 4),
         "last_buy_date": last_buy_date,
@@ -448,7 +448,8 @@ def build_dashboard(
         "buy_score": 1,
         "sell_score": 99,
         "cooldown_trading_days": 5,
-        "max_buys_per_cycle": 2,
+        "max_buys_per_cycle": 1,
+        "max_active_positions_per_stock": 1,
         "execution": "Nästa handelsdags öppning",
         "shorting": False,
         "update_time": "17:45 Europe/Stockholm",
