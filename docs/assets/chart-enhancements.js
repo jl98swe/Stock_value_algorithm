@@ -23,9 +23,10 @@
     nav.className = 'page-nav';
     nav.setAttribute('aria-label', 'Huvudnavigation');
     nav.innerHTML = `
-      <a class="secondary-button" href="./positions.html">Aktiva positioner</a>
-      <a class="secondary-button" href="./signals.html">Kommande signaler</a>
-      <a class="secondary-button" href="./review.html">Granska nyheter och data</a>`;
+      <a class="secondary-button active" href="./index.html?v=20260910-1" aria-current="page">Startsida</a>
+      <a class="secondary-button" href="./positions.html?v=20260910-1">Aktiva positioner</a>
+      <a class="secondary-button" href="./signals.html?v=20260910-1">Kommande signaler</a>
+      <a class="secondary-button" href="./review.html?v=20260910-1">Granska nyheter och data</a>`;
     actions.insertBefore(nav, actions.firstChild);
   }
 
