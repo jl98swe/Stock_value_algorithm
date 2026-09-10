@@ -20,12 +20,12 @@
     if (!actions || document.getElementById('portfolio-nav')) return;
     const nav = document.createElement('nav');
     nav.id = 'portfolio-nav';
-    nav.setAttribute('aria-label', 'Översikter');
-    nav.style.display = 'flex';
-    nav.style.gap = '8px';
+    nav.className = 'page-nav';
+    nav.setAttribute('aria-label', 'Huvudnavigation');
     nav.innerHTML = `
       <a class="secondary-button" href="./positions.html">Aktiva positioner</a>
-      <a class="secondary-button" href="./signals.html">Kommande signaler</a>`;
+      <a class="secondary-button" href="./signals.html">Kommande signaler</a>
+      <a class="secondary-button" href="./review.html">Granska nyheter och data</a>`;
     actions.insertBefore(nav, actions.firstChild);
   }
 
@@ -56,7 +56,6 @@
         .dividend-history-row:last-child { border-bottom:0; }
         .dividend-history-row strong { font-size:13px; }
         .dividend-history-row span { color:#66727a; font-size:12px; white-space:nowrap; }
-        @media (max-width: 900px) { #portfolio-nav { display:none !important; } }
       `;
       document.head.appendChild(style);
     }
