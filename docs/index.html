@@ -6,11 +6,11 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/style.css?v=20260910-1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/app.js?v=20260909-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
-  <script defer src="./assets/chart-enhancements.js"></script>
+  <script defer src="./assets/chart-enhancements.js?v=20260910-1"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -24,9 +24,10 @@
       </div>
       <div class="header-actions">
         <nav id="portfolio-nav" class="page-nav" aria-label="Huvudnavigation">
-          <a class="secondary-button" href="./positions.html">Aktiva positioner</a>
-          <a class="secondary-button" href="./signals.html">Kommande signaler</a>
-          <a class="secondary-button" href="./review.html">Granska nyheter och data</a>
+          <a class="secondary-button active" href="./index.html?v=20260910-1" aria-current="page">Startsida</a>
+          <a class="secondary-button" href="./positions.html?v=20260910-1">Aktiva positioner</a>
+          <a class="secondary-button" href="./signals.html?v=20260910-1">Kommande signaler</a>
+          <a class="secondary-button" href="./review.html?v=20260910-1">Granska nyheter och data</a>
         </nav>
         <div class="update-status">
           <span class="status-dot" aria-hidden="true"></span>
