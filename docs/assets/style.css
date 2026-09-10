@@ -63,6 +63,13 @@ a { color: inherit; }
 .brand-title { font-weight: 800; font-size: 17px; }
 .brand-subtitle { color: var(--muted); font-size: 12px; margin-top: 1px; }
 .header-actions, .top-actions { gap: 10px; }
+.page-nav { display: flex; align-items: center; gap: 8px; }
+.page-nav .secondary-button.active,
+.page-nav .secondary-button[aria-current="page"] {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
 .update-status { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
 .update-status strong { color: var(--text); display: block; font-size: 12px; }
 .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(31,143,103,.12); }
@@ -323,9 +330,10 @@ a { color: inherit; }
   .market-chart { height: 540px; }
 }
 @media (max-width: 780px) {
-  .topbar { position: static; padding: 12px 14px; align-items: flex-start; }
+  .topbar { position: static; padding: 12px 14px; align-items: flex-start; flex-direction: column; }
   .brand-subtitle, .update-status { display: none; }
-  .header-actions, .top-actions { flex-wrap: wrap; justify-content: flex-end; }
+  .header-actions, .top-actions { width: 100%; flex-wrap: wrap; justify-content: flex-start; }
+  .page-nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; }
   .workspace { display: block; padding: 14px; }
   .sidebar { position: static; max-height: none; margin-bottom: 16px; }
   .stock-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
@@ -337,7 +345,6 @@ a { color: inherit; }
   .review-page { padding: 14px; }
 }
 @media (max-width: 560px) {
-  .header-review-link { display: none; }
   .brand-mark { width: 36px; height: 36px; border-radius: 9px; }
   .brand-title { font-size: 14px; }
   .stock-list { grid-template-columns: 1fr; }
