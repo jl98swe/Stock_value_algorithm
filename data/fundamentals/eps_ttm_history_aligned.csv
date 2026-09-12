@@ -723,7 +723,7 @@ BORG.ST,2025-Q2,2025-06-30,2025-08-15,3.38,SEK,Yahoo Finance / trailingDilutedEP
 BORG.ST,2025-Q3,2025-09-30,2025-11-14,3.45,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 BORG.ST,2025-Q4,2025-12-31,2026-02-13,3.66,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 BORG.ST,2026-Q1,2026-03-31,2026-04-29,3.7,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
-BORG.ST,2026-Q2,,2026-08-14,3.884,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
+BORG.ST,2026-Q2,2026-06-30,2026-08-14,3.88,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 BRAV.ST,2018-Q3,,2018-11-06,4.438,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 BRAV.ST,2018-Q4,,2019-02-15,4.6984,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 BRAV.ST,2019-Q1,,2019-05-07,4.7491,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
@@ -787,7 +787,7 @@ BTS-B.ST,2025-Q2,2025-06-30,2025-08-22,17.42,SEK,Yahoo Finance / trailingDiluted
 BTS-B.ST,2025-Q3,2025-09-30,2025-11-12,8.34,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 BTS-B.ST,2025-Q4,2025-12-31,2026-02-20,6.89,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 BTS-B.ST,2026-Q1,2026-03-31,2026-05-21,6.98,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
-BTS-B.ST,2026-Q2,,2026-08-14,4.9017,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
+BTS-B.ST,2026-Q2,2026-06-30,2026-08-14,4.9,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 CAST.ST,2018-Q3,,2018-10-17,23.076,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
 CAST.ST,2018-Q4,,2019-01-23,22.9182,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
 CAST.ST,2019-Q1,,2019-04-24,24.6894,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
@@ -1178,7 +1178,7 @@ EMBRAC-B.ST,2025-Q2,2025-06-30,2025-08-14,37.66,SEK,Yahoo Finance / trailingDilu
 EMBRAC-B.ST,2025-Q3,2025-09-30,2025-11-13,38.05,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 EMBRAC-B.ST,2025-Q4,2025-12-31,2026-02-12,41.33,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 EMBRAC-B.ST,2026-Q1,2026-03-31,2026-05-20,-27.67,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
-EMBRAC-B.ST,2026-Q2,,2026-08-13,-23.6958,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
+EMBRAC-B.ST,2026-Q2,2026-06-30,2026-08-13,-25.52,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 EPI-A.ST,2018-Q3,,2018-10-25,4.0614,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 EPI-A.ST,2018-Q4,,2019-02-05,4.489,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 EPI-A.ST,2019-Q1,,2019-04-30,4.7429,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
@@ -1752,7 +1752,7 @@ INTRUM.ST,2025-Q2,2025-06-30,2025-07-25,-14.11,SEK,Yahoo Finance / trailingDilut
 INTRUM.ST,2025-Q3,2025-09-30,2025-10-30,-9.425729,SEK,Yahoo Finance / trailingDilutedEPS reconstructed from quarterlyDilutedEPS,yahoo_reconstructed_diluted_ttm
 INTRUM.ST,2025-Q4,2025-12-31,2026-01-29,-11.25,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 INTRUM.ST,2026-Q1,2026-03-31,2026-05-07,-2.97296,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
-INTRUM.ST,2026-Q2,,2026-08-28,-3.0284,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
+INTRUM.ST,2026-Q2,2026-06-30,2026-08-28,-7.20528,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 INVE-A.ST,2018-Q3,,2018-10-18,13.6575,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 INVE-A.ST,2018-Q4,,2019-01-25,-0.7478,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
 INVE-A.ST,2019-Q1,,2019-04-24,7.2222,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
@@ -3071,7 +3071,7 @@ SYSR.ST,2025-Q3,2025-07-31,2025-08-28,3.18,SEK,Yahoo Finance / trailingDilutedEP
 SYSR.ST,2025-Q4,2025-10-31,2025-12-04,3.32,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 SYSR.ST,2026-Q1,2026-01-31,2026-03-05,3.33,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 SYSR.ST,2026-Q2,2026-04-30,2026-06-10,3.67,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
-SYSR.ST,2026-Q3,,2026-09-04,3.8374,SEK,User-supplied historical EPS TTM / all Yahoo overlaps <1%,strict_user_history_gap_fill
+SYSR.ST,2026-Q3,2026-07-31,2026-09-04,3.84,SEK,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_trailing_diluted
 TEL2-B.ST,2018-Q3,,2018-10-18,1.2075,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
 TEL2-B.ST,2018-Q4,,2019-02-13,1.8782,SEK,User-supplied historical EPS TTM fallback,fallback_user_history
 TEL2-B.ST,2019-Q1,,2019-04-24,2.4354,SEK,User-supplied historical EPS TTM fallback,fallback_user_history

@@ -286,7 +286,6 @@ EMBRAC-B.ST,2022-Q4,2023-02-16,leading,,,2023-Q3,2023-11-16,,273,,7.3789,SEK,opt
 EMBRAC-B.ST,2023-Q1,2023-05-24,leading,,,2023-Q3,2023-11-16,,176,,20.4305,SEK,optional_backfill_requires_verified_source
 EMBRAC-B.ST,2023-Q2,2023-08-17,leading,,,2023-Q3,2023-11-16,,91,,33.2435,SEK,optional_backfill_requires_verified_source
 EMBRAC-B.ST,2025-Q1,2025-05-22,internal,2024-Q4,2025-02-13,2025-Q2,2025-08-14,98,84,84,25.708,SEK,issuer_report_or_other_verified_source_required
-EMBRAC-B.ST,2026-Q2,2026-08-13,trailing,2026-Q1,2026-05-20,,,85,,,-23.6958,SEK,verify_latest_period
 EQL.ST,2019-Q3,2019-11-11,leading,,,2024-Q1,2024-05-14,,1646,,-0.0603,SEK,optional_backfill_requires_verified_source
 EQL.ST,2019-Q4,2020-02-05,leading,,,2024-Q1,2024-05-14,,1560,,0.0539,SEK,optional_backfill_requires_verified_source
 EQL.ST,2020-Q1,2020-05-04,leading,,,2024-Q1,2024-05-14,,1471,,0.095,SEK,optional_backfill_requires_verified_source
@@ -407,7 +406,6 @@ INTRUM.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-25,,181,,-8.3202,SEK,opti
 INTRUM.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-25,,97,,-9.3984,SEK,optional_backfill_requires_verified_source
 INTRUM.ST,2023-Q4,2024-01-25,internal,2023-Q3,2023-10-25,2024-Q1,2024-04-24,92,90,90,-0.1214,SEK,issuer_report_or_other_verified_source_required
 INTRUM.ST,2024-Q4,2025-01-30,internal,2024-Q3,2024-10-23,2025-Q1,2025-05-07,99,97,97,-6.1444,SEK,issuer_report_or_other_verified_source_required
-INTRUM.ST,2026-Q2,2026-08-28,trailing,2026-Q1,2026-05-07,,,113,,,-3.0284,SEK,verify_latest_period
 LUMI.ST,2024-Q4,2025-02-20,internal,2024-Q3,2024-11-06,2025-Q1,2025-05-08,106,77,77,0.0144,USD,issuer_report_or_other_verified_source_required
 LUMI.ST,2025-Q3,2025-11-06,internal,2025-Q2,2025-08-06,2025-Q4,2026-02-20,92,106,106,0.2137,USD,issuer_report_or_other_verified_source_required
 MSAB-B.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-26,,1826,,1.8654,SEK,optional_backfill_requires_verified_source
