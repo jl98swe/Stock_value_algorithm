@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from .config import ROOT
+from .config import HISTORY_START_DATE, ROOT
 from .fetch_data import load_price_history
 from .fundamentals import attach_eps_ttm, load_reports, valuation_calculation_mode
 from .fx import load_fx_history, load_stock_currencies
@@ -56,11 +56,14 @@ def audit(
         score_mask = pd.to_numeric(valued["Score"], errors="coerce").notna()
         score_rows = int(score_mask.sum())
 
-        strategy = run_strategy(valued, ticker) if score_rows else None
+        strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
+        strategy = run_strategy(strategy_frame, ticker) if strategy_frame["Score"].notna().any() else None
         signals = strategy.get("signals", []) if strategy else []
         executed = [item for item in signals if item.get("status") == "executed"]
 
         latest = valued.iloc[-1]
+        eps_dates = valued.loc[valued["EPS_TTM"].notna(), "Date"]
+        gbm_dates = valued.loc[valued["CanRunGBM"], "Date"]
         score_dates = valued.loc[score_mask, "Date"]
         rows.append(
             {
@@ -69,6 +72,8 @@ def audit(
                 "eps_rows": eps_rows,
                 "pe_rows": pe_rows,
                 "score_rows": score_rows,
+                "first_eps_date": pd.Timestamp(eps_dates.iloc[0]).date().isoformat() if not eps_dates.empty else "",
+                "first_gbm_date": pd.Timestamp(gbm_dates.iloc[0]).date().isoformat() if not gbm_dates.empty else "",
                 "first_score_date": pd.Timestamp(score_dates.iloc[0]).date().isoformat() if not score_dates.empty else "",
                 "last_score_date": pd.Timestamp(score_dates.iloc[-1]).date().isoformat() if not score_dates.empty else "",
                 "latest_eps_raw": pd.to_numeric(pd.Series([latest.get("EPS_TTM_RAW")]), errors="coerce").iloc[0],

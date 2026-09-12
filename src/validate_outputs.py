@@ -30,8 +30,11 @@ from .model_data import ensure_gbm_model
 from .valuation import GBMModel
 
 DOCS_DATA = ROOT / "docs" / "data"
+HISTORICAL_EPS_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
 HISTORICAL_YAHOO_MARKER = "historical_eps_yahoo_diluted_v2"
 FALLBACK_HISTORY_MARKER = "alignment_status=fallback_user_history"
+MAX_CONSECUTIVE_REPORT_GAP_DAYS = 150
+MAX_REPORT_LEAD_VS_CALENDAR_QUARTER_DAYS = 62
 
 
 def _load_json(path: Path) -> dict[str, object]:
@@ -138,6 +141,74 @@ def _validate_canonical_reports() -> None:
             )
         if historical[["period_end", "effective_date", "eps_ttm"]].isna().any().any():
             raise ValueError("Historisk Yahoo-alignad EPS saknar period_end, effective_date eller eps_ttm")
+
+
+def _validate_historical_eps_dates(path: Path = HISTORICAL_EPS_FILE) -> None:
+    if not path.exists() or path.stat().st_size == 0:
+        raise ValueError(f"Saknad eller tom historisk EPS-fil: {path}")
+
+    history = pd.read_csv(path, encoding="utf-8-sig")
+    required = ["ticker", "report_period", "report_date", "eps_ttm", "currency"]
+    missing = [column for column in required if column not in history.columns]
+    if missing:
+        raise ValueError(f"Historisk EPS saknar kolumner: {', '.join(missing)}")
+    if history.empty:
+        raise ValueError("Historisk EPS är tom")
+
+    history = history[required].copy()
+    history["ticker"] = history["ticker"].astype(str).str.strip()
+    history["report_period"] = history["report_period"].astype(str).str.strip().str.upper()
+    history["report_date"] = pd.to_datetime(history["report_date"], errors="coerce")
+    history["eps_ttm"] = pd.to_numeric(history["eps_ttm"], errors="coerce")
+    if history[["ticker", "report_period", "report_date", "eps_ttm"]].isna().any().any():
+        raise ValueError("Historisk EPS innehåller saknad eller ogiltig ticker, period, datum eller EPS")
+    if history["currency"].fillna("").astype(str).str.strip().eq("").any():
+        raise ValueError("Historisk EPS innehåller saknad valuta")
+    if history.duplicated(["ticker", "report_period"]).any():
+        raise ValueError("Historisk EPS innehåller dubbla ticker + report_period")
+
+    parts = history["report_period"].str.extract(r"^(\d{4})-Q([1-4])$")
+    if parts.isna().any().any():
+        bad = history.loc[parts.isna().any(axis=1), "report_period"].head(10).tolist()
+        raise ValueError(f"Historisk EPS innehåller ogiltiga rapportperioder: {bad}")
+    years = parts[0].astype(int)
+    quarters = parts[1].astype(int)
+    history["quarter_index"] = years * 4 + quarters - 1
+    history["quarter_end"] = pd.PeriodIndex(
+        years.astype(str) + "Q" + quarters.astype(str), freq="Q"
+    ).to_timestamp(how="end").normalize()
+
+    lead_days = (history["report_date"] - history["quarter_end"]).dt.days
+    stale = history.loc[lead_days < -MAX_REPORT_LEAD_VS_CALENDAR_QUARTER_DAYS]
+    if not stale.empty:
+        bad = stale[["ticker", "report_period", "report_date"]].head(10).to_dict("records")
+        raise ValueError(f"Historisk EPS har rapportdatum orimligt långt före kalenderkvartalet: {bad}")
+
+    today = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
+    future = history.loc[history["report_date"] > today]
+    if not future.empty:
+        bad = future[["ticker", "report_period", "report_date"]].head(10).to_dict("records")
+        raise ValueError(f"Historisk EPS innehåller framtida rapportdatum: {bad}")
+
+    ordered = history.sort_values(["ticker", "quarter_index"]).copy()
+    previous_date = ordered.groupby("ticker")["report_date"].shift()
+    previous_quarter = ordered.groupby("ticker")["quarter_index"].shift()
+    date_gap = (ordered["report_date"] - previous_date).dt.days
+    quarter_gap = ordered["quarter_index"] - previous_quarter
+
+    non_increasing = ordered.loc[previous_date.notna() & date_gap.le(0)]
+    if not non_increasing.empty:
+        bad = non_increasing[["ticker", "report_period", "report_date"]].head(10).to_dict("records")
+        raise ValueError(f"Historisk EPS har icke stigande rapportdatum: {bad}")
+
+    delayed = ordered.loc[
+        previous_date.notna()
+        & quarter_gap.eq(1)
+        & date_gap.gt(MAX_CONSECUTIVE_REPORT_GAP_DAYS)
+    ]
+    if not delayed.empty:
+        bad = delayed[["ticker", "report_period", "report_date"]].head(10).to_dict("records")
+        raise ValueError(f"Historisk EPS har orimlig lucka mellan kvartalsrapporter: {bad}")
 
 
 def _validate_earnings(price_tickers: set[str]) -> None:
@@ -319,6 +390,7 @@ def validate() -> None:
 
     _validate_price_updates(prices)
     _validate_fx()
+    _validate_historical_eps_dates()
     _validate_dashboard(prices)
     print(
         f"Validering OK: {prices['ticker'].nunique()} tickers, "

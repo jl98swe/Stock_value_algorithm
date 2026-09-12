@@ -9,7 +9,8 @@ from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 
-from .config import ROOT
+from .config import HISTORY_START_DATE, ROOT
+from .dashboard_export import write_split_dashboard
 from .dividends import load_dividend_history, update_dividends
 from .events import (
     build_lock_series,
@@ -35,7 +36,6 @@ STOCKS_JSON = DOCS_DATA / "stocks.json"
 DASHBOARD_JSON = DOCS_DATA / "dashboard.json"
 EVENTS_JSON = DOCS_DATA / "events.json"
 REPOSITORY_URL = "https://github.com/jl98swe/Stock_value_algorithm"
-MAX_FRONTEND_BARS = 800
 
 
 def _json_number(value: object, digits: int | None = None) -> float | int | None:
@@ -68,7 +68,8 @@ def _display_name(ticker: str) -> str:
 
 def _candles(frame: pd.DataFrame) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
-    for row in frame.tail(MAX_FRONTEND_BARS).itertuples(index=False):
+    visible = frame.loc[pd.to_datetime(frame["date"]) >= HISTORY_START_DATE]
+    for row in visible.itertuples(index=False):
         rows.append(
             {
                 "date": pd.Timestamp(row.date).date().isoformat(),
@@ -112,7 +113,8 @@ def _score_rows(frame: pd.DataFrame) -> list[dict[str, object]]:
     if "Score" not in frame.columns:
         return []
     rows: list[dict[str, object]] = []
-    for row in frame.tail(MAX_FRONTEND_BARS).itertuples(index=False):
+    visible = frame.loc[pd.to_datetime(frame["Date"]) >= HISTORY_START_DATE]
+    for row in visible.itertuples(index=False):
         value = getattr(row, "Score", np.nan)
         rows.append({"date": _iso_date(row.Date), "value": _json_number(value, 4)})
     return rows
@@ -182,7 +184,7 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
         return {
             "type": "NONE",
             "label": "Ingen signal",
-            "detail": "Score aktiveras när verifierad EPS TTM finns.",
+            "detail": "Score aktiveras när komplett EPS- och GBM-underlag finns.",
         }
     if not strategy:
         return {"type": "NONE", "label": "Ingen signal", "detail": "Ingen exekverbar signal."}
@@ -285,19 +287,20 @@ def _stock_payload(
         valued = calculate_valuation(working, model=model)
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
-        if valued["Score"].notna().any():
-            strategy = run_strategy(valued, ticker)
+        strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
+        if strategy_frame["Score"].notna().any():
+            strategy = run_strategy(strategy_frame, ticker)
 
     latest_working = valued.iloc[-1] if valued is not None else working.iloc[-1]
     latest_score = _json_number(latest_working.get("Score"), 4)
     latest_eps = _json_number(latest_working.get("EPS_TTM"), 6)
     latest_pe = _json_number(latest_working.get("PE_TTM"), 4)
-    latest_zone = str(latest_working.get("PriceZone") or "") if latest_score is not None else "Väntar på verifierad EPS"
+    latest_zone = str(latest_working.get("PriceZone") or "") if latest_score is not None else "Väntar på komplett GBM-underlag"
     locked = bool(latest_working.get("FundamentalLock", False))
     lock_reason = str(latest_working.get("LockReason", "") or "")
     score_ready = latest_score is not None
 
-    data_quality = "price_verified_eps_ready" if score_ready else "price_verified_eps_pending"
+    data_quality = "price_verified_eps_gbm_ready" if score_ready else "price_eps_or_gbm_pending"
     ticker_meta = {
         "ticker": ticker,
         "name": _display_name(ticker),
@@ -468,12 +471,14 @@ def build_dashboard(
             "data_status": "valuation_ready" if ready_count else "price_live_eps_pending",
             "valuation_model": model_status,
             "stocks_with_score": ready_count,
-            "frontend_bars_per_stock": MAX_FRONTEND_BARS,
+            "frontend_start_date": HISTORY_START_DATE,
+            "strategy_start_rule": "max(frontend_start_date, first CanRunGBM date)",
             "rules": rules,
         },
         "stocks": dashboard_stocks,
     }
     write_json_atomic(DASHBOARD_JSON, dashboard_payload)
+    write_split_dashboard(DASHBOARD_JSON, dashboard_payload)
 
     all_events = _dividend_events(dividends) + _report_events(reports) + _news_events(tickers, reviews)
     all_events.sort(key=lambda item: str(item.get("published_at", "")), reverse=True)

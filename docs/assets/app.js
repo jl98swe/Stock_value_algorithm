@@ -3,7 +3,8 @@
 
   const PATHS = {
     stocks: './data/stocks.json',
-    dashboard: './data/dashboard.json',
+    dashboard: './data/dashboard/index.json',
+    dashboardStocks: './data/dashboard/',
     events: './data/events.json'
   };
 
@@ -12,7 +13,7 @@
     dashboard: null,
     eventsPayload: null,
     selectedTicker: null,
-    range: '125',
+    range: 'all',
     chart: null
   };
 
@@ -62,6 +63,16 @@
     const response = await fetch(path, { cache: 'no-store' });
     if (!response.ok) throw new Error(`${path} gav HTTP ${response.status}`);
     return response.json();
+  }
+
+  async function loadDashboardStock(ticker) {
+    if (state.dashboard.stocks?.[ticker]) return state.dashboard.stocks[ticker];
+    const filename = state.dashboard.files?.[ticker];
+    if (!filename) return null;
+    const stock = await loadJson(`${PATHS.dashboardStocks}${encodeURIComponent(filename)}`);
+    state.dashboard.stocks ||= {};
+    state.dashboard.stocks[ticker] = stock;
+    return stock;
   }
 
   function setHidden(id, hidden) {
@@ -205,10 +216,13 @@
       <thead><tr><th>Strategi</th><th>Avkastning</th><th>Max DD</th><th>Affärer</th><th>Win rate</th></tr></thead>
       <tbody>${comparisons.map((row) => `<tr><td>${row.strategy}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
 
-    const trades = data.closed_trades || [];
+    const trades = (data.signals || [])
+      .filter((row) => row.status === 'executed' && row.execution_date)
+      .slice()
+      .sort((a, b) => b.execution_date.localeCompare(a.execution_date));
     $('trades-table').innerHTML = `
-      <thead><tr><th>In</th><th>Ut</th><th>Inkurs</th><th>Utkurs</th><th>Resultat</th></tr></thead>
-      <tbody>${trades.length ? trades.map((row) => `<tr><td>${prettyDate(row.entry_date)}</td><td>${prettyDate(row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${fmt.format(row.exit_price)}</td><td class="${row.return_pct >= 0 ? 'positive' : 'negative'}">${pct(row.return_pct)}</td></tr>`).join('') : '<tr><td colspan="5">Inga avslut.</td></tr>'}</tbody>`;
+      <thead><tr><th>Datum</th><th>Händelse</th><th>Kurs</th><th>Score</th></tr></thead>
+      <tbody>${trades.length ? trades.map((row) => `<tr><td>${prettyDate(row.execution_date)}</td><td class="${row.side === 'BUY' ? 'positive' : 'negative'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</td><td>${fmt.format(row.execution_price)}</td><td>${fmt.format(row.score)}</td></tr>`).join('') : '<tr><td colspan="4">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
   }
 
   function sliceData(data) {
@@ -238,19 +252,23 @@
     const endDate = dates[dates.length - 1];
 
     const events = (state.eventsPayload?.events || []).filter((event) => event.ticker === ticker && event.published_at.slice(0, 10) >= startDate && event.published_at.slice(0, 10) <= endDate);
-    const signals = (data.signals || []).filter((signal) => signal.date >= startDate && signal.date <= endDate);
+    const signals = (data.signals || []).filter((signal) => (
+      signal.status === 'executed'
+      && signal.execution_date >= startDate
+      && signal.execution_date <= endDate
+    ));
 
     const signalPoints = signals.map((signal) => {
-      const candle = sliced.candles.find((d) => d.date === signal.date);
+      const candle = sliced.candles.find((d) => d.date === signal.execution_date);
       if (!candle) return null;
       const buy = signal.side === 'BUY';
       return {
-        name: `${signal.side} ${signal.status}`,
-        coord: [signal.date, buy ? candle.low * 0.985 : candle.high * 1.015],
+        name: buy ? 'Köp' : 'Sälj',
+        coord: [signal.execution_date, signal.execution_price ?? (buy ? candle.low * 0.985 : candle.high * 1.015)],
         symbol: buy ? 'triangle' : 'triangle',
         symbolRotate: buy ? 0 : 180,
         symbolSize: 13,
-        itemStyle: { color: signal.status.includes('blocked') ? '#c88722' : buy ? '#1f8f67' : '#c74747' },
+        itemStyle: { color: buy ? '#1f8f67' : '#c74747' },
         label: { show: false }
       };
     }).filter(Boolean);
@@ -322,8 +340,9 @@
     state.chart.setOption(option, true);
   }
 
-  function selectTicker(ticker) {
-    if (!state.dashboard.stocks?.[ticker]) return;
+  async function selectTicker(ticker) {
+    const stock = await loadDashboardStock(ticker);
+    if (!stock) return;
     state.selectedTicker = ticker;
     const url = new URL(window.location.href);
     url.searchParams.set('ticker', ticker);
@@ -352,7 +371,7 @@
         renderChart(state.selectedTicker, state.dashboard.stocks[state.selectedTicker]);
       });
     });
-    const defaultRange = document.querySelector('[data-range="125"]');
+    const defaultRange = document.querySelector('[data-range="all"]');
     if (defaultRange) defaultRange.classList.add('active');
     window.addEventListener('resize', () => state.chart?.resize());
   }
@@ -363,7 +382,7 @@
         loadJson(PATHS.stocks), loadJson(PATHS.dashboard), loadJson(PATHS.events)
       ]);
       state.stocksPayload = stocksPayload;
-      state.dashboard = dashboard;
+      state.dashboard = { ...dashboard, stocks: {} };
       state.eventsPayload = eventsPayload;
 
       const generatedAt = dashboard.meta?.generated_at || stocksPayload.generated_at;
@@ -374,13 +393,13 @@
 
       const requested = new URLSearchParams(window.location.search).get('ticker');
       const firstTicker = stocksPayload.stocks?.[0]?.ticker;
-      state.selectedTicker = dashboard.stocks?.[requested] ? requested : firstTicker;
+      state.selectedTicker = dashboard.files?.[requested] ? requested : firstTicker;
       if (!state.selectedTicker) throw new Error('stocks.json innehåller inga aktier.');
 
       setHidden('loading-state', true);
       setHidden('dashboard-content', false);
       renderStockList();
-      renderSelected();
+      await selectTicker(state.selectedTicker);
     } catch (error) {
       console.error(error);
       setHidden('loading-state', true);

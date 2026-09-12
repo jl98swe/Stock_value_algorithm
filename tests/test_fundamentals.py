@@ -4,6 +4,7 @@ from src.fundamentals import (
     REPORT_DATE_STATE,
     TV_PERIOD_END_STATE,
     attach_eps_ttm,
+    load_reports,
     normalise_reports,
     valuation_calculation_mode,
     verified_reports,
@@ -47,7 +48,7 @@ def test_eps_is_never_used_before_effective_date():
     assert mapped.loc[3, "EPS_TTM"] == 10.0
 
 
-def test_tv_mode_uses_period_end_without_changing_report_date_mode():
+def test_legacy_tv_mode_also_uses_report_date():
     prices = pd.DataFrame(
         {
             "Date": pd.to_datetime(["2026-06-30", "2026-07-16", "2026-07-17"]),
@@ -72,16 +73,18 @@ def test_tv_mode_uses_period_end_without_changing_report_date_mode():
     assert pd.isna(report_date.loc[0, "EPS_TTM"])
     assert pd.isna(report_date.loc[1, "EPS_TTM"])
     assert report_date.loc[2, "EPS_TTM"] == 10.0
-    assert tv_period_end["EPS_TTM"].tolist() == [10.0, 10.0, 10.0]
+    assert pd.isna(tv_period_end.loc[0, "EPS_TTM"])
+    assert pd.isna(tv_period_end.loc[1, "EPS_TTM"])
+    assert tv_period_end.loc[2, "EPS_TTM"] == 10.0
 
 
-def test_tradingview_source_activates_tv_mode_only_for_that_ticker():
+def test_tradingview_source_does_not_activate_period_end_timing():
     tradingview = _verified_report(ticker="TV.ST")
     tradingview.loc[0, "source"] = "TradingView / EARNINGS_PER_SHARE_DILUTED TTM"
     ordinary = _verified_report(ticker="OTHER.ST")
     reports = normalise_reports(pd.concat([tradingview, ordinary], ignore_index=True))
 
-    assert valuation_calculation_mode("TV.ST", reports) == TV_PERIOD_END_STATE
+    assert valuation_calculation_mode("TV.ST", reports) == REPORT_DATE_STATE
     assert valuation_calculation_mode("OTHER.ST", reports) == REPORT_DATE_STATE
 
 
@@ -176,13 +179,12 @@ def test_tradingview_override_can_use_price_currency_for_one_report():
     )
 
     assert pd.isna(mapped.loc[0, "EPS_TTM"])
-    assert mapped.loc[1, "EPS_CURRENCY"] == "SEK"
-    assert mapped.loc[1, "FX_RATE"] == 1.0
-    assert mapped.loc[1, "EPS_TTM"] == 26.4067
-    assert mapped.loc[2, "EPS_TTM"] == 26.4067
+    assert mapped.loc[1, "EPS_CURRENCY"] == "USD"
+    assert mapped.loc[1, "EPS_TTM"] != 26.4067
+    assert mapped.loc[2, "EPS_TTM"] != 26.4067
 
 
-def test_tradingview_period_end_is_usable_when_report_date_is_unknown():
+def test_tradingview_period_end_is_not_usable_when_report_date_is_unknown():
     prices = pd.DataFrame(
         {
             "Date": pd.to_datetime(["2018-09-28", "2018-10-01"]),
@@ -196,7 +198,7 @@ def test_tradingview_period_end_is_usable_when_report_date_is_unknown():
     report.loc[0, "notes"] = "report_currency=SEK"
     reports = normalise_reports(report)
 
-    assert len(verified_reports(reports)) == 1
+    assert verified_reports(reports).empty
     mapped = attach_eps_ttm(
         prices,
         "TV.ST",
@@ -205,7 +207,22 @@ def test_tradingview_period_end_is_usable_when_report_date_is_unknown():
     )
 
     assert pd.isna(mapped.loc[0, "EPS_TTM"])
-    assert mapped.loc[1, "EPS_TTM"] == 5.0
+    assert pd.isna(mapped.loc[1, "EPS_TTM"])
+
+
+def test_load_reports_fills_missing_effective_date_from_cache(tmp_path):
+    reports_path = tmp_path / "reports.csv"
+    cache_path = tmp_path / "eps_report_date_cache.csv"
+    report = _verified_report(ticker="TV.ST", eps_ttm=5.0)
+    report.loc[0, "effective_date"] = pd.NaT
+    report.to_csv(reports_path, index=False)
+    pd.DataFrame(
+        [{"ticker": "TV.ST", "report_period": "2026-Q2", "report_date": "2026-07-17"}]
+    ).to_csv(cache_path, index=False)
+
+    loaded = load_reports(reports_path, cache_path=cache_path)
+
+    assert loaded.loc[0, "effective_date"] == pd.Timestamp("2026-07-17")
 
 
 def test_current_tradingview_value_applies_when_observed_before_period_end():

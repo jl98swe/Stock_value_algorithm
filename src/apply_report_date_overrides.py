@@ -5,8 +5,10 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ROOT
+from .fundamentals import save_reports
 
 HISTORY_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history_enriched.csv"
+REPORTS_FILE = ROOT / "data" / "fundamentals" / "reports.csv"
 REPORT_DATE_CACHE_FILE = ROOT / "data" / "fundamentals" / "eps_report_date_cache.csv"
 OVERRIDES_FILE = ROOT / "data" / "fundamentals" / "report_date_overrides.csv"
 MISSING_FILE = ROOT / "data" / "derived" / "eps_report_date_missing.csv"
@@ -14,6 +16,15 @@ APPLIED_FILE = ROOT / "data" / "derived" / "eps_report_date_overrides_applied.cs
 
 OVERRIDE_COLUMNS = ["ticker", "report_period", "report_date", "source"]
 CACHE_COLUMNS = ["ticker", "report_period", "report_date"]
+
+
+def _calendar_quarter(report_period: str) -> pd.Period:
+    text = str(report_period).strip().upper()
+    try:
+        year_text, quarter_text = text.split("-Q", 1)
+        return pd.Period(year=int(year_text), quarter=int(quarter_text), freq="Q")
+    except Exception as exc:
+        raise ValueError(f"Ogiltig report_period i override: {report_period}") from exc
 
 
 def _load_cache(path: Path) -> pd.DataFrame:
@@ -33,12 +44,14 @@ def _load_cache(path: Path) -> pd.DataFrame:
 
 def apply_overrides(
     history_file: Path = HISTORY_FILE,
+    reports_file: Path = REPORTS_FILE,
     overrides_file: Path = OVERRIDES_FILE,
     cache_file: Path = REPORT_DATE_CACHE_FILE,
     missing_file: Path = MISSING_FILE,
     applied_file: Path = APPLIED_FILE,
 ) -> pd.DataFrame:
     history = pd.read_csv(history_file, encoding="utf-8-sig")
+    reports = pd.read_csv(reports_file, encoding="utf-8-sig")
     overrides = pd.read_csv(overrides_file, encoding="utf-8-sig")
     cache = _load_cache(cache_file)
 
@@ -54,6 +67,15 @@ def apply_overrides(
     history["ticker"] = history["ticker"].astype(str).str.strip()
     history["report_period"] = history["report_period"].astype(str).str.strip()
     history["report_date"] = pd.to_datetime(history["report_date"], errors="coerce")
+
+    reports["ticker"] = reports["ticker"].astype(str).str.strip()
+    reports["report_period"] = reports["report_period"].astype(str).str.strip()
+    if "period_end" not in reports.columns:
+        reports["period_end"] = pd.NaT
+    reports["period_end"] = pd.to_datetime(reports["period_end"], errors="coerce").dt.normalize()
+    if "effective_date" not in reports.columns:
+        reports["effective_date"] = pd.NaT
+    reports["effective_date"] = pd.to_datetime(reports["effective_date"], errors="coerce").dt.normalize()
 
     overrides = overrides[OVERRIDE_COLUMNS].copy()
     if not overrides.empty:
@@ -71,16 +93,39 @@ def apply_overrides(
         for row in cache.itertuples(index=False)
     }
 
-    history_keys = set(zip(history["ticker"], history["report_period"], strict=False))
     applied_rows: list[dict[str, object]] = []
+    reports_updated = 0
     for row in overrides.itertuples(index=False):
         key = (str(row.ticker), str(row.report_period))
-        if key not in history_keys:
-            raise ValueError(f"Override saknar matchande EPS-rad: {key[0]} {key[1]}")
         mask = (history["ticker"] == key[0]) & (history["report_period"] == key[1])
-        old = history.loc[mask, "report_date"].iloc[0]
+        exact_report_mask = (reports["ticker"] == key[0]) & (reports["report_period"] == key[1])
+        fallback_report_mask = pd.Series(False, index=reports.index, dtype=bool)
+        if not mask.any() and not exact_report_mask.any():
+            quarter = _calendar_quarter(key[1])
+            fallback_report_mask = (
+                reports["ticker"].eq(key[0])
+                & reports["period_end"].notna()
+                & reports["period_end"].dt.to_period("Q").eq(quarter)
+            )
+            fallback_count = int(fallback_report_mask.sum())
+            if fallback_count == 0:
+                raise ValueError(f"Override saknar matchande EPS-rad: {key[0]} {key[1]}")
+            if fallback_count > 1:
+                periods = reports.loc[
+                    fallback_report_mask, ["report_period", "period_end"]
+                ].to_dict("records")
+                raise ValueError(
+                    f"Override har flera möjliga EPS-rader: {key[0]} {key[1]} {periods}"
+                )
+
+        old = history.loc[mask, "report_date"].iloc[0] if mask.any() else cache_lookup.get(key)
         new = pd.Timestamp(row.report_date).normalize()
-        history.loc[mask, "report_date"] = new
+        if mask.any():
+            history.loc[mask, "report_date"] = new
+        report_mask = exact_report_mask | fallback_report_mask
+        if report_mask.any():
+            reports.loc[report_mask, "effective_date"] = new
+            reports_updated += int(report_mask.sum())
         cache_lookup[key] = new
         applied_rows.append(
             {
@@ -95,6 +140,8 @@ def apply_overrides(
     history = history.sort_values(["ticker", "report_period"]).reset_index(drop=True)
     history["report_date"] = history["report_date"].dt.strftime("%Y-%m-%d")
     history.to_csv(history_file, index=False)
+    if reports_updated:
+        save_reports(reports, reports_file)
 
     cache_rows = [
         {"ticker": ticker, "report_period": period, "report_date": report_date.date().isoformat()}
@@ -119,6 +166,7 @@ def apply_overrides(
 
     print(
         f"Rapportdatum-overrides: {len(applied)} applicerade. "
+        f"{reports_updated} kanoniska rapportposter uppdaterade. "
         f"Återstår {len(missing)} EPS-rader utan rapportdatum."
     )
     return history

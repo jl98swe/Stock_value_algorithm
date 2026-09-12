@@ -197,7 +197,11 @@ def _sibling_share_class_proxy(yahoo_ticker: str, available: set[str]) -> str | 
     return None
 
 
-def _canonical_metadata(mapping: pd.DataFrame, path: Path = METADATA_FILE) -> pd.DataFrame:
+def _canonical_metadata(
+    mapping: pd.DataFrame,
+    history: pd.DataFrame,
+    path: Path = METADATA_FILE,
+) -> pd.DataFrame:
     metadata = _read_csv(path)
     required = ["ticker", "company", "isin", "price_currency", "report_currency"]
     missing = [column for column in required if column not in metadata.columns]
@@ -205,13 +209,68 @@ def _canonical_metadata(mapping: pd.DataFrame, path: Path = METADATA_FILE) -> pd
         raise ValueError(f"stocks.csv saknar kolumner: {', '.join(missing)}")
     metadata = metadata[required].copy()
     metadata["ticker"] = metadata["ticker"].astype(str).str.strip()
-    lookup = mapping.set_index("borsdata_ticker")["yahoo_ticker"]
-    metadata["source_ticker"] = metadata["ticker"]
-    metadata["ticker"] = metadata["source_ticker"].map(lookup)
-    if metadata["ticker"].isna().any():
-        unknown = metadata.loc[metadata["ticker"].isna(), "source_ticker"].tolist()
+    if metadata["ticker"].duplicated().any():
+        duplicates = metadata.loc[metadata["ticker"].duplicated(False), "ticker"].tolist()
+        raise ValueError(f"stocks.csv innehåller dubbla tickers: {duplicates[:20]}")
+
+    known_source_tickers = set(mapping["borsdata_ticker"].astype(str))
+    unknown = sorted(set(metadata["ticker"]) - known_source_tickers)
+    if unknown:
         raise ValueError(f"Saknar Yahoo-mappning för metadata: {unknown[:20]}")
-    return metadata[["ticker", "company", "isin", "price_currency", "report_currency"]].sort_values("ticker")
+
+    # stocks.csv innehåller äldre bolagsdetaljer för bara en del av universum.
+    # Utgå därför från hela ticker-mappningen så att en ny körning aldrig kan
+    # kapa stocks_yahoo.csv. EPS-historiken är den kanoniska källan för
+    # rapportvalutan för de rader där bolagsmetadata ännu saknas.
+    currency_rows = history[["ticker", "currency"]].drop_duplicates().copy()
+    duplicate_currencies = currency_rows["ticker"].duplicated(False)
+    if duplicate_currencies.any():
+        tickers = sorted(currency_rows.loc[duplicate_currencies, "ticker"].unique().tolist())
+        raise ValueError(f"EPS-historiken innehåller flera rapportvalutor för: {tickers[:20]}")
+    currency_rows = currency_rows.rename(columns={"currency": "history_report_currency"})
+
+    canonical = mapping[["borsdata_ticker", "yahoo_ticker"]].rename(
+        columns={"borsdata_ticker": "source_ticker", "yahoo_ticker": "ticker"}
+    )
+    canonical = canonical.merge(
+        metadata.rename(columns={"ticker": "source_ticker"}),
+        on="source_ticker",
+        how="left",
+        validate="one_to_one",
+    )
+    canonical = canonical.merge(currency_rows, on="ticker", how="left", validate="one_to_one")
+
+    for column in ["price_currency", "report_currency", "history_report_currency"]:
+        canonical[column] = canonical[column].fillna("").astype(str).str.strip().str.upper()
+    canonical.loc[
+        canonical["price_currency"].eq("") & canonical["ticker"].str.endswith(".ST"),
+        "price_currency",
+    ] = "SEK"
+    canonical.loc[canonical["report_currency"].eq(""), "report_currency"] = canonical.loc[
+        canonical["report_currency"].eq(""), "history_report_currency"
+    ]
+
+    missing_currency = canonical.loc[
+        canonical["price_currency"].eq("") | canonical["report_currency"].eq(""), "ticker"
+    ].tolist()
+    if missing_currency:
+        raise ValueError(f"Saknar valutametadata för: {missing_currency[:20]}")
+    currency_mismatch = canonical.loc[
+        canonical["history_report_currency"].ne("")
+        & canonical["report_currency"].ne(canonical["history_report_currency"]),
+        ["ticker", "report_currency", "history_report_currency"],
+    ]
+    if not currency_mismatch.empty:
+        raise ValueError(
+            "EPS-valuta matchar inte metadata: "
+            f"{currency_mismatch.head(20).to_dict('records')}"
+        )
+
+    canonical["company"] = canonical["company"].fillna("")
+    canonical["isin"] = canonical["isin"].fillna("")
+    return canonical[
+        ["ticker", "company", "isin", "price_currency", "report_currency"]
+    ].sort_values("ticker")
 
 
 def enrich(
@@ -328,7 +387,7 @@ def enrich(
     output.to_csv(output_file, index=False)
     _write_report_date_cache(report_date_cache, report_date_cache_file)
 
-    canonical_metadata = _canonical_metadata(mapping, metadata_file)
+    canonical_metadata = _canonical_metadata(mapping, output, metadata_file)
     output_metadata_file.parent.mkdir(parents=True, exist_ok=True)
     canonical_metadata.to_csv(output_metadata_file, index=False)
 

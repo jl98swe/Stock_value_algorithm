@@ -1,4 +1,86 @@
 ticker,report_period,previous_report_date,report_date,source
+ADDT-B.ST,2018-Q3,2018-10-25,2018-10-25,Addtech official reports archive
+ADDT-B.ST,2018-Q4,2019-02-07,2019-02-07,Addtech official reports archive
+ADDT-B.ST,2019-Q1,2019-05-15,2019-05-15,Addtech official reports archive
+ADDT-B.ST,2019-Q2,2019-07-12,2019-07-12,Addtech official reports archive
+ADDT-B.ST,2019-Q3,2019-10-24,2019-10-24,Addtech official reports archive
+ADDT-B.ST,2019-Q4,2020-02-05,2020-02-05,Addtech official reports archive
+ADDT-B.ST,2020-Q1,2020-05-13,2020-05-13,Addtech official reports archive
+ADDT-B.ST,2020-Q2,2020-07-14,2020-07-14,Addtech official reports archive
+ADDT-B.ST,2020-Q3,2020-10-23,2020-10-23,Addtech official reports archive
+ADDT-B.ST,2020-Q4,2021-02-04,2021-02-04,Addtech official reports archive
+ADDT-B.ST,2021-Q1,2021-05-18,2021-05-18,Addtech official reports archive
+ADDT-B.ST,2021-Q2,2021-07-16,2021-07-16,Addtech official reports archive
+ADDT-B.ST,2021-Q3,2021-10-28,2021-10-28,Addtech official reports archive
+ADDT-B.ST,2021-Q4,2022-02-08,2022-02-08,Addtech official reports archive
+ADDT-B.ST,2022-Q1,2022-05-17,2022-05-17,Addtech official reports archive
+ADDT-B.ST,2022-Q2,2022-07-15,2022-07-15,Addtech official reports archive
+ADDT-B.ST,2022-Q3,2022-10-27,2022-10-27,Addtech official reports archive
+ADDT-B.ST,2022-Q4,2023-02-02,2023-02-02,Addtech official reports archive
+ADDT-B.ST,2023-Q1,2023-05-17,2023-05-17,Addtech official reports archive
+ADDT-B.ST,2023-Q2,2023-07-14,2023-07-14,Addtech official reports archive
+ALIV-SDB.ST,2018-Q3,2018-10-26,2018-10-26,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2018-Q4,2019-01-29,2019-01-29,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2019-Q1,2019-04-26,2019-04-26,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2019-Q2,2019-07-19,2019-07-19,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2019-Q3,2019-10-25,2019-10-25,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2019-Q4,2020-01-28,2020-01-28,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2020-Q1,2020-04-24,2020-04-24,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2020-Q2,2020-07-17,2020-07-17,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2020-Q3,2020-10-23,2020-10-23,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2020-Q4,2021-01-26,2021-01-26,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2021-Q1,2021-04-23,2021-04-23,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2021-Q2,2021-07-16,2021-07-16,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2021-Q3,2021-10-22,2021-10-22,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2021-Q4,2022-01-28,2022-01-28,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2022-Q1,2022-04-22,2022-04-22,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2022-Q2,2022-07-22,2022-07-22,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2022-Q3,2022-10-21,2022-10-21,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2022-Q4,2023-01-27,2023-01-27,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2023-Q1,2023-04-21,2023-04-21,Autoliv official reports and presentations archive
+ALIV-SDB.ST,2023-Q2,2023-07-21,2023-07-21,Autoliv official reports and presentations archive
+ALLEI.ST,2022-Q3,2022-10-17,2022-10-17,Alleima official regulatory press release
+ALLEI.ST,2022-Q4,2023-01-24,2023-01-24,Alleima official regulatory press release
+ALLEI.ST,2023-Q1,2023-04-26,2023-04-26,Alleima official regulatory press release
+ANOD-B.ST,2018-Q3,2018-10-25,2018-10-25,Addnode Group official reports archive
+ANOD-B.ST,2018-Q4,2019-02-06,2019-02-06,Addnode Group official reports archive
+ANOD-B.ST,2019-Q1,2019-04-25,2019-04-25,Addnode Group official reports archive
+ANOD-B.ST,2019-Q2,2019-07-19,2019-07-19,Addnode Group official reports archive
+ANOD-B.ST,2019-Q3,2019-10-25,2019-10-25,Addnode Group official reports archive
+ANOD-B.ST,2019-Q4,2020-02-04,2020-02-04,Addnode Group official reports archive
+ANOD-B.ST,2020-Q1,2020-04-24,2020-04-24,Addnode Group official reports archive
+ANOD-B.ST,2020-Q2,2020-07-17,2020-07-17,Addnode Group official reports archive
+ANOD-B.ST,2020-Q3,2020-10-23,2020-10-23,Addnode Group official reports archive
+ANOD-B.ST,2020-Q4,2021-02-03,2021-02-03,Addnode Group official reports archive
+ANOD-B.ST,2021-Q1,2021-04-29,2021-04-29,Addnode Group official reports archive
+ANOD-B.ST,2021-Q2,2021-07-21,2021-07-21,Addnode Group official reports archive
+ANOD-B.ST,2021-Q3,2021-10-29,2021-10-29,Addnode Group official reports archive
+ANOD-B.ST,2021-Q4,2022-02-04,2022-02-04,Addnode Group official reports archive
+ANOD-B.ST,2022-Q1,2022-04-29,2022-04-29,Addnode Group official reports archive
+ANOD-B.ST,2022-Q2,2022-07-15,2022-07-15,Addnode Group official reports archive
+ANOD-B.ST,2022-Q3,2022-10-28,2022-10-28,Addnode Group official reports archive
+ANOD-B.ST,2022-Q4,2023-02-03,2023-02-03,Addnode Group official reports archive
+ANOD-B.ST,2023-Q1,2023-04-28,2023-04-28,Addnode Group official reports archive
+ATRLJ-B.ST,2018-Q3,2018-10-19,2018-10-19,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2018-Q4,2019-02-15,2019-02-15,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2019-Q1,2019-04-12,2019-04-12,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2019-Q2,2019-07-09,2019-07-09,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2019-Q3,2019-10-18,2019-10-18,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2019-Q4,2020-02-07,2020-02-07,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2020-Q1,2020-04-16,2020-04-16,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2020-Q2,2020-07-10,2020-07-10,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2020-Q3,2020-10-15,2020-10-15,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2020-Q4,2021-02-09,2021-02-09,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2021-Q1,2021-04-16,2021-04-16,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2021-Q2,2021-07-07,2021-07-07,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2021-Q3,2021-10-15,2021-10-15,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2021-Q4,2022-02-10,2022-02-10,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2022-Q1,2022-04-13,2022-04-13,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2022-Q2,2022-07-08,2022-07-08,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2022-Q3,2022-10-14,2022-10-14,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2022-Q4,2023-02-02,2023-02-02,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2023-Q1,2023-04-14,2023-04-14,Atrium Ljungberg financial reports archive
+ATRLJ-B.ST,2023-Q2,2023-07-06,2023-07-06,Atrium Ljungberg financial reports archive
 ATRLJ-B.ST,2024-Q1,2024-04-12,2024-04-12,Atrium Ljungberg financial reports archive
 ATRLJ-B.ST,2024-Q2,2024-07-09,2024-07-09,Atrium Ljungberg financial reports archive
 ATRLJ-B.ST,2024-Q3,2024-10-11,2024-10-11,Atrium Ljungberg financial reports archive
@@ -8,15 +90,99 @@ ATRLJ-B.ST,2025-Q2,2025-07-04,2025-07-04,Atrium Ljungberg financial reports arch
 ATRLJ-B.ST,2025-Q3,2025-10-10,2025-10-10,Atrium Ljungberg financial reports archive
 ATRLJ-B.ST,2025-Q4,2026-01-30,2026-01-30,Atrium Ljungberg financial reports archive
 ATRLJ-B.ST,2026-Q1,2026-04-10,2026-04-10,Atrium Ljungberg financial reports archive
+ATT.ST,2018-Q3,2018-11-09,2018-11-09,Attendo official report archive
+ATT.ST,2018-Q4,2019-02-14,2019-02-14,Attendo official report archive
+ATT.ST,2019-Q1,2019-05-03,2019-05-03,Attendo official report archive
+ATT.ST,2019-Q2,2019-07-19,2019-07-19,Attendo official report archive
+ATT.ST,2019-Q3,2019-10-24,2019-10-24,Attendo official report archive
+ATT.ST,2019-Q4,2020-02-13,2020-02-13,Attendo official report archive
+ATT.ST,2020-Q1,2020-05-06,2020-05-06,Attendo official report archive
+ATT.ST,2020-Q2,2020-07-23,2020-07-23,Attendo official report archive
+ATT.ST,2020-Q3,2020-10-23,2020-10-23,Attendo official report archive
+ATT.ST,2020-Q4,2021-02-10,2021-02-10,Attendo official report archive
+ATT.ST,2021-Q1,2021-05-06,2021-05-06,Attendo official report archive
+ATT.ST,2021-Q2,2021-07-22,2021-07-22,Attendo official report archive
+ATT.ST,2021-Q3,2021-10-26,2021-10-26,Attendo official report archive
+ATT.ST,2021-Q4,2022-02-10,2022-02-10,Attendo official report archive
+ATT.ST,2022-Q1,2022-05-06,2022-05-06,Attendo official report archive
+ATT.ST,2022-Q2,2022-07-21,2022-07-21,Attendo official report archive
+ATT.ST,2022-Q3,2022-10-26,2022-10-26,Attendo official report archive
+ATT.ST,2022-Q4,2023-02-10,2023-02-10,Attendo official report archive
+ATT.ST,2023-Q1,2023-04-26,2023-04-26,Attendo official report archive
+ATT.ST,2023-Q2,2023-07-20,2023-07-20,Attendo official report archive
+ATT.ST,2023-Q3,2023-10-24,2023-10-24,Attendo official report archive
 ATT.ST,2023-Q4,2024-02-08,2024-02-08,Attendo official report release
 ATT.ST,2024-Q1,2024-04-24,2024-04-24,Attendo official report release
+AZN.ST,2018-Q3,2018-11-08,2018-11-08,AstraZeneca official results archive
+AZN.ST,2018-Q4,2019-02-14,2019-02-14,AstraZeneca official results archive
+AZN.ST,2019-Q1,2019-04-26,2019-04-26,AstraZeneca official results archive
+AZN.ST,2019-Q2,2019-07-25,2019-07-25,AstraZeneca official results archive
+AZN.ST,2019-Q3,2019-10-24,2019-10-24,AstraZeneca official results archive
+AZN.ST,2019-Q4,2020-02-14,2020-02-14,AstraZeneca official results archive
+AZN.ST,2020-Q1,2020-04-29,2020-04-29,AstraZeneca official results archive
+AZN.ST,2020-Q2,2020-07-30,2020-07-30,AstraZeneca official results archive
+AZN.ST,2020-Q3,2020-11-05,2020-11-05,AstraZeneca official results archive
+AZN.ST,2020-Q4,2021-02-11,2021-02-11,AstraZeneca official results archive
+AZN.ST,2021-Q1,2021-04-30,2021-04-30,AstraZeneca official results archive
+AZN.ST,2021-Q2,2021-07-29,2021-07-29,AstraZeneca official results archive
+AZN.ST,2021-Q3,2021-11-12,2021-11-12,AstraZeneca official results archive
+AZN.ST,2021-Q4,2022-02-10,2022-02-10,AstraZeneca official results archive
+AZN.ST,2022-Q1,2022-04-29,2022-04-29,AstraZeneca official results archive
+AZN.ST,2022-Q2,2022-07-29,2022-07-29,AstraZeneca official results archive
+AZN.ST,2022-Q3,2022-11-10,2022-11-10,AstraZeneca official results archive
+AZN.ST,2022-Q4,2023-02-09,2023-02-09,AstraZeneca official results archive
+AZN.ST,2023-Q1,2023-04-27,2023-04-27,AstraZeneca official results archive
+AZN.ST,2023-Q2,2023-07-28,2023-07-28,AstraZeneca official results archive
+AZN.ST,2023-Q4,2024-02-08,2024-02-08,AstraZeneca official results archive
 AZN.ST,2024-Q1,2024-04-25,2024-04-25,AstraZeneca results and presentations
+BAHN-B.ST,2018-Q3,2018-10-23,2018-10-23,Bahnhof official reports archive
+BAHN-B.ST,2018-Q4,2019-02-19,2019-02-19,Bahnhof official reports archive
+BAHN-B.ST,2019-Q1,2019-05-07,2019-05-07,Bahnhof official reports archive
+BAHN-B.ST,2019-Q2,2019-08-20,2019-08-20,Bahnhof official reports archive
+BAHN-B.ST,2019-Q3,2019-11-12,2019-11-12,Bahnhof official reports archive
+BAHN-B.ST,2019-Q4,2020-02-18,2020-02-18,Bahnhof official reports archive
+BAHN-B.ST,2020-Q1,2020-05-05,2020-05-05,Bahnhof official reports archive
+BAHN-B.ST,2020-Q2,2020-08-18,2020-08-18,Bahnhof official reports archive
+BAHN-B.ST,2020-Q3,2020-11-10,2020-11-10,Bahnhof official reports archive
+BAHN-B.ST,2020-Q4,2021-02-16,2021-02-16,Bahnhof official reports archive
+BAHN-B.ST,2021-Q1,2021-05-04,2021-05-04,Bahnhof official reports archive
+BAHN-B.ST,2021-Q2,2021-08-19,2021-08-19,Bahnhof official reports archive
+BAHN-B.ST,2021-Q3,2021-11-09,2021-11-09,Bahnhof official reports archive
+BAHN-B.ST,2021-Q4,2022-02-15,2022-02-15,Bahnhof official reports archive
+BAHN-B.ST,2022-Q1,2022-05-04,2022-05-04,Bahnhof official reports archive
+BAHN-B.ST,2022-Q2,2022-08-18,2022-08-18,Bahnhof official reports archive
+BAHN-B.ST,2022-Q3,2022-11-08,2022-11-08,Bahnhof official reports archive
+BAHN-B.ST,2022-Q4,2023-02-14,2023-02-14,Bahnhof official reports archive
+BAHN-B.ST,2023-Q1,2023-05-04,2023-05-04,Bahnhof official reports archive
+BAHN-B.ST,2023-Q2,2023-08-22,2023-08-22,Bahnhof official reports archive
+BAHN-B.ST,2023-Q3,2023-11-07,2023-11-07,Bahnhof official reports archive
 BAHN-B.ST,2023-Q4,2024-02-13,2024-02-13,Bahnhof news archive
 BAHN-B.ST,2024-Q1,2024-05-07,2024-05-07,Bahnhof news archive
 BAHN-B.ST,2024-Q2,2024-08-20,2024-08-20,Bahnhof news archive
 BAHN-B.ST,2024-Q3,2024-11-12,2024-11-12,Bahnhof news archive
 BAHN-B.ST,2024-Q4,2025-02-18,2025-02-18,Bahnhof news archive
 BAHN-B.ST,2025-Q1,2025-05-06,2025-05-06,Bahnhof news archive
+BALD-B.ST,2018-Q3,2018-11-06,2018-11-06,Balder official financial reports archive
+BALD-B.ST,2018-Q4,2019-02-27,2019-02-27,Balder official financial reports archive
+BALD-B.ST,2019-Q1,2019-05-08,2019-05-08,Balder official financial reports archive
+BALD-B.ST,2019-Q2,2019-07-17,2019-07-17,Balder official financial reports archive
+BALD-B.ST,2019-Q3,2019-10-25,2019-10-25,Balder official financial reports archive
+BALD-B.ST,2019-Q4,2020-02-27,2020-02-27,Balder official financial reports archive
+BALD-B.ST,2020-Q1,2020-05-08,2020-05-08,Balder official financial reports archive
+BALD-B.ST,2020-Q2,2020-07-16,2020-07-16,Balder official financial reports archive
+BALD-B.ST,2020-Q3,2020-11-05,2020-11-05,Balder official financial reports archive
+BALD-B.ST,2020-Q4,2021-02-11,2021-02-11,Balder official financial reports archive
+BALD-B.ST,2021-Q1,2021-05-12,2021-05-12,Balder official financial reports archive
+BALD-B.ST,2021-Q2,2021-07-16,2021-07-16,Balder official financial reports archive
+BALD-B.ST,2021-Q3,2021-11-11,2021-11-11,Balder official financial reports archive
+BALD-B.ST,2021-Q4,2022-02-11,2022-02-11,Balder official financial reports archive
+BALD-B.ST,2022-Q1,2022-05-12,2022-05-12,Balder official financial reports archive
+BALD-B.ST,2022-Q2,2022-07-15,2022-07-15,Balder official financial reports archive
+BALD-B.ST,2022-Q3,2022-10-28,2022-10-28,Balder official financial reports archive
+BALD-B.ST,2022-Q4,2023-02-10,2023-02-10,Balder official financial reports archive
+BALD-B.ST,2023-Q1,2023-05-11,2023-05-11,Balder official financial reports archive
+BALD-B.ST,2023-Q2,2023-07-18,2023-07-18,Balder official financial reports archive
+BALD-B.ST,2023-Q3,2023-10-27,2023-10-27,Balder official financial reports archive
 BALD-B.ST,2024-Q1,2024-05-03,2024-05-03,Balder financial reports
 BALD-B.ST,2024-Q2,2024-07-16,2024-07-16,Balder financial reports
 BALD-B.ST,2024-Q3,2024-10-25,2024-10-25,Balder financial reports
@@ -25,13 +191,122 @@ BALD-B.ST,2025-Q1,2025-05-08,2025-05-08,Balder financial reports
 BALD-B.ST,2025-Q2,2025-07-15,2025-07-15,Balder financial reports
 BALD-B.ST,2025-Q3,2025-10-28,2025-10-28,Balder financial reports
 BALD-B.ST,2025-Q4,2026-02-06,2026-02-06,Balder financial reports
+BETS-B.ST,2018-Q3,2018-10-24,2018-10-24,Betsson official reports archive
+BETS-B.ST,2018-Q4,2019-02-14,2019-02-14,Betsson official reports archive
+BETS-B.ST,2019-Q1,2019-05-07,2019-05-07,Betsson official reports archive
+BETS-B.ST,2019-Q2,2019-07-19,2019-07-19,Betsson official reports archive
+BETS-B.ST,2019-Q3,2019-10-24,2019-10-24,Betsson official reports archive
+BETS-B.ST,2019-Q4,2020-02-13,2020-02-13,Betsson official reports archive
+BETS-B.ST,2020-Q1,2020-04-23,2020-04-23,Betsson official reports archive
+BETS-B.ST,2020-Q2,2020-07-21,2020-07-21,Betsson official reports archive
+BETS-B.ST,2020-Q3,2020-10-23,2020-10-23,Betsson official reports archive
+BETS-B.ST,2020-Q4,2021-02-09,2021-02-09,Betsson official reports archive
+BETS-B.ST,2021-Q1,2021-04-29,2021-04-29,Betsson official reports archive
+BETS-B.ST,2021-Q2,2021-07-22,2021-07-22,Betsson official reports archive
+BETS-B.ST,2021-Q3,2021-10-26,2021-10-26,Betsson official reports archive
+BETS-B.ST,2021-Q4,2022-02-10,2022-02-10,Betsson official reports archive
+BETS-B.ST,2022-Q1,2022-04-28,2022-04-28,Betsson official reports archive
+BETS-B.ST,2022-Q2,2022-07-21,2022-07-21,Betsson official reports archive
+BETS-B.ST,2022-Q3,2022-10-26,2022-10-26,Betsson official reports archive
+BETS-B.ST,2022-Q4,2023-02-14,2023-02-14,Betsson official reports archive
+BETS-B.ST,2023-Q1,2023-04-27,2023-04-27,Betsson official reports archive
+BETS-B.ST,2023-Q2,2023-07-20,2023-07-20,Betsson official reports archive
+BILI-A.ST,2018-Q3,2018-10-26,2018-10-26,Bilia official reports archive
+BILI-A.ST,2018-Q4,2019-02-08,2019-02-08,Bilia official reports archive
+BILI-A.ST,2019-Q1,2019-04-29,2019-04-29,Bilia official reports archive
+BILI-A.ST,2019-Q2,2019-07-25,2019-07-25,Bilia official reports archive
+BILI-A.ST,2019-Q3,2019-10-25,2019-10-25,Bilia official reports archive
+BILI-A.ST,2019-Q4,2020-02-12,2020-02-12,Bilia official reports archive
+BILI-A.ST,2020-Q1,2020-04-29,2020-04-29,Bilia official reports archive
+BILI-A.ST,2020-Q2,2020-07-29,2020-07-29,Bilia official reports archive
+BILI-A.ST,2020-Q3,2020-10-28,2020-10-28,Bilia official reports archive
+BILI-A.ST,2020-Q4,2021-02-11,2021-02-11,Bilia official reports archive
+BILI-A.ST,2021-Q1,2021-04-27,2021-04-27,Bilia official reports archive
+BILI-A.ST,2021-Q2,2021-07-23,2021-07-23,Bilia official reports archive
+BILI-A.ST,2021-Q3,2021-10-26,2021-10-26,Bilia official reports archive
+BILI-A.ST,2021-Q4,2022-02-09,2022-02-09,Bilia official reports archive
+BILI-A.ST,2022-Q1,2022-04-28,2022-04-28,Bilia official reports archive
+BILI-A.ST,2022-Q2,2022-07-22,2022-07-22,Bilia official reports archive
+BILI-A.ST,2022-Q3,2022-10-26,2022-10-26,Bilia official reports archive
+BILI-A.ST,2022-Q4,2023-02-08,2023-02-08,Bilia official reports archive
+BILI-A.ST,2023-Q1,2023-04-26,2023-04-26,Bilia official reports archive
+BIOG-B.ST,2018-Q3,2018-10-24,2018-10-24,BioGaia official reports archive
+BIOG-B.ST,2018-Q4,2019-02-07,2019-02-07,BioGaia official reports archive
+BIOG-B.ST,2019-Q1,2019-05-08,2019-05-08,BioGaia official reports archive
+BIOG-B.ST,2019-Q2,2019-08-08,2019-08-08,BioGaia official reports archive
+BIOG-B.ST,2019-Q3,2019-10-23,2019-10-23,BioGaia official reports archive
+BIOG-B.ST,2019-Q4,2020-02-06,2020-02-06,BioGaia official reports archive
+BIOG-B.ST,2020-Q1,2020-05-07,2020-05-07,BioGaia official reports archive
+BIOG-B.ST,2020-Q2,2020-08-13,2020-08-13,BioGaia official reports archive
+BIOG-B.ST,2020-Q3,2020-10-23,2020-10-23,BioGaia official reports archive
+BIOG-B.ST,2020-Q4,2021-02-04,2021-02-04,BioGaia official reports archive
+BIOG-B.ST,2021-Q1,2021-05-06,2021-05-06,BioGaia official reports archive
+BIOG-B.ST,2021-Q2,2021-08-12,2021-08-12,BioGaia official reports archive
+BIOG-B.ST,2021-Q3,2021-10-21,2021-10-21,BioGaia official reports archive
+BIOG-B.ST,2021-Q4,2022-02-04,2022-02-04,BioGaia official reports archive
+BIOG-B.ST,2022-Q1,2022-05-06,2022-05-06,BioGaia official reports archive
+BIOG-B.ST,2022-Q2,2022-07-22,2022-07-22,BioGaia official reports archive
+BIOG-B.ST,2022-Q3,2022-10-21,2022-10-21,BioGaia official reports archive
+BIOG-B.ST,2022-Q4,2023-02-03,2023-02-03,BioGaia official reports archive
+BIOG-B.ST,2023-Q1,2023-05-05,2023-05-05,BioGaia official reports archive
+BIOG-B.ST,2023-Q2,2023-07-21,2023-07-21,BioGaia official reports archive
+BIOG-B.ST,2023-Q3,2023-10-20,2023-10-20,BioGaia official reports archive
+BIOG-B.ST,2023-Q4,2024-02-07,2024-02-07,BioGaia official reports archive
 BIOG-B.ST,2024-Q1,2024-05-07,2024-05-07,BioGaia official report release
 BIOG-B.ST,2024-Q2,2024-07-23,2024-07-23,BioGaia official report release
 BIOG-B.ST,2024-Q3,2024-10-22,2024-10-22,BioGaia official report release
 BIOG-B.ST,2024-Q4,2025-02-12,2025-02-12,BioGaia financial reports
 BIOG-B.ST,2025-Q1,2025-05-07,2025-05-07,BioGaia official report release
+BORG.ST,2018-Q3,2018-11-16,2018-11-16,Bjorn Borg official reports archive
+BORG.ST,2018-Q4,2019-02-22,2019-02-22,Bjorn Borg official reports archive
+BORG.ST,2019-Q1,2019-05-14,2019-05-14,Bjorn Borg official reports archive
+BORG.ST,2019-Q2,2019-08-16,2019-08-16,Bjorn Borg official reports archive
+BORG.ST,2019-Q3,2019-11-15,2019-11-15,Bjorn Borg official reports archive
+BORG.ST,2019-Q4,2020-02-21,2020-02-21,Bjorn Borg official reports archive
+BORG.ST,2020-Q1,2020-05-14,2020-05-14,Bjorn Borg official reports archive
+BORG.ST,2020-Q2,2020-08-18,2020-08-18,Bjorn Borg official reports archive
+BORG.ST,2020-Q3,2020-11-20,2020-11-20,Bjorn Borg official reports archive
+BORG.ST,2020-Q4,2021-02-26,2021-02-26,Bjorn Borg official reports archive
+BORG.ST,2021-Q1,2021-05-18,2021-05-18,Bjorn Borg official reports archive
+BORG.ST,2021-Q2,2021-08-20,2021-08-20,Bjorn Borg official reports archive
+BORG.ST,2021-Q3,2021-11-19,2021-11-19,Bjorn Borg official reports archive
+BORG.ST,2021-Q4,2022-02-25,2022-02-25,Bjorn Borg official reports archive
+BORG.ST,2022-Q1,2022-05-19,2022-05-19,Bjorn Borg official reports archive
+BORG.ST,2022-Q2,2022-08-19,2022-08-19,Bjorn Borg official reports archive
+BORG.ST,2022-Q3,2022-11-18,2022-11-18,Bjorn Borg official reports archive
+BORG.ST,2022-Q4,2023-02-23,2023-02-23,Bjorn Borg official reports archive
+BORG.ST,2023-Q1,2023-05-17,2023-05-17,Bjorn Borg official reports archive
+BORG.ST,2023-Q2,2023-08-18,2023-08-18,Bjorn Borg official reports archive
+BORG.ST,2023-Q3,2023-11-17,2023-11-17,Bjorn Borg official reports archive
+BORG.ST,2023-Q4,2024-02-23,2024-02-23,Bjorn Borg official reports archive
 BORG.ST,2024-Q1,2024-05-16,2024-05-16,Bjorn Borg reports archive
 BORG.ST,2024-Q2,2024-08-16,2024-08-16,Bjorn Borg reports archive
+BTS-B.ST,2018-Q3,2018-11-14,2018-11-14,BTS official interim reports archive
+BTS-B.ST,2018-Q4,2019-02-21,2019-02-21,BTS official interim reports archive
+BTS-B.ST,2019-Q1,2019-05-15,2019-05-15,BTS official interim reports archive
+BTS-B.ST,2019-Q2,2019-08-23,2019-08-23,BTS official interim reports archive
+BTS-B.ST,2019-Q3,2019-11-13,2019-11-13,BTS official interim reports archive
+CATE.ST,2018-Q3,2018-10-26,2018-10-26,Catena official press release archive
+CATE.ST,2018-Q4,2019-02-15,2019-02-15,Catena official press release archive
+CATE.ST,2019-Q1,2019-04-25,2019-04-25,Catena official press release archive
+CATE.ST,2019-Q2,2019-07-08,2019-07-08,Catena official press release archive
+CATE.ST,2019-Q3,2019-10-25,2019-10-25,Catena official press release archive
+CATE.ST,2019-Q4,2020-02-20,2020-02-20,Catena official press release archive
+CATE.ST,2020-Q1,2020-04-29,2020-04-29,Catena official press release archive
+CATE.ST,2020-Q2,2020-07-07,2020-07-07,Catena official press release archive
+CATE.ST,2020-Q3,2020-10-28,2020-10-28,Catena official press release archive
+CATE.ST,2020-Q4,2021-02-19,2021-02-19,Catena official press release archive
+CATE.ST,2021-Q1,2021-04-29,2021-04-29,Catena official press release archive
+CATE.ST,2021-Q2,2021-07-06,2021-07-06,Catena official press release archive
+CATE.ST,2021-Q3,2021-10-28,2021-10-28,Catena official press release archive
+CATE.ST,2021-Q4,2022-02-22,2022-02-22,Catena official press release archive
+CATE.ST,2022-Q1,2022-04-28,2022-04-28,Catena official press release archive
+CATE.ST,2022-Q2,2022-07-07,2022-07-07,Catena official press release archive
+CATE.ST,2022-Q3,2022-10-28,2022-10-28,Catena official press release archive
+CATE.ST,2022-Q4,2023-02-22,2023-02-22,Catena official press release archive
+CATE.ST,2023-Q1,2023-04-27,2023-04-27,Catena official press release archive
+CATE.ST,2023-Q2,2023-07-07,2023-07-07,Catena official press release archive
+CATE.ST,2023-Q4,2024-02-22,2024-02-22,Catena official press release archive
 CATE.ST,2024-Q1,2024-04-25,2024-04-25,Catena press release archive
 CATE.ST,2024-Q2,2024-07-05,2024-07-05,Catena press release archive
 CATE.ST,2024-Q3,2024-10-25,2024-10-25,Catena press release archive
@@ -47,15 +322,61 @@ CIBUS.ST,2024-Q3,2024-11-05,2024-11-05,Cibus official interim report
 CIBUS.ST,2024-Q4,2025-02-19,2025-02-19,Cibus financial reports archive
 CIBUS.ST,2025-Q1,2025-04-23,2025-04-23,Cibus official interim report
 CIBUS.ST,2025-Q2,2025-07-17,2025-07-17,Cibus official interim report
-CLAS-B.ST,2024-Q3,2024-09-04,2024-03-06,Clas Ohlson reports archive Q3 2023/24
-CLAS-B.ST,2024-Q4,2024-12-04,2024-06-05,Clas Ohlson reports archive year-end 2023/24
-CLAS-B.ST,2025-Q1,2025-03-12,2024-09-04,Clas Ohlson reports archive Q1 2024/25
-CLAS-B.ST,2025-Q2,2025-06-12,2024-12-04,Clas Ohlson reports archive Q2 2024/25
-CLAS-B.ST,2025-Q3,2025-09-10,2025-03-12,Clas Ohlson reports archive Q3 2024/25
-CLAS-B.ST,2025-Q4,2025-12-10,2025-06-12,Clas Ohlson reports archive year-end 2024/25
-CLAS-B.ST,2026-Q1,2026-03-11,2025-09-10,Clas Ohlson reports archive Q1 2025/26
-CLAS-B.ST,2026-Q2,2026-06-03,2025-12-10,Clas Ohlson reports archive Q2 2025/26
-CLAS-B.ST,2026-Q3,2026-03-11,2026-03-11,Clas Ohlson reports archive Q3 2025/26
+CLAS-B.ST,2018-Q3,2018-09-05,2018-09-05,Clas Ohlson official reports archive
+CLAS-B.ST,2018-Q4,2018-12-05,2018-12-05,Clas Ohlson official reports archive
+CLAS-B.ST,2019-Q1,2019-03-13,2019-03-13,Clas Ohlson official reports archive
+CLAS-B.ST,2019-Q2,2019-06-05,2019-06-05,Clas Ohlson official reports archive
+CLAS-B.ST,2019-Q3,2019-09-04,2019-09-04,Clas Ohlson official reports archive
+CLAS-B.ST,2019-Q4,2019-12-04,2019-12-04,Clas Ohlson official reports archive
+CLAS-B.ST,2020-Q1,2020-03-11,2020-03-11,Clas Ohlson official reports archive
+CLAS-B.ST,2020-Q2,2020-06-03,2020-06-03,Clas Ohlson official reports archive
+CLAS-B.ST,2020-Q3,2020-09-09,2020-09-09,Clas Ohlson official reports archive
+CLAS-B.ST,2020-Q4,2020-12-02,2020-12-02,Clas Ohlson official reports archive
+CLAS-B.ST,2021-Q1,2021-03-10,2021-03-10,Clas Ohlson official reports archive
+CLAS-B.ST,2021-Q2,2021-06-02,2021-06-02,Clas Ohlson official reports archive
+CLAS-B.ST,2021-Q3,2021-09-08,2021-09-08,Clas Ohlson official reports archive
+CLAS-B.ST,2021-Q4,2021-12-08,2021-12-08,Clas Ohlson official reports archive
+CLAS-B.ST,2022-Q1,2022-03-09,2022-03-09,Clas Ohlson official reports archive
+CLAS-B.ST,2022-Q2,2022-06-08,2022-06-08,Clas Ohlson official reports archive
+CLAS-B.ST,2022-Q3,2022-09-07,2022-09-07,Clas Ohlson official reports archive
+CLAS-B.ST,2022-Q4,2022-12-07,2022-12-07,Clas Ohlson official reports archive
+CLAS-B.ST,2023-Q1,2023-03-08,2023-03-08,Clas Ohlson official reports archive
+CLAS-B.ST,2023-Q2,2023-06-07,2023-06-07,Clas Ohlson official reports archive
+CLAS-B.ST,2023-Q3,2023-09-06,2023-09-06,Clas Ohlson official reports archive
+CLAS-B.ST,2023-Q4,2023-12-06,2023-12-06,Clas Ohlson official reports archive
+CLAS-B.ST,2024-Q1,2024-03-06,2024-03-06,Clas Ohlson official reports archive
+CLAS-B.ST,2024-Q2,2024-06-05,2024-06-05,Clas Ohlson official reports archive
+CLAS-B.ST,2024-Q3,2024-09-04,2024-09-04,Clas Ohlson official reports archive
+CLAS-B.ST,2024-Q4,2024-12-04,2024-12-04,Clas Ohlson official reports archive
+CLAS-B.ST,2025-Q1,2025-03-12,2025-03-12,Clas Ohlson official reports archive
+CLAS-B.ST,2025-Q2,2025-06-12,2025-06-12,Clas Ohlson official reports archive
+CLAS-B.ST,2025-Q3,2025-09-10,2025-09-10,Clas Ohlson official reports archive
+CLAS-B.ST,2025-Q4,2025-12-10,2025-12-10,Clas Ohlson official reports archive
+CLAS-B.ST,2026-Q1,2026-03-11,2026-03-11,Clas Ohlson official reports archive
+CLAS-B.ST,2026-Q2,2026-06-03,2026-06-03,Clas Ohlson official reports archive
+CLAS-B.ST,2026-Q3,2026-09-03,2026-09-03,Clas Ohlson official reports archive
+CTT.ST,2018-Q3,2018-10-31,2018-10-31,CTT Systems official report archive
+CTT.ST,2018-Q4,2019-02-06,2019-02-06,CTT Systems official report archive
+CTT.ST,2019-Q1,2019-04-30,2019-04-30,CTT Systems official report archive
+CTT.ST,2019-Q2,2019-07-19,2019-07-19,CTT Systems official report archive
+CTT.ST,2019-Q3,2019-10-25,2019-10-25,CTT Systems official report archive
+CTT.ST,2019-Q4,2020-02-07,2020-02-07,CTT Systems official report archive
+CTT.ST,2020-Q1,2020-04-29,2020-04-29,CTT Systems official report archive
+CTT.ST,2020-Q2,2020-07-21,2020-07-21,CTT Systems official report archive
+CTT.ST,2020-Q3,2020-10-23,2020-10-23,CTT Systems official report archive
+CTT.ST,2020-Q4,2021-02-09,2021-02-09,CTT Systems official report archive
+CTT.ST,2021-Q1,2021-04-30,2021-04-30,CTT Systems official report archive
+CTT.ST,2021-Q2,2021-07-22,2021-07-22,CTT Systems official report archive
+CTT.ST,2021-Q3,2021-10-28,2021-10-28,CTT Systems official report archive
+CTT.ST,2021-Q4,2022-02-08,2022-02-08,CTT Systems official report archive
+CTT.ST,2022-Q1,2022-04-29,2022-04-29,CTT Systems official report archive
+CTT.ST,2022-Q2,2022-07-22,2022-07-22,CTT Systems official report archive
+CTT.ST,2022-Q3,2022-10-28,2022-10-28,CTT Systems official report archive
+CTT.ST,2022-Q4,2023-02-07,2023-02-07,CTT Systems official report archive
+CTT.ST,2023-Q1,2023-04-28,2023-04-28,CTT Systems official report archive
+CTT.ST,2023-Q2,2023-07-21,2023-07-21,CTT Systems official report archive
+CTT.ST,2023-Q3,2023-10-27,2023-10-27,CTT Systems official report archive
+CTT.ST,2023-Q4,2024-02-06,2024-02-06,CTT Systems official report archive
 CTT.ST,2024-Q1,2024-04-26,2024-04-26,CTT Systems report archive
 CTT.ST,2024-Q2,2024-07-19,2024-07-19,CTT Systems report archive
 CTT.ST,2024-Q3,2024-10-25,2024-10-25,CTT Systems report archive
@@ -66,6 +387,28 @@ CTT.ST,2025-Q3,2025-10-24,2025-10-24,CTT Systems report archive
 CTT.ST,2025-Q4,2026-02-06,2026-02-06,CTT Systems report archive
 CTT.ST,2026-Q1,2026-04-28,2026-04-28,CTT Systems report archive
 CTT.ST,2026-Q2,2026-07-21,2026-07-21,CTT Systems report archive
+DIOS.ST,2018-Q3,2018-10-25,2018-10-25,Dios official reports and presentations
+DIOS.ST,2018-Q4,2019-02-14,2019-02-14,Dios official reports and presentations
+DIOS.ST,2019-Q1,2019-04-23,2019-04-23,Dios official reports and presentations
+DIOS.ST,2019-Q2,2019-07-05,2019-07-05,Dios official reports and presentations
+DIOS.ST,2019-Q3,2019-10-25,2019-10-25,Dios official reports and presentations
+DIOS.ST,2019-Q4,2020-02-11,2020-02-11,Dios official reports and presentations
+DIOS.ST,2020-Q1,2020-04-23,2020-04-23,Dios official reports and presentations
+DIOS.ST,2020-Q2,2020-07-03,2020-07-03,Dios official reports and presentations
+DIOS.ST,2020-Q3,2020-10-23,2020-10-23,Dios official reports and presentations
+DIOS.ST,2020-Q4,2021-02-12,2021-02-12,Dios official reports and presentations
+DIOS.ST,2021-Q1,2021-04-23,2021-04-23,Dios official reports and presentations
+DIOS.ST,2021-Q2,2021-07-05,2021-07-05,Dios official reports and presentations
+DIOS.ST,2021-Q3,2021-10-22,2021-10-22,Dios official reports and presentations
+DIOS.ST,2021-Q4,2022-02-11,2022-02-11,Dios official reports and presentations
+DIOS.ST,2022-Q1,2022-04-28,2022-04-28,Dios official reports and presentations
+DIOS.ST,2022-Q2,2022-07-07,2022-07-07,Dios official reports and presentations
+DIOS.ST,2022-Q3,2022-10-21,2022-10-21,Dios official reports and presentations
+DIOS.ST,2022-Q4,2023-02-14,2023-02-14,Dios official reports and presentations
+DIOS.ST,2023-Q1,2023-04-28,2023-04-28,Dios official reports and presentations
+DIOS.ST,2023-Q2,2023-07-07,2023-07-07,Dios official reports and presentations
+DIOS.ST,2023-Q3,2023-10-27,2023-10-27,Dios official reports and presentations
+DIOS.ST,2023-Q4,2024-02-16,2024-02-16,Dios official reports and presentations
 DIOS.ST,2024-Q1,2024-04-26,2024-04-26,Dios reports and presentations
 DIOS.ST,2024-Q2,2024-07-05,2024-07-05,Dios reports and presentations
 DIOS.ST,2024-Q3,2024-10-25,2024-10-25,Dios reports and presentations
@@ -76,6 +419,28 @@ DIOS.ST,2025-Q3,2025-10-24,2025-10-24,Dios reports and presentations
 DIOS.ST,2025-Q4,2026-02-13,2026-02-13,Dios reports and presentations
 DIOS.ST,2026-Q1,2026-04-29,2026-04-29,Dios reports and presentations
 DIOS.ST,2026-Q2,2026-07-06,2026-07-06,Dios reports and presentations
+DUNI.ST,2018-Q3,2018-10-18,2018-10-18,Duni Group official reports
+DUNI.ST,2018-Q4,2019-02-14,2019-02-14,Duni Group official reports
+DUNI.ST,2019-Q1,2019-04-24,2019-04-24,Duni Group official reports
+DUNI.ST,2019-Q2,2019-07-12,2019-07-12,Duni Group official reports
+DUNI.ST,2019-Q3,2019-10-18,2019-10-18,Duni Group official reports
+DUNI.ST,2019-Q4,2020-02-07,2020-02-07,Duni Group official reports
+DUNI.ST,2020-Q1,2020-04-24,2020-04-24,Duni Group official reports
+DUNI.ST,2020-Q2,2020-07-15,2020-07-15,Duni Group official reports
+DUNI.ST,2020-Q3,2020-10-22,2020-10-22,Duni Group official reports
+DUNI.ST,2020-Q4,2021-02-12,2021-02-12,Duni Group official reports
+DUNI.ST,2021-Q1,2021-04-22,2021-04-22,Duni Group official reports
+DUNI.ST,2021-Q2,2021-07-15,2021-07-15,Duni Group official reports
+DUNI.ST,2021-Q3,2021-10-21,2021-10-21,Duni Group official reports
+DUNI.ST,2021-Q4,2022-02-17,2022-02-17,Duni Group official reports
+DUNI.ST,2022-Q1,2022-04-22,2022-04-22,Duni Group official reports
+DUNI.ST,2022-Q2,2022-07-15,2022-07-15,Duni Group official reports
+DUNI.ST,2022-Q3,2022-10-27,2022-10-27,Duni Group official reports
+DUNI.ST,2022-Q4,2023-02-14,2023-02-14,Duni Group official reports
+DUNI.ST,2023-Q1,2023-04-21,2023-04-21,Duni Group official reports
+DUNI.ST,2023-Q2,2023-07-14,2023-07-14,Duni Group official reports
+DUNI.ST,2023-Q3,2023-10-24,2023-10-24,Duni Group official reports
+DUNI.ST,2023-Q4,2024-02-09,2024-02-09,Duni Group official reports
 DUNI.ST,2024-Q1,2024-04-24,2024-04-24,Duni Group reports
 DUNI.ST,2024-Q2,2024-07-12,2024-07-12,Duni Group reports
 DUNI.ST,2024-Q3,2024-10-24,2024-10-24,Duni Group reports
@@ -100,7 +465,25 @@ EAST.ST,2025-Q2,2025-07-07,2025-07-07,Eastnine financial reports
 EAST.ST,2025-Q3,2025-10-23,2025-10-23,Eastnine financial reports
 EAST.ST,2025-Q4,2026-02-05,2026-02-05,Eastnine financial reports
 EAST.ST,2026-Q1,2026-04-28,2026-04-28,Eastnine financial reports
-EQL.ST,2024-Q4,2025-02-05,2024-05-14,EQL Pharma year-end report 2023/24
+EQL.ST,2019-Q3,2019-11-11,2019-11-11,EQL Pharma official interim reports archive
+EQL.ST,2019-Q4,2020-02-05,2020-02-05,EQL Pharma official interim reports archive
+EQL.ST,2020-Q1,2020-05-04,2020-05-04,EQL Pharma official interim reports archive
+EQL.ST,2020-Q2,2020-08-27,2020-08-27,EQL Pharma official interim reports archive
+EQL.ST,2020-Q3,2020-11-06,2020-11-06,EQL Pharma official interim reports archive
+EQL.ST,2020-Q4,2021-02-18,2021-02-18,EQL Pharma official interim reports archive
+EQL.ST,2021-Q1,2021-05-06,2021-05-06,EQL Pharma official interim reports archive
+EQL.ST,2021-Q2,2021-08-16,2021-08-16,EQL Pharma official interim reports archive
+EQL.ST,2021-Q3,2021-11-10,2021-11-10,EQL Pharma official interim reports archive
+EQL.ST,2021-Q4,2022-02-16,2022-02-16,EQL Pharma official interim reports archive
+EQL.ST,2022-Q1,2022-05-13,2022-05-13,EQL Pharma official interim reports archive
+EQL.ST,2022-Q2,2022-08-16,2022-08-16,EQL Pharma official interim reports archive
+EQL.ST,2022-Q3,2022-11-11,2022-11-11,EQL Pharma official interim reports archive
+EQL.ST,2022-Q4,2023-02-14,2023-02-14,EQL Pharma official interim reports archive
+EQL.ST,2023-Q1,2023-05-11,2023-05-11,EQL Pharma official interim reports archive
+EQL.ST,2023-Q2,2023-08-16,2023-08-16,EQL Pharma official interim reports archive
+EQL.ST,2023-Q3,2023-11-17,2023-11-17,EQL Pharma official interim reports archive
+EQL.ST,2023-Q4,2024-02-13,2024-02-13,EQL Pharma official interim reports archive
+EQL.ST,2024-Q4,2025-02-05,2025-02-05,EQL Pharma official interim reports archive
 EQT.ST,2021-Q4,2022-01-19,2022-01-19,EQT year-end report 2021
 EQT.ST,2022-Q2,2022-07-14,2022-07-14,EQT half-year report 2022
 EQT.ST,2022-Q4,2023-01-18,2023-01-18,EQT year-end report 2022
@@ -111,3 +494,921 @@ EQT.ST,2024-Q4,2025-01-23,2025-01-23,EQT year-end report 2024
 EQT.ST,2025-Q2,2025-07-17,2025-07-17,EQT half-year report 2025
 EQT.ST,2025-Q4,2026-01-22,2026-01-22,EQT year-end report 2025
 EQT.ST,2026-Q2,2026-07-17,2026-07-17,EQT half-year report 2026
+FOI-B.ST,2024-Q1,2024-05-02,2024-05-02,Fenix Outdoor official Q1 2024 release
+FOI-B.ST,2024-Q2,2024-07-22,2024-07-22,Fenix Outdoor official Q2 2024 release
+FOI-B.ST,2024-Q3,2024-10-25,2024-10-25,Fenix Outdoor official Q3 2024 release
+FOI-B.ST,2024-Q4,2025-02-11,2025-02-11,Fenix Outdoor official Q4 2024 release
+FOI-B.ST,2025-Q1,2025-05-05,2025-05-05,Fenix Outdoor official Q1 2025 release
+FOI-B.ST,2025-Q2,2025-07-22,2025-07-22,Fenix Outdoor official Q2 2025 release
+FOI-B.ST,2025-Q3,2025-10-31,2025-10-31,Fenix Outdoor official Q3 2025 release
+FOI-B.ST,2025-Q4,2026-02-05,2026-02-05,Fenix Outdoor official Q4 2025 release
+FOI-B.ST,2026-Q1,2026-04-27,2026-04-27,Fenix Outdoor official Q1 2026 release
+FOI-B.ST,2026-Q2,2026-07-21,2026-07-21,Fenix Outdoor official Q2 2026 release
+GENO.ST,2018-Q3,2018-11-23,2018-11-23,Genova official interim report Jan-Sep 2018
+GENO.ST,2018-Q4,2019-02-22,2019-02-22,Genova official year-end report 2018
+GENO.ST,2019-Q1,2019-05-24,2019-05-24,Genova official interim report Jan-Mar 2019
+GENO.ST,2019-Q2,2019-08-23,2019-08-23,Genova official interim report Jan-Jun 2019
+GENO.ST,2019-Q3,2019-11-22,2019-11-22,Genova official interim report Jan-Sep 2019
+GENO.ST,2019-Q4,2020-02-14,2020-02-14,Genova official year-end report 2019
+GENO.ST,2020-Q1,2020-04-24,2020-04-24,Genova official interim report Jan-Mar 2020
+GENO.ST,2020-Q2,2020-08-31,2020-08-31,Genova official interim report Jan-Jun 2020
+GENO.ST,2020-Q3,2020-11-13,2020-11-13,Genova official interim report Jan-Sep 2020
+GENO.ST,2020-Q4,2021-02-24,2021-02-24,Genova official year-end report 2020
+GENO.ST,2021-Q1,2021-05-07,2021-05-07,Genova official interim report Jan-Mar 2021
+GENO.ST,2021-Q2,2021-08-16,2021-08-16,Genova official interim report Jan-Jun 2021
+GENO.ST,2021-Q3,2021-10-29,2021-10-29,Genova official interim report Jan-Sep 2021
+GENO.ST,2021-Q4,2022-02-23,2022-02-23,Genova official year-end report 2021
+GENO.ST,2022-Q1,2022-05-04,2022-05-04,Genova official interim report Jan-Mar 2022
+GENO.ST,2022-Q2,2022-08-17,2022-08-17,Genova official interim report Jan-Jun 2022
+HANZA.ST,2018-Q3,2018-11-12,2018-11-12,HANZA official interim report Jan-Sep 2018
+HANZA.ST,2018-Q4,2019-02-14,2019-02-14,HANZA official year-end report 2018
+HANZA.ST,2019-Q1,2019-04-29,2019-04-29,HANZA official interim report Q1 2019
+HANZA.ST,2019-Q2,2019-07-30,2019-07-30,HANZA official interim report Jan-Jun 2019
+HANZA.ST,2019-Q3,2019-11-05,2019-11-05,HANZA official interim report Jan-Sep 2019
+HOLM-A.ST,2018-Q3,2018-10-24,2018-10-24,Holmen official interim report Jan-Sep 2018
+HOLM-A.ST,2018-Q4,2019-01-31,2019-01-31,Holmen official year-end report 2018
+HOLM-A.ST,2019-Q1,2019-05-08,2019-05-08,Holmen official interim report Jan-Mar 2019
+HOLM-A.ST,2019-Q2,2019-08-15,2019-08-15,Holmen official interim report Jan-Jun 2019
+HOLM-A.ST,2019-Q3,2019-10-18,2019-10-18,Holmen official interim report Jan-Sep 2019
+HOLM-A.ST,2019-Q4,2020-01-30,2020-01-30,Holmen official year-end report 2019
+HOLM-A.ST,2020-Q1,2020-04-29,2020-04-29,Holmen official interim report Jan-Mar 2020
+HOLM-A.ST,2020-Q2,2020-08-13,2020-08-13,Holmen official interim report Jan-Jun 2020
+HOLM-A.ST,2020-Q3,2020-10-21,2020-10-21,Holmen official interim report Jan-Sep 2020
+HOLM-A.ST,2020-Q4,2021-02-05,2021-02-05,Holmen official year-end report 2020
+HOLM-A.ST,2021-Q1,2021-04-29,2021-04-29,Holmen official interim report Jan-Mar 2021
+HOLM-A.ST,2021-Q2,2021-08-19,2021-08-19,Holmen official interim report Jan-Jun 2021
+HOLM-A.ST,2021-Q3,2021-10-22,2021-10-22,Holmen official interim report Jan-Sep 2021
+HOLM-A.ST,2021-Q4,2022-01-28,2022-01-28,Holmen official year-end report 2021
+HOLM-A.ST,2022-Q1,2022-04-28,2022-04-28,Holmen official interim report Jan-Mar 2022
+HOLM-A.ST,2022-Q2,2022-08-19,2022-08-19,Holmen official interim report Jan-Jun 2022
+HOLM-A.ST,2022-Q3,2022-10-20,2022-10-20,Holmen official interim report Jan-Sep 2022
+HOLM-A.ST,2022-Q4,2023-01-31,2023-01-31,Holmen official year-end report 2022
+HOLM-A.ST,2023-Q1,2023-04-28,2023-04-28,Holmen official interim report Jan-Mar 2023
+HOLM-A.ST,2023-Q2,2023-08-17,2023-08-17,Holmen official interim report Jan-Jun 2023
+HOLM-A.ST,2023-Q3,2023-10-25,2023-10-25,Holmen official interim report Jan-Sep 2023
+HOLM-A.ST,2023-Q4,2024-01-31,2024-01-31,Holmen official year-end report 2023
+HOLM-A.ST,2024-Q1,2024-04-26,2024-04-26,Holmen official interim report Jan-Mar 2024
+HOLM-A.ST,2024-Q2,2024-08-15,2024-08-15,Holmen official interim report Jan-Jun 2024
+HOLM-A.ST,2024-Q3,2024-10-24,2024-10-24,Holmen official interim report Jan-Sep 2024
+HOLM-A.ST,2024-Q4,2025-01-31,2025-01-31,Holmen official year-end report 2024
+HOLM-A.ST,2025-Q1,2025-05-08,2025-05-08,Holmen official interim report Jan-Mar 2025
+HOLM-A.ST,2025-Q2,2025-08-14,2025-08-14,Holmen official interim report Jan-Jun 2025
+HOLM-A.ST,2025-Q3,2025-10-23,2025-10-23,Holmen official interim report Jan-Sep 2025
+HOLM-A.ST,2025-Q4,2026-01-30,2026-01-30,Holmen official year-end report 2025
+HTRO.ST,2018-Q3,2018-11-07,2018-11-07,Hexatronic official interim report Q3 2018
+HTRO.ST,2018-Q4,2019-02-22,2019-02-22,Hexatronic official year-end report 2018
+HTRO.ST,2019-Q1,2019-05-03,2019-05-03,Hexatronic official interim report Q1 2019
+HTRO.ST,2019-Q2,2019-08-16,2019-08-16,Hexatronic official interim report Q2 2019
+HTRO.ST,2019-Q3,2019-11-06,2019-11-06,Hexatronic official interim report Q3 2019
+INDU-A.ST,2020-Q1,2020-04-07,2020-04-07,Industrivarden official interim report Jan-Mar 2020
+INDU-A.ST,2020-Q2,2020-07-07,2020-07-07,Industrivarden official interim report Jan-Jun 2020
+INDU-A.ST,2020-Q3,2020-10-06,2020-10-06,Industrivarden official interim report Jan-Sep 2020
+INDU-A.ST,2020-Q4,2021-02-09,2021-02-09,Industrivarden official year-end report 2020
+INDU-A.ST,2021-Q1,2021-04-09,2021-04-09,Industrivarden official interim report Jan-Mar 2021
+INDU-A.ST,2021-Q2,2021-07-06,2021-07-06,Industrivarden official interim report Jan-Jun 2021
+INDU-A.ST,2021-Q3,2021-10-11,2021-10-11,Industrivarden official interim report Jan-Sep 2021
+INDU-A.ST,2021-Q4,2022-02-10,2022-02-10,Industrivarden official year-end report 2021
+INDU-A.ST,2022-Q1,2022-04-07,2022-04-07,Industrivarden official interim report Jan-Mar 2022
+INDU-A.ST,2022-Q2,2022-07-07,2022-07-07,Industrivarden official interim report Jan-Jun 2022
+INDU-A.ST,2022-Q3,2022-10-06,2022-10-06,Industrivarden official interim report Jan-Sep 2022
+INDU-A.ST,2022-Q4,2023-02-03,2023-02-03,Industrivarden official year-end report 2022
+INDU-A.ST,2023-Q1,2023-04-05,2023-04-05,Industrivarden official interim report Jan-Mar 2023
+INDU-A.ST,2023-Q2,2023-07-06,2023-07-06,Industrivarden official interim report Jan-Jun 2023
+INDU-A.ST,2023-Q3,2023-10-06,2023-10-06,Industrivarden official interim report Jan-Sep 2023
+INDU-A.ST,2023-Q4,2024-02-02,2024-02-02,Industrivarden official year-end report 2023
+INDU-A.ST,2024-Q1,2024-04-08,2024-04-08,Industrivarden official interim report Jan-Mar 2024
+INDU-A.ST,2024-Q2,2024-07-08,2024-07-08,Industrivarden official interim report Jan-Jun 2024
+INDU-A.ST,2024-Q3,2024-10-17,2024-10-17,Industrivarden official interim report Jan-Sep 2024
+INDU-A.ST,2024-Q4,2025-02-10,2025-02-10,Industrivarden official year-end report 2024
+INDU-A.ST,2025-Q1,2025-04-08,2025-04-08,Industrivarden official interim report Jan-Mar 2025
+INDU-A.ST,2025-Q2,2025-07-08,2025-07-08,Industrivarden official interim report Jan-Jun 2025
+INDU-A.ST,2025-Q3,2025-10-16,2025-10-16,Industrivarden official interim report Jan-Sep 2025
+INDU-A.ST,2025-Q4,2026-02-06,2026-02-06,Industrivarden official year-end report 2025
+INDU-A.ST,2026-Q1,2026-04-10,2026-04-10,Industrivarden official interim report Jan-Mar 2026
+INDU-A.ST,2026-Q2,2026-07-08,2026-07-08,Industrivarden official interim report Jan-Jun 2026
+INVE-A.ST,2018-Q3,2018-10-18,2018-10-18,Investor official interim management statement Jan-Sep 2018
+INVE-A.ST,2018-Q4,2019-01-25,2019-01-25,Investor official year-end report 2018
+INVE-A.ST,2019-Q1,2019-04-24,2019-04-24,Investor official interim management statement Jan-Mar 2019
+INVE-A.ST,2019-Q2,2019-07-17,2019-07-17,Investor official interim report Jan-Jun 2019
+INVE-A.ST,2019-Q3,2019-10-23,2019-10-23,Investor official interim management statement Jan-Sep 2019
+INVE-A.ST,2019-Q4,2020-01-23,2020-01-23,Investor official year-end report 2019
+INVE-A.ST,2020-Q1,2020-04-23,2020-04-23,Investor official interim management statement Jan-Mar 2020
+INVE-A.ST,2020-Q2,2020-07-17,2020-07-17,Investor official interim report Jan-Jun 2020
+INVE-A.ST,2020-Q3,2020-10-22,2020-10-22,Investor official interim management statement Jan-Sep 2020
+INVE-A.ST,2020-Q4,2021-01-22,2021-01-22,Investor official year-end report 2020
+INVE-A.ST,2021-Q1,2021-04-22,2021-04-22,Investor official interim management statement Jan-Mar 2021
+INVE-A.ST,2021-Q2,2021-07-16,2021-07-16,Investor official interim report Jan-Jun 2021
+INVE-A.ST,2021-Q3,2021-10-21,2021-10-21,Investor official interim management statement Jan-Sep 2021
+INVE-A.ST,2021-Q4,2022-01-21,2022-01-21,Investor official year-end report 2021
+INVE-A.ST,2022-Q1,2022-04-21,2022-04-21,Investor official interim management statement Jan-Mar 2022
+INVE-A.ST,2022-Q2,2022-07-15,2022-07-15,Investor official interim report Jan-Jun 2022
+INVE-A.ST,2022-Q3,2022-10-21,2022-10-21,Investor official interim management statement Jan-Sep 2022
+INVE-A.ST,2022-Q4,2023-01-20,2023-01-20,Investor official year-end report 2022
+INVE-A.ST,2023-Q1,2023-04-20,2023-04-20,Investor official interim management statement Jan-Mar 2023
+INVE-A.ST,2023-Q2,2023-07-17,2023-07-17,Investor official interim report Jan-Jun 2023
+INVE-A.ST,2023-Q3,2023-10-19,2023-10-19,Investor official interim management statement Jan-Sep 2023
+INVE-A.ST,2023-Q4,2024-01-19,2024-01-19,Investor official year-end report 2023
+INVE-A.ST,2024-Q1,2024-04-18,2024-04-18,Investor official interim management statement Jan-Mar 2024
+INVE-A.ST,2024-Q2,2024-07-17,2024-07-17,Investor official interim report Jan-Jun 2024
+INVE-A.ST,2024-Q3,2024-10-17,2024-10-17,Investor official interim management statement Jan-Sep 2024
+INVE-A.ST,2024-Q4,2025-01-23,2025-01-23,Investor official year-end report 2024
+INVE-A.ST,2025-Q1,2025-04-23,2025-04-23,Investor official interim management statement Jan-Mar 2025
+INVE-A.ST,2025-Q2,2025-07-17,2025-07-17,Investor official interim report Jan-Jun 2025
+INVE-A.ST,2025-Q3,2025-10-16,2025-10-16,Investor official interim management statement Jan-Sep 2025
+INVE-A.ST,2025-Q4,2026-01-22,2026-01-22,Investor official year-end report 2025
+INVE-A.ST,2026-Q1,2026-04-21,2026-04-21,Investor official interim management statement Jan-Mar 2026
+INVE-A.ST,2026-Q2,2026-07-16,2026-07-16,Investor official interim report Jan-Jun 2026
+KNOW.ST,2018-Q3,2018-10-25,2018-10-25,Knowit official interim report Jan-Sep 2018
+KNOW.ST,2018-Q4,2019-02-08,2019-02-08,Knowit official year-end report 2018
+KNOW.ST,2019-Q1,2019-04-26,2019-04-26,Knowit official interim report Jan-Mar 2019
+KNOW.ST,2019-Q2,2019-07-15,2019-07-15,Knowit official interim report Jan-Jun 2019
+KNOW.ST,2019-Q3,2019-10-23,2019-10-23,Knowit official interim report Jan-Sep 2019
+KNOW.ST,2019-Q4,2020-02-06,2020-02-06,Knowit official year-end report 2019
+KNOW.ST,2020-Q1,2020-04-27,2020-04-27,Knowit official interim report Jan-Mar 2020
+INWI.ST,2018-Q3,2018-10-23,2018-10-23,Inwido official interim report Jan-Sep 2018
+INWI.ST,2018-Q4,2019-02-06,2019-02-06,Inwido official year-end report 2018
+INWI.ST,2019-Q1,2019-04-25,2019-04-25,Inwido official interim report Jan-Mar 2019
+INWI.ST,2019-Q2,2019-07-15,2019-07-15,Inwido official interim report Jan-Jun 2019
+INWI.ST,2019-Q3,2019-10-23,2019-10-23,Inwido official interim report Jan-Sep 2019
+INWI.ST,2019-Q4,2020-02-05,2020-02-05,Inwido official year-end report 2019
+INWI.ST,2020-Q1,2020-04-23,2020-04-23,Inwido official interim report Jan-Mar 2020
+INWI.ST,2020-Q2,2020-07-15,2020-07-15,Inwido official interim report Jan-Jun 2020
+INWI.ST,2020-Q3,2020-10-21,2020-10-21,Inwido official interim report Jan-Sep 2020
+INWI.ST,2020-Q4,2021-02-10,2021-02-10,Inwido official year-end report 2020
+INWI.ST,2021-Q1,2021-04-27,2021-04-27,Inwido official interim report Jan-Mar 2021
+INWI.ST,2021-Q2,2021-07-16,2021-07-16,Inwido official interim report Jan-Jun 2021
+INWI.ST,2021-Q3,2021-10-26,2021-10-26,Inwido official interim report Jan-Sep 2021
+INWI.ST,2021-Q4,2022-02-08,2022-02-08,Inwido official year-end report 2021
+INWI.ST,2022-Q1,2022-04-28,2022-04-28,Inwido official interim report Jan-Mar 2022
+INWI.ST,2022-Q2,2022-07-15,2022-07-15,Inwido official interim report Jan-Jun 2022
+INWI.ST,2022-Q3,2022-10-25,2022-10-25,Inwido official interim report Jan-Sep 2022
+INWI.ST,2022-Q4,2023-02-07,2023-02-07,Inwido official year-end report 2022
+INWI.ST,2023-Q1,2023-04-25,2023-04-25,Inwido official interim report Jan-Mar 2023
+INWI.ST,2023-Q2,2023-07-14,2023-07-14,Inwido official interim report Jan-Jun 2023
+INWI.ST,2023-Q4,2024-02-08,2024-02-08,Inwido official year-end report 2023
+INWI.ST,2024-Q2,2024-07-12,2024-07-12,Inwido official interim report Jan-Jun 2024
+LIFCO-B.ST,2018-Q3,2018-10-25,2018-10-25,Lifco official interim report Jan-Sep 2018
+LIFCO-B.ST,2018-Q4,2019-02-06,2019-02-06,Lifco official year-end report 2018
+LIFCO-B.ST,2019-Q1,2019-04-26,2019-04-26,Lifco official interim report Jan-Mar 2019
+LIFCO-B.ST,2019-Q2,2019-07-18,2019-07-18,Lifco official interim report Jan-Jun 2019
+LIFCO-B.ST,2019-Q3,2019-10-23,2019-10-23,Lifco official interim report Jan-Sep 2019
+LIFCO-B.ST,2019-Q4,2020-01-31,2020-01-31,Lifco official year-end report 2019
+LIFCO-B.ST,2020-Q1,2020-04-24,2020-04-24,Lifco official interim report Jan-Mar 2020
+LIFCO-B.ST,2020-Q2,2020-07-17,2020-07-17,Lifco official interim report Jan-Jun 2020
+LIFCO-B.ST,2020-Q3,2020-10-22,2020-10-22,Lifco official interim report Jan-Sep 2020
+LIFCO-B.ST,2020-Q4,2021-02-02,2021-02-02,Lifco official year-end report 2020
+LIFCO-B.ST,2021-Q1,2021-04-23,2021-04-23,Lifco official interim report Jan-Mar 2021
+LIFCO-B.ST,2021-Q2,2021-07-16,2021-07-16,Lifco official interim report Jan-Jun 2021
+LIFCO-B.ST,2021-Q3,2021-10-22,2021-10-22,Lifco official interim report Jan-Sep 2021
+LIFCO-B.ST,2021-Q4,2022-02-02,2022-02-02,Lifco official year-end report 2021
+LIFCO-B.ST,2022-Q1,2022-04-29,2022-04-29,Lifco official interim report Jan-Mar 2022
+LIFCO-B.ST,2022-Q2,2022-07-15,2022-07-15,Lifco official interim report Jan-Jun 2022
+LIFCO-B.ST,2022-Q3,2022-10-21,2022-10-21,Lifco official interim report Jan-Sep 2022
+LIFCO-B.ST,2022-Q4,2023-02-03,2023-02-03,Lifco official year-end report 2022
+LIFCO-B.ST,2023-Q1,2023-04-28,2023-04-28,Lifco official interim report Jan-Mar 2023
+LIFCO-B.ST,2023-Q2,2023-07-14,2023-07-14,Lifco official interim report Jan-Jun 2023
+LIFCO-B.ST,2023-Q4,2024-02-02,2024-02-02,Lifco official year-end report 2023
+LIFCO-B.ST,2024-Q1,2024-04-24,2024-04-24,Lifco official interim report Jan-Mar 2024
+LIFCO-B.ST,2024-Q3,2024-10-22,2024-10-22,Lifco official interim report Jan-Sep 2024
+LIME.ST,2019-Q2,2019-07-19,2019-07-19,Lime Technologies official interim report Jan-Jun 2019
+LIME.ST,2019-Q3,2019-10-25,2019-10-25,Lime Technologies official interim report Jan-Sep 2019
+LIME.ST,2019-Q4,2020-02-13,2020-02-13,Lime Technologies official year-end report 2019
+LIME.ST,2020-Q1,2020-04-28,2020-04-28,Lime Technologies official interim report Jan-Mar 2020
+LIME.ST,2020-Q2,2020-07-17,2020-07-17,Lime Technologies official interim report Jan-Jun 2020
+LIME.ST,2020-Q3,2020-10-22,2020-10-22,Lime Technologies official interim report Jan-Sep 2020
+LIME.ST,2020-Q4,2021-02-16,2021-02-16,Lime Technologies official year-end report 2020
+LIME.ST,2021-Q1,2021-04-27,2021-04-27,Lime Technologies official interim report Jan-Mar 2021
+LIME.ST,2021-Q2,2021-07-16,2021-07-16,Lime Technologies official interim report Jan-Jun 2021
+LIME.ST,2021-Q3,2021-10-21,2021-10-21,Lime Technologies official interim report Jan-Sep 2021
+LIME.ST,2021-Q4,2022-02-16,2022-02-16,Lime Technologies official year-end report 2021
+LIME.ST,2022-Q1,2022-04-26,2022-04-26,Lime Technologies official interim report Jan-Mar 2022
+LIME.ST,2022-Q2,2022-07-15,2022-07-15,Lime Technologies official interim report Jan-Jun 2022
+MCAP.ST,2018-Q4,2019-02-15,2019-02-15,MedCap official reports archive
+MCAP.ST,2019-Q1,2019-05-10,2019-05-10,MedCap official reports archive
+MCAP.ST,2019-Q2,2019-08-09,2019-08-09,MedCap official reports archive
+MCAP.ST,2019-Q3,2019-10-31,2019-10-31,MedCap official reports archive
+MCAP.ST,2019-Q4,2020-02-17,2020-02-17,MedCap official reports archive
+MCAP.ST,2020-Q1,2020-05-08,2020-05-08,MedCap official reports archive
+MCAP.ST,2020-Q2,2020-08-19,2020-08-19,MedCap official reports archive
+MCAP.ST,2020-Q3,2020-10-30,2020-10-30,MedCap official reports archive
+MCAP.ST,2020-Q4,2021-02-19,2021-02-19,MedCap official reports archive
+MCAP.ST,2021-Q1,2021-05-07,2021-05-07,MedCap official reports archive
+MCAP.ST,2021-Q2,2021-07-30,2021-07-30,MedCap official reports archive
+MCAP.ST,2021-Q3,2021-10-29,2021-10-29,MedCap official reports archive
+MCAP.ST,2021-Q4,2022-02-10,2022-02-10,MedCap official reports archive
+MCAP.ST,2022-Q1,2022-05-06,2022-05-06,MedCap official reports archive
+MCAP.ST,2022-Q2,2022-07-29,2022-07-29,MedCap official reports archive
+MCAP.ST,2022-Q3,2022-10-28,2022-10-28,MedCap official reports archive
+MCAP.ST,2022-Q4,2023-02-10,2023-02-10,MedCap official reports archive
+MCAP.ST,2023-Q1,2023-05-03,2023-05-03,MedCap official reports archive
+MCAP.ST,2023-Q2,2023-07-28,2023-07-28,MedCap official reports archive
+MCAP.ST,2023-Q3,2023-10-27,2023-10-27,MedCap official reports archive
+MCAP.ST,2023-Q4,2024-01-31,2024-01-31,MedCap official reports archive
+MCAP.ST,2024-Q1,2024-05-03,2024-05-03,MedCap official reports archive
+MCAP.ST,2024-Q2,2024-07-24,2024-07-24,MedCap official reports archive
+MCAP.ST,2024-Q3,2024-10-25,2024-10-25,MedCap official reports archive
+MCAP.ST,2025-Q1,2025-04-29,2025-04-29,MedCap official reports archive
+MCAP.ST,2025-Q2,2025-07-23,2025-07-23,MedCap official reports archive
+MCAP.ST,2025-Q3,2025-10-24,2025-10-24,MedCap official reports archive
+MCAP.ST,2025-Q4,2026-02-06,2026-02-06,MedCap official reports archive
+MCAP.ST,2026-Q1,2026-04-29,2026-04-29,MedCap official reports archive
+MCOV-B.ST,2024-Q1,2024-04-26,2024-04-26,Medicover official interim report Jan-Mar 2024
+MCOV-B.ST,2024-Q2,2024-07-25,2024-07-25,Medicover official interim report Apr-Jun 2024
+MCOV-B.ST,2024-Q3,2024-10-30,2024-10-30,Medicover official interim report Jul-Sep 2024
+MSAB-B.ST,2018-Q3,2018-10-26,2018-10-26,MSAB official reports archive
+MSAB-B.ST,2018-Q4,2019-02-01,2019-02-01,MSAB official reports archive
+MSAB-B.ST,2019-Q1,2019-04-24,2019-04-24,MSAB official reports archive
+MSAB-B.ST,2019-Q2,2019-07-19,2019-07-19,MSAB official reports archive
+MSAB-B.ST,2019-Q3,2019-10-23,2019-10-23,MSAB official reports archive
+MSAB-B.ST,2019-Q4,2020-01-29,2020-01-29,MSAB official reports archive
+MSAB-B.ST,2020-Q1,2020-04-29,2020-04-29,MSAB official reports archive
+MSAB-B.ST,2020-Q2,2020-07-22,2020-07-22,MSAB official reports archive
+MSAB-B.ST,2020-Q3,2020-10-28,2020-10-28,MSAB official reports archive
+MSAB-B.ST,2020-Q4,2021-01-27,2021-01-27,MSAB official reports archive
+MSAB-B.ST,2021-Q1,2021-04-29,2021-04-29,MSAB official reports archive
+MSAB-B.ST,2021-Q2,2021-07-22,2021-07-22,MSAB official reports archive
+MSAB-B.ST,2021-Q3,2021-10-28,2021-10-28,MSAB official reports archive
+MSAB-B.ST,2021-Q4,2022-01-27,2022-01-27,MSAB official reports archive
+MSAB-B.ST,2022-Q1,2022-04-28,2022-04-28,MSAB official reports archive
+MSAB-B.ST,2022-Q2,2022-07-22,2022-07-22,MSAB official reports archive
+MSAB-B.ST,2022-Q3,2022-10-26,2022-10-26,MSAB official reports archive
+MSAB-B.ST,2022-Q4,2023-01-27,2023-01-27,MSAB official reports archive
+MSAB-B.ST,2023-Q1,2023-04-27,2023-04-27,MSAB official reports archive
+MSAB-B.ST,2023-Q2,2023-07-20,2023-07-20,MSAB official reports archive
+MSAB-B.ST,2024-Q3,2024-10-29,2024-10-29,MSAB official reports archive
+MSAB-B.ST,2025-Q3,2025-10-28,2025-10-28,MSAB official reports archive
+MTG-B.ST,2018-Q3,2018-10-23,2018-10-23,MTG official interim report
+MTG-B.ST,2018-Q4,2019-02-05,2019-02-05,MTG official full-year report
+MTG-B.ST,2019-Q1,2019-05-09,2019-05-09,MTG official interim report
+MTG-B.ST,2019-Q2,2019-07-22,2019-07-22,MTG official interim report
+MTG-B.ST,2019-Q3,2019-10-29,2019-10-29,MTG official interim report
+MTG-B.ST,2019-Q4,2020-02-06,2020-02-06,MTG official full-year report
+MTG-B.ST,2020-Q1,2020-04-28,2020-04-28,MTG official interim report
+MTG-B.ST,2020-Q2,2020-07-23,2020-07-23,MTG official interim report
+MTG-B.ST,2020-Q3,2020-11-04,2020-11-04,MTG official interim report
+MTG-B.ST,2020-Q4,2021-02-25,2021-02-25,MTG official full-year report
+MTG-B.ST,2021-Q1,2021-04-29,2021-04-29,MTG official interim report
+MTG-B.ST,2021-Q2,2021-07-20,2021-07-20,MTG official interim report
+MTG-B.ST,2021-Q3,2021-10-28,2021-10-28,MTG official interim report
+MTG-B.ST,2021-Q4,2022-02-07,2022-02-07,MTG official full-year report
+MTG-B.ST,2022-Q1,2022-04-27,2022-04-27,MTG official interim report
+MTG-B.ST,2022-Q2,2022-07-20,2022-07-20,MTG official interim report
+MTG-B.ST,2022-Q3,2022-10-26,2022-10-26,MTG official interim report
+MYCR.ST,2018-Q3,2018-10-24,2018-10-24,Mycronic official interim report
+MYCR.ST,2018-Q4,2019-02-07,2019-02-07,Mycronic official year-end report
+MYCR.ST,2019-Q1,2019-04-25,2019-04-25,Mycronic official interim report
+MYCR.ST,2019-Q2,2019-07-17,2019-07-17,Mycronic official interim report
+MYCR.ST,2019-Q3,2019-10-24,2019-10-24,Mycronic official interim report
+MYCR.ST,2019-Q4,2020-02-06,2020-02-06,Mycronic official year-end report
+MYCR.ST,2020-Q1,2020-04-23,2020-04-23,Mycronic official interim report
+MYCR.ST,2020-Q2,2020-07-16,2020-07-16,Mycronic official interim report
+MYCR.ST,2020-Q3,2020-10-22,2020-10-22,Mycronic official interim report
+MYCR.ST,2020-Q4,2021-02-10,2021-02-10,Mycronic official year-end report
+MYCR.ST,2021-Q1,2021-04-22,2021-04-22,Mycronic official interim report
+MYCR.ST,2021-Q2,2021-07-15,2021-07-15,Mycronic official interim report
+MYCR.ST,2021-Q3,2021-10-21,2021-10-21,Mycronic official interim report
+MYCR.ST,2021-Q4,2022-02-09,2022-02-09,Mycronic official year-end report
+MYCR.ST,2022-Q1,2022-04-21,2022-04-21,Mycronic official interim report
+MYCR.ST,2022-Q2,2022-07-14,2022-07-14,Mycronic official interim report
+MYCR.ST,2022-Q3,2022-10-20,2022-10-20,Mycronic official interim report
+MYCR.ST,2022-Q4,2023-02-10,2023-02-10,Mycronic official year-end report
+MYCR.ST,2023-Q1,2023-04-27,2023-04-27,Mycronic official interim report
+MYCR.ST,2023-Q2,2023-07-14,2023-07-14,Mycronic official interim report
+MYCR.ST,2023-Q3,2023-10-19,2023-10-19,Mycronic official interim report
+MYCR.ST,2023-Q4,2024-02-08,2024-02-08,Mycronic official year-end report
+MYCR.ST,2024-Q2,2024-07-12,2024-07-12,Mycronic official interim report
+MYCR.ST,2024-Q3,2024-10-24,2024-10-24,Mycronic official interim report
+MYCR.ST,2024-Q4,2025-02-06,2025-02-06,Mycronic official year-end report
+NEWA-B.ST,2018-Q3,2018-11-08,2018-11-08,New Wave Group official interim report
+NEWA-B.ST,2018-Q4,2019-02-07,2019-02-07,New Wave Group official year-end report
+NEWA-B.ST,2019-Q1,2019-04-25,2019-04-25,New Wave Group official interim report
+NEWA-B.ST,2019-Q2,2019-08-20,2019-08-20,New Wave Group official interim report
+NEWA-B.ST,2019-Q3,2019-11-07,2019-11-07,New Wave Group official interim report
+NEWA-B.ST,2019-Q4,2020-02-06,2020-02-06,New Wave Group official year-end report
+NEWA-B.ST,2020-Q1,2020-04-22,2020-04-22,New Wave Group official interim report
+NEWA-B.ST,2020-Q2,2020-08-20,2020-08-20,New Wave Group official interim report
+NEWA-B.ST,2020-Q3,2020-11-06,2020-11-06,New Wave Group official interim report
+NEWA-B.ST,2020-Q4,2021-02-11,2021-02-11,New Wave Group official year-end report
+NEWA-B.ST,2021-Q1,2021-04-27,2021-04-27,New Wave Group official interim report
+NEWA-B.ST,2021-Q2,2021-08-17,2021-08-17,New Wave Group official interim report
+NEWA-B.ST,2021-Q3,2021-11-05,2021-11-05,New Wave Group official interim report
+NEWA-B.ST,2021-Q4,2022-02-10,2022-02-10,New Wave Group official year-end report
+NMAN.ST,2018-Q3,2018-10-18,2018-10-18,Nederman official Cision newsroom
+NMAN.ST,2018-Q4,2019-02-19,2019-02-19,Nederman official Cision newsroom
+NMAN.ST,2019-Q1,2019-04-17,2019-04-17,Nederman official Cision newsroom
+NMAN.ST,2019-Q2,2019-07-12,2019-07-12,Nederman official Cision newsroom
+NMAN.ST,2019-Q3,2019-10-17,2019-10-17,Nederman official Cision newsroom
+NMAN.ST,2019-Q4,2020-02-14,2020-02-14,Nederman official Cision newsroom
+NMAN.ST,2020-Q1,2020-04-21,2020-04-21,Nederman official Cision newsroom
+NMAN.ST,2020-Q2,2020-07-17,2020-07-17,Nederman official Cision newsroom
+NMAN.ST,2020-Q3,2020-10-23,2020-10-23,Nederman official Cision newsroom
+NMAN.ST,2020-Q4,2021-02-12,2021-02-12,Nederman official Cision newsroom
+NMAN.ST,2021-Q1,2021-04-22,2021-04-22,Nederman official Cision newsroom
+NMAN.ST,2021-Q2,2021-07-15,2021-07-15,Nederman official Cision newsroom
+NMAN.ST,2021-Q3,2021-10-22,2021-10-22,Nederman official Cision newsroom
+NMAN.ST,2021-Q4,2022-02-15,2022-02-15,Nederman official Cision newsroom
+NMAN.ST,2022-Q1,2022-04-22,2022-04-22,Nederman official Cision newsroom
+NMAN.ST,2022-Q2,2022-07-15,2022-07-15,Nederman official Cision newsroom
+NMAN.ST,2022-Q3,2022-10-24,2022-10-24,Nederman official Cision newsroom
+NMAN.ST,2022-Q4,2023-02-16,2023-02-16,Nederman official Cision newsroom
+NMAN.ST,2023-Q1,2023-04-24,2023-04-24,Nederman official Cision newsroom
+NMAN.ST,2023-Q2,2023-07-14,2023-07-14,Nederman official Cision newsroom
+NMAN.ST,2023-Q3,2023-10-23,2023-10-23,Nederman official Cision newsroom
+NMAN.ST,2023-Q4,2024-02-15,2024-02-15,Nederman official Cision newsroom
+NMAN.ST,2024-Q1,2024-04-25,2024-04-25,Nederman official Cision newsroom
+NMAN.ST,2024-Q2,2024-07-12,2024-07-12,Nederman official Cision newsroom
+NMAN.ST,2024-Q3,2024-10-22,2024-10-22,Nederman official Cision newsroom
+NMAN.ST,2024-Q4,2025-02-13,2025-02-13,Nederman official Cision newsroom
+NMAN.ST,2025-Q1,2025-04-25,2025-04-25,Nederman official Cision newsroom
+NMAN.ST,2025-Q2,2025-07-15,2025-07-15,Nederman official Cision newsroom
+NMAN.ST,2025-Q3,2025-10-23,2025-10-23,Nederman official Cision newsroom
+NMAN.ST,2025-Q4,2026-02-12,2026-02-12,Nederman official Cision newsroom
+NMAN.ST,2026-Q1,2026-04-17,2026-04-17,Nederman official Cision newsroom
+PACT.ST,2018-Q3,2018-10-18,2018-10-18,Proact official Q3 report archive
+NOLA-B.ST,2018-Q3,2018-10-24,2018-10-24,Nolato official press archive
+NOLA-B.ST,2018-Q4,2019-02-12,2019-02-12,Nolato official press archive
+NOLA-B.ST,2019-Q1,2019-05-08,2019-05-08,Nolato official press archive
+NOLA-B.ST,2019-Q2,2019-07-18,2019-07-18,Nolato official press archive
+NOLA-B.ST,2019-Q3,2019-10-23,2019-10-23,Nolato official press archive
+NOLA-B.ST,2019-Q4,2020-02-10,2020-02-10,Nolato official press archive
+NOLA-B.ST,2020-Q1,2020-05-04,2020-05-04,Nolato official press archive
+NOLA-B.ST,2020-Q2,2020-07-17,2020-07-17,Nolato official press archive
+NOLA-B.ST,2020-Q3,2020-10-23,2020-10-23,Nolato official press archive
+NOLA-B.ST,2020-Q4,2021-02-10,2021-02-10,Nolato official press archive
+NOLA-B.ST,2021-Q1,2021-05-04,2021-05-04,Nolato official press archive
+NOLA-B.ST,2021-Q2,2021-07-20,2021-07-20,Nolato official press archive
+NOLA-B.ST,2021-Q3,2021-10-28,2021-10-28,Nolato official press archive
+NOLA-B.ST,2021-Q4,2022-02-07,2022-02-07,Nolato official press archive
+NOLA-B.ST,2022-Q1,2022-05-03,2022-05-03,Nolato official press archive
+NOLA-B.ST,2022-Q2,2022-07-20,2022-07-20,Nolato official press archive
+NOLA-B.ST,2022-Q3,2022-10-27,2022-10-27,Nolato official press archive
+NOLA-B.ST,2022-Q4,2023-02-08,2023-02-08,Nolato official press archive
+NOLA-B.ST,2023-Q1,2023-05-03,2023-05-03,Nolato official press archive
+NOLA-B.ST,2023-Q2,2023-07-20,2023-07-20,Nolato official press archive
+NOLA-B.ST,2026-Q1,2026-05-06,2026-05-06,Nolato official press archive
+VIVA.ST,2021-Q4,2022-02-24,2022-02-24,Viva Wine Group official MFN report feed
+VIVA.ST,2022-Q1,2022-05-12,2022-05-12,Viva Wine Group official MFN report feed
+VIVA.ST,2022-Q2,2022-08-25,2022-08-25,Viva Wine Group official MFN report feed
+VIVA.ST,2022-Q3,2022-11-16,2022-11-16,Viva Wine Group official MFN report feed
+VIVA.ST,2022-Q4,2023-02-23,2023-02-23,Viva Wine Group official MFN report feed
+VIVA.ST,2023-Q1,2023-05-17,2023-05-17,Viva Wine Group official MFN report feed
+VIVA.ST,2023-Q2,2023-08-29,2023-08-29,Viva Wine Group official MFN report feed
+VIVA.ST,2023-Q3,2023-11-22,2023-11-22,Viva Wine Group official MFN report feed
+VIVA.ST,2024-Q1,2024-05-16,2024-05-16,Viva Wine Group official MFN report feed
+SECARE.ST,2018-Q3,2018-10-25,2018-10-25,Swedencare official reports archive
+SECARE.ST,2018-Q4,2019-02-14,2019-02-14,Swedencare official reports archive
+SECARE.ST,2019-Q1,2019-04-25,2019-04-25,Swedencare official reports archive
+SECARE.ST,2019-Q2,2019-07-26,2019-07-26,Swedencare official reports archive
+SECARE.ST,2019-Q3,2019-10-24,2019-10-24,Swedencare official reports archive
+SECARE.ST,2019-Q4,2020-02-13,2020-02-13,Swedencare official reports archive
+SECARE.ST,2020-Q1,2020-04-21,2020-04-21,Swedencare official reports archive
+SECARE.ST,2020-Q2,2020-07-24,2020-07-24,Swedencare official reports archive
+SECARE.ST,2020-Q3,2020-10-22,2020-10-22,Swedencare official reports archive
+SECARE.ST,2020-Q4,2021-02-18,2021-02-18,Swedencare official reports archive
+SECARE.ST,2021-Q1,2021-04-29,2021-04-29,Swedencare official reports archive
+SECARE.ST,2021-Q2,2021-07-29,2021-07-29,Swedencare official reports archive
+SECARE.ST,2021-Q3,2021-10-28,2021-10-28,Swedencare official reports archive
+NORION.ST,2018-Q3,2018-10-25,2018-10-25,Norion Bank official MFN report feed
+NORION.ST,2018-Q4,2019-02-12,2019-02-12,Norion Bank official MFN report feed
+NORION.ST,2019-Q1,2019-04-25,2019-04-25,Norion Bank official MFN report feed
+NORION.ST,2019-Q2,2019-07-18,2019-07-18,Norion Bank official MFN report feed
+NORION.ST,2019-Q3,2019-10-24,2019-10-24,Norion Bank official MFN report feed
+NORION.ST,2019-Q4,2020-02-13,2020-02-13,Norion Bank official MFN report feed
+NORION.ST,2020-Q1,2020-05-05,2020-05-05,Norion Bank official MFN report feed
+NORION.ST,2020-Q2,2020-07-16,2020-07-16,Norion Bank official MFN report feed
+NORION.ST,2020-Q3,2020-10-22,2020-10-22,Norion Bank official MFN report feed
+NORION.ST,2020-Q4,2021-02-12,2021-02-12,Norion Bank official MFN report feed
+NORION.ST,2021-Q1,2021-04-27,2021-04-27,Norion Bank official MFN report feed
+NORION.ST,2021-Q2,2021-07-15,2021-07-15,Norion Bank official MFN report feed
+NORION.ST,2021-Q3,2021-10-21,2021-10-21,Norion Bank official MFN report feed
+NORION.ST,2021-Q4,2022-02-24,2022-02-24,Norion Bank official MFN report feed
+NORION.ST,2022-Q1,2022-04-26,2022-04-26,Norion Bank official MFN report feed
+NORION.ST,2022-Q2,2022-07-14,2022-07-14,Norion Bank official MFN report feed
+NORION.ST,2022-Q3,2022-10-21,2022-10-21,Norion Bank official MFN report feed
+SFAST.ST,2021-Q4,2022-02-22,2022-02-22,Stenhus Fastigheter official reports archive
+SFAST.ST,2022-Q1,2022-05-19,2022-05-19,Stenhus Fastigheter official reports archive
+SFAST.ST,2022-Q2,2022-08-24,2022-08-24,Stenhus Fastigheter official reports archive
+SFAST.ST,2022-Q3,2022-11-23,2022-11-23,Stenhus Fastigheter official reports archive
+SFAST.ST,2022-Q4,2023-02-21,2023-02-21,Stenhus Fastigheter official reports archive
+SFAST.ST,2023-Q1,2023-05-16,2023-05-16,Stenhus Fastigheter official reports archive
+SFAST.ST,2023-Q2,2023-08-24,2023-08-24,Stenhus Fastigheter official reports archive
+SFAST.ST,2023-Q3,2023-11-23,2023-11-23,Stenhus Fastigheter official reports archive
+SFAST.ST,2023-Q4,2024-02-21,2024-02-21,Stenhus Fastigheter official reports archive
+SFAST.ST,2024-Q1,2024-05-16,2024-05-16,Stenhus Fastigheter official reports archive
+SFAST.ST,2024-Q2,2024-08-22,2024-08-22,Stenhus Fastigheter official reports archive
+SFAST.ST,2024-Q3,2024-11-21,2024-11-21,Stenhus Fastigheter official reports archive
+SFAST.ST,2024-Q4,2025-02-20,2025-02-20,Stenhus Fastigheter official reports archive
+SFAST.ST,2025-Q1,2025-05-15,2025-05-15,Stenhus Fastigheter official reports archive
+SFAST.ST,2025-Q2,2025-08-21,2025-08-21,Stenhus Fastigheter official reports archive
+SFAST.ST,2025-Q3,2025-11-20,2025-11-20,Stenhus Fastigheter official reports archive
+SFAST.ST,2026-Q1,2026-05-12,2026-05-12,Stenhus Fastigheter official reports archive
+SCST.ST,2018-Q3,2018-11-05,2018-11-05,Scandi Standard official reports archive
+SCST.ST,2018-Q4,2019-02-20,2019-02-20,Scandi Standard official reports archive
+SCST.ST,2019-Q1,2019-05-09,2019-05-09,Scandi Standard official reports archive
+SCST.ST,2019-Q2,2019-08-21,2019-08-21,Scandi Standard official reports archive
+SCST.ST,2019-Q3,2019-11-06,2019-11-06,Scandi Standard official reports archive
+SCST.ST,2019-Q4,2020-02-07,2020-02-07,Scandi Standard official reports archive
+SCST.ST,2020-Q1,2020-05-12,2020-05-12,Scandi Standard official reports archive
+SCST.ST,2020-Q2,2020-08-26,2020-08-26,Scandi Standard official reports archive
+SCST.ST,2020-Q3,2020-11-04,2020-11-04,Scandi Standard official reports archive
+SCST.ST,2020-Q4,2021-02-11,2021-02-11,Scandi Standard official reports archive
+SCST.ST,2021-Q1,2021-05-07,2021-05-07,Scandi Standard official reports archive
+SCST.ST,2021-Q2,2021-08-25,2021-08-25,Scandi Standard official reports archive
+SCST.ST,2021-Q3,2021-11-12,2021-11-12,Scandi Standard official reports archive
+SCST.ST,2021-Q4,2022-02-11,2022-02-11,Scandi Standard official reports archive
+SCST.ST,2022-Q1,2022-05-04,2022-05-04,Scandi Standard official reports archive
+SCST.ST,2022-Q2,2022-08-25,2022-08-25,Scandi Standard official reports archive
+SCST.ST,2022-Q3,2022-10-28,2022-10-28,Scandi Standard official reports archive
+SCST.ST,2022-Q4,2023-02-09,2023-02-09,Scandi Standard official reports archive
+SCST.ST,2023-Q1,2023-05-03,2023-05-03,Scandi Standard official reports archive
+SCST.ST,2023-Q2,2023-08-23,2023-08-23,Scandi Standard official reports archive
+SCST.ST,2023-Q4,2024-02-09,2024-02-09,Scandi Standard official reports archive
+SCST.ST,2024-Q3,2024-10-25,2024-10-25,Scandi Standard official reports archive
+SYSR.ST,2018-Q4,2018-12-05,2018-12-05,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2019-Q1,2019-03-13,2019-03-13,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2019-Q2,2019-06-11,2019-06-11,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2019-Q3,2019-08-29,2019-08-29,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2019-Q4,2019-12-05,2019-12-05,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2020-Q1,2020-03-11,2020-03-11,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2020-Q2,2020-06-09,2020-06-09,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2020-Q3,2020-08-26,2020-08-26,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2020-Q4,2020-12-10,2020-12-10,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2021-Q1,2021-03-11,2021-03-11,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2021-Q2,2021-06-10,2021-06-10,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2021-Q3,2021-08-26,2021-08-26,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2021-Q4,2021-12-09,2021-12-09,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2022-Q1,2022-03-10,2022-03-10,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2022-Q2,2022-06-08,2022-06-08,Systemair official reports archive corrected fiscal-quarter alignment
+VBG-B.ST,2018-Q3,2018-10-22,2018-10-22,VBG Group official reports archive
+VBG-B.ST,2018-Q4,2019-02-19,2019-02-19,VBG Group official reports archive
+VBG-B.ST,2019-Q1,2019-04-24,2019-04-24,VBG Group official reports archive
+VBG-B.ST,2019-Q2,2019-08-20,2019-08-20,VBG Group official reports archive
+VBG-B.ST,2019-Q3,2019-10-22,2019-10-22,VBG Group official reports archive
+VBG-B.ST,2019-Q4,2020-02-20,2020-02-20,VBG Group official reports archive
+VBG-B.ST,2020-Q1,2020-04-28,2020-04-28,VBG Group official reports archive
+VBG-B.ST,2020-Q2,2020-07-23,2020-07-23,VBG Group official reports archive
+VBG-B.ST,2020-Q3,2020-10-22,2020-10-22,VBG Group official reports archive
+VBG-B.ST,2020-Q4,2021-02-24,2021-02-24,VBG Group official reports archive
+VBG-B.ST,2021-Q1,2021-04-29,2021-04-29,VBG Group official reports archive
+VBG-B.ST,2021-Q2,2021-07-22,2021-07-22,VBG Group official reports archive
+VBG-B.ST,2021-Q3,2021-10-21,2021-10-21,VBG Group official reports archive
+VBG-B.ST,2021-Q4,2022-02-24,2022-02-24,VBG Group official reports archive
+VBG-B.ST,2022-Q1,2022-04-28,2022-04-28,VBG Group official reports archive
+VBG-B.ST,2022-Q2,2022-07-20,2022-07-20,VBG Group official reports archive
+VBG-B.ST,2022-Q3,2022-10-26,2022-10-26,VBG Group official reports archive
+VBG-B.ST,2022-Q4,2023-02-21,2023-02-21,VBG Group official reports archive
+VBG-B.ST,2023-Q1,2023-04-27,2023-04-27,VBG Group official reports archive
+VBG-B.ST,2023-Q2,2023-07-20,2023-07-20,VBG Group official reports archive
+WIHL.ST,2018-Q3,2018-10-23,2018-10-23,Wihlborgs official reports archive
+WIHL.ST,2018-Q4,2019-02-12,2019-02-12,Wihlborgs official reports archive
+WIHL.ST,2019-Q1,2019-04-25,2019-04-25,Wihlborgs official reports archive
+WIHL.ST,2019-Q2,2019-07-08,2019-07-08,Wihlborgs official reports archive
+WIHL.ST,2019-Q3,2019-10-24,2019-10-24,Wihlborgs official reports archive
+WIHL.ST,2019-Q4,2020-02-11,2020-02-11,Wihlborgs official reports archive
+WIHL.ST,2020-Q1,2020-04-28,2020-04-28,Wihlborgs official reports archive
+WIHL.ST,2020-Q2,2020-07-06,2020-07-06,Wihlborgs official reports archive
+WIHL.ST,2020-Q3,2020-10-23,2020-10-23,Wihlborgs official reports archive
+WIHL.ST,2020-Q4,2021-02-16,2021-02-16,Wihlborgs official reports archive
+WIHL.ST,2021-Q1,2021-04-27,2021-04-27,Wihlborgs official reports archive
+WIHL.ST,2021-Q2,2021-07-12,2021-07-12,Wihlborgs official reports archive
+WIHL.ST,2021-Q3,2021-10-22,2021-10-22,Wihlborgs official reports archive
+WIHL.ST,2021-Q4,2022-02-15,2022-02-15,Wihlborgs official reports archive
+WIHL.ST,2022-Q1,2022-04-26,2022-04-26,Wihlborgs official reports archive
+WIHL.ST,2022-Q2,2022-07-11,2022-07-11,Wihlborgs official reports archive
+WIHL.ST,2022-Q3,2022-10-21,2022-10-21,Wihlborgs official reports archive
+WIHL.ST,2022-Q4,2023-02-14,2023-02-14,Wihlborgs official reports archive
+WIHL.ST,2023-Q1,2023-04-25,2023-04-25,Wihlborgs official reports archive
+WIHL.ST,2023-Q2,2023-07-10,2023-07-10,Wihlborgs official reports archive
+WIHL.ST,2023-Q4,2024-02-13,2024-02-13,Wihlborgs official reports archive
+WIHL.ST,2025-Q4,2026-02-10,2026-02-10,Wihlborgs official reports archive
+WIHL.ST,2026-Q1,2026-04-21,2026-04-21,Wihlborgs official reports archive
+WALL-B.ST,2018-Q3,2018-10-25,2018-10-25,Wallenstam official reports archive
+WALL-B.ST,2018-Q4,2019-02-06,2019-02-06,Wallenstam official reports archive
+WALL-B.ST,2019-Q1,2019-05-02,2019-05-02,Wallenstam official reports archive
+WALL-B.ST,2019-Q2,2019-07-17,2019-07-17,Wallenstam official reports archive
+WALL-B.ST,2019-Q3,2019-10-22,2019-10-22,Wallenstam official reports archive
+WALL-B.ST,2019-Q4,2020-02-05,2020-02-05,Wallenstam official reports archive
+WALL-B.ST,2020-Q1,2020-04-28,2020-04-28,Wallenstam official reports archive
+WALL-B.ST,2020-Q2,2020-07-17,2020-07-17,Wallenstam official reports archive
+WALL-B.ST,2020-Q3,2020-10-22,2020-10-22,Wallenstam official reports archive
+WALL-B.ST,2020-Q4,2021-02-09,2021-02-09,Wallenstam official reports archive
+WALL-B.ST,2021-Q1,2021-04-27,2021-04-27,Wallenstam official reports archive
+WALL-B.ST,2021-Q2,2021-07-08,2021-07-08,Wallenstam official reports archive
+WALL-B.ST,2021-Q3,2021-10-22,2021-10-22,Wallenstam official reports archive
+WALL-B.ST,2021-Q4,2022-02-08,2022-02-08,Wallenstam official reports archive
+WALL-B.ST,2022-Q1,2022-04-26,2022-04-26,Wallenstam official reports archive
+WALL-B.ST,2022-Q2,2022-07-14,2022-07-14,Wallenstam official reports archive
+WALL-B.ST,2022-Q3,2022-10-25,2022-10-25,Wallenstam official reports archive
+WALL-B.ST,2022-Q4,2023-02-08,2023-02-08,Wallenstam official reports archive
+WALL-B.ST,2023-Q1,2023-05-03,2023-05-03,Wallenstam official reports archive
+WALL-B.ST,2023-Q2,2023-07-14,2023-07-14,Wallenstam official reports archive
+WALL-B.ST,2023-Q4,2024-02-08,2024-02-08,Wallenstam official reports archive
+WALL-B.ST,2026-Q1,2026-04-21,2026-04-21,Wallenstam official reports archive
+VITR.ST,2018-Q3,2018-11-06,2018-11-06,Vitrolife official MFN reports archive
+VITR.ST,2018-Q4,2019-02-08,2019-02-08,Vitrolife official MFN reports archive
+VITR.ST,2019-Q1,2019-04-23,2019-04-23,Vitrolife official MFN reports archive
+VITR.ST,2019-Q2,2019-07-12,2019-07-12,Vitrolife official MFN reports archive
+VITR.ST,2019-Q3,2019-11-06,2019-11-06,Vitrolife official MFN reports archive
+VITR.ST,2019-Q4,2020-02-06,2020-02-06,Vitrolife official MFN reports archive
+VITR.ST,2020-Q1,2020-04-23,2020-04-23,Vitrolife official MFN reports archive
+VITR.ST,2020-Q2,2020-07-13,2020-07-13,Vitrolife official MFN reports archive
+VITR.ST,2020-Q3,2020-11-06,2020-11-06,Vitrolife official MFN reports archive
+VITR.ST,2020-Q4,2021-02-10,2021-02-10,Vitrolife official MFN reports archive
+VITR.ST,2021-Q1,2021-04-22,2021-04-22,Vitrolife official MFN reports archive
+VITR.ST,2021-Q2,2021-07-15,2021-07-15,Vitrolife official MFN reports archive
+VITR.ST,2021-Q3,2021-10-29,2021-10-29,Vitrolife official MFN reports archive
+VITR.ST,2021-Q4,2022-02-16,2022-02-16,Vitrolife official MFN reports archive
+VITR.ST,2022-Q1,2022-04-22,2022-04-22,Vitrolife official MFN reports archive
+VITR.ST,2022-Q2,2022-07-15,2022-07-15,Vitrolife official MFN reports archive
+VITR.ST,2022-Q3,2022-10-27,2022-10-27,Vitrolife official MFN reports archive
+VITR.ST,2022-Q4,2023-02-02,2023-02-02,Vitrolife official MFN reports archive
+VITR.ST,2023-Q1,2023-04-21,2023-04-21,Vitrolife official MFN reports archive
+VITR.ST,2023-Q2,2023-07-14,2023-07-14,Vitrolife official MFN reports archive
+VITR.ST,2024-Q4,2025-01-30,2025-01-30,Vitrolife official MFN reports archive
+VITR.ST,2025-Q3,2025-10-23,2025-10-23,Vitrolife official MFN reports archive
+VOLV-A.ST,2018-Q3,2018-10-19,2018-10-19,Volvo Group official reports archive
+VOLV-A.ST,2018-Q4,2019-01-30,2019-01-30,Volvo Group official reports archive
+VOLV-A.ST,2019-Q1,2019-04-24,2019-04-24,Volvo Group official reports archive
+VOLV-A.ST,2019-Q2,2019-07-18,2019-07-18,Volvo Group official reports archive
+VOLV-A.ST,2019-Q3,2019-10-18,2019-10-18,Volvo Group official reports archive
+VOLV-A.ST,2019-Q4,2020-01-30,2020-01-30,Volvo Group official reports archive
+VOLV-A.ST,2020-Q1,2020-04-23,2020-04-23,Volvo Group official reports archive
+VOLV-A.ST,2020-Q2,2020-07-17,2020-07-17,Volvo Group official reports archive
+VOLV-A.ST,2020-Q3,2020-10-16,2020-10-16,Volvo Group official reports archive
+VOLV-A.ST,2020-Q4,2021-02-03,2021-02-03,Volvo Group official reports archive
+VOLV-A.ST,2021-Q1,2021-04-22,2021-04-22,Volvo Group official reports archive
+VOLV-A.ST,2021-Q2,2021-07-20,2021-07-20,Volvo Group official reports archive
+VOLV-A.ST,2021-Q3,2021-10-21,2021-10-21,Volvo Group official reports archive
+VOLV-A.ST,2021-Q4,2022-01-28,2022-01-28,Volvo Group official reports archive
+VOLV-A.ST,2022-Q1,2022-04-22,2022-04-22,Volvo Group official reports archive
+VOLV-A.ST,2022-Q2,2022-07-19,2022-07-19,Volvo Group official reports archive
+VOLV-A.ST,2022-Q3,2022-10-20,2022-10-20,Volvo Group official reports archive
+VOLV-A.ST,2022-Q4,2023-01-26,2023-01-26,Volvo Group official reports archive
+VOLV-A.ST,2023-Q1,2023-04-20,2023-04-20,Volvo Group official reports archive
+VOLV-A.ST,2023-Q2,2023-07-19,2023-07-19,Volvo Group official reports archive
+VOLV-A.ST,2023-Q3,2023-10-18,2023-10-18,Volvo Group official reports archive
+VOLV-A.ST,2023-Q4,2024-01-26,2024-01-26,Volvo Group official reports archive
+VOLV-A.ST,2024-Q1,2024-04-17,2024-04-17,Volvo Group official reports archive
+VOLV-A.ST,2024-Q2,2024-07-18,2024-07-18,Volvo Group official reports archive
+VOLV-A.ST,2024-Q3,2024-10-18,2024-10-18,Volvo Group official reports archive
+VOLV-A.ST,2024-Q4,2025-01-29,2025-01-29,Volvo Group official reports archive
+VOLV-A.ST,2025-Q1,2025-04-23,2025-04-23,Volvo Group official reports archive
+VOLV-A.ST,2025-Q2,2025-07-17,2025-07-17,Volvo Group official reports archive
+VOLV-A.ST,2025-Q3,2025-10-17,2025-10-17,Volvo Group official reports archive
+VOLV-A.ST,2025-Q4,2026-01-28,2026-01-28,Volvo Group official reports archive
+VOLV-A.ST,2026-Q1,2026-04-24,2026-04-24,Volvo Group official reports archive
+VOLV-A.ST,2026-Q2,2026-07-17,2026-07-17,Volvo Group official reports archive
+ZZ-B.ST,2018-Q3,2018-11-15,2018-11-15,Zinzino official reports archive
+ZZ-B.ST,2018-Q4,2019-02-28,2019-02-28,Zinzino official reports archive
+ZZ-B.ST,2019-Q1,2019-05-16,2019-05-16,Zinzino official reports archive
+ZZ-B.ST,2019-Q2,2019-08-30,2019-08-30,Zinzino official reports archive
+ZZ-B.ST,2019-Q3,2019-11-15,2019-11-15,Zinzino official reports archive
+ZZ-B.ST,2019-Q4,2020-02-28,2020-02-28,Zinzino official reports archive
+ZZ-B.ST,2020-Q1,2020-05-14,2020-05-14,Zinzino official reports archive
+ZZ-B.ST,2020-Q2,2020-08-28,2020-08-28,Zinzino official reports archive
+ZZ-B.ST,2020-Q3,2020-11-20,2020-11-20,Zinzino official reports archive
+ZZ-B.ST,2020-Q4,2021-02-26,2021-02-26,Zinzino official reports archive
+ZZ-B.ST,2021-Q1,2021-05-18,2021-05-18,Zinzino official reports archive
+ZZ-B.ST,2021-Q2,2021-08-27,2021-08-27,Zinzino official reports archive
+ZZ-B.ST,2021-Q3,2021-11-19,2021-11-19,Zinzino official reports archive
+ZZ-B.ST,2021-Q4,2022-02-28,2022-02-28,Zinzino official reports archive
+ZZ-B.ST,2022-Q1,2022-05-13,2022-05-13,Zinzino official reports archive
+ZZ-B.ST,2022-Q2,2022-08-26,2022-08-26,Zinzino official reports archive
+ZZ-B.ST,2022-Q3,2022-11-17,2022-11-17,Zinzino official reports archive
+ZZ-B.ST,2022-Q4,2023-02-28,2023-02-28,Zinzino official reports archive
+ZZ-B.ST,2023-Q1,2023-05-12,2023-05-12,Zinzino official reports archive
+ZZ-B.ST,2023-Q2,2023-08-31,2023-08-31,Zinzino official reports archive
+ZZ-B.ST,2024-Q1,2024-05-22,2024-05-22,Zinzino official reports archive
+ZZ-B.ST,2024-Q3,2024-11-19,2024-11-19,Zinzino official reports archive
+ZZ-B.ST,2024-Q4,2025-02-27,2025-02-27,Zinzino official reports archive
+ZZ-B.ST,2025-Q2,2025-08-29,2025-08-29,Zinzino official reports archive
+ZZ-B.ST,2025-Q4,2026-02-25,2026-02-25,Zinzino official reports archive
+SHOT.ST,2018-Q3,2018-10-25,2018-10-25,Scandic Hotels official reports archive
+SHOT.ST,2018-Q4,2019-02-19,2019-02-19,Scandic Hotels official reports archive
+SHOT.ST,2019-Q1,2019-05-07,2019-05-07,Scandic Hotels official reports archive
+SHOT.ST,2019-Q2,2019-07-19,2019-07-19,Scandic Hotels official reports archive
+SHOT.ST,2019-Q3,2019-10-24,2019-10-24,Scandic Hotels official reports archive
+SHOT.ST,2019-Q4,2020-02-18,2020-02-18,Scandic Hotels official reports archive
+SHOT.ST,2020-Q1,2020-05-20,2020-05-20,Scandic Hotels official reports archive
+SHOT.ST,2020-Q2,2020-07-17,2020-07-17,Scandic Hotels official reports archive
+SHOT.ST,2020-Q3,2020-11-03,2020-11-03,Scandic Hotels official reports archive
+SHOT.ST,2020-Q4,2021-02-17,2021-02-17,Scandic Hotels official reports archive
+SHOT.ST,2021-Q1,2021-04-28,2021-04-28,Scandic Hotels official reports archive
+SHOT.ST,2021-Q2,2021-07-16,2021-07-16,Scandic Hotels official reports archive
+SHOT.ST,2021-Q3,2021-10-28,2021-10-28,Scandic Hotels official reports archive
+SHOT.ST,2021-Q4,2022-02-10,2022-02-10,Scandic Hotels official reports archive
+SHOT.ST,2022-Q1,2022-04-27,2022-04-27,Scandic Hotels official reports archive
+SHOT.ST,2022-Q2,2022-07-15,2022-07-15,Scandic Hotels official reports archive
+SINT.ST,2018-Q3,2018-11-14,2018-11-14,SinterCast official press release archive
+SINT.ST,2018-Q4,2019-02-20,2019-02-20,SinterCast official press release archive
+SINT.ST,2019-Q1,2019-04-24,2019-04-24,SinterCast official press release archive
+SINT.ST,2019-Q2,2019-08-22,2019-08-22,SinterCast official press release archive
+SINT.ST,2019-Q3,2019-11-13,2019-11-13,SinterCast official press release archive
+SINT.ST,2019-Q4,2020-02-19,2020-02-19,SinterCast official press release archive
+SINT.ST,2020-Q1,2020-04-21,2020-04-21,SinterCast official press release archive
+SINT.ST,2020-Q2,2020-08-19,2020-08-19,SinterCast official press release archive
+SINT.ST,2020-Q3,2020-10-28,2020-10-28,SinterCast official press release archive
+SINT.ST,2020-Q4,2021-02-10,2021-02-10,SinterCast official press release archive
+SINT.ST,2021-Q1,2021-04-21,2021-04-21,SinterCast official press release archive
+SINT.ST,2021-Q2,2021-08-18,2021-08-18,SinterCast official press release archive
+SINT.ST,2021-Q3,2021-11-03,2021-11-03,SinterCast official press release archive
+SINT.ST,2021-Q4,2022-02-08,2022-02-08,SinterCast official press release archive
+SINT.ST,2022-Q1,2022-04-27,2022-04-27,SinterCast official press release archive
+SINT.ST,2022-Q2,2022-08-17,2022-08-17,SinterCast official press release archive
+SINT.ST,2022-Q3,2022-11-04,2022-11-04,SinterCast official press release archive
+SINT.ST,2022-Q4,2023-02-08,2023-02-08,SinterCast official press release archive
+SINT.ST,2023-Q1,2023-04-26,2023-04-26,SinterCast official press release archive
+SINT.ST,2023-Q2,2023-08-16,2023-08-16,SinterCast official press release archive
+SINT.ST,2023-Q3,2023-11-08,2023-11-08,SinterCast official press release archive
+SINT.ST,2023-Q4,2024-02-28,2024-02-28,SinterCast official press release archive
+SVED-B.ST,2018-Q3,2018-10-24,2018-10-24,Svedbergs Group official press release archive
+SVED-B.ST,2018-Q4,2019-02-05,2019-02-05,Svedbergs Group official press release archive
+SVED-B.ST,2019-Q1,2019-04-25,2019-04-25,Svedbergs Group official press release archive
+SVED-B.ST,2019-Q2,2019-07-16,2019-07-16,Svedbergs Group official press release archive
+SVED-B.ST,2019-Q3,2019-10-25,2019-10-25,Svedbergs Group official press release archive
+SVED-B.ST,2019-Q4,2020-02-04,2020-02-04,Svedbergs Group official press release archive
+SVED-B.ST,2020-Q1,2020-04-24,2020-04-24,Svedbergs Group official press release archive
+SVED-B.ST,2020-Q2,2020-07-15,2020-07-15,Svedbergs Group official press release archive
+SVED-B.ST,2020-Q3,2020-10-22,2020-10-22,Svedbergs Group official press release archive
+SVED-B.ST,2020-Q4,2021-02-05,2021-02-05,Svedbergs Group official press release archive
+SVED-B.ST,2021-Q1,2021-04-23,2021-04-23,Svedbergs Group official press release archive
+SVED-B.ST,2021-Q2,2021-07-16,2021-07-16,Svedbergs Group official reports archive
+SVED-B.ST,2021-Q3,2021-10-21,2021-10-21,Svedbergs Group official reports archive
+SVED-B.ST,2021-Q4,2022-02-04,2022-02-04,Svedbergs Group official reports archive
+SVED-B.ST,2022-Q1,2022-04-22,2022-04-22,Svedbergs Group official reports archive
+SVED-B.ST,2022-Q2,2022-07-15,2022-07-15,Svedbergs Group official reports archive
+SVED-B.ST,2022-Q3,2022-10-21,2022-10-21,Svedbergs Group official reports archive
+SVED-B.ST,2022-Q4,2023-02-08,2023-02-08,Svedbergs Group official reports archive
+SVED-B.ST,2023-Q1,2023-04-21,2023-04-21,Svedbergs Group official reports archive
+SVED-B.ST,2023-Q2,2023-07-18,2023-07-18,Svedbergs Group official reports archive
+SVED-B.ST,2023-Q3,2023-10-27,2023-10-27,Svedbergs Group official reports archive
+PNDX-B.ST,2018-Q3,2018-10-25,2018-10-25,Pandox official interim reports archive
+PNDX-B.ST,2018-Q4,2019-02-14,2019-02-14,Pandox official interim reports archive
+PNDX-B.ST,2019-Q1,2019-04-26,2019-04-26,Pandox official interim reports archive
+PNDX-B.ST,2019-Q2,2019-07-12,2019-07-12,Pandox official interim reports archive
+PNDX-B.ST,2019-Q3,2019-10-24,2019-10-24,Pandox official interim reports archive
+PNDX-B.ST,2019-Q4,2020-02-12,2020-02-12,Pandox official interim reports archive
+PNDX-B.ST,2020-Q1,2020-04-29,2020-04-29,Pandox official interim reports archive
+PNDX-B.ST,2020-Q2,2020-07-15,2020-07-15,Pandox official interim reports archive
+PNDX-B.ST,2020-Q3,2020-10-23,2020-10-23,Pandox official interim reports archive
+PNDX-B.ST,2020-Q4,2021-02-11,2021-02-11,Pandox official interim reports archive
+PNDX-B.ST,2021-Q1,2021-04-27,2021-04-27,Pandox official interim reports archive
+PNDX-B.ST,2021-Q2,2021-07-16,2021-07-16,Pandox official interim reports archive
+PNDX-B.ST,2021-Q3,2021-10-27,2021-10-27,Pandox official interim reports archive
+PNDX-B.ST,2021-Q4,2022-02-10,2022-02-10,Pandox official interim reports archive
+PNDX-B.ST,2022-Q1,2022-04-27,2022-04-27,Pandox official interim reports archive
+PNDX-B.ST,2022-Q2,2022-07-15,2022-07-15,Pandox official interim reports archive
+PNDX-B.ST,2022-Q3,2022-10-27,2022-10-27,Pandox official interim reports archive
+PNDX-B.ST,2022-Q4,2023-02-09,2023-02-09,Pandox official interim reports archive
+PNDX-B.ST,2023-Q1,2023-04-26,2023-04-26,Pandox official interim reports archive
+PNDX-B.ST,2023-Q2,2023-07-14,2023-07-14,Pandox official interim reports archive
+PNDX-B.ST,2023-Q3,2023-10-26,2023-10-26,Pandox official interim reports archive
+PLAZ-B.ST,2018-Q3,2018-10-25,2018-10-25,Platzer official reports archive
+PLAZ-B.ST,2018-Q4,2019-02-08,2019-02-08,Platzer official reports archive
+PLAZ-B.ST,2019-Q1,2019-04-25,2019-04-25,Platzer official reports archive
+PLAZ-B.ST,2019-Q2,2019-07-09,2019-07-09,Platzer official reports archive
+PLAZ-B.ST,2019-Q3,2019-10-25,2019-10-25,Platzer official reports archive
+PLAZ-B.ST,2019-Q4,2020-02-07,2020-02-07,Platzer official reports archive
+PLAZ-B.ST,2020-Q1,2020-04-16,2020-04-16,Platzer official reports archive
+PLAZ-B.ST,2020-Q2,2020-07-07,2020-07-07,Platzer official reports archive
+PLAZ-B.ST,2020-Q3,2020-10-23,2020-10-23,Platzer official reports archive
+PLAZ-B.ST,2020-Q4,2021-01-29,2021-01-29,Platzer official reports archive
+PLAZ-B.ST,2021-Q1,2021-04-21,2021-04-21,Platzer official reports archive
+PLAZ-B.ST,2021-Q2,2021-07-06,2021-07-06,Platzer official reports archive
+PLAZ-B.ST,2021-Q3,2021-10-19,2021-10-19,Platzer official reports archive
+PLAZ-B.ST,2021-Q4,2022-01-28,2022-01-28,Platzer official reports archive
+PLAZ-B.ST,2022-Q1,2022-04-20,2022-04-20,Platzer official reports archive
+PLAZ-B.ST,2022-Q2,2022-07-06,2022-07-06,Platzer official reports archive
+PLAZ-B.ST,2022-Q3,2022-10-18,2022-10-18,Platzer official reports archive
+PLAZ-B.ST,2022-Q4,2023-01-27,2023-01-27,Platzer official reports archive
+PLAZ-B.ST,2023-Q1,2023-04-19,2023-04-19,Platzer official reports archive
+PLAZ-B.ST,2023-Q2,2023-07-05,2023-07-05,Platzer official reports archive
+PLAZ-B.ST,2023-Q3,2023-10-17,2023-10-17,Platzer official reports archive
+PLAZ-B.ST,2023-Q4,2024-01-26,2024-01-26,Platzer official reports archive
+PLAZ-B.ST,2024-Q1,2024-04-17,2024-04-17,Platzer official reports archive
+PLAZ-B.ST,2024-Q2,2024-07-05,2024-07-05,Platzer official reports archive
+PLAZ-B.ST,2024-Q3,2024-10-15,2024-10-15,Platzer official reports archive
+PLAZ-B.ST,2024-Q4,2025-01-28,2025-01-28,Platzer official reports archive
+PLAZ-B.ST,2025-Q1,2025-04-11,2025-04-11,Platzer official reports archive
+PLAZ-B.ST,2025-Q2,2025-07-04,2025-07-04,Platzer official reports archive
+PLAZ-B.ST,2025-Q3,2025-10-10,2025-10-10,Platzer official reports archive
+PLAZ-B.ST,2025-Q4,2026-01-30,2026-01-30,Platzer official reports archive
+PLAZ-B.ST,2026-Q1,2026-04-17,2026-04-17,Platzer official reports archive
+REJL-B.ST,2018-Q3,2018-10-25,2018-10-25,Rejlers official newsroom archive
+REJL-B.ST,2018-Q4,2019-02-07,2019-02-07,Rejlers official newsroom archive
+REJL-B.ST,2019-Q1,2019-05-03,2019-05-03,Rejlers official newsroom archive
+REJL-B.ST,2019-Q2,2019-07-17,2019-07-17,Rejlers official newsroom archive
+REJL-B.ST,2019-Q3,2019-10-23,2019-10-23,Rejlers official newsroom archive
+REJL-B.ST,2019-Q4,2020-02-07,2020-02-07,Rejlers official newsroom archive
+REJL-B.ST,2020-Q1,2020-04-22,2020-04-22,Rejlers official newsroom archive
+REJL-B.ST,2020-Q2,2020-07-16,2020-07-16,Rejlers official newsroom archive
+REJL-B.ST,2020-Q3,2020-10-23,2020-10-23,Rejlers official newsroom archive
+REJL-B.ST,2020-Q4,2021-02-05,2021-02-05,Rejlers official newsroom archive
+REJL-B.ST,2021-Q1,2021-04-22,2021-04-22,Rejlers official newsroom archive
+REJL-B.ST,2021-Q2,2021-07-15,2021-07-15,Rejlers official newsroom archive
+REJL-B.ST,2021-Q3,2021-10-26,2021-10-26,Rejlers official newsroom archive
+REJL-B.ST,2021-Q4,2022-02-03,2022-02-03,Rejlers official newsroom archive
+REJL-B.ST,2022-Q1,2022-04-21,2022-04-21,Rejlers official newsroom archive
+REJL-B.ST,2022-Q2,2022-07-15,2022-07-15,Rejlers official newsroom archive
+REJL-B.ST,2022-Q3,2022-10-25,2022-10-25,Rejlers official newsroom archive
+REJL-B.ST,2022-Q4,2023-02-02,2023-02-02,Rejlers official newsroom archive
+REJL-B.ST,2023-Q1,2023-04-20,2023-04-20,Rejlers official newsroom archive
+REJL-B.ST,2023-Q2,2023-07-14,2023-07-14,Rejlers official newsroom archive
+REJL-B.ST,2023-Q3,2023-10-25,2023-10-25,Rejlers official newsroom archive
+REJL-B.ST,2023-Q4,2024-02-02,2024-02-02,Rejlers official newsroom archive
+REJL-B.ST,2024-Q1,2024-04-25,2024-04-25,Rejlers official newsroom archive
+SAGA-A.ST,2018-Q3,2018-10-25,2018-10-25,Sagax official financial reports archive
+SAGA-A.ST,2018-Q4,2019-02-07,2019-02-07,Sagax official financial reports archive
+SAGA-A.ST,2019-Q1,2019-05-17,2019-05-17,Sagax official financial reports archive
+SAGA-A.ST,2019-Q2,2019-07-12,2019-07-12,Sagax official financial reports archive
+SAGA-A.ST,2019-Q3,2019-10-24,2019-10-24,Sagax official financial reports archive
+SAGA-A.ST,2019-Q4,2020-02-07,2020-02-07,Sagax official financial reports archive
+SAGA-A.ST,2020-Q1,2020-05-06,2020-05-06,Sagax official financial reports archive
+SAGA-A.ST,2020-Q2,2020-07-13,2020-07-13,Sagax official financial reports archive
+SAGA-A.ST,2020-Q3,2020-10-27,2020-10-27,Sagax official financial reports archive
+SAGA-A.ST,2020-Q4,2021-02-08,2021-02-08,Sagax official financial reports archive
+SAGA-A.ST,2021-Q1,2021-05-05,2021-05-05,Sagax official financial reports archive
+SAGA-A.ST,2021-Q2,2021-07-15,2021-07-15,Sagax official financial reports archive
+SAGA-A.ST,2021-Q3,2021-10-28,2021-10-28,Sagax official financial reports archive
+SAGA-A.ST,2021-Q4,2022-02-11,2022-02-11,Sagax official financial reports archive
+SAGA-A.ST,2022-Q1,2022-05-11,2022-05-11,Sagax official financial reports archive
+SAGA-A.ST,2022-Q2,2022-07-14,2022-07-14,Sagax official financial reports archive
+SAGA-A.ST,2022-Q3,2022-10-27,2022-10-27,Sagax official financial reports archive
+SAGA-A.ST,2022-Q4,2023-02-17,2023-02-17,Sagax official financial reports archive
+SAGA-A.ST,2023-Q1,2023-05-09,2023-05-09,Sagax official financial reports archive
+SAGA-A.ST,2023-Q2,2023-07-17,2023-07-17,Sagax official financial reports archive
+SAGA-A.ST,2023-Q3,2023-10-27,2023-10-27,Sagax official financial reports archive
+SAGA-A.ST,2023-Q4,2024-02-22,2024-02-22,Sagax official financial reports archive
+SAGA-A.ST,2024-Q1,2024-05-08,2024-05-08,Sagax official financial reports archive
+SAGA-A.ST,2024-Q2,2024-07-15,2024-07-15,Sagax official financial reports archive
+SAGA-A.ST,2024-Q3,2024-10-25,2024-10-25,Sagax official financial reports archive
+SAGA-A.ST,2024-Q4,2025-02-21,2025-02-21,Sagax official financial reports archive
+SAGA-A.ST,2025-Q1,2025-05-08,2025-05-08,Sagax official financial reports archive
+SAGA-A.ST,2025-Q2,2025-07-14,2025-07-14,Sagax official financial reports archive
+SAGA-A.ST,2025-Q3,2025-10-24,2025-10-24,Sagax official financial reports archive
+SAGA-A.ST,2025-Q4,2026-02-09,2026-02-09,Sagax official financial reports archive
+SAGA-A.ST,2026-Q1,2026-05-08,2026-05-08,Sagax official financial reports archive
+SAGA-A.ST,2026-Q2,2026-07-13,2026-07-13,Sagax official financial reports archive
+SECT-B.ST,2018-Q3,2018-09-04,2018-09-04,Sectra official financial reports archive
+SECT-B.ST,2018-Q4,2018-12-07,2018-12-07,Sectra official financial reports archive
+SECT-B.ST,2019-Q1,2019-03-06,2019-03-06,Sectra official financial reports archive
+SECT-B.ST,2019-Q2,2019-05-28,2019-05-28,Sectra official financial reports archive
+SECT-B.ST,2019-Q3,2019-09-03,2019-09-03,Sectra official financial reports archive
+SECT-B.ST,2019-Q4,2019-11-29,2019-11-29,Sectra official financial reports archive
+SECT-B.ST,2020-Q1,2020-03-04,2020-03-04,Sectra official financial reports archive
+SECT-B.ST,2020-Q2,2020-06-03,2020-06-03,Sectra official financial reports archive
+SECT-B.ST,2020-Q3,2020-09-04,2020-09-04,Sectra official financial reports archive
+SECT-B.ST,2020-Q4,2020-11-27,2020-11-27,Sectra official financial reports archive
+SECT-B.ST,2021-Q1,2021-03-12,2021-03-12,Sectra official financial reports archive
+SECT-B.ST,2021-Q2,2021-06-02,2021-06-02,Sectra official financial reports archive
+SECT-B.ST,2021-Q3,2021-09-03,2021-09-03,Sectra official financial reports archive
+SECT-B.ST,2021-Q4,2021-12-10,2021-12-10,Sectra official financial reports archive
+SECT-B.ST,2022-Q1,2022-03-09,2022-03-09,Sectra official financial reports archive
+SECT-B.ST,2022-Q2,2022-06-03,2022-06-03,Sectra official financial reports archive
+SECT-B.ST,2022-Q3,2022-09-02,2022-09-02,Sectra official financial reports archive
+SECT-B.ST,2022-Q4,2022-12-16,2022-12-16,Sectra official financial reports archive
+SECT-B.ST,2023-Q1,2023-03-10,2023-03-10,Sectra official financial reports archive
+SECT-B.ST,2023-Q2,2023-06-02,2023-06-02,Sectra official financial reports archive
+SECT-B.ST,2023-Q3,2023-09-05,2023-09-05,Sectra official financial reports archive
+SECT-B.ST,2023-Q4,2023-12-15,2023-12-15,Sectra official financial reports archive
+SECT-B.ST,2024-Q1,2024-03-08,2024-03-08,Sectra official financial reports archive
+SECT-B.ST,2024-Q2,2024-06-05,2024-06-05,Sectra official financial reports archive
+SECT-B.ST,2024-Q3,2024-09-06,2024-09-06,Sectra official financial reports archive
+SECT-B.ST,2024-Q4,2024-12-12,2024-12-12,Sectra official financial reports archive
+SECT-B.ST,2025-Q1,2025-03-14,2025-03-14,Sectra official financial reports archive
+SECT-B.ST,2025-Q2,2025-06-05,2025-06-05,Sectra official financial reports archive
+BORG.ST,2026-Q2,2026-08-14,2026-08-14,Bjorn Borg official Q2 2026 interim report
+EKTA-B.ST,2025-Q2,2025-05-28,2025-05-28,Elekta official FY 2024/25 year-end report
+EMBRAC-B.ST,2025-Q1,2025-05-22,2025-05-22,Embracer official FY 2024/25 year-end report
+EMBRAC-B.ST,2026-Q2,2026-08-13,2026-08-13,Embracer official Q1 2026/27 interim report
+GENO.ST,2022-Q3,2022-10-27,2022-10-27,Genova official January-September 2022 interim report
+HUFV-A.ST,2023-Q4,2024-02-15,2024-02-15,Hufvudstaden official 2023 year-end report
+INTRUM.ST,2026-Q2,2026-08-28,2026-08-28,Intrum official April-June 2026 interim report
+NEWA-B.ST,2023-Q4,2024-02-08,2024-02-08,New Wave Group official 2023 year-end report
+NEWA-B.ST,2024-Q4,2025-02-06,2025-02-06,New Wave Group official 2024 year-end report
+NORION.ST,2022-Q4,2023-02-08,2023-02-08,Collector Bank official 2022 year-end report
+NORION.ST,2024-Q4,2025-02-05,2025-02-05,Norion Bank official 2024 year-end report
+SVED-B.ST,2024-Q4,2025-02-11,2025-02-11,Svedbergs Group official 2024 year-end report
+SYSR.ST,2025-Q2,2025-06-05,2025-06-05,Systemair official FY 2024/25 year-end report
+INTRUM.ST,2018-Q3,2018-10-26,2018-10-26,Intrum official interim report archive
+INTRUM.ST,2018-Q4,2019-01-30,2019-01-30,Intrum official interim report archive
+INTRUM.ST,2019-Q1,2019-04-26,2019-04-26,Intrum official interim report archive
+INTRUM.ST,2019-Q2,2019-07-18,2019-07-18,Intrum official interim report archive
+INTRUM.ST,2019-Q3,2019-10-23,2019-10-23,Intrum official interim report archive
+INTRUM.ST,2019-Q4,2020-02-04,2020-02-04,Intrum official interim report archive
+INTRUM.ST,2020-Q1,2020-05-06,2020-05-06,Intrum official interim report archive
+INTRUM.ST,2020-Q2,2020-07-23,2020-07-23,Intrum official interim report archive
+INTRUM.ST,2020-Q3,2020-10-23,2020-10-23,Intrum official interim report archive
+INTRUM.ST,2020-Q4,2021-01-28,2021-01-28,Intrum official interim report archive
+INTRUM.ST,2021-Q1,2021-04-29,2021-04-29,Intrum official interim report archive
+INTRUM.ST,2021-Q2,2021-07-22,2021-07-22,Intrum official interim report archive
+INTRUM.ST,2021-Q3,2021-10-21,2021-10-21,Intrum official interim report archive
+INTRUM.ST,2021-Q4,2022-01-27,2022-01-27,Intrum official 2021 year-end announcement
+INTRUM.ST,2022-Q1,2022-04-29,2022-04-29,Intrum official January-March 2022 interim results
+INTRUM.ST,2022-Q2,2022-07-21,2022-07-21,Intrum official April-June 2022 interim results
+INTRUM.ST,2022-Q3,2022-10-27,2022-10-27,Intrum official July-September 2022 interim results
+INTRUM.ST,2022-Q4,2023-01-26,2023-01-26,Intrum official 2022 year-end announcement
+INTRUM.ST,2023-Q1,2023-04-27,2023-04-27,Intrum official January-March 2023 interim results
+INTRUM.ST,2023-Q2,2023-07-20,2023-07-20,Intrum official April-June 2023 interim results
+GENO.ST,2022-Q4,2023-02-15,2023-02-15,Genova official 2022 year-end report
+GENO.ST,2023-Q1,2023-05-16,2023-05-16,Genova official January-March 2023 interim report
+GENO.ST,2023-Q2,2023-08-16,2023-08-16,Genova official January-June 2023 interim report
+NORION.ST,2023-Q1,2023-04-25,2023-04-25,Norion Bank official January-March 2023 interim report
+NORION.ST,2023-Q2,2023-07-13,2023-07-13,Norion Bank official January-June 2023 interim report
+EQL.ST,2026-Q2,2026-08-07,2026-08-07,EQL Pharma official Q1 2026/27 interim report
+GENO.ST,2026-Q2,2026-08-14,2026-08-14,Genova official January-June 2026 interim report
+LIME.ST,2025-Q2,2025-07-11,2025-07-11,Lime Technologies official January-June 2025 interim report
+MSAB-B.ST,2026-Q2,2026-07-16,2026-07-16,MSAB official Q2 2026 interim report
+NORION.ST,2026-Q2,2026-07-14,2026-07-14,Norion Bank official January-June 2026 interim report
+SFAST.ST,2026-Q2,2026-07-09,2026-07-09,Stenhus Fastigheter official January-June 2026 interim report
+SINT.ST,2026-Q2,2026-08-19,2026-08-19,SinterCast official Q2 2026 interim report
+SVED-B.ST,2026-Q2,2026-07-15,2026-07-15,Svedbergs Group official January-June 2026 interim report
+WIHL.ST,2026-Q2,2026-07-06,2026-07-06,Wihlborgs official January-June 2026 interim report
+ZZ-B.ST,2026-Q1,2026-05-22,2026-05-22,Zinzino official Q1 2026 interim report
+BERG-B.ST,2018-Q3,2018-10-26,2018-10-26,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2018-Q4,2019-02-08,2019-02-08,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2019-Q1,2019-05-16,2019-05-16,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2019-Q2,2019-07-17,2019-07-17,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2019-Q3,2019-10-25,2019-10-25,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2019-Q4,2020-02-07,2020-02-07,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2020-Q1,2020-05-15,2020-05-15,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2020-Q2,2020-07-15,2020-07-15,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2020-Q3,2020-10-22,2020-10-22,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2020-Q4,2021-02-05,2021-02-05,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2021-Q1,2021-05-12,2021-05-12,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2021-Q2,2021-07-14,2021-07-14,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2021-Q3,2021-10-20,2021-10-20,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2021-Q4,2022-02-09,2022-02-09,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2022-Q1,2022-05-13,2022-05-13,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2022-Q2,2022-07-13,2022-07-13,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2022-Q3,2022-10-20,2022-10-20,Bergman & Beving official reports archive corrected fiscal-quarter alignment
+BERG-B.ST,2022-Q4,2023-02-03,2023-02-03,Bergman & Beving official April-December 2022 interim report
+BERG-B.ST,2023-Q1,2023-05-12,2023-05-12,Bergman & Beving official 2022/23 year-end report
+BERG-B.ST,2023-Q2,2023-07-14,2023-07-14,Bergman & Beving official April-June 2023 interim report
+EMBRAC-B.ST,2018-Q3,2018-11-14,2018-11-14,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2018-Q4,2019-02-13,2019-02-13,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2019-Q1,2019-05-22,2019-05-22,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2019-Q2,2019-08-14,2019-08-14,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2019-Q3,2019-11-14,2019-11-14,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2019-Q4,2020-02-19,2020-02-19,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2020-Q1,2020-05-20,2020-05-20,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2020-Q2,2020-08-13,2020-08-13,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2020-Q3,2020-11-18,2020-11-18,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2020-Q4,2021-02-18,2021-02-18,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2021-Q1,2021-05-20,2021-05-20,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2021-Q2,2021-08-18,2021-08-18,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2021-Q3,2021-11-17,2021-11-17,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2021-Q4,2022-02-17,2022-02-17,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2022-Q1,2022-05-19,2022-05-19,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2022-Q2,2022-08-18,2022-08-18,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2022-Q3,2022-11-17,2022-11-17,Embracer official reports archive corrected fiscal-quarter alignment
+EMBRAC-B.ST,2022-Q4,2023-02-16,2023-02-16,Embracer official October-December 2022 interim report
+EMBRAC-B.ST,2023-Q1,2023-05-24,2023-05-24,Embracer official 2022/23 year-end report
+EMBRAC-B.ST,2023-Q2,2023-08-17,2023-08-17,Embracer official April-June 2023 interim report
+LAGR-B.ST,2018-Q3,2018-10-23,2018-10-23,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2018-Q4,2019-01-29,2019-01-29,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2019-Q1,2019-05-09,2019-05-09,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2019-Q2,2019-07-18,2019-07-18,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2019-Q3,2019-10-23,2019-10-23,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2019-Q4,2020-01-29,2020-01-29,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2020-Q1,2020-05-13,2020-05-13,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2020-Q2,2020-07-17,2020-07-17,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2020-Q3,2020-10-23,2020-10-23,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2020-Q4,2021-01-28,2021-01-28,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2021-Q1,2021-05-11,2021-05-11,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2021-Q2,2021-07-16,2021-07-16,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2021-Q3,2021-10-22,2021-10-22,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2021-Q4,2022-02-04,2022-02-04,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2022-Q1,2022-05-17,2022-05-17,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2022-Q2,2022-07-19,2022-07-19,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2022-Q3,2022-10-25,2022-10-25,Lagercrantz official reports archive corrected fiscal-quarter alignment
+LAGR-B.ST,2022-Q4,2023-02-01,2023-02-01,Lagercrantz official April-December 2022 interim report
+LAGR-B.ST,2023-Q1,2023-05-16,2023-05-16,Lagercrantz official 2022/23 year-end report
+LAGR-B.ST,2023-Q2,2023-07-19,2023-07-19,Lagercrantz official April-June 2023 interim report
+EKTA-B.ST,2018-Q4,2018-11-29,2018-11-29,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2019-Q1,2019-02-22,2019-02-22,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2019-Q2,2019-05-29,2019-05-29,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2019-Q3,2019-08-22,2019-08-22,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2019-Q4,2019-11-28,2019-11-28,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2020-Q1,2020-02-20,2020-02-20,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2020-Q2,2020-05-29,2020-05-29,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2020-Q3,2020-08-26,2020-08-26,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2020-Q4,2020-11-26,2020-11-26,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2021-Q1,2021-02-25,2021-02-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2021-Q2,2021-05-28,2021-05-28,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2021-Q3,2021-08-25,2021-08-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2021-Q4,2021-11-25,2021-11-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2022-Q1,2022-02-24,2022-02-24,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2022-Q2,2022-05-25,2022-05-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2022-Q3,2022-08-25,2022-08-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2022-Q4,2022-11-24,2022-11-24,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2023-Q1,2023-02-24,2023-02-24,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2023-Q2,2023-05-25,2023-05-25,Elekta official reports archive corrected fiscal-quarter alignment
+EKTA-B.ST,2023-Q3,2023-08-24,2023-08-24,Elekta official May-July 2023 interim report
+SYSR.ST,2022-Q3,2022-08-25,2022-08-25,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2022-Q4,2022-12-08,2022-12-08,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2023-Q1,2023-03-09,2023-03-09,Systemair official reports archive corrected fiscal-quarter alignment
+SYSR.ST,2023-Q2,2023-06-08,2023-06-08,Systemair official 2022/23 year-end report
+SYSR.ST,2023-Q3,2023-08-31,2023-08-31,Systemair official Q1 2023/24 interim report
+MTG-B.ST,2022-Q4,2023-02-09,2023-02-09,MTG official Q4 and 2022 year-end report
+SECARE.ST,2021-Q4,2022-02-17,2022-02-17,Sedana Medical official Q4 and 2021 year-end report

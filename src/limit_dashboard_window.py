@@ -4,11 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
-from .config import ROOT
+from .config import HISTORY_START_DATE, ROOT
+from .dashboard_export import write_split_dashboard
 from .utils import write_json_atomic
 
 DASHBOARD_FILE = ROOT / "docs" / "data" / "dashboard.json"
-DEFAULT_START_DATE = "2024-01-01"
+DEFAULT_START_DATE = HISTORY_START_DATE
 
 
 def _day(value: object) -> str:
@@ -78,11 +79,12 @@ def limit_dashboard(
         raise ValueError("dashboard.json meta måste vara ett objekt")
     meta["frontend_start_date"] = start_date
     meta["frontend_scope_note"] = (
-        "Pris, score, signaler och visade avslut begränsas i dashboarden. "
-        "Underliggande historik och beräkningarnas uppvärmningsdata behålls oförändrade."
+        "Pris och historik visas från det gemensamma startdatumet. Varje akties "
+        "score och signaler börjar först när CanRunGBM är uppfyllt."
     )
 
     write_json_atomic(target, payload)
+    write_split_dashboard(target, payload)
     print(
         f"Dashboard begränsad till {start_date} och framåt för {len(stocks)} tickers. "
         "events.json/nyhetsflödet ändrades inte."
