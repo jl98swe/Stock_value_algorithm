@@ -6,7 +6,13 @@ from pathlib import Path
 import pandas as pd
 
 from .config import ROOT
-from .fundamentals import REPORT_COLUMNS, load_reports, save_reports
+from .fundamentals import (
+    EPS_REPORT_DATE_CACHE_FILE,
+    REPORT_COLUMNS,
+    REPORTS_FILE,
+    load_reports,
+    save_reports,
+)
 
 OVERRIDES_FILE = ROOT / "data" / "fundamentals" / "tradingview_eps_overrides.csv"
 HISTORY_FILE = ROOT / "data" / "fundamentals" / "eps_ttm_history.csv"
@@ -91,6 +97,30 @@ def _apply_history(
     history["ticker"] = history["ticker"].astype(str).str.strip()
     history["report_period"] = history["report_period"].astype(str).str.strip()
 
+    # Importsteget som skapar TradingView-overrides tar bort observationer efter
+    # den senaste faktiskt rapporterade perioden. Rensa samma trailing-rader ur
+    # den äldre basfilen innan overrides läggs på; annars återkommer de som
+    # framtida, avrundade dubbletter vid varje körning.
+    override_period_ends = overrides.assign(
+        _period_end=overrides["report_period"].map(_period_end)
+    )
+    latest_override_period = (
+        override_period_ends.groupby("ticker")["_period_end"].max().to_dict()
+    )
+    history_period_end = history["report_period"].map(_period_end)
+    trailing_duplicate = pd.Series(
+        [
+            ticker in latest_override_period
+            and period_end > latest_override_period[ticker]
+            for ticker, period_end in zip(
+                history["ticker"], history_period_end, strict=False
+            )
+        ],
+        index=history.index,
+        dtype=bool,
+    )
+    history = history.loc[~trailing_duplicate].copy()
+
     override_history = overrides[HISTORY_COLUMNS].copy()
     history_currency = {
         (str(row.ticker), str(row.report_period)): str(row.currency).strip().upper()
@@ -132,17 +162,45 @@ def _apply_history(
     return len(override_history), skipped
 
 
-def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
-    reports = load_reports()
+def _apply_reports(
+    overrides: pd.DataFrame,
+    mapping: dict[str, str],
+    reports_file: Path = REPORTS_FILE,
+    cache_file: Path = EPS_REPORT_DATE_CACHE_FILE,
+) -> None:
+    reports = load_reports(reports_file, cache_path=cache_file)
     now = datetime.now(timezone.utc).isoformat()
+    existing_lookup = {
+        (str(row.ticker), str(row.report_period)): row
+        for row in reports.itertuples(index=False)
+    }
 
     rows: list[dict[str, object]] = []
     for row in overrides.itertuples(index=False):
         yahoo_ticker = mapping.get(str(row.ticker))
         if not yahoo_ticker:
             raise ValueError(f"Saknar Yahoo-mappning för TradingView-override: {row.ticker}")
-        report_date = pd.Timestamp(row.report_date).normalize() if pd.notna(row.report_date) else pd.NaT
+        key = (yahoo_ticker, str(row.report_period))
+        existing = existing_lookup.get(key)
+        if pd.notna(row.report_date):
+            report_date = pd.Timestamp(row.report_date).normalize()
+            date_basis = "report_date"
+        elif existing is not None and pd.notna(existing.effective_date):
+            report_date = pd.Timestamp(existing.effective_date).normalize()
+            date_basis = "existing_canonical"
+        else:
+            report_date = pd.NaT
+            date_basis = "missing"
         period_end = pd.Timestamp(row.period_end).normalize()
+        unchanged_value = bool(
+            existing is not None
+            and pd.notna(existing.eps_ttm)
+            and abs(float(existing.eps_ttm) - float(row.eps_ttm)) <= 1e-12
+            and str(existing.source) == str(row.source)
+            and pd.notna(existing.period_end)
+            and pd.Timestamp(existing.period_end).normalize() == period_end
+        )
+        verified_at = existing.verified_at if unchanged_value and pd.notna(existing.verified_at) else now
         rows.append(
             {
                 "ticker": yahoo_ticker,
@@ -153,11 +211,11 @@ def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
                 "eps_ttm": float(row.eps_ttm),
                 "source": str(row.source),
                 "verified": True,
-                "verified_at": now,
+                "verified_at": verified_at,
                 "notes": (
                     f"{MARKER}; metric=EARNINGS_PER_SHARE_DILUTED TTM; "
                     f"report_currency={row.currency}; report_date_status={row.report_date_status}; "
-                    f"effective_date={'report_date' if pd.notna(report_date) else 'missing'}; "
+                    f"effective_date={date_basis}; "
                     "value manually verified in TradingView"
                 ),
             }
@@ -170,7 +228,7 @@ def _apply_reports(overrides: pd.DataFrame, mapping: dict[str, str]) -> None:
         axis=1,
     )
     combined = pd.concat([reports.loc[keep], manual], ignore_index=True)
-    save_reports(combined)
+    save_reports(combined, reports_file)
 
 
 def main() -> None:

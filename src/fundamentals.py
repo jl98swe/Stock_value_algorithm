@@ -8,6 +8,7 @@ from .config import ROOT
 from .fx import convert_values_to_currency, load_fx_history, load_stock_currencies
 
 REPORTS_FILE = ROOT / "data" / "fundamentals" / "reports.csv"
+EPS_REPORT_DATE_CACHE_FILE = ROOT / "data" / "fundamentals" / "eps_report_date_cache.csv"
 REPORT_COLUMNS = [
     "ticker",
     "period_end",
@@ -71,13 +72,50 @@ def normalise_reports(frame: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def load_reports(path: str | Path = REPORTS_FILE) -> pd.DataFrame:
+def _apply_report_date_cache(
+    reports: pd.DataFrame,
+    cache_path: str | Path = EPS_REPORT_DATE_CACHE_FILE,
+) -> pd.DataFrame:
+    """Fyll saknade effective_date från den stabila rapportdatumcachen."""
+
+    target = Path(cache_path)
+    if not target.is_absolute():
+        target = ROOT / target
+    if reports.empty or not target.exists() or target.stat().st_size == 0:
+        return reports
+
+    cache = pd.read_csv(target)
+    required = {"ticker", "report_period", "report_date"}
+    if not required.issubset(cache.columns):
+        raise ValueError(f"Rapportdatumcache saknar kolumner: {sorted(required - set(cache.columns))}")
+    cache = cache[["ticker", "report_period", "report_date"]].copy()
+    cache["ticker"] = cache["ticker"].astype("string").str.strip()
+    cache["report_period"] = cache["report_period"].astype("string").str.strip()
+    cache["cached_effective_date"] = (
+        pd.to_datetime(cache.pop("report_date"), errors="coerce")
+        .dt.tz_localize(None)
+        .dt.normalize()
+    )
+    cache = cache.dropna(subset=["ticker", "report_period", "cached_effective_date"])
+    cache = cache.drop_duplicates(["ticker", "report_period"], keep="last")
+
+    result = reports.merge(cache, on=["ticker", "report_period"], how="left")
+    result["effective_date"] = result["effective_date"].fillna(result.pop("cached_effective_date"))
+    return normalise_reports(result)
+
+
+def load_reports(
+    path: str | Path = REPORTS_FILE,
+    *,
+    cache_path: str | Path = EPS_REPORT_DATE_CACHE_FILE,
+) -> pd.DataFrame:
     target = Path(path)
     if not target.is_absolute():
         target = ROOT / target
     if not target.exists() or target.stat().st_size == 0:
         return empty_reports()
-    return normalise_reports(pd.read_csv(target))
+    reports = normalise_reports(pd.read_csv(target))
+    return _apply_report_date_cache(reports, cache_path)
 
 
 def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
@@ -99,13 +137,9 @@ def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
 
 def verified_reports(frame: pd.DataFrame | None = None) -> pd.DataFrame:
     reports = normalise_reports(frame) if frame is not None else load_reports()
-    tradingview_with_period_end = (
-        reports["source"].fillna("").astype(str).str.startswith(TRADINGVIEW_SOURCE_PREFIX)
-        & reports["period_end"].notna()
-    )
     return reports.loc[
         reports["verified"]
-        & (reports["effective_date"].notna() | tradingview_with_period_end)
+        & reports["effective_date"].notna()
         & reports["eps_ttm"].notna()
     ].copy()
 
@@ -113,12 +147,7 @@ def verified_reports(frame: pd.DataFrame | None = None) -> pd.DataFrame:
 def latest_verified_report(ticker: str, frame: pd.DataFrame | None = None) -> pd.Series | None:
     reports = verified_reports(frame)
     subset = reports.loc[reports["ticker"] == ticker].copy()
-    tradingview = subset["source"].fillna("").astype(str).str.startswith(TRADINGVIEW_SOURCE_PREFIX)
-    subset["_latest_date"] = subset["effective_date"]
-    subset.loc[tradingview, "_latest_date"] = subset.loc[tradingview, "period_end"].fillna(
-        subset.loc[tradingview, "effective_date"]
-    )
-    subset = subset.sort_values(["_latest_date", "published_at"])
+    subset = subset.sort_values(["effective_date", "published_at"])
     return None if subset.empty else subset.iloc[-1]
 
 
@@ -126,18 +155,9 @@ def valuation_calculation_mode(
     ticker: str,
     frame: pd.DataFrame | None = None,
 ) -> str:
-    """Select TV timing only when the ticker has verified TradingView EPS data."""
+    """Alla tickers använder point-in-time-timing från faktiska rapportdatum."""
 
-    reports = verified_reports(frame)
-    subset = reports.loc[reports["ticker"].astype(str) == str(ticker)]
-    if subset.empty:
-        return REPORT_DATE_STATE
-    sources = subset["source"].fillna("").astype(str).str.strip()
-    return (
-        TV_PERIOD_END_STATE
-        if sources.str.startswith(TRADINGVIEW_SOURCE_PREFIX).any()
-        else REPORT_DATE_STATE
-    )
+    return REPORT_DATE_STATE
 
 
 def _attach_currency_conversion(
@@ -227,11 +247,9 @@ def attach_eps_ttm(
 ) -> pd.DataFrame:
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
-    Endast verifierade rapporter används. I ``report_date_state`` börjar EPS
-    gälla på explicit ``effective_date``. I ``tv_period_end_state`` kopplas
-    värdet i stället till ``period_end``, vilket efterliknar TradingViews
-    historiska fundamentaldataserie. Rapportdatum används som reserv om
-    periodslut saknas. Båda serierna forward-fillas därefter.
+    Endast verifierade rapporter med explicit ``effective_date`` används.
+    ``tv_period_end_state`` accepteras som ett äldre anropsalias men påverkar
+    inte längre timingen; TradingView-värden börjar också gälla på rapportdagen.
 
     ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
     är det valutajusterade värdet som ska användas i P/E-beräkningen.
@@ -269,21 +287,6 @@ def attach_eps_ttm(
         .str.extract(REPORT_CURRENCY_NOTE_PATTERN, expand=False)
         .str.upper()
     )
-    if calculation_mode == TV_PERIOD_END_STATE:
-        tradingview_rows = subset["source"].fillna("").astype(str).str.startswith(
-            TRADINGVIEW_SOURCE_PREFIX
-        )
-        if tradingview_rows.any():
-            subset = subset.loc[tradingview_rows].copy()
-        subset["valuation_date"] = subset["period_end"].fillna(subset["effective_date"])
-        observed_before_period_end = (
-            subset["effective_date"].notna()
-            & subset["period_end"].notna()
-            & (subset["effective_date"] < subset["period_end"])
-        )
-        subset.loc[observed_before_period_end, "valuation_date"] = subset.loc[
-            observed_before_period_end, "effective_date"
-        ]
     subset = (
         subset.sort_values(["valuation_date", "effective_date"])
         .drop_duplicates("valuation_date", keep="last")

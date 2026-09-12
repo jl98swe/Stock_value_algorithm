@@ -115,7 +115,7 @@ jobs:
       - name: Bygg dashboard med jämförbar historisk och framtida EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
-      - name: Begränsa dashboard från 2024-01-01
+      - name: Begränsa dashboard från 2019-09-02
         run: python -m src.limit_dashboard_window
 
       - name: Återställ nyhetsfilen orörd
@@ -196,7 +196,7 @@ jobs:
           git add data/derived/yahoo_history_continuity_audit.csv
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
-          git add docs/data/dashboard.json docs/data/stocks.json docs/data/earnings.json
+          git add docs/data/dashboard.json docs/data/dashboard docs/data/stocks.json docs/data/earnings.json
 
           if [ -f data/fx/fx_initial.csv ]; then git add data/fx/fx_initial.csv; fi
           if [ -f data/fx/fx_updates.csv ]; then git add data/fx/fx_updates.csv; fi
@@ -210,4 +210,4 @@ jobs:
 
           git commit -m "data: update Yahoo historical EPS coverage"
           git pull --rebase --autostash origin main
-          git push origin main
+          git push origin HEAD:"${GITHUB_REF_NAME}"

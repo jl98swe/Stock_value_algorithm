@@ -5,6 +5,43 @@ import pandas as pd
 from src import enrich_historical_eps as module
 
 
+def test_canonical_metadata_keeps_the_full_mapped_universe(tmp_path):
+    metadata_file = tmp_path / "stocks.csv"
+    pd.DataFrame(
+        [
+            {
+                "ticker": "KNOWN",
+                "company": "Known AB",
+                "isin": "SE0000000001",
+                "price_currency": "SEK",
+                "report_currency": "EUR",
+            }
+        ]
+    ).to_csv(metadata_file, index=False)
+
+    mapping = pd.DataFrame(
+        [
+            {"borsdata_ticker": "KNOWN", "yahoo_ticker": "KNOWN.ST"},
+            {"borsdata_ticker": "NEW", "yahoo_ticker": "NEW.ST"},
+        ]
+    )
+    history = pd.DataFrame(
+        [
+            {"ticker": "KNOWN.ST", "currency": "EUR"},
+            {"ticker": "NEW.ST", "currency": "USD"},
+        ]
+    )
+
+    result = module._canonical_metadata(mapping, history, metadata_file).set_index("ticker")
+
+    assert result.index.tolist() == ["KNOWN.ST", "NEW.ST"]
+    assert result.loc["KNOWN.ST", "company"] == "Known AB"
+    assert result.loc["KNOWN.ST", "report_currency"] == "EUR"
+    assert result.loc["NEW.ST", "company"] == ""
+    assert result.loc["NEW.ST", "price_currency"] == "SEK"
+    assert result.loc["NEW.ST", "report_currency"] == "USD"
+
+
 def test_cached_report_dates_do_not_shift_when_yahoo_adds_new_report(tmp_path, monkeypatch):
     source_file = tmp_path / "eps_ttm_history.csv"
     mapping_file = tmp_path / "ticker_mapping.csv"

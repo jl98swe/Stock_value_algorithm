@@ -245,7 +245,7 @@ def calculate_valuation(
     result["GBMBoost"] = boost
     result["CanRunGBM"] = can_run
 
-    score = linear.copy()
+    score = pd.Series(np.nan, index=result.index, dtype="float64")
     score.loc[can_run] = (linear.loc[can_run] + boost[can_run.to_numpy()]).clip(0.0, 100.0)
     result["Score"] = score.clip(0.0, 100.0)
     result["PriceZone"] = result["Score"].map(price_zone)

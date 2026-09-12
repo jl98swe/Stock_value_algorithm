@@ -22,4 +22,6 @@ def test_embedded_gbm_and_score_are_operational():
     valid_scores = result["Score"].dropna()
     assert not valid_scores.empty
     assert valid_scores.between(0.0, 100.0).all()
+    assert result.loc[~result["CanRunGBM"], "Score"].isna().all()
+    assert result.loc[result["CanRunGBM"], "Score"].notna().all()
     assert np.isfinite(result.loc[result["CanRunGBM"], "GBMBoost"]).all()

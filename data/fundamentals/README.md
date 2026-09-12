@@ -41,15 +41,17 @@ För historik där `report_date` finns sätts `effective_date = report_date`. Vi
 
 För en **genuint ny framtida Yahoo-period** där Yahoo saknar ett rimligt rapportdatum används i stället `observed_date`, alltså dagen systemet först såg den nya `trailingDilutedEPS`-perioden. Det är en konservativ reservregel: värdet kan då börja användas senare än den verkliga rapportdagen men aldrig före systemet hade tillgång till det.
 
-## TradingView-läge för värderingsstate
+## TradingView-historik och rapportdatum
 
-En ticker aktiverar `tv_period_end_state` endast när den har verifierade EPS-rader vars källa börjar med `TradingView /`. Då kopplar värderingsmotorn EPS TTM till `period_end`, med `effective_date` som reserv om periodslut saknas. Detta efterliknar hur TradingView placerar historiska fundamentalvärden utan att ändra rapportdatumet i den kanoniska datan.
+TradingViews historiska EPS-värden får användas, men TradingViews kvartalsdatum får inte styra när värdet blir känt. `period_end` behålls enbart som periodmetadata. Värderingsmotorn kräver alltid ett faktiskt `effective_date` och använder aldrig kvartalsslutet som reserv.
+
+När `reports.csv` läses matchas saknade `effective_date` på `ticker + report_period` mot den stabila rapportdatumfilen `eps_report_date_cache.csv`. En TradingView-rad som fortfarande saknar rapportdatum efter matchningen lämnas kvar för audit, men utesluts från P/E, score och signaler. Det förhindrar look-ahead utan att radera underlagsdata som senare kan kompletteras.
 
 TradingView kan leverera EPS i aktiens handelsvaluta även när bolaget rapporterar i en annan valuta. Valutan i varje verifierad rapports audit trail (`report_currency=...`) har därför företräde framför bolagets generella rapportvaluta. Det gör exempelvis att ABB:s manuellt verifierade TradingView-värden i SEK inte konverteras en andra gång från USD, samtidigt som äldre och framtida Yahoo-rader i USD fortfarande valutajusteras.
 
 Om TradingView-valutan avviker från referenshistorikens valuta skrivs den separata `tradingview_eps_overrides.csv` endast till den kanoniska rapportfilen. Referensraden behålls då i sin ursprungliga valuta så att Yahoo-kompatibilitetskontrollen inte jämför exempelvis SEK med USD.
 
-Detta läge är avsiktligt inte ett traditionellt point-in-time-backtest: när en ny rapport blir känd räknas det interna rullande tillståndet om från periodslutet. Dashboardens värderings- och signalhistorik räknas om i sin helhet vid varje bygge. När verifierad historisk EPS kompletteras kan därför även äldre poäng och signaler ändras.
+Dashboardens historik börjar gemensamt den 2 september 2019. För varje enskild aktie börjar score och signaler senare om det behövs: först den handelsdag då samtliga GBM-features är tillgängliga och `CanRunGBM` är sant. Nynoterade bolag förskjuter alltså inte den globala starten för övriga aktier.
 
 ## Daglig Yahoo EPS
 

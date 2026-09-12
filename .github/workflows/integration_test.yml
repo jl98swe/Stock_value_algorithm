@@ -45,7 +45,7 @@ jobs:
       - name: Bygg om dashboard med dagens EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
-      - name: Begränsa dashboard från 2024-01-01
+      - name: Begränsa dashboard från 2019-09-02
         run: python -m src.limit_dashboard_window
 
       - name: Validera resultatet
