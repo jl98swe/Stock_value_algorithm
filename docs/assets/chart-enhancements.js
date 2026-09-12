@@ -4,6 +4,8 @@
   let dashboard = null;
   let eventsPayload = null;
   let refreshTimer = null;
+  const expandedDividends = new Set();
+  const expandedNews = new Set();
 
   function esc(value) {
     return String(value ?? '').replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
@@ -116,7 +118,10 @@
           <p class="panel-description">Verifierade kontantutdelningar. D-markörerna ligger kvar i prisgrafen.</p>
         </div>
       </div>
-      <div id="dividend-history-list" class="dividend-history-list"></div>`;
+      <div id="dividend-history-list" class="dividend-history-list"></div>
+      <div class="show-more-row">
+        <button id="dividend-toggle" class="secondary-button" type="button" aria-expanded="false" hidden>Visa mer</button>
+      </div>`;
     newsSection.insertAdjacentElement('beforebegin', panel);
     return panel;
   }
@@ -124,14 +129,18 @@
   function renderSeparatedEvents(ticker) {
     if (!eventsPayload) return;
     const tickerEvents = (eventsPayload.events || []).filter((event) => event.ticker === ticker);
-    const news = tickerEvents.filter((event) => eventMarker(event).code === 'N');
+    const news = tickerEvents
+      .filter((event) => eventMarker(event).code === 'N')
+      .sort((a, b) => eventDay(b).localeCompare(eventDay(a)));
     const dividends = tickerEvents
       .filter((event) => eventMarker(event).code === 'D')
       .sort((a, b) => eventDay(b).localeCompare(eventDay(a)));
 
     const newsList = document.getElementById('news-list');
     if (newsList) {
-      newsList.innerHTML = news.length ? news.map((event) => {
+      const expanded = expandedNews.has(ticker);
+      const visibleNews = expanded ? news : news.slice(0, 4);
+      newsList.innerHTML = news.length ? visibleNews.map((event) => {
         const locking = Boolean(event.locking);
         const status = event.review_status === 'reviewed' ? 'Granskad' : 'Ogranskad';
         const meta = [prettyDate(event.published_at), event.source, event.is_regulatory ? 'Regulatorisk' : 'Bolagsnyhet'].filter(Boolean).map(esc).join(' · ');
@@ -148,18 +157,32 @@
             <a href="./review.html?ticker=${encodeURIComponent(ticker)}&event=${encodeURIComponent(event.event_id)}">Granska nyheten</a>
           </article>`;
       }).join('') : '<div class="empty-state">Inga bolagsnyheter för aktien.</div>';
+      const newsToggle = document.getElementById('news-toggle');
+      if (newsToggle) {
+        newsToggle.hidden = news.length <= 4;
+        newsToggle.textContent = expanded ? 'Visa mindre' : 'Visa mer';
+        newsToggle.setAttribute('aria-expanded', String(expanded));
+      }
     }
 
     ensureDividendPanel();
     const dividendList = document.getElementById('dividend-history-list');
     if (dividendList) {
+      const expanded = expandedDividends.has(ticker);
+      const visibleDividends = expanded ? dividends : dividends.slice(0, 4);
       dividendList.innerHTML = dividends.length
-        ? dividends.slice(0, 10).map((event) => `
+        ? visibleDividends.map((event) => `
             <div class="dividend-history-row">
               <strong>${esc(event.title || 'Utdelning')}</strong>
               <span>${esc(prettyDate(eventDay(event)))}</span>
             </div>`).join('')
         : '<div class="empty-state">Ingen registrerad utdelningshistorik för aktien.</div>';
+      const dividendToggle = document.getElementById('dividend-toggle');
+      if (dividendToggle) {
+        dividendToggle.hidden = dividends.length <= 4;
+        dividendToggle.textContent = expanded ? 'Visa mindre' : 'Visa mer';
+        dividendToggle.setAttribute('aria-expanded', String(expanded));
+      }
     }
   }
 
@@ -288,6 +311,18 @@
       ]);
       scheduleRefresh();
       document.addEventListener('click', (event) => {
+        const ticker = selectedTicker();
+        if (event.target.closest('#news-toggle')) {
+          const expanded = event.target.closest('#news-toggle').getAttribute('aria-expanded') === 'true';
+          expanded ? expandedNews.add(ticker) : expandedNews.delete(ticker);
+          renderSeparatedEvents(ticker);
+          return;
+        }
+        if (event.target.closest('#dividend-toggle')) {
+          expandedDividends.has(ticker) ? expandedDividends.delete(ticker) : expandedDividends.add(ticker);
+          renderSeparatedEvents(ticker);
+          return;
+        }
         if (event.target.closest('[data-range]') || event.target.closest('.stock-button')) scheduleRefresh();
       });
       window.addEventListener('popstate', scheduleRefresh);
