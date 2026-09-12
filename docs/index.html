@@ -6,11 +6,11 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20260910-1">
+  <link rel="stylesheet" href="./assets/style.css?v=20260912-1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="./assets/app.js?v=20260910-1"></script>
+  <script defer src="./assets/app.js?v=20260912-1"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
-  <script defer src="./assets/chart-enhancements.js?v=20260910-1"></script>
+  <script defer src="./assets/chart-enhancements.js?v=20260912-1"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -78,8 +78,6 @@
             <div>
               <div class="stock-id-row">
                 <span id="stock-ticker" class="ticker-chip"></span>
-                <span id="data-badge" class="badge badge-neutral"></span>
-                <span id="quality-badge" class="badge badge-neutral"></span>
                 <span id="lock-badge" class="badge badge-warning" hidden></span>
               </div>
               <h1 id="stock-name"></h1>
@@ -155,7 +153,6 @@
                   <span class="eyebrow">Strategi</span>
                   <h2 id="position-title">Position och signaler</h2>
                 </div>
-                <a id="trade-workflow-link" class="secondary-button" href="#" target="_blank" rel="noopener">Registrera faktisk handel</a>
               </div>
               <div id="position-content"></div>
             </article>
@@ -182,14 +179,18 @@
               <a id="review-workflow-link" class="secondary-button" href="#" target="_blank" rel="noopener">Öppna granskningsflöde</a>
             </div>
             <div id="news-list" class="news-list"></div>
+            <div class="show-more-row">
+              <button id="news-toggle" class="secondary-button" type="button" aria-expanded="false" hidden>Visa mer</button>
+            </div>
           </section>
 
           <section class="detail-grid">
             <article class="panel" aria-labelledby="comparison-title">
               <div class="panel-header">
                 <div>
-                  <span class="eyebrow">Alternativ</span>
-                  <h2 id="comparison-title">Strategijämförelse</h2>
+                  <span class="eyebrow">Strategi</span>
+                  <h2 id="comparison-title">Historiskt backtest</h2>
+                  <p class="panel-description">Resultatet bygger på samma exekverade köp och sälj som visas under Senaste avslut. Utdelningar ingår, courtage är 0,25 procent vid köp och sälj och en eventuell öppen position värderas till senaste stängningskurs.</p>
                 </div>
               </div>
               <div class="table-wrap"><table id="strategy-table" class="data-table"></table></div>
@@ -199,10 +200,13 @@
               <div class="panel-header">
                 <div>
                   <span class="eyebrow">Historik</span>
-                  <h2 id="trades-title">Alla köp och sälj</h2>
+                  <h2 id="trades-title">Senaste avslut</h2>
                 </div>
               </div>
               <div class="table-wrap"><table id="trades-table" class="data-table"></table></div>
+              <div class="show-more-row">
+                <button id="trades-toggle" class="secondary-button" type="button" aria-expanded="false" hidden>Visa mer</button>
+              </div>
             </article>
           </section>
         </div>

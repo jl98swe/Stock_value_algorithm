@@ -14,7 +14,8 @@
     eventsPayload: null,
     selectedTicker: null,
     range: 'all',
-    chart: null
+    chart: null,
+    expanded: { news: new Set(), trades: new Set() }
   };
 
   const $ = (id) => document.getElementById(id);
@@ -124,9 +125,6 @@
     $('stock-ticker').textContent = ticker;
     $('stock-name').textContent = meta.name || ticker;
     $('stock-date').textContent = `Stängning ${prettyDate(latest.date)} · ${meta.market || 'Marknad'} · ${meta.currency || 'SEK'}`;
-    $('data-badge').textContent = state.dashboard.meta?.is_demo ? 'Exempeldata' : 'Live';
-    $('data-badge').className = `badge ${state.dashboard.meta?.is_demo ? 'badge-warning' : 'badge-success'}`;
-    $('quality-badge').textContent = meta.data_quality === 'demo' ? 'Syntetisk kvalitet' : 'Verifierad data';
     $('latest-price').textContent = money(latest.close, meta.currency || 'SEK');
     $('price-change').textContent = pct(latest.change_pct);
     $('price-change').className = `change-value ${safeNumber(latest.change_pct, 0) >= 0 ? 'positive' : 'negative'}`;
@@ -181,18 +179,37 @@
         <div class="status-line"><span>Nästa rapport</span><strong>${prettyDate(report.next_report)}</strong></div>
       </div>`;
 
-    $('trade-workflow-link').href = `${repo}/actions`;
     $('report-workflow-link').href = `${repo}/actions`;
     $('review-workflow-link').href = `${repo}/actions`;
   }
 
+  function isCompanyNews(event) {
+    const tokens = [event.classification, event.event_type, event.type, ...(event.categories || [])]
+      .map((value) => String(value || '').toLocaleLowerCase('sv-SE'))
+      .join(' ');
+    return !tokens.includes('dividend') && !tokens.includes('utdelning') && !tokens.includes('report') && !tokens.includes('earnings');
+  }
+
+  function updateToggle(id, expanded, total) {
+    const button = $(id);
+    if (!button) return;
+    button.hidden = total <= 4;
+    button.textContent = expanded ? 'Visa mindre' : 'Visa mer';
+    button.setAttribute('aria-expanded', String(expanded));
+  }
+
   function renderNews(ticker) {
-    const events = (state.eventsPayload?.events || []).filter((event) => event.ticker === ticker);
+    const events = (state.eventsPayload?.events || [])
+      .filter((event) => event.ticker === ticker && isCompanyNews(event))
+      .sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
     if (!events.length) {
-      $('news-list').innerHTML = '<div class="empty-state">Inga bolagsnyheter i demo-underlaget.</div>';
+      $('news-list').innerHTML = '<div class="empty-state">Inga bolagsnyheter för aktien.</div>';
+      updateToggle('news-toggle', false, 0);
       return;
     }
-    $('news-list').innerHTML = events.map((event) => {
+    const expanded = state.expanded.news.has(ticker);
+    const visibleEvents = expanded ? events : events.slice(0, 4);
+    $('news-list').innerHTML = visibleEvents.map((event) => {
       const locking = Boolean(event.locking);
       const status = event.review_status === 'reviewed' ? 'Granskad' : 'Ogranskad';
       return `
@@ -208,21 +225,32 @@
           <a href="./review.html?ticker=${encodeURIComponent(ticker)}&event=${encodeURIComponent(event.event_id)}">Granska nyheten</a>
         </article>`;
     }).join('');
+    updateToggle('news-toggle', expanded, events.length);
   }
 
   function renderTables(data) {
     const comparisons = data.strategy_comparison || [];
-    $('strategy-table').innerHTML = `
-      <thead><tr><th>Strategi</th><th>Avkastning</th><th>Max DD</th><th>Affärer</th><th>Win rate</th></tr></thead>
-      <tbody>${comparisons.map((row) => `<tr><td>${row.strategy}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
-
-    const trades = (data.signals || [])
+    const executed = (data.signals || [])
       .filter((row) => row.status === 'executed' && row.execution_date)
       .slice()
+      .sort((a, b) => a.execution_date.localeCompare(b.execution_date));
+    const scoredDates = (data.scores || []).filter((row) => row.value != null).map((row) => row.date).sort();
+    const latestCandleDate = data.candles?.at(-1)?.date;
+    const period = scoredDates.length && latestCandleDate
+      ? `${prettyDate(scoredDates[0])}–${prettyDate(latestCandleDate)}`
+      : '–';
+    $('strategy-table').innerHTML = `
+      <thead><tr><th>Period</th><th>Avkastning</th><th>Största nedgång</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead>
+      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="5">Backtest saknas för aktien.</td></tr>'}</tbody>`;
+
+    const trades = executed
       .sort((a, b) => b.execution_date.localeCompare(a.execution_date));
+    const expanded = state.expanded.trades.has(state.selectedTicker);
+    const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
       <thead><tr><th>Datum</th><th>Händelse</th><th>Kurs</th><th>Score</th></tr></thead>
-      <tbody>${trades.length ? trades.map((row) => `<tr><td>${prettyDate(row.execution_date)}</td><td class="${row.side === 'BUY' ? 'positive' : 'negative'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</td><td>${fmt.format(row.execution_price)}</td><td>${fmt.format(row.score)}</td></tr>`).join('') : '<tr><td colspan="4">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr><td>${prettyDate(row.execution_date)}</td><td class="${row.side === 'BUY' ? 'positive' : 'negative'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</td><td>${fmt.format(row.execution_price)}</td><td>${fmt.format(row.score)}</td></tr>`).join('') : '<tr><td colspan="4">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+    updateToggle('trades-toggle', expanded, trades.length);
   }
 
   function sliceData(data) {
@@ -373,6 +401,16 @@
     });
     const defaultRange = document.querySelector('[data-range="all"]');
     if (defaultRange) defaultRange.classList.add('active');
+    $('news-toggle').addEventListener('click', () => {
+      const expanded = state.expanded.news;
+      expanded.has(state.selectedTicker) ? expanded.delete(state.selectedTicker) : expanded.add(state.selectedTicker);
+      renderNews(state.selectedTicker);
+    });
+    $('trades-toggle').addEventListener('click', () => {
+      const expanded = state.expanded.trades;
+      expanded.has(state.selectedTicker) ? expanded.delete(state.selectedTicker) : expanded.add(state.selectedTicker);
+      renderTables(state.dashboard.stocks[state.selectedTicker]);
+    });
     window.addEventListener('resize', () => state.chart?.resize());
   }
 
