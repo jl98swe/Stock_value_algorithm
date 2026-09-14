@@ -44,3 +44,23 @@ När Yahoo senare publicerar faktisk `trailingDilutedEPS` för samma period ers�
 ### Bolag utan kvartalsvisa finansiella rapporter
 
 Alla bolag har inte en verklig kvartals-EPS. Ett exempel i nuvarande universum är `EQT.ST`, som publicerar finansiella rapporter med EPS halvårsvis och vid bokslut medan Q1/Q3 är operativa kvartalsredogörelser. Systemet ska därför inte skapa en Q1/Q3-EPS-proxy för sådana bolag.
+
+## Rapportkalender och estimat
+
+- `report_calendar.csv` innehåller den senaste automatiskt observerade
+  rapporttidpunkten per ticker.
+- `report_calendar_history.csv` sparar ändrade kalenderobservationer för audit.
+- `data/manual/report_calendar.csv` kan komplettera eller ersätta kalenderdata
+  med verifierade uppgifter.
+
+Yahoos kalenderfält `Earnings Average`, `Earnings Low` och `Earnings High`
+saknar en garanterad definition som jämförbar kvartalsvis utspädd EPS. De
+lagras därför med `expected_eps_verified=false`, visas som *ej jämförbara* och
+får inte användas i TTM-formeln. Ett estimat får påverka rapportanalysen först
+när `expected_eps_metric` är `quarterlyDilutedEPS` eller `manualDilutedEPS` och
+`expected_eps_verified=true`.
+
+Den neutrala EPS-referensen på rapportsidan är motsvarande periods verifierade
+utspädda EPS föregående år. Om nästa rapport lämnar samma EPS blir den mekaniska
+TTM-effekten noll. Referensen är inte en prognos och innebär inte att scoren
+blir oförändrad, eftersom aktiekurs och övriga modellindata också kan ändras.

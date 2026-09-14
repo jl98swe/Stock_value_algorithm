@@ -104,7 +104,19 @@ Rapportkalender:
 
 ```text
 data/manual/report_calendar.csv
+data/earnings/report_calendar.csv
+data/earnings/report_calendar_history.csv
 ```
+
+Den automatiska kalendern hämtas från Yahoo Finance och används bara av
+rapportfliken. Den manuella kalendern fortsätter att styra verifierade
+rapporthändelser och handelsspärrar. Misslyckas en kalenderhämtning behålls den
+senast lyckade observationen.
+
+Rapportfliken visar de kommande tio handelsdagarna på Nasdaq Stockholm samt
+nyligen rapporterade bolag. En prognos visas bara när måttet är verifierat som
+jämförbar kvartalsvis utspädd EPS. Yahoos generiska EPS-estimat märks därför som
+ej jämförbart och används inte för att prognostisera EPS TTM eller score.
 
 Ogranskad regulatorisk information kan sätta handelsspärr. Vinstvarningar, omvända vinstvarningar och preliminära resultat ändrar inte EPS automatiskt. Spärren ligger kvar tills riktig rapporterad EPS har verifierats.
 
@@ -132,6 +144,7 @@ GitHub Pages läser främst:
 docs/data/stocks.json
 docs/data/dashboard.json
 docs/data/events.json
+docs/data/reports.json
 ```
 
 `events.json` använder `E` för rapport, `D` för utdelning och `N` för bolagsnyhet i frontend.

@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/daily_update.yml"
       - "src/pipeline.py"
+      - "src/reporting.py"
       - "src/validate_outputs.py"
   schedule:
     - cron: "45 17 * * 1-5"
@@ -58,6 +59,9 @@ jobs:
       - name: Synka ny Yahoo EPS till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
 
+      - name: Uppdatera kommande rapporter
+        run: python -m src.reporting --workers 2
+
       - name: Bygg om dashboard med dagens EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
@@ -74,6 +78,14 @@ jobs:
 
           git add docs/data
           git add data/fundamentals/reports.csv
+
+          if [ -f data/earnings/report_calendar.csv ]; then
+            git add data/earnings/report_calendar.csv
+          fi
+
+          if [ -f data/earnings/report_calendar_history.csv ]; then
+            git add data/earnings/report_calendar_history.csv
+          fi
 
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv

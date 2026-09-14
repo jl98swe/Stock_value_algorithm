@@ -27,6 +27,7 @@ from .fundamentals import (
     valuation_calculation_mode,
 )
 from .model_data import ensure_gbm_model
+from .reporting import build_reports_payload
 from .strategy import run_strategy
 from .utils import write_json_atomic
 from .valuation import GBMModel, calculate_valuation
@@ -255,7 +256,7 @@ def _stock_payload(
     reviews: list[dict[str, object]],
     calendar: pd.DataFrame,
     model: GBMModel | None,
-) -> tuple[dict[str, object], dict[str, object]]:
+) -> tuple[dict[str, object], dict[str, object], pd.DataFrame]:
     frame = frame.sort_values("date").reset_index(drop=True)
     latest_price = frame.iloc[-1]
     previous_close = frame.iloc[-2]["close"] if len(frame) > 1 else np.nan
@@ -335,7 +336,13 @@ def _stock_payload(
         "strategy_comparison": _strategy_comparison(strategy),
         "closed_trades": strategy.get("trades", []) if strategy else [],
     }
-    return ticker_meta, dashboard_stock
+    report_frame = valued if valued is not None else working
+    report_columns = [
+        column
+        for column in ("Date", "Close", "EPS_TTM", "EPS_TTM_RAW", "Score")
+        if column in report_frame.columns
+    ]
+    return ticker_meta, dashboard_stock, report_frame[report_columns].copy()
 
 
 def _dividend_events(dividends: pd.DataFrame) -> list[dict[str, object]]:
@@ -434,9 +441,10 @@ def build_dashboard(
 
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
+    valuation_frames: dict[str, pd.DataFrame] = {}
     tickers = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
     for ticker, group in prices.groupby("ticker", sort=True):
-        meta, payload = _stock_payload(
+        meta, payload, report_frame = _stock_payload(
             str(ticker),
             group,
             reports,
@@ -446,6 +454,7 @@ def build_dashboard(
         )
         stock_list.append(meta)
         dashboard_stocks[str(ticker)] = payload
+        valuation_frames[str(ticker)] = report_frame
 
     rules = {
         "buy_score": 1,
@@ -479,6 +488,12 @@ def build_dashboard(
     }
     write_json_atomic(DASHBOARD_JSON, dashboard_payload)
     write_split_dashboard(DASHBOARD_JSON, dashboard_payload)
+    reports_payload = build_reports_payload(
+        reports=reports,
+        valuation_frames=valuation_frames,
+        generated_at=generated_at,
+        manual_calendar=calendar,
+    )
 
     all_events = _dividend_events(dividends) + _report_events(reports) + _news_events(tickers, reviews)
     all_events.sort(key=lambda item: str(item.get("published_at", "")), reverse=True)
@@ -489,7 +504,8 @@ def build_dashboard(
 
     print(
         f"Byggde GitHub Pages-data för {len(stock_list)} aktier, "
-        f"{ready_count} med aktiv score och {len(all_events)} E/D/N-händelser. "
+        f"{ready_count} med aktiv score, {len(reports_payload['upcoming'])} kommande rapporter, "
+        f"{len(reports_payload['recent'])} nyligen rapporterade och {len(all_events)} E/D/N-händelser. "
         f"Senaste prisdatum: {prices['date'].max().date()}"
     )
     if model is None:
