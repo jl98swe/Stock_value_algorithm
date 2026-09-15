@@ -82,12 +82,18 @@
   }
 
   function reportDisplayTitle(event) {
-    const raw = String(event.title || '');
-    const match = raw.match(/^(?:Rapport\s+)?(?:YAHOO-)?(\d{4})-(\d{2})-(\d{2})$/i);
-    if (!match) return raw;
-    const month = new Intl.DateTimeFormat('sv-SE', { month: 'long', timeZone: 'UTC' })
-      .format(new Date(`${match[1]}-${match[2]}-01T00:00:00Z`));
-    return `Rapport för perioden ${month} ${match[1]}`;
+    if (eventMarker(event).code !== 'E') return String(event.title || '');
+    const source = String(event.source || '').trim();
+    const sourceLabel = /Yahoo/i.test(source)
+      ? 'YAHOO'
+      : (source.split('/')[0].trim() || 'okänd källa');
+    return `Rapport ${sourceLabel} ${eventDay(event)}`;
+  }
+
+  function reportSourceRank(event) {
+    const source = String(event.source || '').trim();
+    if (!source) return 0;
+    return /Yahoo/i.test(source) ? 1 : 2;
   }
 
   function eventDay(event) {
@@ -253,13 +259,13 @@
     });
 
     // Yahoo och TradingView kan beskriva samma rapport på samma publiceringsdag.
-    // Visa då en enda E-markör; behåll TradingView-posten när båda finns.
+    // Visa då en enda E-markör; behåll en annan källa framför Yahoo när båda finns.
     const reportByDay = new Map();
     const deduplicatedEvents = visibleEvents.filter((event) => {
       if (eventMarker(event).code !== 'E') return true;
       const day = eventDay(event);
       const previous = reportByDay.get(day);
-      const preferCurrent = !previous || /TradingView/i.test(String(event.source || ''));
+      const preferCurrent = !previous || reportSourceRank(event) > reportSourceRank(previous);
       if (preferCurrent) reportByDay.set(day, event);
       return preferCurrent;
     }).filter((event) => eventMarker(event).code !== 'E' || reportByDay.get(eventDay(event)) === event);
@@ -356,4 +362,3 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
-
