@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:41:15+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/bravida-holding",
+  "items": [
+    {
+      "ticker": "BRAV.ST",
+      "company": "Bravida",
+      "published_at": "2026-08-28T12:00:00+02:00",
+      "title": "Bravida Holding AB: Bravida stärker sin position inom el i Stockholm och Uppsala",
+      "link": "https://mfn.se/cis/a/bravida-holding/bravida-holding-ab-bravida-starker-sin-position-inom-el-i-stockholm-och-uppsala-3b999440",
+      "source": "MFN",
+      "summary": "Bravida Holding AB: Bravida stärker sin position inom el i Stockholm och Uppsala 2026-08-28 12:00:00 Bravida förvärvar Åslunds El och stärker därmed sitt erbjudande inom el i Stockholm och Uppsala. Bolaget omsatte cirka 56 miljoner kronor under föregående räkenskapsår och har 29 anställda. Åslunds El grundades år 2013 och verkar inom elentreprenader med fokus på bostäder och kommersiella fastigheter. De har sitt huvudkontor i Knivsta och verkar i Uppsala och Stockholms län. Kundbasen består främst av byggbolag och fastighetsägare i Uppsala och Stockholms län. - Jag är glad att få välkomna Åslunds El och dess medarbetare till Bravida. Det är e",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "48b3f6b1f5aec68e"
+    },
+    {
+      "ticker": "BRAV.ST",
+      "company": "Bravida",
+      "published_at": "2026-08-26T08:00:00+02:00",
+      "title": "Bravida Holding AB: Bravida awarded installation contract for a new data center in Sweden worth approximately 850 MSEK",
+      "link": "https://mfn.se/cis/a/bravida-holding/bravida-holding-ab-bravida-awarded-installation-contract-for-a-new-data-center-in-sweden-worth-approximately-850-msek-86617c5c",
+      "source": "MFN",
+      "summary": "Bravida Holding AB: Bravida awarded installation contract for a new data center in Sweden worth approximately 850 MSEK 2026-08-26 08:00:00 Bravida signs contract to carry out extensive installations at a data center in Mälardalen, Sweden, to a value of approximately 850 MSEK. As part of the contract, Bravida will carry out installations for electrical, plumbing, ventilation and sprinkler systems. The project will be managed by PMO - Special Projects, a business area within the Bravida Group responsible for executing, managing and delivering large and advanced projects. Examples include the Stockholm Bypass (E4 Förbifart Stockholm), data cente",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d4b58244561d421e"
+    }
+  ]
+}

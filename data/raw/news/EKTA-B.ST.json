@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:41:46+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/elekta",
+  "items": [
+    {
+      "ticker": "EKTA-B.ST",
+      "company": "Elekta",
+      "published_at": "2026-08-27T07:30:00+02:00",
+      "title": "First quarter, May–July 2026/27",
+      "link": "https://mfn.se/a/elekta/first-quarter-may-july-2026-27",
+      "source": "MFN",
+      "summary": "First quarter, May–July 2026/27 2026-08-27 07:30:00 First quarter Regions Americas and Europe showed solid growth while region APJ, China and TIMEA declined. In constant exchange rates, net sales decreased by 2 percent for the Group. Reported sales in SEK decreased by 3 percent amounting to SEK 3,536 M (3,646). The net sales decline in China was a result of a weak market in recent years. However, order intake grew for the third consecutive quarter, supporting future revenue growth. Book-to-bill ratio of 1.11 (1.05), mainly supported by strong order growth for Elekta Evo. Adjusted gross margin of 42.6 percent (37.0) driven by all regions, part",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d7123bace2098395"
+    }
+  ]
+}

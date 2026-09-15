@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-09-15T21:43:57+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/peab",
+  "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-15T08:00:00+02:00",
+      "title": "Peab renovates the town hall in Botkyrka",
+      "link": "https://mfn.se/cis/a/peab/peab-renovates-the-town-hall-in-botkyrka-b697fb57",
+      "source": "MFN",
+      "summary": "Peab renovates the town hall in Botkyrka 2026-09-15 08:00:00 Peab has been commissioned to renovate the town hall in Botkyrka. The customer is Botkyrka Municipality and the contract is worth SEK 440 million. The renovation includes demolishing and rebuilding existing premises, new technical installations, a new facade and refurbishing the entrance and common areas. The town hall is approximately 13,500 m2 and comprises ten floors. \"We're proud to have been entrusted with the renovation of Botkyrka Town Hall. The project combines sustainable development with modern solutions and demonstrates the value of enhancing existing buildings to meet fu",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3766e4d962bfafc7"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-03T08:00:00+02:00",
+      "title": "Peab signs framework contract for water and sewage work in Örnsköldsvik",
+      "link": "https://mfn.se/cis/a/peab/peab-signs-framework-contract-for-water-and-sewage-work-in-ornskoldsvik-fdec23fe",
+      "source": "MFN",
+      "summary": "Peab signs framework contract for water and sewage work in Örnsköldsvik 2026-09-03 08:00:00 Peab has been awarded an eight-year framework contract by Miljö och Vatten i Örnsköldsvik AB (Miva) for construction work in water and sewage in Örnsköldsvik Municipality. A contract worth SEK 100 million will be order registered in the third quarter of 2026. The framework contract covers groundwork projects regarding new construction, renewal, repair and maintenance of the public water and sewage plant in Örnsköldsvik Municipality. Based on the framework contract, call-offs will be made successively during the contract period, specifying the scope and",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6f90d8a408787906"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-02T08:00:00+02:00",
+      "title": "Peab builds new central kitchen in Torsby",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-new-central-kitchen-in-torsby-19ba2732",
+      "source": "MFN",
+      "summary": "Peab builds new central kitchen in Torsby 2026-09-02 08:00:00 Peab has been commissioned to build a new central kitchen at Stjerne School in Torsby. The customer is Torsby Municipality and the contract is worth SEK 111 million. The project comprises building a new central kitchen in a 1,500 m2 extension. The kitchen will be dimensioned to handle preparing around 2,500 portions of food daily and will also have a standby function in the form of an island operation. This means that operations can continue even if there are disruptions in the community's normal supply system. The project also includes installing a new geothermal heating plant tha",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "59bf221fee9bdea6"
+    }
+  ]
+}

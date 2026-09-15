@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:41:52+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/epiroc",
+  "items": [
+    {
+      "ticker": "EPI-A.ST",
+      "company": "Epiroc A",
+      "published_at": "2026-09-01T08:30:00+02:00",
+      "title": "Epiroc wins large equipment order for copper mine in Botswana",
+      "link": "https://mfn.se/cis/a/epiroc/epiroc-wins-large-equipment-order-for-copper-mine-in-botswana-16a423f7",
+      "source": "MFN",
+      "summary": "Epiroc wins large equipment order for copper mine in Botswana 2026-09-01 08:30:00 Stockholm, Sweden: Epiroc AB, a leading productivity and sustainability partner for the mining and infrastructure industries, has won a large order from global mining company MMG Limited for underground equipment for a major copper mine in Botswana. MMG is listed on the Hong Kong stock exchange, and its major shareholder is the Chinese state-owned company China Minmetals Corp. Together with mining contractors China Huaye and 23MCC - also subsidiaries of China Minmetals - MMG ordered a fleet of Epiroc face drilling rigs, production drilling rigs, cable bolting ri",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "aaa334d382aca4f4"
+    }
+  ]
+}

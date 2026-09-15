@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:40:22+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/arjo",
+  "items": [
+    {
+      "ticker": "ARJO-B.ST",
+      "company": "Arjo",
+      "published_at": "2026-09-11T08:30:00+02:00",
+      "title": "Arjo appoints Lisa Ekelund as new CFO",
+      "link": "https://mfn.se/cis/a/arjo/arjo-appoints-lisa-ekelund-as-new-cfo-074720a1",
+      "source": "MFN",
+      "summary": "Arjo appoints Lisa Ekelund as new CFO 2026-09-11 08:30:00 Arjo has appointed Lisa Ekelund as new Chief Financial Officer and member of the Group management team. Lisa brings extensive international experience from senior finance and business leadership positions and will join Arjo no later than December 8, 2026. Lisa succeeds Christofer Carlsson, who will leave Arjo by the end of January 2027. Lisa Ekelund brings extensive international experience from senior leadership roles in the automotive, defense and technology industries. She currently serves as CFO of Polestar Nordics, with responsibility for finance, governance and commercial perform",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "20cc008f639791de"
+    }
+  ]
+}

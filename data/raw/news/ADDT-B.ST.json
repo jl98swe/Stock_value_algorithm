@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:40:08+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/addtech",
+  "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-08-28T16:00:00+02:00",
+      "title": "Addtech förvärvar RTL Materials Ltd",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-rtl-materials-ltd-42bd3ef5",
+      "source": "MFN",
+      "summary": "Addtech förvärvar RTL Materials Ltd 2026-08-28 16:00:00 Addtech Industry, ett affärsområde inom Addtech-koncernen, har idag tecknat avtal om att förvärva 100 procent av aktierna i RTL Materials Ltd (\"RTL\"). RTL, som verkar under varumärket Rolatube, utvecklar och tillverkar patenterade rullbara kompositstrukturer och utfällbara mastsystem för krävande applikationer inom försvars-, flyg-, infrastruktur- och industrimarknaderna. RTL har sitt huvudkontor i Lymington, Storbritannien, har cirka 60 medarbetare och en årsomsättning om cirka 11 miljoner GBP. Tillträde sker idag. Förvärvet bedöms ha en marginellt positiv påverkan på Addtechs resultat ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c6524c716a7a32f3"
+    }
+  ]
+}

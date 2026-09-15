@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:45:37+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/swedbank",
+  "items": [
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-08-25T07:00:00+02:00",
+      "title": "Swedbank Economic Outlook: Svensk motståndskraft i osäker omvärld",
+      "link": "https://mfn.se/cis/a/swedbank/swedbank-economic-outlook-svensk-motstandskraft-i-osaker-omvarld-ab7e2345",
+      "source": "MFN",
+      "summary": "Swedbank Economic Outlook: Svensk motståndskraft i osäker omvärld 2026-08-25 07:00:00 Svenska och globala ekonomin har visat motståndskraft trots fortsatt turbulens i Mellanöstern. Svensk tillväxt förväntas stabiliseras kring 2 procent de kommande åren och drivs framför allt av den inhemska ekonomin. Starkare konjunktur och stigande inflation innebär att Riksbanken börjar höja styrräntan i slutet av året. Oavsett utfallet i riksdagsvalet förblir reformutrymmet begränsat, valet väntas därav inte få någon påtaglig effekt på konjunkturen. Det framgår av konjunkturrapporten Swedbank Economic Outlook. - Hushållens konsumtion har stigit sedan 2024,",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2d30c7c84efac5b9"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:41:01+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/bergman-and-beving",
+  "items": [
+    {
+      "ticker": "BERG-B.ST",
+      "company": "Bergman & Beving",
+      "published_at": "2026-09-01T15:00:00+02:00",
+      "title": "Bergman & Beving acquires Håva-Skyltar",
+      "link": "https://mfn.se/a/bergman-and-beving/bergman-and-beving-acquires-hava-skyltar",
+      "source": "MFN",
+      "summary": "Bergman & Beving acquires Håva-Skyltar 2026-09-01 15:00:00 Collinder, a subsidiary within the Safety Technology division, has today acquired all shares in Håva-Skyltar Aktiebolag. The company, founded in 1945, manufactures and sells a broad range of signs and safety products, complemented by customized special signage. The company is located in Malmö, has four employees and generates revenue of approximately MSEK 17 with good profitability. “Håva-Skyltar is a strong, profitable company and a great fit with Collinder. The acquisition strengthens Collinder's customer offering, establishing a strong foundation for continued profitable growth”, s",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6de82b0db251c83c"
+    }
+  ]
+}

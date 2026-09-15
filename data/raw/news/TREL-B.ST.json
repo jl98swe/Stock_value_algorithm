@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:45:52+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/trelleborg",
+  "items": [
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-09-02T16:40:00+02:00",
+      "title": "Trelleborg stärker positionen inom flygindustrin genom förvärv",
+      "link": "https://mfn.se/a/trelleborg/trelleborg-starker-positionen-inom-flygindustrin-genom-forvarv",
+      "source": "MFN",
+      "summary": "Trelleborg stärker positionen inom flygindustrin genom förvärv 2026-09-02 16:40:00 Trelleborgkoncernen har genom affärsområdet Trelleborg Sealing Solutions tecknat avtal om att förvärva Cascade Gasket and Manufacturing Company Inc., som har sitt säte i Auburn utanför Seattle, Washington, USA. Företaget är specialiserat på avancerade lösningar inom kritiska tätningar och komponenter som används för att säkerställa korrekt installation och säkring av utrustning och olika system i flygplan. Cascade grundades för 80 år sedan och är en etablerad leverantör av originalutrustning till ledande flygplanstillverkare, samt har en stark närvaro på efterm",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cb488789799e8163"
+    },
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-09-01T14:00:00+02:00",
+      "title": "Förvärv stärker Trelleborgs position inom tätningsprofiler",
+      "link": "https://mfn.se/a/trelleborg/forvarv-starker-trelleborgs-position-inom-tatningsprofiler",
+      "source": "MFN",
+      "summary": "Förvärv stärker Trelleborgs position inom tätningsprofiler 2026-09-01 14:00:00 Trelleborgkoncernen har genom affärsområdet Trelleborg Industrial Solutions tecknat avtal och slutfört förvärvet av M+R Dichtungstechnik GmbH. Bolaget erbjuder avancerade, kundanpassade gummiprofiler och formgjutna komponenter för tekniskt krävande applikationer. Produktportföljen består främst av extruderade gummiprofiler för byggindustrin, inklusive tätningslösningar för fasadsystem, samt lösningar för applikationer inom sol- och vindkraft och andra industriella segment. Bolaget är specialiserat på att utveckla innovativa, kundanpassade profillösningar för att mö",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5fb9e0ef114674b5"
+    }
+  ]
+}

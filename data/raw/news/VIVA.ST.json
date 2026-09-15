@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:46:02+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/viva-wine-group",
+  "items": [
+    {
+      "ticker": "VIVA.ST",
+      "company": "Viva Wine Group AB",
+      "published_at": "2026-09-08T09:50:00+02:00",
+      "title": "Last day of trading in the shares of Viva Wine Group on Nasdaq Stockholm",
+      "link": "https://mfn.se/a/viva-wine-group/last-day-of-trading-in-the-shares-of-viva-wine-group-on-nasdaq-stockholm",
+      "source": "MFN",
+      "summary": "Last day of trading in the shares of Viva Wine Group on Nasdaq Stockholm 2026-09-08 09:50:00 On 4 September 2026, Viva Wine Group AB (\"Viva Wine Group\" or the \"Company\") announced that the Company's board of directors had applied for delisting of the Company's shares from Nasdaq Stockholm. The delisting application was submitted at the request of Riesling Ventures AB (the \"Offeror\"), which, in connection with the public takeover offer to the shareholders of the Company, has become the owner of more than 90 percent of all shares in the Company. Nasdaq Stockholm has now approved Viva Wine Group's delisting application. The last day of trading i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "473f1a8e25051d18"
+    },
+    {
+      "ticker": "VIVA.ST",
+      "company": "Viva Wine Group AB",
+      "published_at": "2026-09-04T17:15:00+02:00",
+      "title": "Viva Wine Group has applied for delisting of shares from Nasdaq Stockholm",
+      "link": "https://mfn.se/a/viva-wine-group/viva-wine-group-has-applied-for-delisting-of-shares-from-nasdaq-stockholm",
+      "source": "MFN",
+      "summary": "Viva Wine Group has applied for delisting of shares from Nasdaq Stockholm 2026-09-04 17:15:00 The Board of Directors of Viva Wine Group AB (\"Viva Wine Group\" or the \"Company\") has today resolved to apply for delisting of the Company's shares from Nasdaq Stockholm. The delisting application is made at the request of Riesling Ventures AB (the \"Offeror\"), which on 31 August 2026 announced that it had received acceptances in the public takeover offer (the \"Offer\") to such extent that the Offeror, upon settlement of the consideration in the Offer on 4 September 2026, will become the owner of 96.4 percent of all shares in the Company. The Offeror s",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "223dc0644b9d532b"
+    }
+  ]
+}

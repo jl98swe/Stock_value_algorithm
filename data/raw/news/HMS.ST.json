@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:42:35+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/hms-networks",
+  "items": [
+    {
+      "ticker": "HMS.ST",
+      "company": "HMS Networks AB (publ)",
+      "published_at": "2026-09-11T17:51:27+02:00",
+      "title": "HMS Networks lämnar ett offentligt uppköpserbjudande avseende samtliga aktier i ROBOT S.A.",
+      "link": "https://mfn.se/one/a/hms-networks/hms-networks-lamnar-ett-offentligt-uppkopserbjudande-avseende-samtliga-aktier-i-robot-s-a-5cc8dc69",
+      "source": "MFN",
+      "summary": "HMS Networks lämnar ett offentligt uppköpserbjudande avseende samtliga aktier i ROBOT S.A. 2026-09-11 17:51:27 HMS Industrial Networks SLU, ett helägt dotterbolag till HMS Networks AB (publ) (”HMS”), har idag ingått ett avtal med majoritetsägare i ROBOT S.A. (publ) (”Robot”) och offentliggjort ett avnoteringserbjudande som innefattar förvärv av samtliga aktier i Robot (”Erbjudandet”). Aktieägare som representerar 77,69 % av aktiekapitalet i Robot har åtagit sig att godkänna Erbjudandet och överlåta sina aktier till HMS. Fullföljandet av Erbjudandet är fortsatt föremål för de villkor som beskrivs nedan. Robot i korthet Robot är en väletablerad",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "22ce9676238f24d2"
+    }
+  ]
+}

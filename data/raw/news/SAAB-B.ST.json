@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-09-15T21:44:15+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/saab",
+  "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-09-10T08:10:00+02:00",
+      "title": "Saab: The Netherlands announces intention to procure GlobalEye",
+      "link": "https://mfn.se/cis/a/saab/saab-the-netherlands-announces-intention-to-procure-globaleye-a232bf04",
+      "source": "MFN",
+      "summary": "Saab: The Netherlands announces intention to procure GlobalEye 2026-09-10 08:10:00 The Netherlands has signed a Letter of Intent with Sweden for the acquisition of a Saab GlobalEye Early Warning and Control (AEW&C) aircraft. The parties have not yet entered into a contract and Saab has not yet received an order from The Netherlands. Saab stands prepared and awaits the next steps of the procurement process. \"We welcome today's announcement by the Netherlands of its intention to procure GlobalEye. The system will provide enhanced situational awareness and early warning capabilities across multiple domains, while also strengthening NATO's abilit",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c7ef4333315261f2"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-09-09T14:00:00+02:00",
+      "title": "Saab receives order from FMV for further work on future concept",
+      "link": "https://mfn.se/cis/a/saab/saab-receives-order-from-fmv-for-further-work-on-future-concept-7b8d2bc2",
+      "source": "MFN",
+      "summary": "Saab receives order from FMV for further work on future concept 2026-09-09 14:00:00 Saab has received an order from the Swedish Defence Material Administration (FMV) for continued concept work on future fighter system. The order value is approximately SEK 2.9 billion. The contract period is 2026-2028, with options for 2029 and 2030. The contract is to further develop and demonstrate new technologies for future fighter system. The work includes flying and ground-based demonstrators, advanced studies and the development of future system concepts for manned and unmanned systems. The programme strengthens Sweden's national capabilities in systems",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bdd13068fc3d983b"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-08-28T09:00:00+02:00",
+      "title": "Saab receives order for RBS 70 NG from Finland",
+      "link": "https://mfn.se/cis/a/saab/saab-receives-order-for-rbs-70-ng-from-finland-5c3cd6bf",
+      "source": "MFN",
+      "summary": "Saab receives order for RBS 70 NG from Finland 2026-08-28 09:00:00 Saab has signed a contract and received an initial order from The Finnish Defence Forces Logistics Command for deliveries of the RBS 70 NG air defence solution. The order value is SEK 1.2 billion The new contract also enables Finland to place additional future orders for the RBS 70 NG as well as training, spare parts and maintenance equipment. \"We are proud to continue supporting Finland's Defence Forces and contributing to keeping the nation's skies safe. With RBS 70 NG, Finland will receive a state-of-the art short-range air defence capability to effectively meet evolving ae",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b3a43849cec80293"
+    }
+  ]
+}

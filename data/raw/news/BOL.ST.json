@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:41:09+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/boliden",
+  "items": [
+    {
+      "ticker": "BOL.ST",
+      "company": "Boliden",
+      "published_at": "2026-08-27T07:00:00+02:00",
+      "title": "Boliden förvärvar kontrollpost i Nexa Resources",
+      "link": "https://mfn.se/cis/a/boliden/boliden-forvarvar-kontrollpost-i-nexa-resources-e4a72236",
+      "source": "MFN",
+      "summary": "Boliden förvärvar kontrollpost i Nexa Resources 2026-08-27 07:00:00 Boliden AB (\"Boliden\") och Votorantim S.A. (\"Votorantim\") har ingått ett slutgiltigt avtal (\"Transaktionen\") enligt vilket Boliden kommer att förvärva samtliga Votorantims aktier i Nexa Resources S.A. (\"Nexa\"). Enligt villkoren i Transaktionen kommer Votorantim att erhålla 0,250x nyemitterade Boliden-aktier för varje innehavd Nexa-aktie, vilket innebär att Boliden blir ägare av 64,68 % av det totala antalet aktier och röster i Nexa samt att Votorantim blir ägare av cirka 7,0 % av det totala antalet aktier och röster i Boliden. [1] Slutförandet av Transaktionen (\"Closing\") för",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4ee49a30315d27ea"
+    }
+  ]
+}

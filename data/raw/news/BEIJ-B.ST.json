@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:40:58+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/beijer-ref",
+  "items": [
+    {
+      "ticker": "BEIJ-B.ST",
+      "company": "Beijer Ref AB (publ)",
+      "published_at": "2026-09-11T08:30:00+02:00",
+      "title": "Beijer Ref AB: Beijer Ref förvärvar HVAC-distributör i Grekland",
+      "link": "https://mfn.se/cis/a/beijer-ref/beijer-ref-ab-beijer-ref-forvarvar-hvac-distributor-i-grekland-ab2715eb",
+      "source": "MFN",
+      "summary": "Beijer Ref AB: Beijer Ref förvärvar HVAC-distributör i Grekland 2026-09-11 08:30:00 Beijer Ref har tecknat ett avtal om att förvärva 75 procent av aktierna i FG Europe, med option att förvärva resterande andel. FG Europe är en välrenommerad HVAC-distributör i Grekland, med en etablerad närvaro på Balkan, i Storbritannien, på Irland och i Turkiet. Företaget har en årlig omsättning på cirka 1,4 miljarder kronor. FG Europe grundades 1958 och har sitt huvudkontor i Aten, Grekland. Bolaget är en etablerad HVAC-distributör med omfattande branscherfarenhet och erbjuder HVAC-lösningar för bostäder och kommersiella fastigheter. FG Europe kommer att fo",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4049494bac3a511b"
+    }
+  ]
+}

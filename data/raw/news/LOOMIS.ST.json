@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:43:15+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/loomis",
+  "items": [
+    {
+      "ticker": "LOOMIS.ST",
+      "company": "Loomis AB (publ)",
+      "published_at": "2026-09-09T17:30:00+02:00",
+      "title": "Loomis AB: Loomis har emitterat 300 miljoner EUR i obligationer",
+      "link": "https://mfn.se/cis/a/loomis/loomis-ab-loomis-har-emitterat-300-miljoner-eur-i-obligationer-93a5b84d",
+      "source": "MFN",
+      "summary": "Loomis AB: Loomis har emitterat 300 miljoner EUR i obligationer 2026-09-09 17:30:00 Loomis AB har emitterat 300 miljoner EUR i obligationer med en kupong på 4,125 procent och en löptid på fem år. Obligationerna är emitterade under Loomis 2 miljarder EUR EMTN-program daterad 29 maj 2026 med tilläggsavtal daterad den 2 september 2026. Likviderna kommer att användas till den löpande verksamheten inklusive finansieringen av förvärvet av Hermes Transportes Blindados S.A.. \"Vi är glada över det betydande intresset och starka stöd som transaktionen har fått. Utfallet säkerställer finansieringen av vårt pågående förvärv av Hermes i Peru och stödjer v",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a5b1e1f0178154c0"
+    }
+  ]
+}

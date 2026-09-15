@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:43:24+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/micro-systemation",
+  "items": [
+    {
+      "ticker": "MSAB-B.ST",
+      "company": "Micro Systemation AB (publ)",
+      "published_at": "2026-09-07T07:00:00+02:00",
+      "title": "MSAB Positioned as Leader in the IDC MarketScape: Worldwide Digital Forensics Platforms 2026 Vendor Assessment",
+      "link": "https://mfn.se/a/micro-systemation/msab-positioned-as-leader-in-the-idc-marketscape-worldwide-digital-forensics-platforms-2026-vendor-assessment",
+      "source": "MFN",
+      "summary": "MSAB Positioned as Leader in the IDC MarketScape: Worldwide Digital Forensics Platforms 2026 Vendor Assessment 2026-09-07 07:00:00 MSAB has been positioned as one of only three global Leaders in the 2026 IDC MarketScape: Worldwide Digital Forensics Platforms vendor assessment, following IDC’s evaluation of the company’s strategies and capabilities. The IDC MarketScape highlights MSAB’s focused expertise in mobile forensics, its broad portfolio for acquisition, analysis, triage, collaboration, and centralized management, as well as its strong emphasis on compliance, interoperability, and data protection. With its Swedish headquarters, global p",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ef978557c6740611"
+    },
+    {
+      "ticker": "MSAB-B.ST",
+      "company": "Micro Systemation AB (publ)",
+      "published_at": "2026-09-01T16:15:00+02:00",
+      "title": "MSAB säkrar större kontrakt värt 25,7 MSEK med europeisk försvarsorganisation",
+      "link": "https://mfn.se/a/micro-systemation/msab-sakrar-storre-kontrakt-vart-25-7-msek-med-europeisk-forsvarsorganisation",
+      "source": "MFN",
+      "summary": "MSAB säkrar större kontrakt värt 25,7 MSEK med europeisk försvarsorganisation 2026-09-01 16:15:00 MSAB (Micro Systemation AB, publ), en global ledare inom digital forensik, har erhållit en order värd 25,7 MSEK från en större försvarskund i Europa. ”Detta viktiga militära kontrakt med en av Europas större försvarsorganisationer bekräftar styrkan i vårt forensiska erbjudande och det ökande intresset för vårt premiumverktyg för extraktion, XRY Pro, inom försvarsoperationer. Det bekräftar också vår strategi att arbeta närmare försvarskunder, och vi förväntar oss att fler militära organisationer kommer att investera i avancerad mobil forensik unde",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "661948bcad08ccad"
+    }
+  ]
+}

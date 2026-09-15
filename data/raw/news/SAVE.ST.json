@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:44:27+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/nordnet",
+  "items": [
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-09-15T08:00:00+02:00",
+      "title": "Nordnet and ABG Sundal Collier launch joint venture, introducing next-generation Private Banking offering",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-and-abg-sundal-collier-launch-joint-venture-introducing-next-generation-private-banking-offering-bf182dba",
+      "source": "MFN",
+      "summary": "Nordnet and ABG Sundal Collier launch joint venture, introducing next-generation Private Banking offering 2026-09-15 08:00:00 Nordnet and ABG Sundal Collier (ABGSC) have entered into a strategic partnership to create a new offering within Private Banking. By combining Nordnet's leading digital platform with ABGSC's expertise in advisory, portfolio management, and research, a new player is established that gives the retail market access to institutional-quality financial services. Operations are expected to launch in Sweden in 2027, with a subsequent rollout across the Nordic region and in other markets where the companies operate. Nordnet is ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8c53fe87b4968b3a"
+    }
+  ]
+}

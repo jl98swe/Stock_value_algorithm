@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:43:03+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/knowit",
+  "items": [
+    {
+      "ticker": "KNOW.ST",
+      "company": "Knowit AB (publ)",
+      "published_at": "2026-09-02T14:00:00+02:00",
+      "title": "Knowit inför landsledd organisationsstruktur och presenterar ny koncernledning",
+      "link": "https://mfn.se/a/knowit/knowit-infor-landsledd-organisationsstruktur-och-presenterar-ny-koncernledning",
+      "source": "MFN",
+      "summary": "Knowit inför landsledd organisationsstruktur och presenterar ny koncernledning 2026-09-02 14:00:00 Knowit tar nästa steg i sin strategiska omställning och inför en ny organisationsstruktur uppbyggd kring de fyra nordiska länderna samt affärsområdet Products. Samtidigt presenteras ett flertal förändringar i koncernledningen. Syftet med omstruktureringen är att skapa en enklare och mer kundnära organisation, med tydligare ansvar och bättre förutsättningar för lönsam tillväxt. Den nya strukturen ersätter Knowits nuvarande affärsområdesindelning. Ansvar för resultat, kunder och medarbetare samlas i respektive land, Sverige, Norge, Finland och Dan",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "restructuring"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:restructuring",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "64edd57571df0a8d"
+    }
+  ]
+}

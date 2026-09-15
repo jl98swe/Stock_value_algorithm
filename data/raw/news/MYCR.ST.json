@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:43:35+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/mycronic",
+  "items": [
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-08-31T08:00:00+02:00",
+      "title": "Mycronic presenterar nya finansiella mål",
+      "link": "https://mfn.se/a/mycronic/mycronic-presenterar-nya-finansiella-mal",
+      "source": "MFN",
+      "summary": "Mycronic presenterar nya finansiella mål 2026-08-31 08:00:00 Mycronic AB (publ) presenterar nya finansiella mål för perioden fram till 2032-2035. Mycronics nya finansiella mål för perioden fram till 2032-2035 är följande: Nettoomsättningen skall nå 20 miljarder SEK. Rörelsemarginalen skall ligga kvar på omkring 25 procent. De nya målen kommer att presenteras närmare idag på Mycronics kapitalmarknadsdag på bolagets huvudkontor i Täby. Kapitalmarknadsdagen, exklusive rundvandring i produktionen, kan även följas via webbsändning . ”Vi sätter nu nya tillväxt- och lönsamhetsmål, där nettoomsättningen skall nå 20 miljarder SEK fram till 2032-2035 o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9c200f87d862828c"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-08-28T08:00:00+02:00",
+      "title": "Mycronic receives order for a Prexision 80 Evo",
+      "link": "https://mfn.se/a/mycronic/mycronic-receives-order-for-a-prexision-80-evo-1",
+      "source": "MFN",
+      "summary": "Mycronic receives order for a Prexision 80 Evo 2026-08-28 08:00:00 Mycronic AB (publ) has received a replacement order for a Prexision 80 Evo from an existing customer, for delivery to Asia. The order value is in the range of USD 21-24 million. Delivery of the system is planned for the second quarter of 2027. The Prexision 80 Evo mask writer meets the market’s requirements regarding complex patterns for display photomasks. \"This order for a Prexision 80 Evo is placed within our replacement program, which supports customers in modernizing their installed base and secures continued high-quality production of complex photomasks for the display i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b18e6420828b224d"
+    }
+  ]
+}

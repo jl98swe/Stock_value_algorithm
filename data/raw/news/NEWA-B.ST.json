@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:43:41+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/new-wave-group",
+  "items": [
+    {
+      "ticker": "NEWA-B.ST",
+      "company": "New Wave Group AB (publ)",
+      "published_at": "2026-08-31T15:32:00+02:00",
+      "title": "NEW WAVE GROUP AB (PUBL) FÖRVÄRVAR UHLSPORT GROUP",
+      "link": "https://mfn.se/a/new-wave-group/new-wave-group-ab-publ-forvarvar-uhlsport-group",
+      "source": "MFN",
+      "summary": "NEW WAVE GROUP AB (PUBL) FÖRVÄRVAR UHLSPORT GROUP 2026-08-31 15:32:00 New Wave Group har idag undertecknat ett avtal om att förvärva 100 % av aktierna i uhlsport GmbH. uhlsport är ett anrikt tyskt multibrandföretag med huvudkontor i Balingen, Baden-Württemberg. Företaget utvecklar och säljer kläder, tillbehör och utrustning för lagsporter – främst fotboll och handboll – under varumärkena uhlsport och Kempa. Med centrallager i Balingen och Bisingen samt dotterbolag i Frankrike, Sverige och Spanien distribuerar företaget sina produkter till kunder över hela Europa och globalt. Transaktionen är strukturerad som en aktieförsäljning och kommer att",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f4ba81f4f85a1653"
+    }
+  ]
+}

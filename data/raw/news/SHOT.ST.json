@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:45:21+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/scandic-hotels-group",
+  "items": [
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-09-07T07:30:00+02:00",
+      "title": "Scandic Hotels Group AB: Scandic etablerar sig Freiburg och stärker tillväxt i Tyskland",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/scandic-hotels-group-ab-scandic-etablerar-sig-freiburg-och-starker-tillvaxt-i-tyskland-0e5260f2",
+      "source": "MFN",
+      "summary": "Scandic Hotels Group AB: Scandic etablerar sig Freiburg och stärker tillväxt i Tyskland 2026-09-07 07:30:00 Scandic fortsätter att växa selektivt i Tyskland genom samarbeten med fastighetsinvesterare för att utveckla befintliga hotelltillgångar på attraktiva marknader. I Freiburg samarbetar Scandic med den paneuropeiska fastighetsinvesteraren IREMIS, som har förvärvat fastigheten från den nuvarande ägaren, samtidigt som Scandic tecknar ett långsiktigt hyresavtal. Projektet tillför en ny destination, stärker Scandics närvaro i Tyskland och visar bolagets förmåga att skapa värde genom renovering, driftsexpertis och hållbarhetsdriven utveckling.",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9f35868838ee702e"
+    }
+  ]
+}

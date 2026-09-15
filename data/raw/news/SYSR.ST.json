@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:45:42+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/systemair",
+  "items": [
+    {
+      "ticker": "SYSR.ST",
+      "company": "Systemair AB (publ)",
+      "published_at": "2026-08-27T12:40:00+02:00",
+      "title": "Systemair AB: Systemair vinner order för kylning av datacenter värd 60 MSEK",
+      "link": "https://mfn.se/cis/a/systemair/systemair-ab-systemair-vinner-order-for-kylning-av-datacenter-vard-60-msek-accadad3",
+      "source": "MFN",
+      "summary": "Systemair AB: Systemair vinner order för kylning av datacenter värd 60 MSEK 2026-08-27 12:40:00 Skinnskatteberg, 27 augusti 2026 - Systemair ABs (NASDAQ Stockholm: SYSR) har vunnit en order för luftbaserad datacenterkylning till ett värde av ca 60 MSEK. Ordern avser ett nytt datacenter i Finland. Leveranserna är planerade att inledas under början av 2027. Systemair är en ledande tillverkare av energieffektiva ventilationsprodukter. Ordern omfattar Systemairs ventilationsaggregat Geniox Tera som tillverkas i vår fabrik i Turkiet. Systemairs Geniox Tera Fanwall är flexibla, kompakta och modulära, med integrerade styrsystem och sensorer för smid",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7ed1364b122059ee"
+    }
+  ]
+}

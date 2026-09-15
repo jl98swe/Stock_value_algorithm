@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:42:02+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/eqt",
+  "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-09-04T13:30:00+02:00",
+      "title": "EQT to acquire McGill and Partners, a leading specialty (re)insurance broker for USD 2.0 billion, from Warburg Pincus",
+      "link": "https://mfn.se/cis/a/eqt/eqt-to-acquire-mcgill-and-partners-a-leading-specialty-re-insurance-broker-for-usd-2-0-billion-from-warburg-pincus-9bf26cda",
+      "source": "MFN",
+      "summary": "EQT to acquire McGill and Partners, a leading specialty (re)insurance broker for USD 2.0 billion, from Warburg Pincus 2026-09-04 13:30:00 Warburg Pincus and McGill and Partners have reached an agreement with EQT that will see Warburg Pincus sell its majority stake to EQT McGill and Partners founders, management team and colleagues will re-invest alongside EQT, retaining a meaningful ownership stake in the firm going forward as they continue to serve clients globally Maintains commitment to firm's independent model and culture of ownership, developed organically since its founding in 2019 EQT will partner with Steve McGill and the management t",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9b05c4cc6e9794f8"
+    }
+  ]
+}

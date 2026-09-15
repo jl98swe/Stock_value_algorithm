@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:43:47+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/nolato",
+  "items": [
+    {
+      "ticker": "NOLA-B.ST",
+      "company": "Nolato AB (publ)",
+      "published_at": "2026-09-01T13:30:00+02:00",
+      "title": "Nolato förvärvar nederländska Unitron - stärker det totala kunderbjudandet inom affärsområde Medical Solutions",
+      "link": "https://mfn.se/a/nolato/nolato-forvarvar-nederlandska-unitron-starker-det-totala-kunderbjudandet-inom-affarsomrade-medical-solutions",
+      "source": "MFN",
+      "summary": "Nolato förvärvar nederländska Unitron - stärker det totala kunderbjudandet inom affärsområde Medical Solutions 2026-09-01 13:30:00 Nolato har tecknat avtal om att förvärva nederländska Unitron, som är en innovativ medicinteknik utvecklings- och produktionspartner (CDMO) med över tre decenniers erfarenhet. Bolaget, som har en årsomsättning om cirka 200 miljoner kronor och en EBITA-marginal i linje med Nolatos, täcker hela värdekedjan från tidig utveckling till industrialisering. Vidare har Unitron långa kundrelationer och en väldiversifierad kundbas som innefattar flera terapiområden. ”Nolato och Unitron kompletterar varandra mycket väl och sk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fceaf9e178a472ff"
+    }
+  ]
+}

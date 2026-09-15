@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:45:27+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/swedish-orphan-biovitrum",
+  "items": [
+    {
+      "ticker": "SOBI.ST",
+      "company": "Swedish Orphan Biovitrum AB (publ)",
+      "published_at": "2026-09-09T19:50:03+02:00",
+      "title": "Sobi Receives US FDA Fast Track Designation for pacritinib in VEXAS Syndrome",
+      "link": "https://mfn.se/one/a/swedish-orphan-biovitrum/sobi-receives-us-fda-fast-track-designation-for-pacritinib-in-vexas-syndrome-aaca764a",
+      "source": "MFN",
+      "summary": "Sobi Receives US FDA Fast Track Designation for pacritinib in VEXAS Syndrome 2026-09-09 19:50:03 WALTHAM, Mass., Sept. 09, 2026 (GLOBE NEWSWIRE) -- Sobi North America, the North American affiliate of Swedish Orphan Biovitrum AB (Sobi ® ), today announced that the US Food and Drug Administration (FDA) has granted Fast Track designation to pacritinib for the treatment of VEXAS syndrome. Pacritinib is a dual IRAK1/JAK2 inhibitor currently in Phase ll development for VEXAS syndrome. Fast Track designation is designed to facilitate the development and expedite the review of medicines to treat serious conditions that may fill an unmet medical need.",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "regulatory"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:regulatory",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "445260ca045932b4"
+    },
+    {
+      "ticker": "SOBI.ST",
+      "company": "Swedish Orphan Biovitrum AB (publ)",
+      "published_at": "2026-08-31T12:00:00+02:00",
+      "title": "Swedish Orphan Biovitrum AB: Sobi har genomfört en emission av C-aktier",
+      "link": "https://mfn.se/cis/a/swedish-orphan-biovitrum/swedish-orphan-biovitrum-ab-sobi-har-genomfort-en-emission-av-c-aktier-e2afad3d",
+      "source": "MFN",
+      "summary": "Swedish Orphan Biovitrum AB: Sobi har genomfört en emission av C-aktier 2026-08-31 12:00:00 Årsstämman i Swedish Orphan Biovitrum AB (publ) (Sobi®) den 6 maj 2026 beslutade om en riktad emission av inlösen- och omvandlingsbara C-aktier samt att bemyndiga styrelsen att besluta om återköp av samtliga emitterade C-aktier genom ett riktat förvärvserbjudande till samtliga ägare av C-aktier. Styrelsen för Sobi har, som tidigare offentliggjorts, den 15 juli 2026 beslutat att, villkorat av teckning och betalning från Svenska Handelsbanken AB, återköpa samtliga utgivna C-aktier för att säkerställa Sobis åtaganden under det utestående incitamentsprogra",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2bd2fde8a8e52446"
+    }
+  ]
+}

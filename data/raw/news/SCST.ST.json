@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:44:34+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/scandi-standard",
+  "items": [
+    {
+      "ticker": "SCST.ST",
+      "company": "Scandi Standard AB (publ)",
+      "published_at": "2026-08-26T11:20:00+02:00",
+      "title": "Scandi Standard's EGM approves the rights issue",
+      "link": "https://mfn.se/cis/a/scandi-standard/scandi-standards-egm-approves-the-rights-issue-2eb1caca",
+      "source": "MFN",
+      "summary": "Scandi Standard's EGM approves the rights issue 2026-08-26 11:20:00 PRESS RELEASE, 26 August 2026 The EGM in Scandi Standard AB (publ) that was held today on 26 August 2026 resolved to approve the rights issue which the company announced on 30 July 2026. The EGM also resolved to approve the payment of underwriting commitment fees to certain larger shareholders, meaning the condition for their underwriting commitments has been satisfied. The entire rights issue is consequently covered by subscription and underwriting commitments. The rights issue comprises 3,268,143 new ordinary shares. The subscription price is SEK 125 per ordinary share. Tho",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cbfd045c21e9c204"
+    },
+    {
+      "ticker": "SCST.ST",
+      "company": "Scandi Standard AB (publ)",
+      "published_at": "2026-08-25T10:00:00+02:00",
+      "title": "Scandi Standard publishes information document regarding the rights issue",
+      "link": "https://mfn.se/cis/a/scandi-standard/scandi-standard-publishes-information-document-regarding-the-rights-issue-d679b0e3",
+      "source": "MFN",
+      "summary": "Scandi Standard publishes information document regarding the rights issue 2026-08-25 10:00:00 NOT FOR PUBLICATION, DISTRIBUTION OR RELEASE, DIRECTLY OR INDIRECTLY, IN WHOLE OR IN PART, IN OR INTO THE UNITED STATES, CANADA, AUSTRALIA, SOUTH AFRICA, JAPAN OR ANY OTHER JURISDICTION IN WHICH THE PUBLICATION, DISTRIBUTION OR RELEASE OF THIS PRESS RELEASE WOULD BE UNLAWFUL OR REQUIRE REGISTRATION OR ANY OTHER MEASURE IN ACCORDANCE WITH APPLICABLE LAWS AND REGULATIONS. PLEASE SEE \"IMPORTANT INFORMATION\" AT THE END OF THE PRESS RELEASE. PRESS RELEASE, 25 August 2026 Scandi Standard AB (publ) has today published an information document regarding the n",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6e3fbdf3af002296"
+    }
+  ]
+}

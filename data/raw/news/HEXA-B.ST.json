@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-15T21:42:33+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/hexagon",
+  "items": [
+    {
+      "ticker": "HEXA-B.ST",
+      "company": "Hexagon AB (publ)",
+      "published_at": "2026-09-07T08:00:00+02:00",
+      "title": "Hexagon slutför förvärvet av ZG Technology",
+      "link": "https://mfn.se/cis/a/hexagon/hexagon-slutfor-forvarvet-av-zg-technology-10f14bad",
+      "source": "MFN",
+      "summary": "Hexagon slutför förvärvet av ZG Technology 2026-09-07 08:00:00 Hexagon har förvärvat de återstående 49 procent av Wuhan ZG Automation Technology Co., Ltd (\"ZG Technology\"), vilket innebär att Hexagon nu äger 100 procent av den Wuhan-baserade specialisten på 3D-skanning. Hexagon förvärvade en majoritetsandel på 51 procent i augusti 2021 och har sedan dess konsoliderat ZG i affärsområdet Manufacturing Intelligence. ZG grundades 2014 och utvecklade sin verksamhet utifrån den forskning som gjorts inom fotogrammetri och fjärranalys vid Wuhan University. Bolaget utvecklar teknologi för portabel 3D-skanning och har en egenutvecklad produktportfölj s",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2759e9a9fff18ba0"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "company": "Hexagon AB (publ)",
+      "published_at": "2026-08-26T08:00:00+02:00",
+      "title": "Hexagon förvärvar Guidance Marine för att stärka sin portfölj inom maritim positionering",
+      "link": "https://mfn.se/cis/a/hexagon/hexagon-forvarvar-guidance-marine-for-att-starka-sin-portfolj-inom-maritim-positionering-0a6eee95",
+      "source": "MFN",
+      "summary": "Hexagon förvärvar Guidance Marine för att stärka sin portfölj inom maritim positionering 2026-08-26 08:00:00 Hexagon offentliggjorde idag en överenskommelse om att förvärva Guidance Marine, ett bolag baserat i Storbritannien som tillhandahåller sensorer som mäter ett fartygs relativa position till närliggande objekt, så som offshoreplattformar, vindkraftverk, hamnar och andra farkoster, vilket möjliggör för fartyg att hålla sin position och manövrera säkert inom några meter från fasta och rörliga objekt. Guidance Marine grundades 1991, har sitt huvudkontor i Leicester i Storbritannien och har kunder i fler än 40 länder. Dess portfölj av senso",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ff14165c3d5eb419"
+    }
+  ]
+}

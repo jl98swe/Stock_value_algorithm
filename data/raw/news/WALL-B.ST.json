@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:46:12+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/wallenstam",
+  "items": [
+    {
+      "ticker": "WALL-B.ST",
+      "company": "Wallenstam AB (publ)",
+      "published_at": "2026-09-08T08:05:00+02:00",
+      "title": "Wallenstam continues to develop Polhemsplatsen - Happy Days to open new restaurant in summer 2027",
+      "link": "https://mfn.se/cis/a/wallenstam/wallenstam-continues-to-develop-polhemsplatsen-happy-days-to-open-new-restaurant-in-summer-2027-d36e9513",
+      "source": "MFN",
+      "summary": "Wallenstam continues to develop Polhemsplatsen - Happy Days to open new restaurant in summer 2027 2026-09-08 08:05:00 Wallenstam has signed a lease for Happy Days' establishment at Polhemsplatsen 1. The restaurant will open in summer 2027 with an American street food concept and is thus establishing itself in one of the city's most prominent locations. The property, which has recently undergone an extensive reconstruction and extension, is located close to the Central Station, Ullevi and Gothenburg's major event district. \"For us, it is important to create vibrant urban environments where people want to meet and socialize. Happy Days will be ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "distress"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:distress",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1748bd9e6b47cd11"
+    }
+  ]
+}

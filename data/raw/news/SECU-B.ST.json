@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-15T21:44:49+02:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/securitas",
+  "items": [
+    {
+      "ticker": "SECU-B.ST",
+      "company": "Securitas AB (publ)",
+      "published_at": "2026-08-28T09:30:00+02:00",
+      "title": "Securitas AB uppgraderat till 'BBB+' av Standard & Poor's Global Ratings",
+      "link": "https://mfn.se/cis/a/securitas/securitas-ab-uppgraderat-till-bbb-av-standard-and-poors-global-ratings-70901276",
+      "source": "MFN",
+      "summary": "Securitas AB uppgraderat till 'BBB+' av Standard & Poor's Global Ratings 2026-08-28 09:30:00 Securitas AB har idag uppgraderats till BBB+ med stabila utsikter. Baserat på lägre skuldsättningsgrad, goda resultat och uppdaterade finansiella mål har S&P Global Ratings uppgraderat sin långsiktiga kreditvärdering av Securitas till BBB+ från BBB. Utsikterna är stabila. Ytterligare information: Investerare: Micaela Sjökvist, IR-chef; 076-1167443, micaela.sjokvist@securitas.com Källa Cision",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "35101c0e1e9439d4"
+    }
+  ]
+}
