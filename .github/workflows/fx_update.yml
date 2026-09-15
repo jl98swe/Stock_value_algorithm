@@ -3,6 +3,7 @@ name: Uppdatera valutakurser
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - "src/fx.py"
       - "data/metadata/stocks_yahoo.csv"
@@ -12,8 +13,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: fx-data-write
+  group: stock-data-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 
 jobs:
   update:
@@ -23,6 +25,7 @@ jobs:
       - name: Checka ut repot
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Installera Python
@@ -65,5 +68,5 @@ jobs:
             exit 0
           fi
           git commit -m "data: update FX history"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"

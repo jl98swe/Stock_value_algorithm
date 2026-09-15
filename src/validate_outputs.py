@@ -17,7 +17,7 @@ from .earnings import (
     load_earnings_history,
 )
 from .fetch_data import BASE_DATA_FILE, PRICE_COLUMNS, UPDATES_FILE, load_price_history
-from .fundamentals import load_reports, verified_reports
+from .fundamentals import latest_verified_report, load_reports, verified_reports
 from .fx import (
     FX_BASE_FILE,
     FX_COLUMNS,
@@ -27,7 +27,7 @@ from .fx import (
     required_currency_pairs,
 )
 from .model_data import ensure_gbm_model
-from .reporting import REPORTS_JSON, UPCOMING_TRADING_DAYS
+from .reporting import REPORTS_JSON, UPCOMING_TRADING_DAYS, _recent_window_start
 from .valuation import GBMModel
 
 DOCS_DATA = ROOT / "docs" / "data"
@@ -283,6 +283,80 @@ def _validate_earnings(price_tickers: set[str]) -> None:
         raise ValueError("earnings.json har fel tickeruppsättning")
 
 
+def _validate_report_exports(
+    reports: pd.DataFrame,
+    stocks: dict[str, dict[str, object]],
+    events: list[dict[str, object]],
+    analysis: dict[str, object],
+) -> None:
+    """Reject partial publishes: canonical reports, stock cards, E and report tab agree."""
+    verified = verified_reports(reports)
+    event_days = {
+        str(row.get("event_id")): str(row.get("event_date"))
+        for row in events
+        if isinstance(row, dict) and row.get("event_type") == "report"
+    }
+    for report in verified.itertuples(index=False):
+        event_id = f"report:{report.ticker}:{report.report_period}"
+        day = pd.Timestamp(report.effective_date).date().isoformat()
+        if event_days.get(event_id) != day:
+            raise ValueError(f"Rapporthändelse saknas eller har fel datum: {event_id} ({day})")
+
+    latest_days = [stock.get("latest", {}).get("date") for stock in stocks.values()]
+    latest_days = [day for day in latest_days if day]
+    if not latest_days:
+        return
+    as_of = pd.Timestamp(max(latest_days))
+    if analysis.get("as_of_date") != as_of.date().isoformat():
+        raise ValueError("reports.json har annat marknadsdatum än dashboard.json")
+    start = _recent_window_start(as_of)
+    expected_recent: set[tuple[str, str]] = set()
+    for ticker, stock in stocks.items():
+        latest_report = latest_verified_report(ticker, reports)
+        if latest_report is not None:
+            card = stock.get("report", {})
+            eps = pd.to_numeric(pd.Series([card.get("eps_ttm")]), errors="coerce").iloc[0]
+            if (
+                card.get("period") != str(latest_report["report_period"])
+                or card.get("effective_date") != latest_report["effective_date"].date().isoformat()
+                or not card.get("verified")
+                or not np.isclose(eps, float(latest_report["eps_ttm"]), rtol=0, atol=5e-7)
+            ):
+                raise ValueError(f"Aktiesidans senaste rapport avviker från reports.csv: {ticker}")
+
+        dates = sorted(row["date"] for row in stock.get("candles", []) if row.get("date"))
+        if not dates:
+            continue
+        recent = verified.loc[
+            verified["ticker"].eq(ticker) & verified["effective_date"].between(start, as_of)
+        ]
+        for day in recent["effective_date"]:
+            value = day.date().isoformat()
+            # The impact table requires a price both before and on/after the report.
+            if dates[0] < value <= dates[-1]:
+                expected_recent.add((ticker, value))
+    actual_rows = [
+        (str(row.get("ticker")), str(row.get("report_date")))
+        for row in analysis.get("recent", [])
+        if isinstance(row, dict)
+    ]
+    if len(actual_rows) != len(set(actual_rows)) or set(actual_rows) != expected_recent:
+        missing = sorted(expected_recent - set(actual_rows))
+        extra = sorted(set(actual_rows) - expected_recent)
+        raise ValueError(f"Rapportfliken avviker från reports.csv: saknas={missing[:10]}, extra={extra[:10]}")
+
+
+def _validate_split_dashboard(dashboard: dict[str, object], data_dir: Path) -> None:
+    manifest = _load_json(data_dir / "dashboard" / "index.json")
+    stocks = dashboard["stocks"]
+    expected = {ticker: f"{ticker}.json" for ticker in stocks}
+    if manifest.get("files") != expected or manifest.get("meta") != dashboard.get("meta"):
+        raise ValueError("Dashboardens manifest matchar inte dashboard.json")
+    for ticker, filename in expected.items():
+        if _load_json(data_dir / "dashboard" / filename) != stocks[ticker]:
+            raise ValueError(f"Aktiesidans separata datafil är inte uppdaterad: {ticker}")
+
+
 def _validate_dashboard(prices: pd.DataFrame) -> None:
     stocks_payload = _load_json(DOCS_DATA / "stocks.json")
     dashboard = _load_json(DOCS_DATA / "dashboard.json")
@@ -393,6 +467,10 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
         if row.get("expected_eps") is not None and row.get("estimate_status") != "verified_comparable":
             raise ValueError("reports.json exponerar ett EPS-estimat som inte är verifierat jämförbart")
 
+    if report_analysis.get("generated_at") != meta.get("generated_at"):
+        raise ValueError("Rapportfliken och dashboarden kommer från olika byggkörningar")
+    _validate_report_exports(report_store, dashboard_stocks, event_rows, report_analysis)
+    _validate_split_dashboard(dashboard, DOCS_DATA)
     _validate_canonical_reports()
     _validate_earnings(price_tickers)
 

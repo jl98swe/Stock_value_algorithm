@@ -28,6 +28,12 @@ python -m src.news_curated
 
 Workflowen **Daglig bolagsnyhetsuppdatering** kör 18:05 Europe/Stockholm på handelsdagar, efter ordinarie marknadsuppdatering. Den ersätter endast `news`-händelser i `docs/data/events.json`; befintliga rapport- och utdelningshändelser lämnas orörda.
 
+Schemat använder svensk tidszon direkt och accepterar försenad start i GitHub
+Actions. Alla datasparande workflows delar en kö per gren så att marknads-, EPS-
+och nyhetsuppdateringar inte samtidigt skriver i samma filer. Marknads-/EPS-byggen
+uppdaterar E/D-händelser och bevarar tidigare publicerade N-händelser även när
+rånyhetscachen saknas.
+
 ## Relevansregler
 
 Varje pressmeddelande hamnar i en av tre grupper:
