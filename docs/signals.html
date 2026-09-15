@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Kommande signaler · Stock Value Algorithm</title>
+  <title>Kommande och senaste signaler · Stock Value Algorithm</title>
   <link rel="stylesheet" href="./assets/style.css?v=20260910-1">
-  <script defer src="./assets/overview.js?v=20260909-4"></script>
+  <script defer src="./assets/overview.js?v=20260915-1"></script>
   <style>
-    .overview-wrap{max-width:1380px;margin:0 auto;padding:24px}.overview-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:16px}.overview-head h1{margin:0;font-size:32px}.overview-controls{display:flex;gap:10px;align-items:center}.overview-search{min-width:280px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}.summary-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef3f4;color:var(--brand);font-weight:800;font-size:12px}.overview-table{width:100%;border-collapse:collapse}.overview-table th,.overview-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:12px}.overview-table th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.stock-link{display:flex;flex-direction:column;text-decoration:none}.stock-link span{color:var(--muted);font-size:10px;margin-top:2px}.status-chip{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:800;background:#eef2f3}.status-chip.ok{background:#e8f6ef;color:#246f53}.status-chip.warning{background:#fff0d9;color:#8a5a10}.status-chip.buy{background:#e8f6ef;color:#246f53}.status-chip.sell{background:#fde9e9;color:#9f3232}.info-tip{position:relative;display:inline-grid;place-items:center;width:15px;height:15px;margin-left:4px;border:1px solid currentColor;border-radius:50%;font-size:10px;font-weight:800;line-height:1;text-transform:none;cursor:help}.info-tip::after{content:attr(data-tooltip);position:absolute;z-index:10;top:calc(100% + 7px);left:50%;width:240px;padding:9px 10px;transform:translateX(-50%);border-radius:7px;background:#252423;color:#fff;font-size:12px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;opacity:0;pointer-events:none;transition:opacity .15s}.info-tip:hover::after,.info-tip:focus-visible::after{opacity:1}.empty-cell{text-align:center!important;color:var(--muted);padding:28px!important}.page-nav{display:flex;gap:8px;align-items:center}.page-nav a{text-decoration:none}.panel{overflow:auto}@media(max-width:800px){.overview-wrap{padding:16px}.overview-head{align-items:stretch;flex-direction:column}.overview-controls{align-items:stretch;flex-direction:column}.overview-search{min-width:0;width:100%}.page-nav{flex-wrap:wrap}.overview-table{min-width:940px}}
+    .overview-wrap{max-width:1580px;margin:0 auto;padding:24px}.overview-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:16px}.overview-head h1{margin:0;font-size:32px}.overview-controls{display:flex;gap:10px;align-items:center}.overview-search{min-width:280px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}.summary-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef3f4;color:var(--brand);font-weight:800;font-size:12px}.signals-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.signal-panel{min-width:0;overflow:hidden}.signal-panel-head{display:flex;justify-content:space-between;gap:14px;align-items:start;padding:16px 16px 10px}.signal-panel-head h2{margin:0;font-size:20px}.signal-panel-head p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.45}.panel-count{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:#eef3f4;color:var(--brand);font-size:12px;font-weight:800}.table-scroll{width:100%;overflow:auto}.overview-table{width:100%;min-width:900px;border-collapse:collapse}.recent-signals-table{min-width:650px}.overview-table th,.overview-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:12px}.overview-table th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.overview-table tbody tr:last-child td{border-bottom:0}.stock-link{display:flex;flex-direction:column;text-decoration:none}.stock-link span,.cell-detail{display:block;color:var(--muted);font-size:10px;margin-top:2px;line-height:1.35}.status-chip{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:800;background:#eef2f3}.status-chip.ok{background:#e8f6ef;color:#246f53}.status-chip.warning{background:#fff0d9;color:#8a5a10}.status-chip.buy{background:#e8f6ef;color:#246f53}.status-chip.sell{background:#fde9e9;color:#9f3232}.info-tip{position:relative;display:inline-grid;place-items:center;width:15px;height:15px;margin-left:4px;border:1px solid currentColor;border-radius:50%;font-size:10px;font-weight:800;line-height:1;text-transform:none;cursor:help}.info-tip::after{content:attr(data-tooltip);position:absolute;z-index:10;top:calc(100% + 7px);left:50%;width:240px;padding:9px 10px;transform:translateX(-50%);border-radius:7px;background:#252423;color:#fff;font-size:12px;font-weight:400;line-height:1.35;letter-spacing:0;text-transform:none;opacity:0;pointer-events:none;transition:opacity .15s}.info-tip:hover::after,.info-tip:focus-visible::after{opacity:1}.empty-cell{text-align:center!important;color:var(--muted);padding:28px!important}.page-nav{display:flex;gap:8px;align-items:center}.page-nav a{text-decoration:none}@media(max-width:1100px){.signals-layout{grid-template-columns:1fr}}@media(max-width:800px){.overview-wrap{padding:16px}.overview-head{align-items:stretch;flex-direction:column}.overview-controls{align-items:stretch;flex-direction:column}.overview-search{min-width:0;width:100%}.page-nav{flex-wrap:wrap}}
   </style>
 </head>
 <body data-overview="signals">
@@ -32,17 +32,38 @@
 
     <main class="overview-wrap">
       <div class="overview-head">
-        <div><span class="eyebrow">Bevakning</span><h1>Kommande signaler</h1><p class="muted">Aktier med exekverbar signal nu eller inom 5 score-poäng från en relevant signalgräns.</p></div>
-        <div class="overview-controls"><input id="overview-search" class="overview-search" type="search" placeholder="Sök ticker eller namn"><span class="summary-pill"><strong id="summary-count">0</strong> kandidater</span></div>
+        <div><span class="eyebrow">Bevakning</span><h1>Kommande och senaste signaler</h1><p class="muted">Bevaka nästa möjliga signal och kontrollera vilka modellsignaler som nyligen har exekverats.</p></div>
+        <div class="overview-controls"><input id="overview-search" class="overview-search" type="search" placeholder="Sök ticker eller namn"><span class="summary-pill"><strong id="summary-count">0</strong> träffar</span></div>
       </div>
 
       <div id="loading-state" class="loading-state"><div class="spinner" aria-hidden="true"></div><p>Laddar signalbevakning…</p></div>
-      <section id="overview-content" class="panel" hidden>
-        <table class="overview-table">
-          <thead><tr><th>Aktie</th><th>Riktning</th><th>Score</th><th>Närhet</th><th>Position</th><th>Återaktiverad <span class="info-tip" tabindex="0" role="img" aria-label="Information om återaktivering" data-tooltip="Visar om samma typ av signal kan utlösas igen. Efter köp måste scoren först lämna köpområdet; efter sälj måste den först lämna säljområdet.">?</span></th><th>Spärr</th><th>Kommentar</th></tr></thead>
-          <tbody id="overview-body"></tbody>
-        </table>
-      </section>
+      <div id="overview-content" class="signals-layout" hidden>
+        <section class="panel signal-panel" aria-labelledby="upcoming-signals-title">
+          <div class="signal-panel-head">
+            <div><h2 id="upcoming-signals-title">Kommande signaler</h2><p>Exekverbar signal nu eller högst 5 score-poäng från en relevant signalgräns.</p></div>
+            <span id="upcoming-count" class="panel-count" aria-label="Antal kommande signaler">0</span>
+          </div>
+          <div class="table-scroll">
+            <table class="overview-table">
+              <thead><tr><th>Aktie</th><th>Riktning</th><th>Score</th><th>Närhet</th><th>Position</th><th>Återaktiverad <span class="info-tip" tabindex="0" role="img" aria-label="Information om återaktivering" data-tooltip="Visar om samma typ av signal kan utlösas igen. Efter köp måste scoren först lämna köpområdet; efter sälj måste den först lämna säljområdet.">?</span></th><th>Spärr</th><th>Kommentar</th></tr></thead>
+              <tbody id="upcoming-signals-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel signal-panel" aria-labelledby="recent-signals-title">
+          <div class="signal-panel-head">
+            <div><h2 id="recent-signals-title">Senaste signaler</h2><p>Endast exekverade modellsignaler under de senaste 20 handelsdagarna, senaste först.</p></div>
+            <span id="recent-count" class="panel-count" aria-label="Antal senaste signaler">0</span>
+          </div>
+          <div class="table-scroll">
+            <table class="overview-table recent-signals-table">
+              <thead><tr><th>Aktie</th><th>Signal</th><th>Utförd</th><th>Kurs</th><th>Score</th></tr></thead>
+              <tbody id="recent-signals-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
       <div id="error-state" class="error-state" hidden><h2>Kunde inte ladda signalbevakningen</h2><p id="error-message"></p></div>
     </main>
   </div>

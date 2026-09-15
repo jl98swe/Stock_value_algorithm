@@ -3,6 +3,7 @@
 
   const fmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
 
   function number(value) {
@@ -23,6 +24,12 @@
   function money(value, currency = 'SEK') {
     const n = number(value);
     return n === null ? '–' : `${fmt.format(n)} ${currency}`;
+  }
+
+  function prettyDate(value) {
+    if (!value) return '–';
+    const date = new Date(`${String(value).slice(0, 10)}T12:00:00`);
+    return Number.isNaN(date.valueOf()) ? value : dateFmt.format(date);
   }
 
   function stockMeta(stocksPayload, ticker) {
@@ -112,14 +119,14 @@
 
   function renderSignals(dashboard, stocksPayload, needle) {
     const rules = dashboard.meta?.rules || {};
-    const rows = Object.entries(dashboard.stocks || {})
+    const upcoming = Object.entries(dashboard.stocks || {})
       .map(([ticker, data]) => signalCandidate(ticker, data, stockMeta(stocksPayload, ticker), rules))
       .filter(Boolean)
       .filter((row) => textIncludes(row, needle))
       .sort((a, b) => Number(b.actual) - Number(a.actual) || a.distance - b.distance || a.score - b.score);
 
-    $('summary-count').textContent = String(rows.length);
-    $('overview-body').innerHTML = rows.length ? rows.map((row) => `<tr>
+    $('upcoming-count').textContent = String(upcoming.length);
+    $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
       <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
@@ -135,6 +142,41 @@
             : 'Köp – signalgränsen är nådd'
         : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
+
+    const tradingDates = [...new Set(Object.values(dashboard.stocks || {})
+      .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))]
+      .sort();
+    const recentCutoff = tradingDates.length > 20 ? tradingDates.at(-20) : tradingDates[0];
+    const latestTradingDate = tradingDates.at(-1);
+    const recent = Object.entries(dashboard.stocks || {})
+      .flatMap(([ticker, data]) => {
+        const meta = stockMeta(stocksPayload, ticker);
+        return (data.signals || [])
+          .filter((row) => row.status === 'executed' && row.execution_date)
+          .map((row) => ({
+            ...row,
+            ticker,
+            name: meta.name || ticker,
+            currency: meta.currency || 'SEK'
+          }));
+      })
+      .filter((row) => (!recentCutoff || row.execution_date >= recentCutoff)
+        && (!latestTradingDate || row.execution_date <= latestTradingDate))
+      .filter((row) => textIncludes(row, needle))
+      .sort((a, b) => b.execution_date.localeCompare(a.execution_date)
+        || String(b.signal_date || '').localeCompare(String(a.signal_date || ''))
+        || a.ticker.localeCompare(b.ticker, 'sv-SE'));
+
+    $('recent-count').textContent = String(recent.length);
+    $('recent-signals-body').innerHTML = recent.length ? recent.map((row) => `<tr>
+      <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
+      <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
+      <td><strong>${prettyDate(row.execution_date)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
+      <td>${money(row.execution_price, row.currency)}</td>
+      <td>${score(row.score)}</td>
+    </tr>`).join('') : '<tr><td colspan="5" class="empty-cell">Inga exekverade signaler under de senaste 20 handelsdagarna.</td></tr>';
+
+    $('summary-count').textContent = String(upcoming.length + recent.length);
   }
 
   async function init() {
