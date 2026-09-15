@@ -159,7 +159,7 @@ def test_recent_report_shows_actual_before_after_change() -> None:
                     "ticker": "TEST.ST",
                     "period_end": "2026-06-30",
                     "report_period": "2026-Q2",
-                    "published_at": "2026-09-02T07:00:00+02:00",
+                    "published_at": "2026-09-01T20:00:00Z",
                     "effective_date": "2026-09-02",
                     "eps_ttm": 4.5,
                     "source": "Bolagets rapport",
@@ -199,6 +199,49 @@ def test_recent_report_shows_actual_before_after_change() -> None:
     assert rows[0]["eps_ttm_after"] == pytest.approx(4.5)
     assert rows[0]["score_change"] == pytest.approx(-6.0)
     assert rows[0]["price_change_pct"] == pytest.approx(4.0)
+    assert rows[0]["report_date"] == "2026-09-01"
+    assert rows[0]["report_date_verified"] is True
+    assert rows[0]["report_date_source"] == "published_at"
+
+
+def test_recent_report_flags_effective_date_when_publication_date_is_missing() -> None:
+    reports = normalise_reports(
+        pd.DataFrame(
+            [
+                {
+                    "ticker": "TEST.ST",
+                    "period_end": "2026-06-30",
+                    "report_period": "2026-Q2",
+                    "published_at": None,
+                    "effective_date": "2026-09-02",
+                    "eps_ttm": 4.5,
+                    "source": "Bolagets rapport",
+                    "verified": True,
+                    "verified_at": "2026-09-02T08:00:00Z",
+                    "notes": "report_currency=SEK",
+                }
+            ]
+        )
+    )
+    valued = pd.DataFrame(
+        [
+            {"Date": "2026-09-01", "Close": 100.0, "EPS_TTM": 4.0, "Score": 50.0},
+            {"Date": "2026-09-02", "Close": 104.0, "EPS_TTM": 4.5, "Score": 44.0},
+        ]
+    )
+
+    rows = reporting._recent_rows(
+        reports=reports,
+        quarterly=pd.DataFrame(),
+        valuation_frames={"TEST.ST": valued},
+        metadata=_metadata(),
+        as_of=pd.Timestamp("2026-09-10"),
+    )
+
+    assert len(rows) == 1
+    assert rows[0]["report_date"] == "2026-09-02"
+    assert rows[0]["report_date_verified"] is False
+    assert rows[0]["report_date_source"] == "effective_date_fallback"
 
 
 def test_calendar_update_preserves_last_good_row_on_fetch_failure(tmp_path: Path, monkeypatch) -> None:
