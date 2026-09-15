@@ -23,8 +23,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: historical-company-news
+  group: stock-data-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 
 jobs:
   backfill:
@@ -34,6 +35,7 @@ jobs:
       - name: Checka ut repot
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Installera Python
@@ -94,5 +96,5 @@ jobs:
           fi
 
           git commit -m "data: backfilla bolagsnyheter från MFN"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"

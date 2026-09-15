@@ -29,7 +29,7 @@ from .fundamentals import (
 from .model_data import ensure_gbm_model
 from .reporting import build_reports_payload
 from .strategy import run_strategy
-from .utils import write_json_atomic
+from .utils import read_json, write_json_atomic
 from .valuation import GBMModel, calculate_valuation
 
 DOCS_DATA = ROOT / "docs" / "data"
@@ -419,6 +419,32 @@ def _news_events(tickers: list[str], reviews: list[dict[str, object]]) -> list[d
     return events
 
 
+def _merge_published_news(
+    previous: list[dict[str, object]], generated: list[dict[str, object]]
+) -> list[dict[str, object]]:
+    """Market/EPS rebuilds replace E/D, but must not delete published N events.
+
+    Only the news pipeline owns news removal. Freshly enriched raw news may
+    update the same event (for example after a manual review).
+    """
+    news = {
+        str(item["event_id"]): item
+        for item in previous
+        if item.get("event_type") == "news"
+    }
+    market = []
+    for item in generated:
+        if item.get("event_type") == "news":
+            news[str(item["event_id"])] = item
+        else:
+            market.append(item)
+    return sorted(
+        market + list(news.values()),
+        key=lambda item: str(item.get("published_at", "")),
+        reverse=True,
+    )
+
+
 def build_dashboard(
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
@@ -495,8 +521,11 @@ def build_dashboard(
         manual_calendar=calendar,
     )
 
-    all_events = _dividend_events(dividends) + _report_events(reports) + _news_events(tickers, reviews)
-    all_events.sort(key=lambda item: str(item.get("published_at", "")), reverse=True)
+    previous_events = read_json(EVENTS_JSON, default={}).get("events", [])
+    all_events = _merge_published_news(
+        previous_events,
+        _dividend_events(dividends) + _report_events(reports) + _news_events(tickers, reviews),
+    )
     write_json_atomic(
         EVENTS_JSON,
         {"generated_at": generated_at, "is_demo": False, "events": all_events},

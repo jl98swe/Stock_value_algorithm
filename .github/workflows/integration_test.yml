@@ -7,8 +7,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: full-stock-integration
+  group: stock-data-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 
 jobs:
   integration:
@@ -17,6 +18,7 @@ jobs:
       - name: Checka ut repot
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Installera Python
@@ -34,7 +36,7 @@ jobs:
         run: python -m src.fx
 
       - name: Kör marknadspipelinen mot Yahoo
-        run: python -m src.pipeline --defer-score-history
+        run: python -m src.pipeline
 
       - name: Hämta Yahoo trailingDilutedEPS
         run: python -m src.earnings
@@ -55,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv data/derived/valuation_score_history.csv.gz
+          git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
           fi
@@ -73,5 +75,5 @@ jobs:
             exit 0
           fi
           git commit -m "data: verifierad Yahoo diluted EPS integration"
-          git pull --rebase --autostash origin main
-          git push origin main
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"

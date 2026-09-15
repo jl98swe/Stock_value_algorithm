@@ -24,6 +24,28 @@ python -m src.pipeline
 python -m src.validate_outputs
 ```
 
+### Säker publicering av data
+
+Alla skrivande GitHub Actions-jobb delar en kö per gren (`stock-data-${{ github.ref }}`).
+De körs ett i taget, hämtar grenens senaste innehåll efter väntan och sparar tillbaka
+till samma gren. `queue: max` låter flera väntande jobb behållas utan att ersätta
+varandra. En samtidig manuell ändring kan fortfarande ge en konflikt; då stoppas
+sparningen i stället för att någon version skrivs över.
+Automatiska datasparande push-körningar startar bara på `main`; arbetsgrenar
+testas via pull request och kan fortfarande få en manuellt startad datakörning.
+
+Nyhetsjobbet schemaläggs 18:05 i `Europe/Stockholm`. Det kontrollerar inte att
+GitHub faktiskt startar exakt den minuten, eftersom schemalagda jobb kan försenas.
+Datum för nyhetskörningar ska kontrolleras i `data/news/status.json`, inte bara
+genom att se att workflowen är grön.
+
+EPS-jobb bygger webbdata efter sista rapportändringen och sparar rapportfliken,
+rapportmarkörer och aktiesidornas data tillsammans. Marknads-/EPS-byggen bevarar
+publicerade nyheter även om rånyhetscachen saknas; bara nyhetsflödet tar bort
+nyheter. Valideringen stoppar publicering om senaste rapporten, rapportmarkörerna,
+rapportfliken eller de separata aktiefilerna inte stämmer med samma underlag.
+Detta verifierar intern konsistens, inte att Yahoo har publicerat alla bolagsrapporter.
+
 ## Prisdata
 
 Fryst historik:
