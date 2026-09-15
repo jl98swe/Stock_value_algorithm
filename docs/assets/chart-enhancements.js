@@ -81,6 +81,15 @@
     return { code: 'N', label: 'Nyhet', color: '#2f6fb0' };
   }
 
+  function reportDisplayTitle(event) {
+    const raw = String(event.title || '');
+    const match = raw.match(/^(?:Rapport\s+)?(?:YAHOO-)?(\d{4})-(\d{2})-(\d{2})$/i);
+    if (!match) return raw;
+    const month = new Intl.DateTimeFormat('sv-SE', { month: 'long', timeZone: 'UTC' })
+      .format(new Date(`${match[1]}-${match[2]}-01T00:00:00Z`));
+    return `Rapport för perioden ${month} ${match[1]}`;
+  }
+
   function eventDay(event) {
     return String(event.event_date || event.ex_date || event.published_at || '').slice(0, 10);
   }
@@ -243,8 +252,20 @@
       return event.ticker === ticker && day >= startDate && day <= endDate;
     });
 
+    // Yahoo och TradingView kan beskriva samma rapport på samma publiceringsdag.
+    // Visa då en enda E-markör; behåll TradingView-posten när båda finns.
+    const reportByDay = new Map();
+    const deduplicatedEvents = visibleEvents.filter((event) => {
+      if (eventMarker(event).code !== 'E') return true;
+      const day = eventDay(event);
+      const previous = reportByDay.get(day);
+      const preferCurrent = !previous || /TradingView/i.test(String(event.source || ''));
+      if (preferCurrent) reportByDay.set(day, event);
+      return preferCurrent;
+    }).filter((event) => eventMarker(event).code !== 'E' || reportByDay.get(eventDay(event)) === event);
+
     const countByDay = new Map();
-    const eventPoints = visibleEvents.map((event) => {
+    const eventPoints = deduplicatedEvents.map((event) => {
       const day = eventDay(event);
       const candle = candles.find((d) => d.date === day);
       if (!candle) return null;
@@ -253,8 +274,9 @@
       countByDay.set(day, stackIndex + 1);
       const source = event.source ? ` · ${event.source}` : '';
       const signalOffset = signalDays.has(day) ? 24 : 0;
+      const title = reportDisplayTitle(event);
       return {
-        name: `${marker.code} · ${event.title}`,
+        name: `${marker.code} · ${title}`,
         coord: [day, candle.high * 1.03],
         symbol: 'circle',
         symbolSize: 22,
@@ -265,7 +287,7 @@
           borderWidth: event.locking ? 2.5 : 1.5
         },
         label: { show: true, formatter: marker.code, color: '#ffffff', fontSize: 10, fontWeight: 900 },
-        eventTooltip: `<strong>${marker.code} · ${marker.label}</strong><br>${day}${source}<br>${event.title}`
+        eventTooltip: `<strong>${marker.code} · ${marker.label}</strong><br>${day}${source}<br>${title}`
       };
     }).filter(Boolean);
 
@@ -334,3 +356,4 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
