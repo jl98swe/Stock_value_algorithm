@@ -267,6 +267,13 @@ def _iso_date(value: object) -> str | None:
     return None if pd.isna(timestamp) else pd.Timestamp(timestamp).date().isoformat()
 
 
+def _stockholm_date(value: object) -> str | None:
+    timestamp = pd.to_datetime(value, errors="coerce", utc=True)
+    if pd.isna(timestamp):
+        return None
+    return pd.Timestamp(timestamp).tz_convert(STOCKHOLM_TZ).date().isoformat()
+
+
 def _trading_days_between(start: pd.Timestamp, end: pd.Timestamp) -> int:
     if end <= start:
         return 0
@@ -492,6 +499,7 @@ def _recent_rows(
         data = valued.copy()
         data["Date"] = pd.to_datetime(data["Date"], errors="coerce").dt.tz_localize(None).dt.normalize()
         effective = pd.Timestamp(report.effective_date).tz_localize(None).normalize()
+        published_date = _stockholm_date(report.published_at)
         before = data.loc[data["Date"] < effective].tail(1)
         after = data.loc[data["Date"] >= effective].head(1)
         if before.empty or after.empty:
@@ -509,7 +517,9 @@ def _recent_rows(
                 "ticker": ticker,
                 "name": names.get(ticker) or ticker.removesuffix(".ST").replace("-", " "),
                 "report_period": str(report.report_period or ""),
-                "report_date": _iso_date(effective),
+                "report_date": published_date or _iso_date(effective),
+                "report_date_verified": published_date is not None,
+                "report_date_source": "published_at" if published_date is not None else "effective_date_fallback",
                 "period_end": _iso_date(report.period_end),
                 "reported_quarter_eps": _json_number(current_quarter.get("eps"), 6) if current_quarter is not None else None,
                 "reported_eps_currency": str(current_quarter.get("eps_currency") or "") if current_quarter is not None else None,

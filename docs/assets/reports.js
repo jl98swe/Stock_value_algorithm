@@ -44,7 +44,7 @@
   function formatDateRange(start, end, status) {
     if (!start) return '–';
     const range = end && end !== start ? `${formatDate(start)}–${formatDate(end)}` : formatDate(start);
-    return status === 'estimated_range' ? `${range}<span class="cell-note">Preliminärt intervall</span>` : range;
+    return status === 'estimated_range' ? `${range}<span class="date-status-chip">Preliminärt</span>` : range;
   }
 
   function stockLink(row) {
@@ -60,20 +60,18 @@
   }
 
   function neutralEps(row) {
-    if (row.neutral_quarter_eps == null) {
-      return '<span class="unavailable">Saknas</span><span class="cell-note">Jämförbar diluted EPS saknas</span>';
-    }
-    return `<strong>${formatNumber(row.neutral_quarter_eps)} ${escapeHtml(row.neutral_eps_currency || '')}</strong><span class="cell-note">Period ${formatDate(row.neutral_reference_period)}</span>`;
+    if (row.neutral_quarter_eps == null) return '–';
+    return `<strong>${formatNumber(row.neutral_quarter_eps)} ${escapeHtml(row.neutral_eps_currency || '')}</strong>`;
   }
 
   function expectedEps(row) {
     if (row.expected_eps != null && row.estimate_status === 'verified_comparable') {
-      return `<strong>${formatNumber(row.expected_eps)} ${escapeHtml(row.expected_eps_currency || '')}</strong><span class="cell-note">Verifierad jämförbar definition</span>`;
+      return `<strong>${formatNumber(row.expected_eps)} ${escapeHtml(row.expected_eps_currency || '')}</strong>`;
     }
     if (row.unverified_estimate_available) {
-      return '<span class="not-comparable">Ej jämförbart</span><span class="cell-note">Yahoo-estimatets EPS-definition är inte verifierad</span>';
+      return '<span class="not-comparable">Estimatet är inte jämförbart</span>';
     }
-    return '<span class="unavailable">Saknas</span>';
+    return '–';
   }
 
   function renderUpcoming(rows) {
@@ -89,7 +87,7 @@
         <td><strong>${formatNumber(row.current_eps_ttm)} ${escapeHtml(row.eps_ttm_currency || '')}</strong></td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>
-      </tr>`).join('') : '<tr><td colspan="8" class="report-empty">Inga bevakade aktier har ett sparat rapportdatum inom de närmaste tio handelsdagarna.</td></tr>';
+      </tr>`).join('') : '<tr><td colspan="8" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
   }
 
   function pair(before, after, currency = '') {
@@ -118,9 +116,9 @@
       const priceClass = priceChange === null ? '' : priceChange > 0 ? 'positive' : priceChange < 0 ? 'negative' : '';
       return `<tr>
         <td>${stockLink(row)}</td>
-        <td><strong>${formatDate(row.report_date)}</strong><span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
-        <td>${row.reported_quarter_eps == null ? '<span class="unavailable">Saknas</span>' : `<strong>${formatNumber(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
-        <td>${row.prior_year_quarter_eps == null ? '<span class="unavailable">Saknas</span>' : `${formatNumber(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
+        <td><strong>${formatDate(row.report_date)}</strong>${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
+        <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatNumber(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
+        <td>${row.prior_year_quarter_eps == null ? '–' : `${formatNumber(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
         <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency)}</td>
         <td>${scorePair(row.score_before, row.score_after)}<span class="cell-note">${formatDate(row.before_date)} → ${formatDate(row.after_date)}</span></td>
         <td class="${scoreClass}"><strong>${signed(row.score_change)}</strong></td>

@@ -1,0 +1,12 @@
+.date-status-chip {
+  display: block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #fff0d9;
+  color: #8a5a10;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}

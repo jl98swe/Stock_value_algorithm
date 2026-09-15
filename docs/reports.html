@@ -7,7 +7,8 @@
   <title>Rapporter · Stock Value Algorithm</title>
   <meta name="description" content="Kommande rapporter och faktisk rapportpåverkan i Stock Value Algorithm.">
   <link rel="stylesheet" href="./assets/style.css?v=20260914-1">
-  <script defer src="./assets/reports.js?v=20260914-1"></script>
+  <link rel="stylesheet" href="./assets/reports.css?v=20260915-1">
+  <script defer src="./assets/reports.js?v=20260915-1"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -16,7 +17,7 @@
         <div class="brand-mark" aria-hidden="true">SV</div>
         <div>
           <div class="brand-title">Stock Value Algorithm</div>
-          <div class="brand-subtitle">Rapportbevakning och faktisk påverkan på strategin</div>
+          <div class="brand-subtitle">Rapporter</div>
         </div>
       </a>
       <div class="header-actions">
@@ -37,9 +38,8 @@
     <main class="reports-page">
       <section class="reports-hero">
         <div>
-          <span class="eyebrow">Fundamental bevakning</span>
           <h1>Rapporter</h1>
-          <p>De närmaste rapporterna och hur nyligen publicerade rapporter faktiskt har påverkat EPS TTM, kurs och värderingspoäng.</p>
+          <p>Se vilka bolag som rapporterar snart och hur de senaste rapporterna har påverkat EPS TTM, aktiekurs och värderingspoäng.</p>
         </div>
         <div class="reports-asof">Marknadsdata till och med <strong id="as-of-date">–</strong></div>
       </section>
@@ -49,25 +49,17 @@
 
       <div id="reports-content" hidden>
         <section class="reports-summary" aria-label="Sammanfattning">
-          <article class="report-summary-card"><span>Inom 10 handelsdagar</span><strong id="upcoming-count">0</strong></article>
-          <article class="report-summary-card urgent-card"><span>Inom 5 handelsdagar</span><strong id="urgent-count">0</strong></article>
-          <article class="report-summary-card"><span>Nyligen rapporterat</span><strong id="recent-count">0</strong></article>
-        </section>
-
-        <section class="panel report-note" aria-labelledby="scope-title">
-          <div>
-            <span class="eyebrow">Avgränsning</span>
-            <h2 id="scope-title">Ingen spekulativ poängprognos</h2>
-          </div>
-          <p>Förväntad EPS visas bara när den är verifierad som jämförbar utspädd kvartals-EPS. Ett generellt Yahoo-estimat används aldrig för att beräkna en framtida EPS TTM eller värderingspoäng.</p>
+          <article class="report-summary-card"><span>Rapporter inom 10 handelsdagar</span><strong id="upcoming-count">0</strong></article>
+          <article class="report-summary-card urgent-card"><span>Rapporter inom 5 handelsdagar</span><strong id="urgent-count">0</strong></article>
+          <article class="report-summary-card"><span>Rapporter senaste 20 handelsdagarna</span><strong id="recent-count">0</strong></article>
         </section>
 
         <section class="panel" aria-labelledby="upcoming-title">
           <div class="panel-header split-header">
             <div>
-              <span class="eyebrow">Nästa 10 handelsdagar</span>
+              <span class="eyebrow">Kommande 10 handelsdagar</span>
               <h2 id="upcoming-title">Kommande rapporter</h2>
-              <p class="panel-description">Närmaste datum först. Rader inom fem handelsdagar markeras tydligare.</p>
+              <p class="panel-description">Sorterade efter rapportdatum. Rapporter inom fem handelsdagar markeras.</p>
             </div>
           </div>
           <div class="report-table-wrap">
@@ -75,13 +67,13 @@
               <thead>
                 <tr>
                   <th>Aktie</th>
-                  <th>Rapportdatum</th>
-                  <th>Handelsdagar kvar</th>
-                  <th>Aktuell kurs</th>
-                  <th>Score</th>
-                  <th>EPS TTM</th>
-                  <th>TTM-neutral kvartals-EPS <span class="info-tip" tabindex="0" data-tooltip="Utspädd EPS i motsvarande rapportperiod föregående år. Samma nivå lämnar EPS TTM oförändrad, men inte nödvändigtvis värderingspoängen.">?</span></th>
-                  <th>Förväntad EPS <span class="info-tip" tabindex="0" data-tooltip="Visas endast när estimatet är verifierat som jämförbar utspädd kvartals-EPS.">?</span></th>
+                  <th>Rapportdatum <span class="info-tip" tabindex="0" data-tooltip="Datum då rapporten väntas publiceras. Ett intervall visas om källan inte anger ett exakt datum.">?</span></th>
+                  <th>Handelsdagar kvar <span class="info-tip" tabindex="0" data-tooltip="Antal handelsdagar fram till rapporten. Dagar då börsen är stängd räknas inte.">?</span></th>
+                  <th>Aktiekurs</th>
+                  <th>Värderingspoäng <span class="info-tip" tabindex="0" data-tooltip="Strategins värderingspoäng från 0 till 100. En låg poäng betyder lägre värdering och en hög poäng betyder högre värdering.">?</span></th>
+                  <th>EPS TTM <span class="info-tip" tabindex="0" data-tooltip="Utspädd vinst per aktie för de senaste tolv månaderna, uttryckt i den valuta som används i värderingsberäkningen.">?</span></th>
+                  <th>Kvartals-EPS föregående år <span class="info-tip" tabindex="0" data-tooltip="Utspädd EPS för motsvarande rapportperiod föregående år. Om kommande kvartals-EPS blir densamma förändras inte EPS TTM framåt. Värderingspoängen kan ändå påverkas av aktiekursen.">?</span></th>
+                  <th>Förväntad kvartals-EPS <span class="info-tip" tabindex="0" data-tooltip="Analytikernas estimat för den kommande rapportens kvartals-EPS. Visas bara när måttdefinitionen är jämförbar med strategins utspädda kvartals-EPS.">?</span></th>
                 </tr>
               </thead>
               <tbody id="upcoming-body"></tbody>
@@ -94,7 +86,7 @@
             <div>
               <span class="eyebrow">Senaste 20 handelsdagarna</span>
               <h2 id="recent-title">Nyligen rapporterade aktier</h2>
-              <p class="panel-description">Före/efter är rekonstruerat med aktuell modell. Scoreförändringen innehåller både ny EPS TTM och kursrörelsen.</p>
+              <p class="panel-description">Värdena före och efter rapporten bygger på den aktuella versionen av värderingsmodellen. Förändringen i värderingspoäng påverkas av både EPS TTM och aktiekurs.</p>
             </div>
           </div>
           <div class="report-table-wrap">
@@ -102,14 +94,14 @@
               <thead>
                 <tr>
                   <th>Aktie</th>
-                  <th>Rapportdatum</th>
-                  <th>Utspädd kvartals-EPS</th>
-                  <th>Samma period föregående år</th>
-                  <th>EPS TTM före → efter</th>
-                  <th>Score före → efter</th>
-                  <th>Förändring score</th>
-                  <th>Kurs före → efter</th>
-                  <th>Kursreaktion</th>
+                  <th>Rapportdatum <span class="info-tip" tabindex="0" data-tooltip="Datum då rapporten publicerades. Om publiceringsdatumet saknas används datumet då rapportens nya EPS TTM började användas och raden flaggas.">?</span></th>
+                  <th>Rapporterad kvartals-EPS <span class="info-tip" tabindex="0" data-tooltip="Utspädd vinst per aktie för den rapporterade perioden.">?</span></th>
+                  <th>Kvartals-EPS föregående år <span class="info-tip" tabindex="0" data-tooltip="Utspädd EPS för motsvarande rapportperiod föregående år.">?</span></th>
+                  <th>EPS TTM före → efter <span class="info-tip" tabindex="0" data-tooltip="Utspädd vinst per aktie för de senaste tolv månaderna, före respektive efter rapporten.">?</span></th>
+                  <th>Värderingspoäng före → efter <span class="info-tip" tabindex="0" data-tooltip="Värderingspoängen närmast före respektive efter rapporten.">?</span></th>
+                  <th>Förändring i värderingspoäng</th>
+                  <th>Aktiekurs före → efter</th>
+                  <th>Kursförändring</th>
                 </tr>
               </thead>
               <tbody id="recent-body"></tbody>
@@ -117,16 +109,6 @@
           </div>
         </section>
 
-        <section class="panel report-definitions" aria-labelledby="definitions-title">
-          <span class="eyebrow">Begrepp</span>
-          <h2 id="definitions-title">Så ska värdena läsas</h2>
-          <dl>
-            <div><dt>Kvartals-EPS</dt><dd>Utspädd vinst per aktie för den enskilda rapportperioden.</dd></div>
-            <div><dt>EPS TTM</dt><dd>Summan av de senaste tolv månadernas EPS. En ny period ersätter motsvarande period föregående år.</dd></div>
-            <div><dt>TTM-neutral EPS</dt><dd>Samma kvartals-EPS som motsvarande period föregående år. Då förändras inte EPS TTM av själva rullningen.</dd></div>
-            <div><dt>Förväntad EPS</dt><dd>Visas bara när definition och valuta har verifierats mot strategins utspädda kvartals-EPS.</dd></div>
-          </dl>
-        </section>
       </div>
     </main>
   </div>
