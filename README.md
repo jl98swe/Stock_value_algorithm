@@ -68,6 +68,11 @@ date, open, high, low, close, volume, ticker, ma200
 
 `ma200` är ett enkelt 200-handelsdagars medelvärde av ojusterad `close`, räknat på basfil + samtliga senare uppdateringar.
 
+Endast avslutade börsdagar på Nasdaq Stockholm används. Börskalenderns stängning
+(även halvdagar och sommar-/vintertid) styr både hämtning och läsning av sparad
+prishistorik. En manuell körning mitt på dagen får därför inte använda dagens
+pågående dagsstapel för poäng eller signaler.
+
 ## Fundamentaldata
 
 Kanonisk rapportfil:

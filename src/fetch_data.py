@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import argparse
 import os
-from datetime import date, timedelta
+from datetime import timedelta
 from pathlib import Path
 
 import pandas as pd
+import exchange_calendars as xcals
 import yfinance as yf
 
 BASE_DATA_FILE = Path(os.getenv("PRICE_BASE_FILE", "data/prices/prisdata_initial.parquet"))
@@ -13,6 +14,22 @@ UPDATES_FILE = Path(os.getenv("PRICE_UPDATES_FILE", "data/prices/price_updates.c
 DEFAULT_FULL_START = os.getenv("PRICE_HISTORY_START", "2016-01-01")
 PRICE_COLUMNS = ["date", "open", "high", "low", "close", "volume", "ticker", "ma200"]
 RAW_PRICE_COLUMNS = ["date", "open", "high", "low", "close", "volume", "ticker"]
+
+
+def last_completed_session(as_of: object | None = None) -> pd.Timestamp:
+    """Latest XSTO session whose closing auction has finished, including half days."""
+    now = pd.Timestamp.now(tz="UTC") if as_of is None else pd.Timestamp(as_of)
+    now = now.tz_localize("UTC") if now.tzinfo is None else now.tz_convert("UTC")
+    calendar = xcals.get_calendar("XSTO")
+    local_day = now.tz_convert("Europe/Stockholm").tz_localize(None).normalize()
+    session = calendar.date_to_session(local_day, direction="previous")
+    if calendar.session_close(session) > now:
+        session = calendar.previous_session(session)
+    return pd.Timestamp(session).tz_localize(None).normalize()
+
+
+def _completed_rows(frame: pd.DataFrame, cutoff: pd.Timestamp) -> pd.DataFrame:
+    return frame.loc[pd.to_datetime(frame["date"]).dt.normalize() <= cutoff].copy()
 
 
 def _normalize_download(downloaded: pd.DataFrame, tickers: list[str]) -> pd.DataFrame:
@@ -83,6 +100,8 @@ def _recalculate_ma200(frame: pd.DataFrame) -> pd.DataFrame:
 def load_price_history(
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
+    *,
+    as_of: object | None = None,
 ) -> pd.DataFrame:
     """Läs basfil + dagliga uppdateringar som en sammanhängande prisserie."""
     if not base_file.exists():
@@ -96,7 +115,8 @@ def load_price_history(
         updates = _normalise_stored(pd.read_csv(updates_file)).drop(columns=["ma200"], errors="ignore")
         frames.append(updates[RAW_PRICE_COLUMNS])
 
-    return _recalculate_ma200(pd.concat(frames, ignore_index=True))
+    completed = _completed_rows(pd.concat(frames, ignore_index=True), last_completed_session(as_of))
+    return _recalculate_ma200(completed)
 
 
 def _download(tickers: list[str], *, start: str, end: str) -> pd.DataFrame:
@@ -155,13 +175,17 @@ def update_prices(
     updates_file: Path = UPDATES_FILE,
     *,
     full: bool = False,
+    as_of: object | None = None,
 ) -> pd.DataFrame:
-    existing = load_price_history(base_file, updates_file)
+    now = pd.Timestamp.now(tz="UTC") if as_of is None else pd.Timestamp(as_of)
+    cutoff = last_completed_session(now)
+    existing = load_price_history(base_file, updates_file, as_of=now)
     tickers = sorted(existing["ticker"].unique().tolist())
     if not tickers:
         raise ValueError("Prisfilen innehåller inga tickers.")
 
-    end = (date.today() + timedelta(days=1)).isoformat()
+    # Yahoo's end date is exclusive. Never request a still-open daily bar.
+    end = (cutoff.date() + timedelta(days=1)).isoformat()
     if full:
         fresh = _download(tickers, start=DEFAULT_FULL_START, end=end)
     else:
@@ -181,6 +205,7 @@ def update_prices(
 
     # Varje normal körning hämtar sju dagars överlapp. Ett helt tomt svar är
     # därför ett sannolikt hämtfel och ska inte kunna ge en falskt grön Action.
+    fresh = _completed_rows(fresh, cutoff)
     if fresh.empty:
         raise RuntimeError(
             "Yahoo returnerade ingen prisdata alls. Uppdateringen avbryts så att "
@@ -199,12 +224,12 @@ def update_prices(
     # stoppa dagens uppdatering på grund av historiska Yahoo-reparationer.
     _validate_ohlc(fresh)
 
-    base = _normalise_stored(pd.read_parquet(base_file))[RAW_PRICE_COLUMNS]
+    base = _completed_rows(_normalise_stored(pd.read_parquet(base_file))[RAW_PRICE_COLUMNS], cutoff)
     base_last = base.groupby("ticker")["date"].max().to_dict()
 
     old_updates = pd.DataFrame(columns=RAW_PRICE_COLUMNS)
     if updates_file.exists() and updates_file.stat().st_size:
-        old_updates = _normalise_stored(pd.read_csv(updates_file))[RAW_PRICE_COLUMNS]
+        old_updates = _completed_rows(_normalise_stored(pd.read_csv(updates_file))[RAW_PRICE_COLUMNS], cutoff)
 
     keep = fresh.apply(
         lambda row: row["date"] > base_last.get(row["ticker"], pd.Timestamp.min),
@@ -227,7 +252,6 @@ def update_prices(
 
     if raw_updates.empty:
         print("Ingen ny rad att lägga till i price_updates.csv.")
-        return existing
 
     _validate_ohlc(raw_updates)
 
