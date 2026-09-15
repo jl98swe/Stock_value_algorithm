@@ -27,6 +27,7 @@ from .fx import (
     required_currency_pairs,
 )
 from .model_data import ensure_gbm_model
+from .reporting import REPORTS_JSON, UPCOMING_TRADING_DAYS
 from .valuation import GBMModel
 
 DOCS_DATA = ROOT / "docs" / "data"
@@ -286,6 +287,7 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
     stocks_payload = _load_json(DOCS_DATA / "stocks.json")
     dashboard = _load_json(DOCS_DATA / "dashboard.json")
     events = _load_json(DOCS_DATA / "events.json")
+    report_analysis = _load_json(REPORTS_JSON)
 
     price_tickers = set(prices["ticker"].astype(str).unique())
     stock_rows = stocks_payload.get("stocks", [])
@@ -365,6 +367,31 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
         raise ValueError("Demo-event finns kvar i live-data")
     if not any(isinstance(item, dict) and item.get("event_type") == "dividend" for item in event_rows):
         raise ValueError("Inga utdelningshändelser exporterades till events.json")
+
+    upcoming = report_analysis.get("upcoming", [])
+    recent = report_analysis.get("recent", [])
+    if not isinstance(upcoming, list) or not isinstance(recent, list):
+        raise ValueError("reports.json: upcoming och recent måste vara listor")
+    upcoming_tickers = {str(row.get("ticker")) for row in upcoming if isinstance(row, dict)}
+    recent_tickers = {str(row.get("ticker")) for row in recent if isinstance(row, dict)}
+    unknown_report_tickers = sorted((upcoming_tickers | recent_tickers).difference(price_tickers))
+    if unknown_report_tickers:
+        raise ValueError(f"reports.json innehåller okända tickers: {unknown_report_tickers[:10]}")
+    upcoming_order = [
+        (str(row.get("report_date_start", "")), str(row.get("ticker", "")))
+        for row in upcoming
+        if isinstance(row, dict)
+    ]
+    if upcoming_order != sorted(upcoming_order):
+        raise ValueError("reports.json: kommande rapporter är inte kronologiskt sorterade")
+    for row in upcoming:
+        if not isinstance(row, dict):
+            raise ValueError("reports.json: ogiltig rad i upcoming")
+        days = pd.to_numeric(pd.Series([row.get("trading_days_to_report")]), errors="coerce").iloc[0]
+        if pd.isna(days) or not 0 <= int(days) <= UPCOMING_TRADING_DAYS:
+            raise ValueError(f"reports.json: ogiltigt antal handelsdagar för {row.get('ticker')}")
+        if row.get("expected_eps") is not None and row.get("estimate_status") != "verified_comparable":
+            raise ValueError("reports.json exponerar ett EPS-estimat som inte är verifierat jämförbart")
 
     _validate_canonical_reports()
     _validate_earnings(price_tickers)

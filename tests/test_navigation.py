@@ -7,6 +7,7 @@ PAGES = {
     "index.html": "./index.html",
     "positions.html": "./positions.html",
     "signals.html": "./signals.html",
+    "reports.html": "./reports.html",
     "review.html": "./review.html",
 }
 
@@ -14,6 +15,7 @@ EXPECTED_LINKS = [
     ("./index.html", "Startsida"),
     ("./positions.html", "Aktiva positioner"),
     ("./signals.html", "Kommande signaler"),
+    ("./reports.html", "Rapporter"),
     ("./review.html", "Granska nyheter och data"),
 ]
 

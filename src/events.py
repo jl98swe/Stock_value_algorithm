@@ -73,7 +73,19 @@ def load_report_calendar(path: str | Path = "data/manual/report_calendar.csv") -
     file_path = Path(path)
     if not file_path.is_absolute():
         file_path = ROOT / file_path
-    columns = ["ticker", "report_period", "scheduled_at", "lock_from_date", "source", "url", "verified"]
+    columns = [
+        "ticker",
+        "report_period",
+        "scheduled_at",
+        "lock_from_date",
+        "source",
+        "url",
+        "verified",
+        "expected_eps",
+        "expected_eps_currency",
+        "expected_eps_metric",
+        "expected_eps_verified",
+    ]
     if not file_path.exists() or file_path.stat().st_size == 0:
         return pd.DataFrame(columns=columns)
     frame = pd.read_csv(file_path)
@@ -83,6 +95,14 @@ def load_report_calendar(path: str | Path = "data/manual/report_calendar.csv") -
     frame["scheduled_at"] = pd.to_datetime(frame["scheduled_at"], errors="coerce", utc=True)
     frame["lock_from_date"] = pd.to_datetime(frame["lock_from_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
     frame["verified"] = frame["verified"].astype(str).str.lower().isin(("true", "1", "yes", "ja"))
+    frame["expected_eps"] = pd.to_numeric(frame["expected_eps"], errors="coerce")
+    frame["expected_eps_currency"] = (
+        frame["expected_eps_currency"].fillna("").astype(str).str.strip().str.upper()
+    )
+    frame["expected_eps_metric"] = frame["expected_eps_metric"].fillna("").astype(str).str.strip()
+    frame["expected_eps_verified"] = (
+        frame["expected_eps_verified"].astype(str).str.lower().isin(("true", "1", "yes", "ja"))
+    )
     return frame[columns]
 
 

@@ -1,1 +1,1 @@
-ticker,report_period,scheduled_at,lock_from_date,source,url,verified
+ticker,report_period,scheduled_at,lock_from_date,source,url,verified,expected_eps,expected_eps_currency,expected_eps_metric,expected_eps_verified
