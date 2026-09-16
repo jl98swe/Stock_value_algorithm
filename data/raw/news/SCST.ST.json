@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-15T21:44:34+02:00",
+  "generated_at": "2026-09-16T21:33:44+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandi-standard",
   "items": [
+    {
+      "ticker": "SCST.ST",
+      "company": "Scandi Standard AB (publ)",
+      "published_at": "2026-09-16T20:11:31+02:00",
+      "title": "Starkt stöd för Scandi Standards strategi genom fulltecknad företrädesemission",
+      "link": "https://mfn.se/cis/a/scandi-standard/starkt-stod-for-scandi-standards-strategi-genom-fulltecknad-foretradesemission-f1b1ba0e",
+      "source": "MFN",
+      "summary": "Starkt stöd för Scandi Standards strategi genom fulltecknad företrädesemission 2026-09-16 20:11:31 EJ FÖR OFFENTLIGGÖRANDE, DISTRIBUTION ELLER PUBLICERING, DIREKT ELLER INDIREKT, HELT ELLER DELVIS, I ELLER TILL USA, KANADA, AUSTRALIEN, SYDAFRIKA, JAPAN ELLER NÅGON ANNAN JURISDIKTION DÄR OFFENTLIGGÖRANDE, DISTRIBUTION ELLER PUBLICERING AV PRESSMEDDELANDET SKULLE VARA OLAGLIG ELLER KRÄVA REGISTRERING ELLER ANDRA ÅTGÄRDER ENLIGT TILLÄMPLIGA LAGAR OCH REGLER. VÄNLIGEN SE \"VIKTIG INFORMATION\" I SLUTET AV PRESSMEDDELANDET. PRESSMEDDELANDE, 16 september 2026 Teckningsperioden i Scandi Standard AB:s (publ) nyemission av stamaktier med företrädesrätt ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "31fafb30ec52ab33"
+    },
     {
       "ticker": "SCST.ST",
       "company": "Scandi Standard AB (publ)",

@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-15T21:40:23+02:00",
+  "generated_at": "2026-09-16T21:31:18+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/assa-abloy",
-  "items": []
+  "items": [
+    {
+      "ticker": "ASSA-B.ST",
+      "company": "Assa Abloy",
+      "published_at": "2026-09-16T08:00:00+02:00",
+      "title": "ASSA ABLOY förvärvar PACLOCK i USA",
+      "link": "https://mfn.se/cis/a/assa-abloy/assa-abloy-forvarvar-paclock-i-usa-aca31dc1",
+      "source": "MFN",
+      "summary": "ASSA ABLOY förvärvar PACLOCK i USA 2026-09-16 08:00:00 ASSA ABLOY har förvärvat Pacific Lock Company (\"PACLOCK\"), en amerikansk tillverkare av hänglås och säkerhetsprodukter. \"Det är med glädje jag välkomnar PACLOCK till ASSA ABLOY. Detta förvärv ligger i linje med vår strategi att stärka vår position på mogna marknader genom att tillföra kompletterande produkter och lösningar till vår kärnverksamhet\", säger Nico Delvaux, VD och koncernchef ASSA ABLOY. \"PACLOCK är känt för att leverera säkerhetsprodukter av hög kvalitet som kombinerar tillförlitlighet, hållbarhet och innovation, med tillverkning i USA och en exceptionell kundservice\", säger L",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7054e15644454c7c"
+    }
+  ]
 }

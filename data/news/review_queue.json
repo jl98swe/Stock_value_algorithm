@@ -1,7 +1,183 @@
 {
-  "generated_at": "2026-09-15T21:46:21+02:00",
+  "generated_at": "2026-09-16T21:34:23+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-09-16T15:16:01+02:00",
+      "title": "Atlas Copco Group Breaks Ground on Service Center of the Future in Lancaster County, South Carolina",
+      "link": "https://mfn.se/one/a/atlas-copco/atlas-copco-group-breaks-ground-on-service-center-of-the-future-in-lancaster-county-south-carolina-b8988bc7",
+      "source": "MFN",
+      "summary": "Atlas Copco Group Breaks Ground on Service Center of the Future in Lancaster County, South Carolina 2026-09-16 15:16:01 ROCK HILL, S.C., Sept. 16, 2026 (GLOBE NEWSWIRE) -- Atlas Copco Group has broken ground on a new state-of-the-art North American Service Center in Lancaster County, South Carolina. The custom-built, 355,000-square-foot facility marks a significant investment in the future of the company’s logistics and service operations across North America. Operations are expected to begin at the new facility in June 2027. The new North American Service Center has been designed to meet the evolving needs of customers and the business for y",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ff2401ddeb4470f7"
+    },
+    {
+      "ticker": "INVE-A.ST",
+      "company": "Investor AB (publ)",
+      "published_at": "2026-09-16T14:01:44+02:00",
+      "title": "Investor: Patricia Industries stödjer Mölnlyckes planerade uppdelning i två bolag",
+      "link": "https://mfn.se/cis/a/investor/investor-patricia-industries-stodjer-molnlyckes-planerade-uppdelning-i-tva-bolag-1ee0efda",
+      "source": "MFN",
+      "summary": "Investor: Patricia Industries stödjer Mölnlyckes planerade uppdelning i två bolag 2026-09-16 14:01:44 Som meddelats idag avser Mölnlycke att separera ut två av sina befintliga affärsområden, Operating Room Solutions och Gloves, i ett nytt fristående bolag, i detta pressmeddelande benämnt \"Mölnlycke Surgical\". Den planerade uppdelningen syftar till att skapa förutsättningar för både Mölnlycke och Mölnlycke Surgical att nå sin fulla potential och driva långsiktigt värdeskapande genom tydligare strategiskt fokus, ansvarstagande och högre genomförandetakt. Patricia Industries, en del av Investor AB och ägare av Mölnlycke, stödjer avsikten att ska",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b4ac94ee904bf13f"
+    },
+    {
+      "ticker": "WALL-B.ST",
+      "company": "Wallenstam AB (publ)",
+      "published_at": "2026-09-16T14:00:00+02:00",
+      "title": "WALLENSTAM: Wallenstam utökar koncernledningen",
+      "link": "https://mfn.se/cis/a/wallenstam/wallenstam-wallenstam-utokar-koncernledningen-15cc01f9",
+      "source": "MFN",
+      "summary": "WALLENSTAM: Wallenstam utökar koncernledningen 2026-09-16 14:00:00 CIO Daniel Svartling kommer från och med den 1 oktober 2026 och under 2027 ingå i Wallenstams koncernledning. Daniel Svartling ansvarar för Wallenstams digitaliseringsresa och alla frågor kopplade till IT och AI. - IT- och AI-frågor blir allt viktigare och Daniel har under lång tid visat ett starkt engagemang och stor kompetens inom området. Det känns väldigt bra att nu välkomna honom till koncernledningen, så att han med sitt fokus på dessa frågor kan bidra med viktiga perspektiv och att ytterligare stärka vår konkurrenskraft för framtiden, säger Hans Wallenstam, vd. Daniel S",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b30cea7a7d4b2c65"
+    },
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-09-16T12:20:00+02:00",
+      "title": "EQT to sell Ontinue, a provider of AI-powered Managed Extended Detection & Response cybersecurity services",
+      "link": "https://mfn.se/cis/a/eqt/eqt-to-sell-ontinue-a-provider-of-ai-powered-managed-extended-detection-and-response-cybersecurity-services-a26332c7",
+      "source": "MFN",
+      "summary": "EQT to sell Ontinue, a provider of AI-powered Managed Extended Detection & Response cybersecurity services 2026-09-16 12:20:00 Ontinue helps customers across Europe and the US detect and respond to cyber threats in Microsoft environments through 24/7 managed security operations via its Managed Extended Detection & Response platform (\"MXDR\") powered by agentic AI and automation EQT supported Ontinue's transformation through its carve-out into a standalone business, leadership strengthening, technology consolidation and targeted acquisitions in data science, AI and cybersecurity services Under EQT's ownership, Ontinue has approximately doubled ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c28bc0df8520c3aa"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-09-16T09:38:47+02:00",
+      "title": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram",
+      "link": "https://mfn.se/a/norden/indberetning-af-ledende-medarbejderes-og-disses-naertstaendes-transaktioner-med-dampskibsselskabet-norden-a-s-aktier-i-forbindelse-med-aktietilbagekobsprogram-19",
+      "source": "MFN",
+      "summary": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram 2026-09-16 09:38:47 Selskabsmeddelelse nr. 217/2026 (16. september 2026) I forbindelse med det annoncerede aktietilbagekøbsprogram i NORDEN, deltager A/S Motortramp ved løbende at sælge aktier pro rata, og der informeres til markedet – se vedhæftede fil og meddelelse nr. 189/2026 og 190/2026. Med venlig hilsen, Dampskibsselskabet NORDEN A/S Martin Badsted Finansdirektør Yderligere oplysninger: Therese Möllevinge, Head of Investor Relations, tlf.: +45 41 37 16 38, e-mail thm@norden.com V",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "64f09b8dea119639"
+    },
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-09-16T08:30:00+02:00",
+      "title": "Financial reporting days for Atlas Copco Group",
+      "link": "https://mfn.se/cis/a/atlas-copco/financial-reporting-days-for-atlas-copco-group-e9f22f2c",
+      "source": "MFN",
+      "summary": "Financial reporting days for Atlas Copco Group 2026-09-16 08:30:00 Nacka, Sweden, September 16, 2026: Atlas Copco Group will issue financial information on the following dates: 2027 April 22 Q1 2027 result and Annual General Meeting Silent period starts March 23, 2027 July 16 Q2 2027 result Silent period starts June 16, 2027 October 21 Q3 2027 result Silent period starts September 21, 2027 2028 January 25 Preliminary 2027 report Q4 2027 result Silent period starts December 26, 2027 For more information please contact: Christina Malmberg Hägerstrand, Head of Group Media Relations +46 72 855 93 29 media@atlascopco.com Daniel Althoff, Vice Presi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "51b7add814f04466"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-16T08:00:00+02:00",
+      "title": "Peab bygger bostäder och handel i Umeå",
+      "link": "https://mfn.se/cis/a/peab/peab-bygger-bostader-och-handel-i-umea-2d6c1d31",
+      "source": "MFN",
+      "summary": "Peab bygger bostäder och handel i Umeå 2026-09-16 08:00:00 Peab har fått uppdraget att bygga bostäder och handel i den nya stadsdelen Hagaliden i Umeå. Beställare är Bonava Hagamarket AB och Bonava Sverige AB och den totala kontraktssumman uppgår till 121 miljoner svenska kronor. Projektet består av två separata totalentreprenader. Den ena entreprenaden omfattar uppförandet av en matvarubutik för Coop med Bonava Hagamarket AB som beställare. Den andra entreprenaden avser Brf Motorn med Bonava Sverige AB som beställare. Denna etapp omfattar två punkthus med totalt 45 bostadsrättslägenheter och en terrasserad innergård ovanpå Coopbutiken, samt ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "010135cf8f0afe78"
+    },
+    {
+      "ticker": "INTRUM.ST",
+      "company": "Intrum AB (publ)",
+      "published_at": "2026-09-16T07:00:00+02:00",
+      "title": "Fler europeiska konsumenter lånar för att betala räkningar samtidigt som sena betalningar ökar igen",
+      "link": "https://mfn.se/a/intrum/fler-europeiska-konsumenter-lanar-for-att-betala-rakningar-samtidigt-som-sena-betalningar-okar-igen",
+      "source": "MFN",
+      "summary": "Fler europeiska konsumenter lånar för att betala räkningar samtidigt som sena betalningar ökar igen 2026-09-16 07:00:00 Europeiska konsumenter klarar fortfarande sina löpande utgifter, men tecknen på ekonomisk press ökar. 56 procent har lånat pengar eller använt kredit för att betala räkningar under de senaste sex månaderna, jämfört med 45 procent förra året, samtidigt som sena betalningar har ökat efter två år av förbättring. Ekonomisk press påverkar konsumenter på olika sätt. Vissa blir alltmer försiktiga med sin konsumtion, medan andra vänder sig till flexibla betalningslösningar för att hantera sin ekonomi. Intrums årliga European Consume",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "98dae8ed428e24bc"
+    },
     {
       "ticker": "FOI-B.ST",
       "company": "Fenix Outdoor International AG",
@@ -3103,6 +3279,28 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "c41025fbcb2aa8db"
+    },
+    {
+      "ticker": "CAST.ST",
+      "company": "Castellum",
+      "published_at": "2026-08-21T08:00:00+02:00",
+      "title": "Castellum behåller Nasdaq Green Equity Designation",
+      "link": "https://mfn.se/a/castellum/castellum-behaller-nasdaq-green-equity-designation",
+      "source": "MFN",
+      "summary": "Castellum behåller Nasdaq Green Equity Designation 2026-08-21 08:00:00 Castellum har återigen godkänts för Nasdaq Green Equity Designation på Nasdaq Stockholm och behåller därmed sin gröna aktieklassificering. Nasdaq Green Equity Designation ställer krav på bland annat hur stor andel av ett bolags omsättning och investeringar som kan klassificeras som gröna. Bedömningen granskas externt och förnyas årligen. I årets externa granskning från S&P Global Shades of Green konstateras att 81 procent av Castellums omsättning kommer från energieffektiva byggnader. Det överstiger Nasdaqs gräns på 50 procent. S&P bedömer även att 78 procent av Castellums",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "981097bf8e943fa1"
     }
   ]
 }

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-15T21:43:57+02:00",
+  "generated_at": "2026-09-16T21:33:28+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-16T08:00:00+02:00",
+      "title": "Peab builds homes and retail space in Umeå",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-homes-and-retail-space-in-umea-57353a40",
+      "source": "MFN",
+      "summary": "Peab builds homes and retail space in Umeå 2026-09-16 08:00:00 Peab has been commissioned to build housing and retail space in the new city district Hagaliden in Umeå. The customers are Bonava Hagamarket AB and Bonava Sverige AB and the total contract amount is SEK 121 million. The project consists of two separate turnkey contracts. One of the contracts comprises the construction of a grocery store for Coop where Bonava Hagamarket AB is the customer. The second contract is for Brf Motorn where Bonava Sverige AB is the customer. This contract comprises two tower blocks with a total of 45 tenant-owner apartments and a terraced courtyard on top ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bcf6355e2229950f"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",
