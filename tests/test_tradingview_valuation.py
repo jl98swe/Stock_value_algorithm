@@ -2,7 +2,7 @@ import pytest
 
 from src.fetch_data import load_price_history
 from src.fundamentals import (
-    REPORT_DATE_STATE,
+    TV_PERIOD_END_STATE,
     attach_eps_ttm,
     load_reports,
     valuation_calculation_mode,
@@ -11,7 +11,7 @@ from src.model_data import ensure_gbm_model
 from src.valuation import GBMModel, calculate_valuation
 
 
-def test_dyvox_uses_report_dates_and_only_scores_when_gbm_can_run():
+def test_dyvox_uses_tv_period_end_state_and_only_scores_when_gbm_can_run():
     ticker = "DYVOX.ST"
     prices = load_price_history()
     prices = prices.loc[
@@ -29,7 +29,7 @@ def test_dyvox_uses_report_dates_and_only_scores_when_gbm_can_run():
     reports = load_reports()
     mode = valuation_calculation_mode(ticker, reports)
 
-    assert mode == REPORT_DATE_STATE
+    assert mode == TV_PERIOD_END_STATE
     working = attach_eps_ttm(prices, ticker, reports, calculation_mode=mode)
     valued = calculate_valuation(
         working,
@@ -41,7 +41,7 @@ def test_dyvox_uses_report_dates_and_only_scores_when_gbm_can_run():
     assert valued.loc[valued["CanRunGBM"], "Score"].notna().all()
 
 
-def test_abb_tv_values_stay_in_sek_but_use_report_date_timing():
+def test_abb_tv_values_stay_in_sek_and_use_period_end_timing():
     ticker = "ABB.ST"
     prices = load_price_history()
     prices = prices.loc[
@@ -63,7 +63,7 @@ def test_abb_tv_values_stay_in_sek_but_use_report_date_timing():
         & reports["source"].astype(str).str.startswith("TradingView")
     ].sort_values("period_end")
 
-    assert mode == REPORT_DATE_STATE
+    assert mode == TV_PERIOD_END_STATE
     assert len(abb_reports) == 32
     assert abb_reports.iloc[0]["report_period"] == "2018-Q3"
     working = attach_eps_ttm(prices, ticker, reports, calculation_mode=mode)

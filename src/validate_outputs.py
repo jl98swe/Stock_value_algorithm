@@ -28,6 +28,7 @@ from .fx import (
 )
 from .model_data import ensure_gbm_model
 from .reporting import REPORTS_JSON, UPCOMING_TRADING_DAYS, _recent_window_start
+from .score_history import SCORE_HISTORY_COLUMNS, SCORE_HISTORY_FILE, load_score_history
 from .valuation import GBMModel
 
 DOCS_DATA = ROOT / "docs" / "data"
@@ -378,6 +379,18 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
         raise ValueError("dashboard.json matchar inte prisuniversum")
 
     latest_dates = prices.groupby("ticker")["date"].max()
+    score_history_path = _resolve(SCORE_HISTORY_FILE)
+    if not score_history_path.exists() or score_history_path.stat().st_size == 0:
+        raise ValueError("Fryst poänghistorik saknas")
+    raw_score_history = pd.read_csv(score_history_path)
+    missing_score_columns = [column for column in SCORE_HISTORY_COLUMNS if column not in raw_score_history.columns]
+    if missing_score_columns:
+        raise ValueError(
+            "valuation_score_history.csv.gz saknar kolumner: "
+            f"{', '.join(missing_score_columns)}"
+        )
+    score_history = load_score_history(score_history_path)
+    frozen_lookup = score_history.set_index(["ticker", "date"])["score"]
     for ticker in price_tickers:
         payload = dashboard_stocks[ticker]
         if not isinstance(payload, dict):
@@ -407,6 +420,12 @@ def _validate_dashboard(prices: pd.DataFrame) -> None:
                 continue
             if not np.isfinite(dashboard_score) or not 0.0 <= float(dashboard_score) <= 100.0:
                 raise ValueError(f"Ogiltig dashboard-score för {ticker}: {dashboard_score}")
+            day = pd.Timestamp(score_row.get("date")).normalize()
+            key = (ticker, day)
+            if key not in frozen_lookup.index:
+                raise ValueError(f"Dashboard-score saknas i fryst historik: {ticker} {day.date()}")
+            if not np.isclose(float(dashboard_score), float(frozen_lookup.loc[key]), rtol=0.0, atol=5.1e-5):
+                raise ValueError(f"Dashboard-score avviker från fryst historik: {ticker} {day.date()}")
 
         latest_score = pd.to_numeric(pd.Series([latest.get("score")]), errors="coerce").iloc[0]
         last_series_score = (

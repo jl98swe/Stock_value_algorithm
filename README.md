@@ -81,7 +81,7 @@ Kanonisk rapportfil:
 data/fundamentals/reports.csv
 ```
 
-Endast verifierade EPS TTM-rader med explicit `effective_date` används, med undantag för importerad TradingView-historik där ett explicit `period_end` räcker. Den kanoniska rapport- och låslogiken följer alltid rapportdatumet när det är känt. För tickers med verifierad TradingView-historik använder värderingsmotorns interna tillstånd annars `period_end`, så att EPS-serien beter sig som TradingViews historiska fundamentalserie. En oförändrad datapunkt i ett ännu ej avslutat kvartal tas bort som en pågående TradingView-dubblett; ett ändrat värde behålls och gäller från känt rapportdatum eller exportens observationsdatum. Historiska identiska kvartal behålls. Hela värderings- och signalhistoriken räknas om vid varje dashboardbygge med aktuella regler och aktuellt verifierat dataunderlag. När historisk EPS kompletteras kan därför även äldre poäng och signaler ändras.
+Endast verifierade EPS TTM-rader med explicit `effective_date` används. Rapport- och låslogiken följer rapportdatumet. För tickers som kalibreras mot TradingView placeras den kända EPS-punkten däremot på `period_end` i värderingsmotorns interna tillstånd. Publicerade poäng lagras separat och är oföränderliga: en ny rapport kan påverka rapportdagen och senare handelsdagar, men skriver aldrig om tidigare visad historik. Signaler räknas från samma frysta poängserie.
 
 Enstaka verifierad rapport kan läggas in med:
 

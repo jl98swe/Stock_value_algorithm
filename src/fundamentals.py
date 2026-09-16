@@ -155,9 +155,13 @@ def valuation_calculation_mode(
     ticker: str,
     frame: pd.DataFrame | None = None,
 ) -> str:
-    """Alla tickers använder point-in-time-timing från faktiska rapportdatum."""
-
-    return REPORT_DATE_STATE
+    """Use period-end state for tickers calibrated against TradingView."""
+    reports = verified_reports(frame)
+    subset = reports.loc[reports["ticker"].astype(str) == str(ticker)]
+    if subset.empty:
+        return REPORT_DATE_STATE
+    sources = subset["source"].fillna("").astype(str).str.strip()
+    return TV_PERIOD_END_STATE if sources.str.startswith(TRADINGVIEW_SOURCE_PREFIX).any() else REPORT_DATE_STATE
 
 
 def _attach_currency_conversion(
@@ -247,9 +251,11 @@ def attach_eps_ttm(
 ) -> pd.DataFrame:
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
-    Endast verifierade rapporter med explicit ``effective_date`` används.
-    ``tv_period_end_state`` accepteras som ett äldre anropsalias men påverkar
-    inte längre timingen; TradingView-värden börjar också gälla på rapportdagen.
+    Endast verifierade rapporter med explicit ``effective_date`` används. I
+    ``report_date_state`` börjar EPS gälla på rapportdagen. I
+    ``tv_period_end_state`` placeras rapportens värde på periodslutet inne i
+    beräkningsstaten. Publicerade poäng fryses separat, så en ny rapport skriver
+    inte om dagar före rapportdagen.
 
     ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
     är det valutajusterade värdet som ska användas i P/E-beräkningen.
@@ -287,6 +293,12 @@ def attach_eps_ttm(
         .str.extract(REPORT_CURRENCY_NOTE_PATTERN, expand=False)
         .str.upper()
     )
+    if calculation_mode == TV_PERIOD_END_STATE:
+        usable_period_end = subset["period_end"].where(
+            subset["period_end"].notna()
+            & subset["period_end"].le(subset["effective_date"])
+        )
+        subset["valuation_date"] = usable_period_end.fillna(subset["effective_date"])
     subset = (
         subset.sort_values(["valuation_date", "effective_date"])
         .drop_duplicates("valuation_date", keep="last")
