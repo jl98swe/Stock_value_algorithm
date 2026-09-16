@@ -457,7 +457,7 @@ BAHN-B.ST,2025-Q2,2025-08-19,2025-06-30,50.0,2.0901,2.09,SEK,0.00478446007369078
 BAHN-B.ST,2025-Q3,2025-11-11,2025-09-30,42.0,2.0608,2.06,SEK,0.03881987577639324,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries
 BAHN-B.ST,2025-Q4,2026-02-17,2025-12-31,48.0,1.6794,1.7,SEK,1.2266285578182656,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries
 BAHN-B.ST,2026-Q1,2026-05-05,2026-03-31,35.0,1.7302,1.74,SEK,0.5664085076869744,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries
-BAHN-B.ST,2026-Q2,2026-08-18,,,1.7206,1.7206,SEK,0.0,fallback_user_history,User-supplied historical EPS TTM fallback
+BAHN-B.ST,2026-Q2,2026-08-18,2026-06-30,49.0,1.7206,1.74,SEK,1.127513658026275,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries
 BALD-B.ST,2018-Q3,2018-11-06,,,8.7189,8.7189,SEK,0.0,fallback_user_history,User-supplied historical EPS TTM fallback
 BALD-B.ST,2018-Q4,2019-02-27,,,8.6185,8.6185,SEK,0.0,fallback_user_history,User-supplied historical EPS TTM fallback
 BALD-B.ST,2019-Q1,2019-05-08,,,7.8528,7.8528,SEK,0.0,fallback_user_history,User-supplied historical EPS TTM fallback

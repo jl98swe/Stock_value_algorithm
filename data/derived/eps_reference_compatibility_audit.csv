@@ -15,7 +15,7 @@ ATT.ST,12,0.7395104203741204,0,True,every comparable Yahoo period must be <1%; m
 AXFO.ST,11,0.1042649322277803,0,True,every comparable Yahoo period must be <1%; median is ignored
 AZA.ST,12,0.1942055408029784,0,True,every comparable Yahoo period must be <1%; median is ignored
 AZN.ST,9,0.961744982459474,0,True,every comparable Yahoo period must be <1%; median is ignored
-BAHN-B.ST,11,1.2266285578182656,1,False,every comparable Yahoo period must be <1%; median is ignored
+BAHN-B.ST,12,1.2266285578182656,2,False,every comparable Yahoo period must be <1%; median is ignored
 BALD-B.ST,12,106.42565980147388,11,False,every comparable Yahoo period must be <1%; median is ignored
 BEIA-B.ST,12,68.7729023771493,4,False,every comparable Yahoo period must be <1%; median is ignored
 BEIJ-B.ST,12,11.073176283145544,4,False,every comparable Yahoo period must be <1%; median is ignored

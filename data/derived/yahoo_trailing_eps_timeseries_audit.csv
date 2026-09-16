@@ -525,13 +525,15 @@ BAHN-B.ST,quarterlyBasicEPS,2025-03-31,0.54,SEK,1.74,False
 BAHN-B.ST,quarterlyBasicEPS,2025-06-30,0.53,SEK,1.74,False
 BAHN-B.ST,quarterlyBasicEPS,2025-09-30,0.53,SEK,1.74,False
 BAHN-B.ST,quarterlyBasicEPS,2025-12-31,0.09,SEK,1.74,False
-BAHN-B.ST,quarterlyBasicEPS,2026-03-31,0.58,SEK,1.74,True
+BAHN-B.ST,quarterlyBasicEPS,2026-03-31,0.58,SEK,1.74,False
+BAHN-B.ST,quarterlyBasicEPS,2026-06-30,0.52,SEK,1.74,True
 BAHN-B.ST,quarterlyDilutedEPS,2024-12-31,0.47,SEK,1.74,False
 BAHN-B.ST,quarterlyDilutedEPS,2025-03-31,0.54,SEK,1.74,False
 BAHN-B.ST,quarterlyDilutedEPS,2025-06-30,0.53,SEK,1.74,False
 BAHN-B.ST,quarterlyDilutedEPS,2025-09-30,0.53,SEK,1.74,False
 BAHN-B.ST,quarterlyDilutedEPS,2025-12-31,0.09,SEK,1.74,False
-BAHN-B.ST,quarterlyDilutedEPS,2026-03-31,0.58,SEK,1.74,True
+BAHN-B.ST,quarterlyDilutedEPS,2026-03-31,0.58,SEK,1.74,False
+BAHN-B.ST,quarterlyDilutedEPS,2026-06-30,0.52,SEK,1.74,True
 BAHN-B.ST,trailingBasicEPS,2023-09-30,1.86,SEK,1.74,False
 BAHN-B.ST,trailingBasicEPS,2023-12-31,2.0,SEK,1.74,False
 BAHN-B.ST,trailingBasicEPS,2024-03-31,2.05,SEK,1.74,False
@@ -542,7 +544,8 @@ BAHN-B.ST,trailingBasicEPS,2025-03-31,2.07,SEK,1.74,False
 BAHN-B.ST,trailingBasicEPS,2025-06-30,2.09,SEK,1.74,False
 BAHN-B.ST,trailingBasicEPS,2025-09-30,2.06,SEK,1.74,False
 BAHN-B.ST,trailingBasicEPS,2025-12-31,1.7,SEK,1.74,False
-BAHN-B.ST,trailingBasicEPS,2026-03-31,1.74,SEK,1.74,True
+BAHN-B.ST,trailingBasicEPS,2026-03-31,1.74,SEK,1.74,False
+BAHN-B.ST,trailingBasicEPS,2026-06-30,1.74,SEK,1.74,True
 BAHN-B.ST,trailingDilutedEPS,2023-09-30,1.86,SEK,1.74,False
 BAHN-B.ST,trailingDilutedEPS,2023-12-31,2.0,SEK,1.74,False
 BAHN-B.ST,trailingDilutedEPS,2024-03-31,2.05,SEK,1.74,False
@@ -553,7 +556,8 @@ BAHN-B.ST,trailingDilutedEPS,2025-03-31,2.07,SEK,1.74,False
 BAHN-B.ST,trailingDilutedEPS,2025-06-30,2.09,SEK,1.74,False
 BAHN-B.ST,trailingDilutedEPS,2025-09-30,2.06,SEK,1.74,False
 BAHN-B.ST,trailingDilutedEPS,2025-12-31,1.7,SEK,1.74,False
-BAHN-B.ST,trailingDilutedEPS,2026-03-31,1.74,SEK,1.74,True
+BAHN-B.ST,trailingDilutedEPS,2026-03-31,1.74,SEK,1.74,False
+BAHN-B.ST,trailingDilutedEPS,2026-06-30,1.74,SEK,1.74,True
 BALD-B.ST,quarterlyBasicEPS,2024-12-31,2.9,SEK,5.18,False
 BALD-B.ST,quarterlyBasicEPS,2025-03-31,2.26,SEK,5.18,False
 BALD-B.ST,quarterlyBasicEPS,2025-06-30,0.65,SEK,5.18,False

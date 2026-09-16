@@ -81,7 +81,6 @@ BAHN-B.ST,2022-Q3,2022-11-08,leading,,,2023-Q3,2023-11-07,,364,,1.5147,SEK,optio
 BAHN-B.ST,2022-Q4,2023-02-14,leading,,,2023-Q3,2023-11-07,,266,,1.5147,SEK,optional_backfill_requires_verified_source
 BAHN-B.ST,2023-Q1,2023-05-04,leading,,,2023-Q3,2023-11-07,,187,,1.5147,SEK,optional_backfill_requires_verified_source
 BAHN-B.ST,2023-Q2,2023-08-22,leading,,,2023-Q3,2023-11-07,,77,,1.5147,SEK,optional_backfill_requires_verified_source
-BAHN-B.ST,2026-Q2,2026-08-18,trailing,2026-Q1,2026-05-05,,,105,,,1.7206,SEK,verify_latest_period
 BALD-B.ST,2018-Q3,2018-11-06,leading,,,2023-Q3,2023-10-27,,1816,,8.7189,SEK,optional_backfill_requires_verified_source
 BALD-B.ST,2018-Q4,2019-02-27,leading,,,2023-Q3,2023-10-27,,1703,,8.6185,SEK,optional_backfill_requires_verified_source
 BALD-B.ST,2019-Q1,2019-05-08,leading,,,2023-Q3,2023-10-27,,1633,,7.8528,SEK,optional_backfill_requires_verified_source
