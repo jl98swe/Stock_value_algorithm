@@ -28,6 +28,14 @@ from .fundamentals import (
 )
 from .model_data import ensure_gbm_model
 from .reporting import build_reports_payload
+from .score_history import (
+    SCORE_HISTORY_FILE,
+    apply_frozen_scores,
+    load_score_history,
+    merge_score_history,
+    save_score_history,
+    seed_score_history_from_dashboard,
+)
 from .strategy import run_strategy
 from .utils import read_json, write_json_atomic
 from .valuation import GBMModel, calculate_valuation
@@ -37,6 +45,11 @@ STOCKS_JSON = DOCS_DATA / "stocks.json"
 DASHBOARD_JSON = DOCS_DATA / "dashboard.json"
 EVENTS_JSON = DOCS_DATA / "events.json"
 REPOSITORY_URL = "https://github.com/jl98swe/Stock_value_algorithm"
+SCORE_HISTORY_BOOTSTRAP_CUTOFFS = {
+    "CLAS-B.ST": "2026-09-03",
+    "SECT-B.ST": "2026-09-04",
+    "SYSR.ST": "2026-09-04",
+}
 
 
 def _json_number(value: object, digits: int | None = None) -> float | int | None:
@@ -256,7 +269,9 @@ def _stock_payload(
     reviews: list[dict[str, object]],
     calendar: pd.DataFrame,
     model: GBMModel | None,
-) -> tuple[dict[str, object], dict[str, object], pd.DataFrame]:
+    score_history: pd.DataFrame,
+    frozen_at: str,
+) -> tuple[dict[str, object], dict[str, object], pd.DataFrame, pd.DataFrame]:
     frame = frame.sort_values("date").reset_index(drop=True)
     latest_price = frame.iloc[-1]
     previous_close = frame.iloc[-2]["close"] if len(frame) > 1 else np.nan
@@ -282,10 +297,15 @@ def _stock_payload(
     working["LockReason"] = working["LockReason"].fillna("")
 
     valued: pd.DataFrame | None = None
+    score_additions = pd.DataFrame()
     strategy: dict[str, object] | None = None
     has_verified_eps = bool(pd.to_numeric(working["EPS_TTM"], errors="coerce").notna().any())
     if model is not None and has_verified_eps:
         valued = calculate_valuation(working, model=model)
+        valued, score_additions = apply_frozen_scores(
+            valued, ticker, score_history, frozen_at=frozen_at,
+            calculation_mode=calculation_mode,
+        )
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
         strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
@@ -342,7 +362,7 @@ def _stock_payload(
         for column in ("Date", "Close", "EPS_TTM", "EPS_TTM_RAW", "Score")
         if column in report_frame.columns
     ]
-    return ticker_meta, dashboard_stock, report_frame[report_columns].copy()
+    return ticker_meta, dashboard_stock, report_frame[report_columns].copy(), score_additions
 
 
 def _dividend_events(dividends: pd.DataFrame) -> list[dict[str, object]]:
@@ -448,6 +468,10 @@ def _merge_published_news(
 def build_dashboard(
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
+    score_history_file: Path = SCORE_HISTORY_FILE,
+    *,
+    persist_score_history: bool = True,
+    score_recalculation_cutoffs: dict[str, object] | None = None,
 ) -> dict[str, object]:
     prices = load_price_history(base_file, updates_file)
     reports = load_reports()
@@ -455,6 +479,17 @@ def build_dashboard(
     calendar = load_report_calendar()
     dividends = load_dividend_history()
     generated_at = datetime.now(ZoneInfo("Europe/Stockholm")).isoformat(timespec="seconds")
+    score_history = load_score_history(score_history_file)
+    recalculation_cutoffs: dict[str, object] = {}
+    if score_history.empty:
+        score_history = seed_score_history_from_dashboard(DASHBOARD_JSON, frozen_at=generated_at)
+        recalculation_cutoffs.update(SCORE_HISTORY_BOOTSTRAP_CUTOFFS)
+    recalculation_cutoffs.update(score_recalculation_cutoffs or {})
+    for ticker, cutoff_value in recalculation_cutoffs.items():
+        cutoff = pd.Timestamp(cutoff_value).tz_localize(None).normalize()
+        score_history = score_history.loc[
+            ~(score_history["ticker"].astype(str).eq(str(ticker)) & score_history["date"].ge(cutoff))
+        ].copy()
 
     try:
         model_path = ensure_gbm_model()
@@ -468,19 +503,28 @@ def build_dashboard(
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
     valuation_frames: dict[str, pd.DataFrame] = {}
+    score_additions: list[pd.DataFrame] = []
     tickers = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
     for ticker, group in prices.groupby("ticker", sort=True):
-        meta, payload, report_frame = _stock_payload(
+        meta, payload, report_frame, additions = _stock_payload(
             str(ticker),
             group,
             reports,
             reviews,
             calendar,
             model,
+            score_history,
+            generated_at,
         )
         stock_list.append(meta)
         dashboard_stocks[str(ticker)] = payload
         valuation_frames[str(ticker)] = report_frame
+        if not additions.empty:
+            score_additions.append(additions)
+
+    if persist_score_history:
+        additions = pd.concat(score_additions, ignore_index=True) if score_additions else pd.DataFrame()
+        save_score_history(merge_score_history(score_history, additions), score_history_file)
 
     rules = {
         "buy_score": 1,
@@ -549,12 +593,29 @@ def run(
     skip_dividends: bool = False,
     base_file: Path = BASE_DATA_FILE,
     updates_file: Path = UPDATES_FILE,
+    score_history_file: Path = SCORE_HISTORY_FILE,
+    persist_score_history: bool = True,
+    score_recalculation_cutoffs: dict[str, object] | None = None,
 ) -> None:
     if not skip_fetch:
         update_prices(base_file, updates_file, full=full)
     if not skip_dividends:
         update_dividends()
-    build_dashboard(base_file, updates_file)
+    build_dashboard(
+        base_file, updates_file, score_history_file,
+        persist_score_history=persist_score_history,
+        score_recalculation_cutoffs=score_recalculation_cutoffs,
+    )
+
+
+def _score_recalculation_cutoffs(values: list[str]) -> dict[str, str]:
+    cutoffs: dict[str, str] = {}
+    for value in values:
+        ticker, separator, day = value.partition("=")
+        if not separator or not ticker.strip() or pd.isna(pd.to_datetime(day, errors="coerce")):
+            raise ValueError("--recalculate-score-from ska anges som TICKER=YYYY-MM-DD")
+        cutoffs[ticker.strip()] = pd.Timestamp(day).date().isoformat()
+    return cutoffs
 
 
 def main() -> None:
@@ -566,6 +627,16 @@ def main() -> None:
     parser.add_argument("--full", action="store_true", help="Hämta om Yahoo-prisserien före byggning.")
     parser.add_argument("--base-file", type=Path, default=BASE_DATA_FILE)
     parser.add_argument("--updates-file", type=Path, default=UPDATES_FILE)
+    parser.add_argument("--score-history-file", type=Path, default=SCORE_HISTORY_FILE)
+    parser.add_argument(
+        "--defer-score-history", action="store_true",
+        help="Bygg dashboard utan att frysa nya poäng före dagens EPS-synk.",
+    )
+    parser.add_argument(
+        "--recalculate-score-from", action="append", default=[],
+        metavar="TICKER=YYYY-MM-DD",
+        help="Engångsreparera en tickers frysta serie från ett explicit rapportdatum.",
+    )
     args = parser.parse_args()
     run(
         skip_fetch=args.skip_fetch,
@@ -573,6 +644,9 @@ def main() -> None:
         skip_dividends=args.skip_dividends,
         base_file=args.base_file,
         updates_file=args.updates_file,
+        score_history_file=args.score_history_file,
+        persist_score_history=not args.defer_score_history,
+        score_recalculation_cutoffs=_score_recalculation_cutoffs(args.recalculate_score_from),
     )
 
 

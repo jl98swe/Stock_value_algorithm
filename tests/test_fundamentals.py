@@ -48,7 +48,7 @@ def test_eps_is_never_used_before_effective_date():
     assert mapped.loc[3, "EPS_TTM"] == 10.0
 
 
-def test_legacy_tv_mode_also_uses_report_date():
+def test_tv_mode_places_known_eps_at_period_end_for_calculation_state():
     prices = pd.DataFrame(
         {
             "Date": pd.to_datetime(["2026-06-30", "2026-07-16", "2026-07-17"]),
@@ -73,18 +73,18 @@ def test_legacy_tv_mode_also_uses_report_date():
     assert pd.isna(report_date.loc[0, "EPS_TTM"])
     assert pd.isna(report_date.loc[1, "EPS_TTM"])
     assert report_date.loc[2, "EPS_TTM"] == 10.0
-    assert pd.isna(tv_period_end.loc[0, "EPS_TTM"])
-    assert pd.isna(tv_period_end.loc[1, "EPS_TTM"])
+    assert tv_period_end.loc[0, "EPS_TTM"] == 10.0
+    assert tv_period_end.loc[1, "EPS_TTM"] == 10.0
     assert tv_period_end.loc[2, "EPS_TTM"] == 10.0
 
 
-def test_tradingview_source_does_not_activate_period_end_timing():
+def test_tradingview_source_activates_period_end_timing():
     tradingview = _verified_report(ticker="TV.ST")
     tradingview.loc[0, "source"] = "TradingView / EARNINGS_PER_SHARE_DILUTED TTM"
     ordinary = _verified_report(ticker="OTHER.ST")
     reports = normalise_reports(pd.concat([tradingview, ordinary], ignore_index=True))
 
-    assert valuation_calculation_mode("TV.ST", reports) == REPORT_DATE_STATE
+    assert valuation_calculation_mode("TV.ST", reports) == TV_PERIOD_END_STATE
     assert valuation_calculation_mode("OTHER.ST", reports) == REPORT_DATE_STATE
 
 
@@ -178,10 +178,10 @@ def test_tradingview_override_can_use_price_currency_for_one_report():
         calculation_mode=TV_PERIOD_END_STATE,
     )
 
-    assert pd.isna(mapped.loc[0, "EPS_TTM"])
-    assert mapped.loc[1, "EPS_CURRENCY"] == "USD"
-    assert mapped.loc[1, "EPS_TTM"] != 26.4067
-    assert mapped.loc[2, "EPS_TTM"] != 26.4067
+    assert mapped.loc[0, "EPS_TTM"] == 20.0
+    assert mapped.loc[1, "EPS_CURRENCY"] == "SEK"
+    assert mapped.loc[1, "EPS_TTM"] == 26.4067
+    assert mapped.loc[2, "EPS_TTM"] == 26.4067
 
 
 def test_tradingview_period_end_is_not_usable_when_report_date_is_unknown():

@@ -39,8 +39,8 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
         assert checkout["with"]["ref"] == "${{ github.ref_name }}"
     text = path.read_text()
     assert "origin main" not in text  # a branch run must never write into main
-    assert '--defer-score-history' not in text  # removed CLI option
-    assert 'valuation_score_history.csv.gz' not in text  # removed output
+    if "python -m src.pipeline" in text and "git add" in text:
+        assert "valuation_score_history.csv.gz" in text
 
 
 def test_delayed_news_run_cannot_be_skipped_by_wall_clock() -> None:
@@ -60,6 +60,15 @@ def test_manual_eps_rebuilds_after_final_sync() -> None:
     assert commands.index("python -m src.sync_yahoo_eps_reports") < commands.index(
         "python -m src.pipeline --skip-fetch --skip-dividends"
     ) < commands.index("python -m src.validate_outputs")
+
+
+def test_daily_update_freezes_scores_only_after_eps_sync() -> None:
+    workflow = yaml.safe_load((WORKFLOWS / "daily_update.yml").read_text())
+    commands = [step.get("run", "") for step in workflow["jobs"]["update"]["steps"]]
+    assert "python -m src.pipeline --defer-score-history" in commands
+    assert commands.index("python -m src.sync_yahoo_eps_reports") < commands.index(
+        "python -m src.pipeline --skip-fetch --skip-dividends"
+    )
 
 
 def test_historical_rebuild_commits_report_tab_and_events() -> None:

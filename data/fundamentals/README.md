@@ -10,7 +10,7 @@
 | `period_end` | Rapporteringsperiodens slutdatum |
 | `report_period` | Stabil periodetikett, t.ex. `2026-Q2` eller automatiskt `YAHOO-YYYY-MM-DD` för nya Yahoo-perioder |
 | `published_at` | När rapporten blev offentlig, med tidszon när exakt tid finns |
-| `effective_date` | Datum då denna EPS TTM börjar användas av algoritmen |
+| `effective_date` | Datum då rapporten blev känd och en ny publicerad poäng får börja användas |
 | `eps_ttm` | EPS TTM i bolagets rapportvaluta |
 | `source` | Datakälla och metric |
 | `verified` | `true` när posten får användas |
@@ -35,7 +35,7 @@ Det gör att historiska och framtida värden kan jämföras på samma grund inna
 
 `period_end` och `effective_date` är två helt olika saker. Den kanoniska rapporthistoriken, rapportlås och vanliga Yahoo-baserade värderingar använder aldrig en ny period före den dag den kan knytas till en inträffad rapport eller faktiskt har observerats av systemet.
 
-Projektets fasta regel är att ny EPS TTM gäller **samma svenska kalenderdag som rapporten publiceras** när rapportdatumet är känt och rimligt. Exempel: ett Q2 som slutar 30 juni men publiceras 17 juli får börja påverka P/E och värderingsscore med stängningskursen den 17 juli. Vi flyttar alltså inte EPS till nästa handelsdag beroende på exakt publiceringstid.
+Projektets fasta publiceringsregel är att ny EPS TTM får påverka den synliga poängen **samma svenska kalenderdag som rapporten publiceras** när rapportdatumet är känt och rimligt. För TradingView-kalibrerade serier används samtidigt `period_end` inne i beräkningsstaten. Den frysta poänghistoriken gör att dagar före rapportdatumet inte ändras.
 
 För historik där `report_date` finns sätts `effective_date = report_date`. Vid manuell verifiering härleder `src.add_report` automatiskt `effective_date` från `published_at` i tidszonen `Europe/Stockholm` och accepterar inte ett avvikande explicit datum.
 
@@ -43,7 +43,7 @@ För en **genuint ny framtida Yahoo-period** där Yahoo saknar ett rimligt rappo
 
 ## TradingView-historik och rapportdatum
 
-TradingViews historiska EPS-värden får användas, men TradingViews kvartalsdatum får inte styra när värdet blir känt. `period_end` behålls enbart som periodmetadata. Värderingsmotorn kräver alltid ett faktiskt `effective_date` och använder aldrig kvartalsslutet som reserv.
+TradingViews historiska EPS-värden får användas, men kvartalsdatumet anger inte när värdet blev känt. `effective_date` krävs för publiceringsgränsen. När värdet väl är känt använder värderingsmotorn `period_end` för sitt interna tillstånd, medan redan publicerade poäng före `effective_date` förblir frysta.
 
 När `reports.csv` läses matchas saknade `effective_date` på `ticker + report_period` mot den stabila rapportdatumfilen `eps_report_date_cache.csv`. En TradingView-rad som fortfarande saknar rapportdatum efter matchningen lämnas kvar för audit, men utesluts från P/E, score och signaler. Det förhindrar look-ahead utan att radera underlagsdata som senare kan kompletteras.
 
