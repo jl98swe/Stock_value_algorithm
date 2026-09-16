@@ -1,5 +1,6 @@
 ticker,period_end,report_date,observed_date,eps_ttm,eps_currency,source
 ATT.ST,2026-06-30,2026-08-19,2026-08-23,6.61,SEK,Yahoo Finance / trailingDilutedEPS
+BAHN-B.ST,2026-06-30,2026-02-17,2026-09-16,1.74,SEK,Yahoo Finance / trailingDilutedEPS
 BORG.ST,2026-06-30,2026-04-29,2026-09-07,3.88,SEK,Yahoo Finance / trailingDilutedEPS
 BTS-B.ST,2026-06-30,2026-08-14,2026-09-07,4.9,SEK,Yahoo Finance / trailingDilutedEPS
 CLAS-B.ST,2026-07-31,2026-09-02,2026-09-07,19.75,SEK,Yahoo Finance / trailingDilutedEPS
