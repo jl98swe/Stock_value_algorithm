@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-09-16T21:34:23+02:00",
+  "generated_at": "2026-09-17T21:45:30+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "NORION.ST",
+      "company": "Norion Bank AB (publ)",
+      "published_at": "2026-09-17T15:30:00+02:00",
+      "title": "Norion Bank AB slutför aktieåterköpsprogram",
+      "link": "https://mfn.se/a/norion-bank/norion-bank-ab-slutfor-aktieaterkopsprogram-2",
+      "source": "MFN",
+      "summary": "Norion Bank AB slutför aktieåterköpsprogram 2026-09-17 15:30:00 Den 5 juni 2026 tillkännagav Norion Bank ett aktieåterköpsprogram av egna aktier om högst 500 MSEK, med stöd av bemyndigandet från årsstämman den 5 maj 2026. Aktieåterköpen har genomförts i syfte att anpassa bankens kapitalstruktur samt bidra till ökat aktieägarvärde. Återköpen påbörjades den 5 juni 2026 och avslutades den 17 september 2026. Under perioden återköptes 7 942 100 egna aktier till ett genomsnittligt pris per aktie om 62,96 kronor och till ett totalt belopp om 500 MSEK. Per den 17 september 2026 uppgick det totala antalet utfärdade aktier i Norion Bank till 189 782 53",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "61644c6e0346edd3"
+    },
+    {
+      "ticker": "AXFO.ST",
+      "company": "Axfood",
+      "published_at": "2026-09-17T10:00:00+02:00",
+      "title": "Förändring i valberedningen inför Axfoods årsstämma 2027",
+      "link": "https://mfn.se/cis/a/axfood/forandring-i-valberedningen-infor-axfoods-arsstamma-2027-612c4017",
+      "source": "MFN",
+      "summary": "Förändring i valberedningen inför Axfoods årsstämma 2027 2026-09-17 10:00:00 Sammansättningen av valberedningen inför Axfoods årsstämma 2027 har förändrats på grund av ändrade ägarförhållanden i bolaget. Förändringar i ägarförhållandena i Axfood under september har medfört att Swedbank Robur Fonders representant Caroline Sjösten, i enlighet med valberedningens instruktion, har ställt sin plats till förfogande samt att Nordea Fonder istället har utsett en representant. Efter förändringarna har valberedningen följande sammansättning: Marie Ehrling, Axel Johnson AB, ordförande Sussi Kvart, Handelsbanken Fonder Hjalmar Ek, Lannebo Kapitalförvaltn",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "98eea599ef3ce8dc"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-09-17T09:15:00+02:00",
+      "title": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram",
+      "link": "https://mfn.se/a/norden/indberetning-af-ledende-medarbejderes-og-disses-naertstaendes-transaktioner-med-dampskibsselskabet-norden-a-s-aktier-i-forbindelse-med-aktietilbagekobsprogram-20",
+      "source": "MFN",
+      "summary": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram 2026-09-17 09:15:00 Selskabsmeddelelse nr. 218/2026 (17. september 2026) I forbindelse med det annoncerede aktietilbagekøbsprogram i NORDEN, deltager A/S Motortramp ved løbende at sælge aktier pro rata, og der informeres til markedet – se vedhæftede fil og meddelelse nr. 189/2026 og 190/2026. Med venlig hilsen, Dampskibsselskabet NORDEN A/S Martin Badsted Finansdirektør Yderligere oplysninger: Therese Möllevinge, Head of Investor Relations, tlf.: +45 41 37 16 38, e-mail thm@norden.com V",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1c427ef6860cdb07"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-09-17T08:35:00+02:00",
+      "title": "French region goes live with digital pathology from Sectra to speed up cancer diagnostics",
+      "link": "https://mfn.se/cis/a/sectra/french-region-goes-live-with-digital-pathology-from-sectra-to-speed-up-cancer-diagnostics-b7a818f6",
+      "source": "MFN",
+      "summary": "French region goes live with digital pathology from Sectra to speed up cancer diagnostics 2026-09-17 08:35:00 Linköping, Sweden - September 17, 2026 - International medical imaging IT and cybersecurity company Sectra (STO: SECT B) has successfully implemented the digital pathology module of its enterprise imaging solution at four hospitals in the Provence-Alpes-Côte d'Azur (PACA) region in France. The hospitals are the first of eight across the region to move onto one shared solution, letting pathologists work on cases together across sites and speed up cancer diagnostics for patients. The first phase of the rollout covers four hospitals acro",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3e515d187e2af8d0"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-09-17T08:35:00+02:00",
+      "title": "Bättre cancerdiagnostik och samarbete i fransk region när första sjukhusen implementerar Sectras patologilösning",
+      "link": "https://mfn.se/cis/a/sectra/battre-cancerdiagnostik-och-samarbete-i-fransk-region-nar-forsta-sjukhusen-implementerar-sectras-patologilosning-9fd627cd",
+      "source": "MFN",
+      "summary": "Bättre cancerdiagnostik och samarbete i fransk region när första sjukhusen implementerar Sectras patologilösning 2026-09-17 08:35:00 Linköping - 17 september, 2026 - Medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) har framgångsrikt implementerat den digitala patologimodulen i sin helhetslösning för medicinsk bildhantering vid fyra sjukhus i regionen Provence-Alpes-Côte d'Azur (PACA) i Frankrike. Sjukhusen är de första av totalt åtta i regionen. Med en gemensam lösning kan patologerna granska fall tillsammans över sjukhusgränserna, vilket bidrar till snabbare cancerdiagnostik för patienterna. Den första fasen omfattar fyra sjuk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b3e8368456e2a671"
+    },
+    {
+      "ticker": "EMBRAC-B.ST",
+      "company": "Embracer",
+      "published_at": "2026-09-17T08:30:00+02:00",
+      "title": "Inbjudan till webbsändning av Embracer Groups årsstämma",
+      "link": "https://mfn.se/a/embracer-group/inbjudan-till-webbsandning-av-embracer-groups-arsstamma-1",
+      "source": "MFN",
+      "summary": "Inbjudan till webbsändning av Embracer Groups årsstämma 2026-09-17 08:30:00 Embracer Group inbjuder härmed aktieägare och andra intressenter att följa årsstämman via direktsänd webbsändning den 24 september 2026. Datum: 24 september 2026 Tid: 14.30~16.00 (CEST) Webbsändning: Årsstämman sänds live här . Programmet för årsstämman omfattar en översikt av verksamheten som presenteras av vd Phil Rogers och koncernens CFO Müge Bouillon. Därefter följer ytterligare presentationer, och årsstämman avslutas med en frågestund (Q&A). Jacob Edler, aktieanalytiker på Danske Bank, är moderator och leder frågestunden. Frågor kan skickas in i förväg till ir@e",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "161420b837e884f9"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-17T08:00:00+02:00",
+      "title": "Peab bygger produktions- och kontorslokaler i Landskrona",
+      "link": "https://mfn.se/cis/a/peab/peab-bygger-produktions-och-kontorslokaler-i-landskrona-75bfad24",
+      "source": "MFN",
+      "summary": "Peab bygger produktions- och kontorslokaler i Landskrona 2026-09-17 08:00:00 Peab har fått uppdraget att bygga om och till produktions- och kontorslokaler i Landskrona. Beställare är Hitachi Energy Sweden AB och kontraktssumman uppgår till 349 miljoner svenska kronor. Projektet omfattar om- och tillbyggnad av en befintlig byggnad, i östra Landskrona, strax norr om tågstationen. Den totala ytan uppgår till närmare 24 000 kvadratmeter, varav 18 000 kvadratmeter utgör produktionshallar och 6 000 kvadratmeter kontorsytor. Projektet kommer att genomföras enligt certifieringen Miljöbyggnad silver 4.0 för ombyggnad. - Vi är stolta över att få fortsä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b0e7784e7a96cfdf"
+    },
     {
       "ticker": "ATCO-A.ST",
       "company": "Atlas Copco A",

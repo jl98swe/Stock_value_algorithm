@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-16T21:33:28+02:00",
+  "generated_at": "2026-09-17T21:44:36+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-17T08:00:00+02:00",
+      "title": "Peab builds production and office space in Landskrona",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-production-and-office-space-in-landskrona-24dc1174",
+      "source": "MFN",
+      "summary": "Peab builds production and office space in Landskrona 2026-09-17 08:00:00 Peab has been commissioned to renovate and extend production and office space in Landskrona. The customer is Hitachi Energy Sweden AB and the contract is worth SEK 349 million. The project comprises renovating and extending an existing building in eastern Landskrona, just north of the train station. The total area is around 24,000 m2, of which 18,000 m2 is production halls and 6,000 m2 is offices. The project will be implemented according to Miljöbyggnad Silver 4.0 for Renovation certification. \"We're proud to continue our journey together with Hitachi Energy in Landskr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "be2d20ca494637c2"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",
