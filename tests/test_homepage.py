@@ -41,3 +41,11 @@ def test_backtest_and_recent_trade_copy_explain_the_data():
     assert "courtage är 0,25 procent" in HTML
     assert "Senaste avslut" in HTML
     assert "b.execution_date.localeCompare(a.execution_date)" in APP
+
+
+def test_report_markers_use_publication_date_and_stay_inside_short_range_chart():
+    assert "Rapport för perioden" not in ENHANCEMENTS
+    assert "['Rapport', sourceLabel, eventDay(event)]" in ENHANCEMENTS
+    assert "reportSourcePriority(event) > reportSourcePriority(previous)" in ENHANCEMENTS
+    assert "candleHigh >= upperMarkerZone ? 1 : -1" in ENHANCEMENTS
+    assert "coord: [day, candleHigh]" in ENHANCEMENTS

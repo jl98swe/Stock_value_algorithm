@@ -82,12 +82,17 @@
   }
 
   function reportDisplayTitle(event) {
-    const raw = String(event.title || '');
-    const match = raw.match(/^(?:Rapport\s+)?(?:YAHOO-)?(\d{4})-(\d{2})-(\d{2})$/i);
-    if (!match) return raw;
-    const month = new Intl.DateTimeFormat('sv-SE', { month: 'long', timeZone: 'UTC' })
-      .format(new Date(`${match[1]}-${match[2]}-01T00:00:00Z`));
-    return `Rapport för perioden ${month} ${match[1]}`;
+    const source = String(event.source || '').trim();
+    let sourceLabel = source.split('/')[0].trim();
+    if (/yahoo/i.test(source)) sourceLabel = 'YAHOO';
+    if (/tradingview/i.test(source)) sourceLabel = 'TRADINGVIEW';
+    return ['Rapport', sourceLabel, eventDay(event)].filter(Boolean).join(' ');
+  }
+
+  function reportSourcePriority(event) {
+    const source = String(event.source || '').trim();
+    if (/yahoo/i.test(source)) return 0;
+    return source ? 2 : 1;
   }
 
   function eventDay(event) {
@@ -222,6 +227,12 @@
     const startDate = dates[0];
     const endDate = dates[dates.length - 1];
     const ma200 = candles.map((d) => Number.isFinite(Number(d.ma200)) ? Number(d.ma200) : null);
+    const visibleHigh = Math.max(...candles.map((d) => Number(d.high)).filter(Number.isFinite));
+    const visibleLow = Math.min(
+      ...candles.flatMap((d) => [Number(d.low), Number(d.ma200)]).filter(Number.isFinite)
+    );
+    const visibleSpan = Math.max(visibleHigh - visibleLow, Math.abs(visibleHigh) * 0.01, 1);
+    const upperMarkerZone = visibleHigh - visibleSpan * 0.15;
 
     const current = chart.getOption();
     const series = current.series || [];
@@ -252,17 +263,19 @@
       return event.ticker === ticker && day >= startDate && day <= endDate;
     });
 
-    // Yahoo och TradingView kan beskriva samma rapport på samma publiceringsdag.
-    // Visa då en enda E-markör; behåll TradingView-posten när båda finns.
+    // Flera källor kan beskriva samma rapport på samma publiceringsdag.
+    // Visa en E-markör och prioritera en namngiven icke-Yahoo-källa.
     const reportByDay = new Map();
-    const deduplicatedEvents = visibleEvents.filter((event) => {
-      if (eventMarker(event).code !== 'E') return true;
+    visibleEvents.forEach((event) => {
+      if (eventMarker(event).code !== 'E') return;
       const day = eventDay(event);
       const previous = reportByDay.get(day);
-      const preferCurrent = !previous || /TradingView/i.test(String(event.source || ''));
+      const preferCurrent = !previous || reportSourcePriority(event) > reportSourcePriority(previous);
       if (preferCurrent) reportByDay.set(day, event);
-      return preferCurrent;
-    }).filter((event) => eventMarker(event).code !== 'E' || reportByDay.get(eventDay(event)) === event);
+    });
+    const deduplicatedEvents = visibleEvents.filter((event) => (
+      eventMarker(event).code !== 'E' || reportByDay.get(eventDay(event)) === event
+    ));
 
     const countByDay = new Map();
     const eventPoints = deduplicatedEvents.map((event) => {
@@ -274,20 +287,25 @@
       countByDay.set(day, stackIndex + 1);
       const source = event.source ? ` · ${event.source}` : '';
       const signalOffset = signalDays.has(day) ? 24 : 0;
-      const title = reportDisplayTitle(event);
+      const title = marker.code === 'E' ? reportDisplayTitle(event) : String(event.title || marker.label);
+      const candleHigh = Number(candle.high);
+      const markerDirection = candleHigh >= upperMarkerZone ? 1 : -1;
+      const markerOffset = 14 + signalOffset + stackIndex * 24;
       return {
         name: `${marker.code} · ${title}`,
-        coord: [day, candle.high * 1.03],
+        coord: [day, candleHigh],
         symbol: 'circle',
         symbolSize: 22,
-        symbolOffset: [0, -(signalOffset + stackIndex * 24)],
+        symbolOffset: [0, markerDirection * markerOffset],
         itemStyle: {
           color: marker.color,
           borderColor: event.locking ? '#c88722' : '#ffffff',
           borderWidth: event.locking ? 2.5 : 1.5
         },
         label: { show: true, formatter: marker.code, color: '#ffffff', fontSize: 10, fontWeight: 900 },
-        eventTooltip: `<strong>${marker.code} · ${marker.label}</strong><br>${day}${source}<br>${title}`
+        eventTooltip: marker.code === 'E'
+          ? `<strong>${esc(title)}</strong>`
+          : `<strong>${marker.code} · ${marker.label}</strong><br>${esc(day)}${esc(source)}<br>${esc(title)}`
       };
     }).filter(Boolean);
 
