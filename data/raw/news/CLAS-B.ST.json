@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-17T21:43:16+02:00",
+  "generated_at": "2026-09-18T21:01:05+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/clas-ohlson",
-  "items": []
+  "items": [
+    {
+      "ticker": "CLAS-B.ST",
+      "company": "Clas Ohlson",
+      "published_at": "2026-09-18T15:25:00+02:00",
+      "title": "Share transactions by members of Group Management related to the LTIP 2023 incentive programme",
+      "link": "https://mfn.se/a/clas-ohlson/share-transactions-by-members-of-group-management-related-to-the-ltip-2023-incentive-programme",
+      "source": "MFN",
+      "summary": "Share transactions by members of Group Management related to the LTIP 2023 incentive programme 2026-09-18 15:25:00 Members of Clas Ohlson's Group Management have sold shares in the company in connection with allocations from the LTIP 2023 share-based incentive programme, which recently ended. The divestments of shares were mainly carried out to cover the tax incurred for the participants in connection with the share allotment. Transactions carried out by members of Group Management are reported to the Swedish Financial Supervisory Authority (Finansinspektionen) in accordance with applicable regulations, and the current shareholdings of member",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ed229ca113ce2fa5"
+    }
+  ]
 }

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-17T21:44:05+02:00",
+  "generated_at": "2026-09-18T21:01:55+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/intrum",
   "items": [
+    {
+      "ticker": "INTRUM.ST",
+      "company": "Intrum AB (publ)",
+      "published_at": "2026-09-18T13:15:00+02:00",
+      "title": "Intrum saminvesterar och blir servicer i nordisk NPL-portfölj",
+      "link": "https://mfn.se/a/intrum/intrum-saminvesterar-och-blir-servicer-i-nordisk-npl-portfolj",
+      "source": "MFN",
+      "summary": "Intrum saminvesterar och blir servicer i nordisk NPL-portfölj 2026-09-18 13:15:00 Intrum, Europas ledande leverantör av kredithanteringstjänster, har ingått avtal om att tillsammans med Brocc Finance förvärva en NPL-portfölj med konsumentlån från Entercard, ett helägt dotterbolag till Swedbank. Konsumentlåneportföljen omfattar de nordiska marknaderna och består av cirka 17 500 lån som uppgår till omkring 4 miljarder kronor brutto. Intrum kommer att ansvara för servicing-uppdraget av portföljen efter att transaktionen har slutförts. Transaktionen stärker Intrums partnerskap med Brocc Finance ytterligare och ligger i linje med Intrums strategi ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "10f0561e151af384"
+    },
     {
       "ticker": "INTRUM.ST",
       "company": "Intrum AB (publ)",

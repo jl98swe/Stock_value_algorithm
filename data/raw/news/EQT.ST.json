@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-17T21:43:37+02:00",
+  "generated_at": "2026-09-18T21:01:26+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-09-17T22:16:17+02:00",
+      "title": "EQT Real Estate acquires 5.2 million square foot logistics portfolio across Southern California",
+      "link": "https://mfn.se/cis/a/eqt/eqt-real-estate-acquires-5-2-million-square-foot-logistics-portfolio-across-southern-california-7a6fb742",
+      "source": "MFN",
+      "summary": "EQT Real Estate acquires 5.2 million square foot logistics portfolio across Southern California 2026-09-17 22:16:17 EQT Real Estate has acquired a 32-building, 5.2 million square foot logistics portfolio from Rexford Industrial Realty, Inc., spanning Los Angeles, Orange County, the San Gabriel Valley, South Bay and Inland Empire West The portfolio is 96% leased to 36 tenants across a diversified range of industries, with an average remaining lease term of 2.7 years The acquisition reinforces EQT Real Estate's focus on well-located logistics assets in supply-constrained Southern California markets with durable, port-driven tenant demand EQT Re",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "28591c931915fc6d"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",

@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-17T21:42:50+02:00",
+  "generated_at": "2026-09-18T21:00:37+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/astrazeneca",
-  "items": []
+  "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-09-18T08:04:22+02:00",
+      "title": "AstraZeneca: Efzimfotase alfa granted Priority Review in the US as treatment for patients with hypophosphatasia aged 2 years and older",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-efzimfotase-alfa-granted-priority-review-in-the-us-as-treatment-for-patients-with-hypophosphatasia-aged-2-years-and-older-39473f47",
+      "source": "MFN",
+      "summary": "AstraZeneca: Efzimfotase alfa granted Priority Review in the US as treatment for patients with hypophosphatasia aged 2 years and older 2026-09-18 08:04:22 Based on results from the largest Phase III clinical programme in HPP including HICKORY, MULBERRY and CHESTNUT trials. If approved, efzimfotase alfa will be the first treatment to address skeletal abnormalities and functional impairments regardless of disease onset with convenient biweekly dosing. Alexion, AstraZeneca's Rare Disease's Biologics License Application (BLA) for efzimfotase alfa has been accepted and granted Priority Review by the US Food and Drug Administration (FDA) for the tr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "regulatory"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:regulatory",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "31351236a6f87f7c"
+    }
+  ]
 }

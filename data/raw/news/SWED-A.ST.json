@@ -1,8 +1,52 @@
 {
-  "generated_at": "2026-09-17T21:45:09+02:00",
+  "generated_at": "2026-09-18T21:02:57+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/swedbank",
   "items": [
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-09-18T13:23:32+02:00",
+      "title": "Swedbank: Överenskommelse om försäljning av förfallna lån",
+      "link": "https://mfn.se/cis/a/swedbank/swedbank-overenskommelse-om-forsaljning-av-forfallna-lan-67d5040c",
+      "source": "MFN",
+      "summary": "Swedbank: Överenskommelse om försäljning av förfallna lån 2026-09-18 13:23:32 Entercard - ett helägt dotterbolag till Swedbank - har nått en överenskommelse om att sälja delen av konsumentlånsportföljen som består av förfallna lån till Brocc Finance och Intrum. De förfallna lånen uppgår till cirka 4 miljarder kronor. För Swedbank, kommer avyttringen att ha följande finansiell inverkan: En positiv uppvärdering av förväntade kreditförluster om uppskattningsvis 0,5 miljarder kronor i tredje kvartalet. En positiv kapitaleffekt om cirka 3-5 baspunkter vid slutförandet. En lägre nettoränteintäkt om uppskattningsvis 100 miljoner kronor årligen. Tran",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "02643bde463915aa"
+    },
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-09-18T13:23:32+02:00",
+      "title": "Swedbank: Agreement on sale of non-performing loans",
+      "link": "https://mfn.se/cis/a/swedbank/swedbank-agreement-on-sale-of-non-performing-loans-90ecbc7c",
+      "source": "MFN",
+      "summary": "Swedbank: Agreement on sale of non-performing loans 2026-09-18 13:23:32 Entercard - a wholly-owned subsidiary of Swedbank - has entered into an agreement to sell the non-performing part of its consumer finance portfolio to Brocc Finance and Intrum. The non-performing portfolio amounts to around SEK 4 billion. To Swedbank, the sale will have the following financial effects: A positive revaluation of expected credit losses of approximately SEK 0.5 billion to be recognised in the third quarter A capital benefit of approximately 3-5 basis points at close Approximately SEK 100 million lower annual net interest income The transaction is expected to",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5cd38ab1ff32d16c"
+    },
     {
       "ticker": "SWED-A.ST",
       "company": "Swedbank AB (publ)",

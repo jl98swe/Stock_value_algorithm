@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-17T21:42:56+02:00",
+  "generated_at": "2026-09-18T21:00:44+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bergman-and-beving",
   "items": [
+    {
+      "ticker": "BERG-B.ST",
+      "company": "Bergman & Beving",
+      "published_at": "2026-09-18T15:00:00+02:00",
+      "title": "Share-based incentive scheme",
+      "link": "https://mfn.se/a/bergman-and-beving/share-based-incentive-scheme-3",
+      "source": "MFN",
+      "summary": "Share-based incentive scheme 2026-09-18 15:00:00 The share-based incentive scheme resolved by the 2026 Annual General Meeting where around 40 members of senior management were offered to acquire up to 200,000 call options on repurchased class B shares has been fully subscribed. The call options are transferred at a price of SEK 33.80 per call option, equivalent to the market value according to an external independent valuation, applying the Black & Scholes-model. The redemption price of the call options amounts to SEK 318.30, equivalent to 120 percent of the volume-weighted average of the paid market price for the shares during the period fro",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ea6a75a48d9adf4a"
+    },
     {
       "ticker": "BERG-B.ST",
       "company": "Bergman & Beving",
