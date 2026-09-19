@@ -7,7 +7,6 @@ import pandas as pd
 from .earnings import EPS_SOURCE, load_earnings_history
 from .fundamentals import REPORT_COLUMNS, load_reports, normalise_reports, save_reports
 from .fx import load_stock_currencies
-from .quarterly_eps import DERIVED_MANUAL_MARKER
 
 AUTO_MARKER = "yahoo_eps_auto_v1"
 HISTORICAL_MARKERS = (
@@ -22,7 +21,6 @@ def _is_replaceable_generated_report(row: pd.Series) -> bool:
     notes = str(row.get("notes") or "")
     return (
         AUTO_MARKER in notes
-        or DERIVED_MANUAL_MARKER in notes
         or any(marker in notes for marker in HISTORICAL_MARKERS)
     )
 
@@ -148,10 +146,8 @@ def sync_yahoo_eps_to_reports() -> pd.DataFrame:
                 skipped_manual += 1
                 continue
 
-            # En manuell kvartals-EPS kan skapa en provisorisk TTM-post på
-            # rapportdagen. När Yahoo senare publicerar faktisk trailingDilutedEPS
-            # för samma period ersätts bara TTM-värdet/källan; det etablerade
-            # effective_date bevaras så att rapportens timing inte flyttas.
+            # Endast maskinellt skapade Yahoo-/historikposter får ersättas.
+            # Manuellt registrerade EPS-värden har alltid företräde framför Yahoo.
             if pd.notna(existing["effective_date"]):
                 effective_date = pd.Timestamp(existing["effective_date"]).normalize()
                 date_basis = "existing_effective_date"

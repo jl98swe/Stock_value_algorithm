@@ -1,4 +1,4 @@
-name: Lägg till verifierad EPS
+name: Lägg till EPS från rapport
 
 on:
   workflow_dispatch:
@@ -16,11 +16,19 @@ on:
         required: true
         type: string
       published_at:
-        description: "Publiceringstid med tidszon; EPS gäller automatiskt samma svenska dag"
+        description: "Rapportdatum YYYY-MM-DD; EPS gäller från samma datum"
         required: true
         type: string
-      eps:
-        description: "Verifierad utspädd EPS för rapportperioden i bolagets rapportvaluta"
+      metric:
+        description: "Vilket EPS-mått matar du in?"
+        required: true
+        default: "eps_ttm"
+        type: choice
+        options:
+          - eps_ttm
+          - quarterly_eps
+      value:
+        description: "EPS-värde i bolagets rapportvaluta"
         required: true
         type: string
       source:
@@ -63,38 +71,35 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Uppdatera sparad Yahoo diluted EPS
-        run: python -m src.quarterly_eps
-
-      - name: Lägg in verifierad period-EPS
+      - name: Lägg in manuellt EPS-värde
         env:
           TICKER: ${{ inputs.ticker }}
           REPORT_PERIOD: ${{ inputs.report_period }}
           PERIOD_END: ${{ inputs.period_end }}
           PUBLISHED_AT: ${{ inputs.published_at }}
-          EPS: ${{ inputs.eps }}
+          METRIC: ${{ inputs.metric }}
+          VALUE: ${{ inputs.value }}
           SOURCE: ${{ inputs.source }}
           NOTES: ${{ inputs.notes }}
         run: |
+          if [ "$METRIC" = "eps_ttm" ]; then
+            EPS_ARGUMENT="--eps-ttm"
+          elif [ "$METRIC" = "quarterly_eps" ]; then
+            EPS_ARGUMENT="--eps"
+          else
+            echo "Okänt EPS-mått: $METRIC" >&2
+            exit 1
+          fi
           python -m src.add_report \
             --ticker "$TICKER" \
             --report-period "$REPORT_PERIOD" \
             --period-end "$PERIOD_END" \
             --published-at "$PUBLISHED_AT" \
-            --eps "$EPS" \
+            "$EPS_ARGUMENT" "$VALUE" \
             --source "$SOURCE" \
             --notes "$NOTES"
 
-      - name: Uppdatera valutakurser
-        run: python -m src.fx
-
-      - name: Uppdatera direkt Yahoo EPS TTM
-        run: python -m src.earnings
-
-      - name: Ersätt provisorisk TTM om Yahoo hunnit publicera perioden
-        run: python -m src.sync_yahoo_eps_reports
-
-      - name: Bygg om dashboard med slutlig verifierad EPS
+      - name: Bygg om dashboard med registrerad EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
       - name: Begränsa dashboard från 2019-09-02
@@ -107,7 +112,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fundamentals/reports.csv docs/data data/fx/fx_initial.csv
+          git add data/fundamentals/reports.csv data/manual/report_submissions.csv docs/data
           git add data/derived/valuation_score_history.csv.gz
           git add data/earnings/quarterly_eps.csv
           if [ -f data/fx/fx_updates.csv ]; then
@@ -123,6 +128,6 @@ jobs:
             echo "Inga ändringar att spara."
             exit 0
           fi
-          git commit -m "fundamentals: verifierad period-EPS ${{ inputs.ticker }} ${{ inputs.report_period }}"
+          git commit -m "fundamentals: manuellt EPS-värde ${{ inputs.ticker }} ${{ inputs.report_period }}"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"

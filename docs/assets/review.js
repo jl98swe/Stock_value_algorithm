@@ -3,7 +3,10 @@
 
   const REPO = 'https://github.com/jl98swe/Stock_value_algorithm';
   const $ = (id) => document.getElementById(id);
-  const state = { stocks: [], events: [], earnings: [], quarterly: [], selectedTicker: '', selectedEventId: '' };
+  const state = {
+    stocks: [], events: [], quarterly: [], manualReports: [], dashboardFiles: {},
+    activeStock: null, selectedTicker: '', selectedEventId: ''
+  };
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'medium', timeStyle: 'short' });
   const numFmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 6 });
 
@@ -46,17 +49,28 @@
     return state.events.find((event) => event.event_id === state.selectedEventId) || null;
   }
 
-  function currentEarnings() {
-    return state.earnings.find((item) => item.ticker === state.selectedTicker) || null;
-  }
-
   function eventsForTicker() {
     return state.events.filter((event) => event.ticker === state.selectedTicker);
+  }
+
+  function manualReportsForTicker() {
+    return state.manualReports.filter((item) => item.ticker === state.selectedTicker);
+  }
+
+  async function loadActiveStock() {
+    state.activeStock = null;
+    const filename = state.dashboardFiles[state.selectedTicker];
+    if (filename) state.activeStock = await loadJsonOptional(`./data/dashboard/${filename}`);
   }
 
   function formatTime(value) {
     const d = new Date(value);
     return Number.isNaN(d.valueOf()) ? value || '–' : dateFmt.format(d);
+  }
+
+  function formatDate(value) {
+    const d = new Date(value);
+    return Number.isNaN(d.valueOf()) ? value || '–' : new Intl.DateTimeFormat('sv-SE').format(d);
   }
 
   function formatNumber(value) {
@@ -118,7 +132,7 @@
     panel.innerHTML = `
       <div class="lock-icon">i</div>
       <div style="width:100%">
-        <strong id="eps-candidate-title">Automatiskt TTM-underlag</strong>
+        <strong id="eps-candidate-title">Aktivt EPS TTM</strong>
         <p id="eps-candidate-summary" style="margin:.35rem 0 .65rem"></p>
         <div id="eps-candidate-meta" class="fine-print"></div>
       </div>`;
@@ -146,29 +160,52 @@
     ensureEarningsPanel();
     const panel = $('eps-candidate-panel');
     if (!panel) return;
-    const item = currentEarnings();
     const prior = priorYearPeriod();
     panel.hidden = false;
-    $('eps-candidate-title').textContent = `Automatiskt TTM-underlag · ${state.selectedTicker}`;
+    const activeEps = state.activeStock?.latest?.eps_ttm;
+    const activeReport = state.activeStock?.report;
+    $('eps-candidate-title').textContent = `Aktivt EPS TTM i strategin · ${state.selectedTicker}`;
+    $('eps-candidate-summary').textContent = Number.isFinite(Number(activeEps))
+      ? `${formatNumber(activeEps)}${activeReport?.period ? ` för ${activeReport.period}` : ''}${activeReport?.effective_date ? `, används från ${activeReport.effective_date}` : ''}.`
+      : '–';
 
-    if (state.selectedTicker === 'EQT.ST') {
-      $('eps-candidate-summary').textContent = 'EQT publicerar inte kvartalsvisa finansiella rapporter med EPS. Yahoo saknar därför jämförbar quarterlyDilutedEPS för bolaget.';
-      $('eps-candidate-meta').textContent = 'EQT:s Q1/Q3-redogörelser ska inte ges en konstruerad EPS. Halvårs- och bokslutsrapport hanteras utan att blanda in en proxy.';
-      return;
+    const details = [];
+    if (prior) {
+      details.push(`Kvartals-EPS föregående år: ${formatNumber(prior.eps)} (${prior.period_end}).`);
+    } else if ($('eps-metric')?.value === 'quarterly_eps') {
+      details.push('Kvartals-EPS föregående år: –. Ett kvartalsvärde kan inte räknas om utan detta underlag.');
     }
+    $('eps-candidate-meta').textContent = details.join(' ');
+  }
 
-    if (!item) {
-      $('eps-candidate-summary').textContent = 'Ingen sparad Yahoo EPS TTM hittades. Arbetsflödet stoppar om TTM inte kan härledas säkert.';
-      $('eps-candidate-meta').textContent = prior
-        ? `Motsvarande period föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}).`
-        : 'Välj periodslut för att kontrollera motsvarande utspädda EPS föregående år.';
-      return;
-    }
+  function renderManualReports() {
+    const target = $('manual-report-list');
+    if (!target) return;
+    const items = manualReportsForTicker();
+    target.innerHTML = items.length ? items.map((item) => {
+      const direct = item.input_metric === 'eps_ttm';
+      const inputLabel = direct ? 'Inmatat EPS TTM' : 'Inmatad kvartals-EPS';
+      const dateLabel = item.published_at
+        ? `Publicerad ${formatDate(item.published_at)}`
+        : `Används från ${item.effective_date || '–'}`;
+      return `<article class="manual-report-item">
+        <div><strong>${esc(item.report_period || 'Rapport')}</strong><span>${esc(dateLabel)}</span></div>
+        <dl>
+          <div><dt>${inputLabel}</dt><dd>${esc(formatNumber(item.input_eps))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
+          <div><dt>Sparat EPS TTM</dt><dd>${esc(formatNumber(item.result_eps_ttm))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
+          <div><dt>Källa</dt><dd>${esc(item.source || '–')}</dd></div>
+          <div><dt>Registrerad</dt><dd>${esc(formatDate(item.submitted_at))}</dd></div>
+        </dl>
+        ${item.notes ? `<p>${esc(item.notes)}</p>` : ''}
+      </article>`;
+    }).join('') : '<div class="empty-state">Inga manuella rapporteringar för aktien.</div>';
+  }
 
-    $('eps-candidate-summary').textContent = `Senast sparad Yahoo trailing EPS TTM: ${formatNumber(item.eps_ttm)}${item.period_end ? ` för perioden ${item.period_end}` : ''}.`;
-    $('eps-candidate-meta').textContent = prior
-      ? `Motsvarande period föregående år: ${formatNumber(prior.eps)} (${prior.period_end}, ${prior.metric}). Backend väljer rätt föregående TTM-period och validerar valuta innan ny TTM sparas.`
-      : 'Välj periodslut för att kontrollera om jämförelseperiodens diluted EPS finns sparad. Saknas den stoppas inmatningen i stället för att ett värde gissas.';
+  function updateEpsMetric() {
+    const direct = $('eps-metric')?.value === 'eps_ttm';
+    if ($('eps-value-label')) $('eps-value-label').textContent = direct ? 'EPS TTM' : 'Kvartals-EPS (utspädd)';
+    renderEarnings();
+    updateCommands();
   }
 
   function renderEvent() {
@@ -178,6 +215,7 @@
     $('cal-ticker').value = state.selectedTicker;
     $('trade-ticker').value = state.selectedTicker;
     renderEarnings();
+    renderManualReports();
 
     if (!event) {
       $('event-empty').textContent = 'Inga bolagsnyheter för aktien.';
@@ -226,7 +264,8 @@
       `period=${$('eps-period').value}`,
       `period_end=${$('eps-period-end').value}`,
       `published_at=${quoted($('eps-published').value)}`,
-      `eps=${$('eps-value').value}`,
+      `metric=${$('eps-metric').value}`,
+      `value=${$('eps-value').value}`,
       `source=${quoted($('eps-source').value)}`,
       `note=${quoted($('eps-note').value)}`
     ];
@@ -275,9 +314,10 @@
   }
 
   function bindInputs() {
-    $('review-stock').addEventListener('change', (e) => {
+    $('review-stock').addEventListener('change', async (e) => {
       state.selectedTicker = e.target.value;
       state.selectedEventId = eventsForTicker()[0]?.event_id || '';
+      await loadActiveStock();
       populateEvents();
       renderEvent();
       setQuery();
@@ -296,6 +336,7 @@
       }
     });
     $('eps-period-end')?.addEventListener('change', renderEarnings);
+    $('eps-metric')?.addEventListener('change', updateEpsMetric);
 
     bindCopy('copy-review-command', 'review-command', 'review-copy-status');
     bindCopy('copy-eps-command', 'eps-command', 'eps-copy-status');
@@ -311,16 +352,18 @@
 
   async function init() {
     try {
-      const [stocksPayload, eventsPayload, earningsPayload, quarterlyPayload] = await Promise.all([
+      const [stocksPayload, eventsPayload, quarterlyPayload, manualPayload, dashboardIndex] = await Promise.all([
         loadJson('./data/stocks.json'),
         loadJson('./data/events.json'),
-        loadJsonOptional('./data/earnings.json'),
-        loadJsonOptional('./data/quarterly_eps.json')
+        loadJsonOptional('./data/quarterly_eps.json'),
+        loadJsonOptional('./data/manual_reports.json'),
+        loadJsonOptional('./data/dashboard/index.json')
       ]);
       state.stocks = stocksPayload.stocks || [];
       state.events = (eventsPayload.events || []).filter(isNewsEvent);
-      state.earnings = earningsPayload?.latest || [];
       state.quarterly = quarterlyPayload?.history || [];
+      state.manualReports = manualPayload?.submissions || [];
+      state.dashboardFiles = dashboardIndex?.files || {};
       if (!state.stocks.length) throw new Error('Ingen aktielista hittades.');
 
       const params = new URLSearchParams(location.search);
@@ -329,6 +372,7 @@
       const events = eventsForTicker();
       const wantedEvent = params.get('event');
       state.selectedEventId = events.some((e) => e.event_id === wantedEvent) ? wantedEvent : (events[0]?.event_id || '');
+      await loadActiveStock();
 
       setWorkflowLinks();
       populateStocks();

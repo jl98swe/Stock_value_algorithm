@@ -7,19 +7,26 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from .fundamentals import REPORT_COLUMNS, load_reports, normalise_reports, save_reports
+from .fx import load_stock_currencies
 from .manual_eps import derive_manual_eps_ttm_safe
+from .manual_reports import append_manual_submission, publish_manual_reports
 from .quarterly_eps import upsert_manual_quarterly_eps
 
 STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
 
 
 def _same_day_effective_date(published_at: str) -> str:
+    value = str(published_at).strip()
+    if len(value) == 10:
+        date_value = pd.to_datetime(value, format="%Y-%m-%d", errors="coerce")
+        if pd.notna(date_value):
+            return pd.Timestamp(date_value).date().isoformat()
     timestamp = pd.to_datetime(published_at, errors="coerce")
     if pd.isna(timestamp):
-        raise ValueError("published_at är inte en giltig tidpunkt")
+        raise ValueError("published_at är inte ett giltigt datum eller en giltig tidpunkt")
     timestamp = pd.Timestamp(timestamp)
     if timestamp.tzinfo is None:
-        raise ValueError("published_at måste innehålla tidszon")
+        raise ValueError("en tidpunkt i published_at måste innehålla tidszon")
     return timestamp.tz_convert(STOCKHOLM_TZ).date().isoformat()
 
 
@@ -35,7 +42,7 @@ def add_report(
     eps: float | None = None,
     eps_ttm: float | None = None,
 ) -> pd.DataFrame:
-    """Lägg till eller ersätt en verifierad rapportpost.
+    """Lägg till eller ersätt en manuellt registrerad rapportpost.
 
     Normalvägen tar endast periodens utspädda EPS. Ny TTM härleds från föregående
     Yahoo trailingDilutedEPS och motsvarande utspädda period-EPS ett år tidigare::
@@ -59,8 +66,11 @@ def add_report(
             )
 
     derivation: dict[str, object] | None = None
-    final_notes = str(notes or "").strip()
+    user_notes = str(notes or "").strip()
+    final_notes = user_notes
     final_eps_ttm: float
+    eps_currency: str
+    input_metric: str
     if eps is not None:
         derivation = derive_manual_eps_ttm_safe(
             ticker=ticker.strip(),
@@ -68,10 +78,24 @@ def add_report(
             current_period_eps=float(eps),
         )
         final_eps_ttm = float(derivation["eps_ttm"])
+        eps_currency = str(derivation["eps_currency"])
+        input_metric = "quarterly_eps"
         derivation_note = str(derivation["audit_note"])
         final_notes = f"{final_notes}; {derivation_note}" if final_notes else derivation_note
     else:
         final_eps_ttm = float(eps_ttm)
+        currencies = load_stock_currencies()
+        match = currencies.loc[currencies["ticker"] == ticker.strip(), "report_currency"]
+        if match.empty or not str(match.iloc[-1]).strip():
+            raise ValueError(f"Rapportvaluta saknas för {ticker.strip()}")
+        eps_currency = str(match.iloc[-1]).strip().upper()
+        input_metric = "eps_ttm"
+
+    audit_marker = (
+        f"manual_report_submission_v1; input_metric={input_metric}; "
+        f"report_currency={eps_currency}"
+    )
+    final_notes = f"{final_notes}; {audit_marker}" if final_notes else audit_marker
 
     row = pd.DataFrame(
         [
@@ -118,14 +142,29 @@ def add_report(
             source=source.strip(),
         )
 
+    append_manual_submission(
+        ticker=ticker.strip(),
+        report_period=report_period.strip(),
+        period_end=period_end,
+        published_at=published_at,
+        effective_date=same_day,
+        input_metric=input_metric,
+        input_eps=float(eps if eps is not None else eps_ttm),
+        result_eps_ttm=final_eps_ttm,
+        eps_currency=eps_currency,
+        source=source.strip(),
+        notes=user_notes,
+    )
+    publish_manual_reports(combined)
+
     return normalise_reports(combined)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Lägg in verifierad utspädd EPS för rapportperioden. EPS TTM härleds automatiskt "
-            "från sparad Yahoo-historik och gäller samma svenska dag som publiceringen."
+            "Lägg in EPS TTM direkt eller utspädd EPS för rapportperioden. Ett kvartalsvärde "
+            "räknas om till EPS TTM från sparad historik."
         )
     )
     parser.add_argument("--ticker", required=True, help="Yahoo-ticker, t.ex. ESSITY-B.ST")
@@ -134,7 +173,7 @@ def main() -> None:
     parser.add_argument(
         "--published-at",
         required=True,
-        help="ISO-tid med tidszon, t.ex. 2026-07-17T07:00:00+02:00",
+        help="Rapportdatum YYYY-MM-DD. En ISO-tid med tidszon stöds också.",
     )
     parser.add_argument(
         "--effective-date",
@@ -152,9 +191,9 @@ def main() -> None:
         "--eps-ttm",
         required=False,
         type=float,
-        help="Bakåtkompatibel expertväg. Webbformuläret använder inte detta fält.",
+        help="EPS TTM som ska användas direkt av strategin.",
     )
-    parser.add_argument("--source", default="Manuellt verifierad bolagsrapport")
+    parser.add_argument("--source", default="Manuellt registrerad bolagsrapport")
     parser.add_argument("--notes", default="")
     args = parser.parse_args()
     if (args.eps is None) == (args.eps_ttm is None):
@@ -185,7 +224,7 @@ def main() -> None:
         print(
             f"Sparade {latest['ticker']} {latest['report_period']}: "
             f"EPS TTM {latest['eps_ttm']} från {latest['effective_date'].date()} "
-            "(bakåtkompatibel direktväg)"
+            "(direkt inmatning)"
         )
 
 
