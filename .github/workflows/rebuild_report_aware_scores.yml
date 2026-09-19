@@ -12,11 +12,19 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: stock-data-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -44,4 +52,4 @@ jobs:
           git add data/derived/valuation_score_history.csv.gz docs/data
           git rm .github/workflows/rebuild_report_aware_scores.yml
           git commit -m "data: rebuild report-aware valuation history"
-          git push origin HEAD:main
+          git push origin HEAD:${{ github.ref_name }}
