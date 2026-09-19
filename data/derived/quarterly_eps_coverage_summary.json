@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-15T13:14:12+02:00",
+  "generated_at": "2026-09-19T10:58:29+02:00",
   "universe_tickers": 119,
   "tickers_with_any_eps": 118,
   "tickers_with_full_trailing_coverage": 78,
   "tickers_with_missing_trailing_periods": 41,
-  "trailing_periods": 1259,
-  "covered_trailing_periods": 1113,
-  "coverage_pct": 88.4,
+  "trailing_periods": 1260,
+  "covered_trailing_periods": 1114,
+  "coverage_pct": 88.41,
   "tickers_without_any_eps": [
     "EQT.ST"
   ]
