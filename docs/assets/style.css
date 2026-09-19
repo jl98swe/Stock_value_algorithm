@@ -324,6 +324,16 @@ a { color: inherit; }
 .review-event-button strong { display: block; font-size: 12px; }
 .review-event-button span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
 .review-tools { margin-top: 0; }
+.manual-report-list { display: grid; gap: 10px; }
+.manual-report-item { padding: 12px; border: 1px solid var(--line); border-radius: 11px; background: #fbfcfc; }
+.manual-report-item > div { display: flex; justify-content: space-between; gap: 12px; }
+.manual-report-item > div span { color: var(--muted); font-size: 10px; }
+.manual-report-item dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin: 10px 0 0; }
+.manual-report-item dl div { min-width: 0; }
+.manual-report-item dt { color: var(--muted); font-size: 9px; font-weight: 800; text-transform: uppercase; }
+.manual-report-item dd { margin: 3px 0 0; font-size: 11px; overflow-wrap: anywhere; }
+.manual-report-item p { margin: 9px 0 0; color: var(--muted); font-size: 10px; }
+@media (max-width: 820px) { .manual-report-item dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Reports page */
 .reports-page { max-width: 1580px; margin: 0 auto; padding: 22px 24px 34px; }

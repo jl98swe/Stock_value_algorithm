@@ -54,12 +54,16 @@ def test_delayed_news_run_cannot_be_skipped_by_wall_clock() -> None:
     assert any(step.get("run") == "python -m src.news_curated" for step in steps)
 
 
-def test_manual_eps_rebuilds_after_final_sync() -> None:
+def test_manual_eps_rebuilds_without_network_refresh() -> None:
     workflow = yaml.safe_load((WORKFLOWS / "add_verified_eps.yml").read_text())
     commands = [step.get("run", "") for step in workflow["jobs"]["add"]["steps"]]
-    assert commands.index("python -m src.sync_yahoo_eps_reports") < commands.index(
-        "python -m src.pipeline --skip-fetch --skip-dividends"
-    ) < commands.index("python -m src.validate_outputs")
+    text = "\n".join(commands)
+    assert "src.sync_yahoo_eps_reports" not in text
+    assert "src.earnings" not in text
+    assert "src.quarterly_eps" not in text
+    assert commands.index("python -m src.pipeline --skip-fetch --skip-dividends") < commands.index(
+        "python -m src.validate_outputs"
+    )
 
 
 def test_daily_update_freezes_scores_only_after_eps_sync() -> None:

@@ -28,6 +28,7 @@ from .fundamentals import (
 )
 from .model_data import ensure_gbm_model
 from .reporting import build_reports_payload
+from .manual_reports import publish_manual_reports
 from .score_history import (
     SCORE_HISTORY_FILE,
     apply_frozen_scores,
@@ -534,7 +535,7 @@ def build_dashboard(
         "max_active_positions_per_stock": 1,
         "execution": "Nästa handelsdags öppning",
         "shorting": False,
-        "update_time": "17:45 Europe/Stockholm",
+        "update_time": "17:30 Europe/Stockholm",
     }
 
     ready_count = sum(item.get("latest_score") is not None for item in stock_list)
@@ -564,6 +565,7 @@ def build_dashboard(
         generated_at=generated_at,
         manual_calendar=calendar,
     )
+    publish_manual_reports(reports)
 
     previous_events = read_json(EVENTS_JSON, default={}).get("events", [])
     all_events = _merge_published_news(
