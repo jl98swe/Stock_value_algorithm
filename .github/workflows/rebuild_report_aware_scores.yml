@@ -2,7 +2,7 @@ name: Rebuild report-aware score history
 
 on:
   push:
-    branches: [fix/report-aware-score-history]
+    branches: [main]
     paths:
       - "src/rebuild_report_aware_score_history.py"
       - "tests/test_rebuild_report_aware_score_history.py"
@@ -17,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: fix/report-aware-score-history
 
       - uses: actions/setup-python@v6
         with:
@@ -44,6 +42,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/derived/valuation_score_history.csv.gz docs/data
-          git diff --cached --quiet && exit 0
+          git rm .github/workflows/rebuild_report_aware_scores.yml
           git commit -m "data: rebuild report-aware valuation history"
-          git push origin HEAD:fix/report-aware-score-history
+          git push origin HEAD:main
