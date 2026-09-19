@@ -1,0 +1,80 @@
+name: Veckovis rapportkalender
+
+on:
+  schedule:
+    - cron: "0 8 * * 6"
+      timezone: "Europe/Stockholm"
+    - cron: "0 9 * * 0"
+      timezone: "Europe/Stockholm"
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Kalenderkälla
+        required: true
+        default: borskollen
+        type: choice
+        options:
+          - borskollen
+          - yahoo
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stock-data-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Installera Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installera beroenden
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Välj kalenderkälla
+        id: source
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.source }}" >> "$GITHUB_OUTPUT"
+          elif [ "$(date +%u)" = "6" ]; then
+            echo "value=borskollen" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=yahoo" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Hämta rapportkalender och bygg webbexport
+        run: python -m src.reporting --source "${{ steps.source.outputs.value }}" --workers 2 --refresh-json
+
+      - name: Validera data och webbexport
+        run: python -m src.validate_outputs
+
+      - name: Spara rapportkalendern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings/report_calendar.csv
+          git add data/earnings/report_calendar_history.csv
+          git add docs/data/reports.json
+          if git diff --cached --quiet; then
+            echo "Inga kalenderändringar att spara."
+            exit 0
+          fi
+          git commit -m "data: uppdatera rapportkalender"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"

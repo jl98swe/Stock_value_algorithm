@@ -205,8 +205,15 @@ def _fetch_recent_one(ticker: str, observed_date: str) -> list[dict[str, object]
         return []
 
 
-def update_recent(*, workers: int = 4) -> pd.DataFrame:
-    tickers = _ticker_universe()
+def update_recent(*, workers: int = 4, tickers: list[str] | None = None) -> pd.DataFrame:
+    universe = _ticker_universe()
+    targeted = tickers is not None
+    tickers = universe if tickers is None else sorted(set(tickers).intersection(universe))
+    existing = load_quarterly_eps()
+    if not tickers:
+        print("Ingen rapport väntar på ny Yahoo kvartals-EPS.")
+        _publish_json(existing)
+        return existing
     observed_date = datetime.now(STOCKHOLM_TZ).date().isoformat()
     rows: list[dict[str, object]] = []
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(tickers)))) as executor:
@@ -221,8 +228,30 @@ def update_recent(*, workers: int = 4) -> pd.DataFrame:
 
     fetched = _normalise(pd.DataFrame(rows, columns=QUARTERLY_COLUMNS))
     if fetched.empty:
+        if targeted:
+            print(f"VARNING: Yahoo returnerade ingen {DILUTED_METRIC}; försöket upprepas nästa vardag.")
+            _publish_json(existing)
+            return existing
         raise RuntimeError(f"Yahoo returnerade ingen {DILUTED_METRIC} för någon ticker.")
-    existing = load_quarterly_eps()
+    existing_keys = set(
+        zip(
+            existing["ticker"].astype(str),
+            pd.to_datetime(existing["period_end"], errors="coerce").dt.normalize(),
+            existing["metric"].astype(str),
+            strict=False,
+        )
+    )
+    fetched = fetched.loc[
+        ~fetched.apply(
+            lambda row: (str(row["ticker"]), pd.Timestamp(row["period_end"]).normalize(), str(row["metric"]))
+            in existing_keys,
+            axis=1,
+        )
+    ]
+    if fetched.empty:
+        print("Yahoo aktuell kvartals-EPS: inga nya rapportperioder ännu; försöket upprepas nästa vardag.")
+        _publish_json(existing)
+        return existing
     combined = _normalise(pd.concat([existing, fetched], ignore_index=True))
     save_quarterly_eps(combined)
     _publish_json(combined)
@@ -602,11 +631,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Hämta och lagra kvartals-EPS från Yahoo för hela aktieuniversumet.")
     parser.add_argument("--backfill", action="store_true", help="Bygg historik från färsk Yahoo-audit och Reported EPS.")
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--due-reports-only", action="store_true", help="Hämta endast bolag med rapporterad men ännu ej uppdaterad kvartals-EPS.")
     args = parser.parse_args()
     if args.backfill:
         backfill_from_audit(workers=args.workers)
     else:
-        update_recent(workers=args.workers)
+        tickers = None
+        if args.due_reports_only:
+            from .report_eps_due import pending_quarterly_tickers
+
+            tickers = pending_quarterly_tickers()
+            print(f"Rapportstyrd kvartals-EPS-hämtning: {len(tickers)} ticker(s).")
+        update_recent(workers=args.workers, tickers=tickers)
 
 
 if __name__ == "__main__":

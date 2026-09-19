@@ -120,11 +120,12 @@ def _needs_refresh(ticker: str, existing: pd.DataFrame, today: pd.Timestamp) -> 
     return int((today.normalize() - pd.Timestamp(latest).normalize()).days) >= STALE_DAYS
 
 
-def backfill_statement_gaps(*, workers: int = 4, stale_only: bool = False) -> pd.DataFrame:
+def backfill_statement_gaps(*, workers: int = 4, stale_only: bool = False, tickers: list[str] | None = None) -> pd.DataFrame:
     existing = load_quarterly_eps()
-    tickers = _ticker_universe()
-    if not tickers:
+    universe = _ticker_universe()
+    if not universe:
         raise ValueError("Prisuniversumet innehåller inga tickers.")
+    tickers = universe if tickers is None else sorted(set(tickers).intersection(universe))
 
     today = pd.Timestamp(datetime.now(STOCKHOLM_TZ).date())
     observed_date = today.date().isoformat()
@@ -200,8 +201,14 @@ def main() -> None:
         action="store_true",
         help=f"Hämta bara tickers vars senaste diluted EPS är minst {STALE_DAYS} dagar gammal.",
     )
+    parser.add_argument("--due-reports-only", action="store_true", help="Försök bara för rapporter där ny kvartals-EPS fortfarande saknas.")
     args = parser.parse_args()
-    backfill_statement_gaps(workers=args.workers, stale_only=args.stale_only)
+    tickers = None
+    if args.due_reports_only:
+        from .report_eps_due import pending_quarterly_tickers
+
+        tickers = pending_quarterly_tickers()
+    backfill_statement_gaps(workers=args.workers, stale_only=args.stale_only, tickers=tickers)
 
 
 if __name__ == "__main__":

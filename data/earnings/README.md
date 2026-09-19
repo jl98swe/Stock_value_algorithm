@@ -5,7 +5,7 @@ Den här mappen lagrar både Yahoos EPS TTM och separata EPS-komponenter för ra
 ## EPS TTM
 
 - `earnings_initial.csv` är den frysta basen.
-- `earnings_updates.csv` skapas av den dagliga körningen och innehåller senare Yahoo `trailingDilutedEPS`-värden som faktiskt har ändrats.
+- `earnings_updates.csv` innehåller senare Yahoo `trailingDilutedEPS`-värden som faktiskt har ändrats. Den dagliga körningen frågar bara efter bolag som har passerat ett registrerat rapportdatum och fortsätter tills en ny rapportperiod har hittats, som längst i 45 dagar.
 
 Viktiga kolumner är `ticker`, `period_end`, `report_date`, `observed_date`, `eps_ttm`, `eps_currency` och `source`. Exakt publiceringstid och handelsmässig `effective_date` verifieras separat i `data/fundamentals/reports.csv`.
 
@@ -24,7 +24,7 @@ Viktiga kolumner är `ticker`, `period_end`, `report_date`, `observed_date`, `ep
 | `eps_currency` | Rapportvalutan |
 | `source` | Spårbar källa |
 
-Den dagliga körningen hämtar Yahoo `quarterlyDilutedEPS` för hela aktieuniversumet och sparar nya perioder löpande. Historikjobbet backfyller samma mått från Yahoos fundamentals-timeseries.
+Den dagliga körningen hämtar Yahoo `quarterlyDilutedEPS` för bolag som har passerat ett registrerat rapportdatum och fortsätter tills en ny rapportperiod har hittats, som längst i 45 dagar. Historikjobbet backfyller samma mått från Yahoos fundamentals-timeseries.
 
 ### Manuell rapportinmatning
 
@@ -52,6 +52,12 @@ Alla bolag har inte en verklig kvartals-EPS. Ett exempel i nuvarande universum �
 - `report_calendar_history.csv` sparar ändrade kalenderobservationer för audit.
 - `data/manual/report_calendar.csv` kan komplettera eller ersätta kalenderdata
   med verifierade uppgifter.
+
+Kalendern uppdateras fristående från den dagliga marknadsuppdateringen. Börskollen
+hämtas på lördagar och Yahoo på söndagar. Källorna sparas separat och Börskollen
+har företräde när båda anger samma datum. Börskollen-hämtningen lagrar endast
+datum för aktier som matchar strategins tickeruniversum; övriga kalenderposter
+sparas inte. Senaste lyckade snapshot för en källa bevaras om hämtningen misslyckas.
 
 Yahoos kalenderfält `Earnings Average`, `Earnings Low` och `Earnings High`
 saknar en garanterad definition som jämförbar kvartalsvis utspädd EPS. De

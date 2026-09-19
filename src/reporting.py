@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 import exchange_calendars as xcals
 import pandas as pd
+import requests
 import yfinance as yf
 
 from .config import ROOT
@@ -31,6 +32,8 @@ CALENDAR_HISTORY_FILE = ROOT / "data" / "earnings" / "report_calendar_history.cs
 REPORTS_JSON = ROOT / "docs" / "data" / "reports.json"
 METADATA_FILE = ROOT / "data" / "metadata" / "stocks_yahoo.csv"
 REPORT_SOURCE = "Yahoo Finance / calendarEvents"
+BORSKOLLEN_SOURCE = "Börskollen / rapportkalender"
+BORSKOLLEN_REPORTS_URL = "https://www.borskollen.se/api/reports"
 UNVERIFIED_ESTIMATE_METRIC = "Yahoo EPS Estimate (definition unverified)"
 SAFE_ESTIMATE_METRICS = {DILUTED_METRIC, MANUAL_METRIC}
 UPCOMING_TRADING_DAYS = 10
@@ -173,6 +176,85 @@ def _fetch_yahoo_calendar(ticker: str) -> dict[str, object] | None:
     return yf.Ticker(ticker).get_calendar()
 
 
+def _ticker_key(value: object) -> str:
+    text = str(value or "").upper().replace(".ST", "")
+    return "".join(character for character in text if character.isalnum())
+
+
+def _borskollen_rows(
+    *,
+    observed_date: object | None = None,
+    session: requests.Session | None = None,
+) -> pd.DataFrame:
+    """Fetch Börskollen dates and retain only exact strategy-ticker matches."""
+    today = (
+        pd.Timestamp(observed_date).tz_localize(None).normalize()
+        if observed_date is not None
+        else pd.Timestamp(datetime.now(STOCKHOLM_TZ).date())
+    )
+    metadata = _metadata()
+    key_map: dict[str, list[str]] = {}
+    for ticker in metadata["ticker"].astype(str):
+        key_map.setdefault(_ticker_key(ticker), []).append(ticker)
+
+    client = session or requests.Session()
+    client.headers.update({"User-Agent": "StockValueAlgorithm/1.0 (+https://github.com/jl98swe/Stock_value_algorithm)"})
+    # Tagg-endpointen innehåller bara sajtens första synliga urval. Fråga
+    # därför kalender-endpointen för varje börsdag så att "visa alla"-poster
+    # som Dynavox inte tappas bort. Endast matchade strategiaktier sparas.
+    dates = list(pd.bdate_range(today - pd.Timedelta(days=7), today + pd.Timedelta(days=35)))
+    rows: list[dict[str, object]] = []
+    seen: set[tuple[str, pd.Timestamp]] = set()
+
+    def fetch_day(day: pd.Timestamp) -> list[dict[str, object]]:
+        day_response = client.get(
+            BORSKOLLEN_REPORTS_URL,
+            params={"date": day.date().isoformat()},
+            timeout=15,
+        )
+        day_response.raise_for_status()
+        return day_response.json().get("items") or []
+
+    day_items: list[dict[str, object]] = []
+    with ThreadPoolExecutor(max_workers=min(6, len(dates) or 1)) as executor:
+        futures = {executor.submit(fetch_day, day): day for day in dates}
+        for future in as_completed(futures):
+            day_items.extend(future.result())
+
+    for item in day_items:
+        if str(item.get("tagCountry") or "").strip().lower() != "sverige":
+            continue
+        matches = key_map.get(_ticker_key(item.get("tagTicker")), [])
+        if len(matches) != 1:
+            continue
+        ticker = matches[0]
+        report_date = pd.to_datetime(item.get("reportDate"), errors="coerce")
+        if pd.isna(report_date):
+            continue
+        report_date = pd.Timestamp(report_date).tz_localize(None).normalize()
+        identity = (ticker, report_date)
+        if identity in seen:
+            continue
+        seen.add(identity)
+        rows.append(
+            {
+                "ticker": ticker,
+                "report_date_start": report_date,
+                "report_date_end": report_date,
+                "date_status": "confirmed",
+                "expected_eps": pd.NA,
+                "expected_eps_low": pd.NA,
+                "expected_eps_high": pd.NA,
+                "expected_eps_currency": "",
+                "expected_eps_metric": "",
+                "expected_eps_verified": False,
+                "source": BORSKOLLEN_SOURCE,
+                "observed_date": today,
+            }
+        )
+    return _normalise_calendar(pd.DataFrame(rows, columns=CALENDAR_COLUMNS))
+
+
 def _same_snapshot(left: pd.Series, right: pd.Series) -> bool:
     columns = [column for column in CALENDAR_COLUMNS if column != "observed_date"]
     for column in columns:
@@ -197,7 +279,7 @@ def update_report_calendar(
     fetcher: Callable[[str], dict[str, object] | None] = _fetch_yahoo_calendar,
     observed_date: object | None = None,
 ) -> pd.DataFrame:
-    """Update the latest Yahoo calendar while preserving the last good result on failure."""
+    """Update Yahoo while preserving other sources and last good results."""
 
     metadata = _metadata()
     tickers = metadata["ticker"].loc[metadata["ticker"].str.len().gt(0)].tolist()
@@ -235,10 +317,14 @@ def update_report_calendar(
             print(f"Rapportkalender {index}/{len(tickers)} klar: {ticker}")
 
     fetched = _normalise_calendar(pd.DataFrame(fetched_rows, columns=CALENDAR_COLUMNS))
-    preserved = existing.loc[~existing["ticker"].isin(successful)].copy()
-    current = _normalise_calendar(_concat_frames([preserved, fetched], columns=CALENDAR_COLUMNS))
+    other_sources = existing.loc[existing["source"] != REPORT_SOURCE].copy()
+    old_yahoo = existing.loc[existing["source"] == REPORT_SOURCE].copy()
+    preserved = old_yahoo.loc[~old_yahoo["ticker"].isin(successful)].copy()
+    current = _normalise_calendar(_concat_frames([other_sources, preserved, fetched], columns=CALENDAR_COLUMNS))
     current = current.loc[current["report_date_end"] >= today]
-    current = current.sort_values(["ticker", "observed_date"]).drop_duplicates("ticker", keep="last")
+    current = current.sort_values(["ticker", "source", "observed_date"]).drop_duplicates(
+        ["ticker", "source"], keep="last"
+    )
 
     additions: list[pd.Series] = []
     for row in fetched.itertuples(index=False):
@@ -254,6 +340,46 @@ def update_report_calendar(
     save_auto_report_calendar(current, current_path)
     save_auto_report_calendar(history, history_path)
     print(f"Rapportkalender: {len(current)} kommande datum, {len(history)} sparade ändringspunkter.")
+    return current.reset_index(drop=True)
+
+
+def update_borskollen_calendar(
+    *,
+    current_path: str | Path = AUTO_CALENDAR_FILE,
+    history_path: str | Path = CALENDAR_HISTORY_FILE,
+    observed_date: object | None = None,
+    session: requests.Session | None = None,
+) -> pd.DataFrame:
+    """Replace Börskollen's snapshot atomically; preserve it if fetching fails."""
+    existing = load_auto_report_calendar(current_path)
+    history = load_auto_report_calendar(history_path)
+    fetched = _borskollen_rows(observed_date=observed_date, session=session)
+    today = (
+        pd.Timestamp(observed_date).tz_localize(None).normalize()
+        if observed_date is not None
+        else pd.Timestamp(datetime.now(STOCKHOLM_TZ).date())
+    )
+    if fetched.empty:
+        raise RuntimeError("Börskollen returnerade inga matchande rapportdatum; föregående snapshot bevaras.")
+    others = existing.loc[existing["source"] != BORSKOLLEN_SOURCE]
+    current = _normalise_calendar(_concat_frames([others, fetched], columns=CALENDAR_COLUMNS))
+    current = current.loc[current["report_date_end"] >= today]
+    current = current.sort_values(["ticker", "source", "observed_date"]).drop_duplicates(
+        ["ticker", "source"], keep="last"
+    )
+    additions: list[pd.Series] = []
+    for row in fetched.itertuples(index=False):
+        item = pd.Series(row._asdict())
+        prior = history.loc[
+            (history["ticker"] == item["ticker"]) & (history["source"] == BORSKOLLEN_SOURCE)
+        ].sort_values("observed_date")
+        if prior.empty or not _same_snapshot(prior.iloc[-1], item):
+            additions.append(item)
+    if additions:
+        history = _normalise_calendar(_concat_frames([history, pd.DataFrame(additions)], columns=CALENDAR_COLUMNS))
+    save_auto_report_calendar(current, current_path)
+    save_auto_report_calendar(history, history_path)
+    print(f"Börskollen: {len(fetched)} matchande rapportdatum sparades; inga övriga kalenderposter lagrades.")
     return current.reset_index(drop=True)
 
 
@@ -336,7 +462,13 @@ def _combined_schedule(auto: pd.DataFrame, manual: pd.DataFrame) -> pd.DataFrame
     automatic = _normalise_calendar(auto).copy()
     automatic["url"] = ""
     automatic["report_period"] = ""
-    automatic["schedule_priority"] = 1
+    automatic["schedule_priority"] = automatic["source"].map(
+        {BORSKOLLEN_SOURCE: 1, REPORT_SOURCE: 2}
+    ).fillna(3)
+    automatic = automatic.sort_values(
+        ["ticker", "schedule_priority", "observed_date", "report_date_start"],
+        ascending=[True, True, False, True],
+    ).drop_duplicates("ticker", keep="first")
     manual_rows = _manual_schedule_rows(manual)
     combined = _concat_frames(
         [manual_rows, automatic],
@@ -614,10 +746,23 @@ def build_reports_payload(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Uppdatera Yahoo-kalendern för kommande rapporter.")
+    parser = argparse.ArgumentParser(description="Uppdatera den separata kalendern för kommande rapporter.")
+    parser.add_argument("--source", choices=("yahoo", "borskollen"), default="yahoo")
     parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument(
+        "--refresh-json",
+        action="store_true",
+        help="Bygg om webbexporten efter kalenderhämtningen.",
+    )
     args = parser.parse_args()
-    update_report_calendar(workers=args.workers)
+    if args.source == "borskollen":
+        update_borskollen_calendar()
+    else:
+        update_report_calendar(workers=args.workers)
+    if args.refresh_json:
+        from .pipeline import run
+
+        run(skip_fetch=True, skip_dividends=True, persist_score_history=False)
 
 
 if __name__ == "__main__":

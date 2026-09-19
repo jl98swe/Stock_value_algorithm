@@ -286,3 +286,56 @@ def test_calendar_update_preserves_last_good_row_on_empty_response(tmp_path: Pat
 
     assert len(result) == 1
     assert result.iloc[0]["report_date_start"] == pd.Timestamp("2026-10-08")
+
+
+def test_borskollen_fetch_saves_only_exact_strategy_ticker_matches(monkeypatch) -> None:
+    monkeypatch.setattr(reporting, "_metadata", lambda: pd.DataFrame([
+        {"ticker": "DYVOX.ST", "company": "Dynavox Group", "price_currency": "SEK", "report_currency": "SEK"}
+    ]))
+
+    class Response:
+        def __init__(self, items):
+            self._items = items
+
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {"items": self._items}
+
+    class Session:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, url, *, params=None, timeout=None):
+            items = []
+            if params["date"] == "2026-10-21":
+                items = [
+                    {"tagTicker": "DYVOX", "tagCountry": "Sverige", "reportDate": "2026-10-21T00:00:00Z"},
+                    {"tagTicker": "OTHER", "tagCountry": "Sverige", "reportDate": "2026-10-21T00:00:00Z"},
+                ]
+            return Response(items)
+
+    rows = reporting._borskollen_rows(observed_date="2026-09-17", session=Session())
+
+    assert rows["ticker"].tolist() == ["DYVOX.ST"]
+    assert rows.iloc[0]["report_date_start"] == pd.Timestamp("2026-10-21")
+    assert rows.iloc[0]["source"] == reporting.BORSKOLLEN_SOURCE
+
+
+def test_borskollen_has_priority_over_yahoo_for_same_report() -> None:
+    yahoo = _calendar_row(ticker="DYVOX.ST", report_date_start="2026-10-21", report_date_end="2026-10-21")
+    independent = _calendar_row(
+        ticker="DYVOX.ST",
+        report_date_start="2026-10-21",
+        report_date_end="2026-10-21",
+        source=reporting.BORSKOLLEN_SOURCE,
+        expected_eps=None,
+    )
+    schedule = reporting._combined_schedule(
+        reporting._normalise_calendar(pd.DataFrame([yahoo, independent])),
+        pd.DataFrame(),
+    )
+
+    assert len(schedule) == 1
+    assert schedule.iloc[0]["source"] == reporting.BORSKOLLEN_SOURCE

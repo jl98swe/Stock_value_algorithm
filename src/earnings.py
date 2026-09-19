@@ -342,20 +342,30 @@ def update_earnings(
     updates_file: Path = UPDATES_EARNINGS_FILE,
     *,
     workers: int = 4,
+    tickers: list[str] | None = None,
 ) -> pd.DataFrame:
     prices = load_price_history()
-    tickers = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
-    if not tickers:
+    universe = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
+    if not universe:
         raise ValueError("Prisdata innehåller inga tickers.")
+    selected = universe if tickers is None else sorted(set(tickers).intersection(universe))
 
     base = _read_earnings_file(base_file)
     old_updates = _read_earnings_file(updates_file)
     history = load_earnings_history(base_file, updates_file)
-    fetched = _fetch_current_eps(tickers, workers)
+    if not selected:
+        print("Ingen rapport väntar på ny Yahoo EPS TTM.")
+        _publish_json(history)
+        return history
+    fetched = _fetch_current_eps(selected, workers)
     if fetched.empty:
+        if tickers is not None:
+            print(f"VARNING: Yahoo returnerade ingen {EPS_METRIC}; försöket upprepas nästa vardag.")
+            _publish_json(history)
+            return history
         raise RuntimeError(f"Yahoo returnerade ingen {EPS_METRIC} för någon ticker.")
 
-    missing = sorted(set(tickers).difference(set(fetched["ticker"].astype(str))))
+    missing = sorted(set(selected).difference(set(fetched["ticker"].astype(str))))
     if missing:
         print(f"VARNING: {EPS_METRIC} saknas för {len(missing)} ticker(s): {', '.join(missing[:20])}")
 
@@ -363,6 +373,8 @@ def update_earnings(
     # trailingEps snapshots. Vi blandar aldrig två EPS-definitioner i samma
     # tidsserie.
     metric_migration = (not history.empty) and not _is_current_metric(history)
+    if metric_migration and tickers is not None:
+        raise RuntimeError("Metricmigrering kräver en full EPS-hämtning, inte rapporturval.")
     if (base.empty and old_updates.empty) or metric_migration:
         fetched = _attach_report_dates(fetched, workers)
         _write_csv(fetched, base_file)
@@ -428,8 +440,15 @@ def main() -> None:
     parser.add_argument("--base-file", type=Path, default=BASE_EARNINGS_FILE)
     parser.add_argument("--updates-file", type=Path, default=UPDATES_EARNINGS_FILE)
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--due-reports-only", action="store_true", help="Hämta endast bolag med rapporterad men ännu ej uppdaterad EPS TTM.")
     args = parser.parse_args()
-    update_earnings(args.base_file, args.updates_file, workers=args.workers)
+    tickers = None
+    if args.due_reports_only:
+        from .report_eps_due import pending_ttm_tickers
+
+        tickers = pending_ttm_tickers()
+        print(f"Rapportstyrd EPS TTM-hämtning: {len(tickers)} ticker(s).")
+    update_earnings(args.base_file, args.updates_file, workers=args.workers, tickers=tickers)
 
 
 if __name__ == "__main__":
