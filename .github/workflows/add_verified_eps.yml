@@ -16,7 +16,7 @@ on:
         required: true
         type: string
       published_at:
-        description: "Publiceringstid med tidszon; EPS gäller automatiskt samma svenska dag"
+        description: "Rapportdatum YYYY-MM-DD; EPS gäller från samma datum"
         required: true
         type: string
       metric:

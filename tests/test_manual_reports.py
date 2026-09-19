@@ -8,6 +8,7 @@ import pandas as pd
 import src.add_report as add_report_module
 from src.fundamentals import empty_reports
 from src.manual_reports import append_manual_submission, publish_manual_reports
+from src.sync_yahoo_eps_reports import AUTO_MARKER, _is_replaceable_generated_report
 
 
 def test_manual_submission_is_saved_and_published(tmp_path: Path) -> None:
@@ -72,7 +73,8 @@ def test_review_page_distinguishes_strategy_eps_from_yahoo() -> None:
     assert "EPS TTM (direkt värde)" in html
     assert "Manuella rapporteringar" in html
     assert "Aktivt EPS TTM i strategin" in script
-    assert "Yahoo trailing EPS TTM som jämförelse" in script
+    assert "Yahoo trailing EPS TTM" not in script
+    assert "Yahoo-jämförelse" not in script
     assert "Senast sparad Yahoo trailing EPS TTM" not in script
     assert "type: choice" in workflow
     assert "python -m src.earnings" not in workflow
@@ -99,7 +101,7 @@ def test_direct_ttm_is_applied_and_audited(monkeypatch) -> None:
         ticker="PLAZ-B.ST",
         report_period="2026-Q2",
         period_end="2026-06-30",
-        published_at="2026-07-03T07:00:00+02:00",
+        published_at="2026-07-03",
         eps_ttm=6.119,
         source="TradingView",
     )
@@ -107,3 +109,13 @@ def test_direct_ttm_is_applied_and_audited(monkeypatch) -> None:
     assert reports.iloc[-1]["eps_ttm"] == 6.119
     assert captured["input_metric"] == "eps_ttm"
     assert captured["result_eps_ttm"] == 6.119
+
+
+def test_manual_eps_always_has_priority_over_yahoo() -> None:
+    manual_direct = pd.Series({"notes": "manual_report_submission_v1; input_metric=eps_ttm"})
+    manual_quarterly = pd.Series({"notes": "manual_quarterly_eps_derived_v1"})
+    yahoo = pd.Series({"notes": f"{AUTO_MARKER}; metric=trailingDilutedEPS"})
+
+    assert not _is_replaceable_generated_report(manual_direct)
+    assert not _is_replaceable_generated_report(manual_quarterly)
+    assert _is_replaceable_generated_report(yahoo)

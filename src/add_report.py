@@ -16,12 +16,17 @@ STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
 
 
 def _same_day_effective_date(published_at: str) -> str:
+    value = str(published_at).strip()
+    if len(value) == 10:
+        date_value = pd.to_datetime(value, format="%Y-%m-%d", errors="coerce")
+        if pd.notna(date_value):
+            return pd.Timestamp(date_value).date().isoformat()
     timestamp = pd.to_datetime(published_at, errors="coerce")
     if pd.isna(timestamp):
-        raise ValueError("published_at är inte en giltig tidpunkt")
+        raise ValueError("published_at är inte ett giltigt datum eller en giltig tidpunkt")
     timestamp = pd.Timestamp(timestamp)
     if timestamp.tzinfo is None:
-        raise ValueError("published_at måste innehålla tidszon")
+        raise ValueError("en tidpunkt i published_at måste innehålla tidszon")
     return timestamp.tz_convert(STOCKHOLM_TZ).date().isoformat()
 
 
@@ -168,7 +173,7 @@ def main() -> None:
     parser.add_argument(
         "--published-at",
         required=True,
-        help="ISO-tid med tidszon, t.ex. 2026-07-17T07:00:00+02:00",
+        help="Rapportdatum YYYY-MM-DD. En ISO-tid med tidszon stöds också.",
     )
     parser.add_argument(
         "--effective-date",

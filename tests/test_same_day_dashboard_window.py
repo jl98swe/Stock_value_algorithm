@@ -5,6 +5,7 @@ from src.limit_dashboard_window import limit_dashboard
 
 
 def test_same_day_effective_date_uses_stockholm_calendar_day():
+    assert _same_day_effective_date("2026-07-17") == "2026-07-17"
     assert _same_day_effective_date("2026-07-17T07:00:00+02:00") == "2026-07-17"
     assert _same_day_effective_date("2026-07-17T22:30:00+00:00") == "2026-07-18"
 

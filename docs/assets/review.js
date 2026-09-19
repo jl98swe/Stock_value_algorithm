@@ -4,7 +4,7 @@
   const REPO = 'https://github.com/jl98swe/Stock_value_algorithm';
   const $ = (id) => document.getElementById(id);
   const state = {
-    stocks: [], events: [], earnings: [], quarterly: [], manualReports: [], dashboardFiles: {},
+    stocks: [], events: [], quarterly: [], manualReports: [], dashboardFiles: {},
     activeStock: null, selectedTicker: '', selectedEventId: ''
   };
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'medium', timeStyle: 'short' });
@@ -49,10 +49,6 @@
     return state.events.find((event) => event.event_id === state.selectedEventId) || null;
   }
 
-  function currentEarnings() {
-    return state.earnings.find((item) => item.ticker === state.selectedTicker) || null;
-  }
-
   function eventsForTicker() {
     return state.events.filter((event) => event.ticker === state.selectedTicker);
   }
@@ -70,6 +66,11 @@
   function formatTime(value) {
     const d = new Date(value);
     return Number.isNaN(d.valueOf()) ? value || '–' : dateFmt.format(d);
+  }
+
+  function formatDate(value) {
+    const d = new Date(value);
+    return Number.isNaN(d.valueOf()) ? value || '–' : new Intl.DateTimeFormat('sv-SE').format(d);
   }
 
   function formatNumber(value) {
@@ -159,7 +160,6 @@
     ensureEarningsPanel();
     const panel = $('eps-candidate-panel');
     if (!panel) return;
-    const item = currentEarnings();
     const prior = priorYearPeriod();
     panel.hidden = false;
     const activeEps = state.activeStock?.latest?.eps_ttm;
@@ -170,11 +170,6 @@
       : '–';
 
     const details = [];
-    if (item) {
-      details.push(`Yahoo trailing EPS TTM som jämförelse: ${formatNumber(item.eps_ttm)}${item.period_end ? ` för perioden ${item.period_end}` : ''}.`);
-    } else {
-      details.push('Yahoo-jämförelse: –');
-    }
     if (prior) {
       details.push(`Kvartals-EPS föregående år: ${formatNumber(prior.eps)} (${prior.period_end}).`);
     } else if ($('eps-metric')?.value === 'quarterly_eps') {
@@ -191,7 +186,7 @@
       const direct = item.input_metric === 'eps_ttm';
       const inputLabel = direct ? 'Inmatat EPS TTM' : 'Inmatad kvartals-EPS';
       const dateLabel = item.published_at
-        ? `Publicerad ${formatTime(item.published_at)}`
+        ? `Publicerad ${formatDate(item.published_at)}`
         : `Används från ${item.effective_date || '–'}`;
       return `<article class="manual-report-item">
         <div><strong>${esc(item.report_period || 'Rapport')}</strong><span>${esc(dateLabel)}</span></div>
@@ -199,7 +194,7 @@
           <div><dt>${inputLabel}</dt><dd>${esc(formatNumber(item.input_eps))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
           <div><dt>Sparat EPS TTM</dt><dd>${esc(formatNumber(item.result_eps_ttm))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
           <div><dt>Källa</dt><dd>${esc(item.source || '–')}</dd></div>
-          <div><dt>Registrerad</dt><dd>${esc(formatTime(item.submitted_at))}</dd></div>
+          <div><dt>Registrerad</dt><dd>${esc(formatDate(item.submitted_at))}</dd></div>
         </dl>
         ${item.notes ? `<p>${esc(item.notes)}</p>` : ''}
       </article>`;
@@ -357,17 +352,15 @@
 
   async function init() {
     try {
-      const [stocksPayload, eventsPayload, earningsPayload, quarterlyPayload, manualPayload, dashboardIndex] = await Promise.all([
+      const [stocksPayload, eventsPayload, quarterlyPayload, manualPayload, dashboardIndex] = await Promise.all([
         loadJson('./data/stocks.json'),
         loadJson('./data/events.json'),
-        loadJsonOptional('./data/earnings.json'),
         loadJsonOptional('./data/quarterly_eps.json'),
         loadJsonOptional('./data/manual_reports.json'),
         loadJsonOptional('./data/dashboard/index.json')
       ]);
       state.stocks = stocksPayload.stocks || [];
       state.events = (eventsPayload.events || []).filter(isNewsEvent);
-      state.earnings = earningsPayload?.latest || [];
       state.quarterly = quarterlyPayload?.history || [];
       state.manualReports = manualPayload?.submissions || [];
       state.dashboardFiles = dashboardIndex?.files || {};
