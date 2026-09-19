@@ -4,7 +4,7 @@ Dagligt uppdaterad värderings- och signalpipeline för svenska aktier. Webbgrä
 
 ## Daglig körning
 
-GitHub Action `Daglig marknadsuppdatering` kör cirka 17:45 Europe/Stockholm på handelsdagar och gör i ordning:
+GitHub Action `Daglig marknadsuppdatering` kör cirka 17:30 Europe/Stockholm på handelsdagar och gör i ordning:
 
 1. hämtar nya OHLCV-priser från Yahoo Finance,
 2. kombinerar den frysta prisbasen med löpande uppdateringar,
@@ -135,10 +135,17 @@ data/earnings/report_calendar.csv
 data/earnings/report_calendar_history.csv
 ```
 
-Den automatiska kalendern hämtas från Yahoo Finance och används bara av
-rapportfliken. Den manuella kalendern fortsätter att styra verifierade
-rapporthändelser och handelsspärrar. Misslyckas en kalenderhämtning behålls den
-senast lyckade observationen.
+Den automatiska kalendern körs separat från marknadsuppdateringen: Börskollen
+på lördagar och Yahoo Finance på söndagar. Källorna sparas separat och
+Börskollen prioriteras när båda anger samma datum. Bara Börskollen-poster som
+matchar strategins tickeruniversum sparas. Den manuella kalendern fortsätter
+att styra verifierade rapporthändelser och handelsspärrar. Misslyckas en
+kalenderhämtning behålls den senast lyckade observationen.
+
+Från ett registrerat rapportdatum kontrollerar vardagsjobbet Yahoo för ny EPS
+TTM och jämförbar kvartals-EPS. Kontrollen fortsätter tills en ny rapportperiod
+har registrerats, dock högst i 45 dagar. Därmed görs inte längre EPS-anrop för
+hela aktieuniversumet varje dag.
 
 Rapportfliken visar de kommande tio handelsdagarna på Nasdaq Stockholm samt
 nyligen rapporterade bolag. En prognos visas bara när måttet är verifierat som

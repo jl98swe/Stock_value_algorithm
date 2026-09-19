@@ -9,10 +9,9 @@ on:
       - "src/pipeline.py"
       - "src/score_history.py"
       - "src/fetch_data.py"
-      - "src/reporting.py"
       - "src/validate_outputs.py"
   schedule:
-    - cron: "45 17 * * 1-5"
+    - cron: "30 17 * * 1-5"
       timezone: "Europe/Stockholm"
   workflow_dispatch:
 
@@ -52,19 +51,16 @@ jobs:
         run: python -m src.pipeline --defer-score-history
 
       - name: Uppdatera Yahoo trailingDilutedEPS
-        run: python -m src.earnings
+        run: python -m src.earnings --due-reports-only
 
       - name: Uppdatera Yahoo quarterlyDilutedEPS
-        run: python -m src.quarterly_eps
+        run: python -m src.quarterly_eps --due-reports-only
 
       - name: Fyll stale diluted EPS-luckor från Yahoo resultaträkningar
-        run: python -m src.backfill_quarterly_eps_statement --stale-only
+        run: python -m src.backfill_quarterly_eps_statement --due-reports-only
 
       - name: Synka ny Yahoo EPS till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
-
-      - name: Uppdatera kommande rapporter
-        run: python -m src.reporting --workers 2
 
       - name: Bygg om dashboard med dagens EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
