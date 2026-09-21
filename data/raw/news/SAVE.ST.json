@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-18T21:02:39+02:00",
+  "generated_at": "2026-09-21T22:26:21+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/nordnet",
   "items": [
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-09-21T08:00:00+02:00",
+      "title": "Nordnet lanserar aktieåterköpsprogram",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-lanserar-aktieaterkopsprogram-e42d0c27",
+      "source": "MFN",
+      "summary": "Nordnet lanserar aktieåterköpsprogram 2026-09-21 08:00:00 Styrelsen i Nordnet AB (publ) (\"Nordnet\") har med stöd av bemyndigandet från årsstämman den 27 april 2026 beslutat att förvärva egna aktier. Syftet med återköpet är att överföra kapital till aktieägarna och justera bolagets kapitalstruktur. Återköpen får inledas den 21 september 2026 och ska slutföras senast den 23 december 2026. Återköpen kommer att hanteras av Citi som kommer att ta beslut om tidpunkt för återköpen oberoende av och utan påverkan från Nordnet. Det högsta sammanlagda förvärvsbeloppet är 250 miljoner SEK. Återköp får ske vid ett eller flera tillfällen och ska ske på Nas",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "673f6c47360edceb"
+    },
     {
       "ticker": "SAVE.ST",
       "company": "Nordnet AB (publ)",
