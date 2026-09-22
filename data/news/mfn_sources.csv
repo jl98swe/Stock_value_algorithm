@@ -16,7 +16,7 @@ AXFO.ST,Axfood,axfood,https://mfn.se/all/a/axfood,resolved,2026-09-15T19:40:39+0
 AZA.ST,Avanza Bank,avanza-bank,https://mfn.se/all/a/avanza-bank,resolved,2026-09-15T19:40:41+00:00
 AZN.ST,AstraZeneca,astrazeneca,https://mfn.se/all/a/astrazeneca,resolved,2026-09-15T19:40:42+00:00
 BAHN-B.ST,Bahnhof,bahnhof,https://mfn.se/all/a/bahnhof,resolved,2026-09-15T19:40:49+00:00
-BALD-B.ST,Fast Balder,,,unresolved,2026-09-15T19:40:53+00:00
+BALD-B.ST,Fast Balder,,,unresolved,2026-09-22T19:43:34+00:00
 BEIA-B.ST,Beijer Alma,beijer-alma,https://mfn.se/all/a/beijer-alma,resolved,2026-09-15T19:40:53+00:00
 BEIJ-B.ST,Beijer Ref AB (publ),beijer-ref,https://mfn.se/all/a/beijer-ref,resolved,2026-09-15T19:40:55+00:00
 BERG-B.ST,Bergman & Beving,bergman-and-beving,https://mfn.se/all/a/bergman-and-beving,resolved,2026-09-15T19:40:58+00:00
@@ -70,14 +70,14 @@ LAGR-B.ST,Lagercrantz Group AB (publ),lagercrantz-group,https://mfn.se/all/a/lag
 LIFCO-B.ST,Lifco AB (publ),lifco,https://mfn.se/all/a/lifco,resolved,2026-09-15T19:43:07+00:00
 LIME.ST,Lime Technologies AB (publ),lime-technologies,https://mfn.se/all/a/lime-technologies,resolved,2026-09-15T19:43:10+00:00
 LOOMIS.ST,Loomis AB (publ),loomis,https://mfn.se/all/a/loomis,resolved,2026-09-15T19:43:12+00:00
-LUMI.ST,Lundin Mining Corporation,,,unresolved,2026-09-15T19:43:18+00:00
+LUMI.ST,Lundin Mining Corporation,,,unresolved,2026-09-22T19:45:01+00:00
 MCAP.ST,MedCap AB (publ),medcap,https://mfn.se/all/a/medcap,resolved,2026-09-15T19:43:19+00:00
 MCOV-B.ST,Medicover AB (publ),medicover,https://mfn.se/all/a/medicover,resolved,2026-09-15T19:43:20+00:00
 MSAB-B.ST,Micro Systemation AB (publ),micro-systemation,https://mfn.se/all/a/micro-systemation,resolved,2026-09-15T19:43:22+00:00
-MTG-B.ST,Modern Times Group MTG AB,,,unresolved,2026-09-15T19:43:28+00:00
+MTG-B.ST,Modern Times Group MTG AB,,,unresolved,2026-09-22T19:45:08+00:00
 MTRS.ST,Munters Group AB (publ),munters-group,https://mfn.se/all/a/munters-group,resolved,2026-09-15T19:43:29+00:00
 MYCR.ST,Mycronic AB (publ),mycronic,https://mfn.se/all/a/mycronic,resolved,2026-09-15T19:43:32+00:00
-NDA-SE.ST,Nordea Bank Abp,,,unresolved,2026-09-15T19:43:39+00:00
+NDA-SE.ST,Nordea Bank Abp,,,unresolved,2026-09-22T19:45:15+00:00
 NEWA-B.ST,New Wave Group AB (publ),new-wave-group,https://mfn.se/all/a/new-wave-group,resolved,2026-09-15T19:43:39+00:00
 NIBE-B.ST,NIBE Industrier AB (publ),nibe-industrier,https://mfn.se/all/a/nibe-industrier,resolved,2026-09-15T19:43:42+00:00
 NMAN.ST,Nederman Holding AB (publ),nederman-holding,https://mfn.se/all/a/nederman-holding,resolved,2026-09-15T19:43:44+00:00
@@ -91,14 +91,14 @@ REJL-B.ST,Rejlers AB (publ),rejlers,https://mfn.se/all/a/rejlers,resolved,2026-0
 SAAB-B.ST,Saab AB (publ),saab,https://mfn.se/all/a/saab,resolved,2026-09-15T19:44:10+00:00
 SAGA-A.ST,AB Sagax (publ),sagax,https://mfn.se/all/a/sagax,resolved,2026-09-15T19:44:16+00:00
 SAVE.ST,Nordnet AB (publ),nordnet,https://mfn.se/all/a/nordnet,resolved,2026-09-15T19:44:18+00:00
-SCA-B.ST,Svenska Cellulosa Aktiebolaget SCA (publ),,,unresolved,2026-09-15T19:44:31+00:00
+SCA-B.ST,Svenska Cellulosa Aktiebolaget SCA (publ),,,unresolved,2026-09-22T19:45:42+00:00
 SCST.ST,Scandi Standard AB (publ),scandi-standard,https://mfn.se/all/a/scandi-standard,resolved,2026-09-15T19:44:31+00:00
-SEB-A.ST,Skandinaviska Enskilda Banken AB (publ),,,unresolved,2026-09-15T19:44:38+00:00
+SEB-A.ST,Skandinaviska Enskilda Banken AB (publ),,,unresolved,2026-09-22T19:45:49+00:00
 SECARE.ST,Swedencare AB (publ),swedencare,https://mfn.se/all/a/swedencare,resolved,2026-09-15T19:44:39+00:00
 SECT-B.ST,Sectra AB (publ),sectra,https://mfn.se/all/a/sectra,resolved,2026-09-15T19:44:42+00:00
 SECU-B.ST,Securitas AB (publ),securitas,https://mfn.se/all/a/securitas,resolved,2026-09-15T19:44:47+00:00
 SFAST.ST,Stenhus Fastigheter i Norden AB (publ),norden,https://mfn.se/all/a/norden,resolved,2026-09-15T19:45:05+00:00
-SHB-A.ST,Svenska Handelsbanken AB (publ),,,unresolved,2026-09-15T19:45:18+00:00
+SHB-A.ST,Svenska Handelsbanken AB (publ),,,unresolved,2026-09-22T19:46:00+00:00
 SHOT.ST,Scandic Hotels Group AB (publ),scandic-hotels-group,https://mfn.se/all/a/scandic-hotels-group,resolved,2026-09-15T19:45:19+00:00
 SINT.ST,SinterCast AB (publ),sintercast,https://mfn.se/all/a/sintercast,resolved,2026-09-15T19:45:22+00:00
 SOBI.ST,Swedish Orphan Biovitrum AB (publ),swedish-orphan-biovitrum,https://mfn.se/all/a/swedish-orphan-biovitrum,resolved,2026-09-15T19:45:24+00:00

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-21T22:26:05+02:00",
+  "generated_at": "2026-09-22T21:45:24+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-09-22T08:00:00+02:00",
+      "title": "Peab builds homes in Visby",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-homes-in-visby-a0fdad1e",
+      "source": "MFN",
+      "summary": "Peab builds homes in Visby 2026-09-22 08:00:00 Peab has been commissioned to build 40 new homes in Visby. The customer is Gotlandshem and the contract is worth SEK 114 million. Peab has been working on the demolition and reconstruction of the Riggen Block in Gråbo in southern Visby since the autumn of 2024. Now that the zoning plan for the third phase has been approved, the project can proceed with an additional 40 homes. It entails building six rows of terraced houses with homes that have four rooms and a kitchen. The living space of each home will be just under 100 m2. When the project is completed Riggen will consist of 140 modern rental a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "distress"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:distress",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5878b89db64904b6"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

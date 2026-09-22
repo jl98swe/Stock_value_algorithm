@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-21T22:26:22+02:00",
+  "generated_at": "2026-09-22T21:45:44+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandi-standard",
   "items": [
+    {
+      "ticker": "SCST.ST",
+      "company": "Scandi Standard AB (publ)",
+      "published_at": "2026-09-22T09:25:00+02:00",
+      "title": "Konkurrensgodkännande för Scandi Standards förvärv av Glenhaven Foods",
+      "link": "https://mfn.se/cis/a/scandi-standard/konkurrensgodkannande-for-scandi-standards-forvarv-av-glenhaven-foods-1f79f170",
+      "source": "MFN",
+      "summary": "Konkurrensgodkännande för Scandi Standards förvärv av Glenhaven Foods 2026-09-22 09:25:00 Den 30 juli 2026 meddelade Scandi Standard AB (publ) (SCST SS) att bolaget hade ingått avtal om förvärv av Glenhaven Foods i Irland. Genomförandet av transaktionen var villkorat av godkännande från den irländska konkurrens- och konsumentskyddsmyndigheten Competition and Consumer Protection Commission (CCPC). CCPC har nu godkänt förvärvet och inga ytterligare villkor återstår. Förvärvet förväntas genomföras omkring den 9 oktober 2026. - Förvärvet av Glenhaven Foods uppfyller våra operativa och finansiella kriterier. På Irland stärker förvärvet vårt erbjud",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1212387eb732cab2"
+    },
     {
       "ticker": "SCST.ST",
       "company": "Scandi Standard AB (publ)",
