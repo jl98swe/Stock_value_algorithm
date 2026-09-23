@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-09-22T21:46:28+02:00",
+  "generated_at": "2026-09-23T21:41:50+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "CIBUS.ST",
+      "company": "Cibus Real Estate",
+      "published_at": "2026-09-23T12:00:00+02:00",
+      "title": "Cibus Real Estate AB (publ) meddelar att villkoret för förtida inlösen av bolagets 2027-obligationer har uppfyllts",
+      "link": "https://mfn.se/beq/a/cibus-real-estate/cibus-real-estate-ab-publ-meddelar-att-villkoret-for-fortida-inlosen-av-bolagets-2027-obligationer-har-uppfyllts-4d72366d",
+      "source": "MFN",
+      "summary": "Cibus Real Estate AB (publ) meddelar att villkoret för förtida inlösen av bolagets 2027-obligationer har uppfyllts 2026-09-23 12:00:00 Cibus meddelade den 7 september 2026 att bolaget avser att utöva sin rätt till förtida inlösen av sina utestående seniora icke-säkerställda gröna obligationer med ett utestående nominellt belopp om 700 miljoner kronor (lån nr 107 med ISIN SE0021921673) (\"Obligationerna\" och \"Förtida Inlösen\"). Förtida Inlösen var villkorad av emission av nya obligationer i enlighet med Cibus pressmeddelande den 7 september 2026 (\" Finansieringsvillkoret \"). Cibus bekräftar härmed att Finansieringsvillkoret har uppfyllts och at",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "55d02c4d8f4d1737"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-09-23T09:28:21+02:00",
+      "title": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram",
+      "link": "https://mfn.se/a/norden/indberetning-af-ledende-medarbejderes-og-disses-naertstaendes-transaktioner-med-dampskibsselskabet-norden-a-s-aktier-i-forbindelse-med-aktietilbagekobsprogram-24",
+      "source": "MFN",
+      "summary": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram 2026-09-23 09:28:21 Selskabsmeddelelse nr. 223/2026 (23. september 2026) I forbindelse med det annoncerede aktietilbagekøbsprogram i NORDEN, deltager A/S Motortramp ved løbende at sælge aktier pro rata, og der informeres til markedet – se vedhæftede fil og meddelelse nr. 189/2026 og 190/2026. Med venlig hilsen, Dampskibsselskabet NORDEN A/S Martin Badsted Finansdirektør Yderligere oplysninger: Therese Möllevinge, Head of Investor Relations, tlf.: +45 41 37 16 38, e-mail thm@norden.com V",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d6dc5aa730c38ffa"
+    },
+    {
+      "ticker": "VOLV-A.ST",
+      "company": "AB Volvo (publ)",
+      "published_at": "2026-09-23T09:00:00+02:00",
+      "title": "Kinas ödelagda Loessplatå blev grön igen - Bojie Fu får Volvo Environment Prize 2026",
+      "link": "https://mfn.se/cis/a/volvo/kinas-odelagda-loessplata-blev-gron-igen-bojie-fu-far-volvo-environment-prize-2026-50ba94ea",
+      "source": "MFN",
+      "summary": "Kinas ödelagda Loessplatå blev grön igen - Bojie Fu får Volvo Environment Prize 2026 2026-09-23 09:00:00 Jorden spolades bort, växtligheten försvann och Gula floden fylldes av sediment. Men idag är en stor del av Kinas berömda Loessplatå grön igen. En av forskarna bakom vändningen, landskapsekologen professor Bojie Fu, får Volvo Environment Prize 2026. Loessplatån anses ha varit en vagga för den tidiga kinesiska civilisationen. Den bördiga jorden var lätt att odla och gav goda skördar. Men under århundraden har området pressats av intensiv odling och överbetning, vilket har lett till en ekologisk kollaps. Jorden eroderade och landskapet blev ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7e78d9ab3c9619fe"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-09-23T08:01:54+02:00",
+      "title": "AstraZeneca: Trixeo approved in the EU for the maintenance treatment of asthma",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-trixeo-approved-in-the-eu-for-the-maintenance-treatment-of-asthma-6221a19d",
+      "source": "MFN",
+      "summary": "AstraZeneca: Trixeo approved in the EU for the maintenance treatment of asthma 2026-09-23 08:01:54 Trixeo is the first and only triple-combination therapy approved in the EU for patients 12 years and older, independent of exacerbation history. AstraZeneca's fixed-dose triple-combination Trixeo Aerosphere (budesonide/glycopyrronium/formoterol fumarate dihydrate or BGF (320/28.8/10μg)) has been approved in the European Union (EU) as a maintenance treatment for asthma in patients 12 years of age and older who are not adequately controlled by a combination of a medium dose inhaled corticosteroid (ICS) and long-acting beta2-agonist (LABA). Trixeo ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b00ab8eb796c055a"
+    },
+    {
+      "ticker": "WALL-B.ST",
+      "company": "Wallenstam AB (publ)",
+      "published_at": "2026-09-23T08:00:00+02:00",
+      "title": "WALLENSTAM: Wallenstam emitterar gröna obligationer för energieffektivisering av Sergelskrapan",
+      "link": "https://mfn.se/cis/a/wallenstam/wallenstam-wallenstam-emitterar-grona-obligationer-for-energieffektivisering-av-sergelskrapan-2850ea29",
+      "source": "MFN",
+      "summary": "WALLENSTAM: Wallenstam emitterar gröna obligationer för energieffektivisering av Sergelskrapan 2026-09-23 08:00:00 Wallenstam har emitterat gröna obligationer om 300 Mkr där emissionslikviden kommer att användas till renoveringen av Sergelskrapan i centrala Stockholm. Wallenstam siktar på en energibesparing om minst 30 procent och projektet utgör ett konkret exempel på hur grön finansiering kan användas för att minska energianvändningen i det befintliga fastighetsbeståndet. Renoveringen av Sergelskrapan visar hur äldre kommersiella fastigheter kan moderniseras för att möta dagens krav på energieffektivitet och hållbarhet. Genom investeringar ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7e055ee99ae6b9d7"
+    },
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-09-23T07:30:00+02:00",
+      "title": "Munters Group AB: Inbjudan till Munters kapitalmarknadsdag 2026",
+      "link": "https://mfn.se/cis/a/munters-group/munters-group-ab-inbjudan-till-munters-kapitalmarknadsdag-2026-f0ace111",
+      "source": "MFN",
+      "summary": "Munters Group AB: Inbjudan till Munters kapitalmarknadsdag 2026 2026-09-23 07:30:00 Munters bjuder härmed in analytiker, investerare, media och andra intressenter till kapitalmarknadsdag, som hålls den 11 november 2026. Evenemanget kommer att äga rum i Stockholm, Sverige och är tillgängligt globalt via webcast. Evenemanget äger rum på At Six, Brunkebergstorg 6 i Stockholm, med start kl. 13:00 CET då en lättare lunch serveras. Presentationerna och webbsändningen börjar kl. 14:00 CET (13:00 GMT i London och 08:00 EST i New York) och beräknas avslutas omkring kl. 17:30 CET. Under dagen kommer deltagare på plats även att ha möjlighet att ta del a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4389ad55b7e4e2e3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-09-23T07:15:00+02:00",
+      "title": "EQT Launches Middle East Platform and Opens Abu Dhabi Office",
+      "link": "https://mfn.se/cis/a/eqt/eqt-launches-middle-east-platform-and-opens-abu-dhabi-office-72452b5a",
+      "source": "MFN",
+      "summary": "EQT Launches Middle East Platform and Opens Abu Dhabi Office 2026-09-23 07:15:00 The launch of EQT's Middle East platform reflects EQT's commitment to the GCC, with Abu Dhabi serving as a strategic base as the firm builds its presence across GCC markets over time The platform will deepen support for EQT's existing portfolio companies, build on longstanding institutional relationships developed across the region over more than a decade, and pursue new investment opportunities aligned with the GCC's structural economic transformation Consistent with EQT's integrated, One EQT approach, the platform brings together investing across Private Equity",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "541104ae149f731a"
+    },
     {
       "ticker": "EVO.ST",
       "company": "Evolution",
