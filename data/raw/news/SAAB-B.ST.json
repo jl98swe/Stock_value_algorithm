@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-24T22:00:13+02:00",
+  "generated_at": "2026-09-25T22:01:23+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/saab",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-09-25T15:36:00+02:00",
+      "title": "Saab: Canada takes next step towards future GlobalEye capability",
+      "link": "https://mfn.se/cis/a/saab/saab-canada-takes-next-step-towards-future-globaleye-capability-748eba01",
+      "source": "MFN",
+      "summary": "Saab: Canada takes next step towards future GlobalEye capability 2026-09-25 15:36:00 Saab has signed a non-binding term-sheet agreement with the Canadian Defence Investment Agency (DIA), establishing the scope and foundation for detailed negotiations regarding the acquisition of Saab's GlobalEye Airborne Early Warning and Control (AEW&C) solution for the Royal Canadian Air Force (RCAF). The agreement marks an important milestone following Canada's announcement on 27 May 2026, identifying Saab as the preferred supplier for the nation's future AEW&C capability. While the agreement does not constitute a contract or commitment to procure aircraft",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a2b68505971751ac"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",

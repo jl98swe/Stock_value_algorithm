@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-24T21:58:38+02:00",
+  "generated_at": "2026-09-25T21:59:59+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eastnine",
-  "items": []
+  "items": [
+    {
+      "ticker": "EAST.ST",
+      "company": "Eastnine",
+      "published_at": "2026-09-25T00:45:00+02:00",
+      "title": "Eastnine AB (publ): Eastnine slutför förvärv av The Bridge",
+      "link": "https://mfn.se/cis/a/eastnine/eastnine-ab-publ-eastnine-slutfor-forvarv-av-the-bridge-62588f59",
+      "source": "MFN",
+      "summary": "Eastnine AB (publ): Eastnine slutför förvärv av The Bridge 2026-09-25 00:45:00 Eastnine har idag slutfört förvärvet och tillträtt den 40 våningar höga kontorsfastigheten The Bridge i Warszawa. Fastigheten förvärvades till ett underliggande fastighetsvärde om 285 MEUR. Förvärvet gör Warszawa till Eastnines största marknad och förväntas öka förvaltningsresultatet per aktie med 18 1 procent till 0,36 1 euro när samtliga hyresgäster har tillträtt sina lokaler i slutet på 2027. The Bridge är en nyutvecklad 174 meter hög kontorsfastighet belägen mitt i Warszawas snabbt växande stadskärna, endast femhundra meter från Eastnines fastighet Warsaw Unit.",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "352790406e6fcdca"
+    }
+  ]
 }
