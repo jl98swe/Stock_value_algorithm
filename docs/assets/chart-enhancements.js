@@ -105,14 +105,21 @@
 
   function selectedRange() {
     const active = document.querySelector('[data-range].active');
-    return active?.dataset.range || '125';
+    return active?.dataset.range || '3m';
   }
 
   function sliceCandles(candles) {
     const range = selectedRange();
-    if (range === 'all') return candles;
-    return candles.slice(-Math.max(1, Number(range)));
+    if (range === 'all' || !candles.length) return candles;
+    const last = new Date(`${candles.at(-1).date}T12:00:00Z`);
+    const cutoff = new Date(last);
+    if (range === 'ytd') cutoff.setUTCFullYear(last.getUTCFullYear(), 0, 1);
+    else cutoff.setUTCMonth(cutoff.getUTCMonth() - ({ '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[range] || 3));
+    return candles.filter((row) => row.date >= cutoff.toISOString().slice(0, 10));
   }
+
+  const markerEnabled = (name) => document.querySelector(`[data-marker="${name}"]`)?.checked !== false;
+  const epsText = (value) => value == null ? '–' : new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 }).format(Number(value));
 
   function ensureDividendPanel() {
     let panel = document.getElementById('dividend-history-panel');
@@ -238,24 +245,21 @@
     const series = current.series || [];
     const priceSeries = series.find((item) => item.name === 'Pris') || series[0] || {};
     const markPoint = Array.isArray(priceSeries.markPoint) ? priceSeries.markPoint[0] : priceSeries.markPoint;
-    const existingPoints = markPoint?.data || [];
-    const rawSignalPoints = existingPoints.filter((point) => /^(BUY|SELL)\b/.test(String(point.name || '')));
-    const signalPoints = rawSignalPoints.map((point) => {
-      const rawName = String(point.name || '');
-      const match = rawName.match(/^(BUY|SELL)\s*(.*)$/);
-      const side = match?.[1] || '';
-      const status = (match?.[2] || '').trim();
-      const day = String(point.coord?.[0] || '').slice(0, 10);
-      const nonExecuted = status.includes('deferred_cooldown') || status.includes('suppressed_capacity');
-      const blocked = status.includes('blocked');
-      const color = nonExecuted || blocked ? '#c88722' : side === 'BUY' ? '#1f8f67' : '#c74747';
-      return {
-        ...point,
-        name: `${side} ${status}`.trim(),
-        itemStyle: { ...(point.itemStyle || {}), color },
-        signalTooltip: `<strong>${side}${status ? ` · ${status}` : ''}</strong><br>${day}`
-      };
-    });
+    const signalPoints = markerEnabled('signals') ? (stock.signals || [])
+      .filter((signal) => signal.status === 'executed' && signal.execution_date >= startDate && signal.execution_date <= endDate)
+      .map((signal) => {
+        const candle = candles.find((row) => row.date === signal.execution_date);
+        if (!candle) return null;
+        const buy = signal.side === 'BUY';
+        return {
+          name: buy ? 'Köp' : 'Sälj',
+          coord: [signal.execution_date, Number(signal.execution_price) || Number(candle.close)],
+          symbol: 'triangle', symbolRotate: buy ? 0 : 180, symbolSize: 18,
+          itemStyle: { color: buy ? '#1f8f67' : '#c74747', borderColor: '#fff', borderWidth: 1 },
+          label: { show: false },
+          signalTooltip: `<strong>${buy ? 'Köp' : 'Sälj'}</strong><br>${esc(signal.execution_date)} · ${esc(signal.execution_price)}`
+        };
+      }).filter(Boolean) : [];
     const signalDays = new Set(signalPoints.map((point) => String(point.coord?.[0] || '').slice(0, 10)).filter(Boolean));
 
     const visibleEvents = (eventsPayload.events || []).filter((event) => {
@@ -273,9 +277,11 @@
       const preferCurrent = !previous || reportSourcePriority(event) > reportSourcePriority(previous);
       if (preferCurrent) reportByDay.set(day, event);
     });
-    const deduplicatedEvents = visibleEvents.filter((event) => (
-      eventMarker(event).code !== 'E' || reportByDay.get(eventDay(event)) === event
-    ));
+    const deduplicatedEvents = visibleEvents.filter((event) => {
+      const marker = eventMarker(event);
+      const group = marker.code === 'E' ? 'report' : marker.code === 'D' ? 'dividend' : 'news';
+      return markerEnabled(group) && (marker.code !== 'E' || reportByDay.get(eventDay(event)) === event);
+    });
 
     const countByDay = new Map();
     const eventPoints = deduplicatedEvents.map((event) => {
@@ -304,7 +310,7 @@
         },
         label: { show: true, formatter: marker.code, color: '#ffffff', fontSize: 10, fontWeight: 900 },
         eventTooltip: marker.code === 'E'
-          ? `<strong>${esc(title)}</strong>`
+          ? `<strong>${esc(title)}</strong><br>EPS TTM: ${esc(epsText(event.eps_ttm))}${event.eps_currency ? ` ${esc(event.eps_currency)}` : ''}`
           : `<strong>${marker.code} · ${marker.label}</strong><br>${esc(day)}${esc(source)}<br>${esc(title)}`
       };
     }).filter(Boolean);
@@ -365,6 +371,7 @@
         }
         if (event.target.closest('[data-range]') || event.target.closest('.stock-button')) scheduleRefresh();
       });
+      document.querySelectorAll('[data-marker]').forEach((input) => input.addEventListener('change', scheduleRefresh));
       window.addEventListener('popstate', scheduleRefresh);
       window.addEventListener('resize', scheduleRefresh);
     } catch (error) {

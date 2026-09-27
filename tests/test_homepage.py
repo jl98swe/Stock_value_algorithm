@@ -37,10 +37,21 @@ def test_homepage_histories_are_collapsed_to_four_rows():
 
 def test_backtest_and_recent_trade_copy_explain_the_data():
     assert "Historiskt backtest" in HTML
-    assert "samma exekverade köp och sälj" in HTML
-    assert "courtage är 0,25 procent" in HTML
+    assert "köp och behåll" in HTML
+    assert "0,25 procent courtage" in HTML
     assert "Senaste avslut" in HTML
-    assert "b.execution_date.localeCompare(a.execution_date)" in APP
+    assert "b.entry_date.localeCompare(a.entry_date)" in APP
+    assert "data.closed_trades" in APP
+    assert "data.open_lots" in APP
+
+
+def test_chart_ranges_and_markers_have_controls():
+    for period in ('3m', 'ytd', '3y', '5y'):
+        assert f'data-range="{period}"' in HTML
+    for marker in ('report', 'dividend', 'news', 'signals'):
+        assert f'data-marker="{marker}"' in HTML
+    assert "signal.status === 'executed'" in ENHANCEMENTS
+    assert "EPS TTM:" in ENHANCEMENTS
 
 
 def test_report_markers_use_publication_date_and_stay_inside_short_range_chart():

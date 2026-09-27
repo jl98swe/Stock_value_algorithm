@@ -2,6 +2,7 @@
   'use strict';
 
   const numberFormat = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
+  const epsFormat = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
   const scoreFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const percentFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFormat = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -24,6 +25,11 @@
   function formatNumber(value) {
     const parsed = number(value);
     return parsed === null ? '–' : numberFormat.format(parsed);
+  }
+
+  function formatEps(value) {
+    const parsed = number(value);
+    return parsed === null ? '–' : epsFormat.format(parsed);
   }
 
   function formatScore(value) {
@@ -88,16 +94,16 @@
         <td><span class="days-chip ${row.urgent ? 'urgent' : ''}">${daysLabel(row.trading_days_to_report)}</span></td>
         <td>${formatMoney(row.current_price, row.price_currency)}</td>
         <td><strong>${formatScore(row.current_score)}</strong></td>
-        <td><strong>${formatNumber(row.current_eps_ttm)} ${escapeHtml(row.eps_ttm_currency || '')}</strong></td>
+        <td><strong>${formatEps(row.current_eps_ttm)} ${escapeHtml(row.eps_ttm_currency || '')}</strong></td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>
       </tr>`).join('') : '<tr><td colspan="8" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
   }
 
-  function pair(before, after, currency = '') {
+  function pair(before, after, currency = '', formatter = formatNumber) {
     if (before == null && after == null) return '–';
     const suffix = currency ? ` ${escapeHtml(currency)}` : '';
-    return `<span class="value-pair"><span>${formatNumber(before)}${suffix}</span><span aria-hidden="true">→</span><strong>${formatNumber(after)}${suffix}</strong></span>`;
+    return `<span class="value-pair"><span>${formatter(before)}${suffix}</span><span aria-hidden="true">→</span><strong>${formatter(after)}${suffix}</strong></span>`;
   }
 
   function scorePair(before, after) {
@@ -123,7 +129,7 @@
         <td><strong>${formatDate(row.report_date)}</strong>${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
         <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatNumber(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
         <td>${row.prior_year_quarter_eps == null ? '–' : `${formatNumber(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
-        <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency)}</td>
+        <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency, formatEps)}</td>
         <td>${scorePair(row.score_before, row.score_after)}<span class="cell-note">${formatDate(row.before_date)} → ${formatDate(row.after_date)}</span></td>
         <td class="${scoreClass}"><strong>${signed(row.score_change)}</strong></td>
         <td>${pair(row.price_before, row.price_after, row.price_currency)}</td>
