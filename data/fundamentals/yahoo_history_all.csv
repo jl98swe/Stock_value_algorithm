@@ -1242,7 +1242,7 @@ SYSR.ST,2025-07-31,2025-08-28,28,3.18,SEK,yahoo_trailing_diluted,Yahoo Finance /
 SYSR.ST,2025-10-31,2025-12-04,34,3.32,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 SYSR.ST,2026-01-31,2026-03-05,33,3.33,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 SYSR.ST,2026-04-30,2026-06-10,41,3.67,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
-SYSR.ST,2026-07-31,,,3.84,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+SYSR.ST,2026-07-31,2026-08-27,27,3.84,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,yahoo_earnings_date
 TEL2-B.ST,2023-09-30,2023-10-18,18,5.84,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 TEL2-B.ST,2024-03-31,2024-04-18,18,5.35,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 TEL2-B.ST,2024-06-30,2024-07-17,17,5.44,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
