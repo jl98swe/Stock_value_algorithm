@@ -8,7 +8,7 @@
     activeStock: null, selectedTicker: '', selectedEventId: ''
   };
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'medium', timeStyle: 'short' });
-  const numFmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 6 });
+  const numFmt = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
 
   async function loadJson(path) {
     const response = await fetch(path, { cache: 'no-store' });

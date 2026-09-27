@@ -383,9 +383,9 @@ def update_borskollen_calendar(
     return current.reset_index(drop=True)
 
 
-def _json_number(value: object, digits: int = 4) -> float | None:
+def _json_number(value: object, digits: int | None = 4) -> float | None:
     number = _finite_number(value)
-    return None if number is None else round(number, digits)
+    return None if number is None else (round(number, digits) if digits is not None else number)
 
 
 def _iso_date(value: object) -> str | None:
@@ -584,7 +584,7 @@ def _upcoming_rows(
                 "current_price": _json_number(latest.get("Close")),
                 "price_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "current_score": _json_number(latest.get("Score")),
-                "current_eps_ttm": _json_number(latest.get("EPS_TTM"), 6),
+                "current_eps_ttm": _json_number(latest.get("EPS_TTM"), None),
                 "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "next_period_end": _iso_date(next_period) if period_is_plausible else None,
                 "neutral_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
@@ -657,8 +657,8 @@ def _recent_rows(
                 "reported_eps_currency": str(current_quarter.get("eps_currency") or "") if current_quarter is not None else None,
                 "prior_year_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
                 "prior_year_eps_currency": str(prior.get("eps_currency") or "") if prior is not None else None,
-                "eps_ttm_before": _json_number(before_row.get("EPS_TTM"), 6),
-                "eps_ttm_after": _json_number(after_row.get("EPS_TTM"), 6),
+                "eps_ttm_before": _json_number(before_row.get("EPS_TTM"), None),
+                "eps_ttm_after": _json_number(after_row.get("EPS_TTM"), None),
                 "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "score_before": _json_number(score_before),
                 "score_after": _json_number(score_after),

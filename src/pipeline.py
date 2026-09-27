@@ -241,25 +241,55 @@ def _report_payload(ticker: str, reports: pd.DataFrame, calendar: pd.DataFrame) 
         }
     return {
         "period": str(latest.get("report_period") or ""),
-        "eps_ttm": _json_number(latest.get("eps_ttm"), 6),
+        "eps_ttm": _json_number(latest.get("eps_ttm")),
         "effective_date": _iso_date(latest.get("effective_date")),
         "verified": bool(latest.get("verified", False)),
         "next_report": next_report,
     }
 
 
-def _strategy_comparison(strategy: dict[str, object] | None) -> list[dict[str, object]]:
+def _strategy_comparison(
+    strategy: dict[str, object] | None, frame: pd.DataFrame, dividends: pd.DataFrame, ticker: str,
+) -> list[dict[str, object]]:
     if not strategy:
         return []
     summary = strategy.get("summary", {})
+    state = strategy.get("state")
+    if not isinstance(state, pd.DataFrame) or state.empty:
+        return []
+    start = pd.Timestamp(state.iloc[0]["Date"]).normalize()
+    end = pd.Timestamp(state.iloc[-1]["Date"]).normalize()
+    window = frame.loc[pd.to_datetime(frame["date"]).between(start, end)].sort_values("date").copy()
+    window["close"] = pd.to_numeric(window["close"], errors="coerce")
+    window = window.loc[window["close"].gt(0)]
+    if window.empty:
+        return []
+    first_close = float(window.iloc[0]["close"])
+    paid = dividends.loc[dividends["ticker"].astype(str).eq(ticker)].copy()
+    paid["ex_date"] = pd.to_datetime(paid["ex_date"], errors="coerce")
+    paid = paid.loc[paid["ex_date"].gt(start) & paid["ex_date"].le(end)]
+    daily_dividends = paid.groupby("ex_date")["dividend"].sum() if not paid.empty else pd.Series(dtype=float)
+    window["dividend"] = pd.to_datetime(window["date"]).map(daily_dividends).fillna(0)
+    buy_hold = (window["close"] + window["dividend"].cumsum()) / first_close
+    drawdown = (buy_hold / buy_hold.cummax() - 1) * 100
+    dates = {"start_date": start.date().isoformat(), "end_date": end.date().isoformat()}
     return [
         {
             "strategy": "Originalstrategi",
+            **dates,
             "return_pct": _json_number(summary.get("total_return_pct"), 2),
             "max_drawdown_pct": _json_number(summary.get("max_drawdown_pct"), 2),
             "trades": int(summary.get("closed_lots", 0) or 0),
             "win_rate_pct": _json_number(summary.get("win_rate_pct"), 2),
-        }
+        },
+        {
+            "strategy": "Köp och behåll",
+            **dates,
+            "return_pct": _json_number((float(buy_hold.iloc[-1]) - 1) * 100, 2),
+            "max_drawdown_pct": _json_number(drawdown.min(), 2),
+            "trades": None,
+            "win_rate_pct": None,
+        },
     ]
 
 
@@ -272,6 +302,7 @@ def _stock_payload(
     model: GBMModel | None,
     score_history: pd.DataFrame,
     frozen_at: str,
+    dividends: pd.DataFrame,
 ) -> tuple[dict[str, object], dict[str, object], pd.DataFrame, pd.DataFrame]:
     frame = frame.sort_values("date").reset_index(drop=True)
     latest_price = frame.iloc[-1]
@@ -315,7 +346,7 @@ def _stock_payload(
 
     latest_working = valued.iloc[-1] if valued is not None else working.iloc[-1]
     latest_score = _json_number(latest_working.get("Score"), 4)
-    latest_eps = _json_number(latest_working.get("EPS_TTM"), 6)
+    latest_eps = _json_number(latest_working.get("EPS_TTM"))
     latest_pe = _json_number(latest_working.get("PE_TTM"), 4)
     latest_zone = str(latest_working.get("PriceZone") or "") if latest_score is not None else "Väntar på komplett GBM-underlag"
     locked = bool(latest_working.get("FundamentalLock", False))
@@ -354,8 +385,9 @@ def _stock_payload(
         "position": _position_payload(strategy),
         "next_action": _next_action(strategy, score_ready),
         "report": report_payload,
-        "strategy_comparison": _strategy_comparison(strategy),
+        "strategy_comparison": _strategy_comparison(strategy, frame, dividends, ticker),
         "closed_trades": strategy.get("trades", []) if strategy else [],
+        "open_lots": strategy.get("open_lots", []) if strategy else [],
     }
     report_frame = valued if valued is not None else working
     report_columns = [
@@ -413,6 +445,7 @@ def _report_events(reports: pd.DataFrame) -> list[dict[str, object]]:
                 "categories": ["report", "earnings"],
                 "source": str(row.source or "Rapportdata"),
                 "title": f"Rapport {period}",
+                "eps_ttm": _json_number(row.eps_ttm),
                 "summary": str(row.notes or ""),
                 "link": "",
                 "is_regulatory": True,
@@ -516,6 +549,7 @@ def build_dashboard(
             model,
             score_history,
             generated_at,
+            dividends,
         )
         stock_list.append(meta)
         dashboard_stocks[str(ticker)] = payload

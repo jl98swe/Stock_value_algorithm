@@ -13,7 +13,7 @@
     dashboard: null,
     eventsPayload: null,
     selectedTicker: null,
-    range: 'all',
+    range: '3m',
     chart: null,
     expanded: { news: new Set(), trades: new Set() }
   };
@@ -22,6 +22,8 @@
   const fmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
+  const epsFmt = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
+  const formatEps = (value) => value == null ? '–' : epsFmt.format(Number(value));
 
   function safeNumber(value, fallback = null) {
     const n = Number(value);
@@ -44,6 +46,14 @@
     if (!value) return '–';
     const d = new Date(value.length === 10 ? `${value}T12:00:00` : value);
     return Number.isNaN(d.valueOf()) ? value : dateFmt.format(d);
+  }
+
+  function holdingDays(start, end) {
+    if (!start || !end) return '–';
+    const startTime = Date.parse(`${start}T00:00:00Z`);
+    const endTime = Date.parse(`${end}T00:00:00Z`);
+    return Number.isFinite(startTime) && Number.isFinite(endTime)
+      ? `${Math.max(0, Math.round((endTime - startTime) / 86400000))} dagar` : '–';
   }
 
   function zoneClass(score) {
@@ -148,7 +158,7 @@
     $('metric-zone').textContent = latest.zone || '–';
     $('metric-zone').className = `zone-pill ${zoneClass(latest.score)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
-    $('metric-eps').textContent = latest.eps_ttm == null ? 'EPS –' : `EPS TTM ${fmt.format(latest.eps_ttm)}`;
+    $('metric-eps').textContent = latest.eps_ttm == null ? 'EPS –' : `EPS TTM ${formatEps(latest.eps_ttm)}`;
     $('metric-position').textContent = position.lots ? '1 aktiv position' : 'Ingen aktiv position';
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
@@ -173,7 +183,7 @@
     $('report-content').innerHTML = `
       <div class="status-stack">
         <div class="status-line"><span>Senaste rapport</span><strong>${report.period || '–'}</strong></div>
-        <div class="status-line"><span>EPS TTM</span><strong>${report.eps_ttm == null ? '–' : fmt.format(report.eps_ttm)}</strong></div>
+        <div class="status-line"><span>EPS TTM</span><strong>${formatEps(report.eps_ttm)}</strong></div>
         <div class="status-line"><span>Effektiv handelsdag</span><strong>${prettyDate(report.effective_date)}</strong></div>
         <div class="status-line"><span>Verifierad</span><strong>${report.verified ? 'Ja' : 'Nej'}</strong></div>
         <div class="status-line"><span>Nästa rapport</span><strong>${prettyDate(report.next_report)}</strong></div>
@@ -230,35 +240,47 @@
 
   function renderTables(data) {
     const comparisons = data.strategy_comparison || [];
-    const executed = (data.signals || [])
-      .filter((row) => row.status === 'executed' && row.execution_date)
-      .slice()
-      .sort((a, b) => a.execution_date.localeCompare(b.execution_date));
-    const scoredDates = (data.scores || []).filter((row) => row.value != null).map((row) => row.date).sort();
-    const latestCandleDate = data.candles?.at(-1)?.date;
-    const period = scoredDates.length && latestCandleDate
-      ? `${prettyDate(scoredDates[0])}–${prettyDate(latestCandleDate)}`
-      : '–';
+    const period = comparisons[0]?.start_date && comparisons[0]?.end_date
+      ? `${prettyDate(comparisons[0].start_date)}–${prettyDate(comparisons[0].end_date)}` : '–';
+    const strategyReturn = comparisons.find((row) => row.strategy === 'Originalstrategi')?.return_pct;
+    const stockReturn = comparisons.find((row) => row.strategy === 'Köp och behåll')?.return_pct;
     $('strategy-table').innerHTML = `
-      <thead><tr><th>Period</th><th>Avkastning</th><th>Största nedgång</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead>
-      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="5">Backtest saknas för aktien.</td></tr>'}</tbody>`;
+      <thead><tr><th>Alternativ</th><th>Period</th><th>Avkastning</th><th>Största nedgång</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead>
+      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${row.strategy}</td><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades ?? '–'}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="6">Backtest saknas för aktien.</td></tr>'}</tbody>`;
+    $('comparison-difference').textContent = strategyReturn == null || stockReturn == null
+      ? '' : `Strategin jämfört med aktien: ${strategyReturn - stockReturn > 0 ? '+' : ''}${pctFmt.format(strategyReturn - stockReturn)} procentenheter`;
 
-    const trades = executed
-      .sort((a, b) => b.execution_date.localeCompare(a.execution_date));
+    const latestDate = data.candles?.at(-1)?.date;
+    const trades = [...(data.closed_trades || []).map((trade) => ({ ...trade, open: false }))];
+    for (const lot of data.open_lots || []) {
+      const entryDate = lot.entry_date;
+      if (!entryDate || !latestDate) continue;
+      trades.push({ entry_date: entryDate, exit_date: null, entry_price: lot.entry_price,
+        exit_price: null, return_pct: lot.current_return_pct, open: true,
+        holding_trading_days: (data.candles || []).filter((c) => c.date > entryDate && c.date <= latestDate).length });
+    }
+    trades.sort((a, b) => b.entry_date.localeCompare(a.entry_date));
     const expanded = state.expanded.trades.has(state.selectedTicker);
     const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
-      <thead><tr><th>Datum</th><th>Händelse</th><th>Kurs</th><th>Score</th></tr></thead>
-      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr><td>${prettyDate(row.execution_date)}</td><td class="${row.side === 'BUY' ? 'positive' : 'negative'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</td><td>${fmt.format(row.execution_price)}</td><td>${fmt.format(row.score)}</td></tr>`).join('') : '<tr><td colspan="4">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>Tid i position</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th></tr></thead>
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
     updateToggle('trades-toggle', expanded, trades.length);
   }
 
   function sliceData(data) {
     const candles = data.candles || [];
     const scores = data.scores || [];
-    if (state.range === 'all') return { candles, scores };
-    const n = Math.max(1, Number(state.range));
-    return { candles: candles.slice(-n), scores: scores.slice(-n) };
+    if (state.range === 'all' || !candles.length) return { candles, scores };
+    const last = new Date(`${candles.at(-1).date}T12:00:00Z`);
+    const cutoff = new Date(last);
+    if (state.range === 'ytd') cutoff.setUTCFullYear(last.getUTCFullYear(), 0, 1);
+    else {
+      const months = { '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[state.range] || 3;
+      cutoff.setUTCMonth(cutoff.getUTCMonth() - months);
+    }
+    const start = cutoff.toISOString().slice(0, 10);
+    return { candles: candles.filter((row) => row.date >= start), scores: scores.filter((row) => row.date >= start) };
   }
 
   function renderChart(ticker, data) {
@@ -272,6 +294,12 @@
     if (!state.chart) state.chart = echarts.init(container, null, { renderer: 'canvas' });
 
     const sliced = sliceData(data);
+    const firstClose = Number(state.range === 'ytd'
+      ? [...(data.candles || [])].reverse().find((row) => row.date < sliced.candles[0]?.date)?.close ?? sliced.candles[0]?.close
+      : sliced.candles[0]?.close);
+    const lastClose = Number(sliced.candles.at(-1)?.close);
+    $('range-return').textContent = firstClose > 0 && Number.isFinite(lastClose)
+      ? `Kursutveckling ${state.range === 'all' ? 'hela perioden' : document.querySelector('[data-range].active')?.textContent.trim()}: ${pct((lastClose / firstClose - 1) * 100)} (stängningskurser, utan utdelning)` : 'Kursutveckling saknas för perioden.';
     const dates = sliced.candles.map((d) => d.date);
     const candleValues = sliced.candles.map((d) => [d.open, d.close, d.low, d.high]);
     const scoreMap = new Map(sliced.scores.map((d) => [d.date, d.value]));
@@ -336,8 +364,8 @@
         }
       },
       grid: [
-        { left: 58, right: 22, top: 24, height: '58%' },
-        { left: 58, right: 22, top: '70%', height: '21%' }
+        { left: 58, right: 18, top: 24, height: '58%', containLabel: true },
+        { left: 58, right: 18, top: '70%', height: '21%', containLabel: true }
       ],
       xAxis: [
         { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
@@ -399,7 +427,7 @@
         renderChart(state.selectedTicker, state.dashboard.stocks[state.selectedTicker]);
       });
     });
-    const defaultRange = document.querySelector('[data-range="all"]');
+    const defaultRange = document.querySelector('[data-range="3m"]');
     if (defaultRange) defaultRange.classList.add('active');
     $('news-toggle').addEventListener('click', () => {
       const expanded = state.expanded.news;
