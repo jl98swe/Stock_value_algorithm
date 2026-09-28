@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-25T22:00:51+02:00",
+  "generated_at": "2026-09-28T23:51:22+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
-  "items": []
+  "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-09-28T16:15:00+02:00",
+      "title": "Lifco förvärvar Micronova i Italien",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-micronova-i-italien",
+      "source": "MFN",
+      "summary": "Lifco förvärvar Micronova i Italien 2026-09-28 16:15:00 Lifco har tecknat avtal om att förvärva samtliga aktier i det italienska bolaget Micronova S.r.l. Micronova utvecklar och tillverkar kundanpassade kretskort och pekskärmar som säljs till OEM-tillverkare i olika branscher. Micronova omsatte cirka 35,1 MEUR 2025. Bolaget är baserat i Vigonza, Padova, i Italien och har 49 anställda. Micronova kommer att konsolideras i affärsområdet Systems Solutions, division Contract Manufacturing. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat och finansiella ställning under 2026.",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d8ff4d57cfcecf25"
+    }
+  ]
 }

@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-09-25T22:02:04+02:00",
+  "generated_at": "2026-09-28T23:52:39+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "EKTA-B.ST",
+      "company": "Elekta",
+      "published_at": "2026-09-28T19:00:00+02:00",
+      "title": "Studie presenterad vid ASTRO visar lovande långtidsresultat för patienter med lokaliserad bukspottkörtelcancer behandlade med Elekta Unity",
+      "link": "https://mfn.se/a/elekta/studie-presenterad-vid-astro-visar-lovande-langtidsresultat-for-patienter-med-lokaliserad-bukspottkortelcancer-behandlade-med-elekta-unity",
+      "source": "MFN",
+      "summary": "Studie presenterad vid ASTRO visar lovande långtidsresultat för patienter med lokaliserad bukspottkörtelcancer behandlade med Elekta Unity 2026-09-28 19:00:00 Ny data understryker potentialen med MR-vägledd adaptiv strålbehandling samtidigt som Elekta vidareutvecklar Elekta Unity med Unity Pro för att bidra till att göra adaptiv behandling tillgänglig för fler kliniker. BOSTON – Elekta (EKTA-B.ST) uppmärksammar ny data från ASTRO 2026 som visar långtidsöverlevnadsresultat som saknar tidigare motstycke för patienter med lokaliserad bukspottkörtelcancer. Patienterna behandlades med adaptiv strålbehandling med hög stråldos på Elekta Unity MR-lin",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1eb1b1ed8058f898"
+    },
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-09-28T15:00:00+02:00",
+      "title": "Buybacks of shares of series B in Trelleborg during week 39, 2026",
+      "link": "https://mfn.se/a/trelleborg/buybacks-of-shares-of-series-b-in-trelleborg-during-week-39-2026",
+      "source": "MFN",
+      "summary": "Buybacks of shares of series B in Trelleborg during week 39, 2026 2026-09-28 15:00:00 During the period September 21, 2026, to September 25, 2026, Trelleborg AB (LEI code 213800XY16PAWG2PAD14) has repurchased in total 88,500 own shares of series B (ISIN: SE0000114837) as part of the buyback program initiated by the Board of Directors. The purpose is to adjust the company's capital structure and thereby contribute to increased shareholder value. Repurchases are also made to ensure the delivery of shares and related costs, such as social security contributions, for the Performance Share Program (PSP) 2026/2028. The share buybacks form part of t",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "86dfd718971f23f4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "company": "Kambi Group plc",
+      "published_at": "2026-09-28T14:00:00+02:00",
+      "title": "Kambi Group plc and Olimpo.bet extend Turnkey Sportsbook partnership in new multi-year agreement",
+      "link": "https://mfn.se/a/kambi-group/kambi-group-plc-and-olimpo-bet-extend-turnkey-sportsbook-partnership-in-new-multi-year-agreement",
+      "source": "MFN",
+      "summary": "Kambi Group plc and Olimpo.bet extend Turnkey Sportsbook partnership in new multi-year agreement 2026-09-28 14:00:00 Extension strengthens Kambi’s leadership position in Latin America as Olimpo.bet continues to deliver leading sportsbook experiences in Peru's regulated market Kambi Group plc (“Kambi”), a leading provider of cutting-edge sports betting services, has announced a multi-year extension to its partnership with Olimpo.bet, a leading operator in Peru’s regulated sports betting market. Under the renewed agreement, Olimpo.bet will continue to leverage Kambi’s market-leading Turnkey Sportsbook, enabling the operator to deliver a high-pe",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c5539587359c668f"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-09-28T11:58:06+02:00",
+      "title": "Tutkimus: Osakesäästötili löysi tiensä ruuhkavuosiin, mutta alueelliset erot jyrkkenevät",
+      "link": "https://mfn.se/cis/a/nordnet/tutkimus-osakesaastotili-loysi-tiensa-ruuhkavuosiin-mutta-alueelliset-erot-jyrkkenevat-ea7e2dc8",
+      "source": "MFN",
+      "summary": "Tutkimus: Osakesäästötili löysi tiensä ruuhkavuosiin, mutta alueelliset erot jyrkkenevät 2026-09-28 11:58:06 Pienten lasten perheet ovat löytäneet osakesäästötilin, mutta samaan aikaan Suomessa alueelliset erot tilien avaamisessa kasvukeskusten ja muun maan välillä jyrkkenevät. Sijoittajien ykköstoiveena on saada osakesäästötilin sisälle myös tavalliset sijoitusrahastot. Tiedot ilmenevät Nordnetin teettämästä kyselytutkimuksesta, jossa selvitettiin osakesäästötilin kiinnostavuutta ja verrattiin tilannetta vuoden takaiseen. Osakesäästötilistä tuli pienten lasten vanhempien hitti - yli puolet avannut tilin Vuoden 2026 ensimmäisellä vuosipuolisk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8e93467e8d64cadd"
+    },
+    {
+      "ticker": "EVO.ST",
+      "company": "Evolution",
+      "published_at": "2026-09-28T10:20:00+02:00",
+      "title": "Acquisitions of own shares in Evolution AB (publ)",
+      "link": "https://mfn.se/a/evolution/acquisitions-of-own-shares-in-evolution-ab-publ-12",
+      "source": "MFN",
+      "summary": "Acquisitions of own shares in Evolution AB (publ) 2026-09-28 10:20:00 Evolution AB (publ) (“Evolution”) has, during the period 21 September 2026 – 25 September 2026, acquired a total of 624,484 own shares within the framework of the repurchase program introduced by the board of directors to optimize the capital structure of Evolution by reducing the capital, and thereby creating added shareholder value. The repurchase program, which Evolution announced on 18 May 2026, is being implemented in accordance with the EU Market Abuse Regulation No 596/2014 (“MAR”) and the Commission Delegated Regulation No 2016/1052 (“Safe Harbour Regulation”). Duri",
+      "is_regulatory": true,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "48e40dadf8ed705a"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-09-28T09:24:48+02:00",
+      "title": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram",
+      "link": "https://mfn.se/a/norden/indberetning-af-ledende-medarbejderes-og-disses-naertstaendes-transaktioner-med-dampskibsselskabet-norden-a-s-aktier-i-forbindelse-med-aktietilbagekobsprogram-27",
+      "source": "MFN",
+      "summary": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram 2026-09-28 09:24:48 Selskabsmeddelelse nr. 227/2026 (28. september 2026) I forbindelse med det annoncerede aktietilbagekøbsprogram i NORDEN, deltager A/S Motortramp ved løbende at sælge aktier pro rata, og der informeres til markedet – se vedhæftede fil og meddelelse nr. 189/2026 og 190/2026. Med venlig hilsen, Dampskibsselskabet NORDEN A/S Martin Badsted Finansdirektør Yderligere oplysninger: Therese Möllevinge, Head of Investor Relations, tlf.: +45 41 37 16 38, e-mail thm@norden.com V",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "056cdf00c346eeba"
+    },
+    {
+      "ticker": "EKTA-B.ST",
+      "company": "Elekta",
+      "published_at": "2026-09-27T17:40:00+02:00",
+      "title": "Elekta breddar sitt erbjudande inom adaptiv strålbehandling",
+      "link": "https://mfn.se/a/elekta/elekta-breddar-sitt-erbjudande-inom-adaptiv-stralbehandling",
+      "source": "MFN",
+      "summary": "Elekta breddar sitt erbjudande inom adaptiv strålbehandling 2026-09-27 17:40:00 Nya funktioner inom CT, MR, strålkirurgi och brachyterapi ger kliniker fler möjligheter att integrera adaptiv behandling i den kliniska vardagen . BOSTON – Elekta (EKTA-B.ST) meddelade idag under ASTRO att bolaget utökar sin portfölj för adaptiv strålbehandling. Med funktioner inom CT- och MR-styrd strålbehandling, strålkirurgi och brachyterapi ger Elekta kliniker fler möjligheter att individanpassa behandlingen och samtidigt möta de kliniska, operativa och resursmässiga krav som kan begränsa en bredare användning av adaptiv strålbehandling. Portföljen möjliggörs ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4a0fc2902beb1f89"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",
