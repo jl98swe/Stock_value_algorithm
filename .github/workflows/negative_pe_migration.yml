@@ -12,6 +12,7 @@ permissions:
 concurrency:
   group: stock-data-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 jobs:
   migrate:
     runs-on: ubuntu-latest
