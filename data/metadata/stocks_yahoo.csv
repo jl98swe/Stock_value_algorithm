@@ -18,7 +18,7 @@ AZN.ST,AstraZeneca,GB0009895292,SEK,USD
 BAHN-B.ST,Bahnhof,SE0010442418,SEK,SEK
 BALD-B.ST,Fast Balder,SE0017832488,SEK,SEK
 BEIA-B.ST,Beijer Alma,SE0011090547,SEK,SEK
-BEIJ-B.ST,nan,nan,SEK,SEK
+BEIJ-B.ST,Beijer Ref AB (publ),nan,SEK,SEK
 BERG-B.ST,Bergman & Beving,SE0000101362,SEK,SEK
 BETS-B.ST,Betsson,SE0022726485,SEK,EUR
 BILI-A.ST,Bilia,SE0009921588,SEK,SEK
@@ -49,72 +49,72 @@ ERIC-B.ST,Ericsson B,SE0000108656,SEK,SEK
 ESSITY-B.ST,Essity B,SE0009922164,SEK,SEK
 EVO.ST,Evolution,SE0012673267,SEK,EUR
 FABG.ST,Fabege,SE0011166974,SEK,SEK
-FOI-B.ST,nan,nan,SEK,EUR
-GENO.ST,nan,nan,SEK,SEK
-GETI-B.ST,nan,nan,SEK,SEK
-HANZA.ST,nan,nan,SEK,SEK
-HEXA-B.ST,nan,nan,SEK,EUR
-HMS.ST,nan,nan,SEK,SEK
-HOLM-A.ST,nan,nan,SEK,SEK
-HPOL-B.ST,nan,nan,SEK,SEK
-HTRO.ST,nan,nan,SEK,SEK
-HUFV-A.ST,nan,nan,SEK,SEK
-INDT.ST,nan,nan,SEK,SEK
-INDU-A.ST,nan,nan,SEK,SEK
-INTRUM.ST,nan,nan,SEK,SEK
-INVE-A.ST,nan,nan,SEK,SEK
-INWI.ST,nan,nan,SEK,SEK
-KAMBI.ST,nan,nan,SEK,EUR
-KNOW.ST,nan,nan,SEK,SEK
-LAGR-B.ST,nan,nan,SEK,SEK
-LIFCO-B.ST,nan,nan,SEK,SEK
-LIME.ST,nan,nan,SEK,SEK
-LOOMIS.ST,nan,nan,SEK,SEK
-LUMI.ST,nan,nan,SEK,USD
-MCAP.ST,nan,nan,SEK,SEK
-MCOV-B.ST,nan,nan,SEK,EUR
-MSAB-B.ST,nan,nan,SEK,SEK
-MTG-B.ST,nan,nan,SEK,SEK
-MTRS.ST,nan,nan,SEK,SEK
-MYCR.ST,nan,nan,SEK,SEK
-NDA-SE.ST,nan,nan,SEK,EUR
-NEWA-B.ST,nan,nan,SEK,SEK
-NIBE-B.ST,nan,nan,SEK,SEK
-NMAN.ST,nan,nan,SEK,SEK
-NOLA-B.ST,nan,nan,SEK,SEK
-NORION.ST,nan,nan,SEK,SEK
-PACT.ST,nan,nan,SEK,SEK
-PEAB-B.ST,nan,nan,SEK,SEK
-PLAZ-B.ST,nan,nan,SEK,SEK
-PNDX-B.ST,nan,nan,SEK,SEK
-REJL-B.ST,nan,nan,SEK,SEK
-SAAB-B.ST,nan,nan,SEK,SEK
-SAGA-A.ST,nan,nan,SEK,SEK
-SAVE.ST,nan,nan,SEK,SEK
-SCA-B.ST,nan,nan,SEK,SEK
-SCST.ST,nan,nan,SEK,SEK
-SEB-A.ST,nan,nan,SEK,SEK
-SECARE.ST,nan,nan,SEK,SEK
-SECT-B.ST,nan,nan,SEK,SEK
-SECU-B.ST,nan,nan,SEK,SEK
-SFAST.ST,nan,nan,SEK,SEK
-SHB-A.ST,nan,nan,SEK,SEK
-SHOT.ST,nan,nan,SEK,SEK
-SINT.ST,nan,nan,SEK,SEK
-SOBI.ST,nan,nan,SEK,SEK
-SVED-B.ST,nan,nan,SEK,SEK
-SWEC-A.ST,nan,nan,SEK,SEK
-SWEC-B.ST,nan,nan,SEK,SEK
-SWED-A.ST,nan,nan,SEK,SEK
-SYSR.ST,nan,nan,SEK,SEK
-TEL2-B.ST,nan,nan,SEK,SEK
-THULE.ST,nan,nan,SEK,SEK
-TREL-B.ST,nan,nan,SEK,SEK
-VBG-B.ST,nan,nan,SEK,SEK
-VIT-B.ST,nan,nan,SEK,SEK
-VITR.ST,nan,nan,SEK,SEK
-VIVA.ST,nan,nan,SEK,SEK
-VOLV-A.ST,nan,nan,SEK,SEK
-WALL-B.ST,nan,nan,SEK,SEK
-WIHL.ST,nan,nan,SEK,SEK
-ZZ-B.ST,nan,nan,SEK,SEK
+FOI-B.ST,Fenix Outdoor International AG,nan,SEK,EUR
+GENO.ST,Genovis AB (publ.),nan,SEK,SEK
+GETI-B.ST,Getinge AB (publ),nan,SEK,SEK
+HANZA.ST,Hanza AB (publ),nan,SEK,SEK
+HEXA-B.ST,Hexagon AB (publ),nan,SEK,EUR
+HMS.ST,HMS Networks AB (publ),nan,SEK,SEK
+HOLM-A.ST,Holmen AB (publ),nan,SEK,SEK
+HPOL-B.ST,HEXPOL AB (publ),nan,SEK,SEK
+HTRO.ST,Hexatronic Group AB (publ),nan,SEK,SEK
+HUFV-A.ST,Hufvudstaden AB (publ),nan,SEK,SEK
+INDT.ST,Indutrade AB (publ),nan,SEK,SEK
+INDU-A.ST,AB Industrivärden (publ),nan,SEK,SEK
+INTRUM.ST,Intrum AB (publ),nan,SEK,SEK
+INVE-A.ST,Investor AB (publ),nan,SEK,SEK
+INWI.ST,Inwido AB (publ),nan,SEK,SEK
+KAMBI.ST,Kambi Group plc,nan,SEK,EUR
+KNOW.ST,Knowit AB (publ),nan,SEK,SEK
+LAGR-B.ST,Lagercrantz Group AB (publ),nan,SEK,SEK
+LIFCO-B.ST,Lifco AB (publ),nan,SEK,SEK
+LIME.ST,Lime Technologies AB (publ),nan,SEK,SEK
+LOOMIS.ST,Loomis AB (publ),nan,SEK,SEK
+LUMI.ST,Lundin Mining Corporation,nan,SEK,USD
+MCAP.ST,MedCap AB (publ),nan,SEK,SEK
+MCOV-B.ST,Medicover AB (publ),nan,SEK,EUR
+MSAB-B.ST,Micro Systemation AB (publ),nan,SEK,SEK
+MTG-B.ST,Modern Times Group MTG AB,nan,SEK,SEK
+MTRS.ST,Munters Group AB (publ),nan,SEK,SEK
+MYCR.ST,Mycronic AB (publ),nan,SEK,SEK
+NDA-SE.ST,Nordea Bank Abp,nan,SEK,EUR
+NEWA-B.ST,New Wave Group AB (publ),nan,SEK,SEK
+NIBE-B.ST,NIBE Industrier AB (publ),nan,SEK,SEK
+NMAN.ST,Nederman Holding AB (publ),nan,SEK,SEK
+NOLA-B.ST,Nolato AB (publ),nan,SEK,SEK
+NORION.ST,Norion Bank AB (publ),nan,SEK,SEK
+PACT.ST,Proact IT Group AB (publ),nan,SEK,SEK
+PEAB-B.ST,Peab AB (publ),nan,SEK,SEK
+PLAZ-B.ST,Platzer Fastigheter Holding AB (publ),nan,SEK,SEK
+PNDX-B.ST,Pandox AB (publ),nan,SEK,SEK
+REJL-B.ST,Rejlers AB (publ),nan,SEK,SEK
+SAAB-B.ST,Saab AB (publ),nan,SEK,SEK
+SAGA-A.ST,AB Sagax (publ),nan,SEK,SEK
+SAVE.ST,Nordnet AB (publ),nan,SEK,SEK
+SCA-B.ST,Svenska Cellulosa Aktiebolaget SCA (publ),nan,SEK,SEK
+SCST.ST,Scandi Standard AB (publ),nan,SEK,SEK
+SEB-A.ST,Skandinaviska Enskilda Banken AB (publ),nan,SEK,SEK
+SECARE.ST,Swedencare AB (publ),nan,SEK,SEK
+SECT-B.ST,Sectra AB (publ),nan,SEK,SEK
+SECU-B.ST,Securitas AB (publ),nan,SEK,SEK
+SFAST.ST,Stenhus Fastigheter i Norden AB (publ),nan,SEK,SEK
+SHB-A.ST,Svenska Handelsbanken AB (publ),nan,SEK,SEK
+SHOT.ST,Scandic Hotels Group AB (publ),nan,SEK,SEK
+SINT.ST,SinterCast AB (publ),nan,SEK,SEK
+SOBI.ST,Swedish Orphan Biovitrum AB (publ),nan,SEK,SEK
+SVED-B.ST,Svedbergs Group AB (publ),nan,SEK,SEK
+SWEC-A.ST,Sweco AB (publ),nan,SEK,SEK
+SWEC-B.ST,Sweco AB (publ),nan,SEK,SEK
+SWED-A.ST,Swedbank AB (publ),nan,SEK,SEK
+SYSR.ST,Systemair AB (publ),nan,SEK,SEK
+TEL2-B.ST,Tele2 AB (publ),nan,SEK,SEK
+THULE.ST,Thule Group AB (publ),nan,SEK,SEK
+TREL-B.ST,Trelleborg AB (publ),nan,SEK,SEK
+VBG-B.ST,VBG Group AB (publ),nan,SEK,SEK
+VIT-B.ST,Vitec Software Group AB (publ),nan,SEK,SEK
+VITR.ST,Vitrolife AB (publ),nan,SEK,SEK
+VIVA.ST,Viva Wine Group AB,nan,SEK,SEK
+VOLV-A.ST,AB Volvo (publ),nan,SEK,SEK
+WALL-B.ST,Wallenstam AB (publ),nan,SEK,SEK
+WIHL.ST,Wihlborgs Fastigheter AB (publ),nan,SEK,SEK
+ZZ-B.ST,Zinzino AB (publ),nan,SEK,SEK

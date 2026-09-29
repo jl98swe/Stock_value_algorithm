@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -76,9 +77,21 @@ def _iso_timestamp(value: object) -> str | None:
     return pd.Timestamp(value).isoformat()
 
 
+@lru_cache(maxsize=1)
+def _company_names() -> dict[str, str]:
+    path = ROOT / "data" / "metadata" / "stocks_yahoo.csv"
+    if not path.exists():
+        return {}
+    metadata = pd.read_csv(path, encoding="utf-8-sig").fillna("")
+    return {
+        str(row.ticker): str(row.company).strip()
+        for row in metadata.itertuples(index=False)
+        if str(row.company).strip()
+    }
+
+
 def _display_name(ticker: str) -> str:
-    value = ticker.removesuffix(".ST")
-    return value.replace("-", " ")
+    return _company_names().get(ticker) or ticker.removesuffix(".ST").replace("-", " ")
 
 
 def _candles(frame: pd.DataFrame) -> list[dict[str, object]]:

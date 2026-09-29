@@ -253,7 +253,8 @@
         const buy = signal.side === 'BUY';
         return {
           name: buy ? 'Köp' : 'Sälj',
-          coord: [signal.execution_date, Number(signal.execution_price) || Number(candle.close)],
+          coord: [signal.execution_date, Number(buy ? candle.low : candle.high)],
+          symbolOffset: [0, buy ? 16 : -16],
           symbol: 'triangle', symbolRotate: buy ? 0 : 180, symbolSize: 18,
           itemStyle: { color: buy ? '#1f8f67' : '#c74747', borderColor: '#fff', borderWidth: 1 },
           label: { show: false },
@@ -347,36 +348,34 @@
     chart.setOption({ series: updatedSeries }, { replaceMerge: ['series'] });
   }
 
-  async function init() {
+  // The base chart may finish loading after DOMContentLoaded or after a slow
+  // stock request. Apply the same markers synchronously after every render.
+  document.addEventListener('market-chart-rendered', (event) => {
+    const { ticker, stock, eventsPayload: payload } = event.detail;
+    dashboard = { stocks: { [ticker]: stock } };
+    eventsPayload = payload;
+    applyEnhancements();
+  });
+
+  function init() {
     ensureNavigation();
     ensureLegend();
-    try {
-      [dashboard, eventsPayload] = await Promise.all([
-        fetch('./data/dashboard.json', { cache: 'no-store' }).then((r) => r.json()),
-        fetch('./data/events.json', { cache: 'no-store' }).then((r) => r.json())
-      ]);
-      scheduleRefresh();
-      document.addEventListener('click', (event) => {
-        const ticker = selectedTicker();
-        if (event.target.closest('#news-toggle')) {
-          const expanded = event.target.closest('#news-toggle').getAttribute('aria-expanded') === 'true';
-          expanded ? expandedNews.add(ticker) : expandedNews.delete(ticker);
-          renderSeparatedEvents(ticker);
-          return;
-        }
-        if (event.target.closest('#dividend-toggle')) {
-          expandedDividends.has(ticker) ? expandedDividends.delete(ticker) : expandedDividends.add(ticker);
-          renderSeparatedEvents(ticker);
-          return;
-        }
-        if (event.target.closest('[data-range]') || event.target.closest('.stock-button')) scheduleRefresh();
-      });
-      document.querySelectorAll('[data-marker]').forEach((input) => input.addEventListener('change', scheduleRefresh));
-      window.addEventListener('popstate', scheduleRefresh);
-      window.addEventListener('resize', scheduleRefresh);
-    } catch (error) {
-      console.warn('Kunde inte aktivera dashboard-förbättringar:', error);
-    }
+    document.addEventListener('click', (event) => {
+      const ticker = selectedTicker();
+      if (event.target.closest('#news-toggle')) {
+        const expanded = event.target.closest('#news-toggle').getAttribute('aria-expanded') === 'true';
+        expanded ? expandedNews.add(ticker) : expandedNews.delete(ticker);
+        renderSeparatedEvents(ticker);
+        return;
+      }
+      if (event.target.closest('#dividend-toggle')) {
+        expandedDividends.has(ticker) ? expandedDividends.delete(ticker) : expandedDividends.add(ticker);
+        renderSeparatedEvents(ticker);
+      }
+    });
+    document.querySelectorAll('[data-marker]').forEach((input) => input.addEventListener('change', applyEnhancements));
+    window.addEventListener('popstate', scheduleRefresh);
+    window.addEventListener('resize', scheduleRefresh);
   }
 
   document.addEventListener('DOMContentLoaded', init);
