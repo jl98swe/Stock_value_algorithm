@@ -320,7 +320,8 @@
       const buy = signal.side === 'BUY';
       return {
         name: buy ? 'Köp' : 'Sälj',
-        coord: [signal.execution_date, signal.execution_price ?? (buy ? candle.low * 0.985 : candle.high * 1.015)],
+        coord: [signal.execution_date, buy ? candle.low : candle.high],
+        symbolOffset: [0, buy ? 16 : -16],
         symbol: buy ? 'triangle' : 'triangle',
         symbolRotate: buy ? 0 : 180,
         symbolSize: 13,
@@ -360,7 +361,7 @@
           const candle = sliced.candles.find((d) => d.date === date);
           const score = scoreMap.get(date);
           if (!candle) return date;
-          return `<strong>${date}</strong><br>Ö ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)} · S ${fmt.format(candle.close)}<br>Score <strong>${score == null ? '–' : fmt.format(score)}</strong>`;
+          return `<strong>${date}</strong><br>O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)} · C ${fmt.format(candle.close)}<br>Score <strong>${score == null ? '–' : fmt.format(score)}</strong>`;
         }
       },
       grid: [
@@ -372,7 +373,10 @@
         { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' }
       ],
       yAxis: [
-        { scale: true, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
+        { scale: true, position: 'right',
+          min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.58 - 64),
+          max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.58 - 64),
+          axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
         { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } }
       ],
       dataZoom: [
@@ -394,6 +398,9 @@
       ]
     };
     state.chart.setOption(option, true);
+    document.dispatchEvent(new CustomEvent('market-chart-rendered', {
+      detail: { ticker, stock: data, eventsPayload: state.eventsPayload }
+    }));
   }
 
   async function selectTicker(ticker) {
