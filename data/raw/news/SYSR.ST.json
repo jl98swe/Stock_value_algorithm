@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-28T23:52:20+02:00",
+  "generated_at": "2026-09-29T22:43:23+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/systemair",
   "items": [
+    {
+      "ticker": "SYSR.ST",
+      "company": "Systemair AB (publ)",
+      "published_at": "2026-09-29T13:00:00+02:00",
+      "title": "Systemair AB: Systemair planerar avveckla produktionsanläggning i Nederländerna",
+      "link": "https://mfn.se/cis/a/systemair/systemair-ab-systemair-planerar-avveckla-produktionsanlaggning-i-nederlanderna-e09874c5",
+      "source": "MFN",
+      "summary": "Systemair AB: Systemair planerar avveckla produktionsanläggning i Nederländerna 2026-09-29 13:00:00 Skinnskatteberg, 29 september 2026 - Systemair (NASDAQ Stockholm: SYSR) meddelar idag planerna att avveckla produktionen vid koncernens anläggning i Waalwijk, Nederländerna. Omkring 70 medarbetare vid produktionsanläggningen berörs. Systemair genomför processen i nära dialog med medarbetare och arbetstagarrepresentanter och erbjuder stöd under omställningen. Konsultationer med fackliga företrädare om att omstrukturera verksamheten har inletts. Beroende på utfallet av förhandlingarna planeras avvecklingen vara genomförd i början av 2027. Avsikte",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "restructuring"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:restructuring",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "646e9f9ff3e91d64"
+    },
     {
       "ticker": "SYSR.ST",
       "company": "Systemair AB (publ)",

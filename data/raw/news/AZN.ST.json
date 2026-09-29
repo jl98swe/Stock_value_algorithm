@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-28T23:49:50+02:00",
+  "generated_at": "2026-09-29T22:40:33+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/astrazeneca",
   "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-09-29T08:04:47+02:00",
+      "title": "AstraZeneca announces strategic equity investment and clinical collaboration with Summit Therapeutics to advance leading ADC combination strategy in cancer",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-announces-strategic-equity-investment-and-clinical-collaboration-with-summit-therapeutics-to-advance-leading-adc-combination-strategy-in-cancer-d5f86e16",
+      "source": "MFN",
+      "summary": "AstraZeneca announces strategic equity investment and clinical collaboration with Summit Therapeutics to advance leading ADC combination strategy in cancer 2026-09-29 08:04:47 Clinical collaboration will evaluate sonesitatug vedotin, a Claudin-18.2 ADC, with ivonescimab, a first-in-class PD-1/VEGF bispecific, in gastrointestinal cancers. Planned broader clinical collaboration will combine Company's leading portfolio of cancer medicines including ADCs with ivonescimab. AstraZeneca has entered into an agreement to invest $2 billion in newly issued equity in Summit Therapeutics Inc. to accelerate the development of ivonescimab, a first-in-class ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e9e3eab05a12aab7"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",
