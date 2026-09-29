@@ -28,8 +28,7 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
     workflow = yaml.safe_load(path.read_text())
     trigger = workflow.get("on", workflow.get(True))
     if "push" in trigger:
-        expected = ["codex/negative-pe-diluted"] if path.stem == "negative_pe_migration" else ["main"]
-        assert trigger["push"]["branches"] == expected
+        assert trigger["push"]["branches"] == ["main"]
     assert workflow["concurrency"] == {
         "group": "stock-data-${{ github.ref }}",
         "cancel-in-progress": False,
