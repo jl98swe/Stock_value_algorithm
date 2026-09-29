@@ -1,4 +1,4 @@
-"""Python port of the Pine valuation algorithm v3.0.
+"""Python port of the Pine valuation algorithm with v3.01 negative-P/E support.
 
 The formulas, parameters and 100-tree GBM model are taken directly from
 ``reference/test_vard_algo_3_0.pine``. The implementation deliberately exposes
@@ -46,31 +46,41 @@ class ValuationParameters:
 
 
 class GBMModel:
-    def __init__(self, payload: dict[str, list[int] | list[float]]) -> None:
+    def __init__(self, payload: dict[str, object]) -> None:
         self.node_feat = np.asarray(payload["node_feat"], dtype=np.int32)
         self.node_thr = np.asarray(payload["node_thr"], dtype=np.float64)
         self.node_left = np.asarray(payload["node_left"], dtype=np.int32)
         self.node_right = np.asarray(payload["node_right"], dtype=np.int32)
         self.tree_root = np.asarray(payload["tree_root"], dtype=np.int32)
+        self.feature_count = int(payload.get("feature_count", 12))
         n = len(self.node_feat)
         if not (len(self.node_thr) == len(self.node_left) == len(self.node_right) == n):
             raise ValueError("GBM node arrays have inconsistent lengths")
+        internal = self.node_feat >= 0
+        if self.feature_count < 1 or np.any(self.node_feat[internal] >= self.feature_count):
+            raise ValueError("GBM contains an invalid feature index")
+        if not np.isfinite(self.node_thr).all():
+            raise ValueError("GBM contains a non-finite threshold or leaf value")
+        indices = np.concatenate((self.tree_root, self.node_left[internal], self.node_right[internal]))
+        if np.any(indices < 0) or np.any(indices >= n):
+            raise ValueError("GBM contains an invalid node index")
 
     @classmethod
     def load(cls, path: str | Path | None = None) -> "GBMModel":
         candidates = []
         if path is not None:
             candidates.append(Path(path))
-        candidates.extend((ROOT / "data/model/gbm_model.json", ROOT / "src/model/gbm_model.json"))
+        else:
+            candidates.extend((ROOT / "data/model/gbm_model.json", ROOT / "src/model/gbm_model.json"))
         for candidate in candidates:
             if candidate.exists():
                 return cls(json.loads(candidate.read_text(encoding="utf-8")))
-        raise FileNotFoundError("gbm_model.json was not found")
+        raise FileNotFoundError(f"GBM model was not found: {path or 'gbm_model.json'}")
 
     def evaluate(self, features: Iterable[float]) -> float:
         feature_values = np.asarray(tuple(features), dtype=np.float64)
-        if feature_values.shape != (12,):
-            raise ValueError(f"GBM expects 12 features, got {feature_values.shape}")
+        if feature_values.shape != (self.feature_count,):
+            raise ValueError(f"GBM expects {self.feature_count} features, got {feature_values.shape}")
         result = 0.0
         for root in self.tree_root:
             node = int(root)
@@ -167,12 +177,13 @@ def calculate_valuation(
     *,
     model: GBMModel | None = None,
     params: ValuationParameters | None = None,
+    negative_model: GBMModel | None = None,
 ) -> pd.DataFrame:
     """Calculate all Pine v3.0 valuation fields for a daily price/EPS frame.
 
     Required columns are ``Date``, ``Close`` and ``EPS_TTM``. Other OHLC fields
     are preserved. EPS is expected to be point-in-time and already mapped to its
-    effective trading date.
+    effective trading date. EPS_TTM is diluted EPS TTM throughout the pipeline.
     """
 
     p = params or ValuationParameters()
@@ -203,7 +214,9 @@ def calculate_valuation(
     pe_sma39 = pe.rolling(p.sma39_period, min_periods=p.sma39_period).mean()
     pe_lag = pe.shift(p.lag_period)
     pe_ref = p.w_double * pe_double + p.w_sma39 * pe_sma39 + p.w_lag * pe_lag
-    gap_pct = ((pe - pe_ref) / pe_ref * 100.0).where(pe_ref > 0)
+    gap_pct = ((pe - pe_ref) / pe_ref * 100.0).where(pe_ref != 0)
+    # Preserve the positive model's original inputs, including lagged gaps.
+    positive_gap = gap_pct.where(pe_ref > 0)
     result["PE_Ref"] = pe_ref
     result["GapPct"] = gap_pct
 
@@ -219,26 +232,26 @@ def calculate_valuation(
     result["PEStd35"] = pe_std_score
     result["ZGap"] = z_gap
 
-    linear = _compute_linear_score(gap_pct, avv_raw, hist_pct_ema, z_gap, p)
+    linear = _compute_linear_score(positive_gap, avv_raw, hist_pct_ema, z_gap, p)
     result["LinearScore"] = linear
 
     features = pd.DataFrame(
         {
-            "f0": gap_pct,
+            "f0": positive_gap,
             "f1": avv_raw,
             "f2": hist_pct,
             "f3": hist_pct_ema,
             "f4": pct_long,
             "f5": z_gap,
             "f6": pe_std_score,
-            "f7": gap_pct.shift(5),
+            "f7": positive_gap.shift(5),
             "f8": hist_pct_ema.shift(5),
             "f9": pct_long.shift(5),
             "f10": avv_raw.shift(5),
             "f11": z_gap.shift(5),
         }
     )
-    can_run = features.notna().all(axis=1)
+    can_run = np.isfinite(features).all(axis=1) & pe.ge(0)
     boost = np.zeros(len(result), dtype=float)
     for index in np.flatnonzero(can_run.to_numpy()):
         boost[index] = gbm.evaluate(features.iloc[index].to_numpy(dtype=float))
@@ -247,6 +260,40 @@ def calculate_valuation(
 
     score = pd.Series(np.nan, index=result.index, dtype="float64")
     score.loc[can_run] = (linear.loc[can_run] + boost[can_run.to_numpy()]).clip(0.0, 100.0)
+    pe_low60 = pe.rolling(60, min_periods=1).min()
+    pe_high60 = pe.rolling(60, min_periods=1).max()
+    hist60 = ((pe - pe_low60) / (pe_high60 - pe_low60) * 100.0).where(
+        pe_high60 > pe_low60
+    ).clip(0.0, 100.0)
+    result["AbsPE"] = pe.abs()
+    result["PEDelta5"] = pe - pe.shift(5)
+    result["PEVol20"] = pe_std_avv
+    result["PEHistPct60"] = hist60
+    negative_features = pd.DataFrame({
+        "gap": (gap_pct + 50.0).clip(0.0, 100.0),
+        "avv": (avv_raw + 50.0).clip(0.0, 100.0),
+        "abs_pe": result["AbsPE"],
+        "pe_d5": result["PEDelta5"],
+        "pe_vol20": result["PEVol20"],
+        "hist_60": hist60,
+    })
+    can_run_negative = pe.lt(0) & np.isfinite(negative_features).all(axis=1)
+    negative_score = pd.Series(np.nan, index=result.index, dtype="float64")
+    if can_run_negative.any():
+        neg_gbm = negative_model or GBMModel.load(ROOT / "data/model/negpe_gbm_model.json")
+        for index in np.flatnonzero(can_run_negative.to_numpy()):
+            negative_score.iat[index] = neg_gbm.evaluate(
+                negative_features.iloc[index].to_numpy(dtype=float)
+            )
+    result["NegPEScore"] = negative_score.clip(0.0, 100.0)
+    result["CanRunNegPEGBM"] = can_run_negative
+    result["CanRunPositivePEGBM"] = can_run
+    # CanRunGBM remains the readiness flag used by existing pipeline consumers.
+    result["CanRunGBM"] = can_run | can_run_negative
+    result["ValuationModel"] = pd.Series(pd.NA, index=result.index, dtype="string")
+    result.loc[can_run, "ValuationModel"] = "positive_pe_gbm"
+    result.loc[can_run_negative, "ValuationModel"] = "negative_pe_gbm"
+    score.loc[can_run_negative] = result.loc[can_run_negative, "NegPEScore"]
     result["Score"] = score.clip(0.0, 100.0)
     result["PriceZone"] = result["Score"].map(price_zone)
     return result
