@@ -11,7 +11,7 @@ GitHub Action `Daglig marknadsuppdatering` kör cirka 17:30 Europe/Stockholm på
 3. räknar MA200 per ticker på hela prisserien,
 4. uppdaterar utdelningshändelser,
 5. applicerar verifierad point-in-time EPS TTM när sådan finns,
-6. beräknar Pine v3.0-värderingsscore med den inbäddade 100-träds GBM-modellen,
+6. beräknar värderingsscore med 100-trädsmodellen för positiv P/E och v3.01:s separata 30-trädsmodell för negativ P/E,
 7. applicerar fundamentala handelsspärrar,
 8. simulerar köp/sälj enligt nästa handelsdags öppning,
 9. bygger `docs/data/*.json`,
@@ -182,3 +182,37 @@ docs/data/reports.json
 ```
 
 `events.json` använder `E` för rapport, `D` för utdelning och `N` för bolagsnyhet i frontend.
+
+## Negativ vinst (v3.01)
+
+Alla modeller använder diluted EPS TTM från befintliga verifierade rapporter.
+Vid P/E < 0 används `data/model/negpe_gbm_model.json`: 30 träd, 390 noder
+och sex features i Pine-ordning: klippt GapPct + 50, klippt AvvRaw + 50,
+abs(P/E), femdagarsförändring i P/E, 20-dagars standardavvikelse (ddof=0)
+och position i 60-dagarsintervallet. Resultatet klipps till 0–100.
+Saknade features ger ingen poäng. Positiv P/E
+behåller den tidigare 100-trädsmodellen och dess ursprungliga gap/lagg-villkor.
+`CanRunGBM` anger om vald modell kan köras; `CanRunPositivePEGBM`,
+`CanRunNegPEGBM`, `NegPEScore` och `ValuationModel` finns i beräkningsresultatet.
+
+Den sparade referensen `reference/test_vard_algo_3_01_diluted.pine` använder
+diluted EPS TTM. Dess positiva 80-trädsmodell och linjära fallback har **inte**
+förts över till webbappen. Den negativa modellens träningsprecision enligt
+källfilen är lägre (LOSO MAE 7,11); HUFV/CAST anges som svåra fall. Portningen
+är verifierad mot träd-arrayerna, men ingen oberoende kontroll av verkliga
+TradingView-värden med diluted EPS har gjorts.
+
+Engångsmigrering av fryst historik:
+
+```bash
+python -m src.migrate_negative_pe_scores --workers 4
+python -m src.pipeline --skip-fetch --skip-dividends
+python -m src.validate_outputs
+```
+
+Migreringen använder bara rapporter kända vid respektive effective_date,
+med samma rapport-/periodslutsläge som den aktuella aktien. Den ersätter endast
+negativa EPS-perioder och kontrollerar att alla övriga frysta poäng är exakt
+oförändrade. Äldre negativa poäng utan tillräckliga modellfeatures tas bort.
+Signaler och backtest räknas sedan från den uppdaterade frysta serien.
+Migreringen ska inte köras automatiskt i den dagliga uppdateringen.

@@ -1,7 +1,7 @@
 """Rebuild frozen valuation scores without leaking unpublished reports.
 
-For every report date, the report's EPS is inserted at its period end in the
-calculation state.  Scores from that state are published only from the report
+For every report date, the report's EPS is inserted using the ticker's configured
+report-date or TradingView period-end calculation state.  Scores from that state are published only from the report
 date until the next report date.  Repeating that process chronologically keeps
 the pre-report history frozen while preserving TradingView's period-end state.
 """
@@ -19,7 +19,7 @@ from joblib import Parallel, delayed
 
 from .config import HISTORY_START_DATE
 from .fetch_data import BASE_DATA_FILE, UPDATES_FILE, load_price_history
-from .fundamentals import TV_PERIOD_END_STATE, attach_eps_ttm, load_reports, verified_reports
+from .fundamentals import attach_eps_ttm, load_reports, verified_reports, valuation_calculation_mode
 from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
 from .score_history import SCORE_HISTORY_COLUMNS, SCORE_HISTORY_FILE, normalise_score_history, save_score_history
@@ -49,6 +49,7 @@ def _rebuild_ticker_history(
     fx_history: pd.DataFrame,
     history_start: pd.Timestamp,
     stamp: str,
+    negative_only: bool = False,
 ) -> pd.DataFrame:
     if ticker_reports.empty:
         return normalise_score_history(None)
@@ -57,6 +58,7 @@ def _rebuild_ticker_history(
         ticker_reports["effective_date"].dropna().drop_duplicates().sort_values().tolist()
     )
     valuation_prices = _valuation_prices(price_group)
+    calculation_mode = valuation_calculation_mode(ticker, ticker_reports)
     ticker_parts: list[pd.DataFrame] = []
 
     for report_index, report_date in enumerate(report_dates):
@@ -69,6 +71,8 @@ def _rebuild_ticker_history(
         available_reports = ticker_reports.loc[
             ticker_reports["effective_date"].le(report_date)
         ].copy()
+        if negative_only and float(available_reports.iloc[-1]["eps_ttm"]) >= 0:
+            continue
         price_slice = valuation_prices
         if next_report_date is not None:
             price_slice = price_slice.loc[price_slice["Date"].lt(next_report_date)].copy()
@@ -79,19 +83,20 @@ def _rebuild_ticker_history(
             available_reports,
             stock_metadata=metadata,
             fx_history=fx_history,
-            calculation_mode=TV_PERIOD_END_STATE,
+            calculation_mode=calculation_mode,
         )
         valued = calculate_valuation(working, model=model)
         segment_start = max(history_start, report_date)
         segment = valued.loc[
             valued["Date"].ge(segment_start)
             & (valued["Date"].lt(next_report_date) if next_report_date is not None else True)
-            & valued["Score"].notna(),
+            & valued["Score"].notna()
+            & (valued["PE_TTM"].lt(0) if negative_only else True),
             ["Date", "Score"],
         ].copy()
         if not segment.empty:
             segment["ticker"] = ticker
-            segment["calculation_mode"] = TV_PERIOD_END_STATE
+            segment["calculation_mode"] = calculation_mode
             segment["frozen_at"] = stamp
             segment = segment.rename(columns={"Date": "date", "Score": "score"})
             ticker_parts.append(segment[SCORE_HISTORY_COLUMNS])
@@ -110,6 +115,7 @@ def rebuild_report_aware_score_history(
     frozen_at: str | None = None,
     show_progress: bool = False,
     workers: int = 1,
+    negative_only: bool = False,
 ) -> pd.DataFrame:
     """Return report-aware scores for every ticker in ``prices``.
 
@@ -134,7 +140,7 @@ def rebuild_report_aware_score_history(
     def run_job(job: tuple[str, pd.DataFrame, pd.DataFrame]) -> pd.DataFrame:
         ticker, price_group, ticker_reports = job
         return _rebuild_ticker_history(
-            ticker, price_group, ticker_reports, model, metadata, fx_history, history_start, stamp
+            ticker, price_group, ticker_reports, model, metadata, fx_history, history_start, stamp, negative_only
         )
 
     if workers > 1:
