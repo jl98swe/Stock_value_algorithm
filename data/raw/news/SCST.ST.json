@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-29T22:42:52+02:00",
+  "generated_at": "2026-09-30T22:48:13+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandi-standard",
   "items": [
+    {
+      "ticker": "SCST.ST",
+      "company": "Scandi Standard AB (publ)",
+      "published_at": "2026-09-30T08:00:00+02:00",
+      "title": "Ökat antal aktier och röster i Scandi Standard",
+      "link": "https://mfn.se/cis/a/scandi-standard/okat-antal-aktier-och-roster-i-scandi-standard-03fd61e3",
+      "source": "MFN",
+      "summary": "Ökat antal aktier och röster i Scandi Standard 2026-09-30 08:00:00 PRESSMEDDELANDE, 30 september 2026 Per i dag den 30 september 2026 uppgår antalet aktier och röster i Scandi Standard AB (publ) till 69 329 033. Samtliga aktier är stamaktier. Antalet aktier och röster ökade under september till följd av den företrädesemission av sammanlagt 3 268 143 nya stamaktier som bolaget offentliggjorde den 30 juli 2026 och slutförde i september 2026. För mer information, vänligen kontakta: Jonas Tunestål, CEO: +46 10 456 13 00 Henrik Heiberg, Head of M&A, Financing & IR: +47 917 47 724 Scandi Standard är marknadsledande inom kycklingbaserade livsmedelsp",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5e5792cfd7c2e193"
+    },
     {
       "ticker": "SCST.ST",
       "company": "Scandi Standard AB (publ)",
