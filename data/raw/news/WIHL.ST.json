@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-30T22:48:49+02:00",
+  "generated_at": "2026-10-01T23:02:10+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/wihlborgs-fastigheter",
-  "items": []
+  "items": [
+    {
+      "ticker": "WIHL.ST",
+      "company": "Wihlborgs Fastigheter AB (publ)",
+      "published_at": "2026-10-01T13:10:00+02:00",
+      "title": "Wihlborgs Fastigheter AB: Wihlborgs tillträder Castellums skånska fastighetsbestånd",
+      "link": "https://mfn.se/cis/a/wihlborgs-fastigheter/wihlborgs-fastigheter-ab-wihlborgs-tilltrader-castellums-skanska-fastighetsbestand-f6d9b5ff",
+      "source": "MFN",
+      "summary": "Wihlborgs Fastigheter AB: Wihlborgs tillträder Castellums skånska fastighetsbestånd 2026-10-01 13:10:00 Wihlborgs har idag, enligt plan, tillträtt Castellums fastighetsbestånd i Malmö, Lund och Helsingborg. Med ett större och mer sammanhållet bestånd får Wihlborgs bättre möjligheter att möta hyresgästernas behov och fortsätta utveckla de marknader där bolaget redan har en stark närvaro. Förvärvet på 95 fastigheter om totalt 635 000 kvadratmeter och 13,3 Mdkr i underliggande fastighetsvärde är Wihlborgs största hittills och omfattar fastigheter i de områden där bolaget redan har en etablerad organisation, lokal marknadskännedom och många befin",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ae285b93880623e9"
+    }
+  ]
 }

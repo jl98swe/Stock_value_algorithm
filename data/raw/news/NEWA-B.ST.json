@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-30T22:47:44+02:00",
+  "generated_at": "2026-10-01T23:01:07+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/new-wave-group",
   "items": [
+    {
+      "ticker": "NEWA-B.ST",
+      "company": "New Wave Group AB (publ)",
+      "published_at": "2026-10-01T18:20:00+02:00",
+      "title": "New Wave Group slutför förvärvet av uhlsport group",
+      "link": "https://mfn.se/a/new-wave-group/new-wave-group-slutfor-forvarvet-av-uhlsport-group",
+      "source": "MFN",
+      "summary": "New Wave Group slutför förvärvet av uhlsport group 2026-10-01 18:20:00 Relevanta konkurrensmyndigheter har godkänt New Wave Groups förvärv av uhlsport GmbH. Samtliga villkor för transaktionen är därmed uppfyllda och tillträde sker idag, den 1 oktober 2026. I anslutning till tillträdet förvärvar uhlsport de kontors- och lagerfastigheter i Balingen som bolaget tidigare hyrt, direkt från en av säljarna. Genom fastighetsförvärvet säkerställs uhlsport-koncernens långsiktiga tillgång till sina nuvarande verksamhetslokaler. ”Vi har jobbat hårt den senaste månaden, sedan vi undertecknade avtalet om att förvärva uhlsport, för att förbereda ett lyckat ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "20e7eb574f23860f"
+    },
     {
       "ticker": "NEWA-B.ST",
       "company": "New Wave Group AB (publ)",

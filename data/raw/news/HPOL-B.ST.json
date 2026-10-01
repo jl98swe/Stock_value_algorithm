@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-30T22:47:09+02:00",
+  "generated_at": "2026-10-01T23:00:31+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hexpol",
-  "items": []
+  "items": [
+    {
+      "ticker": "HPOL-B.ST",
+      "company": "HEXPOL AB (publ)",
+      "published_at": "2026-10-01T13:30:00+02:00",
+      "title": "HEXPOL slutför förvärvet av Vipa Group",
+      "link": "https://mfn.se/a/hexpol/hexpol-slutfor-forvarvet-av-vipa-group",
+      "source": "MFN",
+      "summary": "HEXPOL slutför förvärvet av Vipa Group 2026-10-01 13:30:00 Som meddelats den 31 juli har HEXPOL tecknat ett avtal om att förvärva 100 procent av aktierna i det italienska företaget Vipa Group. Företaget grundades 1969 av familjen Paolini som sedan dess har utvecklat verksamheten till en av Europas ledande utvecklare och tillverkare av högkvalitativa termoplastiska blandningar med fokus på den snabbt växande Wire & Cable-segmentet och med en lönsamhet över marknadsgenomsnittet. Förvärvet har idag avslutats. Verksamheten omfattar två välinvesterade produktionsanläggningar i Italien, samt ett modernt R&D-center. 2025 hade företaget en omsättning",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "76331f85857fedcb"
+    }
+  ]
 }

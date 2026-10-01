@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-30T22:48:47+02:00",
+  "generated_at": "2026-10-01T23:02:07+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/wallenstam",
   "items": [
+    {
+      "ticker": "WALL-B.ST",
+      "company": "Wallenstam AB (publ)",
+      "published_at": "2026-10-01T08:00:00+02:00",
+      "title": "WALLENSTAM: Events during the third quarter 2026",
+      "link": "https://mfn.se/cis/a/wallenstam/wallenstam-events-during-the-third-quarter-2026-5d8cb3c6",
+      "source": "MFN",
+      "summary": "WALLENSTAM: Events during the third quarter 2026 2026-10-01 08:00:00 During the quarter, 199 apartments in the Årstaberg project in Stockholm were completed and let, bringing the total number of apartments currently under construction to 1,078. Wallenstam has also completed the divestment of all its wind farms in accordance with the agreement with Locus Energy. In Årstaberg, Stockholm, 199 apartments have been completed and let in buildings 2 and 3. The remaining phases of the project comprise an additional 210 apartments that are under construction. In total, Wallenstam currently has 1,078 apartments under construction. On July 1, Wallenstam",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "298a8d7fbba462d0"
+    },
     {
       "ticker": "WALL-B.ST",
       "company": "Wallenstam AB (publ)",

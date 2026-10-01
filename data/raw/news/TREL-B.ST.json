@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-09-30T22:48:37+02:00",
+  "generated_at": "2026-10-01T23:01:55+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/trelleborg",
   "items": [
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-10-01T15:45:00+02:00",
+      "title": "Trelleborg förvärvar bolag inom tätningsprofiler i södra Europa",
+      "link": "https://mfn.se/a/trelleborg/trelleborg-forvarvar-bolag-inom-tatningsprofiler-i-sodra-europa",
+      "source": "MFN",
+      "summary": "Trelleborg förvärvar bolag inom tätningsprofiler i södra Europa 2026-10-01 15:45:00 Trelleborgkoncernen har genom affärsområdet Trelleborg Industrial Solutions tecknat avtal om och slutfört förvärvet av Producta S.r.l. Bolaget är en ledande producent av avancerade tätningslösningar och extruderade profiler för bygg- och anläggningsindustrin, främst i Italien och Grekland. Bolaget har sitt säte i Montelupone, Italien, och omsättningen uppgick till cirka 135 MSEK under 2025. – Förvärvet stärker vår position inom tätningsprofiler i södra Europa och kompletterar vår portfölj med nya lösningar. Productas innovationsfokus är väl i linje med vår str",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3d725f5f8393b3cb"
+    },
     {
       "ticker": "TREL-B.ST",
       "company": "Trelleborg AB (publ)",

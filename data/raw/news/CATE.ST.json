@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-30T22:46:06+02:00",
+  "generated_at": "2026-10-01T22:59:28+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/catena",
-  "items": []
+  "items": [
+    {
+      "ticker": "CATE.ST",
+      "company": "Catena",
+      "published_at": "2026-10-01T08:00:00+02:00",
+      "title": "Catena expanderar sin portfölj i Finland genom förvärv av tio fastigheter",
+      "link": "https://mfn.se/cis/a/catena/catena-expanderar-sin-portfolj-i-finland-genom-forvarv-av-tio-fastigheter-c249aefc",
+      "source": "MFN",
+      "summary": "Catena expanderar sin portfölj i Finland genom förvärv av tio fastigheter 2026-10-01 08:00:00 Catena har tecknat avtal med Urban Partners om att förvärva en portfölj av logistikfastigheter för cirka 2,15 miljarder kronor. Portföljen omfattar tio fastigheter, samtliga belägna i Finland som är Catenas nyaste marknad. 2026-10-01 kl.8.00 Portföljen omfattar en total uthyrningsbar yta om cirka 142 300 kvm, två av fastigheterna för närvarande är under färdigställande. Markarealen uppgår till drygt 530 300 kvm, varav cirka 105 600 kvm utgörs av outnyttjade byggrätter. Säljare är Urban Partners genom fastighetsfonderna NIP och NSF V och förvärvet gen",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ad5146f4b98ab370"
+    }
+  ]
 }
