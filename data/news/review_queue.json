@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-10-01T23:02:12+02:00",
+  "generated_at": "2026-10-02T22:41:40+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "BTS-B.ST",
+      "company": "BTS Group",
+      "published_at": "2026-10-02T12:20:00+02:00",
+      "title": "BTS tecknar avtal värt 12,8 MUSD för AI-implementering med ledande globalt företag",
+      "link": "https://mfn.se/one/a/bts-group/bts-tecknar-avtal-vart-12-8-musd-for-ai-implementering-med-ledande-globalt-foretag-92dc8d4b",
+      "source": "MFN",
+      "summary": "BTS tecknar avtal värt 12,8 MUSD för AI-implementering med ledande globalt företag 2026-10-02 12:20:00 STOCKHOLM, SVERIGE – BTS Group AB (publ), ett ledande globalt konsultbolag specialiserat på strategiimplementering, förändring och medarbetarutveckling, har tecknat ett avtal värt 12,8 MUSD för att tillhandahålla tjänster inom AI-implementering åt ett ledande globalt företag. Avtalet omfattar tredje och fjärde kvartalet 2026 samt första kvartalet 2027, med merparten av intäkterna under det fjärde kvartalet 2026. Detta avtal är ett resultat av BTS utveckling mot att bli den partner som företag väljer för att bygga en självgående och kontinuer",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c1801a5d232cc6c0"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-10-02T10:00:40+02:00",
+      "title": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram",
+      "link": "https://mfn.se/a/norden/indberetning-af-ledende-medarbejderes-og-disses-naertstaendes-transaktioner-med-dampskibsselskabet-norden-a-s-aktier-i-forbindelse-med-aktietilbagekobsprogram-31",
+      "source": "MFN",
+      "summary": "Indberetning af ledende medarbejderes og disses nærtståendes transaktioner med Dampskibsselskabet NORDEN A/S’ aktier i forbindelse med aktietilbagekøbsprogram 2026-10-02 10:00:40 Selskabsmeddelelse nr. 232/2026 (2. oktober 2026) I forbindelse med det annoncerede aktietilbagekøbsprogram i NORDEN, deltager A/S Motortramp ved løbende at sælge aktier pro rata, og der informeres til markedet – se vedhæftede fil og meddelelse nr. 189/2026 og 190/2026. Med venlig hilsen, Dampskibsselskabet NORDEN A/S Martin Badsted Finansdirektør Yderligere oplysninger: Therese Möllevinge, Head of Investor Relations, tlf.: +45 41 37 16 38, e-mail thm@norden.com Vedh",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ff950f8d4ea97cb3"
+    },
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-10-02T09:59:20+02:00",
+      "title": "Dampskibsselskabet NORDEN A/S – ugentlig rapportering om aktietilbagekøb",
+      "link": "https://mfn.se/a/norden/dampskibsselskabet-norden-a-s-ugentlig-rapportering-om-aktietilbagekob-6",
+      "source": "MFN",
+      "summary": "Dampskibsselskabet NORDEN A/S – ugentlig rapportering om aktietilbagekøb 2026-10-02 09:59:20 Selskabsmeddelelse nr. 231/2026 (2. oktober 2026) Den 14. August 2026 iværksatte NORDEN et aktietilbagekøbsprogram i overensstemmelse med Europa-Parlamentets og Rådets forordning (EU) nr. 596/2014 af 16. april 2014 (MAR) og Kommissionens delegerede forordning (EU) 2016/1052 (Safe Harbour forordning). Aktietilbagekøbsprogrammet løber fra 14. August 2026 og senest til og med 22. oktober 2026. Se selskabsmeddelelse nr. 190 af 13. August 2026 for yderligere detaljer. I medfør af tilbagekøbsprogrammet vil NORDEN købe aktier for op til samlet USD 25 mio. (c",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a6804cfb7c2bc976"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-02T08:31:23+02:00",
+      "title": "AstraZeneca and Daiichi Sankyo announce clinical collaboration with Summit Therapeutics to evaluate Datroway in combination with ivonescimab across multiple tumour types",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-and-daiichi-sankyo-announce-clinical-collaboration-with-summit-therapeutics-to-evaluate-datroway-in-combination-with-ivonescimab-across-multiple-tumour-types-b6253d12",
+      "source": "MFN",
+      "summary": "AstraZeneca and Daiichi Sankyo announce clinical collaboration with Summit Therapeutics to evaluate Datroway in combination with ivonescimab across multiple tumour types 2026-10-02 08:31:23 Builds on recently announced clinical collaboration between AstraZeneca and Summit to advance leading ADC combination strategy in cancer. AstraZeneca and Daiichi Sankyo have entered into a clinical collaboration agreement with Summit Therapeutics Inc. to evaluate Datroway (datopotamab deruxtecan) in combination with ivonescimab across multiple tumour types including lung and breast cancers. The companies intend to begin with a Phase III trial in 1st-line t",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4ff1ca897eeca786"
+    },
+    {
+      "ticker": "INVE-A.ST",
+      "company": "Investor AB (publ)",
+      "published_at": "2026-10-02T08:15:00+02:00",
+      "title": "Inbjudan till Investors webcast för tredje kvartalet 2026",
+      "link": "https://mfn.se/cis/a/investor/inbjudan-till-investors-webcast-for-tredje-kvartalet-2026-a8e74a45",
+      "source": "MFN",
+      "summary": "Inbjudan till Investors webcast för tredje kvartalet 2026 2026-10-02 08:15:00 Investors verkställande direktör och koncernchef Christian Cederholm och CFO Jenny Ashman Haquinius presenterar delårsredogörelsen januari-september 2026 via en webcast klockan 10:00 fredagen den 16 oktober 2026. Webcasten hittar du via den här länken eller på vår hemsida www.investorab.com . Registrering för att delta och kunna ställa frågor via telefon görs via den här länken . Delårsredogörelsen publiceras samma dag 08:15. För ytterligare information: Jacob Lund, Chief Communications & Sustainability Officer 0725 60 21 57 jacob.lund@investorab.com Magnus Dalhamma",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "47a573891d0b8380"
+    },
+    {
+      "ticker": "ALIV-SDB.ST",
+      "company": "Autoliv",
+      "published_at": "2026-10-02T08:00:00+02:00",
+      "title": "Autoliv strengthens safety expertise with two new members to its Research Advisory Board",
+      "link": "https://mfn.se/cis/a/autoliv/autoliv-strengthens-safety-expertise-with-two-new-members-to-its-research-advisory-board-93d9bdd7",
+      "source": "MFN",
+      "summary": "Autoliv strengthens safety expertise with two new members to its Research Advisory Board 2026-10-02 08:00:00 (Stockholm, Sweden, October 2, 2026) - Autoliv, Inc. (NYSE: ALV and SSE: ALIVsdb), the worldwide leader in automotive safety systems, has appointed Natalie Draisin and Thomas Manfred Müller to its Research Advisory Board. Bringing valuable expertise and new perspectives, they join a distinguished group of global experts who help Autoliv explore emerging safety challenges and opportunities as mobility continues to evolve. Autoliv's Research Advisory Board brings together leading voices from science, public policy, technology, public hea",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1e07d474b0fd67fa"
+    },
     {
       "ticker": "LAGR-B.ST",
       "company": "Lagercrantz Group AB (publ)",

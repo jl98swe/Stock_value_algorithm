@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-01T23:01:58+02:00",
+  "generated_at": "2026-10-02T22:41:29+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/vitec-software-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "VIT-B.ST",
+      "company": "Vitec Software Group AB (publ)",
+      "published_at": "2026-10-02T10:00:00+02:00",
+      "title": "Vitec tilläggsförvärvar programvarubolaget ZMartek Oy",
+      "link": "https://mfn.se/a/vitec-software-group/vitec-tillaggsforvarvar-programvarubolaget-zmartek-oy",
+      "source": "MFN",
+      "summary": "Vitec tilläggsförvärvar programvarubolaget ZMartek Oy 2026-10-02 10:00:00 Vitec Software Group förstärker sin position inom Vertical Market Software genom att den 2 oktober, via dotterbolaget Vitec Tietomitta Oy, förvärva samtliga aktier i det finska programvarubolaget ZMartek Oy. ZMartek Oy omsatte 4 MSEK under räkenskapsåret 2025. Programvarubolaget ZMartek Oy utvecklar och levererar ett affärssystem för återvinningsbranschen. Produkten Reccu används av kunder inom energiåtervinning och deponi för att administrera lasthantering, vägning, transporter, prissättning och fakturering i hela Finland. Genom tilläggsförvärvet blir ZMartek Oy en del",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cc6873bbffa73812"
+    }
+  ]
 }

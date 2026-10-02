@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-01T22:59:03+02:00",
+  "generated_at": "2026-10-02T22:38:39+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/atlas-copco",
   "items": [
+    {
+      "ticker": "ATCO-B.ST",
+      "company": "Atlas Copco B",
+      "published_at": "2026-10-02T08:30:00+02:00",
+      "title": "Kinesisk tillverkare av värme- och kylutrustning har blivit del av Atlas Copco Group",
+      "link": "https://mfn.se/cis/a/atlas-copco/kinesisk-tillverkare-av-varme-och-kylutrustning-har-blivit-del-av-atlas-copco-group-07c368b6",
+      "source": "MFN",
+      "summary": "Kinesisk tillverkare av värme- och kylutrustning har blivit del av Atlas Copco Group 2026-10-02 08:30:00 Nacka, Sverige, den 2 oktober, 2026: Det har tidigare kommunicerats att Guangdong Euroklimat Air-Conditioning & Refrigeration Co., Ltd (\"Guangdong Euroklimat\"), en kinesisk tillverkare av industriella värme- och kyllösningar ska bli del av Atlas Copco Group. Förvärvet har nu slutförts. Guangdong Euroklimat erbjuder värme- och kyllösningar med särskilt fokus på ett brett spektrum av industriella tillämpningar, inklusive processkylning och energikonvertering. Den kinesiska företagsgruppen, grundad 2009, har fabrik och monteringsanläggningar ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "16abc510e27bbc86"
+    },
     {
       "ticker": "ATCO-B.ST",
       "company": "Atlas Copco B",

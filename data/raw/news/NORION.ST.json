@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-10-01T23:01:12+02:00",
+  "generated_at": "2026-10-02T22:40:43+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/norion-bank",
-  "items": []
+  "items": [
+    {
+      "ticker": "NORION.ST",
+      "company": "Norion Bank AB (publ)",
+      "published_at": "2026-10-02T09:00:00+02:00",
+      "title": "Norion Bank takes the next step in establishing Norion Wealth Management",
+      "link": "https://mfn.se/a/norion-bank/norion-bank-takes-the-next-step-in-establishing-norion-wealth-management",
+      "source": "MFN",
+      "summary": "Norion Bank takes the next step in establishing Norion Wealth Management 2026-10-02 09:00:00 Through the acquisitions of Consensus Asset Management and Strand Kapitalförvaltning during 2026, Norion Bank has established Norion Wealth Management - a business area with approximately SEK 16 billion in assets under management and strong growth ambitions. The planned integration of the businesses will create the foundation for a client-centric offering, an efficient organisation and closer collaboration with the bank’s other business areas. The next phase in the development of Norion Wealth Management In April 2026, Norion Bank completed the acquis",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5a51e6ed1c056be2"
+    },
+    {
+      "ticker": "NORION.ST",
+      "company": "Norion Bank AB (publ)",
+      "published_at": "2026-10-02T09:00:00+02:00",
+      "title": "Norion Bank tar nästa steg i etableringen av Norion Wealth Management",
+      "link": "https://mfn.se/a/norion-bank/norion-bank-tar-nasta-steg-i-etableringen-av-norion-wealth-management",
+      "source": "MFN",
+      "summary": "Norion Bank tar nästa steg i etableringen av Norion Wealth Management 2026-10-02 09:00:00 Genom förvärven av Consensus Asset Management och Strand Kapitalförvaltning har Norion Bank under 2026 etablerat Norion Wealth Management – ett affärsområde med cirka 16 miljarder kronor i förvaltat kapital och tydliga tillväxtambitioner. Den planerade sammanslagningen av verksamheterna kommer att skapa förutsättningar för ett enhetligt och kundorienterat erbjudande, en effektiv organisation och ett fördjupat samarbete med bankens övriga affärsområden. Nästa steg i utvecklingen av Norion Wealth Management I början av april 2026 slutförde Norion Bank förv",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c43007a2bf565cf0"
+    }
+  ]
 }

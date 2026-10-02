@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-01T22:59:25+02:00",
+  "generated_at": "2026-10-02T22:39:02+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bts-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "BTS-B.ST",
+      "company": "BTS Group",
+      "published_at": "2026-10-02T12:20:00+02:00",
+      "title": "BTS signs USD 12.8M AI enablement and implementation deal with leading, global company",
+      "link": "https://mfn.se/one/a/bts-group/bts-signs-usd-12-8m-ai-enablement-and-implementation-deal-with-leading-global-company-0e24ac65",
+      "source": "MFN",
+      "summary": "BTS signs USD 12.8M AI enablement and implementation deal with leading, global company 2026-10-02 12:20:00 STOCKHOLM, SWEDEN - BTS Group AB (publ), a leading global consultancy specializing in strategy execution, change, and people development, has signed a USD 12.8M deal to provide AI enablement and implementation services on behalf of a leading, global company. The contract covers Q3 and Q4 2026, as well as Q1 2027, with the majority occurring in Q4 2026. This deal is a result of BTS evolution to become the preferred partner for companies to develop a self-reliant, continually renewing AI culture and skillset. “This win is a testament to ou",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "94aeb90a2f3f1980"
+    }
+  ]
 }

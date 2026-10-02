@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-01T23:01:10+02:00",
+  "generated_at": "2026-10-02T22:40:40+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/nolato",
   "items": [
+    {
+      "ticker": "NOLA-B.ST",
+      "company": "Nolato AB (publ)",
+      "published_at": "2026-10-02T08:00:00+02:00",
+      "title": "Nolato stärker sitt erbjudande genom selektiva förvärv och fortsatt portföljutveckling",
+      "link": "https://mfn.se/a/nolato/nolato-starker-sitt-erbjudande-genom-selektiva-forvarv-och-fortsatt-portfoljutveckling",
+      "source": "MFN",
+      "summary": "Nolato stärker sitt erbjudande genom selektiva förvärv och fortsatt portföljutveckling 2026-10-02 08:00:00 Genom förvärven av Unitron och M&M Qualtech stärker Nolato sin kapacitet inom elektronikintensiv medicinteknik, systemintegration och avancerad tillverkning. Förvärven breddar Nolatos erbjudande genom att tillföra utvecklingskompetens inom mekatronik och tillverkning av kompletta system inkluderande elektronik som stärker Nolatos närvaro i attraktiva, reglerade segment och skapar förutsättningar att ta ett större ansvar i kundernas värdekedja. Nolato utvecklar löpande sin verksamhetsportfölj för att stärka positionen inom områden där kon",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fd28943c276e92c5"
+    },
     {
       "ticker": "NOLA-B.ST",
       "company": "Nolato AB (publ)",
