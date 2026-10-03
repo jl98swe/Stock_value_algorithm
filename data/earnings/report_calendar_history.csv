@@ -39,6 +39,7 @@ ATRLJ-B.ST,2026-10-09,2026-10-09,confirmed,0.51,0.51,0.51,SEK,Yahoo EPS Estimate
 ATRLJ-B.ST,2026-10-09,2026-10-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 ATRLJ-B.ST,2026-10-09,2026-10-09,confirmed,0.51,0.51,0.51,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 ATT.ST,2026-11-06,2026-11-06,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+ATT.ST,2026-11-06,2026-11-06,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 AXFO.ST,2026-10-22,2026-10-22,confirmed,3.59333,3.54,3.63,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 AXFO.ST,2026-10-22,2026-10-22,confirmed,3.54333,3.48,3.61,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 AXFO.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
@@ -81,6 +82,7 @@ BRAV.ST,2026-10-23,2026-10-23,confirmed,1.45974,1.28947,1.63,SEK,Yahoo EPS Estim
 BRAV.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 BRAV.ST,2026-10-23,2026-10-23,confirmed,1.45974,1.28947,1.63,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 BTS-B.ST,2026-11-06,2026-11-06,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+BTS-B.ST,2026-11-06,2026-11-06,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 CAST.ST,2026-10-22,2026-10-22,confirmed,2.0502,1.85039,2.25,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 CAST.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 CAST.ST,2026-10-22,2026-10-22,confirmed,2.0502,1.85039,2.25,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -88,7 +90,9 @@ CATE.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition un
 CATE.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 CATE.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 CIBUS.ST,2026-11-04,2026-11-04,confirmed,0.28,0.28,0.28,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+CIBUS.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 CLA-B.ST,2026-11-04,2026-11-04,confirmed,0.61,0.61,0.61,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+CLA-B.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 CLAS-B.ST,2026-12-03,2026-12-03,confirmed,6.05701,6.04,6.08102,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 COOR.ST,2026-10-22,2026-10-22,confirmed,0.91217,0.9,0.92434,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 COOR.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
@@ -120,6 +124,7 @@ EPI-A.ST,2026-10-28,2026-10-28,confirmed,2.18406,1.99314,2.32,SEK,Yahoo EPS Esti
 EPI-B.ST,2026-10-28,2026-10-28,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 EPI-B.ST,2026-10-28,2026-10-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 EPI-B.ST,2026-10-28,2026-10-28,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
+EQL.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 EQT.ST,2026-10-15,2026-10-15,confirmed,,,,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 ERIC-B.ST,2026-10-15,2026-10-15,confirmed,1.54894,1.3,1.92,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 ERIC-B.ST,2026-10-15,2026-10-15,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
@@ -161,6 +166,7 @@ HTRO.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender
 HTRO.ST,2026-10-22,2026-10-22,confirmed,0.645,0.63,0.66,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 HUFV-A.ST,2026-11-05,2026-11-05,confirmed,1.25,1.25,1.25,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 HUFV-A.ST,2026-11-05,2026-11-05,confirmed,1.3397,1.25,1.4294,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-17
+HUFV-A.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 INDT.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 INDT.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 INDT.ST,2026-10-23,2026-10-23,confirmed,2.3,2.3,2.3,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -171,6 +177,7 @@ INWI.ST,2026-10-21,2026-10-21,confirmed,3.86,3.86,3.86,SEK,Yahoo EPS Estimate (d
 INWI.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 INWI.ST,2026-10-21,2026-10-21,confirmed,3.86,3.86,3.86,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 KAMBI.ST,2026-11-04,2026-11-04,confirmed,0.18,0.18,0.18,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+KAMBI.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 KNOW.ST,2026-10-23,2026-10-23,confirmed,0.48945,0.4489,0.53,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 KNOW.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 KNOW.ST,2026-10-23,2026-10-23,confirmed,0.48945,0.4489,0.53,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -188,12 +195,15 @@ LOOMIS.ST,2026-10-30,2026-10-30,confirmed,10.325,10.14,10.51,SEK,Yahoo EPS Estim
 LOOMIS.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 LOOMIS.ST,2026-10-30,2026-10-30,confirmed,10.325,10.14,10.51,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
 LUMI.ST,2026-11-04,2026-11-04,confirmed,0.27,0.21,0.35,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+LUMI.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 MCAP.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 MCAP.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 MCAP.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 MCOV-B.ST,2026-11-04,2026-11-04,confirmed,,,,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+MCOV-B.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 MSAB-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 MTG-B.ST,2026-11-05,2026-11-05,confirmed,4.105,3.97,4.24,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+MTG-B.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 MTRS.ST,2026-10-23,2026-10-23,confirmed,1.6389,1.62935,1.64846,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 MTRS.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 MTRS.ST,2026-10-23,2026-10-23,confirmed,1.6389,1.62935,1.64846,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -259,6 +269,7 @@ SHB-A.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,Börskollen / rapportkalende
 SHB-A.ST,2026-10-21,2026-10-21,confirmed,2.90219,2.9,2.90438,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 SHB-A.ST,2026-10-21,2026-10-21,confirmed,2.92146,2.9,2.96,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
 SHOT.ST,2026-11-10,2026-11-10,confirmed,3.5,3.5,3.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
+SINT.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 SOBI.ST,2026-10-27,2026-10-27,confirmed,6.115,5.55,6.68,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SOBI.ST,2026-10-27,2026-10-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 SOBI.ST,2026-10-27,2026-10-27,confirmed,5.95333,5.55,6.68,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
