@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-02T22:38:47+02:00",
+  "generated_at": "2026-10-06T00:31:51+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/astrazeneca",
   "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-05T13:11:31+02:00",
+      "title": "AstraZeneca completes equity investment in Summit Therapeutics",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-completes-equity-investment-in-summit-therapeutics-6c10f824",
+      "source": "MFN",
+      "summary": "AstraZeneca completes equity investment in Summit Therapeutics 2026-10-05 13:11:31 AstraZeneca today announced the successful completion of its $2 billion equity investment in Summit Therapeutics. The equity investment will accelerate the development of ivonescimab, a first-in-class bispecific antibody targeting PD-1 and VEGF, in combination with antibody drug conjugates (ADCs) across tumour types. As previously announced, the companies have also entered into a clinical collaboration agreement to evaluate sonesitatug vedotin (Sone-Ve) in combination with ivonescimab and intend to enter into an additional agreement initiating a global developm",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6cff30b80f0ddb2a"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",

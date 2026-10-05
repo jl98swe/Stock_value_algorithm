@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-02T22:40:27+02:00",
+  "generated_at": "2026-10-06T00:33:47+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/loomis",
   "items": [
+    {
+      "ticker": "LOOMIS.ST",
+      "company": "Loomis AB (publ)",
+      "published_at": "2026-10-05T23:00:00+02:00",
+      "title": "Loomis AB: Loomis slutför förvärvet av Hermes Transportes Blindados",
+      "link": "https://mfn.se/cis/a/loomis/loomis-ab-loomis-slutfor-forvarvet-av-hermes-transportes-blindados-c45544db",
+      "source": "MFN",
+      "summary": "Loomis AB: Loomis slutför förvärvet av Hermes Transportes Blindados 2026-10-05 23:00:00 Loomis har idag slutfört förvärvet av 99,80 procent av aktierna i Hermes Transportes Blindados S.A. efter att det offentliga uppköpserbjudandet (\"Oferta Pública de Adquisición\" eller \"OPA\") har slutförts och villkoren i förvärvsavtalet (\"Tender Offer Agreement\") har uppfyllts. Den totala köpeskillingen för de aktier som lämnades in i erbjudandet uppgick till cirka 297 MUSD (cirka 3 miljarder SEK). Hermes Transportes Blindados S.A . (\"Hermes\") är en ledande aktör inom säkerhetslogistik i Peru. Bolaget erbjuder tjänster inom transport, uppräkning, och säker ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "36319565103dca96"
+    },
     {
       "ticker": "LOOMIS.ST",
       "company": "Loomis AB (publ)",

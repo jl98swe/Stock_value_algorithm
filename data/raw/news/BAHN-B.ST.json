@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-02T22:38:48+02:00",
+  "generated_at": "2026-10-06T00:31:53+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bahnhof",
-  "items": []
+  "items": [
+    {
+      "ticker": "BAHN-B.ST",
+      "company": "Bahnhof",
+      "published_at": "2026-10-05T08:18:06+02:00",
+      "title": "Bahnhof har ingått avtal om att överlåta norska verksamheten till K.N. Telecom. Budpliktsbudet fortsatt 62 kronor per aktie",
+      "link": "https://mfn.se/cis/a/bahnhof/bahnhof-har-ingatt-avtal-om-att-overlata-norska-verksamheten-till-k-n-telecom-budpliktsbudet-fortsatt-62-kronor-per-aktie-1bcf4cc4",
+      "source": "MFN",
+      "summary": "Bahnhof har ingått avtal om att överlåta norska verksamheten till K.N. Telecom. Budpliktsbudet fortsatt 62 kronor per aktie 2026-10-05 08:18:06 Bahnhof har ingått avtal med K.N. Telecom (KNT) om att överlåta bolagets norska dotterbolag till KNT, som kontrolleras av Bahnhofs grundare Jon Karlung och Andreas Norman. Överlåtelsen är villkorad av att Telenors förvärv av aktier i Bahnhof genomförs och ska ske samtidigt. Det av Telenor tidigare kommunicerade priset i budpliktsbudet är fortsatt 62 kronor per aktie. Bakgrunden är att norska Konkurransetilsynet har meddelat Telenor att myndigheten överväger att besluta om anmälningsplikt för Telenors ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bc9c8a36dd1fab30"
+    }
+  ]
 }
