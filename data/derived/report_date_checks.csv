@@ -7,3 +7,4 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-10-06,SYSR.ST,YAHOO-2026-07-31,0+7+14,2026-08-27,2026-08-28,corrected,
 2026-10-06,SYSR.ST,2026-Q3,0+7+14,2026-08-27,,manual_date_preserved,
 2026-10-06,ZZ-B.ST,2026-Q2,0+7+14,2026-08-26,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-06,ZZ-B.ST,2026-Q2,0+7+14,2026-08-26,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
