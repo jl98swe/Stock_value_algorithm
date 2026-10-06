@@ -39,6 +39,7 @@ from .score_history import (
     seed_score_history_from_dashboard,
 )
 from .strategy import run_strategy
+from .strategy_backtests import build_strategy_backtests
 from .utils import read_json, write_json_atomic
 from .valuation import GBMModel, calculate_valuation
 
@@ -344,6 +345,7 @@ def _stock_payload(
     valued: pd.DataFrame | None = None
     score_additions = pd.DataFrame()
     strategy: dict[str, object] | None = None
+    backtests: dict[str, object] = {}
     has_verified_eps = bool(pd.to_numeric(working["EPS_TTM"], errors="coerce").notna().any())
     if model is not None and has_verified_eps:
         valued = calculate_valuation(working, model=model)
@@ -356,6 +358,7 @@ def _stock_payload(
         strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
         if strategy_frame["Score"].notna().any():
             strategy = run_strategy(strategy_frame, ticker)
+            backtests = build_strategy_backtests(strategy_frame, ticker, reports, calendar, strategy)
 
     latest_working = valued.iloc[-1] if valued is not None else working.iloc[-1]
     latest_score = _json_number(latest_working.get("Score"), 4)
@@ -379,6 +382,11 @@ def _stock_payload(
         "locked": locked,
     }
 
+    backtests["_dividends"] = [
+        {"date": _iso_date(row.ex_date), "amount": _json_number(row.dividend)}
+        for row in dividends.loc[dividends["ticker"].astype(str) == ticker].itertuples(index=False)
+    ]
+    write_json_atomic(DOCS_DATA / "backtests" / f"{ticker}.json", backtests)
     report_payload = _report_payload(ticker, reports, calendar)
     dashboard_stock = {
         "latest": {

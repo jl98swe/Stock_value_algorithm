@@ -51,6 +51,9 @@ jobs:
       - name: Kör kärntester
         run: python -m pytest -q
 
+      - name: Kontrollera periodregler för Metod
+        run: node tests/test_method_periods.cjs
+
       - name: Verifiera inbäddad GBM-modell
         run: python -m src.model_data
 

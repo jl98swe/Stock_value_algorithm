@@ -28,7 +28,9 @@
       <a class="secondary-button active" href="./index.html?v=20260910-1" aria-current="page">Startsida</a>
       <a class="secondary-button" href="./positions.html?v=20260910-1">Aktiva positioner</a>
       <a class="secondary-button" href="./signals.html?v=20260910-1">Kommande signaler</a>
-      <a class="secondary-button" href="./review.html?v=20260910-1">Granska nyheter och data</a>`;
+      <a class="secondary-button" href="./reports.html">Rapporter</a>
+      <a class="secondary-button" href="./review.html?v=20260910-1">Granska nyheter och data</a>
+      <a class="secondary-button" href="./method.html?v=20261006-1">Metod</a>`;
     actions.insertBefore(nav, actions.firstChild);
   }
 
