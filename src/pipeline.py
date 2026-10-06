@@ -43,6 +43,7 @@ from .score_history import (
 )
 from .strategy import run_strategy
 from .strategy_backtests import build_strategy_backtests
+from .strategy_overviews import write_strategy_overviews
 from .utils import read_json, write_json_atomic
 from .valuation import GBMModel, calculate_valuation
 
@@ -236,6 +237,19 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
     return {"type": side, "label": label, "detail": detail}
 
 
+def _strategy_live_payload(strategy: dict | None, filters: dict) -> dict:
+    position = _position_payload(strategy)
+    action = _next_action(strategy, strategy is not None)
+    if filters.get("force_next_exit") and position["lots"] > 0:
+        action = {"type": "SELL", "label": "Sälj inför rapport", "exit_reason": "report",
+                  "execute_on": filters["report_exit_date"], "detail": f"Planerad {filters['report_exit_date']}"}
+    state = strategy.get("state") if strategy else None
+    cutoff = _iso_date(state.iloc[max(0, len(state) - 20)]["Date"]) if isinstance(state, pd.DataFrame) and not state.empty else None
+    signals = [s for s in _signal_rows(strategy) if s.get("status") == "executed"
+               and s.get("execution_date") and (cutoff is None or s["execution_date"] >= cutoff)]
+    return {"position": position, "next_action": action, "signals": signals, "strategy_filter": filters}
+
+
 def _report_payload(ticker: str, reports: pd.DataFrame, calendar: pd.DataFrame) -> dict[str, object]:
     latest = latest_verified_report(ticker, reports)
     next_report = None
@@ -361,7 +375,8 @@ def _stock_payload(
         strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
         if strategy_frame["Score"].notna().any():
             strategy = run_strategy(strategy_frame, ticker)
-            backtests = build_strategy_backtests(strategy_frame, ticker, reports, calendar, strategy)
+            backtests = build_strategy_backtests(strategy_frame, ticker, reports, calendar, strategy,
+                                                 live_payload_builder=_strategy_live_payload)
 
     latest_working = valued.iloc[-1] if valued is not None else working.iloc[-1]
     latest_score = _json_number(latest_working.get("Score"), 4)
@@ -412,6 +427,9 @@ def _stock_payload(
         "strategy_comparison": _strategy_comparison(strategy, frame, dividends, ticker),
         "closed_trades": strategy.get("trades", []) if strategy else [],
         "open_lots": strategy.get("open_lots", []) if strategy else [],
+        "strategies": {key: backtests.get(key, {}).get("overview") or _strategy_live_payload(None, {
+            "buy_allowed": False, "buy_block_reason": "Väntar på komplett värderingsunderlag"})
+            for key in ("standard", "ma200", "report_avoidance")},
     }
     report_frame = valued if valued is not None else working
     report_columns = [
@@ -630,6 +648,7 @@ def build_dashboard(
     write_json_atomic(DASHBOARD_JSON, dashboard_payload)
     write_split_dashboard(DASHBOARD_JSON, dashboard_payload)
     write_aggregate(dashboard_stocks, generated_at)
+    write_strategy_overviews(dashboard_stocks, dashboard_payload["meta"], DOCS_DATA / "strategy_overviews.json")
     reports_payload = build_reports_payload(
         reports=reports,
         valuation_frames=valuation_frames,

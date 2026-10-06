@@ -5,8 +5,13 @@
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
+  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande'};
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let strategy = 'standard';
+  const stockHref = ticker => strategy === 'standard' ? `./index.html?ticker=${encodeURIComponent(ticker)}` : `./method.html?ticker=${encodeURIComponent(ticker)}&strategy=${strategy}`;
 
   function number(value) {
+    if (value == null || value === '') return null;
     const n = Number(value);
     return Number.isFinite(n) ? n : null;
   }
@@ -56,14 +61,14 @@
       const latest = row.data.latest || {};
       const action = row.data.next_action || {};
       return `<tr>
-        <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
+        <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
         <td>Aktiv</td>
         <td>${money(p.avg_entry, row.currency)}</td>
         <td>${money(latest.close, row.currency)}</td>
         <td class="${number(p.unrealized_pct) >= 0 ? 'positive' : 'negative'}">${pct(p.unrealized_pct)}</td>
         <td>${score(latest.score)}</td>
-        <td>${latest.fundamental_lock ? 'Spärrad' : 'Fri'}</td>
-        <td>${action.type && action.type !== 'NONE' ? `<span class="status-chip action">${action.label}</span>` : '–'}</td>
+        <td>${latest.fundamental_lock ? action.exit_reason === 'report' ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
+        <td>${action.type && action.type !== 'NONE' ? `<span class="status-chip action">${esc(action.label)}</span>${action.execute_on ? `<span class="cell-detail">${prettyDate(action.execute_on)}</span>` : ''}` : row.data.strategy_filter?.report_exit_date ? `Sälj senast ${prettyDate(row.data.strategy_filter.report_exit_date)} inför rapport` : '–'}</td>
       </tr>`;
     }).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktiva positioner matchar filtret.</td></tr>';
   }
@@ -73,16 +78,17 @@
     const position = data.position || {};
     const action = data.next_action || {};
     const value = number(latest.score);
-    if (value === null) return null;
+    const reportExit = action.type === 'SELL' && action.exit_reason === 'report';
+    if (value === null && !reportExit) return null;
 
     const buy = number(rules.buy_score) ?? 1;
     const sell = number(rules.sell_score) ?? 99;
     const lots = Number(position.lots || 0);
     const maxLots = Number(position.max_lots || 1);
     const hasPosition = lots > 0;
-    const canBuy = lots < maxLots;
+    const canBuy = lots < maxLots && data.strategy_filter?.buy_allowed !== false;
     const canSell = hasPosition;
-    const actual = action.type === 'BUY' || action.type === 'SELL';
+    const actual = (action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell);
     const buyDistance = Math.max(0, value - buy);
     const sellDistance = Math.max(0, sell - value);
 
@@ -91,10 +97,10 @@
     if (actual && ((action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell))) {
       side = action.type;
       distance = 0;
-    } else if (canBuy && buyDistance <= 5) {
+    } else if (value !== null && canBuy && buyDistance <= 5) {
       side = 'BUY';
       distance = buyDistance;
-    } else if (canSell && sellDistance <= 5) {
+    } else if (value !== null && canSell && sellDistance <= 5) {
       side = 'SELL';
       distance = sellDistance;
     } else {
@@ -108,10 +114,11 @@
       side,
       distance,
       actual,
+      reportExit,
       locked: Boolean(latest.fundamental_lock),
       lots,
       maxLots,
-      armed: side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false,
+      armed: reportExit || (side === 'BUY' ? position.buy_armed !== false : position.sell_armed !== false),
       reached: actual || (side === 'BUY' ? value < buy : value > sell),
       action
     };
@@ -127,25 +134,18 @@
 
     $('upcoming-count').textContent = String(upcoming.length);
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
-      <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
+      <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
-      <td>${row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${row.reportExit ? '<strong>Inför rapport</strong>' : row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
       <td>${row.lots ? 'Aktiv' : 'Ingen'}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
-      <td>${row.locked ? 'Spärrad' : 'Fri'}</td>
-      <td>${row.reached
-        ? row.side === 'SELL'
-          ? 'Sälj – signalgränsen är nådd'
-          : row.lots >= row.maxLots
-            ? 'Position full, inväntar sälj'
-            : 'Köp – signalgränsen är nådd'
-        : 'Bevaka nästa stängning'}</td>
+      <td>${row.locked ? row.reportExit ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
+      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.action.execute_on)}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
 
-    const tradingDates = [...new Set(Object.values(dashboard.stocks || {})
-      .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))]
-      .sort();
+    const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
+      .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))].sort();
     const recentCutoff = tradingDates.length > 20 ? tradingDates.at(-20) : tradingDates[0];
     const latestTradingDate = tradingDates.at(-1);
     const recent = Object.entries(dashboard.stocks || {})
@@ -169,8 +169,8 @@
 
     $('recent-count').textContent = String(recent.length);
     $('recent-signals-body').innerHTML = recent.length ? recent.map((row) => `<tr>
-      <td><a class="stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${row.ticker}</strong><span>${row.name}</span></a></td>
-      <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
+      <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
+      <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span>${row.exit_reason === 'report' ? '<span class="cell-detail">Inför rapport</span>' : ''}</td>
       <td><strong>${prettyDate(row.execution_date)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
       <td>${money(row.execution_price, row.currency)}</td>
       <td>${score(row.score)}</td>
@@ -179,29 +179,49 @@
     $('summary-count').textContent = String(upcoming.length + recent.length);
   }
 
+  if (typeof module !== 'undefined') module.exports = {signalCandidate, number};
+  if (typeof document === 'undefined') return;
+
   async function init() {
     try {
-      const [stocksPayload, dashboard] = await Promise.all([
+      const [stocksPayload, overviews] = await Promise.all([
         fetch('./data/stocks.json', { cache: 'no-store' }).then((r) => {
           if (!r.ok) throw new Error(`stocks.json: HTTP ${r.status}`);
           return r.json();
         }),
-        fetch('./data/dashboard.json', { cache: 'no-store' }).then((r) => {
-          if (!r.ok) throw new Error(`dashboard.json: HTTP ${r.status}`);
+        fetch('./data/strategy_overviews.json', { cache: 'no-store' }).then((r) => {
+          if (!r.ok) throw new Error(`strategy_overviews.json: HTTP ${r.status}`);
           return r.json();
         })
       ]);
 
       const page = document.body.dataset.overview;
+      const params = new URLSearchParams(location.search);
+      let saved;
+      try { saved = localStorage.getItem('overview-strategy'); } catch {}
+      strategy = strategies[params.get('strategy')] ? params.get('strategy') : strategies[saved] ? saved : 'standard';
+      $('overview-strategy').value = strategy;
       const render = () => {
+        strategy = $('overview-strategy').value;
+        const selected = overviews.strategies?.[strategy];
+        if (!selected) throw new Error(`Översiktsdata saknas för ${strategies[strategy]}.`);
+        const dashboard = {meta:overviews.meta,stocks:selected.stocks};
+        const url = new URL(location.href); url.searchParams.set('strategy',strategy); history.replaceState({},'',url);
+        try { localStorage.setItem('overview-strategy',strategy); } catch {}
+        document.querySelectorAll('.page-nav a').forEach(link=>{
+          if (!/\/(positions|signals|method)\.html$/.test(new URL(link.href).pathname)) return;
+          const target=new URL(link.href); target.searchParams.set('strategy',strategy); link.href=target;
+        });
+        $('strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[strategy];
         const needle = ($('overview-search')?.value || '').trim().toLocaleLowerCase('sv-SE');
         if (page === 'positions') renderPositions(dashboard, stocksPayload, needle);
         else renderSignals(dashboard, stocksPayload, needle);
       };
 
-      const generated = dashboard.meta?.generated_at || stocksPayload.generated_at;
+      const generated = overviews.meta?.generated_at || stocksPayload.generated_at;
       $('last-updated').textContent = generated ? new Date(generated).toLocaleString('sv-SE') : 'Okänt';
       $('overview-search')?.addEventListener('input', render);
+      $('overview-strategy').addEventListener('change', render);
       render();
       $('loading-state').hidden = true;
       $('overview-content').hidden = false;

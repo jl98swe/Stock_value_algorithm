@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from functools import lru_cache
+from typing import Callable
 
 import exchange_calendars as xcals
 import numpy as np
@@ -37,7 +38,12 @@ def report_filters(frame: pd.DataFrame, report_dates: list[pd.Timestamp]) -> pd.
     allowed = valid & (distances > 10) & (next_dates > dates)
     data["BuyExecutionAllowed"] = allowed
     # Both the signal day and the actual next opening must be outside the block.
-    data["BuyAllowed"] = allowed & np.r_[allowed[1:], False]
+    next_sessions = sessions[sessions.searchsorted(dates, side="right")]
+    next_report_indices = reports.searchsorted(next_sessions, side="left")
+    next_valid = next_report_indices < len(reports)
+    next_reports = reports[np.minimum(next_report_indices, len(reports) - 1)]
+    next_distances = sessions.searchsorted(next_reports, side="right") - sessions.searchsorted(next_sessions, side="right")
+    data["BuyAllowed"] = allowed & next_valid & (next_reports > next_sessions) & (next_distances > 10)
     exits = {sessions[sessions.searchsorted(day, side="left") - 1] for day in reports
              if sessions.searchsorted(day, side="left") > 0}
     data["ForceReportExit"] = dates.isin(exits)
@@ -45,7 +51,8 @@ def report_filters(frame: pd.DataFrame, report_dates: list[pd.Timestamp]) -> pd.
 
 
 def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataFrame,
-                            manual_calendar: pd.DataFrame, standard: dict) -> dict:
+                            manual_calendar: pd.DataFrame, standard: dict,
+                            live_payload_builder: Callable | None = None) -> dict:
     historical = reports.loc[reports["ticker"].astype(str) == ticker]
     dates = []
     for row in historical.itertuples(index=False):
@@ -68,11 +75,30 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
                 "report_avoidance": run_strategy(report_frame, ticker)}
     names = {"standard": "Standard", "ma200": "MA200", "report_avoidance": "Rapportundvikande"}
     result = {}
+    latest_day = pd.Timestamp(frame["Date"].max()).normalize()
+    sessions = xcals.get_calendar("XSTO", start=latest_day - pd.Timedelta(days=15),
+                                  end=max([latest_day + pd.Timedelta(days=30), *dates])).sessions
+    sessions = sessions.tz_localize(None) if sessions.tz is not None else sessions
+    next_session = sessions[sessions.searchsorted(latest_day, side="right")]
+    next_report = min((day for day in dates if day >= latest_day), default=None)
+    report_exit = sessions[sessions.searchsorted(next_report, side="left") - 1] if next_report is not None else None
+    filter_info = {
+        "standard": {"buy_allowed": True, "buy_block_reason": ""},
+        "ma200": {"buy_allowed": bool(ma.iloc[-1]["BuyAllowed"]),
+                  "buy_block_reason": "Köp kräver kurs över MA200"},
+        "report_avoidance": {"buy_allowed": bool(report_frame.iloc[-1]["BuyAllowed"]),
+                             "buy_block_reason": "Köp blockerat inför rapport" if next_report is not None else "Nästa rapportdatum saknas",
+                             "next_report_date": next_report.date().isoformat() if next_report is not None else None,
+                             "report_exit_date": report_exit.date().isoformat() if report_exit is not None and report_exit > latest_day else None,
+                             "force_next_exit": report_exit == next_session if report_exit is not None else False},
+    }
     for key, variant in variants.items():
         result[key] = {"name": names[key], "closed_trades": variant.get("trades", []),
                        "open_lots": variant.get("open_lots", []),
                        "start_date": frame["Date"].min().date().isoformat(),
                        "end_date": frame["Date"].max().date().isoformat()}
+        if live_payload_builder is not None:
+            result[key]["overview"] = live_payload_builder(variant, filter_info[key])
     result["report_avoidance"]["report_date_basis"] = "final_report_dates"
     result["report_avoidance"]["report_dates_count"] = len(set(dates))
     result["report_avoidance"]["missing_next_report_days"] = int((~report_frame["BuyExecutionAllowed"] & ~report_frame["ForceReportExit"]).sum()) if not dates else int((frame["Date"] > max(dates)).sum())
