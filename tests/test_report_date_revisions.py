@@ -87,6 +87,34 @@ def test_wrong_quarter_and_future_dates_are_not_used():
     assert select_report_timestamp(dates, '2026-09-03', '2026-09-18') is None
 
 
+def test_verified_date_protects_same_period_yahoo_alias_without_changing_eps(tmp_path):
+    args = paths(tmp_path)
+    pd.DataFrame([dict(ticker='EXAMPLE.ST', report_period='2026-Q3',
+        report_date='2026-09-03', source='User')]).to_csv(args['manual_path'], index=False)
+    canonical = reports()
+    alias = canonical.copy()
+    alias['report_period'] = 'YAHOO-2026-07-31'
+    alias['effective_date'] = pd.Timestamp('2026-09-04')
+    alias['eps_ttm'] = 12.35
+    other = alias.copy()
+    other['report_period'] = 'YAHOO-2026-04-30'
+    other['period_end'] = pd.Timestamp('2026-04-30')
+    other['effective_date'] = pd.Timestamp('2026-06-03')
+    imported = pd.concat([canonical, alias, other], ignore_index=True)
+    pd.DataFrame([dict(ticker='EXAMPLE.ST', report_period='YAHOO-2026-07-31',
+        report_date='2026-09-04', source='Yahoo')]).to_csv(args['auto_path'], index=False)
+    corrected = apply_date_evidence(imported, manual_path=args['manual_path'], auto_path=args['auto_path'])
+    assert corrected.effective_date.tolist() == [pd.Timestamp('2026-09-03'),
+        pd.Timestamp('2026-09-03'), pd.Timestamp('2026-06-03')]
+    assert corrected.eps_ttm.tolist() == imported.eps_ttm.tolist()
+    def fail(_):
+        raise AssertionError('Verified release aliases must not request Yahoo')
+    checked = recheck(today='2026-09-18', reports=corrected, fetcher=fail, **args)
+    assert checked.effective_date.tolist() == corrected.effective_date.tolist()
+    audit = pd.read_csv(args['audit_path'])
+    assert audit.status.tolist() == ['manual_date_preserved', 'manual_date_preserved']
+
+
 def test_new_date_and_removed_report_are_rebased():
     old = reports('2026-09-03')
     assert changed_date_cutoffs(old.iloc[:0], old) == {'EXAMPLE.ST': pd.Timestamp('2026-09-03')}
