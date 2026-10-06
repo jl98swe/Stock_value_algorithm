@@ -234,12 +234,6 @@
     const startDate = dates[0];
     const endDate = dates[dates.length - 1];
     const ma200 = candles.map((d) => Number.isFinite(Number(d.ma200)) ? Number(d.ma200) : null);
-    const visibleHigh = Math.max(...candles.map((d) => Number(d.high)).filter(Number.isFinite));
-    const visibleLow = Math.min(
-      ...candles.flatMap((d) => [Number(d.low), Number(d.ma200)]).filter(Number.isFinite)
-    );
-    const visibleSpan = Math.max(visibleHigh - visibleLow, Math.abs(visibleHigh) * 0.01, 1);
-    const upperMarkerZone = visibleHigh - visibleSpan * 0.15;
 
     const current = chart.getOption();
     const series = current.series || [];
@@ -261,7 +255,6 @@
           signalTooltip: `<strong>${buy ? 'Köp' : 'Sälj'}</strong><br>${esc(signal.execution_date)} · ${esc(signal.execution_price)}`
         };
       }).filter(Boolean) : [];
-    const signalDays = new Set(signalPoints.map((point) => String(point.coord?.[0] || '').slice(0, 10)).filter(Boolean));
 
     const visibleEvents = (eventsPayload.events || []).filter((event) => {
       const day = eventDay(event);
@@ -284,26 +277,19 @@
       return markerEnabled(group) && (marker.code !== 'E' || reportByDay.get(eventDay(event)) === event);
     });
 
-    const countByDay = new Map();
+    // Fixed E/D/N rows in the event strip, never coordinates on the price axis.
     const eventPoints = deduplicatedEvents.map((event) => {
       const day = eventDay(event);
       const candle = candles.find((d) => d.date === day);
       if (!candle) return null;
       const marker = eventMarker(event);
-      const stackIndex = countByDay.get(day) || 0;
-      countByDay.set(day, stackIndex + 1);
       const source = event.source ? ` · ${event.source}` : '';
-      const signalOffset = signalDays.has(day) ? 24 : 0;
       const title = marker.code === 'E' ? reportDisplayTitle(event) : String(event.title || marker.label);
-      const candleHigh = Number(candle.high);
-      const markerDirection = candleHigh >= upperMarkerZone ? 1 : -1;
-      const markerOffset = 14 + signalOffset + stackIndex * 24;
       return {
         name: `${marker.code} · ${title}`,
-        coord: [day, candleHigh],
+        value: [day, { E: 3, D: 2, N: 1 }[marker.code]],
         symbol: 'circle',
-        symbolSize: 22,
-        symbolOffset: [0, markerDirection * markerOffset],
+        symbolSize: 18,
         itemStyle: {
           color: marker.color,
           borderColor: event.locking ? '#c88722' : '#ffffff',
@@ -316,13 +302,26 @@
       };
     }).filter(Boolean);
 
-    const updatedSeries = series.filter((item) => item.name !== 'MA200').map((item) => ({ ...item }));
+    // Multiple same-type events on one day share a marker, with all details
+    // preserved in its tooltip rather than stacking into the price chart.
+    const groupedPoints = new Map();
+    eventPoints.forEach((point) => {
+      const key = point.value.join('|');
+      const previous = groupedPoints.get(key);
+      if (!previous) groupedPoints.set(key, point);
+      else {
+        previous.eventTooltip += `<br><br>${point.eventTooltip}`;
+        if (point.itemStyle.borderWidth > previous.itemStyle.borderWidth) previous.itemStyle = point.itemStyle;
+      }
+    });
+
+    const updatedSeries = series.filter((item) => !['MA200', 'Händelser'].includes(item.name)).map((item) => ({ ...item }));
     const priceIndex = Math.max(0, updatedSeries.findIndex((item) => item.name === 'Pris'));
     updatedSeries[priceIndex] = {
       ...updatedSeries[priceIndex],
       markPoint: {
         ...(markPoint || {}),
-        data: [...signalPoints, ...eventPoints],
+        data: signalPoints,
         tooltip: {
           show: true,
           trigger: 'item',
@@ -343,6 +342,15 @@
       lineStyle: { width: 1.8, color: '#626d78' },
       emphasis: { disabled: true },
       z: 4
+    });
+
+    updatedSeries.push({
+      name: 'Händelser', type: 'scatter', xAxisIndex: 2, yAxisIndex: 2,
+      data: [...groupedPoints.values()],
+      symbol: 'circle', symbolSize: 18,
+      itemStyle: { opacity: 1 },
+      tooltip: { show: true, trigger: 'item', formatter: (params) => params.data?.eventTooltip || params.name || '' },
+      z: 5
     });
 
     chart.setOption({ series: updatedSeries }, { replaceMerge: ['series'] });

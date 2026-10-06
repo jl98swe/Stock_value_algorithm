@@ -307,7 +307,6 @@
     const startDate = dates[0];
     const endDate = dates[dates.length - 1];
 
-    const events = (state.eventsPayload?.events || []).filter((event) => event.ticker === ticker && event.published_at.slice(0, 10) >= startDate && event.published_at.slice(0, 10) <= endDate);
     const signals = (data.signals || []).filter((signal) => (
       signal.status === 'executed'
       && signal.execution_date >= startDate
@@ -326,20 +325,6 @@
         symbolRotate: buy ? 0 : 180,
         symbolSize: 13,
         itemStyle: { color: buy ? '#1f8f67' : '#c74747' },
-        label: { show: false }
-      };
-    }).filter(Boolean);
-
-    const eventPoints = events.map((event) => {
-      const day = event.published_at.slice(0, 10);
-      const candle = sliced.candles.find((d) => d.date === day);
-      if (!candle) return null;
-      return {
-        name: event.title,
-        coord: [day, candle.high * 1.03],
-        symbol: 'pin',
-        symbolSize: 18,
-        itemStyle: { color: event.locking ? '#c88722' : '#2f6fb0' },
         label: { show: false }
       };
     }).filter(Boolean);
@@ -365,29 +350,33 @@
         }
       },
       grid: [
-        { left: 58, right: 18, top: 24, height: '58%', containLabel: true },
-        { left: 58, right: 18, top: '70%', height: '21%', containLabel: true }
+        { left: 18, right: 58, top: 24, height: '47%', containLabel: false },
+        { left: 18, right: 58, top: '70%', height: '21%', containLabel: false },
+        // Dedicated event strip: independent of price and score scales.
+        { left: 18, right: 58, top: '55%', height: 60, containLabel: false, show: true, backgroundColor: '#f8fafb', borderWidth: 0 }
       ],
       xAxis: [
         { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
-        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' }
+        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', gridIndex: 2, data: dates, boundaryGap: true, show: false, axisPointer: { show: false }, min: 'dataMin', max: 'dataMax' }
       ],
       yAxis: [
         { scale: true, position: 'right',
-          min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.58 - 64),
-          max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.58 - 64),
+          min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.47 - 64),
+          max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.47 - 64),
           axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
-        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } }
+        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
+        { gridIndex: 2, min: 0.5, max: 3.5, show: false, axisPointer: { show: false } }
       ],
       dataZoom: [
-        { type: 'inside', xAxisIndex: [0, 1], start: 0, end: 100, zoomOnMouseWheel: 'shift', moveOnMouseMove: true },
-        { type: 'slider', xAxisIndex: [0, 1], bottom: 2, height: 18, borderColor: '#dfe6ea', backgroundColor: '#f6f8f9', fillerColor: 'rgba(15,89,103,.12)', handleStyle: { color: '#0f5967' }, textStyle: { color: '#687684', fontSize: 9 } }
+        { type: 'inside', xAxisIndex: [0, 1, 2], start: 0, end: 100, zoomOnMouseWheel: 'shift', moveOnMouseMove: true },
+        { type: 'slider', xAxisIndex: [0, 1, 2], bottom: 2, height: 18, borderColor: '#dfe6ea', backgroundColor: '#f6f8f9', fillerColor: 'rgba(15,89,103,.12)', handleStyle: { color: '#0f5967' }, textStyle: { color: '#687684', fontSize: 9 } }
       ],
       series: [
         {
           name: 'Pris', type: 'candlestick', data: candleValues,
           itemStyle: { color: '#20a486', color0: '#e65b5b', borderColor: '#20a486', borderColor0: '#e65b5b' },
-          markPoint: { data: [...signalPoints, ...eventPoints], tooltip: { show: false } }
+          markPoint: { data: signalPoints, tooltip: { show: false } }
         },
         {
           name: 'Score', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#2f6fb0' },

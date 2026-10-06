@@ -21,13 +21,27 @@ const docs = path.resolve(__dirname, '../docs');
     if (process.env.ECHARTS_TEST_FILE) await page.route('https://cdnjs.cloudflare.com/**', (route) => route.fulfill({ path: process.env.ECHARTS_TEST_FILE, contentType: 'text/javascript' }));
     const snapshot = () => page.evaluate(() => {
       const option = echarts.getInstanceByDom(document.getElementById('market-chart')).getOption();
-      return { maCount: option.series.filter((s) => s.name === 'MA200').length, points: option.series.find((s) => s.name === 'Pris').markPoint.data };
+      return { maCount: option.series.filter((s) => s.name === 'MA200').length,
+        points: option.series.find((s) => s.name === 'Pris').markPoint.data,
+        events: option.series.find((s) => s.name === 'Händelser').data };
     });
     await page.goto('https://stock-ui.test/?ticker=ANOD-B.ST');
     await page.waitForFunction(() => echarts.getInstanceByDom(document.getElementById('market-chart'))?.getOption()?.series?.some((s) => s.name === 'MA200'));
     const initial = await snapshot();
     assert.equal(initial.maCount, 1);
-    assert(initial.points.some((p) => p.label?.formatter === 'E' && p.symbol === 'circle'));
+    assert(initial.events.some((p) => p.label?.formatter === 'E' && p.symbol === 'circle'));
+    assert(initial.points.every((p) => p.signalTooltip));
+    const eventPixels = await page.evaluate(() => {
+      const chart = echarts.getInstanceByDom(document.getElementById('market-chart'));
+      const series = chart.getOption().series.find((s) => s.name === 'Händelser');
+      return series.data.map((p) => ({
+        y: chart.convertToPixel({ xAxisIndex: 2, yAxisIndex: 2 }, p.value)[1], height: chart.getHeight()
+      }));
+    });
+    for (const pixel of eventPixels) {
+      assert(pixel.y - 9 > 24 + pixel.height * 0.47);
+      assert(pixel.y + 9 < pixel.height * 0.70);
+    }
     assert.equal(await page.locator('#stock-name').textContent(), 'Addnode');
     assert(!requests.includes('/data/dashboard.json'));
     await page.locator('[data-marker="dividend"]').uncheck();
@@ -58,7 +72,7 @@ const docs = path.resolve(__dirname, '../docs');
     await page.locator('[data-marker="report"]').uncheck();
     await page.locator('[data-marker="signals"]').uncheck();
     await page.locator('[data-range="6m"]').click();
-    const isHidden = (state) => !state.points.some((p) => p.signalTooltip || p.label?.formatter === 'E');
+    const isHidden = (state) => !state.points.some((p) => p.signalTooltip) && !state.events.some((p) => p.label?.formatter === 'E');
     assert(isHidden(await snapshot()));
     await page.locator('#stock-search').fill('embracer');
     assert.equal(await page.locator('.stock-button').count(), 1);
@@ -68,7 +82,7 @@ const docs = path.resolve(__dirname, '../docs');
     assert(isHidden(await snapshot()));
     for (const marker of ['report', 'dividend', 'news', 'signals']) await page.locator(`[data-marker="${marker}"]`).check();
     const restored = await snapshot();
-    assert(restored.points.some((p) => p.label?.formatter === 'E'));
+    assert(restored.events.some((p) => p.label?.formatter === 'E'));
     assert(!restored.points.some((p) => p.symbol === 'pin'));
     assert.equal(restored.maCount, 1);
     await page.locator('#stock-search').fill('anod');
