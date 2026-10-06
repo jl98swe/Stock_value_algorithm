@@ -1,4 +1,5 @@
 ticker,report_period,report_date,gap_position,previous_comparable_period,previous_comparable_date,next_comparable_period,next_comparable_date,days_from_previous,days_to_next,stale_window_days,reference_eps_ttm,currency,recommended_action
+ABB.ST,2025-Q3,2025-10-16,internal,2025-Q2,2025-07-17,2025-Q4,2026-01-29,91,105,105,2.44,USD,issuer_report_or_other_verified_source_required
 ALIG.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-24,,1825,,4.0016,SEK,optional_backfill_requires_verified_source
 ALIG.ST,2018-Q4,2019-02-22,leading,,,2023-Q3,2023-10-24,,1705,,4.7395,SEK,optional_backfill_requires_verified_source
 ALIG.ST,2019-Q1,2019-04-26,leading,,,2023-Q3,2023-10-24,,1642,,5.3756,SEK,optional_backfill_requires_verified_source
@@ -19,6 +20,8 @@ ALIG.ST,2022-Q3,2022-10-20,leading,,,2023-Q3,2023-10-24,,369,,4.6869,SEK,optiona
 ALIG.ST,2022-Q4,2023-02-17,leading,,,2023-Q3,2023-10-24,,249,,5.2196,SEK,optional_backfill_requires_verified_source
 ALIG.ST,2023-Q1,2023-05-03,leading,,,2023-Q3,2023-10-24,,174,,5.4016,SEK,optional_backfill_requires_verified_source
 ALIG.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-24,,96,,5.2562,SEK,optional_backfill_requires_verified_source
+ALIG.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-10,97,110,110,6.5422,SEK,issuer_report_or_other_verified_source_required
+ALIV-SDB.ST,2025-Q3,2025-10-17,internal,2025-Q2,2025-07-18,2025-Q4,2026-01-30,91,105,105,9.84,USD,issuer_report_or_other_verified_source_required
 ARJO-B.ST,2018-Q3,2018-10-22,leading,,,2023-Q3,2023-10-19,,1823,,0.4703,SEK,optional_backfill_requires_verified_source
 ARJO-B.ST,2018-Q4,2019-02-04,leading,,,2023-Q3,2023-10-19,,1718,,1.0761,SEK,optional_backfill_requires_verified_source
 ARJO-B.ST,2019-Q1,2019-05-07,leading,,,2023-Q3,2023-10-19,,1626,,1.2633,SEK,optional_backfill_requires_verified_source
@@ -41,6 +44,7 @@ ARJO-B.ST,2023-Q1,2023-04-20,leading,,,2023-Q3,2023-10-19,,182,,1.3878,SEK,optio
 ARJO-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-19,,97,,1.3805,SEK,optional_backfill_requires_verified_source
 ARJO-B.ST,2023-Q4,2024-01-30,internal,2023-Q3,2023-10-19,2024-Q1,2024-04-18,103,79,79,1.7476,SEK,issuer_report_or_other_verified_source_required
 ARJO-B.ST,2024-Q4,2025-01-30,internal,2024-Q3,2024-10-17,2025-Q1,2025-04-29,105,89,89,1.8321,SEK,issuer_report_or_other_verified_source_required
+ARJO-B.ST,2025-Q3,2025-10-22,internal,2025-Q2,2025-07-11,2025-Q4,2026-01-30,103,100,100,1.6081,SEK,issuer_report_or_other_verified_source_required
 ATRLJ-B.ST,2018-Q3,2018-10-19,leading,,,2023-Q3,2023-10-12,,1819,,3.846,SEK,optional_backfill_requires_verified_source
 ATRLJ-B.ST,2018-Q4,2019-02-15,leading,,,2023-Q3,2023-10-12,,1700,,3.846,SEK,optional_backfill_requires_verified_source
 ATRLJ-B.ST,2019-Q1,2019-04-12,leading,,,2023-Q3,2023-10-12,,1644,,3.846,SEK,optional_backfill_requires_verified_source
@@ -61,6 +65,7 @@ ATRLJ-B.ST,2022-Q3,2022-10-14,leading,,,2023-Q3,2023-10-12,,363,,10.6774,SEK,opt
 ATRLJ-B.ST,2022-Q4,2023-02-02,leading,,,2023-Q3,2023-10-12,,252,,6.7918,SEK,optional_backfill_requires_verified_source
 ATRLJ-B.ST,2023-Q1,2023-04-14,leading,,,2023-Q3,2023-10-12,,181,,3.3675,SEK,optional_backfill_requires_verified_source
 ATRLJ-B.ST,2023-Q2,2023-07-06,leading,,,2023-Q3,2023-10-12,,98,,-1.6225,SEK,optional_backfill_requires_verified_source
+ATRLJ-B.ST,2025-Q3,2025-10-10,internal,2025-Q2,2025-07-04,2025-Q4,2026-01-30,98,112,112,1.7049,SEK,issuer_report_or_other_verified_source_required
 BAHN-B.ST,2018-Q3,2018-10-23,leading,,,2023-Q3,2023-11-07,,1841,,0.8589,SEK,optional_backfill_requires_verified_source
 BAHN-B.ST,2018-Q4,2019-02-19,leading,,,2023-Q3,2023-11-07,,1722,,0.908,SEK,optional_backfill_requires_verified_source
 BAHN-B.ST,2019-Q1,2019-05-07,leading,,,2023-Q3,2023-11-07,,1645,,0.9924,SEK,optional_backfill_requires_verified_source
@@ -101,6 +106,7 @@ BALD-B.ST,2022-Q3,2022-10-28,leading,,,2023-Q3,2023-10-27,,364,,14.9401,SEK,opti
 BALD-B.ST,2022-Q4,2023-02-10,leading,,,2023-Q3,2023-10-27,,259,,14.9401,SEK,optional_backfill_requires_verified_source
 BALD-B.ST,2023-Q1,2023-05-11,leading,,,2023-Q3,2023-10-27,,169,,14.9401,SEK,optional_backfill_requires_verified_source
 BALD-B.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-27,,101,,14.9401,SEK,optional_backfill_requires_verified_source
+BALD-B.ST,2025-Q3,2025-10-28,internal,2025-Q2,2025-07-15,2025-Q4,2026-02-06,105,101,101,6.4806,SEK,issuer_report_or_other_verified_source_required
 BEIA-B.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-26,,1827,,7.592,SEK,optional_backfill_requires_verified_source
 BEIA-B.ST,2018-Q4,2019-02-13,leading,,,2023-Q3,2023-10-26,,1716,,7.7794,SEK,optional_backfill_requires_verified_source
 BEIA-B.ST,2019-Q1,2019-05-06,leading,,,2023-Q3,2023-10-26,,1634,,7.8424,SEK,optional_backfill_requires_verified_source
@@ -121,6 +127,7 @@ BEIA-B.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-26,,364,,10.6916,SEK,opti
 BEIA-B.ST,2022-Q4,2023-02-15,leading,,,2023-Q3,2023-10-26,,253,,10.0295,SEK,optional_backfill_requires_verified_source
 BEIA-B.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-26,,182,,9.462,SEK,optional_backfill_requires_verified_source
 BEIA-B.ST,2023-Q2,2023-07-21,leading,,,2023-Q3,2023-10-26,,97,,8.614,SEK,optional_backfill_requires_verified_source
+BEIA-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-06,98,105,105,8.9111,SEK,issuer_report_or_other_verified_source_required
 BEIJ-B.ST,2018-Q3,2018-10-22,leading,,,2023-Q3,2023-10-24,,1828,,1.807,SEK,optional_backfill_requires_verified_source
 BEIJ-B.ST,2018-Q4,2019-01-30,leading,,,2023-Q3,2023-10-24,,1728,,1.8487,SEK,optional_backfill_requires_verified_source
 BEIJ-B.ST,2019-Q1,2019-04-16,leading,,,2023-Q3,2023-10-24,,1652,,1.9708,SEK,optional_backfill_requires_verified_source
@@ -141,6 +148,7 @@ BEIJ-B.ST,2022-Q3,2022-10-20,leading,,,2023-Q3,2023-10-24,,369,,3.2521,SEK,optio
 BEIJ-B.ST,2022-Q4,2023-01-31,leading,,,2023-Q3,2023-10-24,,266,,3.006,SEK,optional_backfill_requires_verified_source
 BEIJ-B.ST,2023-Q1,2023-04-25,leading,,,2023-Q3,2023-10-24,,182,,3.181,SEK,optional_backfill_requires_verified_source
 BEIJ-B.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-24,,96,,3.5869,SEK,optional_backfill_requires_verified_source
+BEIJ-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-01-30,98,98,98,4.8332,SEK,issuer_report_or_other_verified_source_required
 BERG-B.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-19,,1819,,6.139,SEK,optional_backfill_requires_verified_source
 BERG-B.ST,2018-Q4,2019-02-08,leading,,,2023-Q3,2023-10-19,,1714,,6.3251,SEK,optional_backfill_requires_verified_source
 BERG-B.ST,2019-Q1,2019-05-16,leading,,,2023-Q3,2023-10-19,,1617,,6.252,SEK,optional_backfill_requires_verified_source
@@ -161,6 +169,8 @@ BERG-B.ST,2022-Q3,2022-10-20,leading,,,2023-Q3,2023-10-19,,364,,7.6953,SEK,optio
 BERG-B.ST,2022-Q4,2023-02-03,leading,,,2023-Q3,2023-10-19,,258,,7.8936,SEK,optional_backfill_requires_verified_source
 BERG-B.ST,2023-Q1,2023-05-12,leading,,,2023-Q3,2023-10-19,,160,,7.7813,SEK,optional_backfill_requires_verified_source
 BERG-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-19,,97,,7.4317,SEK,optional_backfill_requires_verified_source
+BERG-B.ST,2025-Q3,2025-10-22,internal,2025-Q2,2025-07-16,2025-Q4,2026-02-04,98,105,105,-2.7797,SEK,issuer_report_or_other_verified_source_required
+BETS-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-05,98,104,104,1.43,EUR,issuer_report_or_other_verified_source_required
 CAST.ST,2018-Q3,2018-10-17,leading,,,2023-Q3,2023-10-27,,1836,,23.076,SEK,optional_backfill_requires_verified_source
 CAST.ST,2018-Q4,2019-01-23,leading,,,2023-Q3,2023-10-27,,1738,,22.9182,SEK,optional_backfill_requires_verified_source
 CAST.ST,2019-Q1,2019-04-24,leading,,,2023-Q3,2023-10-27,,1647,,24.6894,SEK,optional_backfill_requires_verified_source
@@ -181,6 +191,7 @@ CAST.ST,2022-Q3,2022-10-20,leading,,,2023-Q3,2023-10-27,,372,,29.3458,SEK,option
 CAST.ST,2022-Q4,2023-02-13,leading,,,2023-Q3,2023-10-27,,256,,4.2025,SEK,optional_backfill_requires_verified_source
 CAST.ST,2023-Q1,2023-04-26,leading,,,2023-Q3,2023-10-27,,184,,-15.7751,SEK,optional_backfill_requires_verified_source
 CAST.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-27,,105,,-23.1952,SEK,optional_backfill_requires_verified_source
+CAST.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-14,2025-Q4,2026-02-18,101,118,118,6.1706,SEK,issuer_report_or_other_verified_source_required
 CATE.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-27,,1827,,20.62,SEK,optional_backfill_requires_verified_source
 CATE.ST,2018-Q4,2019-02-15,leading,,,2023-Q3,2023-10-27,,1715,,21.9238,SEK,optional_backfill_requires_verified_source
 CATE.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-27,,1646,,23.7238,SEK,optional_backfill_requires_verified_source
@@ -202,6 +213,8 @@ CATE.ST,2022-Q4,2023-02-22,leading,,,2023-Q3,2023-10-27,,247,,46.2974,SEK,option
 CATE.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-27,,183,,15.3365,SEK,optional_backfill_requires_verified_source
 CATE.ST,2023-Q2,2023-07-07,leading,,,2023-Q3,2023-10-27,,112,,2.5395,SEK,optional_backfill_requires_verified_source
 CATE.ST,2023-Q4,2024-02-22,internal,2023-Q3,2023-10-27,2024-Q1,2024-04-25,118,63,63,19.6419,SEK,issuer_report_or_other_verified_source_required
+CATE.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-04,2025-Q4,2026-02-20,112,119,119,26.6722,SEK,issuer_report_or_other_verified_source_required
+CIBUS.ST,2025-Q3,2025-11-04,internal,2025-Q2,2025-07-17,2025-Q4,2026-03-19,110,135,135,0.8746,EUR,issuer_report_or_other_verified_source_required
 COOR.ST,2018-Q3,2018-10-24,leading,,,2023-Q3,2023-10-25,,1827,,1.1,SEK,optional_backfill_requires_verified_source
 COOR.ST,2018-Q4,2019-02-21,leading,,,2023-Q3,2023-10-25,,1707,,1.0384,SEK,optional_backfill_requires_verified_source
 COOR.ST,2019-Q1,2019-05-02,leading,,,2023-Q3,2023-10-25,,1637,,1.2872,SEK,optional_backfill_requires_verified_source
@@ -222,6 +235,7 @@ COOR.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-25,,363,,2.7749,SEK,optiona
 COOR.ST,2022-Q4,2023-02-09,leading,,,2023-Q3,2023-10-25,,258,,2.6906,SEK,optional_backfill_requires_verified_source
 COOR.ST,2023-Q1,2023-04-26,leading,,,2023-Q3,2023-10-25,,182,,2.3861,SEK,optional_backfill_requires_verified_source
 COOR.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-25,,103,,1.9984,SEK,optional_backfill_requires_verified_source
+COOR.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-14,2025-Q4,2026-02-11,101,111,111,1.5281,SEK,issuer_report_or_other_verified_source_required
 CTT.ST,2018-Q3,2018-10-31,leading,,,2023-Q3,2023-10-27,,1822,,4.8401,SEK,optional_backfill_requires_verified_source
 CTT.ST,2018-Q4,2019-02-06,leading,,,2023-Q3,2023-10-27,,1724,,5.5666,SEK,optional_backfill_requires_verified_source
 CTT.ST,2019-Q1,2019-04-30,leading,,,2023-Q3,2023-10-27,,1641,,6.1972,SEK,optional_backfill_requires_verified_source
@@ -243,6 +257,8 @@ CTT.ST,2022-Q4,2023-02-07,leading,,,2023-Q3,2023-10-27,,262,,5.2997,SEK,optional
 CTT.ST,2023-Q1,2023-04-28,leading,,,2023-Q3,2023-10-27,,182,,5.9701,SEK,optional_backfill_requires_verified_source
 CTT.ST,2023-Q2,2023-07-21,leading,,,2023-Q3,2023-10-27,,98,,6.7444,SEK,optional_backfill_requires_verified_source
 CTT.ST,2023-Q4,2024-02-06,internal,2023-Q3,2023-10-27,2024-Q1,2024-04-26,102,80,80,7.6303,SEK,issuer_report_or_other_verified_source_required
+CTT.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-06,98,105,105,4.5574,SEK,issuer_report_or_other_verified_source_required
+EAST.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-07,2025-Q4,2026-02-05,108,105,105,0.2433,EUR,issuer_report_or_other_verified_source_required
 EKTA-B.ST,2018-Q4,2018-11-29,leading,,,2023-Q4,2023-11-30,,1827,,3.4081,SEK,optional_backfill_requires_verified_source
 EKTA-B.ST,2019-Q1,2019-02-22,leading,,,2023-Q4,2023-11-30,,1742,,3.1542,SEK,optional_backfill_requires_verified_source
 EKTA-B.ST,2019-Q2,2019-05-29,leading,,,2023-Q4,2023-11-30,,1646,,3.1333,SEK,optional_backfill_requires_verified_source
@@ -303,6 +319,7 @@ EQL.ST,2023-Q1,2023-05-11,leading,,,2024-Q1,2024-05-14,,369,,1.0472,SEK,optional
 EQL.ST,2023-Q2,2023-08-16,leading,,,2024-Q1,2024-05-14,,272,,1.0241,SEK,optional_backfill_requires_verified_source
 EQL.ST,2023-Q3,2023-11-17,leading,,,2024-Q1,2024-05-14,,179,,0.9285,SEK,optional_backfill_requires_verified_source
 EQL.ST,2023-Q4,2024-02-13,leading,,,2024-Q1,2024-05-14,,91,,0.7374,SEK,optional_backfill_requires_verified_source
+EQL.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-08-08,2025-Q4,2026-02-03,89,90,90,0.9892,SEK,issuer_report_or_other_verified_source_required
 EQT.ST,2021-Q4,2022-01-19,leading,,,2023-Q2,2023-07-14,,541,,0.9288,EUR,optional_backfill_requires_verified_source
 EQT.ST,2022-Q2,2022-07-14,leading,,,2023-Q2,2023-07-14,,365,,0.7881,EUR,optional_backfill_requires_verified_source
 EQT.ST,2022-Q4,2023-01-18,leading,,,2023-Q2,2023-07-14,,177,,0.1706,EUR,optional_backfill_requires_verified_source
@@ -328,7 +345,10 @@ ERIC-B.ST,2022-Q3,2022-10-20,leading,,,2023-Q3,2023-10-17,,362,,6.8208,SEK,optio
 ERIC-B.ST,2022-Q4,2023-01-20,leading,,,2023-Q3,2023-10-17,,270,,5.6171,SEK,optional_backfill_requires_verified_source
 ERIC-B.ST,2023-Q1,2023-04-18,leading,,,2023-Q3,2023-10-17,,182,,5.189,SEK,optional_backfill_requires_verified_source
 ERIC-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-17,,95,,3.632,SEK,optional_backfill_requires_verified_source
+ERIC-B.ST,2025-Q3,2025-10-14,internal,2025-Q2,2025-07-15,2025-Q4,2026-01-23,91,101,101,7.3757,SEK,issuer_report_or_other_verified_source_required
 EVO.ST,2025-Q1,2025-04-30,internal,2024-Q4,2025-01-30,2025-Q2,2025-07-17,90,78,78,6.01,EUR,issuer_report_or_other_verified_source_required
+EVO.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-17,2025-Q4,2026-02-05,98,105,105,5.64,EUR,issuer_report_or_other_verified_source_required
+FOI-B.ST,2025-Q3,2025-10-31,internal,2025-Q2,2025-07-22,2025-Q4,2026-02-05,101,97,97,0.56,EUR,issuer_report_or_other_verified_source_required
 GENO.ST,2018-Q3,2018-11-23,leading,,,2023-Q3,2023-11-15,,1818,,-0.0641,SEK,optional_backfill_requires_verified_source
 GENO.ST,2018-Q4,2019-02-22,leading,,,2023-Q3,2023-11-15,,1727,,-0.0234,SEK,optional_backfill_requires_verified_source
 GENO.ST,2019-Q1,2019-05-24,leading,,,2023-Q3,2023-11-15,,1636,,0.0214,SEK,optional_backfill_requires_verified_source
@@ -350,6 +370,7 @@ GENO.ST,2022-Q4,2023-02-15,leading,,,2023-Q3,2023-11-15,,273,,0.1709,SEK,optiona
 GENO.ST,2023-Q1,2023-05-16,leading,,,2023-Q3,2023-11-15,,183,,0.6482,SEK,optional_backfill_requires_verified_source
 GENO.ST,2023-Q2,2023-08-16,leading,,,2023-Q3,2023-11-15,,91,,0.8704,SEK,optional_backfill_requires_verified_source
 HEXA-B.ST,2025-Q1,2025-04-30,internal,2024-Q4,2025-01-31,2025-Q2,2025-07-25,89,86,86,0.36,EUR,issuer_report_or_other_verified_source_required
+HEXA-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-25,2025-Q4,2026-01-30,91,98,98,0.25,EUR,issuer_report_or_other_verified_source_required
 HTRO.ST,2018-Q3,2018-11-07,leading,,,2023-Q3,2023-10-27,,1815,,0.5199,SEK,optional_backfill_requires_verified_source
 HTRO.ST,2018-Q4,2019-02-22,leading,,,2023-Q3,2023-10-27,,1708,,0.3142,SEK,optional_backfill_requires_verified_source
 HTRO.ST,2019-Q1,2019-05-03,leading,,,2023-Q3,2023-10-27,,1638,,0.2823,SEK,optional_backfill_requires_verified_source
@@ -370,6 +391,7 @@ HTRO.ST,2022-Q3,2022-10-28,leading,,,2023-Q3,2023-10-27,,364,,3.1897,SEK,optiona
 HTRO.ST,2022-Q4,2023-02-09,leading,,,2023-Q3,2023-10-27,,260,,3.8895,SEK,optional_backfill_requires_verified_source
 HTRO.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-27,,183,,4.3841,SEK,optional_backfill_requires_verified_source
 HTRO.ST,2023-Q2,2023-08-15,leading,,,2023-Q3,2023-10-27,,73,,4.7207,SEK,optional_backfill_requires_verified_source
+HTRO.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-14,2025-Q4,2026-02-05,102,104,104,0.6283,SEK,issuer_report_or_other_verified_source_required
 INDU-A.ST,2020-Q1,2020-04-07,leading,,,2023-Q1,2023-04-05,,1093,,-9.1381,SEK,optional_backfill_requires_verified_source
 INDU-A.ST,2020-Q2,2020-07-07,leading,,,2023-Q1,2023-04-05,,1002,,5.8546,SEK,optional_backfill_requires_verified_source
 INDU-A.ST,2020-Q3,2020-10-06,leading,,,2023-Q1,2023-04-05,,911,,26.231,SEK,optional_backfill_requires_verified_source
@@ -383,6 +405,7 @@ INDU-A.ST,2022-Q2,2022-07-07,leading,,,2023-Q1,2023-04-05,,272,,-41.0914,SEK,opt
 INDU-A.ST,2022-Q3,2022-10-06,leading,,,2023-Q1,2023-04-05,,181,,-39.7639,SEK,optional_backfill_requires_verified_source
 INDU-A.ST,2022-Q4,2023-02-03,leading,,,2023-Q1,2023-04-05,,61,,-32.3386,SEK,optional_backfill_requires_verified_source
 INDU-A.ST,2023-Q2,2023-07-06,internal,2023-Q1,2023-04-05,2023-Q3,2023-10-06,92,92,92,60.5419,SEK,issuer_report_or_other_verified_source_required
+INDU-A.ST,2025-Q3,2025-10-16,internal,2025-Q2,2025-07-08,2025-Q4,2026-02-06,100,113,113,31.9426,SEK,issuer_report_or_other_verified_source_required
 INTRUM.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-25,,1825,,3.0972,SEK,optional_backfill_requires_verified_source
 INTRUM.ST,2018-Q4,2019-01-30,leading,,,2023-Q3,2023-10-25,,1729,,3.1458,SEK,optional_backfill_requires_verified_source
 INTRUM.ST,2019-Q1,2019-04-26,leading,,,2023-Q3,2023-10-25,,1643,,3.5076,SEK,optional_backfill_requires_verified_source
@@ -405,8 +428,11 @@ INTRUM.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-25,,181,,-8.3202,SEK,opti
 INTRUM.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-25,,97,,-9.3984,SEK,optional_backfill_requires_verified_source
 INTRUM.ST,2023-Q4,2024-01-25,internal,2023-Q3,2023-10-25,2024-Q1,2024-04-24,92,90,90,-0.1214,SEK,issuer_report_or_other_verified_source_required
 INTRUM.ST,2024-Q4,2025-01-30,internal,2024-Q3,2024-10-23,2025-Q1,2025-05-07,99,97,97,-6.1444,SEK,issuer_report_or_other_verified_source_required
+INTRUM.ST,2025-Q3,2025-10-30,internal,2025-Q2,2025-07-25,2025-Q4,2026-01-29,97,91,91,-0.2119,SEK,issuer_report_or_other_verified_source_required
+KAMBI.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-07-23,2025-Q4,2026-02-18,105,105,105,0.25,EUR,issuer_report_or_other_verified_source_required
 LUMI.ST,2024-Q4,2025-02-20,internal,2024-Q3,2024-11-06,2025-Q1,2025-05-08,106,77,77,0.0144,USD,issuer_report_or_other_verified_source_required
 LUMI.ST,2025-Q3,2025-11-06,internal,2025-Q2,2025-08-06,2025-Q4,2026-02-20,92,106,106,0.2137,USD,issuer_report_or_other_verified_source_required
+MCOV-B.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-07-24,2025-Q4,2026-02-10,104,97,97,0.45,EUR,issuer_report_or_other_verified_source_required
 MSAB-B.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-26,,1826,,1.8654,SEK,optional_backfill_requires_verified_source
 MSAB-B.ST,2018-Q4,2019-02-01,leading,,,2023-Q3,2023-10-26,,1728,,1.51,SEK,optional_backfill_requires_verified_source
 MSAB-B.ST,2019-Q1,2019-04-24,leading,,,2023-Q3,2023-10-26,,1646,,1.0378,SEK,optional_backfill_requires_verified_source
@@ -427,6 +453,7 @@ MSAB-B.ST,2022-Q3,2022-10-26,leading,,,2023-Q3,2023-10-26,,365,,1.2775,SEK,optio
 MSAB-B.ST,2022-Q4,2023-01-27,leading,,,2023-Q3,2023-10-26,,272,,0.931,SEK,optional_backfill_requires_verified_source
 MSAB-B.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-26,,182,,1.2183,SEK,optional_backfill_requires_verified_source
 MSAB-B.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-26,,98,,1.2291,SEK,optional_backfill_requires_verified_source
+MSAB-B.ST,2025-Q3,2025-10-28,internal,2025-Q2,2025-07-18,2025-Q4,2026-01-27,102,91,91,2.292,SEK,issuer_report_or_other_verified_source_required
 MTG-B.ST,2018-Q3,2018-10-23,leading,,,2023-Q3,2023-10-25,,1828,,8.1152,SEK,optional_backfill_requires_verified_source
 MTG-B.ST,2018-Q4,2019-02-05,leading,,,2023-Q3,2023-10-25,,1723,,13.6017,SEK,optional_backfill_requires_verified_source
 MTG-B.ST,2019-Q1,2019-05-09,leading,,,2023-Q3,2023-10-25,,1630,,12.3626,SEK,optional_backfill_requires_verified_source
@@ -467,6 +494,7 @@ MTRS.ST,2022-Q3,2022-10-21,leading,,,2023-Q3,2023-10-24,,368,,3.1972,SEK,optiona
 MTRS.ST,2022-Q4,2023-02-09,leading,,,2023-Q3,2023-10-24,,257,,3.1702,SEK,optional_backfill_requires_verified_source
 MTRS.ST,2023-Q1,2023-04-21,leading,,,2023-Q3,2023-10-24,,186,,3.7718,SEK,optional_backfill_requires_verified_source
 MTRS.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-24,,98,,4.2456,SEK,optional_backfill_requires_verified_source
+MTRS.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-01-29,98,97,97,1.627,SEK,issuer_report_or_other_verified_source_required
 MYCR.ST,2018-Q3,2018-10-24,leading,,,2022-Q4,2023-02-10,,1570,,4.5624,SEK,optional_backfill_requires_verified_source
 MYCR.ST,2018-Q4,2019-02-07,leading,,,2022-Q4,2023-02-10,,1464,,4.0285,SEK,optional_backfill_requires_verified_source
 MYCR.ST,2019-Q1,2019-04-25,leading,,,2022-Q4,2023-02-10,,1387,,4.9047,SEK,optional_backfill_requires_verified_source
@@ -486,6 +514,8 @@ MYCR.ST,2022-Q2,2022-07-14,leading,,,2022-Q4,2023-02-10,,211,,3.0626,SEK,optiona
 MYCR.ST,2022-Q3,2022-10-20,leading,,,2022-Q4,2023-02-10,,113,,3.432,SEK,optional_backfill_requires_verified_source
 MYCR.ST,2023-Q1,2023-04-27,internal,2022-Q4,2023-02-10,2023-Q3,2023-10-19,76,175,175,3.7191,SEK,issuer_report_or_other_verified_source_required
 MYCR.ST,2023-Q2,2023-07-14,internal,2022-Q4,2023-02-10,2023-Q3,2023-10-19,154,97,97,3.5091,SEK,issuer_report_or_other_verified_source_required
+MYCR.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-11,2025-Q4,2026-02-05,104,105,105,8.9264,SEK,issuer_report_or_other_verified_source_required
+NDA-SE.ST,2025-Q3,2025-10-16,internal,2025-Q2,2025-07-17,2025-Q4,2026-01-29,91,105,105,1.3651,EUR,issuer_report_or_other_verified_source_required
 NIBE-B.ST,2018-Q3,2018-11-16,leading,,,2023-Q3,2023-11-15,,1825,,0.9693,SEK,optional_backfill_requires_verified_source
 NIBE-B.ST,2018-Q4,2019-02-15,leading,,,2023-Q3,2023-11-15,,1734,,1.0296,SEK,optional_backfill_requires_verified_source
 NIBE-B.ST,2019-Q1,2019-05-14,leading,,,2023-Q3,2023-11-15,,1646,,1.0679,SEK,optional_backfill_requires_verified_source
@@ -527,6 +557,7 @@ PACT.ST,2022-Q4,2023-02-09,leading,,,2023-Q3,2023-10-27,,260,,3.0851,SEK,optiona
 PACT.ST,2023-Q1,2023-05-04,leading,,,2023-Q3,2023-10-27,,176,,3.0851,SEK,optional_backfill_requires_verified_source
 PACT.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-27,,105,,3.0851,SEK,optional_backfill_requires_verified_source
 PACT.ST,2023-Q4,2024-02-08,internal,2023-Q3,2023-10-27,2024-Q1,2024-05-07,104,89,89,3.0851,SEK,issuer_report_or_other_verified_source_required
+PACT.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-14,2025-Q4,2026-02-10,102,109,109,3.0851,SEK,issuer_report_or_other_verified_source_required
 PLAZ-B.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-17,,1818,,14.3359,SEK,optional_backfill_requires_verified_source
 PLAZ-B.ST,2018-Q4,2019-02-08,leading,,,2023-Q3,2023-10-17,,1712,,12.5578,SEK,optional_backfill_requires_verified_source
 PLAZ-B.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-17,,1636,,11.6846,SEK,optional_backfill_requires_verified_source
@@ -548,6 +579,7 @@ PLAZ-B.ST,2022-Q4,2023-01-27,leading,,,2023-Q3,2023-10-17,,263,,26.6659,SEK,opti
 PLAZ-B.ST,2023-Q1,2023-04-19,leading,,,2023-Q3,2023-10-17,,181,,15.7826,SEK,optional_backfill_requires_verified_source
 PLAZ-B.ST,2023-Q2,2023-07-05,leading,,,2023-Q3,2023-10-17,,104,,-1.8028,SEK,optional_backfill_requires_verified_source
 PLAZ-B.ST,2024-Q4,2025-01-28,internal,2024-Q3,2024-10-15,2025-Q1,2025-04-11,105,73,73,2.9545,SEK,issuer_report_or_other_verified_source_required
+PLAZ-B.ST,2025-Q3,2025-10-10,internal,2025-Q2,2025-07-04,2025-Q4,2026-01-30,98,112,112,5.884,SEK,issuer_report_or_other_verified_source_required
 PNDX-B.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-26,,1827,,19.6804,SEK,optional_backfill_requires_verified_source
 PNDX-B.ST,2018-Q4,2019-02-14,leading,,,2023-Q3,2023-10-26,,1715,,16.8333,SEK,optional_backfill_requires_verified_source
 PNDX-B.ST,2019-Q1,2019-04-26,leading,,,2023-Q3,2023-10-26,,1644,,16.5731,SEK,optional_backfill_requires_verified_source
@@ -568,6 +600,7 @@ PNDX-B.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-26,,364,,23.6878,SEK,opti
 PNDX-B.ST,2022-Q4,2023-02-09,leading,,,2023-Q3,2023-10-26,,259,,22.9372,SEK,optional_backfill_requires_verified_source
 PNDX-B.ST,2023-Q1,2023-04-26,leading,,,2023-Q3,2023-10-26,,183,,16.0946,SEK,optional_backfill_requires_verified_source
 PNDX-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-26,,104,,10.204,SEK,optional_backfill_requires_verified_source
+PNDX-B.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-11,2025-Q4,2026-02-05,104,105,105,10.4212,SEK,issuer_report_or_other_verified_source_required
 REJL-B.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-25,,1826,,0.221,SEK,optional_backfill_requires_verified_source
 REJL-B.ST,2018-Q4,2019-02-07,leading,,,2023-Q3,2023-10-25,,1721,,0.8495,SEK,optional_backfill_requires_verified_source
 REJL-B.ST,2019-Q1,2019-05-03,leading,,,2023-Q3,2023-10-25,,1636,,2.3386,SEK,optional_backfill_requires_verified_source
@@ -588,6 +621,7 @@ REJL-B.ST,2022-Q3,2022-10-25,leading,,,2023-Q3,2023-10-25,,365,,7.4184,SEK,optio
 REJL-B.ST,2022-Q4,2023-02-02,leading,,,2023-Q3,2023-10-25,,265,,9.5437,SEK,optional_backfill_requires_verified_source
 REJL-B.ST,2023-Q1,2023-04-20,leading,,,2023-Q3,2023-10-25,,188,,9.595,SEK,optional_backfill_requires_verified_source
 REJL-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-25,,103,,9.7114,SEK,optional_backfill_requires_verified_source
+REJL-B.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-15,2025-Q4,2026-02-05,100,105,105,9.6533,SEK,issuer_report_or_other_verified_source_required
 SAAB-B.ST,2018-Q3,2018-10-23,leading,,,2023-Q3,2023-10-26,,1829,,1.819,SEK,optional_backfill_requires_verified_source
 SAAB-B.ST,2018-Q4,2019-02-15,leading,,,2023-Q3,2023-10-26,,1714,,2.7673,SEK,optional_backfill_requires_verified_source
 SAAB-B.ST,2019-Q1,2019-04-26,leading,,,2023-Q3,2023-10-26,,1644,,2.9897,SEK,optional_backfill_requires_verified_source
@@ -608,6 +642,7 @@ SAAB-B.ST,2022-Q3,2022-10-28,leading,,,2023-Q3,2023-10-26,,363,,3.3998,SEK,optio
 SAAB-B.ST,2022-Q4,2023-02-10,leading,,,2023-Q3,2023-10-26,,258,,4.0998,SEK,optional_backfill_requires_verified_source
 SAAB-B.ST,2023-Q1,2023-04-26,leading,,,2023-Q3,2023-10-26,,183,,4.7977,SEK,optional_backfill_requires_verified_source
 SAAB-B.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-26,,98,,5.4497,SEK,optional_backfill_requires_verified_source
+SAAB-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-05,98,104,104,9.601,SEK,issuer_report_or_other_verified_source_required
 SAGA-A.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-27,,1828,,8.1194,SEK,optional_backfill_requires_verified_source
 SAGA-A.ST,2018-Q4,2019-02-07,leading,,,2023-Q3,2023-10-27,,1723,,6.5824,SEK,optional_backfill_requires_verified_source
 SAGA-A.ST,2019-Q1,2019-05-17,leading,,,2023-Q3,2023-10-27,,1624,,6.69,SEK,optional_backfill_requires_verified_source
@@ -628,26 +663,7 @@ SAGA-A.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-27,,365,,14.2624,SEK,opti
 SAGA-A.ST,2022-Q4,2023-02-17,leading,,,2023-Q3,2023-10-27,,252,,6.1143,SEK,optional_backfill_requires_verified_source
 SAGA-A.ST,2023-Q1,2023-05-09,leading,,,2023-Q3,2023-10-27,,171,,1.9558,SEK,optional_backfill_requires_verified_source
 SAGA-A.ST,2023-Q2,2023-07-17,leading,,,2023-Q3,2023-10-27,,102,,1.7125,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-25,,1826,,0.27,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2018-Q4,2019-02-14,leading,,,2023-Q3,2023-10-25,,1714,,0.2948,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-25,,1644,,0.3427,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2019-Q2,2019-07-26,leading,,,2023-Q3,2023-10-25,,1552,,0.3551,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2019-Q3,2019-10-24,leading,,,2023-Q3,2023-10-25,,1462,,0.3796,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2019-Q4,2020-02-13,leading,,,2023-Q3,2023-10-25,,1350,,0.3792,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2020-Q1,2020-04-21,leading,,,2023-Q3,2023-10-25,,1282,,0.3782,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2020-Q2,2020-07-24,leading,,,2023-Q3,2023-10-25,,1188,,0.3565,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2020-Q3,2020-10-22,leading,,,2023-Q3,2023-10-25,,1098,,0.4103,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2020-Q4,2021-02-18,leading,,,2023-Q3,2023-10-25,,979,,0.5337,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2021-Q1,2021-04-29,leading,,,2023-Q3,2023-10-25,,909,,0.6806,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2021-Q2,2021-07-29,leading,,,2023-Q3,2023-10-25,,818,,0.9233,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2021-Q3,2021-10-28,leading,,,2023-Q3,2023-10-25,,727,,1.008,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2021-Q4,2022-02-17,leading,,,2023-Q3,2023-10-25,,615,,0.9787,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2022-Q1,2022-05-12,leading,,,2023-Q3,2023-10-25,,531,,0.8037,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2022-Q2,2022-07-28,leading,,,2023-Q3,2023-10-25,,454,,0.9872,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2022-Q3,2022-11-09,leading,,,2023-Q3,2023-10-25,,350,,0.8898,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2022-Q4,2023-02-16,leading,,,2023-Q3,2023-10-25,,251,,0.8229,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2023-Q1,2023-04-28,leading,,,2023-Q3,2023-10-25,,180,,0.8525,SEK,optional_backfill_requires_verified_source
-SECARE.ST,2023-Q2,2023-07-27,leading,,,2023-Q3,2023-10-25,,90,,0.4642,SEK,optional_backfill_requires_verified_source
+SAGA-A.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-14,2025-Q4,2026-02-09,102,108,108,6.989,SEK,issuer_report_or_other_verified_source_required
 SECU-B.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-11-07,,1838,,6.6514,SEK,optional_backfill_requires_verified_source
 SECU-B.ST,2018-Q4,2019-02-07,leading,,,2023-Q3,2023-11-07,,1734,,6.8694,SEK,optional_backfill_requires_verified_source
 SECU-B.ST,2019-Q1,2019-05-06,leading,,,2023-Q3,2023-11-07,,1646,,7.0256,SEK,optional_backfill_requires_verified_source
@@ -668,6 +684,7 @@ SECU-B.ST,2022-Q3,2022-11-08,leading,,,2023-Q3,2023-11-07,,364,,7.823,SEK,option
 SECU-B.ST,2022-Q4,2023-02-07,leading,,,2023-Q3,2023-11-07,,273,,8.585,SEK,optional_backfill_requires_verified_source
 SECU-B.ST,2023-Q1,2023-05-03,leading,,,2023-Q3,2023-11-07,,188,,8.3349,SEK,optional_backfill_requires_verified_source
 SECU-B.ST,2023-Q2,2023-07-28,leading,,,2023-Q3,2023-11-07,,102,,8.0618,SEK,optional_backfill_requires_verified_source
+SECU-B.ST,2025-Q3,2025-11-06,internal,2025-Q2,2025-07-30,2025-Q4,2026-02-04,99,90,90,8.8023,SEK,issuer_report_or_other_verified_source_required
 SFAST.ST,2021-Q4,2022-02-22,leading,,,2023-Q3,2023-11-23,,639,,3.9651,SEK,optional_backfill_requires_verified_source
 SFAST.ST,2022-Q1,2022-05-19,leading,,,2023-Q3,2023-11-23,,553,,4.1492,SEK,optional_backfill_requires_verified_source
 SFAST.ST,2022-Q2,2022-08-24,leading,,,2023-Q3,2023-11-23,,456,,3.6547,SEK,optional_backfill_requires_verified_source
@@ -695,6 +712,7 @@ SHOT.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-26,,364,,1.0194,SEK,optiona
 SHOT.ST,2022-Q4,2023-02-16,leading,,,2023-Q3,2023-10-26,,252,,1.0822,SEK,optional_backfill_requires_verified_source
 SHOT.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-26,,182,,2.8029,SEK,optional_backfill_requires_verified_source
 SHOT.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-26,,104,,2.1197,SEK,optional_backfill_requires_verified_source
+SHOT.ST,2025-Q3,2025-10-29,internal,2025-Q2,2025-07-15,2025-Q4,2026-02-18,106,112,112,3.4451,SEK,issuer_report_or_other_verified_source_required
 SOBI.ST,2018-Q3,2018-10-31,leading,,,2023-Q3,2023-10-30,,1825,,7.694,SEK,optional_backfill_requires_verified_source
 SOBI.ST,2018-Q4,2019-02-20,leading,,,2023-Q3,2023-10-30,,1713,,8.5348,SEK,optional_backfill_requires_verified_source
 SOBI.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-30,,1649,,9.6969,SEK,optional_backfill_requires_verified_source
@@ -715,6 +733,7 @@ SOBI.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-30,,368,,8.0052,SEK,optiona
 SOBI.ST,2022-Q4,2023-02-08,leading,,,2023-Q3,2023-10-30,,264,,8.4426,SEK,optional_backfill_requires_verified_source
 SOBI.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-30,,186,,10.1039,SEK,optional_backfill_requires_verified_source
 SOBI.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-30,,104,,9.9841,SEK,optional_backfill_requires_verified_source
+SOBI.ST,2025-Q3,2025-10-20,internal,2025-Q2,2025-07-16,2025-Q4,2026-02-05,96,108,108,-0.018,SEK,issuer_report_or_other_verified_source_required
 SVED-B.ST,2018-Q3,2018-10-24,leading,,,2023-Q3,2023-10-27,,1829,,1.4364,SEK,optional_backfill_requires_verified_source
 SVED-B.ST,2018-Q4,2019-02-05,leading,,,2023-Q3,2023-10-27,,1725,,1.38,SEK,optional_backfill_requires_verified_source
 SVED-B.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-27,,1646,,1.2334,SEK,optional_backfill_requires_verified_source
@@ -736,6 +755,7 @@ SVED-B.ST,2022-Q4,2023-02-08,leading,,,2023-Q3,2023-10-27,,261,,4.1228,SEK,optio
 SVED-B.ST,2023-Q1,2023-04-21,leading,,,2023-Q3,2023-10-27,,189,,3.8555,SEK,optional_backfill_requires_verified_source
 SVED-B.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-27,,101,,3.7532,SEK,optional_backfill_requires_verified_source
 SVED-B.ST,2024-Q4,2025-02-11,internal,2024-Q3,2024-10-25,2025-Q1,2025-04-29,109,77,77,3.1731,SEK,issuer_report_or_other_verified_source_required
+SVED-B.ST,2025-Q3,2025-10-29,internal,2025-Q2,2025-07-18,2025-Q4,2026-02-04,103,98,98,3.8115,SEK,issuer_report_or_other_verified_source_required
 SWED-A.ST,2018-Q3,2018-10-23,leading,,,2023-Q3,2023-10-26,,1829,,19.0353,SEK,optional_backfill_requires_verified_source
 SWED-A.ST,2018-Q4,2019-01-29,leading,,,2023-Q3,2023-10-26,,1731,,18.9009,SEK,optional_backfill_requires_verified_source
 SWED-A.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-26,,1645,,19.1034,SEK,optional_backfill_requires_verified_source
@@ -756,6 +776,7 @@ SWED-A.ST,2022-Q3,2022-10-27,leading,,,2023-Q3,2023-10-26,,364,,17.6821,SEK,opti
 SWED-A.ST,2022-Q4,2023-01-31,leading,,,2023-Q3,2023-10-26,,268,,19.4351,SEK,optional_backfill_requires_verified_source
 SWED-A.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-26,,182,,22.0438,SEK,optional_backfill_requires_verified_source
 SWED-A.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-26,,100,,25.952,SEK,optional_backfill_requires_verified_source
+SWED-A.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-17,2025-Q4,2026-01-29,98,98,98,29.2716,SEK,issuer_report_or_other_verified_source_required
 TEL2-B.ST,2018-Q3,2018-10-18,leading,,,2023-Q3,2023-10-18,,1826,,1.2075,SEK,optional_backfill_requires_verified_source
 TEL2-B.ST,2018-Q4,2019-02-13,leading,,,2023-Q3,2023-10-18,,1708,,1.8782,SEK,optional_backfill_requires_verified_source
 TEL2-B.ST,2019-Q1,2019-04-24,leading,,,2023-Q3,2023-10-18,,1638,,2.4354,SEK,optional_backfill_requires_verified_source
@@ -777,6 +798,7 @@ TEL2-B.ST,2022-Q4,2023-01-31,leading,,,2023-Q3,2023-10-18,,260,,7.5718,SEK,optio
 TEL2-B.ST,2023-Q1,2023-04-21,leading,,,2023-Q3,2023-10-18,,180,,5.2231,SEK,optional_backfill_requires_verified_source
 TEL2-B.ST,2023-Q2,2023-07-18,leading,,,2023-Q3,2023-10-18,,92,,5.2871,SEK,optional_backfill_requires_verified_source
 TEL2-B.ST,2023-Q4,2024-01-30,internal,2023-Q3,2023-10-18,2024-Q1,2024-04-18,104,79,79,5.3855,SEK,issuer_report_or_other_verified_source_required
+TEL2-B.ST,2025-Q3,2025-10-21,internal,2025-Q2,2025-07-17,2025-Q4,2026-01-28,96,99,99,6.2283,SEK,issuer_report_or_other_verified_source_required
 TREL-B.ST,2018-Q3,2018-10-31,leading,,,2023-Q3,2023-10-26,,1821,,10.5639,SEK,optional_backfill_requires_verified_source
 TREL-B.ST,2018-Q4,2019-02-13,leading,,,2023-Q3,2023-10-26,,1716,,11.771,SEK,optional_backfill_requires_verified_source
 TREL-B.ST,2019-Q1,2019-04-26,leading,,,2023-Q3,2023-10-26,,1644,,11.5541,SEK,optional_backfill_requires_verified_source
@@ -798,26 +820,7 @@ TREL-B.ST,2022-Q4,2023-01-27,leading,,,2023-Q3,2023-10-26,,272,,19.9194,SEK,opti
 TREL-B.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-26,,182,,20.4388,SEK,optional_backfill_requires_verified_source
 TREL-B.ST,2023-Q2,2023-07-19,leading,,,2023-Q3,2023-10-26,,99,,42.5588,SEK,optional_backfill_requires_verified_source
 TREL-B.ST,2023-Q4,2024-02-02,internal,2023-Q3,2023-10-26,2024-Q1,2024-04-24,99,82,82,39.9701,SEK,issuer_report_or_other_verified_source_required
-VBG-B.ST,2018-Q3,2018-10-22,leading,,,2023-Q3,2023-10-24,,1828,,9.729,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2018-Q4,2019-02-19,leading,,,2023-Q3,2023-10-24,,1708,,10.9186,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2019-Q1,2019-04-24,leading,,,2023-Q3,2023-10-24,,1644,,11.9381,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2019-Q2,2019-08-20,leading,,,2023-Q3,2023-10-24,,1526,,12.154,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2019-Q3,2019-10-22,leading,,,2023-Q3,2023-10-24,,1463,,12.254,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2019-Q4,2020-02-20,leading,,,2023-Q3,2023-10-24,,1342,,11.9781,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2020-Q1,2020-04-28,leading,,,2023-Q3,2023-10-24,,1274,,11.5981,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2020-Q2,2020-07-23,leading,,,2023-Q3,2023-10-24,,1188,,9.1665,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2020-Q3,2020-10-22,leading,,,2023-Q3,2023-10-24,,1097,,9.1745,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2020-Q4,2021-02-24,leading,,,2023-Q3,2023-10-24,,972,,9.0665,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2021-Q1,2021-04-29,leading,,,2023-Q3,2023-10-24,,908,,10.0104,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2021-Q2,2021-07-22,leading,,,2023-Q3,2023-10-24,,824,,12.8659,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2021-Q3,2021-10-21,leading,,,2023-Q3,2023-10-24,,733,,13.1979,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2021-Q4,2022-02-24,leading,,,2023-Q3,2023-10-24,,607,,13.4818,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2022-Q1,2022-04-28,leading,,,2023-Q3,2023-10-24,,544,,13.9338,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2022-Q2,2022-07-20,leading,,,2023-Q3,2023-10-24,,461,,14.2017,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2022-Q3,2022-10-26,leading,,,2023-Q3,2023-10-24,,363,,13.4218,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2022-Q4,2023-02-21,leading,,,2023-Q3,2023-10-24,,245,,14.7256,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2023-Q1,2023-04-27,leading,,,2023-Q3,2023-10-24,,180,,15.8334,SEK,optional_backfill_requires_verified_source
-VBG-B.ST,2023-Q2,2023-07-20,leading,,,2023-Q3,2023-10-24,,96,,17.3412,SEK,optional_backfill_requires_verified_source
+TREL-B.ST,2025-Q3,2025-10-24,internal,2025-Q2,2025-07-17,2025-Q4,2026-01-29,99,97,97,16.0499,SEK,issuer_report_or_other_verified_source_required
 VIT-B.ST,2018-Q3,2018-10-18,leading,,,2023-Q3,2023-10-19,,1827,,3.09,SEK,optional_backfill_requires_verified_source
 VIT-B.ST,2018-Q4,2019-02-13,leading,,,2023-Q3,2023-10-19,,1709,,3.1925,SEK,optional_backfill_requires_verified_source
 VIT-B.ST,2019-Q1,2019-04-10,leading,,,2023-Q3,2023-10-19,,1653,,3.3185,SEK,optional_backfill_requires_verified_source
@@ -840,6 +843,7 @@ VIT-B.ST,2023-Q1,2023-04-21,leading,,,2023-Q3,2023-10-19,,181,,7.1522,SEK,option
 VIT-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-19,,97,,8.1557,SEK,optional_backfill_requires_verified_source
 VIT-B.ST,2023-Q4,2024-02-01,internal,2023-Q3,2023-10-19,2024-Q1,2024-04-18,105,77,77,9.0363,SEK,issuer_report_or_other_verified_source_required
 VIT-B.ST,2024-Q4,2025-02-05,internal,2024-Q3,2024-10-17,2025-Q1,2025-04-23,111,77,77,10.7393,SEK,issuer_report_or_other_verified_source_required
+VIT-B.ST,2025-Q3,2025-10-16,internal,2025-Q2,2025-07-11,2025-Q4,2026-02-06,97,113,113,9.9414,SEK,issuer_report_or_other_verified_source_required
 WALL-B.ST,2018-Q3,2018-10-25,leading,,,2023-Q3,2023-10-20,,1821,,3.75,SEK,optional_backfill_requires_verified_source
 WALL-B.ST,2018-Q4,2019-02-06,leading,,,2023-Q3,2023-10-20,,1717,,4.6513,SEK,optional_backfill_requires_verified_source
 WALL-B.ST,2019-Q1,2019-05-02,leading,,,2023-Q3,2023-10-20,,1632,,4.6776,SEK,optional_backfill_requires_verified_source
@@ -861,6 +865,7 @@ WALL-B.ST,2022-Q4,2023-02-08,leading,,,2023-Q3,2023-10-20,,254,,1.6696,SEK,optio
 WALL-B.ST,2023-Q1,2023-05-03,leading,,,2023-Q3,2023-10-20,,170,,-0.0863,SEK,optional_backfill_requires_verified_source
 WALL-B.ST,2023-Q2,2023-07-14,leading,,,2023-Q3,2023-10-20,,98,,-1.8462,SEK,optional_backfill_requires_verified_source
 WALL-B.ST,2023-Q4,2024-02-08,internal,2023-Q3,2023-10-20,2024-Q1,2024-04-24,111,76,76,-0.6841,SEK,issuer_report_or_other_verified_source_required
+WALL-B.ST,2025-Q3,2025-10-21,internal,2025-Q2,2025-07-07,2025-Q4,2026-02-05,106,107,107,2.8805,SEK,issuer_report_or_other_verified_source_required
 WIHL.ST,2018-Q3,2018-10-23,leading,,,2023-Q3,2023-10-24,,1827,,8.265,SEK,optional_backfill_requires_verified_source
 WIHL.ST,2018-Q4,2019-02-12,leading,,,2023-Q3,2023-10-24,,1715,,7.8131,SEK,optional_backfill_requires_verified_source
 WIHL.ST,2019-Q1,2019-04-25,leading,,,2023-Q3,2023-10-24,,1643,,7.8398,SEK,optional_backfill_requires_verified_source
@@ -882,3 +887,4 @@ WIHL.ST,2022-Q4,2023-02-14,leading,,,2023-Q3,2023-10-24,,252,,7.4424,SEK,optiona
 WIHL.ST,2023-Q1,2023-04-25,leading,,,2023-Q3,2023-10-24,,182,,5.6176,SEK,optional_backfill_requires_verified_source
 WIHL.ST,2023-Q2,2023-07-10,leading,,,2023-Q3,2023-10-24,,106,,4.4368,SEK,optional_backfill_requires_verified_source
 WIHL.ST,2023-Q4,2024-02-13,internal,2023-Q3,2023-10-24,2024-Q1,2024-04-23,112,70,70,-0.0878,SEK,issuer_report_or_other_verified_source_required
+WIHL.ST,2025-Q3,2025-10-23,internal,2025-Q2,2025-07-07,2025-Q4,2026-02-10,108,110,110,7.2538,SEK,issuer_report_or_other_verified_source_required
