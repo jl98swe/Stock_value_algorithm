@@ -13,6 +13,9 @@
     dashboard: null,
     eventsPayload: null,
     selectedTicker: null,
+    strategy: window.strategySelection.get(),
+    overviews: null,
+    backtests: {},
     range: '3m',
     chart: null,
     expanded: { news: new Set(), trades: new Set() }
@@ -26,6 +29,7 @@
   const formatEps = (value) => value == null ? '–' : epsFmt.format(Number(value));
 
   function safeNumber(value, fallback = null) {
+    if (value == null || value === '') return fallback;
     const n = Number(value);
     return Number.isFinite(n) ? n : fallback;
   }
@@ -83,6 +87,7 @@
     const stock = await loadJson(`${PATHS.dashboardStocks}${encodeURIComponent(filename)}`);
     state.dashboard.stocks ||= {};
     state.dashboard.stocks[ticker] = stock;
+    state.backtests[ticker] = await loadJson(`./data/backtests/${encodeURIComponent(ticker)}.json`);
     return stock;
   }
 
@@ -92,6 +97,8 @@
   }
 
   function renderRules() {
+    $('rules-title').textContent = window.strategySelection.names[state.strategy];
+    $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
     const rules = state.dashboard.meta?.rules || {};
     const rows = [
       ['Köp', `Score ${rules.buy_score ?? 1}`],
@@ -239,16 +246,11 @@
   }
 
   function renderTables(data) {
-    const comparisons = data.strategy_comparison || [];
-    const period = comparisons[0]?.start_date && comparisons[0]?.end_date
-      ? `${prettyDate(comparisons[0].start_date)}–${prettyDate(comparisons[0].end_date)}` : '–';
-    const strategyReturn = comparisons.find((row) => row.strategy === 'Originalstrategi')?.return_pct;
-    const stockReturn = comparisons.find((row) => row.strategy === 'Köp och behåll')?.return_pct;
-    $('strategy-table').innerHTML = `
-      <thead><tr><th>Alternativ</th><th>Period</th><th>Avkastning</th><th>Största nedgång</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead>
-      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${row.strategy === "Originalstrategi" ? "Standard" : row.strategy}</td><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades ?? '–'}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="6">Backtest saknas för aktien.</td></tr>'}</tbody>`;
-    $('comparison-difference').textContent = strategyReturn == null || stockReturn == null
-      ? '' : `Strategin jämfört med aktien: ${strategyReturn - stockReturn > 0 ? '+' : ''}${pctFmt.format(strategyReturn - stockReturn)} procentenheter`;
+    const tradesClosed = data.closed_trades || [];
+    const result = tradesClosed.length ? (tradesClosed.reduce((capital,t)=>capital*(1+t.return_pct/100),1)-1)*100 : null;
+    const period = `${prettyDate(data.candles?.[0]?.date)}–${prettyDate(data.candles?.at(-1)?.date)}`;
+    $('strategy-table').innerHTML = `<thead><tr><th>Strategi</th><th>Period</th><th>Avkastning</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead><tbody><tr><td>${window.strategySelection.names[state.strategy]}</td><td>${period}</td><td>${pct(result)}</td><td>${tradesClosed.length}</td><td>${pct(tradesClosed.length ? tradesClosed.filter(t=>t.return_pct>0).length/tradesClosed.length*100 : null)}</td></tr></tbody>`;
+    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}">Visa jämförelser och tidsperioder i Metod</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
     const trades = [...(data.closed_trades || []).map((trade) => ({ ...trade, open: false }))];
@@ -264,7 +266,7 @@
     const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
       <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>Tid i position</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th></tr></thead>
-      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa Standard i Metod" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=standard" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa ${window.strategySelection.names[state.strategy]} i Metod" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
     $('trades-table').querySelectorAll('[data-method-link]').forEach(row => {
       row.style.cursor = 'pointer';
       row.addEventListener('click', () => { window.location.href = row.dataset.methodLink; });
@@ -404,6 +406,7 @@
     state.selectedTicker = ticker;
     const url = new URL(window.location.href);
     url.searchParams.set('ticker', ticker);
+    url.searchParams.set('strategy',state.strategy);
     window.history.replaceState({}, '', url);
     renderStockList($('stock-search').value);
     renderSelected();
@@ -412,9 +415,22 @@
     }));
   }
 
+  function selectedData() {
+    const base = state.dashboard.stocks[state.selectedTicker];
+    const live = state.overviews.strategies[state.strategy].stocks[state.selectedTicker];
+    const variant = state.backtests[state.selectedTicker]?.[state.strategy];
+    if (!live) throw new Error('Strategidata saknas för aktien.');
+    const closed = variant?.closed_trades || [], open = variant?.open_lots || [];
+    const signals = closed.flatMap(t=>[
+      {side:'BUY',status:'executed',execution_date:t.entry_date},
+      {side:'SELL',status:'executed',execution_date:t.exit_date,exit_reason:t.exit_reason}
+    ]).concat(open.map(t=>({side:'BUY',status:'executed',execution_date:t.entry_date})));
+    return {...base,...live,closed_trades:closed,open_lots:open,signals};
+  }
+
   function renderSelected() {
     const ticker = state.selectedTicker;
-    const data = state.dashboard.stocks[ticker];
+    const data = selectedData();
     renderHero(ticker, data);
     renderMetrics(data);
     renderStatus(data);
@@ -424,12 +440,19 @@
   }
 
   function bindControls() {
+    $('home-strategy').value = state.strategy;
+    $('home-strategy').addEventListener('change',()=>{
+      state.strategy = $('home-strategy').value;
+      window.strategySelection.set(state.strategy);
+      const url = new URL(location.href); url.searchParams.set('strategy',state.strategy); history.replaceState({},'',url);
+      renderRules(); renderSelected();
+    });
     $('stock-search').addEventListener('input', (event) => renderStockList(event.target.value));
     document.querySelectorAll('[data-range]').forEach((button) => {
       button.addEventListener('click', () => {
         state.range = button.dataset.range;
         document.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('active', b === button));
-        renderChart(state.selectedTicker, state.dashboard.stocks[state.selectedTicker]);
+        renderChart(state.selectedTicker, selectedData());
       });
     });
     const defaultRange = document.querySelector('[data-range="3m"]');
@@ -442,19 +465,20 @@
     $('trades-toggle').addEventListener('click', () => {
       const expanded = state.expanded.trades;
       expanded.has(state.selectedTicker) ? expanded.delete(state.selectedTicker) : expanded.add(state.selectedTicker);
-      renderTables(state.dashboard.stocks[state.selectedTicker]);
+      renderTables(selectedData());
     });
     window.addEventListener('resize', () => state.chart?.resize());
   }
 
   async function init() {
     try {
-      const [stocksPayload, dashboard, eventsPayload] = await Promise.all([
-        loadJson(PATHS.stocks), loadJson(PATHS.dashboard), loadJson(PATHS.events)
+      const [stocksPayload, dashboard, eventsPayload, overviews] = await Promise.all([
+        loadJson(PATHS.stocks), loadJson(PATHS.dashboard), loadJson(PATHS.events), loadJson('./data/strategy_overviews.json')
       ]);
       state.stocksPayload = stocksPayload;
       state.dashboard = { ...dashboard, stocks: {} };
       state.eventsPayload = eventsPayload;
+      state.overviews = overviews;
 
       const generatedAt = dashboard.meta?.generated_at || stocksPayload.generated_at;
       $('last-updated').textContent = generatedAt ? new Date(generatedAt).toLocaleString('sv-SE') : 'Okänt';

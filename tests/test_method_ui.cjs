@@ -82,9 +82,9 @@ const docs = path.resolve(__dirname, '../docs');
    await page.waitForSelector('#trades-table [data-method-link]');
    await page.locator('#trades-table [data-method-link]').first().focus();
    await page.keyboard.press('Enter');
-   await page.waitForURL('**/method.html?ticker=AAK.ST&strategy=standard');
+   await page.waitForURL(url=>url.pathname.endsWith('/method.html') && url.searchParams.get('ticker')==='AAK.ST' && url.searchParams.get('strategy')==='report_avoidance');
    await page.waitForSelector('#method-results:not([hidden])');
-   assert.equal(await page.locator('#method-strategy').inputValue(),'standard');
+   assert.equal(await page.locator('#method-strategy').inputValue(),'report_avoidance');
   }
   assert.deepEqual(errors,[]);
   console.log('Method UI passed: all stocks by default, collapsed details, pagination, deep links, periods, stock switch and mobile layout.');

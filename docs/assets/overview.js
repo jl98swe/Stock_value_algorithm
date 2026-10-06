@@ -8,7 +8,7 @@
   const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let strategy = 'standard';
-  const stockHref = ticker => strategy === 'standard' ? `./index.html?ticker=${encodeURIComponent(ticker)}` : `./method.html?ticker=${encodeURIComponent(ticker)}&strategy=${strategy}`;
+  const stockHref = ticker => `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${strategy}`;
 
   function number(value) {
     if (value == null || value === '') return null;
@@ -207,7 +207,7 @@
         if (!selected) throw new Error(`Översiktsdata saknas för ${strategies[strategy]}.`);
         const dashboard = {meta:overviews.meta,stocks:selected.stocks};
         const url = new URL(location.href); url.searchParams.set('strategy',strategy); history.replaceState({},'',url);
-        try { localStorage.setItem('overview-strategy',strategy); } catch {}
+        window.strategySelection.set(strategy);
         document.querySelectorAll('.page-nav a').forEach(link=>{
           if (!/\/(positions|signals|method)\.html$/.test(new URL(link.href).pathname)) return;
           const target=new URL(link.href); target.searchParams.set('strategy',strategy); link.href=target;
