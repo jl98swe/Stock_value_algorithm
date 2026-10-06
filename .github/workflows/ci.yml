@@ -29,6 +29,14 @@ jobs:
       - name: Checka ut repot
         uses: actions/checkout@v6
 
+      - name: Installera Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Testa mobilens aktieväljare
+        run: node --test tests/test_mobile_stock_picker.cjs
+
       - name: Installera Python
         uses: actions/setup-python@v6
         with:
