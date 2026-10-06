@@ -310,3 +310,5 @@ Rapportfiltrets senaste stängning kontrollerar även nästa XSTO-session, så a
 ett köp kan planeras utan att någon framtida kurs behöver finnas i underlaget.
 Kontroller för översikterna: `node tests/test_overview_strategy.cjs` och
 `node tests/test_overview_ui.cjs` (Playwright med Chromium).
+
+Startsidan, Aktiva positioner, Kommande signaler och Metod delar strategivalet Standard/MA200/Rapportundvikande. Valet sparas i webbläsaren och följer med i sidornas navigationslänkar; ett uttryckligt URL-val har företräde. Buy and hold och OMXSGI i Metod ändrar inte det sparade valet av egen strategi. Startsidan visar vald strategis modellposition, nästa åtgärd, samtliga historiska köp/sälj i grafen och historik. Backtestets avslutade affärer redovisas separat från öppna positioner.

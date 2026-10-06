@@ -17,7 +17,36 @@ const docs=path.resolve(__dirname,'../docs');
    try {await route.fulfill({body:await fs.readFile(file),contentType:({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]});}
    catch {await route.fulfill({status:404,body:'Missing fixture'});}
   });
-  await page.goto('https://overview-ui.test/positions.html');
+  if(process.env.ECHARTS_TEST_FILE) await page.route('https://cdnjs.cloudflare.com/**',route=>route.fulfill({path:process.env.ECHARTS_TEST_FILE,contentType:'text/javascript'}));
+  await page.goto('https://overview-ui.test/index.html?ticker=ABB.ST');
+  await page.waitForFunction(()=>document.querySelector('#stock-name').textContent && document.querySelector('#trades-table tbody'));
+  assert.equal(await page.locator('#home-strategy').inputValue(),'standard');
+  assert((await page.locator('#home-strategy').boundingBox()).y < (await page.locator('#stock-name').boundingBox()).y);
+  for(const key of ['standard','ma200','report_avoidance']) {
+    await page.locator('#home-strategy').selectOption(key);
+    const live=data.strategies[key].stocks['ABB.ST'];
+    assert.equal(await page.locator('#metric-position').textContent(),live.position.lots ? '1 aktiv position' : 'Ingen aktiv position');
+    assert.equal(await page.locator('#metric-action').textContent(),live.next_action.label || 'Ingen signal');
+    assert.equal(new URL(page.url()).searchParams.get('strategy'),key);
+    const tests=JSON.parse(await fs.readFile(path.join(docs,'data/backtests/ABB.ST.json')))[key];
+    const actual=await page.evaluate(()=>echarts.getInstanceByDom(document.querySelector('#market-chart')).getOption().series[0].markPoint.data.map(p=>p.coord[0]));
+    const dates=await page.evaluate(()=>echarts.getInstanceByDom(document.querySelector('#market-chart')).getOption().xAxis[0].data);
+    const expected=tests.closed_trades.flatMap(t=>[t.entry_date,t.exit_date]).concat(tests.open_lots.map(t=>t.entry_date)).filter(d=>d>=dates[0] && d<=dates.at(-1));
+    assert.deepEqual(actual.sort(),expected.sort());
+    for(const url of await page.locator('#trades-table [data-method-link]').evaluateAll(rows=>rows.map(r=>r.dataset.methodLink))) assert.equal(new URL(url,'https://overview-ui.test').searchParams.get('strategy'),key);
+  }
+  await page.locator('.page-nav a').filter({hasText:'Metod',exact:true}).click();
+  await page.waitForSelector('#method-results:not([hidden])');
+  assert.equal(await page.locator('#method-strategy').inputValue(),'report_avoidance');
+  await page.locator('#method-strategy').selectOption('ma200');
+  await page.locator('.page-nav a').filter({hasText:'Startsida',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('#trades-table tbody'));
+  assert.equal(await page.locator('#home-strategy').inputValue(),'ma200');
+  await page.setViewportSize({width:390,height:844});
+  assert(await page.locator('#home-strategy').isVisible());
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto('https://overview-ui.test/positions.html?strategy=standard');
   await page.waitForSelector('#overview-content:not([hidden])');
   assert.equal(await page.locator('#overview-strategy').inputValue(),'standard');
   assert.deepEqual(await page.locator('#overview-strategy option').evaluateAll(options=>options.map(o=>o.textContent)),['Standard','MA200','Rapportundvikande']);

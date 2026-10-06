@@ -95,6 +95,7 @@
     if (!variants) return;
     const ticker = $('method-stock').value, all = ticker === 'all';
     const key = $('method-strategy').value, period = $('method-period').value;
+    window.strategySelection.set(key);
     const end = all ? variants.meta.end_date : stock.candles.at(-1).date;
     const first = all ? variants.meta.start_date : stock.candles[0].date;
     const start = all ? variants.periods[period].start_date : periodStart(end, period, first);
@@ -104,7 +105,7 @@
     $('as-of-date').textContent = end;
     $('period-caption').textContent = `${start} – ${end}${start < first ? ` · Tillgänglig data från ${first}` : ''}`;
     $('method-stock-link').hidden = all || key === 'omxsgi';
-    $('method-stock-link').href = `./index.html?ticker=${encodeURIComponent(ticker)}`;
+    $('method-stock-link').href = `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${window.strategySelection.get()}`;
     $('method-name').textContent = names[key];
     $('method-summary').textContent = ({standard:'Köp under 1, sälj över 99. Högst en aktiv position per aktie.',ma200:'Standard med köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.',buy_and_hold:'Köp aktieurvalet vid periodens första tillgängliga stängning och behåll till periodens slut.',omxsgi:'Stockholmsbörsens breda avkastningsindex med återinvesterade utdelningar.'})[key];
     $('scope-note').textContent = all ? `${variants.meta.stock_count} aktier · Lika kapitalandel per aktie · Öppna positioner redovisas separat.${variants.meta.excluded_stocks.length ? ` ${variants.meta.excluded_stocks.length} aktier saknar komplett underlag och ingår inte.` : ''}` : 'Enskild aktie · Öppna positioner redovisas separat.';
@@ -164,7 +165,7 @@
       $('last-updated').textContent = (stockMeta.generated_at || stockMeta.meta?.generated_at)?.slice(0,10) || '–';
       $('method-stock').innerHTML = '<option value="all">Alla aktier</option>' + stockMeta.stocks.map(s => `<option value="${esc(s.ticker)}">${esc(s.name)} · ${esc(s.ticker)}</option>`).join('');
       if (stockMeta.stocks.some(s => s.ticker === params.get('ticker'))) $('method-stock').value = params.get('ticker');
-      if (names[params.get('strategy')]) $('method-strategy').value = params.get('strategy');
+      $('method-strategy').value = names[params.get('strategy')] ? params.get('strategy') : window.strategySelection.get();
       if (['all','1','3','5'].includes(params.get('period'))) $('method-period').value = params.get('period');
       $('method-stock').addEventListener('change', loadStock);
       const reset = () => { visibleTrades = 50; render(); };
