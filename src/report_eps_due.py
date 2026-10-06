@@ -10,6 +10,8 @@ import pandas as pd
 from .earnings import load_earnings_history
 from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
 from .reporting import CALENDAR_HISTORY_FILE, load_auto_report_calendar
+from .reporting import _combined_schedule
+from .events import load_report_calendar
 
 STOCKHOLM_TZ = ZoneInfo("Europe/Stockholm")
 POLL_WINDOW_DAYS = 45
@@ -21,7 +23,7 @@ def _recent_report_dates(today: object | None = None) -> pd.DataFrame:
         if today is not None
         else pd.Timestamp(datetime.now(STOCKHOLM_TZ).date())
     )
-    current = load_auto_report_calendar()
+    current = _combined_schedule(load_auto_report_calendar(), load_report_calendar())
     history = load_auto_report_calendar(CALENDAR_HISTORY_FILE)
     calendar = pd.concat([current, history], ignore_index=True)
     if calendar.empty:

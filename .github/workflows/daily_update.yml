@@ -62,6 +62,9 @@ jobs:
       - name: Synka ny Yahoo EPS till kanoniska rapporter
         run: python -m src.sync_yahoo_eps_reports
 
+      - name: Efterkontrollera rapportdatum efter 7 och 14 dagar
+        run: python -m src.recheck_report_dates
+
       - name: Bygg om dashboard med dagens EPS
         run: python -m src.pipeline --skip-fetch --skip-dividends
 
@@ -79,6 +82,15 @@ jobs:
           git add docs/data
           git add data/fundamentals/reports.csv
           git add data/derived/valuation_score_history.csv.gz
+          git add data/derived/report_score_dates.csv
+          if [ -f data/derived/report_date_score_revisions.csv ]; then
+            git add data/derived/report_date_score_revisions.csv
+          fi
+          git add data/earnings/report_date_check_state.json data/earnings/report_date_status.json
+          git add data/fundamentals/report_date_rechecks.csv
+          if [ -f data/derived/report_date_checks.csv ]; then
+            git add data/derived/report_date_checks.csv
+          fi
 
           if [ -f data/earnings/report_calendar.csv ]; then
             git add data/earnings/report_calendar.csv

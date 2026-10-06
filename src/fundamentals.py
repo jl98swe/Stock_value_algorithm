@@ -115,7 +115,12 @@ def load_reports(
     if not target.exists() or target.stat().st_size == 0:
         return empty_reports()
     reports = normalise_reports(pd.read_csv(target))
-    return _apply_report_date_cache(reports, cache_path)
+    reports = _apply_report_date_cache(reports, cache_path)
+    # Date verification is independent of manual/Yahoo EPS priority.
+    if target.resolve() == REPORTS_FILE.resolve():
+        from .report_date_revisions import apply_date_evidence
+        reports = normalise_reports(apply_date_evidence(reports))
+    return reports
 
 
 def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
