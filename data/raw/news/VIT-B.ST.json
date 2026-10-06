@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-06T00:34:59+02:00",
+  "generated_at": "2026-10-06T22:58:32+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/vitec-software-group",
   "items": [
+    {
+      "ticker": "VIT-B.ST",
+      "company": "Vitec Software Group AB (publ)",
+      "published_at": "2026-10-06T14:10:00+02:00",
+      "title": "Vitec förvärvar programvarubolaget AtermIT",
+      "link": "https://mfn.se/a/vitec-software-group/vitec-forvarvar-programvarubolaget-atermit",
+      "source": "MFN",
+      "summary": "Vitec förvärvar programvarubolaget AtermIT 2026-10-06 14:10:00 Vitec Software Group AB (publ) förstärker sin position inom Vertical Market Software genom att den 6 oktober förvärva samtliga aktier i det nederländska programvarubolaget AtermIT Holding B.V. och dess dotterbolag. AtermIT hade en pro-forma omsättning om 3,2 miljoner euro under räkenskapsåret 2025. AtermIT utvecklar och levererar Atermes, en heltäckande programvaruplattform för mödra- och eftervård i Nederländerna, där alla mödrar erbjuds eftervård i hemmet. Bolaget stärkte nyligen sitt erbjudande till förlossningsläkare och barnmorskor genom förvärvet av Vrumun och spänner nu öve",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8efa1960a01f3fb1"
+    },
     {
       "ticker": "VIT-B.ST",
       "company": "Vitec Software Group AB (publ)",

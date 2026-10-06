@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-06T00:33:36+02:00",
+  "generated_at": "2026-10-06T22:56:53+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/inwido",
-  "items": []
+  "items": [
+    {
+      "ticker": "INWI.ST",
+      "company": "Inwido AB (publ)",
+      "published_at": "2026-10-06T08:00:00+02:00",
+      "title": "Inbjudan till Inwidos kapitalmarknadsdag",
+      "link": "https://mfn.se/a/inwido/inbjudan-till-inwidos-kapitalmarknadsdag",
+      "source": "MFN",
+      "summary": "Inbjudan till Inwidos kapitalmarknadsdag 2026-10-06 08:00:00 Inwido har nöjet att välkomna investerare, analytiker och media till kapitalmarknadsdag den 9 december 2026 på Hotel At Six i Stockholm. På kapitalmarknadsdagen kommer Fredrik Meuller , VD och koncernchef, tillsammans med Peter Welin , CFO och Vice VD, samt övriga medlemmar i koncernledningen att ge en uppdatering om Inwidos strategi, framtida möjligheter och finansiella ambitioner. Dagen kommer även att innehålla en fördjupning kring hur Inwido skapar värde genom förvärv och integration, med utgångspunkt i erfarenheterna från en nyligen förvärvad affärsenhet. Datum: 9 december 2026",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "aaebc39f5b7184c6"
+    }
+  ]
 }

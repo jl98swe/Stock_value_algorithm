@@ -1,7 +1,117 @@
 {
-  "generated_at": "2026-10-06T00:35:14+02:00",
+  "generated_at": "2026-10-06T22:58:41+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "EAST.ST",
+      "company": "Eastnine",
+      "published_at": "2026-10-06T15:17:35+02:00",
+      "title": "Eastnine AB (publ): Eastnine tilldelas högsta betyg i 2026 års GRESB-bedömning",
+      "link": "https://mfn.se/cis/a/eastnine/eastnine-ab-publ-eastnine-tilldelas-hogsta-betyg-i-2026-ars-gresb-bedomning-edd57f25",
+      "source": "MFN",
+      "summary": "Eastnine AB (publ): Eastnine tilldelas högsta betyg i 2026 års GRESB-bedömning 2026-10-06 15:17:35 Eastnine har återigen tilldelats högsta betyg i GRESB:s globala hållbarhetsbenchmark för fastighetsbolag. I 2026 års bedömning uppnådde bolaget 91,5 av 100 möjliga poäng och erhöll en femstjärnig rating, den högsta nivån i GRESB:s ratingsystem. Femstjärniga ratingar tilldelas de 20 procent högst rankade deltagarna i GRESB:s globala benchmark. GRESB är ett internationellt benchmark som används av investerare för att utvärdera hållbarhetsarbete och hållbarhetsprestanda inom fastighetssektorn. Eastnine erhöll 28,2 av 30 möjliga poäng inom Managemen",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7ae28859fdb1e0f8"
+    },
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-10-06T10:00:00+02:00",
+      "title": "Trelleborg publicerar rapport för tredje kvartalet den 23 oktober",
+      "link": "https://mfn.se/a/trelleborg/trelleborg-publicerar-rapport-for-tredje-kvartalet-den-23-oktober",
+      "source": "MFN",
+      "summary": "Trelleborg publicerar rapport för tredje kvartalet den 23 oktober 2026-10-06 10:00:00 Trelleborgkoncernens rapport för det tredje kvartalet 2026 publiceras fredagen den 23 oktober cirka kl. 7:45. En webbsänd telefonkonferens för investerare, analytiker och media kommer att hållas kl. 9.00 samma dag. Från Trelleborg deltar Peter Nilsson, VD och koncernchef, samt Fredrik Nilsson, ekonomi- och finansdirektör. Presentationen hålls på engelska. För att följa den webbsända presentationen, använd denna länk eller besök www.trelleborg.com . För att delta via telefonkonferens, vänligen registrera dig här . Efter registreringen får du telefonnummer och",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "001edddbf51a250c"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-06T08:06:57+02:00",
+      "title": "AstraZeneca: Alexion to showcase Phase III data in hypophosphatasia and hypoparathyroidism at ASBMR 2026 Annual Meeting",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-alexion-to-showcase-phase-iii-data-in-hypophosphatasia-and-hypoparathyroidism-at-asbmr-2026-annual-meeting-91f3b0ba",
+      "source": "MFN",
+      "summary": "AstraZeneca: Alexion to showcase Phase III data in hypophosphatasia and hypoparathyroidism at ASBMR 2026 Annual Meeting 2026-10-06 08:06:57 Results from HICKORY trial will add to evidence supporting the potential of efzimfotase alfa to improve outcomes in broad HPP patient population. Alexion, AstraZeneca Rare Disease, will deliver 16 presentations, including three oral presentations, across hypophosphatasia (HPP), chronic hypoparathyroidism (HypoPT) and early research at the American Society for Bone and Mineral Research (ASBMR) Annual Meeting in Boston, Massachusetts, 9 to 12 October 2026. Highlights include: HICKORY: results from Phase III",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "96954e0e6d568a36"
+    },
+    {
+      "ticker": "INWI.ST",
+      "company": "Inwido AB (publ)",
+      "published_at": "2026-10-06T08:00:00+02:00",
+      "title": "Invitation to Inwido's Capital Markets Day",
+      "link": "https://mfn.se/a/inwido/invitation-to-inwidos-capital-markets-day",
+      "source": "MFN",
+      "summary": "Invitation to Inwido's Capital Markets Day 2026-10-06 08:00:00 Inwido is pleased to welcome investors, analysts and media to its Capital Markets Day on December 9, 2026, at Hotel At Six in Stockholm. At the Capital Markets Day, President and CEO Fredrik Meuller , together with CFO and Deputy CEO Peter Welin and other members of the Group Management Team, will provide an update on Inwido’s strategy, long-term growth opportunities and financial ambition. The agenda will also feature an in-depth session on how Inwido creates value through acquisitions and integration thereof, illustrated through the experience of a recently acquired business uni",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c636eed657ad71d6"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-10-06T07:30:00+02:00",
+      "title": "Yksityissijoittajien syyskuu - Sampo loikkasi ostosuosikiksi vuoden toiseksi vilkkaimpana lisäsijoituskuukautena",
+      "link": "https://mfn.se/cis/a/nordnet/yksityissijoittajien-syyskuu-sampo-loikkasi-ostosuosikiksi-vuoden-toiseksi-vilkkaimpana-lisasijoituskuukautena-7b92aa77",
+      "source": "MFN",
+      "summary": "Yksityissijoittajien syyskuu - Sampo loikkasi ostosuosikiksi vuoden toiseksi vilkkaimpana lisäsijoituskuukautena 2026-10-06 07:30:00 Helsingin pörssin yleisindeksi päätyi syyskuun lopussa käytännössä elokuun lopun pistelukemaansa. Syyskuu käynnistyi loppukesän tavoin nousujohteisesti, mutta korkojen nousu ja tilapäinen epävarmuuden kasvu teknologiasektorilla laskivat kurssitasoja kuukauden loppua kohden. Suomalaiset yksityissijoittajat kasvattivat sijoituksiaan erityisesti Sammossa sekä ETF- ja rahastosijoituksissa. Koko Helsingin pörssin euromääräinen vaihto nousi vuodentakaisesta syyskuusta jopa 74,8 prosenttia. Pörssin kauppojen kappalemää",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d701a8ac0a6c2b4b"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",
