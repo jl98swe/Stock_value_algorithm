@@ -46,6 +46,7 @@ from .score_history import (
 from .strategy import run_strategy
 from .strategy_backtests import build_strategy_backtests
 from .strategy_overviews import write_strategy_overviews
+from .signal_prices import write_signal_prices
 from .utils import read_json, write_json_atomic
 from .valuation import GBMModel, calculate_valuation
 
@@ -653,6 +654,7 @@ def build_dashboard(
     write_split_dashboard(DASHBOARD_JSON, dashboard_payload)
     write_aggregate(dashboard_stocks, generated_at)
     write_strategy_overviews(dashboard_stocks, dashboard_payload["meta"], DOCS_DATA / "strategy_overviews.json")
+    write_signal_prices(valuation_frames, model, generated_at, DOCS_DATA / "signal_prices.json")
     reports_payload = build_reports_payload(
         reports=reports,
         valuation_frames=valuation_frames,
