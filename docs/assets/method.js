@@ -94,6 +94,7 @@
   function render() {
     if (!variants) return;
     const ticker = $('method-stock').value, all = ticker === 'all';
+    window.strategySelection.setTicker(ticker);
     const key = $('method-strategy').value, period = $('method-period').value;
     window.strategySelection.set(key);
     const end = all ? variants.meta.end_date : stock.candles.at(-1).date;
@@ -147,6 +148,7 @@
   }
   async function loadStock() {
     const id = ++requestId, ticker = $('method-stock').value;
+    window.strategySelection.setTicker(ticker);
     stock = null; variants = null; $('method-results').hidden = true; $('error-state').hidden = true; $('loading-state').hidden = false;
     try {
       const [data, tests] = ticker === 'all' ? [null, await json('./data/backtests/all.json')] : await Promise.all([json(`./data/dashboard/${encodeURIComponent(ticker)}.json`),json(`./data/backtests/${encodeURIComponent(ticker)}.json`)]);
@@ -164,7 +166,8 @@
       [stockMeta,indexData] = await Promise.all([json('./data/stocks.json'),json('./data/benchmarks/omxsgi.json').catch(()=>null)]);
       $('last-updated').textContent = (stockMeta.generated_at || stockMeta.meta?.generated_at)?.slice(0,10) || '–';
       $('method-stock').innerHTML = '<option value="all">Alla aktier</option>' + stockMeta.stocks.map(s => `<option value="${esc(s.ticker)}">${esc(s.name)} · ${esc(s.ticker)}</option>`).join('');
-      if (stockMeta.stocks.some(s => s.ticker === params.get('ticker'))) $('method-stock').value = params.get('ticker');
+      const wantedTicker = params.get('ticker') === 'all' ? 'all' : window.strategySelection.getTicker();
+      if (stockMeta.stocks.some(s => s.ticker === wantedTicker)) $('method-stock').value = wantedTicker;
       $('method-strategy').value = names[params.get('strategy')] ? params.get('strategy') : window.strategySelection.get();
       if (['all','1','3','5'].includes(params.get('period'))) $('method-period').value = params.get('period');
       $('method-stock').addEventListener('change', loadStock);

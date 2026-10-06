@@ -312,3 +312,5 @@ Kontroller för översikterna: `node tests/test_overview_strategy.cjs` och
 `node tests/test_overview_ui.cjs` (Playwright med Chromium).
 
 Startsidan, Aktiva positioner, Kommande signaler och Metod delar strategivalet Standard/MA200/Rapportundvikande. Valet sparas i webbläsaren och följer med i sidornas navigationslänkar; ett uttryckligt URL-val har företräde. Buy and hold och OMXSGI i Metod ändrar inte det sparade valet av egen strategi. Startsidan visar vald strategis modellposition, nästa åtgärd, samtliga historiska köp/sälj i grafen och historik. Backtestets avslutade affärer redovisas separat från öppna positioner.
+
+Aktievalet sparas också i webbläsaren och följer med via navigationen, inklusive översikter och Rapporter. Startsidan, Metod och Granska nyheter och data använder samma senast valda aktie. Ett uttryckligt ticker-val i URL har företräde. Metods ”Alla aktier” behåller senast valda enskilda aktie för övriga sidor; utan tidigare aktieval öppnas Metod fortfarande med alla aktier.
