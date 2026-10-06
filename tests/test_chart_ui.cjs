@@ -39,9 +39,10 @@ const docs = path.resolve(__dirname, '../docs');
       }));
     });
     for (const pixel of eventPixels) {
-      assert(pixel.y - 9 > 24 + pixel.height * 0.47);
+      assert(pixel.y - 9 > 24 + pixel.height * 0.53);
       assert(pixel.y + 9 < pixel.height * 0.70);
     }
+    assert.equal(new Set(eventPixels.map((p) => p.y)).size, 1, 'Every event type shares one row');
     assert.equal(await page.locator('#stock-name').textContent(), 'Addnode');
     assert(!requests.includes('/data/dashboard.json'));
     await page.locator('[data-marker="dividend"]').uncheck();
