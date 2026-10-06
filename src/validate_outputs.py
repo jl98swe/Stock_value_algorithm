@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .config import ROOT
+from .listing_status import trading_rows
 from .earnings import (
     BASE_EARNINGS_FILE,
     EARNINGS_COLUMNS,
@@ -71,6 +72,7 @@ def _validate_price_updates(prices: pd.DataFrame) -> None:
         raise ValueError("price_updates.csv innehåller dubbla ticker+date")
 
     expected_ma = prices[["ticker", "date", "ma200"]].rename(columns={"ma200": "expected_ma200"})
+    updates = trading_rows(updates)
     check = updates.merge(expected_ma, on=["ticker", "date"], how="left")
     actual = pd.to_numeric(check["ma200"], errors="coerce").to_numpy(dtype=float)
     expected_values = pd.to_numeric(check["expected_ma200"], errors="coerce").to_numpy(dtype=float)

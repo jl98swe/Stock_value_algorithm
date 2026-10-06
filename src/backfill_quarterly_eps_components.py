@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import json
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -29,7 +31,7 @@ SOURCE_PREFIX = "Yahoo Finance / fundamentals-timeseries diluted net income / di
 
 def _universe() -> list[str]:
     prices = load_price_history()
-    return sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
+    return active_tickers(sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist()))
 
 
 def _values_by_period(payload: dict[str, object], metric: str) -> dict[pd.Timestamp, tuple[float, str]]:

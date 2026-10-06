@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers, trading_rows
+
 import argparse
 import os
 from datetime import timedelta
@@ -116,7 +118,7 @@ def load_price_history(
         frames.append(updates[RAW_PRICE_COLUMNS])
 
     completed = _completed_rows(pd.concat(frames, ignore_index=True), last_completed_session(as_of))
-    return _recalculate_ma200(completed)
+    return _recalculate_ma200(trading_rows(completed))
 
 
 def _download(tickers: list[str], *, start: str, end: str) -> pd.DataFrame:
@@ -180,7 +182,7 @@ def update_prices(
     now = pd.Timestamp.now(tz="UTC") if as_of is None else pd.Timestamp(as_of)
     cutoff = last_completed_session(now)
     existing = load_price_history(base_file, updates_file, as_of=now)
-    tickers = sorted(existing["ticker"].unique().tolist())
+    tickers = active_tickers(sorted(existing["ticker"].unique().tolist()), today=now)
     if not tickers:
         raise ValueError("Prisfilen innehåller inga tickers.")
 

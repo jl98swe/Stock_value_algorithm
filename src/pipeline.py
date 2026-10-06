@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import json
 from datetime import datetime
@@ -605,6 +607,8 @@ def build_dashboard(
             generated_at,
             dividends,
         )
+        meta["active_for_updates"] = bool(active_tickers([str(ticker)]))
+        payload["active_for_updates"] = meta["active_for_updates"]
         stock_list.append(meta)
         dashboard_stocks[str(ticker)] = payload
         valuation_frames[str(ticker)] = report_frame
@@ -694,6 +698,8 @@ def run(
     score_recalculation_cutoffs: dict[str, object] | None = None,
 ) -> None:
     if not skip_fetch:
+        from .reporting import refresh_gap_calendar
+        refresh_gap_calendar()
         update_prices(base_file, updates_file, full=full)
         update_index()
     if not skip_dividends:

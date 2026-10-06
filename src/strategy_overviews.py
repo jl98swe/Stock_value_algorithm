@@ -13,7 +13,7 @@ def write_strategy_overviews(stocks: dict, meta: dict, path: Path) -> dict:
         views = {}
         for ticker, stock in stocks.items():
             live = stock["strategies"][key]
-            views[ticker] = {"latest": stock["latest"], **live}
+            views[ticker] = {"latest": stock["latest"], "active_for_updates": stock.get("active_for_updates", True), **live}
         payload["strategies"][key] = {"stocks": views}
     write_json_atomic(path, payload)
     return payload

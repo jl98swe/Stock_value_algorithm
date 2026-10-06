@@ -1,6 +1,8 @@
 """Check report-date evidence after 7 and 14 days, independently of EPS changes."""
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 from datetime import datetime
 from pathlib import Path
@@ -75,7 +77,7 @@ def recheck(*, today: object | None = None, reports: pd.DataFrame | None = None,
     fetched: dict[str, pd.DataFrame | Exception] = {}
     audit = []
     for idx, report in current.iterrows():
-        if not bool(report.verified) or pd.isna(report.effective_date):
+        if not active_tickers([report.ticker], today=day) or not bool(report.verified) or pd.isna(report.effective_date):
             continue
         key = f"{report.ticker}|{report.report_period}"
         entry = state.get(key, {"anchor": pd.Timestamp(report.effective_date).date().isoformat(), "completed": []})
@@ -132,7 +134,7 @@ def recheck(*, today: object | None = None, reports: pd.DataFrame | None = None,
     automatic = load_auto_report_calendar()
     schedule = _combined_schedule(automatic, load_report_calendar())
     covered = set(schedule.loc[schedule.report_date_end.ge(day), "ticker"])
-    uncovered = sorted(set(current.ticker) - covered)
+    uncovered = sorted(set(active_tickers(current.ticker, today=day)) - covered)
     conflicts = []
     for ticker, rows in automatic.groupby("ticker"):
         if rows.report_date_start.nunique() > 1:

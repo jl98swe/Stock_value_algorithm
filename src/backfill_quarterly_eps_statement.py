@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -34,7 +36,7 @@ DENOMINATOR_CANDIDATES = (
 
 def _ticker_universe() -> list[str]:
     prices = load_price_history()
-    return sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
+    return active_tickers(sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist()))
 
 
 def _statement_series(statement: pd.DataFrame, candidates: tuple[str, ...]) -> pd.Series | None:

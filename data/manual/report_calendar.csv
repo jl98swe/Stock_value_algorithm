@@ -1,2 +1,13 @@
 ticker,report_period,scheduled_at,lock_from_date,source,url,verified,expected_eps,expected_eps_currency,expected_eps_metric,expected_eps_verified
 TREL-B.ST,2026-Q3,2026-10-23T07:00:00+02:00,,Verified by user 2026-10-06,,True,,,,False
+BAHN-B.ST,,2026-11-17,,Verified by user 2026-10-06; date only,,True,,,,False
+GENO.ST,,2026-11-10,,Verified by user 2026-10-06; date only,,True,,,,False
+HOLM-A.ST,,2026-10-22,,Verified by user 2026-10-06; date only,,True,,,,False
+INDU-A.ST,,2026-10-07,,Verified by user 2026-10-06; date only,,True,,,,False
+INVE-A.ST,,2026-10-16,,Verified by user 2026-10-06; date only,,True,,,,False
+SFAST.ST,,2026-11-12,,Verified by user 2026-10-06; date only,,True,,,,False
+SWEC-A.ST,,2026-10-29,,Verified by user 2026-10-06; date only,,True,,,,False
+SWEC-B.ST,,2026-10-29,,Verified by user 2026-10-06; date only,,True,,,,False
+SYSR.ST,,2026-12-10,,Verified by user 2026-10-06; date only,,True,,,,False
+VOLV-A.ST,,2026-10-23,,Verified by user 2026-10-06; date only,,True,,,,False
+ZZ-B.ST,,2026-11-17,,Verified by user 2026-10-06; date only,,True,,,,False

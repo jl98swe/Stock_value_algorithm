@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
@@ -87,7 +89,7 @@ def audit(
     för att anta att hela universumet börjar samma kvartal.
     """
     prices = load_price_history()
-    tickers = sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
+    tickers = active_tickers(sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist()))
     if not tickers:
         raise ValueError("Prisuniversumet innehåller inga tickers.")
 
