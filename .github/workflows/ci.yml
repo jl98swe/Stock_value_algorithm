@@ -34,8 +34,8 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Testa mobilens aktieväljare
-        run: node --test tests/test_mobile_stock_picker.cjs
+      - name: Testa mobilväljare och händelseband
+        run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs
 
       - name: Installera Python
         uses: actions/setup-python@v6
