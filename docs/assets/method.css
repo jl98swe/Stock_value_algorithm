@@ -3,7 +3,6 @@
 .method-description p {max-width:1050px;color:var(--muted);font-size:13px;line-height:1.65}
 .method-description h2 {font-size:22px}
 .selected-method {background:#edf7f6;box-shadow:inset 3px 0 0 var(--brand)}
-#benchmark-result {color:var(--brand);font-weight:700;font-size:13px}
 [data-method-link]:focus-visible {outline:2px solid var(--brand);outline-offset:-2px}
 [data-method-link]:hover {filter:brightness(.97)}
 .method-description #method-summary {margin:6px 0}

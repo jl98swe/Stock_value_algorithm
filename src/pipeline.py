@@ -13,6 +13,7 @@ import pandas as pd
 from .config import HISTORY_START_DATE, ROOT
 from .dashboard_export import write_split_dashboard
 from .aggregate_backtests import write_aggregate
+from .index_benchmark import update_index
 from .dividends import load_dividend_history, update_dividends
 from .events import (
     build_lock_series,
@@ -658,6 +659,7 @@ def run(
 ) -> None:
     if not skip_fetch:
         update_prices(base_file, updates_file, full=full)
+        update_index()
     if not skip_dividends:
         update_dividends()
     build_dashboard(

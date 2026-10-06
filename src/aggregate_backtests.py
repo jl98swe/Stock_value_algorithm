@@ -8,7 +8,9 @@ import numpy as np
 import pandas as pd
 
 from .config import ROOT
-from .utils import write_json_atomic
+from .index_benchmark import INDEX_FILE
+from .method_metrics import equity_metrics, hold_curve, trade_metrics
+from .utils import read_json, write_json_atomic
 
 STRATEGIES = ("standard", "ma200", "report_avoidance")
 
@@ -41,7 +43,7 @@ def closed_equity(candles: list[dict], trades: list[dict], dividends: list[dict]
     return np.asarray(values)
 
 
-def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "") -> dict:
+def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index_candles: list[dict] | None = None) -> dict:
     ready = {ticker: stock for ticker, stock in stocks.items() if stock.get("candles") and
              ticker in backtests and all(k in backtests[ticker] for k in STRATEGIES)}
     if not ready:
@@ -60,14 +62,15 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "") -> di
             result[strategy]["report_dates_count"] += variant.get("report_dates_count", 0)
     for period in ("all", "1", "3", "5"):
         start = first if period == "all" else (pd.Timestamp(end) - pd.DateOffset(years=int(period))).date().isoformat()
-        dates = sorted({start, end} | {c["date"] for s in ready.values() for c in s["candles"] if start <= c["date"] <= end})
+        dates = sorted({c["date"] for s in ready.values() for c in s["candles"] if start <= c["date"] <= end})
         summaries = {}
         benchmarks = []
+        hold_equity = np.zeros(len(dates))
         for ticker, stock in ready.items():
-            window = [c for c in stock["candles"] if start <= c["date"] <= end]
-            if len(window) >= 2:
-                dividends = sum(float(d["amount"] or 0) for d in backtests[ticker].get("_dividends", []) if window[0]["date"] < d["date"] <= window[-1]["date"])
-                benchmarks.append(((window[-1]["close"] * .9975 + dividends) / (window[0]["close"] * 1.0025) - 1) * 100)
+            curve, trade = hold_curve(stock["candles"], backtests[ticker].get("_dividends", []), dates)
+            hold_equity += curve / len(ready)
+            if trade:
+                benchmarks.append(dict(trade, ticker=ticker))
         for strategy in STRATEGIES:
             equity = np.zeros(len(dates))
             closed = []
@@ -78,23 +81,31 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "") -> di
                 closed.extend(trades)
                 opens.extend(t for t in variant.get("open_lots", []) if start <= t["entry_date"] <= end)
                 equity += closed_equity(stock["candles"], trades, backtests[ticker].get("_dividends", []), dates) / len(ready)
-            returns = [t["return_pct"] for t in closed]
             prelim = [t["current_return_pct"] for t in opens if t.get("current_return_pct") is not None]
-            summaries[strategy] = {"return_pct": float((equity[-1] - 1) * 100),
-                "max_drawdown_pct": float(np.min((equity / np.maximum.accumulate(equity) - 1) * 100)),
-                "trade_count": len(closed), "win_rate_pct": sum(r > 0 for r in returns) / len(returns) * 100 if returns else None,
-                "average_trade_pct": float(np.mean(returns)) if returns else None,
+            summaries[strategy] = {**equity_metrics(equity), **trade_metrics(closed),
                 "open_count": len(opens), "open_return_pct": float(np.mean(prelim)) if prelim else None}
+        summaries["buy_and_hold"] = {**equity_metrics(hold_equity), **trade_metrics(benchmarks), "open_count": 0, "open_return_pct": None}
+        # Use the actual index observation window, never pretend a stale quote is today's.
+        index_window = [c for c in (index_candles or []) if dates[0] <= c["date"] <= dates[-1]]
+        index_dates = [d for d in dates if index_window and index_window[0]["date"] <= d <= index_window[-1]["date"]]
+        if len(index_window) >= 2:
+            curve, trade = hold_curve(index_window, [], index_dates, commission=0)
+            summaries["omxsgi"] = {**equity_metrics(curve), **trade_metrics([trade]), "open_count": 0, "open_return_pct": None,
+                                    "start_date": trade["entry_date"], "end_date": trade["exit_date"]}
+            index_trades = [dict(trade, ticker="OMXSGI")]
+        else:
+            summaries["omxsgi"] = {**equity_metrics(np.array([])), **trade_metrics([]), "open_count": 0, "open_return_pct": None}
+            index_trades = []
         result["periods"][period] = {"start_date": start, "end_date": end, "strategies": summaries,
-                                   "benchmark_pct": float(np.mean(benchmarks)) if benchmarks else None,
-                                   "benchmark_count": len(benchmarks)}
+                                   "reference_trades": {"buy_and_hold": benchmarks, "omxsgi": index_trades},
+                                   "benchmark_pct": summaries["buy_and_hold"]["return_pct"], "benchmark_count": len(benchmarks)}
     return result
 
 
 def write_aggregate(stocks: dict, generated_at: str, directory: Path | None = None) -> dict:
     directory = directory or ROOT / "docs" / "data" / "backtests"
     variants = {ticker: json.loads((directory / f"{ticker}.json").read_text()) for ticker in stocks if (directory / f"{ticker}.json").exists()}
-    payload = build_aggregate(stocks, variants, generated_at)
+    payload = build_aggregate(stocks, variants, generated_at, read_json(INDEX_FILE, default={}).get("candles", []))
     write_json_atomic(directory / "all.json", payload)
     return payload
 
