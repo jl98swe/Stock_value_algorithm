@@ -25,19 +25,30 @@ def date_overrides(path: Path) -> pd.DataFrame:
     return frame
 
 
+def _date_mask(reports: pd.DataFrame, ticker: str, period: str, *, include_aliases: bool = False) -> pd.Series:
+    exact = reports.ticker.eq(ticker) & reports.report_period.eq(period)
+    if exact.any():
+        if include_aliases:
+            ends = reports.loc[exact, "period_end"].dropna()
+            aliases = reports.ticker.eq(ticker) & reports.report_period.str.startswith("YAHOO-")
+            exact = exact | (aliases & reports.period_end.isin(ends))
+        return exact
+    if "-Q" in period:
+        quarter = pd.Period(period.replace("-Q", "Q"), freq="Q")
+        candidates = reports.ticker.eq(ticker) & reports.period_end.dt.to_period("Q").eq(quarter)
+        if int(candidates.sum()) == 1:
+            return candidates
+    return exact
+
+
 def apply_date_evidence(reports: pd.DataFrame, *, manual_path: Path = MANUAL_DATES,
                         auto_path: Path = AUTO_DATES) -> pd.DataFrame:
     result = reports.copy()
     # Manual date evidence wins, independently of who supplied the EPS value.
     for path in (auto_path, manual_path):
         for row in date_overrides(path).itertuples(index=False):
-            mask = result.ticker.eq(row.ticker) & result.report_period.eq(row.report_period)
-            # Legacy quarterly date overrides may refer to a Yahoo period label.
-            if not mask.any() and "-Q" in row.report_period:
-                quarter = pd.Period(row.report_period.replace("-Q", "Q"), freq="Q")
-                candidates = result.ticker.eq(row.ticker) & result.period_end.dt.to_period("Q").eq(quarter)
-                if int(candidates.sum()) == 1:
-                    mask = candidates
+            mask = _date_mask(result, row.ticker, row.report_period,
+                              include_aliases=path == manual_path)
             day = pd.to_datetime(row.report_date, errors="coerce")
             if pd.isna(day):
                 raise ValueError(f"Ogiltigt rapportdatum: {row.ticker} {row.report_period}")
@@ -54,14 +65,8 @@ def apply_date_evidence(reports: pd.DataFrame, *, manual_path: Path = MANUAL_DAT
 def verified_date_keys(reports: pd.DataFrame, path: Path = MANUAL_DATES) -> set[tuple[str, str]]:
     keys: set[tuple[str, str]] = set()
     for row in date_overrides(path).itertuples(index=False):
-        exact = reports.ticker.eq(row.ticker) & reports.report_period.eq(row.report_period)
-        if exact.any():
-            keys.add((str(row.ticker), str(row.report_period)))
-        elif "-Q" in row.report_period:
-            quarter = pd.Period(row.report_period.replace("-Q", "Q"), freq="Q")
-            matches = reports.loc[reports.ticker.eq(row.ticker) & reports.period_end.dt.to_period("Q").eq(quarter)]
-            if len(matches) == 1:
-                keys.add((str(row.ticker), str(matches.iloc[0].report_period)))
+        mask = _date_mask(reports, row.ticker, row.report_period, include_aliases=True)
+        keys.update((str(row.ticker), str(period)) for period in reports.loc[mask, "report_period"])
     return keys
 
 
