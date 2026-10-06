@@ -289,19 +289,43 @@ def _mfn_rows(html: str, ticker: str, today: pd.Timestamp) -> pd.DataFrame:
     return _normalise_calendar(pd.DataFrame(rows)).sort_values("report_date_start").head(1)
 
 
-def refresh_gap_calendar(*, today=None, session=None,
+def _mfn_targets(schedule: pd.DataFrame, day: pd.Timestamp, *, reports=None,
+                 all_active: bool = False) -> set[str]:
+    active = set(active_tickers(_metadata().ticker, today=day))
+    if all_active:
+        return active
+    future = schedule.loc[schedule.report_date_end.ge(day)]
+    covered = set(future.ticker)
+    urgent = set(future.loc[future.report_date_start.le(day + pd.Timedelta(days=14)), "ticker"])
+    if reports is None:
+        from .fundamentals import load_reports
+
+        reports = load_reports()
+    released = reports.copy()
+    effective = pd.to_datetime(released.effective_date, errors="coerce").dt.normalize()
+    if "published_at" in released:
+        published = pd.to_datetime(released.published_at, errors="coerce", utc=True)
+        published = published.dt.tz_convert(STOCKHOLM_TZ).dt.tz_localize(None).dt.normalize()
+        effective = published.combine_first(effective)
+    released["release_date"] = effective
+    verified = released.verified.astype(str).str.lower().isin({"true", "1", "yes", "ja"})
+    released = released.loc[verified & released.release_date.le(day)]
+    latest = released.groupby("ticker").release_date.max()
+    stale = set(latest.loc[latest.le(day - pd.Timedelta(days=60))].index)
+    # With no known previous release we cannot establish the 60-day threshold.
+    return active & (urgent | ((active - covered) & stale))
+
+
+def refresh_gap_calendar(*, today=None, session=None, all_active=False, reports=None,
                          current_path=AUTO_CALENDAR_FILE, history_path=CALENDAR_HISTORY_FILE,
                          sources_path=ROOT / "data/news/mfn_sources.csv") -> pd.DataFrame:
-    """Daily issuer-calendar fallback for missing dates and reports within 14 days."""
+    """Check all issuers weekly, or urgent/60-day calendar gaps daily."""
     day = pd.Timestamp(today or datetime.now(STOCKHOLM_TZ).date()).normalize()
     current = load_auto_report_calendar(current_path)
     # Expired reserve dates must not hide a future date from another source.
     current = current.loc[current.report_date_end.ge(day)].copy()
     schedule = _combined_schedule(current, load_report_calendar())
-    future = schedule.loc[schedule.report_date_end.ge(day)]
-    covered = set(future.ticker)
-    urgent = set(future.loc[future.report_date_start.le(day + pd.Timedelta(days=14)), "ticker"])
-    targets = (set(active_tickers(_metadata().ticker, today=day)) - covered) | urgent
+    targets = _mfn_targets(schedule, day, reports=reports, all_active=all_active)
     if not sources_path.exists():
         return current
     sources = pd.read_csv(sources_path).fillna("")
@@ -329,7 +353,8 @@ def refresh_gap_calendar(*, today=None, session=None,
         save_auto_report_calendar(history, history_path)
     missing = sorted(set(active_tickers(_metadata().ticker, today=day)) - set(
         _combined_schedule(current, load_report_calendar()).loc[lambda f: f.report_date_end.ge(day), "ticker"]))
-    print(f"Daglig rapportkalenderkontroll: {len(targets)} bolag; saknade kommande datum: {', '.join(missing) or 'inga'}")
+    mode = "Veckovis" if all_active else "Daglig"
+    print(f"{mode} rapportkalenderkontroll: {len(targets)} bolag; saknade kommande datum: {', '.join(missing) or 'inga'}")
     return current
 
 
@@ -848,6 +873,8 @@ def main() -> None:
         update_borskollen_calendar()
     else:
         update_report_calendar(workers=args.workers)
+        # The existing Sunday Yahoo run also checks every active issuer on MFN.
+        refresh_gap_calendar(all_active=True)
     if args.refresh_json:
         from .pipeline import run
 

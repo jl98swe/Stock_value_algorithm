@@ -56,6 +56,7 @@ def test_daily_fallback_fills_missing_tomorrow_report_and_preserves_manual_date(
     class Session:
         def get(self, url, timeout): return Response()
     rows = reporting.refresh_gap_calendar(today="2026-10-06", session=Session(),
+        reports=pd.DataFrame([dict(ticker="EXAMPLE.ST", effective_date="2026-08-07", verified=True)]),
         current_path=tmp_path / "current.csv", history_path=tmp_path / "history.csv", sources_path=sources)
     assert rows.ticker.tolist() == ["EXAMPLE.ST"]
     assert rows.report_date_start.iloc[0] == pd.Timestamp("2026-10-07")
@@ -80,3 +81,36 @@ def test_mfn_reserve_never_overrides_a_user_verified_date():
         expected_eps=None, expected_eps_currency="", expected_eps_metric="", expected_eps_verified=False)])], ignore_index=True)
     rows = reporting._combined_schedule(automatic, manual)
     assert rows.report_date_start.tolist() == [pd.Timestamp("2026-10-07")]
+
+
+def test_daily_mfn_targets_respect_60_days_and_known_14_day_window(monkeypatch):
+    tickers = ["OLD", "RECENT", "URGENT", "LATER", "UNKNOWN", "UNVERIFIED", "FUTURE", "DELISTED"]
+    monkeypatch.setattr(reporting, "_metadata", lambda: pd.DataFrame(dict(ticker=tickers)))
+    monkeypatch.setattr(reporting, "active_tickers", lambda tickers, today: [t for t in tickers if t != "DELISTED"])
+    schedule = pd.DataFrame(dict(ticker=["URGENT", "LATER", "OLD"],
+        report_date_start=pd.to_datetime(["2026-10-20", "2026-10-21", "2026-10-05"]),
+        report_date_end=pd.to_datetime(["2026-10-20", "2026-10-21", "2026-10-05"])))
+    reports = pd.DataFrame(dict(ticker=["OLD", "OLD", "RECENT", "UNVERIFIED", "FUTURE", "DELISTED"],
+        effective_date=["2026-05-01", "2026-08-07", "2026-08-08", "2026-01-01", "2026-10-07", "2026-01-01"],
+        verified=[True, True, True, False, True, True]))
+    assert reporting._mfn_targets(schedule, pd.Timestamp("2026-10-06"), reports=reports) == {"OLD", "URGENT"}
+    # The weekly sweep includes recent, distant and unknown dates too.
+    assert reporting._mfn_targets(schedule, pd.Timestamp("2026-10-06"), reports=reports, all_active=True) == set(tickers) - {"DELISTED"}
+
+
+def test_daily_mfn_uses_actual_publication_day_when_effective_day_is_later(monkeypatch):
+    monkeypatch.setattr(reporting, "_metadata", lambda: pd.DataFrame(dict(ticker=["EXAMPLE.ST"])))
+    schedule = pd.DataFrame(columns=["ticker", "report_date_start", "report_date_end"])
+    reports = pd.DataFrame([dict(ticker="EXAMPLE.ST", published_at="2026-08-07T18:00:00+02:00",
+        effective_date="2026-08-10", verified=True)])
+    assert reporting._mfn_targets(schedule, pd.Timestamp("2026-10-06"), reports=reports) == {"EXAMPLE.ST"}
+
+
+def test_weekly_yahoo_entry_point_also_checks_all_active_mfn_issuers(monkeypatch):
+    import sys
+    calls = []
+    monkeypatch.setattr(sys, "argv", ["reporting", "--source", "yahoo"])
+    monkeypatch.setattr(reporting, "update_report_calendar", lambda **kwargs: calls.append("yahoo"))
+    monkeypatch.setattr(reporting, "refresh_gap_calendar", lambda **kwargs: calls.append(kwargs))
+    reporting.main()
+    assert calls == ["yahoo", {"all_active": True}]
