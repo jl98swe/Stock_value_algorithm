@@ -355,10 +355,10 @@
         }
       },
       grid: [
-        { left: 18, right: 58, top: 24, height: '47%', containLabel: false },
+        { left: 18, right: 58, top: 24, height: '53%', containLabel: false },
         { left: 18, right: 58, top: '70%', height: '21%', containLabel: false },
         // Dedicated event strip: independent of price and score scales.
-        { left: 18, right: 58, top: '55%', height: 60, containLabel: false, show: true, backgroundColor: '#f8fafb', borderWidth: 0 }
+        { left: 18, right: 58, top: '61%', height: 24, containLabel: false, show: true, backgroundColor: '#f8fafb', borderWidth: 0 }
       ],
       xAxis: [
         { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
@@ -367,11 +367,11 @@
       ],
       yAxis: [
         { scale: true, position: 'right',
-          min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.47 - 64),
-          max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.47 - 64),
+          min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
+          max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
           axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
         { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
-        { gridIndex: 2, min: 0.5, max: 3.5, show: false, axisPointer: { show: false } }
+        { gridIndex: 2, min: 0, max: 2, show: false, axisPointer: { show: false } }
       ],
       dataZoom: [
         { type: 'inside', xAxisIndex: [0, 1, 2], start: 0, end: 100, zoomOnMouseWheel: 'shift', moveOnMouseMove: true },

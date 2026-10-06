@@ -58,7 +58,7 @@ def test_report_markers_use_publication_date_and_stay_inside_short_range_chart()
     assert "Rapport för perioden" not in ENHANCEMENTS
     assert "['Rapport', sourceLabel, eventDay(event)]" in ENHANCEMENTS
     assert "reportSourcePriority(event) > reportSourcePriority(previous)" in ENHANCEMENTS
-    assert "value: [day, { E: 3, D: 2, N: 1 }[marker.code]]" in ENHANCEMENTS
+    assert "value: [day, 1]" in ENHANCEMENTS
     assert "name: 'Händelser', type: 'scatter', xAxisIndex: 2, yAxisIndex: 2" in ENHANCEMENTS
     assert "data: signalPoints" in ENHANCEMENTS
     assert "xAxisIndex: [0, 1, 2]" in APP

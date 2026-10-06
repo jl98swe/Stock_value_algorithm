@@ -279,7 +279,7 @@
       return markerEnabled(group) && (marker.code !== 'E' || reportByDay.get(eventDay(event)) === event);
     });
 
-    // Fixed E/D/N rows in the event strip, never coordinates on the price axis.
+    // One fixed row for every event type, independent of the enabled controls.
     const eventPoints = deduplicatedEvents.map((event) => {
       const day = eventDay(event);
       const candle = candles.find((d) => d.date === day);
@@ -288,8 +288,9 @@
       const source = event.source ? ` · ${event.source}` : '';
       const title = marker.code === 'E' ? reportDisplayTitle(event) : String(event.title || marker.label);
       return {
+        id: `${day}|${marker.code}`,
         name: `${marker.code} · ${title}`,
-        value: [day, { E: 3, D: 2, N: 1 }[marker.code]],
+        value: [day, 1],
         symbol: 'circle',
         symbolSize: 18,
         itemStyle: {
@@ -308,7 +309,7 @@
     // preserved in its tooltip rather than stacking into the price chart.
     const groupedPoints = new Map();
     eventPoints.forEach((point) => {
-      const key = point.value.join('|');
+      const key = point.id;
       const previous = groupedPoints.get(key);
       if (!previous) groupedPoints.set(key, point);
       else {
@@ -347,7 +348,8 @@
     });
 
     updatedSeries.push({
-      name: 'Händelser', type: 'scatter', xAxisIndex: 2, yAxisIndex: 2,
+      id: 'chart-events', name: 'Händelser', type: 'scatter', xAxisIndex: 2, yAxisIndex: 2,
+      animation: false,
       data: [...groupedPoints.values()],
       symbol: 'circle', symbolSize: 18,
       itemStyle: { opacity: 1 },
