@@ -131,7 +131,7 @@
       };
       const open = trades.open[0];
       const openText = all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
-      return `<tr${id === key ? ' class="selected-method"' : ''}><td><button class="text-button" data-strategy="${id}">${name}</button></td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td></tr>`;
+      return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td></tr>`;
     }).join('');
     const indexTrades = all ? variants.periods[period].reference_trades?.omxsgi || [] : references.omxsgi.trades;
     $('index-coverage').textContent = indexTrades.length ? `OMXSGI: ${indexTrades[0].entry_date} – ${indexTrades[0].exit_date} · Nasdaq via FRED · Utdelningar återinvesteras före skatt; inga fondavgifter eller courtage.` : 'OMXSGI saknar tillräckligt underlag för perioden.';
@@ -180,7 +180,6 @@
         $('method-details-toggle').setAttribute('aria-expanded', String(expanded));
         $('method-details-toggle').textContent = expanded ? 'Visa mindre' : 'Visa mer';
       });
-      $('backtest-summary').addEventListener('click', e => { const b=e.target.closest('[data-strategy]'); if(b){ $('method-strategy').value=b.dataset.strategy; reset(); } });
       await loadStock();
     } catch(error) { $('loading-state').hidden=true; $('error-state').hidden=false; $('error-message').textContent=error.message; }
   }

@@ -2,7 +2,6 @@
 .method-controls .form-field {min-width:180px;flex:1}
 .method-description p {max-width:1050px;color:var(--muted);font-size:13px;line-height:1.65}
 .method-description h2 {font-size:22px}
-.selected-method {background:#edf7f6;box-shadow:inset 3px 0 0 var(--brand)}
 [data-method-link]:focus-visible {outline:2px solid var(--brand);outline-offset:-2px}
 [data-method-link]:hover {filter:brightness(.97)}
 .method-description #method-summary {margin:6px 0}
@@ -12,3 +11,6 @@
 #method-trades a {color:var(--brand);text-decoration:none;font-weight:700}
 #method-trades a:hover {text-decoration:underline}
 #method-results .show-more-row {gap:16px;flex-wrap:wrap;align-items:center}
+
+.method-trades-header {display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between}
+.method-trades-header .form-field {min-width:180px;max-width:100%;width:240px}
