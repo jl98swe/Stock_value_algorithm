@@ -295,3 +295,18 @@ om från det tidigare av gammalt och nytt effective_date. Dagar före gränsen
 behålls exakt. Även nya tidigare saknade datum och borttagna rapporter upptäcks.
 Signaler, rapportmarkörer, aktiefiler och backtest byggs från samma korrigerade
 underlag. Förberedande byggen med `--defer-score-history` konsumerar inte ändringen.
+
+Aktiva positioner och Kommande signaler har en strategiväljare överst för
+Standard, MA200 och Rapportundvikande. Valet sparas mellan sidorna och kan
+delas med `?strategy=ma200` eller `?strategy=report_avoidance`. Pipeline
+exporterar oberoende modellpositioner, väntande åtgärder, strategifilter och
+exekverade signaler till `docs/data/strategy_overviews.json`. De senaste
+signalerna filtreras mot samma tjugo handelsdagar för alla strategier. Köp som
+blockeras av MA200 eller rapportfiltret visas inte som kommande köp. Planerade
+rapportsälj visas oavsett poäng och reaktivering, med undantag för fundamental
+spärr angivet. Aktiva rapportpositioner visar sista planerade säljdatum.
+
+Rapportfiltrets senaste stängning kontrollerar även nästa XSTO-session, så att
+ett köp kan planeras utan att någon framtida kurs behöver finnas i underlaget.
+Kontroller för översikterna: `node tests/test_overview_strategy.cjs` och
+`node tests/test_overview_ui.cjs` (Playwright med Chromium).

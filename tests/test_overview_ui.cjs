@@ -1,0 +1,61 @@
+const {chromium}=require('playwright');
+const fs=require('node:fs/promises');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const docs=path.resolve(__dirname,'../docs');
+(async()=>{
+ const data=JSON.parse(await fs.readFile(path.join(docs,'data/strategy_overviews.json')));
+ const browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,args:['--no-sandbox']});
+ try {
+  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  let override=null;
+  await page.route('https://overview-ui.test/**',async route=>{
+   const url=new URL(route.request().url());
+   if(override && url.pathname==='/data/strategy_overviews.json') return route.fulfill({json:override});
+   const file=path.join(docs,decodeURIComponent(url.pathname));
+   try {await route.fulfill({body:await fs.readFile(file),contentType:({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]});}
+   catch {await route.fulfill({status:404,body:'Missing fixture'});}
+  });
+  await page.goto('https://overview-ui.test/positions.html');
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#overview-strategy').inputValue(),'standard');
+  assert.deepEqual(await page.locator('#overview-strategy option').evaluateAll(options=>options.map(o=>o.textContent)),['Standard','MA200','Rapportundvikande']);
+  assert((await page.locator('#overview-strategy').boundingBox()).y < (await page.locator('h1').boundingBox()).y);
+  for(const key of ['standard','ma200','report_avoidance']) {
+   await page.locator('#overview-strategy').selectOption(key);
+   const expected=Object.values(data.strategies[key].stocks).filter(s=>s.position.lots>0).length;
+   assert.equal(await page.locator('#summary-count').textContent(),String(expected));
+   assert.equal(new URL(page.url()).searchParams.get('strategy'),key);
+  }
+  await page.locator('#overview-strategy').selectOption('ma200');
+  await page.locator('.page-nav a').filter({hasText:'Kommande signaler'}).click();
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#overview-strategy').inputValue(),'ma200');
+  const dates=data.meta.trading_dates,cutoff=dates[0],end=dates.at(-1);
+  for(const key of ['standard','ma200','report_avoidance']) {
+   await page.locator('#overview-strategy').selectOption(key);
+   const expected=Object.values(data.strategies[key].stocks).flatMap(s=>s.signals).filter(s=>s.status==='executed' && s.execution_date>=cutoff && s.execution_date<=end).length;
+   assert.equal(await page.locator('#recent-count').textContent(),String(expected));
+  }
+  await page.goto('https://overview-ui.test/positions.html');
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#overview-strategy').inputValue(),'report_avoidance'); // saved choice
+  await page.locator('#overview-search').fill('does-not-exist');
+  assert.equal(await page.locator('#summary-count').textContent(),'0');
+  await page.locator('#overview-search').fill('');
+  await page.setViewportSize({width:390,height:844});
+  assert(await page.locator('#overview-strategy').isVisible());
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  override=structuredClone(data);
+  override.strategies.report_avoidance.stocks={'TEST.ST':{latest:{score:50,close:100,fundamental_lock:true},position:{lots:1,avg_entry:90,unrealized_pct:10,sell_armed:false},next_action:{type:'SELL',exit_reason:'report',execute_on:'2026-10-06',label:'Sälj inför rapport'},strategy_filter:{buy_allowed:false},signals:[]}};
+  await page.goto('https://overview-ui.test/signals.html?strategy=report_avoidance');
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#upcoming-count').textContent(),'1');
+  assert((await page.locator('#upcoming-signals-body').textContent()).includes('Sälj inför rapport'));
+  assert((await page.locator('#upcoming-signals-body').textContent()).includes('rapportsälj tillåten'));
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert.deepEqual(errors,[]);
+  console.log('Overview UI passed: independent counts, three strategies at top, navigation, persistence, recent executions, report exits, search and mobile.');
+ } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

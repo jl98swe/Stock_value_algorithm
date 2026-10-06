@@ -7,7 +7,7 @@ OVERVIEW = (ROOT / "docs" / "assets" / "overview.js").read_text(encoding="utf-8"
 
 
 def test_signals_page_has_separate_upcoming_and_recent_panels():
-    assert "overview.js?v=20260915-1" in HTML
+    assert "overview.js?v=20261006-4" in HTML
     assert 'id="upcoming-signals-title">Kommande signaler' in HTML
     assert 'id="recent-signals-title">Senaste signaler' in HTML
     assert 'id="upcoming-signals-body"' in HTML
