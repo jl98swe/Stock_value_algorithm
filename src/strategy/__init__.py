@@ -152,6 +152,7 @@ def _replay_net_cashflows(
                         "entry_date": lot.get("entry_date"),
                         "entry_price": lot.get("entry_price"),
                         "exit_signal_date": signal.get("signal_date"),
+                        "exit_reason": signal.get("exit_reason", "score"),
                         "exit_date": day_string,
                         "exit_price": execution_price,
                         "quantity": quantity,

@@ -216,3 +216,23 @@ negativa EPS-perioder och kontrollerar att alla övriga frysta poäng är exakt
 oförändrade. Äldre negativa poäng utan tillräckliga modellfeatures tas bort.
 Signaler och backtest räknas sedan från den uppdaterade frysta serien.
 Migreringen ska inte köras automatiskt i den dagliga uppdateringen.
+
+
+### Metod och alternativa backtest
+
+Fliken Metod jämför Standard, MA200 (endast köp över MA200) och
+Rapportundvikande (inga köp inom 10 börsdagar före rapport, försäljning vid
+öppningen börsdagen före rapport). Samtliga använder strikt Score < 1 / > 99,
+en aktiv position, befintlig cooldown och nettoresultat med utdelning och courtage.
+Backtestdata byggs automatiskt av pipeline till `docs/data/backtests/{ticker}.json`.
+Rapportinsamlingen ändras inte. Historiken använder slutliga rapportdatum;
+saknas publiceringsdatum används effective_date. Saknas nästa rapportdatum
+blockeras köp i Rapportundvikande.
+
+Perioderna sedan start och senaste 1/3/5 åren inkluderar endast affärer där
+både köp och sälj ligger i perioden. Öppna positioner köpta inom perioden
+redovisas separat som preliminära. Avslutade affärers sammansatta resultat
+är inte portföljens periodavkastning när äldre positioner utesluts.
+
+Kontroller: `python -m pytest -q`, `node tests/test_method_periods.cjs` och
+`node tests/test_method_ui.cjs` (Playwright med Chromium).

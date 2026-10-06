@@ -246,7 +246,7 @@
     const stockReturn = comparisons.find((row) => row.strategy === 'Köp och behåll')?.return_pct;
     $('strategy-table').innerHTML = `
       <thead><tr><th>Alternativ</th><th>Period</th><th>Avkastning</th><th>Största nedgång</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead>
-      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${row.strategy}</td><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades ?? '–'}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="6">Backtest saknas för aktien.</td></tr>'}</tbody>`;
+      <tbody>${comparisons.length ? comparisons.map((row) => `<tr><td>${row.strategy === "Originalstrategi" ? "Standard" : row.strategy}</td><td>${period}</td><td>${pct(row.return_pct)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.trades ?? '–'}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('') : '<tr><td colspan="6">Backtest saknas för aktien.</td></tr>'}</tbody>`;
     $('comparison-difference').textContent = strategyReturn == null || stockReturn == null
       ? '' : `Strategin jämfört med aktien: ${strategyReturn - stockReturn > 0 ? '+' : ''}${pctFmt.format(strategyReturn - stockReturn)} procentenheter`;
 
@@ -264,7 +264,12 @@
     const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
       <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>Tid i position</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th></tr></thead>
-      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa Standard i Metod" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=standard" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+    $('trades-table').querySelectorAll('[data-method-link]').forEach(row => {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', () => { window.location.href = row.dataset.methodLink; });
+      row.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); window.location.href = row.dataset.methodLink; } });
+    });
     updateToggle('trades-toggle', expanded, trades.length);
   }
 

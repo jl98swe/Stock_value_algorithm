@@ -129,13 +129,34 @@ def run_strategy(
         signal_today: list[str] = []
         awaiting_side = ""
 
+        # A scheduled report exit takes precedence over pending orders and locks.
+        # It is known in advance and executes at the previous session's opening.
+        forced_report = bool(row.get("ForceReportExit", False))
+        if forced_report:
+            if pending is not None:
+                signals[pending["signal_list_index"]]["status"] = "cancelled_report"
+                if signals[pending["signal_list_index"]]["side"] == "BUY":
+                    buy_armed = True
+                    last_buy_signal_index = pending.get("previous_same_side_signal_index")
+                pending = None
+            if open_lots:
+                signal_sequence += 1
+                signals.append({
+                    "signal_id": _signal_id(ticker, date_string, "SELL", signal_sequence),
+                    "ticker": ticker, "side": "SELL", "signal_date": date_string,
+                    "score": score, "status": "pending", "status_reason": "Inför rapport",
+                    "exit_reason": "report", "execute_on": date_string,
+                })
+                pending = {"execute_index": index, "signal_list_index": len(signals) - 1,
+                           "previous_same_side_signal_index": last_sell_signal_index}
+
         # Execute the prior close's signal at this session's open. A newly
         # discovered lock cancels it before any simulated trade is made.
         if pending is not None and pending["execute_index"] == index:
             signal = signals[pending["signal_list_index"]]
             side = str(signal["side"])
             restore_arm = False
-            if locked:
+            if locked and not forced_report:
                 signal.update(
                     {
                         "status": "cancelled_lock",
@@ -156,7 +177,11 @@ def run_strategy(
                 )
                 restore_arm = True
             elif side == "BUY":
-                if buys_in_cycle >= p.max_lots or len(open_lots) >= p.max_lots:
+                if not bool(row.get("BuyExecutionAllowed", True)):
+                    signal.update({"status": "cancelled_filter", "execution_date": date_string,
+                                   "execution_price": None, "status_reason": "Strategifilter"})
+                    restore_arm = True
+                elif buys_in_cycle >= p.max_lots or len(open_lots) >= p.max_lots:
                     signal.update(
                         {
                             "status": "cancelled_capacity",
@@ -299,6 +324,9 @@ def run_strategy(
                         )
                         signal_today.append("BUY_BLOCKED")
                         buy_block_logged = True
+                elif not bool(row.get("BuyAllowed", True)):
+                    # Keep the event armed while a strategy filter blocks entry.
+                    pass
                 elif not capacity_ok:
                     add_status_signal(
                         side="BUY",

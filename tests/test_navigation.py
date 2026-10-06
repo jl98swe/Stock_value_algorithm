@@ -9,6 +9,7 @@ PAGES = {
     "signals.html": "./signals.html",
     "reports.html": "./reports.html",
     "review.html": "./review.html",
+    "method.html": "./method.html",
 }
 
 EXPECTED_LINKS = [
@@ -17,6 +18,7 @@ EXPECTED_LINKS = [
     ("./signals.html", "Kommande signaler"),
     ("./reports.html", "Rapporter"),
     ("./review.html", "Granska nyheter och data"),
+    ("./method.html", "Metod"),
 ]
 
 
