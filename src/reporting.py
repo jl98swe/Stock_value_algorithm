@@ -295,6 +295,8 @@ def refresh_gap_calendar(*, today=None, session=None,
     """Daily issuer-calendar fallback for missing dates and reports within 14 days."""
     day = pd.Timestamp(today or datetime.now(STOCKHOLM_TZ).date()).normalize()
     current = load_auto_report_calendar(current_path)
+    # Expired reserve dates must not hide a future date from another source.
+    current = current.loc[current.report_date_end.ge(day)].copy()
     schedule = _combined_schedule(current, load_report_calendar())
     future = schedule.loc[schedule.report_date_end.ge(day)]
     covered = set(future.ticker)
