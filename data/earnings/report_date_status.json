@@ -1,8 +1,6 @@
 {
   "checked_at": "2026-10-06",
-  "counts": {
-    "manual_date_preserved": 1
-  },
+  "counts": {},
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
