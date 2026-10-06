@@ -140,6 +140,7 @@ a { color: inherit; }
 .search-field svg { width: 18px; height: 18px; fill: none; stroke: #84909a; stroke-width: 2; }
 .search-field input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--text); }
 .stock-list { display: grid; gap: 7px; }
+.stock-picker-toggle { display: none; }
 .stock-list button {
   width: 100%;
   text-align: left;
@@ -401,6 +402,37 @@ a { color: inherit; }
   .page-nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; }
   .workspace { display: block; padding: 14px; }
   .sidebar { position: static; max-height: none; margin-bottom: 16px; }
+  .sidebar-heading { display: none; }
+  .stock-picker-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+  .stock-picker-toggle svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .stock-picker-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .stock-picker-toggle:focus-visible, .sidebar .search-field:focus-within { outline: 2px solid var(--brand); outline-offset: 2px; }
+  .sidebar .search-field { margin: 8px 0 0; min-height: 44px; }
+  .sidebar:not(.stock-picker-open) .stock-list { display: none; }
+  .sidebar.stock-picker-open .stock-list {
+    margin-top: 8px;
+    max-height: min(44vh, 320px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding: 2px;
+  }
+  .sidebar .stock-list .stock-button { min-height: 44px !important; }
   .stock-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .rules-card { display: none; }
   .detail-grid, .review-layout { grid-template-columns: 1fr; }

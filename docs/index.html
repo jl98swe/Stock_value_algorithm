@@ -6,9 +6,10 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20260927-1">
+  <link rel="stylesheet" href="./assets/style.css?v=20261006-1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="./assets/app.js?v=20260929-2"></script>
+  <script defer src="./assets/app.js?v=20261006-1"></script>
+  <script defer src="./assets/mobile-stock-picker.js?v=20261006-1"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20260929-2"></script>
 </head>
@@ -46,6 +47,10 @@
 
     <main class="workspace">
       <aside class="sidebar" aria-label="Aktielista">
+        <button id="stock-picker-toggle" class="stock-picker-toggle" type="button" aria-expanded="false" aria-controls="stock-list">
+          <span id="stock-picker-label">Välj aktie</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
         <div class="sidebar-heading">
           <div>
             <span class="eyebrow">Bevakning</span>

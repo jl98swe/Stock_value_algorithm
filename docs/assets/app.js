@@ -412,6 +412,9 @@
     window.history.replaceState({}, '', url);
     renderStockList($('stock-search').value);
     renderSelected();
+    document.dispatchEvent(new CustomEvent('stock-selected', {
+      detail: { ticker, name: stockMeta(ticker).name || ticker }
+    }));
   }
 
   function renderSelected() {
