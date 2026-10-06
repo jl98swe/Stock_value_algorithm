@@ -1,0 +1,62 @@
+{
+  "CLAS-B.ST|YAHOO-2026-07-31": {
+    "anchor": "2026-09-03",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "EKTA-B.ST|YAHOO-2026-07-31": {
+    "anchor": "2026-08-26",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "EKTA-B.ST|2026-Q3": {
+    "anchor": "2026-08-26",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "INTRUM.ST|2026-Q2": {
+    "anchor": "2026-08-28",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "SECT-B.ST|YAHOO-2026-07-31": {
+    "anchor": "2026-09-04",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "SYSR.ST|YAHOO-2026-07-31": {
+    "anchor": "2026-08-27",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "SYSR.ST|2026-Q3": {
+    "anchor": "2026-08-27",
+    "completed": [
+      0,
+      7,
+      14
+    ]
+  },
+  "ZZ-B.ST|2026-Q2": {
+    "anchor": "2026-08-26",
+    "completed": []
+  }
+}

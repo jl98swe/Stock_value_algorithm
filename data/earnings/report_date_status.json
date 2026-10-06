@@ -1,0 +1,843 @@
+{
+  "checked_at": "2026-10-06",
+  "counts": {
+    "manual_date_preserved": 3,
+    "corrected": 3,
+    "confirmed": 1,
+    "retry_missing_evidence": 1
+  },
+  "missing_historical_dates": [
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2023-Q3"
+    },
+    {
+      "ticker": "CIBUS.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2023-Q3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2023-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2024-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2024-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2025-Q1"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2025-Q3"
+    },
+    {
+      "ticker": "EQT.ST",
+      "report_period": "2026-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "EVO.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2023-Q3"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "HEXA-B.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "LUMI.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2023-Q2"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2023-Q3"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "report_period": "2023-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2018-Q3"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2018-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2019-Q1"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2019-Q2"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2019-Q3"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2019-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2020-Q1"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2020-Q2"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2020-Q3"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2020-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2021-Q1"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2021-Q2"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2021-Q3"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2021-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2022-Q1"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2022-Q2"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2022-Q3"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2022-Q4"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2023-Q1"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "report_period": "2023-Q2"
+    }
+  ],
+  "missing_upcoming_tickers": [
+    "BAHN-B.ST",
+    "GENO.ST",
+    "HOLM-A.ST",
+    "INDU-A.ST",
+    "INVE-A.ST",
+    "SFAST.ST",
+    "SWEC-A.ST",
+    "SYSR.ST",
+    "VIVA.ST",
+    "VOLV-A.ST",
+    "ZZ-B.ST"
+  ],
+  "calendar_source_conflicts": [
+    {
+      "ticker": "TREL-B.ST",
+      "observations": [
+        {
+          "source": "Yahoo Finance / calendarEvents",
+          "date": "2026-10-22"
+        },
+        {
+          "source": "Börskollen / rapportkalender",
+          "date": "2026-10-23"
+        }
+      ]
+    }
+  ]
+}
