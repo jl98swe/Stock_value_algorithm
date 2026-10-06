@@ -1,73 +1,9 @@
 {
   "checked_at": "2026-10-06",
   "counts": {
-    "retry_missing_evidence": 1
+    "manual_date_preserved": 1
   },
   "missing_historical_dates": [
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2020-Q1"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2020-Q2"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2020-Q3"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2020-Q4"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2021-Q1"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2021-Q2"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2021-Q3"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2021-Q4"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2022-Q1"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2022-Q2"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2022-Q3"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2022-Q4"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2023-Q1"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2023-Q2"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2023-Q3"
-    },
-    {
-      "ticker": "CIBUS.ST",
-      "report_period": "2023-Q4"
-    },
     {
       "ticker": "EAST.ST",
       "report_period": "2018-Q3"
@@ -809,19 +745,7 @@
       "report_period": "2023-Q2"
     }
   ],
-  "missing_upcoming_tickers": [
-    "BAHN-B.ST",
-    "GENO.ST",
-    "HOLM-A.ST",
-    "INDU-A.ST",
-    "INVE-A.ST",
-    "SFAST.ST",
-    "SWEC-A.ST",
-    "SYSR.ST",
-    "VIVA.ST",
-    "VOLV-A.ST",
-    "ZZ-B.ST"
-  ],
+  "missing_upcoming_tickers": [],
   "calendar_source_conflicts": [
     {
       "ticker": "TREL-B.ST",
