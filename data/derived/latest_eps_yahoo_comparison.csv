@@ -106,7 +106,7 @@ SVED-B.ST,2026-Q2,2026-06-30,2026-07-15,2026-04-23,83.0,mismatch,4.02,SEK,4.02,S
 SWEC-A.ST,2026-Q2,2026-06-30,2026-07-17,,,missing_yahoo,6.3,SEK,6.3,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 SWEC-B.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,6.3,SEK,6.3,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 SWED-A.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-16,1.0,near,27.6,SEK,27.6,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
-SYSR.ST,2026-Q3,2026-07-31,2026-09-04,2026-06-10,86.0,mismatch,3.84,SEK,3.84,SEK,0.0,match,yahoo_trailing_diluted,2026-09-07
+SYSR.ST,2026-Q3,2026-07-31,2026-08-27,2026-06-10,78.0,mismatch,3.84,SEK,3.84,SEK,0.0,match,yahoo_trailing_diluted,2026-09-07
 TEL2-B.ST,2026-Q2,2026-06-30,2026-07-16,2026-07-15,1.0,near,14.5,SEK,14.5,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 THULE.ST,2026-Q2,2026-06-30,2026-07-20,2026-07-19,1.0,near,10.8,SEK,10.8,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 TREL-B.ST,2026-Q2,2026-06-30,2026-07-16,2026-07-15,1.0,near,16.85,SEK,16.85,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
