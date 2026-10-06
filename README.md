@@ -236,3 +236,11 @@ redovisas separat som preliminära. Avslutade affärers sammansatta resultat
 
 Kontroller: `python -m pytest -q`, `node tests/test_method_periods.cjs` och
 `node tests/test_method_ui.cjs` (Playwright med Chromium).
+
+Metod visar alla aktier som förval, med lika kapitalandel per aktie.
+Resultat från samtidiga affärer multipliceras inte mellan aktier: varje akties
+avslutade affärer återinvesteras inom aktien och utvecklingen vägs sedan samman.
+Öppna positioner visas separat. `docs/data/backtests/all.json` byggs vid varje
+pipeline-körning och kan byggas separat med `python -m src.aggregate_backtests`.
+Enskild aktie kan fortfarande väljas, inklusive länkar från Historik.
+Metodbeskrivningen är hopfälld med Visa mer/Visa mindre.

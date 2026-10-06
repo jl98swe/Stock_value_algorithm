@@ -16,11 +16,27 @@ const docs = path.resolve(__dirname, '../docs');
    catch {await route.fulfill({status:404,body:'Missing test file'});}
   });
   if(process.env.ECHARTS_TEST_FILE) await page.route('https://cdnjs.cloudflare.com/**', route => route.fulfill({path:process.env.ECHARTS_TEST_FILE,contentType:'text/javascript'}));
+  await page.goto('https://method-ui.test/method.html');
+  await page.waitForSelector('#method-results:not([hidden])');
+  assert.equal(await page.locator('#method-stock').inputValue(),'all');
+  assert.equal(await page.locator('#method-details-toggle').getAttribute('aria-expanded'),'false');
+  assert(!await page.locator('#method-details').isVisible());
+  assert((await page.locator('#scope-note').textContent()).includes('119 aktier'));
+  assert.equal(await page.locator('#method-trades tr').count(),50);
+  await page.locator('#method-trades-more').click();
+  assert.equal(await page.locator('#method-trades tr').count(),100);
+  await page.locator('#method-period').selectOption('1');
+  assert.equal(await page.locator('#method-trades tr').count(),50);
+  await page.locator('#method-details-toggle').click();
+  assert(await page.locator('#method-details').isVisible());
+  await page.locator('#method-details-toggle').click();
+  assert(!await page.locator('#method-details').isVisible());
   await page.goto('https://method-ui.test/method.html?ticker=AAK.ST&strategy=ma200&period=1');
   await page.waitForSelector('#method-results:not([hidden])');
   assert.equal(await page.locator('#method-strategy').inputValue(),'ma200');
   assert.equal(await page.locator('#method-period').inputValue(),'1');
   assert.equal(await page.locator('#backtest-summary tr').count(),3);
+  await page.locator('#method-details-toggle').click();
   assert(await page.locator('[data-method="ma200"]').isVisible());
   const data=JSON.parse(await fs.readFile(path.join(docs,'data/backtests/AAK.ST.json')));
   const stock=JSON.parse(await fs.readFile(path.join(docs,'data/dashboard/AAK.ST.json')));
@@ -47,6 +63,6 @@ const docs = path.resolve(__dirname, '../docs');
    assert.equal(await page.locator('#method-strategy').inputValue(),'standard');
   }
   assert.deepEqual(errors,[]);
-  console.log('Method UI passed: deep links, three strategies, periods, stock switch and mobile layout.');
+  console.log('Method UI passed: all stocks by default, collapsed details, pagination, deep links, periods, stock switch and mobile layout.');
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

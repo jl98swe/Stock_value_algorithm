@@ -6,3 +6,10 @@
 #benchmark-result {color:var(--brand);font-weight:700;font-size:13px}
 [data-method-link]:focus-visible {outline:2px solid var(--brand);outline-offset:-2px}
 [data-method-link]:hover {filter:brightness(.97)}
+.method-description #method-summary {margin:6px 0}
+#method-details {margin-top:12px;border-top:1px solid var(--line);padding-top:6px}
+#method-details[hidden], #method-stock-link[hidden], #method-trades-more[hidden] {display:none}
+#method-details-toggle {padding:6px 0;font-size:12px}
+#method-trades a {color:var(--brand);text-decoration:none;font-weight:700}
+#method-trades a:hover {text-decoration:underline}
+#method-results .show-more-row {gap:16px;flex-wrap:wrap;align-items:center}

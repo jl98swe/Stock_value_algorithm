@@ -12,6 +12,7 @@ import pandas as pd
 
 from .config import HISTORY_START_DATE, ROOT
 from .dashboard_export import write_split_dashboard
+from .aggregate_backtests import write_aggregate
 from .dividends import load_dividend_history, update_dividends
 from .events import (
     build_lock_series,
@@ -614,6 +615,7 @@ def build_dashboard(
     }
     write_json_atomic(DASHBOARD_JSON, dashboard_payload)
     write_split_dashboard(DASHBOARD_JSON, dashboard_payload)
+    write_aggregate(dashboard_stocks, generated_at)
     reports_payload = build_reports_payload(
         reports=reports,
         valuation_frames=valuation_frames,
