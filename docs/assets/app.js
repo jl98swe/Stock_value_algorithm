@@ -422,9 +422,9 @@
     if (!live) throw new Error('Strategidata saknas för aktien.');
     const closed = variant?.closed_trades || [], open = variant?.open_lots || [];
     const signals = closed.flatMap(t=>[
-      {side:'BUY',status:'executed',execution_date:t.entry_date},
-      {side:'SELL',status:'executed',execution_date:t.exit_date,exit_reason:t.exit_reason}
-    ]).concat(open.map(t=>({side:'BUY',status:'executed',execution_date:t.entry_date})));
+      {side:'BUY',status:'executed',execution_date:t.entry_date,execution_price:t.entry_price},
+      {side:'SELL',status:'executed',execution_date:t.exit_date,execution_price:t.exit_price,exit_reason:t.exit_reason}
+    ]).concat(open.map(t=>({side:'BUY',status:'executed',execution_date:t.entry_date,execution_price:t.entry_price})));
     return {...base,...live,closed_trades:closed,open_lots:open,signals};
   }
 
