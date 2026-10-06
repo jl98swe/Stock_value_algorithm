@@ -222,7 +222,8 @@ Migreringen ska inte köras automatiskt i den dagliga uppdateringen.
 
 Fliken Metod jämför Standard, MA200 (endast köp över MA200) och
 Rapportundvikande (inga köp inom 10 börsdagar före rapport, försäljning vid
-öppningen börsdagen före rapport). Samtliga använder strikt Score < 1 / > 99,
+öppningen börsdagen före rapport) med Buy and hold och OMXSGI. De tre
+signalstrategierna använder strikt Score < 1 / > 99,
 en aktiv position, befintlig cooldown och nettoresultat med utdelning och courtage.
 Backtestdata byggs automatiskt av pipeline till `docs/data/backtests/{ticker}.json`.
 Rapportinsamlingen ändras inte. Historiken använder slutliga rapportdatum;
@@ -244,3 +245,24 @@ avslutade affärer återinvesteras inom aktien och utvecklingen vägs sedan samm
 pipeline-körning och kan byggas separat med `python -m src.aggregate_backtests`.
 Enskild aktie kan fortfarande väljas, inklusive länkar från Historik.
 Metodbeskrivningen är hopfälld med Visa mer/Visa mindre.
+
+Buy and hold köper vid första tillgängliga stängningen inom vald period och
+säljer vid den sista, med 0,25 % courtage per sida och kontantutdelningar.
+Startkapitalet fördelas lika över aktierna utan löpande ombalansering. En aktie
+utan två kurser behåller sin andel i kontanter.
+
+OMXSGI använder Nasdaq OMX Stockholm All-Share Gross Index, inklusive
+återinvesterade utdelningar före skatt, utan courtage eller fondavgifter.
+`python -m src.index_benchmark` hämtar dagliga observationer från Nasdaq via
+FRED (`NASDAQOMXSGI`) till `docs/data/benchmarks/omxsgi.json`; vanliga
+prisuppdateringar kör detta automatiskt. XSTO-handelsdagar och endast färdiga
+sessioner används. Ett misslyckat anrop behåller senaste giltiga export;
+indexets faktiska datumintervall visas på sidan.
+
+Sharpekvoten beräknas från den dagliga kapitalutvecklingen med 0 % riskfri
+ränta: medelavkastning / standardavvikelse (stickprov) × sqrt(252). Den
+inkluderar dagar i kontanter och använder samma netto-kapitalutveckling som
+resultat och största nedgång. Öppna positioner utesluts för signalstrategierna.
+För alla aktier beräknas Sharpe på den sammanvägda kapitalutvecklingen, inte
+som ett genomsnitt av aktiernas Sharpe. Färre än två dagliga avkastningar eller
+ingen variation ger ett streck.
