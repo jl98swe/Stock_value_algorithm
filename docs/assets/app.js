@@ -401,6 +401,7 @@
   }
 
   async function selectTicker(ticker) {
+    window.strategySelection.setTicker(ticker);
     const stock = await loadDashboardStock(ticker);
     if (!stock) return;
     state.selectedTicker = ticker;
@@ -486,7 +487,7 @@
       renderRules();
       bindControls();
 
-      const requested = new URLSearchParams(window.location.search).get('ticker');
+      const requested = window.strategySelection.getTicker();
       const firstTicker = stocksPayload.stocks?.[0]?.ticker;
       state.selectedTicker = dashboard.files?.[requested] ? requested : firstTicker;
       if (!state.selectedTicker) throw new Error('stocks.json innehåller inga aktier.');

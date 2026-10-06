@@ -79,6 +79,7 @@
   }
 
   function setQuery() {
+    window.strategySelection.setTicker(state.selectedTicker);
     const url = new URL(location.href);
     if (state.selectedTicker) url.searchParams.set('ticker', state.selectedTicker);
     if (state.selectedEventId) url.searchParams.set('event', state.selectedEventId);
@@ -316,6 +317,7 @@
   function bindInputs() {
     $('review-stock').addEventListener('change', async (e) => {
       state.selectedTicker = e.target.value;
+      window.strategySelection.setTicker(state.selectedTicker);
       state.selectedEventId = eventsForTicker()[0]?.event_id || '';
       await loadActiveStock();
       populateEvents();
@@ -345,7 +347,6 @@
   }
 
   function setWorkflowLinks() {
-    $('repository-link').href = REPO;
     ['review-action-link','calendar-action-link','trade-action-link'].forEach((id) => { $(id).href = `${REPO}/actions`; });
     $('eps-action-link').href = `${REPO}/actions/workflows/add_verified_eps.yml`;
   }
@@ -367,7 +368,7 @@
       if (!state.stocks.length) throw new Error('Ingen aktielista hittades.');
 
       const params = new URLSearchParams(location.search);
-      const wantedTicker = params.get('ticker');
+      const wantedTicker = window.strategySelection.getTicker();
       state.selectedTicker = state.stocks.some((s) => s.ticker === wantedTicker) ? wantedTicker : state.stocks[0].ticker;
       const events = eventsForTicker();
       const wantedEvent = params.get('event');
