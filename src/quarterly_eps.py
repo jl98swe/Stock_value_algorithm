@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import json
 import math
@@ -147,7 +149,7 @@ def _ticker_universe() -> list[str]:
     tickers = sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
     if not tickers:
         raise ValueError("Prisuniversumet innehåller inga tickers.")
-    return tickers
+    return active_tickers(tickers)
 
 
 def _metadata_currency_map() -> dict[str, str]:

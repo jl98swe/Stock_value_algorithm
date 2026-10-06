@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -47,7 +49,7 @@ def _recent_report_dates(today: object | None = None) -> pd.DataFrame:
 
 def _pending(events: pd.DataFrame, values: pd.DataFrame) -> list[str]:
     pending: list[str] = []
-    for event in events.itertuples(index=False):
+    for event in events.loc[events.ticker.isin(active_tickers(events.ticker))].itertuples(index=False):
         ticker = str(event.ticker)
         report_date = pd.Timestamp(event.report_date).normalize()
         rows = values.loc[values["ticker"].astype(str) == ticker].copy()

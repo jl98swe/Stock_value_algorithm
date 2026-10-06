@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import os
 from datetime import date, timedelta
 from pathlib import Path
@@ -152,7 +154,7 @@ def update_dividends(
     """Uppdatera utdelningar utan att skriva om den frysta historikfilen."""
     base = _read_dividend_file(base_file, required=True)
     old_updates = _read_dividend_file(updates_file, required=False)
-    tickers = _load_tickers()
+    tickers = active_tickers(_load_tickers())
     fetched = _fetch_recent_dividends(tickers)
 
     # Ett tomt utdelningsresultat är inte automatiskt ett fel: det kan helt enkelt

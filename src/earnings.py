@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import json
 import math
@@ -345,7 +347,7 @@ def update_earnings(
     tickers: list[str] | None = None,
 ) -> pd.DataFrame:
     prices = load_price_history()
-    universe = sorted(prices["ticker"].dropna().astype(str).unique().tolist())
+    universe = active_tickers(sorted(prices["ticker"].dropna().astype(str).unique().tolist()))
     if not universe:
         raise ValueError("Prisdata innehåller inga tickers.")
     selected = universe if tickers is None else sorted(set(tickers).intersection(universe))

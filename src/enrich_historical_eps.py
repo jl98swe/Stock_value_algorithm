@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 from pathlib import Path
 
@@ -140,6 +142,8 @@ def _latest_contiguous_quarterly_suffix(dates: list[pd.Timestamp]) -> list[pd.Ti
 
 
 def _past_earnings_dates(yahoo_ticker: str, wanted: int) -> list[pd.Timestamp]:
+    if not active_tickers([yahoo_ticker]):
+        return []
     limit = min(100, max(20, wanted + 8))
     dates = yf.Ticker(yahoo_ticker).get_earnings_dates(limit=limit, offset=1)
     if dates is None or dates.empty:

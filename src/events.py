@@ -92,7 +92,7 @@ def load_report_calendar(path: str | Path = "data/manual/report_calendar.csv") -
     for column in columns:
         if column not in frame.columns:
             frame[column] = None
-    frame["scheduled_at"] = pd.to_datetime(frame["scheduled_at"], errors="coerce", utc=True)
+    frame["scheduled_at"] = pd.to_datetime(frame["scheduled_at"], errors="coerce", utc=True, format="mixed")
     frame["lock_from_date"] = pd.to_datetime(frame["lock_from_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
     frame["verified"] = frame["verified"].astype(str).str.lower().isin(("true", "1", "yes", "ja"))
     frame["expected_eps"] = pd.to_numeric(frame["expected_eps"], errors="coerce")

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -32,6 +34,8 @@ def _stockholm_date(value: object) -> pd.Timestamp | None:
 
 
 def _fetch_earnings_dates(ticker: str) -> list[pd.Timestamp]:
+    if not active_tickers([ticker]):
+        return []
     try:
         frame = yf.Ticker(ticker).get_earnings_dates(limit=100, offset=1)
     except Exception as exc:

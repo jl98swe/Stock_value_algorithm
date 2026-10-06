@@ -7,8 +7,11 @@ unverified estimate into an EPS TTM or a projected valuation score.
 
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import math
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -19,6 +22,7 @@ import exchange_calendars as xcals
 import pandas as pd
 import requests
 import yfinance as yf
+from bs4 import BeautifulSoup
 
 from .config import ROOT
 from .events import load_report_calendar
@@ -33,6 +37,7 @@ REPORTS_JSON = ROOT / "docs" / "data" / "reports.json"
 METADATA_FILE = ROOT / "data" / "metadata" / "stocks_yahoo.csv"
 REPORT_SOURCE = "Yahoo Finance / calendarEvents"
 BORSKOLLEN_SOURCE = "Börskollen / rapportkalender"
+MFN_SOURCE = "MFN / bolagets rapportkalender"
 BORSKOLLEN_REPORTS_URL = "https://www.borskollen.se/api/reports"
 UNVERIFIED_ESTIMATE_METRIC = "Yahoo EPS Estimate (definition unverified)"
 SAFE_ESTIMATE_METRICS = {DILUTED_METRIC, MANUAL_METRIC}
@@ -181,6 +186,11 @@ def _ticker_key(value: object) -> str:
     return "".join(character for character in text if character.isalnum())
 
 
+def _issuer_key(value: object) -> str:
+    # Financial releases belong to the issuer, not to its share class.
+    return _ticker_key(re.sub(r"[- ][A-D]$", "", str(value).upper().replace(".ST", "")))
+
+
 def _borskollen_rows(
     *,
     observed_date: object | None = None,
@@ -195,14 +205,20 @@ def _borskollen_rows(
     metadata = _metadata()
     key_map: dict[str, list[str]] = {}
     for ticker in metadata["ticker"].astype(str):
-        key_map.setdefault(_ticker_key(ticker), []).append(ticker)
+        if active_tickers([ticker], today=today):
+            issuer = _issuer_key(ticker)
+            keys = [issuer]
+            if re.search(r"-[A-D]\.ST$", ticker):
+                keys += [issuer + share for share in "ABCD"]
+            for key in keys:
+                key_map.setdefault(key, []).append(ticker)
 
     client = session or requests.Session()
     client.headers.update({"User-Agent": "StockValueAlgorithm/1.0 (+https://github.com/jl98swe/Stock_value_algorithm)"})
     # Tagg-endpointen innehåller bara sajtens första synliga urval. Fråga
     # därför kalender-endpointen för varje börsdag så att "visa alla"-poster
     # som Dynavox inte tappas bort. Endast matchade strategiaktier sparas.
-    dates = list(pd.bdate_range(today - pd.Timedelta(days=7), today + pd.Timedelta(days=35)))
+    dates = list(pd.bdate_range(today - pd.Timedelta(days=7), today + pd.Timedelta(days=90)))
     rows: list[dict[str, object]] = []
     seen: set[tuple[str, pd.Timestamp]] = set()
 
@@ -224,19 +240,19 @@ def _borskollen_rows(
     for item in day_items:
         if str(item.get("tagCountry") or "").strip().lower() != "sverige":
             continue
-        matches = key_map.get(_ticker_key(item.get("tagTicker")), [])
-        if len(matches) != 1:
+        matches = key_map.get(_issuer_key(item.get("tagTicker")), [])
+        if not matches:
             continue
-        ticker = matches[0]
         report_date = pd.to_datetime(item.get("reportDate"), errors="coerce")
         if pd.isna(report_date):
             continue
         report_date = pd.Timestamp(report_date).tz_localize(None).normalize()
-        identity = (ticker, report_date)
-        if identity in seen:
-            continue
-        seen.add(identity)
-        rows.append(
+        for ticker in matches:
+            identity = (ticker, report_date)
+            if identity in seen:
+                continue
+            seen.add(identity)
+            rows.append(
             {
                 "ticker": ticker,
                 "report_date_start": report_date,
@@ -253,6 +269,66 @@ def _borskollen_rows(
             }
         )
     return _normalise_calendar(pd.DataFrame(rows, columns=CALENDAR_COLUMNS))
+
+
+def _mfn_rows(html: str, ticker: str, today: pd.Timestamp) -> pd.DataFrame:
+    rows = []
+    soup = BeautifulSoup(html, "html.parser")
+    for tr in soup.select("table.table-calender tbody tr"):
+        cells = tr.find_all("td")
+        if len(cells) < 3:
+            continue
+        label = cells[2].get_text(" ", strip=True).lower()
+        if not any(word in label for word in ("kvartalsrapport", "delårsrapport", "bokslutskommuniké", "interim report", "year-end report")):
+            continue
+        day = pd.to_datetime(cells[0].get_text(strip=True), errors="coerce")
+        if pd.isna(day) or not today <= day <= today + pd.Timedelta(days=365):
+            continue
+        rows.append(dict(ticker=ticker, report_date_start=day, report_date_end=day,
+            date_status="confirmed", source=MFN_SOURCE, observed_date=today))
+    return _normalise_calendar(pd.DataFrame(rows)).sort_values("report_date_start").head(1)
+
+
+def refresh_gap_calendar(*, today=None, session=None,
+                         current_path=AUTO_CALENDAR_FILE, history_path=CALENDAR_HISTORY_FILE,
+                         sources_path=ROOT / "data/news/mfn_sources.csv") -> pd.DataFrame:
+    """Daily issuer-calendar fallback for missing dates and reports within 14 days."""
+    day = pd.Timestamp(today or datetime.now(STOCKHOLM_TZ).date()).normalize()
+    current = load_auto_report_calendar(current_path)
+    schedule = _combined_schedule(current, load_report_calendar())
+    future = schedule.loc[schedule.report_date_end.ge(day)]
+    covered = set(future.ticker)
+    urgent = set(future.loc[future.report_date_start.le(day + pd.Timedelta(days=14)), "ticker"])
+    targets = (set(active_tickers(_metadata().ticker, today=day)) - covered) | urgent
+    if not sources_path.exists():
+        return current
+    sources = pd.read_csv(sources_path).fillna("")
+    sources = sources.loc[sources.ticker.isin(targets) & sources.status.eq("resolved")]
+    client = session or requests.Session()
+    fetched = []
+    for source in sources.itertuples(index=False):
+        if not str(source.mfn_url).startswith("https://mfn.se/all/a/"):
+            continue
+        try:
+            response = client.get(source.mfn_url, timeout=15)
+            response.raise_for_status()
+            rows = _mfn_rows(response.text, str(source.ticker), day)
+            if not rows.empty:
+                fetched.append(rows)
+        except Exception as exc:
+            print(f"VARNING {source.ticker}: MFN-kalender kunde inte kontrolleras: {exc}")
+    if fetched:
+        additions = _concat_frames(fetched)
+        old = current.loc[~(current.source.eq(MFN_SOURCE) & current.ticker.isin(additions.ticker))]
+        current = _normalise_calendar(_concat_frames([old, additions]))
+        history = load_auto_report_calendar(history_path)
+        history = _normalise_calendar(_concat_frames([history, additions])).drop_duplicates(CALENDAR_COLUMNS)
+        save_auto_report_calendar(current, current_path)
+        save_auto_report_calendar(history, history_path)
+    missing = sorted(set(active_tickers(_metadata().ticker, today=day)) - set(
+        _combined_schedule(current, load_report_calendar()).loc[lambda f: f.report_date_end.ge(day), "ticker"]))
+    print(f"Daglig rapportkalenderkontroll: {len(targets)} bolag; saknade kommande datum: {', '.join(missing) or 'inga'}")
+    return current
 
 
 def _same_snapshot(left: pd.Series, right: pd.Series) -> bool:
@@ -282,7 +358,7 @@ def update_report_calendar(
     """Update Yahoo while preserving other sources and last good results."""
 
     metadata = _metadata()
-    tickers = metadata["ticker"].loc[metadata["ticker"].str.len().gt(0)].tolist()
+    tickers = active_tickers(metadata["ticker"].loc[metadata["ticker"].str.len().gt(0)].tolist(), today=observed_date)
     currencies = dict(zip(metadata["ticker"], metadata["report_currency"], strict=False))
     today = (
         pd.Timestamp(observed_date).tz_localize(None).normalize()
@@ -463,7 +539,7 @@ def _combined_schedule(auto: pd.DataFrame, manual: pd.DataFrame) -> pd.DataFrame
     automatic["url"] = ""
     automatic["report_period"] = ""
     automatic["schedule_priority"] = automatic["source"].map(
-        {BORSKOLLEN_SOURCE: 1, REPORT_SOURCE: 2}
+        {MFN_SOURCE: 1, BORSKOLLEN_SOURCE: 2, REPORT_SOURCE: 3}
     ).fillna(3)
     automatic = automatic.sort_values(
         ["ticker", "schedule_priority", "observed_date", "report_date_start"],
@@ -487,6 +563,7 @@ def _combined_schedule(auto: pd.DataFrame, manual: pd.DataFrame) -> pd.DataFrame
         ["ticker", "report_date_start", "schedule_priority", "observed_date"],
         ascending=[True, True, True, False],
     )
+    combined = combined.loc[combined.ticker.isin(active_tickers(combined.ticker))]
     return combined.drop_duplicates(["ticker", "report_date_start"], keep="first").reset_index(drop=True)
 
 

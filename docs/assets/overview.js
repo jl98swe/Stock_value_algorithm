@@ -51,7 +51,7 @@
         const meta = stockMeta(stocksPayload, ticker);
         return { ticker, name: meta.name || ticker, currency: meta.currency || 'SEK', data };
       })
-      .filter((row) => Number(row.data.position?.lots || 0) > 0)
+      .filter((row) => row.data.active_for_updates !== false && Number(row.data.position?.lots || 0) > 0)
       .filter((row) => textIncludes(row, needle))
       .sort((a, b) => Number(b.data.position?.unrealized_pct || 0) - Number(a.data.position?.unrealized_pct || 0));
 
@@ -74,6 +74,7 @@
   }
 
   function signalCandidate(ticker, data, meta, rules) {
+    if (data.active_for_updates === false) return null;
     const latest = data.latest || {};
     const position = data.position || {};
     const action = data.next_action || {};

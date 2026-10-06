@@ -12,6 +12,8 @@ private endpoints and is deliberately defensive about HTML changes.
 
 from __future__ import annotations
 
+from .listing_status import active_tickers
+
 import argparse
 import re
 import time
@@ -398,7 +400,7 @@ def load_universe(only_ticker: str | None = None) -> list[StockIdentity]:
         if not tickers:
             tickers = [only_ticker.strip()]
     output: list[StockIdentity] = []
-    for ticker in dict.fromkeys(tickers):
+    for ticker in active_tickers(dict.fromkeys(tickers)):
         company = metadata.get(ticker, "") or _yahoo_company_name(ticker)
         if not company:
             company = ticker.removesuffix(".ST").replace("-", " ")
