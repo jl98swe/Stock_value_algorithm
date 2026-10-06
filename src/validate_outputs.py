@@ -28,6 +28,7 @@ from .fx import (
 )
 from .model_data import ensure_gbm_model
 from .reporting import REPORTS_JSON, UPCOMING_TRADING_DAYS, _recent_window_start
+from .report_date_revisions import verified_date_keys
 from .score_history import SCORE_HISTORY_COLUMNS, SCORE_HISTORY_FILE, load_score_history
 from .valuation import GBMModel
 
@@ -292,6 +293,17 @@ def _validate_report_exports(
 ) -> None:
     """Reject partial publishes: canonical reports, stock cards, E and report tab agree."""
     verified = verified_reports(reports)
+    pinned = verified_date_keys(reports)
+    for report in reports.itertuples(index=False):
+        if (report.ticker, report.report_period) not in pinned:
+            continue
+        aliases = reports.loc[
+            reports.ticker.eq(report.ticker)
+            & reports.period_end.eq(report.period_end)
+            & reports.report_period.str.startswith("YAHOO-")
+        ]
+        if not aliases.effective_date.eq(report.effective_date).all():
+            raise ValueError(f"Yahoo-post avviker från verifierat rapportdatum: {report.ticker} {report.report_period}")
     event_days = {
         str(row.get("event_id")): str(row.get("event_date"))
         for row in events
