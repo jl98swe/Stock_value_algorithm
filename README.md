@@ -244,3 +244,33 @@ avslutade affärer återinvesteras inom aktien och utvecklingen vägs sedan samm
 pipeline-körning och kan byggas separat med `python -m src.aggregate_backtests`.
 Enskild aktie kan fortfarande väljas, inklusive länkar från Historik.
 Metodbeskrivningen är hopfälld med Visa mer/Visa mindre.
+
+
+### Rapportdatum: efterkontroll och korrigering
+
+Vardagsjobbet kontrollerar rapportdatum direkt och efter 7 och 14 kalenderdagar,
+även när EPS-värdet är oförändrat. Körningen använder första vardagskörningen
+som faktiskt startar efter respektive gräns. Misslyckad eller tvetydig hämtning
+försöks igen inom 45 dagar; befintligt datum lämnas kvar. En rapport måste ha
+rapporterad EPS och ligga nära samma rapporthändelse för att få korrigera datumet.
+Yahoo-tidsstämplar tolkas i Europe/Stockholm. Rapporter efter börsstängning,
+på helger eller halvdagar använder nästa börssession som effective_date.
+
+Datum som verifierats manuellt i `report_date_overrides.csv` har företräde
+framför automatisk datumkontroll. EPS och datum har separata källprioriteringar:
+manuell EPS behålls även när ett automatiskt rapportdatum korrigeras.
+Manuell kommande kalender prioriteras även vid konflikt mellan närliggande datum.
+
+`report_date_check_state.json` sparar utförda efterkontroller,
+`report_date_checks.csv` loggar utfall, `report_date_score_revisions.csv` loggar
+ombyggda datum och `report_date_status.json` visar saknade
+historiska datum, saknade kommande kalenderdatum och konflikter mellan källor.
+Grön körning innebär därför inte att alla rapportdatum är verifierade.
+Saknade historiska datum fylls inte med gissningar.
+
+Pipeline jämför rapporterna med `data/derived/report_score_dates.csv` från
+senaste slutliga poängbygget. När datum flyttas räknas endast den berörda aktien
+om från det tidigare av gammalt och nytt effective_date. Dagar före gränsen
+behålls exakt. Även nya tidigare saknade datum och borttagna rapporter upptäcks.
+Signaler, rapportmarkörer, aktiefiler och backtest byggs från samma korrigerade
+underlag. Förberedande byggen med `--defer-score-history` konsumerar inte ändringen.

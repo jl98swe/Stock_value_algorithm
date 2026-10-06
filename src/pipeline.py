@@ -31,6 +31,7 @@ from .fundamentals import (
 from .model_data import ensure_gbm_model
 from .reporting import build_reports_payload
 from .manual_reports import publish_manual_reports
+from .report_date_revisions import changed_date_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
 from .score_history import (
     SCORE_HISTORY_FILE,
     apply_frozen_scores,
@@ -541,6 +542,15 @@ def build_dashboard(
         score_history = seed_score_history_from_dashboard(DASHBOARD_JSON, frozen_at=generated_at)
         recalculation_cutoffs.update(SCORE_HISTORY_BOOTSTRAP_CUTOFFS)
     recalculation_cutoffs.update(score_recalculation_cutoffs or {})
+    # Do not consume revisions in the pre-EPS/deferred build. They remain
+    # detectable until the final successful build saves its report snapshot.
+    snapshot_path = score_history_file.parent / "report_score_dates.csv"
+    previous_score_dates = load_score_dates(snapshot_path)
+    for ticker, cutoff in changed_date_cutoffs(reports, previous_score_dates).items():
+        if ticker in recalculation_cutoffs:
+            cutoff = min(cutoff, pd.Timestamp(recalculation_cutoffs[ticker]))
+        recalculation_cutoffs[ticker] = cutoff
+        print(f"Rapportdatum ändrat: {ticker}, räknar om poäng från {cutoff.date()}.")
     for ticker, cutoff_value in recalculation_cutoffs.items():
         cutoff = pd.Timestamp(cutoff_value).tz_localize(None).normalize()
         score_history = score_history.loc[
@@ -555,6 +565,9 @@ def build_dashboard(
         model = None
         model_status = "invalid_or_missing"
         print(f"VARNING: GBM-modellen kunde inte aktiveras: {exc}")
+
+    if recalculation_cutoffs and model is None:
+        raise RuntimeError("Rapportdatum ändrat men modellen saknas; datumrevisionen konsumeras inte.")
 
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
@@ -642,6 +655,10 @@ def build_dashboard(
     )
     if model is None:
         print("INFO: Pris, MA200, utdelningar och event visas, men score väntar på giltig GBM-modell.")
+    if persist_score_history:
+        log_score_date_revisions(reports, previous_score_dates, generated_at,
+                                 score_history_file.parent / "report_date_score_revisions.csv")
+        save_score_dates(reports, snapshot_path)
     return dashboard_payload
 
 

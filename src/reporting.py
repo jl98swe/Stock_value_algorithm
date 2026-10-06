@@ -329,7 +329,7 @@ def update_report_calendar(
     additions: list[pd.Series] = []
     for row in fetched.itertuples(index=False):
         item = pd.Series(row._asdict())
-        prior = history.loc[history["ticker"] == item["ticker"]].sort_values("observed_date")
+        prior = history.loc[(history["ticker"] == item["ticker"]) & (history["source"] == REPORT_SOURCE)].sort_values("observed_date")
         if prior.empty or not _same_snapshot(prior.iloc[-1], item):
             additions.append(item)
     if additions:
@@ -470,6 +470,12 @@ def _combined_schedule(auto: pd.DataFrame, manual: pd.DataFrame) -> pd.DataFrame
         ascending=[True, True, False, True],
     ).drop_duplicates("ticker", keep="first")
     manual_rows = _manual_schedule_rows(manual)
+    # Manual dates take precedence even when sources disagree by a few days.
+    for row in manual_rows.itertuples(index=False):
+        automatic = automatic.loc[~(
+            automatic["ticker"].eq(row.ticker)
+            & automatic["report_date_start"].sub(row.report_date_start).abs().le(pd.Timedelta(days=45))
+        )]
     combined = _concat_frames(
         [manual_rows, automatic],
         columns=CALENDAR_COLUMNS + ["url", "report_period", "schedule_priority"],
@@ -613,6 +619,8 @@ def _recent_rows(
 ) -> list[dict[str, object]]:
     names, price_currencies, _ = _meta_maps(metadata)
     start = _recent_window_start(as_of)
+    from .report_date_revisions import verified_date_keys
+    pinned_dates = verified_date_keys(reports)
     recent = reports.loc[
         reports["verified"]
         & reports["effective_date"].notna()
@@ -650,8 +658,10 @@ def _recent_rows(
                 "name": names.get(ticker) or ticker.removesuffix(".ST").replace("-", " "),
                 "report_period": str(report.report_period or ""),
                 "report_date": published_date or _iso_date(effective),
-                "report_date_verified": published_date is not None,
-                "report_date_source": "published_at" if published_date is not None else "effective_date_fallback",
+                "report_date_verified": published_date is not None or (ticker, str(report.report_period)) in pinned_dates,
+                "report_date_source": ("published_at" if published_date is not None else
+                                       "verified_date_override" if (ticker, str(report.report_period)) in pinned_dates
+                                       else "effective_date_fallback"),
                 "period_end": _iso_date(report.period_end),
                 "reported_quarter_eps": _json_number(current_quarter.get("eps"), 6) if current_quarter is not None else None,
                 "reported_eps_currency": str(current_quarter.get("eps_currency") or "") if current_quarter is not None else None,
