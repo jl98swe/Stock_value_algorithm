@@ -250,7 +250,7 @@
     const result = tradesClosed.length ? (tradesClosed.reduce((capital,t)=>capital*(1+t.return_pct/100),1)-1)*100 : null;
     const period = `${prettyDate(data.candles?.[0]?.date)}–${prettyDate(data.candles?.at(-1)?.date)}`;
     $('strategy-table').innerHTML = `<thead><tr><th>Strategi</th><th>Period</th><th>Avkastning</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead><tbody><tr><td>${window.strategySelection.names[state.strategy]}</td><td>${period}</td><td>${pct(result)}</td><td>${tradesClosed.length}</td><td>${pct(tradesClosed.length ? tradesClosed.filter(t=>t.return_pct>0).length/tradesClosed.length*100 : null)}</td></tr></tbody>`;
-    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}">Visa jämförelser och tidsperioder i Metod</a>`;
+    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}">Visa jämförelser och tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
     const trades = [...(data.closed_trades || []).map((trade) => ({ ...trade, open: false }))];
@@ -266,7 +266,7 @@
     const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
       <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>Tid i position</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th></tr></thead>
-      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa ${window.strategySelection.names[state.strategy]} i Metod" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa ${window.strategySelection.names[state.strategy]} i Metod &amp; backtest" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
     $('trades-table').querySelectorAll('[data-method-link]').forEach(row => {
       row.style.cursor = 'pointer';
       row.addEventListener('click', () => { window.location.href = row.dataset.methodLink; });
