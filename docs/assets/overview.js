@@ -8,6 +8,8 @@
   const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let strategy = 'standard';
+  let priceBoundaries = {};
+  let marketDate = null;
   const stockHref = ticker => `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${strategy}`;
 
   function number(value) {
@@ -79,7 +81,10 @@
     const position = data.position || {};
     const action = data.next_action || {};
     const value = number(latest.score);
-    const reportExit = action.type === 'SELL' && action.exit_reason === 'report';
+    const filters = data.strategy_filter || {};
+    const reportDays = number(filters.trading_days_to_report);
+    const plannedReport = Number(position.lots || 0) > 0 && reportDays !== null && reportDays >= 0 && reportDays <= 5 && Boolean(filters.report_exit_date);
+    const reportExit = (action.type === 'SELL' && action.exit_reason === 'report') || (plannedReport && action.type !== 'SELL');
     if (value === null && !reportExit) return null;
 
     const buy = number(rules.buy_score) ?? 1;
@@ -95,13 +100,16 @@
 
     let side = null;
     let distance = null;
-    if (actual && ((action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell))) {
+    if (reportExit && hasPosition) {
+      side = 'SELL';
+      distance = reportDays ?? 0;
+    } else if (actual && ((action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell))) {
       side = action.type;
       distance = 0;
-    } else if (value !== null && canBuy && buyDistance <= 5) {
+    } else if (value !== null && canBuy && buyDistance <= 10) {
       side = 'BUY';
       distance = buyDistance;
-    } else if (value !== null && canSell && sellDistance <= 5) {
+    } else if (value !== null && canSell && sellDistance <= 10) {
       side = 'SELL';
       distance = sellDistance;
     } else {
@@ -112,10 +120,14 @@
       ticker,
       name: meta.name || ticker,
       score: value,
+      latestDate: latest.date,
       side,
       distance,
       actual,
       reportExit,
+      reportDays,
+      reportDate: filters.next_report_date,
+      exitDate: filters.report_exit_date || action.execute_on,
       locked: Boolean(latest.fundamental_lock),
       lots,
       maxLots,
@@ -125,25 +137,34 @@
     };
   }
 
+  function boundaryText(row) {
+    if (row.reportExit) return 'Rapportsälj';
+    const forecast = priceBoundaries[row.ticker];
+    const boundary = forecast?.[row.side.toLowerCase()];
+    if (!boundary || forecast.as_of !== row.latestDate || forecast.session <= marketDate) return '–';
+    return `<strong>${boundary.direction === 'below' ? 'Under' : 'Över'} ≈ ${fmt.format(boundary.price)} kr</strong><span class="cell-detail">Stängning ${prettyDate(forecast.session)}${boundary.multiple_crossings ? ' · Fler intervall finns' : ''}</span>`;
+  }
+
   function renderSignals(dashboard, stocksPayload, needle) {
     const rules = dashboard.meta?.rules || {};
     const upcoming = Object.entries(dashboard.stocks || {})
       .map(([ticker, data]) => signalCandidate(ticker, data, stockMeta(stocksPayload, ticker), rules))
       .filter(Boolean)
       .filter((row) => textIncludes(row, needle))
-      .sort((a, b) => Number(b.actual) - Number(a.actual) || a.distance - b.distance || a.score - b.score);
+      .sort((a, b) => Number(b.actual) - Number(a.actual) || Number(b.reportExit) - Number(a.reportExit) || a.distance - b.distance || a.score - b.score);
 
     $('upcoming-count').textContent = String(upcoming.length);
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
       <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}</td>
-      <td>${row.reportExit ? '<strong>Inför rapport</strong>' : row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${boundaryText(row)}</td>
       <td>${row.lots ? 'Aktiv' : 'Ingen'}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? row.reportExit ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
-      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.action.execute_on)}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
-    </tr>`).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
+      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.exitDate)}${row.reportDate ? `<span class="cell-detail">Rapport ${prettyDate(row.reportDate)}</span>` : ''}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
+    </tr>`).join('') : '<tr><td colspan="9" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
 
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
       .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))].sort();
@@ -185,7 +206,7 @@
 
   async function init() {
     try {
-      const [stocksPayload, overviews] = await Promise.all([
+      const [stocksPayload, overviews, forecasts] = await Promise.all([
         fetch('./data/stocks.json', { cache: 'no-store' }).then((r) => {
           if (!r.ok) throw new Error(`stocks.json: HTTP ${r.status}`);
           return r.json();
@@ -193,8 +214,12 @@
         fetch('./data/strategy_overviews.json', { cache: 'no-store' }).then((r) => {
           if (!r.ok) throw new Error(`strategy_overviews.json: HTTP ${r.status}`);
           return r.json();
-        })
+        }),
+        document.body.dataset.overview === 'signals' ? fetch('./data/signal_prices.json', {cache:'no-store'})
+          .then(r => r.ok ? r.json() : {stocks:{}}).catch(() => ({stocks:{}})) : {stocks:{}}
       ]);
+      priceBoundaries = forecasts.stocks || {};
+      marketDate = overviews.meta?.trading_dates?.at(-1) || null;
 
       const page = document.body.dataset.overview;
       const params = new URLSearchParams(location.search);

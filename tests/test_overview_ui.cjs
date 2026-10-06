@@ -9,10 +9,11 @@ const docs=path.resolve(__dirname,'../docs');
  try {
   const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  let override=null;
+  let override=null, forecastOverride=null;
   await page.route('https://overview-ui.test/**',async route=>{
    const url=new URL(route.request().url());
    if(override && url.pathname==='/data/strategy_overviews.json') return route.fulfill({json:override});
+   if(forecastOverride && url.pathname==='/data/signal_prices.json') return route.fulfill({json:forecastOverride});
    const file=path.join(docs,decodeURIComponent(url.pathname));
    try {await route.fulfill({body:await fs.readFile(file),contentType:({'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css'})[path.extname(file)]});}
    catch {await route.fulfill({status:404,body:'Missing fixture'});}
@@ -116,6 +117,31 @@ const docs=path.resolve(__dirname,'../docs');
   assert((await page.locator('#upcoming-signals-body').textContent()).includes('Sälj inför rapport'));
   assert((await page.locator('#upcoming-signals-body').textContent()).includes('rapportsälj tillåten'));
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  override.strategies.report_avoidance.stocks['TEST.ST'].next_action={type:'NONE'};
+  override.strategies.report_avoidance.stocks['TEST.ST'].strategy_filter={buy_allowed:false,trading_days_to_report:5,next_report_date:'2026-10-13',report_exit_date:'2026-10-12'};
+  await page.reload();
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#upcoming-count').textContent(),'1');
+  assert((await page.locator('#upcoming-signals-body').textContent()).includes('5 börsdagar till rapport'));
+  assert((await page.locator('#upcoming-signals-body').textContent()).includes('12 okt'));
+  override.strategies.report_avoidance.stocks['TEST.ST'].strategy_filter.trading_days_to_report=6;
+  await page.reload();
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#upcoming-count').textContent(),'0');
+  override.strategies.standard.stocks={'TEST.ST':{latest:{date:'2026-10-06',score:8,close:100},position:{lots:0},next_action:{type:'NONE'},strategy_filter:{buy_allowed:true},signals:[]}};
+  forecastOverride={stocks:{'TEST.ST':{as_of:'2026-10-06',session:'2026-10-07',buy:{price:95.5,direction:'below',multiple_crossings:true}}}};
+  await page.goto('https://overview-ui.test/signals.html?strategy=standard');
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert.equal(await page.locator('#upcoming-count').textContent(),'1');
+  assert((await page.locator('#upcoming-signals-body').textContent()).includes('Under ≈ 95,5 kr'));
+  const info=page.locator('button[aria-label="Information om stängningsgränsen"]');
+  assert((await info.getAttribute('data-tooltip')).includes('oförändrad EPS'));
+  await info.focus();
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('button[aria-label="Information om stängningsgränsen"]'),'::after').opacity==='1');
+  forecastOverride.stocks['TEST.ST'].as_of='2026-10-04';
+  await page.reload();
+  await page.waitForSelector('#overview-content:not([hidden])');
+  assert(!(await page.locator('#upcoming-signals-body').textContent()).includes('95,5 kr'));
   assert.deepEqual(errors,[]);
   console.log('Overview UI passed: independent counts, three strategies at top, navigation, persistence, recent executions, report exits, search and mobile.');
  } finally {await browser.close();}

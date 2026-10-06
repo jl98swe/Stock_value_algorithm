@@ -14,4 +14,18 @@ assert.equal(candidate(report).actual,true);
 assert.equal(candidate(report).reportExit,true);
 assert.equal(candidate(report).armed,true);
 assert.equal(candidate({...report,latest:{score:null}}).side,'SELL');
+assert.equal(candidate({...stock,latest:{score:11}}).side,'BUY');
+assert.equal(candidate({...stock,latest:{score:11.01}}),null);
+assert.equal(candidate({...stock,latest:{score:89},position:{lots:1}}).side,'SELL');
+assert.equal(candidate({...stock,latest:{score:88.99},position:{lots:1}}),null);
+const planned={...report,next_action:{type:'NONE'},strategy_filter:{buy_allowed:false,trading_days_to_report:5,next_report_date:'2026-02-10',report_exit_date:'2026-02-09'}};
+assert.equal(candidate(planned).reportExit,true);
+assert.equal(candidate(planned).actual,false);
+assert.equal(candidate(planned).reportDays,5);
+assert.equal(candidate({...planned,latest:{score:null}}).side,'SELL');
+assert.equal(candidate({...planned,strategy_filter:{...planned.strategy_filter,trading_days_to_report:6}}),null);
+assert.equal(candidate({...planned,position:{lots:0}}),null);
+const earlierSell=candidate({...planned,next_action:{type:'SELL',exit_reason:'score'}});
+assert.equal(earlierSell.actual,true);
+assert.equal(earlierSell.reportExit,false); // A score sell tomorrow must not be delayed to the report exit.
 console.log('Overview strategy filters and report-exit checks passed.');
