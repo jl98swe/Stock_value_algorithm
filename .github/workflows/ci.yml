@@ -37,6 +37,11 @@ jobs:
       - name: Testa mobilväljare och händelseband
         run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs
 
+      - name: Testa ritade ikonpositioner med ECharts
+        run: |
+          npm install --prefix "$RUNNER_TEMP/chart-tests" --no-save --ignore-scripts --package-lock=false echarts@5.6.0
+          ECHARTS_TEST_MODULE="$RUNNER_TEMP/chart-tests/node_modules/echarts" node --test tests/test_event_positions.cjs
+
       - name: Installera Python
         uses: actions/setup-python@v6
         with:
