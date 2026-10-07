@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-06T22:56:28+02:00",
+  "generated_at": "2026-10-07T23:14:34+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/getinge",
-  "items": []
+  "items": [
+    {
+      "ticker": "GETI-B.ST",
+      "company": "Getinge AB (publ)",
+      "published_at": "2026-10-07T14:45:00+02:00",
+      "title": "Getinge announces departure of Eric Honroth, President Life Science",
+      "link": "https://mfn.se/cis/a/getinge/getinge-announces-departure-of-eric-honroth-president-life-science-1c53e4d4",
+      "source": "MFN",
+      "summary": "Getinge announces departure of Eric Honroth, President Life Science 2026-10-07 14:45:00 Getinge today announced that Eric Honroth will resign as President Life Science and member of the Executive Team to accept an external opportunity. \"We are thankful for Eric's important contributions to Getinge, first as President for North America Sales and later as President Life Science,\" said Mattias Perjos, President & CEO at Getinge. \"His leadership, commitment and clear strategic direction have helped strengthen the business and create a strong foundation for the future. I would like to sincerely thank Eric for our collaboration and wish him every s",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "45e1a531e5ab800b"
+    }
+  ]
 }

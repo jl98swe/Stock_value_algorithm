@@ -1,7 +1,95 @@
 {
-  "generated_at": "2026-10-06T22:58:41+02:00",
+  "generated_at": "2026-10-07T23:16:39+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "SINT.ST",
+      "company": "SinterCast AB (publ)",
+      "published_at": "2026-10-07T16:18:00+02:00",
+      "title": "SinterCast serieproduktion ökade med 19 % under tredje kvartalet 2026",
+      "link": "https://mfn.se/a/sintercast/sintercast-serieproduktion-okade-med-19-under-tredje-kvartalet-2026",
+      "source": "MFN",
+      "summary": "SinterCast serieproduktion ökade med 19 % under tredje kvartalet 2026 2026-10-07 16:18:00 Pressmeddelande För omedelbar distribution Serieproduktionen under tredje kvartalet ökade med 19 % mot jämförelsekvartalet, till 3,25 miljoner motor-ekvivalenter i årstakt September nådde den högsta månatliga produktionsnivån på 25 månader, motsvarande 3,8 miljoner motorekvivalenter i årstakt Leveranserna av provtagningskoppar ökade med 80 % under tredje kvartalet mot jämförelsekvartalet, vilket återspeglar ökad aktivitet hos våra gjuterikunder [Stockholm, 7 oktober 2026] – SinterCasts serieproduktion inom befintliga program fortsatte den positiva återhä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "dd95381c910a0f82"
+    },
+    {
+      "ticker": "GETI-B.ST",
+      "company": "Getinge AB (publ)",
+      "published_at": "2026-10-07T14:45:00+02:00",
+      "title": "Getinge meddelar att Eric Honroth avgår som President Life Science",
+      "link": "https://mfn.se/cis/a/getinge/getinge-meddelar-att-eric-honroth-avgar-som-president-life-science-caf1033e",
+      "source": "MFN",
+      "summary": "Getinge meddelar att Eric Honroth avgår som President Life Science 2026-10-07 14:45:00 Getinge meddelade idag att Eric Honroth avgår som President Life Science och medlem av koncernledningen för att gå vidare till nya utmaningar utanför bolaget. - Vi är tacksamma för Erics viktiga insatser för Getinge, först som President North America Sales och senare som President Life Science, säger Mattias Perjos, VD och koncernchef på Getinge. - Hans ledarskap, engagemang och tydliga strategiska riktning har bidragit till att stärka verksamheten och skapa en stark grund för framtiden. Jag vill rikta ett varmt tack till Eric för vårt samarbete och önska h",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "98c642433481a0ea"
+    },
+    {
+      "ticker": "GETI-B.ST",
+      "company": "Getinge AB (publ)",
+      "published_at": "2026-10-07T09:00:00+02:00",
+      "title": "Getinge invites fund managers, analysts, and media to Q3 Report 2026 conference call",
+      "link": "https://mfn.se/cis/a/getinge/getinge-invites-fund-managers-analysts-and-media-to-q3-report-2026-conference-call-b8905a7a",
+      "source": "MFN",
+      "summary": "Getinge invites fund managers, analysts, and media to Q3 Report 2026 conference call 2026-10-07 09:00:00 Getinge will issue its Q3 Report 2026 on October 21, 2026, at 08.00 a.m. CEST, followed by a conference call at 10.00 a.m. CEST, hosted by Mattias Perjos, President & CEO, and Agneta Palmér, CFO. Fund managers, analysts and media are invited to participate in the conference call. To participate via telephone conference, please register via this link . After registration, you will be provided with telephone numbers and a conference ID to access the conference. You can ask questions verbally via the telephone conference. During the conferenc",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "be0a5f29ddf03c07"
+    },
+    {
+      "ticker": "VITR.ST",
+      "company": "Vitrolife AB (publ)",
+      "published_at": "2026-10-07T08:00:00+02:00",
+      "title": "Inbjudan till Vitrolife Groups presentation av delårsrapporten för Q3 2026",
+      "link": "https://mfn.se/a/vitrolife/inbjudan-till-vitrolife-groups-presentation-av-delarsrapporten-for-q3-2026",
+      "source": "MFN",
+      "summary": "Inbjudan till Vitrolife Groups presentation av delårsrapporten för Q3 2026 2026-10-07 08:00:00 Vitrolife AB (publ) publicerar delårsrapporten för Q3 2026 torsdagen den 22 oktober 2026 kl. 08.00 CET. En telefonkonferens för investerare, analytiker och finansiell media kommer att hållas samma dag kl. 10.00 CET. Presentationen kommer att hållas på engelska av Bronwyn Brophy O’Connor, CEO, och Pär Ihrskog, CFO. Telefonkonferensen inleds med en presentation av rapporten, följt av en frågestund. Presentationsmaterialet kommer att finnas tillgängligt före konferensens start på Vitrolife Groups hemsida www.vitrolifegroup.com . För att följa webbsändn",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "daf79ee2090e5f94"
+    },
     {
       "ticker": "EAST.ST",
       "company": "Eastnine",

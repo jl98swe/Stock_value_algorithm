@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-06T22:55:40+02:00",
+  "generated_at": "2026-10-07T23:13:39+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/clas-ohlson",
   "items": [
+    {
+      "ticker": "CLAS-B.ST",
+      "company": "Clas Ohlson",
+      "published_at": "2026-10-07T07:00:00+02:00",
+      "title": "Clas Ohlsons försäljning ökade i september jämfört med föregående år",
+      "link": "https://mfn.se/a/clas-ohlson/clas-ohlsons-forsaljning-okade-i-september-jamfort-med-foregaende-ar",
+      "source": "MFN",
+      "summary": "Clas Ohlsons försäljning ökade i september jämfört med föregående år 2026-10-07 07:00:00 Nettoomsättningen i september uppgick till 1 119 Mkr (939), en ökning med 19 procent, varav 12 procent avser organisk tillväxt 1 , 3 procent förvärv 2 och 5 procent valutaeffekter. Jämfört med samma månad föregående år har butiksbeståndet ökat med 10 butiker. Vid periodens utgång uppgick det totala antalet butiker till 252 (242). Den totala nettoomsättningen under perioden maj-september 2026 uppgick till 5 551 Mkr (4 771), en ökning med 16 procent, varav 11 procent avser organisk tillväxt 1 , 3 procent förvärv 2 och 3 procent valutaeffekter. Fördelning fö",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "acc75dec92e48287"
+    },
     {
       "ticker": "CLAS-B.ST",
       "company": "Clas Ohlson",
