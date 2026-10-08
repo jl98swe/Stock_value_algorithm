@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-10-07T23:16:39+02:00",
+  "generated_at": "2026-10-08T23:18:49+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "CATE.ST",
+      "company": "Catena",
+      "published_at": "2026-10-08T11:00:00+02:00",
+      "title": "Change to Senior Management at Catena",
+      "link": "https://mfn.se/cis/a/catena/change-to-senior-management-at-catena-d7b84a2b",
+      "source": "MFN",
+      "summary": "Change to Senior Management at Catena 2026-10-08 11:00:00 Catena's Head of Business and Projects, Adam Ljungviken, has decided to leave his position for personal reasons. 8 October 2026, 11.00 a.m. CEST Adam Ljungviken joined Catena in 2023 and has been a member of the company's Senior Management Team since 2025. During his time at Catena, Adam has, among other things, led and further developed the company's business development activities. \"I would like to thank Adam for his work and valuable contributions to Catena. Through his determination and strong commercial drive, he has contributed to developing the company's operations and strengthe",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "50b458497a6e53ce"
+    },
+    {
+      "ticker": "COOR.ST",
+      "company": "Coor Service Management",
+      "published_at": "2026-10-08T09:00:00+02:00",
+      "title": "Coor förlänger IFM-avtal med ABB och ABB Robotics",
+      "link": "https://mfn.se/cis/a/coor-service-management-holding/coor-forlanger-ifm-avtal-med-abb-och-abb-robotics-a49e1aa7",
+      "source": "MFN",
+      "summary": "Coor förlänger IFM-avtal med ABB och ABB Robotics 2026-10-08 09:00:00 Coor har förlängt avtalet med ABB och ABB Robotics avseende leverans av ett flertal FM-tjänster till ABB och ABB Robotics i Sverige. Det nya avtalet sträcker sig över tre år med en option på ytterligare två år. Det årliga kontraktsvärdet uppgår till ca 150 MSEK för Sverige, Norge, Estland och Litauen. ABB har förnyat avtalet med Coor avseende samordning, leverans och utveckling av ett stort antal FM-tjänster till ABB:s och ABB Robotics kontors- och produktionsanläggningar i Sverige, Norge, Estland och Litauen. Bland tjänsterna ingår fastighetstjänster, säkerhetstjänster, lo",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b78e58206e87f385"
+    },
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-10-08T08:30:00+02:00",
+      "title": "Atlas Copco: Q3 report 2026 and invitation to the conference call October 22",
+      "link": "https://mfn.se/cis/a/atlas-copco/atlas-copco-q3-report-2026-and-invitation-to-the-conference-call-october-22-ef6f239b",
+      "source": "MFN",
+      "summary": "Atlas Copco: Q3 report 2026 and invitation to the conference call October 22 2026-10-08 08:30:00 Nacka, Sweden, October 8, 2026: Atlas Copco Group will publish its Q3 results for 2026 on Thursday, October 22, at approximately 12:00 CEST. A conference call for investors, analysts and media will be held at 14:00 CEST the same day. Participating from Atlas Copco Group will be Vagner Rego, President and CEO, and Peter Kinnart, CFO. The conference call will begin with a short presentation of the report followed by a question-and-answer session. To follow the presentation webcast, access this link: https://atlas-copco-group.events.inderes.com/q3-re",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5ea5f69a6de835ba"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-08T08:00:00+02:00",
+      "title": "Enersense auttaa turvaamaan viranomaisviestinnän toimintaa häiriötilanteissa",
+      "link": "https://mfn.se/a/enersense-international/enersense-auttaa-turvaamaan-viranomaisviestinnan-toimintaa-hairiotilanteissa",
+      "source": "MFN",
+      "summary": "Enersense auttaa turvaamaan viranomaisviestinnän toimintaa häiriötilanteissa 2026-10-08 08:00:00 Enersense International Oyj | Lehdistötiedote | 08.10.2026 klo 09:00:00 EEST Enersense ja Erillisverkot ovat solmineet sopimuksen, jossa Enersense auttaa turvaamaan Erillisverkkojen viranomaisviestintää toimittamalla ja varastoimalla siirrettäviä varavoimakoneita eri puolille Suomea. Palvelun tavoitteena on varmistaa kriittisen viestintäinfrastruktuurin toiminta myös sähkökatkojen ja häiriötilanteiden aikana. Kriittiset tietoliikenneverkot ovat keskeinen osa yhteiskunnan toimintavarmuutta. Viranomaisviestintää tukevan Virve-palvelun toiminnan on j",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "aa2654343027b426"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-08T08:00:00+02:00",
+      "title": "Hans-Jørgen Wibstad utsedd till CFO för nya koncernen Multiconsult Rejlers",
+      "link": "https://mfn.se/cis/a/rejlers/hans-jorgen-wibstad-utsedd-till-cfo-for-nya-koncernen-multiconsult-rejlers-bce2fd15",
+      "source": "MFN",
+      "summary": "Hans-Jørgen Wibstad utsedd till CFO för nya koncernen Multiconsult Rejlers 2026-10-08 08:00:00 Multiconsult ASA (OSE: MULTI) och Rejlers AB (publ) (STO: REJL B) Hans-Jørgen Wibstad har utsetts till Chief Financial Officer (CFO) för Multiconsult ASA med tillträde den 1 november 2026. Efter genomförandet av den planerade fusionen mellan Multiconsult ASA och Rejlers AB (publ), under förutsättning av aktieägarnas godkännande och att övriga villkor för genomförandet uppfylls, blir han CFO för det sammanslagna bolaget, Multiconsult Rejlers. Han kommer att vara baserad vid main office i Oslo. Utnämningen fullbordar den rekryteringsprocess som kommun",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a290b7312550009a"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-10-08T08:00:00+02:00",
+      "title": "Britta Rosenqvist ny Sverigechef för Nordnet",
+      "link": "https://mfn.se/cis/a/nordnet/britta-rosenqvist-ny-sverigechef-for-nordnet-e28337d8",
+      "source": "MFN",
+      "summary": "Britta Rosenqvist ny Sverigechef för Nordnet 2026-10-08 08:00:00 Den 1 december kliver Britta Rosenqvist in i rollen som ny Sverigechef för Nordnet. Med sig in i uppdraget har hon en bred och mångårig erfarenhet från en rad ledande befattningar inom den svenska bank- och finansvärlden. Britta Rosenqvist kommer närmast från Swedbank Robur, där hon varit försäljningschef. Hon har tidigare haft flera ledande roller inom Skandiabanken, bland annat som produktchef för Spara & Betala samt hållbarhetschef. Innan dess tillbringade Britta över åtta år på Avanza, bland annat som chef för tredjepartsdistribution. - Vi är mycket stolta och glada över att",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "144c459b5711bd09"
+    },
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-10-08T08:00:00+02:00",
+      "title": "Inbjudan - Swedbanks rapport för tredje kvartalet 2026",
+      "link": "https://mfn.se/cis/a/swedbank/inbjudan-swedbanks-rapport-for-tredje-kvartalet-2026-072b8c5a",
+      "source": "MFN",
+      "summary": "Inbjudan - Swedbanks rapport för tredje kvartalet 2026 2026-10-08 08:00:00 Swedbanks rapport för tredje kvartalet 2026 publiceras torsdag 22 oktober klockan 07:00. Telefonkonferens Investerare och analytiker är välkomna till en presentation och frågestund med Jens Henriksson (vd och koncernchef), Jon Lidefelt (finanschef) och Maria Caneman (chef för Investor Relations). Telefonkonferensen börjar klockan 09:30 och går att följa via webbsändning eller telefon: Sverige: +46 (0)8 5051 0031 UK: +44 (0) 203 059 58 63 USA: +1 (1) 631 570 56 13 Tyskland: +49 (0)69 505 0 0082 Rapporten, en inspelning av telefonkonferensen samt annat relaterat material",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "32c9814e859fd4f5"
+    },
     {
       "ticker": "SINT.ST",
       "company": "SinterCast AB (publ)",

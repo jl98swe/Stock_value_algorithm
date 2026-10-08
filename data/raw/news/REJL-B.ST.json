@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-07T23:15:41+02:00",
+  "generated_at": "2026-10-08T23:17:59+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/rejlers",
-  "items": []
+  "items": [
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-08T08:00:00+02:00",
+      "title": "Hans-Jørgen Wibstad appointed CFO of proposed Multiconsult Rejlers",
+      "link": "https://mfn.se/cis/a/rejlers/hans-jorgen-wibstad-appointed-cfo-of-proposed-multiconsult-rejlers-b9743285",
+      "source": "MFN",
+      "summary": "Hans-Jørgen Wibstad appointed CFO of proposed Multiconsult Rejlers 2026-10-08 08:00:00 Multiconsult ASA (OSE: MULTI) and Rejlers AB (publ) (STO: REJL B) Hans-Jørgen Wibstad has been appointed Chief Financial Officer (CFO) of Multiconsult ASA, effective 1 November 2026. Upon completion of the proposed merger between Multiconsult ASA and Rejlers AB (publ), subject to shareholder approval and fulfilment of the other closing conditions, he will become CFO of the combined company, Multiconsult Rejlers. He will be based at the main office in Oslo. The appointment completes the recruitment process announced when the companies presented the proposed ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "df2d0afb1132202f"
+    }
+  ]
 }

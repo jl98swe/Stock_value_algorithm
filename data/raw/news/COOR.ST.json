@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-07T23:13:42+02:00",
+  "generated_at": "2026-10-08T23:16:13+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/coor-service-management-holding",
-  "items": []
+  "items": [
+    {
+      "ticker": "COOR.ST",
+      "company": "Coor Service Management",
+      "published_at": "2026-10-08T09:00:00+02:00",
+      "title": "Coor extends IFM agreement with ABB and ABB Robotics",
+      "link": "https://mfn.se/cis/a/coor-service-management-holding/coor-extends-ifm-agreement-with-abb-and-abb-robotics-c3aedb82",
+      "source": "MFN",
+      "summary": "Coor extends IFM agreement with ABB and ABB Robotics 2026-10-08 09:00:00 Coor has extended its agreement with ABB and ABB Robotics regarding the delivery of a range of FM services to ABB and ABB Robotics in Sweden. The new contract spans three years with an option to extend it for a further two. The annual contract value amounts to approximately SEK 150 million for Sweden, Norway, Estonia and Lithuania. ABB has renewed its agreement with Coor regarding the coordination, delivery and development of a wide range of FM services for ABB's and ABB Robotics' offices and production facilities in Sweden, Norway, Estonia and Lithuania. The services in",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "29e157c44d6ee211"
+    }
+  ]
 }
