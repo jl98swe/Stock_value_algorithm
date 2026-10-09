@@ -35,7 +35,7 @@ jobs:
           node-version: "22"
 
       - name: Testa mobilväljare och händelseband
-        run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs
+        run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs tests/test_company_news.cjs
 
       - name: Testa ritade ikonpositioner med ECharts
         run: |
@@ -107,4 +107,5 @@ jobs:
           )
           print(f"Smoke test OK: {len(tickers)} tickers, modell aktiv, dashboard från 2019-09-02.")
           PY
+
 

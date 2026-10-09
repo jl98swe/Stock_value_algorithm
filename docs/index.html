@@ -6,13 +6,14 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20261006-1">
+  <link rel="stylesheet" href="./assets/style.css?v=20261009-1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261009-1"></script>
-  <script defer src="./assets/app.js?v=20261009-2"></script>
+  <script defer src="./assets/company-news.js?v=20261009-1"></script>
+  <script defer src="./assets/app.js?v=20261009-3"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261006-1"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
-  <script defer src="./assets/chart-enhancements.js?v=20261006-7"></script>
+  <script defer src="./assets/chart-enhancements.js?v=20261009-1"></script>
   <script src="./assets/strategy-selection.js?v=20261006-6"></script>
 <style>.home-strategy-control{grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.home-strategy-control label{font-weight:700}.home-strategy-control select{padding:9px;border:1px solid var(--line);border-radius:8px;background:white}.home-strategy-control p{margin:0;font-size:13px}</style>
 </head>
@@ -192,7 +193,7 @@
             </div>
             <div id="news-list" class="news-list"></div>
             <div class="show-more-row">
-              <button id="news-toggle" class="secondary-button" type="button" aria-expanded="false" hidden>Visa mer</button>
+              <button id="news-toggle" class="secondary-button" type="button" aria-controls="news-list" aria-expanded="false" hidden>Visa alla nyheter</button>
             </div>
           </section>
 
@@ -237,4 +238,5 @@
   </div>
 </body>
 </html>
+
 

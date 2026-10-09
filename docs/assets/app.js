@@ -213,30 +213,7 @@
     const events = (state.eventsPayload?.events || [])
       .filter((event) => event.ticker === ticker && isCompanyNews(event))
       .sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
-    if (!events.length) {
-      $('news-list').innerHTML = '<div class="empty-state">Inga bolagsnyheter för aktien.</div>';
-      updateToggle('news-toggle', false, 0);
-      return;
-    }
-    const expanded = state.expanded.news.has(ticker);
-    const visibleEvents = expanded ? events : events.slice(0, 4);
-    $('news-list').innerHTML = visibleEvents.map((event) => {
-      const locking = Boolean(event.locking);
-      const status = event.review_status === 'reviewed' ? 'Granskad' : 'Ogranskad';
-      return `
-        <article class="news-item">
-          <div class="news-item-top">
-            <div>
-              <h3>${event.title}</h3>
-              <div class="news-meta">${prettyDate(event.published_at)} · ${event.source} · ${event.is_regulatory ? 'Regulatorisk' : 'Bolagsnyhet'}</div>
-            </div>
-            <span class="news-badge ${locking ? 'locking' : ''}">${locking ? 'Spärrar' : status}</span>
-          </div>
-          <p class="news-summary">${event.summary || ''}</p>
-          <a href="./review.html?ticker=${encodeURIComponent(ticker)}&event=${encodeURIComponent(event.event_id)}">Granska nyheten</a>
-        </article>`;
-    }).join('');
-    updateToggle('news-toggle', expanded, events.length);
+    window.companyNews.render($('news-list'), $('news-toggle'), events, state.expanded.news.has(ticker), ticker, prettyDate);
   }
 
   function renderTables(data) {
@@ -501,4 +478,5 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
 

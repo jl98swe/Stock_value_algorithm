@@ -6,6 +6,7 @@ HTML = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
 APP = (ROOT / "docs" / "assets" / "app.js").read_text(encoding="utf-8")
 ENHANCEMENTS = (ROOT / "docs" / "assets" / "chart-enhancements.js").read_text(encoding="utf-8")
 CSS = (ROOT / "docs" / "assets" / "style.css").read_text(encoding="utf-8")
+NEWS = (ROOT / "docs" / "assets" / "company-news.js").read_text(encoding="utf-8")
 
 
 def test_position_and_signals_panel_is_removed_completely():
@@ -34,14 +35,17 @@ def test_fundamental_lock_respects_hidden_attribute():
     assert "[hidden] { display: none !important; }" in CSS
 
 
-def test_homepage_histories_are_collapsed_to_four_rows():
+def test_homepage_news_has_one_title_and_other_histories_have_four_rows():
     assert 'id="news-toggle"' in HTML
     assert 'id="trades-toggle"' in HTML
     assert 'id="dividend-toggle"' in ENHANCEMENTS
-    assert "events.slice(0, 4)" in APP
+    assert "events.slice(0, 1)" in NEWS
+    assert 'Visa alla nyheter' in HTML
+    assert '<details class="news-details"' in NEWS
+    assert "window.companyNews.render" in APP
     assert "trades.slice(0, 4)" in APP
     assert "dividends.slice(0, 4)" in ENHANCEMENTS
-    assert "news.slice(0, 4)" in ENHANCEMENTS
+    assert "document.getElementById('news-list')" not in ENHANCEMENTS
 
 
 def test_backtest_and_recent_trade_copy_explain_the_data():
@@ -71,3 +75,4 @@ def test_report_markers_use_publication_date_and_stay_inside_short_range_chart()
     assert "name: 'Händelser', type: 'scatter', xAxisIndex: 2, yAxisIndex: 2" in ENHANCEMENTS
     assert "data: signalPoints" in ENHANCEMENTS
     assert "xAxisIndex: [0, 1, 2]" in APP
+
