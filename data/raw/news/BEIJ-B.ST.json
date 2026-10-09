@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-08T23:15:46+02:00",
+  "generated_at": "2026-10-09T22:46:37+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/beijer-ref",
   "items": [
+    {
+      "ticker": "BEIJ-B.ST",
+      "company": "Beijer Ref AB (publ)",
+      "published_at": "2026-10-09T15:10:00+02:00",
+      "title": "Beijer Ref AB: Beijer Ref slutför förvärvet av Refra",
+      "link": "https://mfn.se/cis/a/beijer-ref/beijer-ref-ab-beijer-ref-slutfor-forvarvet-av-refra-9658d3ec",
+      "source": "MFN",
+      "summary": "Beijer Ref AB: Beijer Ref slutför förvärvet av Refra 2026-10-09 15:10:00 Beijer Ref har slutfört förvärvet av Refra, en välkänd europeisk tillverkare av HVAC/R-system för naturliga köldmedier med bas i Litauen. I augusti 2026 tecknade Beijer Ref ett bindande avtal om förvärv av 90 procent av aktierna i Refra, med option att förvärva resterande aktier. Konkurrensmyndigheten i Litauen har nu utan förbehåll godkänt förvärvet av verksamheten, och transaktionen har därefter slutförts. Refra, som har huvudkontor i Vilnius, Litauen, kommer att fortsätta verka under eget varumärke. Verksamheten inkluderas i Beijer Ref-koncernens räkenskaper från och ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f39ac42d0b54c0b3"
+    },
     {
       "ticker": "BEIJ-B.ST",
       "company": "Beijer Ref AB (publ)",

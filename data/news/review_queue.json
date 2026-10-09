@@ -1,7 +1,73 @@
 {
-  "generated_at": "2026-10-08T23:18:49+02:00",
+  "generated_at": "2026-10-09T22:49:37+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "BOL.ST",
+      "company": "Boliden",
+      "published_at": "2026-10-09T14:34:58+02:00",
+      "title": "Inbjudan presentation av Bolidens Q3 2026 rapport",
+      "link": "https://mfn.se/cis/a/boliden/inbjudan-presentation-av-bolidens-q3-2026-rapport-6b542d70",
+      "source": "MFN",
+      "summary": "Inbjudan presentation av Bolidens Q3 2026 rapport 2026-10-09 14:34:58 Bolidens rapport för tredje kvartalet 2026 publiceras torsdagen den 29 oktober, omkring kl. 13.00. Samma dag kl. 15.00 hålls en press- och analytikerkonferens som även kan följas via webbsändning och telefon. Rapporten kommer att presenteras av Mikael Staffas, vd och koncernchef, samt Håkan Gabrielsson, CFO, och presentationen hålls på engelska. Press- och analytikerkonferens torsdag 29 oktober Tid: 15.00 Plats: Klara, lokal Dagerman Adress: Klarabergsviadukten 90, Stockholm För att delta via webcasten använd följande länk: https://boliden.videosync.fi/2026-10-29-q3 För att",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "028bae22e23fb25b"
+    },
+    {
+      "ticker": "BILI-A.ST",
+      "company": "Bilia",
+      "published_at": "2026-10-09T14:00:00+02:00",
+      "title": "Press and analyst meeting",
+      "link": "https://mfn.se/a/bilia/press-and-analyst-meeting-10",
+      "source": "MFN",
+      "summary": "Press and analyst meeting 2026-10-09 14:00:00 On Friday, October 23, at 08:00 CEST, Bilia’s report for the third quarter 2026 will be published. On the same day Bilia arranges a press and analyst meeting via Financial Hearings, where CEO Per Avander, CFO Kristina Franzén and Head of Investor Relations & M&A Carl Fredrik Ewetz will present the report and answer questions. The presentation starts at 09:00 CEST. If you wish to participate via audiocast please use the link below. Via the audiocast you are able to ask written questions. Webcast - Q3 Rapport 2026 If you wish to participate via teleconference, please register on the link below. Afte",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f2c03b3c1c8c5054"
+    },
+    {
+      "ticker": "VOLV-A.ST",
+      "company": "AB Volvo (publ)",
+      "published_at": "2026-10-09T11:25:56+02:00",
+      "title": "AB Volvo: Inbjudan till press- och analytikerkonferens i Stockholm",
+      "link": "https://mfn.se/cis/a/volvo/ab-volvo-inbjudan-till-press-och-analytikerkonferens-i-stockholm-e2d13dd8",
+      "source": "MFN",
+      "summary": "AB Volvo: Inbjudan till press- och analytikerkonferens i Stockholm 2026-10-09 11:25:56 Volvokoncernens rapport för det tredje kvartalet 2026 kommer att publiceras den 23 oktober 2026 kl. 07.20. En presskonferens kommer att hållas för media och investerare kl. 09.00 på Tändstickspalatset, Västra Trädgårdsgatan 15 i Stockholm. Volvokoncernen kommer att representeras av vd och koncernchef Martin Lundstedt och finanschef Mats Backman. Länk till webbsändningen: qreport.volvogroup.com . Press och analytiker som vill delta i presskonferensen via telefonkonferens kan ringa in till telefonväxeln på telefonnummer 010-444 18 30 från kl. 08.00. För press",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8d5981c813b32828"
+    },
     {
       "ticker": "CATE.ST",
       "company": "Catena",

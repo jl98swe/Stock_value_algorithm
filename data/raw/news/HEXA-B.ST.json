@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-08T23:17:01+02:00",
+  "generated_at": "2026-10-09T22:47:51+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hexagon",
   "items": [
+    {
+      "ticker": "HEXA-B.ST",
+      "company": "Hexagon AB (publ)",
+      "published_at": "2026-10-09T08:00:00+02:00",
+      "title": "Hexagon förvärvar Rocscience och sluter cirkeln mellan övervakning av fysiska miljöer och avancerad simulering",
+      "link": "https://mfn.se/cis/a/hexagon/hexagon-forvarvar-rocscience-och-sluter-cirkeln-mellan-overvakning-av-fysiska-miljoer-och-avancerad-simulering-47c14914",
+      "source": "MFN",
+      "summary": "Hexagon förvärvar Rocscience och sluter cirkeln mellan övervakning av fysiska miljöer och avancerad simulering 2026-10-09 08:00:00 Hexagon AB offentliggjorde idag en överenskommelse om att förvärva Rocscience, en ledande leverantör av mjukvara för geoteknisk analys från TA Associates och Rosciences grundare och ledning. Rocscience kommer att ingå i divisionen Radar & Monitoring inom Hexagons affärsområde Infrastructure & Geospatial. Kunder inom gruvdrift och infrastruktur efterfrågar tidig förståelse för geologiska risker, snabba beslutsunderlag och kontinuerlig optimering för att förbättra säkerhet och produktivitet. Rocscience, med huvudkon",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e41a8c9e14438cc1"
+    },
     {
       "ticker": "HEXA-B.ST",
       "company": "Hexagon AB (publ)",
