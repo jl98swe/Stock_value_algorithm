@@ -80,9 +80,29 @@
       win_rate_pct:trade ? trade.return_pct>0 ? 100 : 0 : null,average_trade_pct:trade?.return_pct ?? null,
       open_count:0,open_return_pct:null},trades:trade ? [trade] : []};
   }
+  function fullHistoryRows(stock, variants, indexData) {
+    const candles = stock.candles || [], dates = candles.map(c => c.date);
+    const start = dates[0], end = dates.at(-1);
+    const indexCandles = (indexData?.candles || []).filter(c => c.date >= start && c.date <= end);
+    const indexDates = dates.filter(d => indexCandles.length && d >= indexCandles[0].date && d <= indexCandles.at(-1).date);
+    const references = {
+      buy_and_hold: referenceSummary(candles, variants?._dividends || [], dates),
+      omxsgi: referenceSummary(indexCandles, [], indexDates, 0)
+    };
+    return Object.entries(names).map(([id, name]) => {
+      const closed = reference(id) ? references[id].trades : variants?.[id]?.closed_trades || [];
+      const summary = reference(id) ? references[id].summary : {
+        return_pct: compound(closed), trade_count: closed.length,
+        win_rate_pct: closed.length ? closed.filter(t => t.return_pct > 0).length / closed.length * 100 : null
+      };
+      return { id, name, start: id === 'omxsgi' ? indexDates[0] : start,
+        end: id === 'omxsgi' ? indexDates.at(-1) : end, ...summary };
+    });
+  }
   // Also exposed for deterministic tests of the period rules.
-  if (typeof module !== 'undefined') module.exports = {periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary};
-  if (typeof document === 'undefined') return;
+  if (typeof module !== 'undefined') module.exports = {periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows};
+  if (typeof window !== 'undefined') window.backtestMetrics = {fullHistoryRows};
+  if (typeof document === 'undefined' || !document.getElementById('method-stock')) return;
 
   const params = new URLSearchParams(location.search);
   let stock = null, variants = null, stockMeta = null, indexData = null, requestId = 0, visibleTrades = 50;
@@ -185,3 +205,4 @@
   }
   init();
 })();
+

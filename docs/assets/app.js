@@ -16,6 +16,7 @@
     strategy: window.strategySelection.get(),
     overviews: null,
     backtests: {},
+    indexData: null,
     range: '3m',
     chart: null,
     expanded: { news: new Set(), trades: new Set() }
@@ -246,11 +247,9 @@
   }
 
   function renderTables(data) {
-    const tradesClosed = data.closed_trades || [];
-    const result = tradesClosed.length ? (tradesClosed.reduce((capital,t)=>capital*(1+t.return_pct/100),1)-1)*100 : null;
-    const period = `${prettyDate(data.candles?.[0]?.date)}–${prettyDate(data.candles?.at(-1)?.date)}`;
-    $('strategy-table').innerHTML = `<thead><tr><th>Strategi</th><th>Period</th><th>Avkastning</th><th>Avslutade positioner</th><th>Vinstaffärer</th></tr></thead><tbody><tr><td>${window.strategySelection.names[state.strategy]}</td><td>${period}</td><td>${pct(result)}</td><td>${tradesClosed.length}</td><td>${pct(tradesClosed.length ? tradesClosed.filter(t=>t.return_pct>0).length/tradesClosed.length*100 : null)}</td></tr></tbody>`;
-    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}">Visa jämförelser och tidsperioder i Metod &amp; backtest</a>`;
+    const rows = window.backtestMetrics.fullHistoryRows(state.dashboard.stocks[state.selectedTicker], state.backtests[state.selectedTicker], state.indexData);
+    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
+    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
     const trades = [...(data.closed_trades || []).map((trade) => ({ ...trade, open: false }))];
@@ -473,13 +472,15 @@
 
   async function init() {
     try {
-      const [stocksPayload, dashboard, eventsPayload, overviews] = await Promise.all([
-        loadJson(PATHS.stocks), loadJson(PATHS.dashboard), loadJson(PATHS.events), loadJson('./data/strategy_overviews.json')
+      const [stocksPayload, dashboard, eventsPayload, overviews, indexData] = await Promise.all([
+        loadJson(PATHS.stocks), loadJson(PATHS.dashboard), loadJson(PATHS.events), loadJson('./data/strategy_overviews.json'),
+        loadJson('./data/benchmarks/omxsgi.json').catch(() => null)
       ]);
       state.stocksPayload = stocksPayload;
       state.dashboard = { ...dashboard, stocks: {} };
       state.eventsPayload = eventsPayload;
       state.overviews = overviews;
+      state.indexData = indexData;
 
       const generatedAt = dashboard.meta?.generated_at || stocksPayload.generated_at;
       $('last-updated').textContent = generatedAt ? new Date(generatedAt).toLocaleString('sv-SE') : 'Okänt';
@@ -507,3 +508,4 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
