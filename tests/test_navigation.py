@@ -18,7 +18,7 @@ EXPECTED_LINKS = [
     ("./signals.html", "Kommande signaler"),
     ("./reports.html", "Rapporter"),
     ("./review.html", "Granska nyheter och data"),
-    ("./method.html", "Metod"),
+    ("./method.html", "Metod & backtest"),
 ]
 
 
@@ -59,3 +59,4 @@ def test_primary_navigation_is_identical_on_every_page():
 
         assert [(link["href"], link["label"]) for link in parser.links] == EXPECTED_LINKS
         assert [link["href"] for link in parser.links if link["current"] == "page"] == [current_path]
+
