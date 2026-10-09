@@ -8,6 +8,15 @@ ENHANCEMENTS = (ROOT / "docs" / "assets" / "chart-enhancements.js").read_text(en
 CSS = (ROOT / "docs" / "assets" / "style.css").read_text(encoding="utf-8")
 
 
+def test_position_and_signals_panel_is_removed_completely():
+    assert 'Position och signaler' not in HTML
+    assert 'position-title' not in HTML
+    assert 'position-content' not in HTML
+    assert "$('position-content')" not in APP
+    assert 'Rapportstatus' in HTML
+    assert 'report.next_report_end' in APP
+
+
 def test_decorative_data_badges_and_trade_workflow_link_are_removed():
     assert 'id="data-badge"' not in HTML
     assert 'id="quality-badge"' not in HTML

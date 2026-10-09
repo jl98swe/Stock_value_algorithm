@@ -32,7 +32,7 @@ from .fundamentals import (
     valuation_calculation_mode,
 )
 from .model_data import ensure_gbm_model
-from .reporting import build_reports_payload
+from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
 from .report_date_revisions import changed_date_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
 from .score_history import (
@@ -253,17 +253,32 @@ def _strategy_live_payload(strategy: dict | None, filters: dict) -> dict:
     return {"position": position, "next_action": action, "signals": signals, "strategy_filter": filters}
 
 
-def _report_payload(ticker: str, reports: pd.DataFrame, calendar: pd.DataFrame) -> dict[str, object]:
+def _report_payload(
+    ticker: str, reports: pd.DataFrame, calendar: pd.DataFrame,
+    *, schedule: pd.DataFrame | None = None, as_of: pd.Timestamp | None = None,
+) -> dict[str, object]:
     latest = latest_verified_report(ticker, reports)
     next_report = None
-    now = pd.Timestamp.now(tz="UTC")
-    future = calendar.loc[
-        (calendar["ticker"] == ticker)
-        & calendar["scheduled_at"].notna()
-        & (calendar["scheduled_at"] >= now)
-    ].sort_values("scheduled_at")
+    next_report_end = None
+    next_report_source = None
+    next_report_status = None
+    combined = _combined_schedule(load_auto_report_calendar(), calendar) if schedule is None else schedule
+    today = (pd.Timestamp.now(tz="Europe/Stockholm").date() if as_of is None else pd.Timestamp(as_of).date())
+    future = combined.loc[
+        combined["ticker"].eq(ticker)
+        & combined["report_date_end"].ge(pd.Timestamp(today))
+    ].sort_values(["report_date_start", "schedule_priority"])
     if not future.empty:
-        next_report = _iso_timestamp(future.iloc[0]["scheduled_at"])
+        row = future.iloc[0]
+        next_report = _iso_date(row["report_date_start"])
+        next_report_end = _iso_date(row["report_date_end"])
+        next_report_source = str(row["source"] or "")
+        next_report_status = str(row["date_status"] or "")
+
+    upcoming = {
+        "next_report": next_report, "next_report_end": next_report_end,
+        "next_report_source": next_report_source, "next_report_status": next_report_status,
+    }
 
     if latest is None:
         return {
@@ -271,14 +286,14 @@ def _report_payload(ticker: str, reports: pd.DataFrame, calendar: pd.DataFrame) 
             "eps_ttm": None,
             "effective_date": None,
             "verified": False,
-            "next_report": next_report,
+            **upcoming,
         }
     return {
         "period": str(latest.get("report_period") or ""),
         "eps_ttm": _json_number(latest.get("eps_ttm")),
         "effective_date": _iso_date(latest.get("effective_date")),
         "verified": bool(latest.get("verified", False)),
-        "next_report": next_report,
+        **upcoming,
     }
 
 
@@ -337,6 +352,7 @@ def _stock_payload(
     score_history: pd.DataFrame,
     frozen_at: str,
     dividends: pd.DataFrame,
+    report_schedule: pd.DataFrame | None = None,
 ) -> tuple[dict[str, object], dict[str, object], pd.DataFrame, pd.DataFrame]:
     frame = frame.sort_values("date").reset_index(drop=True)
     latest_price = frame.iloc[-1]
@@ -408,7 +424,7 @@ def _stock_payload(
         for row in dividends.loc[dividends["ticker"].astype(str) == ticker].itertuples(index=False)
     ]
     write_json_atomic(DOCS_DATA / "backtests" / f"{ticker}.json", backtests)
-    report_payload = _report_payload(ticker, reports, calendar)
+    report_payload = _report_payload(ticker, reports, calendar, schedule=report_schedule)
     dashboard_stock = {
         "latest": {
             "date": _iso_date(latest_price["date"]),
@@ -556,6 +572,7 @@ def build_dashboard(
     reports = load_reports()
     reviews = load_reviews()
     calendar = load_report_calendar()
+    report_schedule = _combined_schedule(load_auto_report_calendar(), calendar)
     dividends = load_dividend_history()
     generated_at = datetime.now(ZoneInfo("Europe/Stockholm")).isoformat(timespec="seconds")
     score_history = load_score_history(score_history_file)
@@ -607,6 +624,7 @@ def build_dashboard(
             score_history,
             generated_at,
             dividends,
+            report_schedule,
         )
         meta["active_for_updates"] = bool(active_tickers([str(ticker)]))
         payload["active_for_updates"] = meta["active_for_updates"]

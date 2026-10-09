@@ -1,0 +1,46 @@
+name: Uppdatera startsidans rapportstatus
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - src/pipeline.py
+      - src/refresh_home_report_status.py
+      - .github/workflows/refresh_report_status.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stock-data-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Installera beroenden
+        run: python -m pip install -r requirements.txt
+      - name: Uppdatera endast rapportstatus i befintlig webbdata
+        run: |
+          git pull --ff-only origin "$GITHUB_REF_NAME"
+          python -m src.refresh_home_report_status
+      - name: Spara korrigerad rapportstatus
+        run: |
+          git add docs/data/dashboard.json docs/data/dashboard
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Uppdatera startsidans kommande rapportdatum'
+            git push origin HEAD:"$GITHUB_REF_NAME"
+          fi

@@ -175,18 +175,11 @@
   }
 
   function renderStatus(data) {
-    const p = data.position || {};
     const report = data.report || {};
     const repo = state.dashboard.meta?.repository_url || 'https://github.com/jl98swe/Stock_value_algorithm';
-
-    $('position-content').innerHTML = `
-      <div class="status-stack">
-        <div class="status-line"><span>Aktiv position</span><strong>${p.lots ? 'Ja' : 'Nej'}</strong></div>
-        <div class="status-line"><span>Genomsnittligt inköp</span><strong>${p.avg_entry ? money(p.avg_entry) : '–'}</strong></div>
-        <div class="status-line"><span>Senaste köp</span><strong>${prettyDate(p.last_buy_date)}</strong></div>
-        <div class="status-line"><span>Köp återaktiverat</span><strong>${p.buy_armed ? 'Ja' : 'Nej'}</strong></div>
-        <div class="status-line"><span>Sälj återaktiverat</span><strong>${p.sell_armed ? 'Ja' : 'Nej'}</strong></div>
-      </div>`;
+    const nextReport = report.next_report_end && report.next_report_end !== report.next_report
+      ? `${prettyDate(report.next_report)}–${prettyDate(report.next_report_end)}`
+      : prettyDate(report.next_report);
 
     $('report-content').innerHTML = `
       <div class="status-stack">
@@ -194,7 +187,7 @@
         <div class="status-line"><span>EPS TTM</span><strong>${formatEps(report.eps_ttm)}</strong></div>
         <div class="status-line"><span>Effektiv handelsdag</span><strong>${prettyDate(report.effective_date)}</strong></div>
         <div class="status-line"><span>Verifierad</span><strong>${report.verified ? 'Ja' : 'Nej'}</strong></div>
-        <div class="status-line"><span>Nästa rapport</span><strong>${prettyDate(report.next_report)}</strong></div>
+        <div class="status-line"><span>Nästa rapport</span><strong>${nextReport}${report.next_report_status === 'estimated_range' ? ' (preliminärt)' : ''}</strong></div>
       </div>`;
 
     $('report-workflow-link').href = `${repo}/actions`;
