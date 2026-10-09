@@ -8,7 +8,8 @@
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
   <link rel="stylesheet" href="./assets/style.css?v=20261006-1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="./assets/app.js?v=20261006-7"></script>
+  <script defer src="./assets/method.js?v=20261009-1"></script>
+  <script defer src="./assets/app.js?v=20261009-1"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261006-1"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20261006-7"></script>
@@ -211,7 +212,7 @@
                 <div>
                   <span class="eyebrow">Strategi</span>
                   <h2 id="comparison-title">Historiskt backtest</h2>
-                  <p class="panel-description">Avslutade affärer sedan start för vald strategi, inklusive utdelningar och 0,25 procent courtage vid köp och sälj. Öppna positioner visas separat i historiken. Jämförelser med köp och behåll, OMXSGI och kortare tidsperioder finns under Metod &amp; backtest.</p>
+                  <p class="panel-description">Alla strategier och jämförelser för vald akties hela tillgängliga historik, oberoende av strategi- och tidsfilter. Strategierna visar avslutade affärer inklusive utdelningar och 0,25 procent courtage vid köp och sälj. Öppna positioner ingår inte. Jämförelsen köp och behåll värderas vid periodens slut; OMXSGI inkluderar återinvesterade utdelningar utan courtage.</p>
                 </div>
               </div>
               <div class="table-wrap"><table id="strategy-table" class="data-table"></table></div>
@@ -246,3 +247,4 @@
   </div>
 </body>
 </html>
+

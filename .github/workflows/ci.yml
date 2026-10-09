@@ -57,7 +57,9 @@ jobs:
         run: python -m pytest -q
 
       - name: Kontrollera periodregler för Metod
-        run: node tests/test_method_periods.cjs
+        run: |
+          node tests/test_method_periods.cjs
+          node --test tests/test_home_backtest.cjs
 
       - name: Kontrollera översikternas strategifilter
         run: node tests/test_overview_strategy.cjs
@@ -105,3 +107,4 @@ jobs:
           )
           print(f"Smoke test OK: {len(tickers)} tickers, modell aktiv, dashboard från 2019-09-02.")
           PY
+
