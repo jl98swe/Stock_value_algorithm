@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+import exchange_calendars as xcals
 
 from .config import ROOT
 from .utils import read_json
@@ -92,6 +93,7 @@ def load_report_calendar(path: str | Path = "data/manual/report_calendar.csv") -
     for column in columns:
         if column not in frame.columns:
             frame[column] = None
+    frame["report_period"] = frame["report_period"].fillna("").astype(str).str.strip()
     frame["scheduled_at"] = pd.to_datetime(frame["scheduled_at"], errors="coerce", utc=True, format="mixed")
     frame["lock_from_date"] = pd.to_datetime(frame["lock_from_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
     frame["verified"] = frame["verified"].astype(str).str.lower().isin(("true", "1", "yes", "ja"))
@@ -172,7 +174,7 @@ def _calendar_lock_start(
     """Return the close whose next-open order could cross a scheduled report.
 
     An explicit ``lock_from_date`` always wins.  Otherwise, a report scheduled
-    before that day's market close starts the lock at the previous observed
+    before that day's market close starts the lock at the previous exchange
     trading session.  A release after market close starts the lock on that same
     trading day.  This prevents a stale-EPS signal from being generated at a
     close immediately before the market first prices the report.
@@ -188,11 +190,13 @@ def _calendar_lock_start(
     local = pd.Timestamp(scheduled).tz_convert(timezone)
     calendar_day = pd.Timestamp(local.date())
 
-    prior = dates[dates < calendar_day]
-    same_or_prior = dates[dates <= calendar_day]
+    # Resolve the actual exchange session, independently of how far the price
+    # history extends. Clamping to its last row locks distant future reports now.
+    calendar = xcals.get_calendar("XSTO")
     if local.time() <= _clock(market_close_time):
-        return prior[-1] if len(prior) else (same_or_prior[-1] if len(same_or_prior) else dates[0])
-    return same_or_prior[-1] if len(same_or_prior) else dates[0]
+        calendar_day -= pd.Timedelta(days=1)
+    session = calendar.date_to_session(calendar_day, direction="previous")
+    return pd.Timestamp(session).tz_localize(None).normalize()
 
 
 def build_lock_series(
@@ -286,12 +290,15 @@ def build_lock_series(
         end = pd.NaT
         if not pd.isna(scheduled):
             end = _next_verified_report_effective_date(reports, ticker, scheduled)
+        period = row.get("report_period")
+        period = "" if pd.isna(period) else str(period).strip()
+        label = f"Rapport {period}" if period else "Rapport"
         intervals.append(
             (
                 pd.Timestamp(start),
                 None if pd.isna(end) else pd.Timestamp(end),
-                f"Rapport {row.get('report_period', '')} väntas – EPS måste verifieras",
-                f"calendar:{row.get('report_period', '')}",
+                f"{label} väntas – EPS måste verifieras",
+                f"calendar:{period or scheduled}",
             )
         )
 
