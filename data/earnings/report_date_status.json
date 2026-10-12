@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-09",
+  "checked_at": "2026-10-13",
   "counts": {},
   "missing_historical_dates": [
     {
@@ -746,15 +746,32 @@
   "missing_upcoming_tickers": [],
   "calendar_source_conflicts": [
     {
-      "ticker": "REJL-B.ST",
+      "ticker": "FOI-B.ST",
       "observations": [
         {
           "source": "Börskollen / rapportkalender",
-          "date": "2026-10-22"
+          "date": "2026-10-28"
         },
         {
           "source": "Yahoo Finance / calendarEvents",
+          "date": "2026-10-28"
+        },
+        {
+          "source": "MFN / bolagets rapportkalender",
+          "date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "observations": [
+        {
+          "source": "Yahoo Finance / calendarEvents",
           "date": "2026-10-22"
+        },
+        {
+          "source": "Börskollen / rapportkalender",
+          "date": "2026-11-03"
         },
         {
           "source": "MFN / bolagets rapportkalender",
