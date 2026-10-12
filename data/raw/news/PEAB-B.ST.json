@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-09T22:48:43+02:00",
+  "generated_at": "2026-10-13T00:55:34+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-10-12T09:01:00+02:00",
+      "title": "Peab säljer kontorsfastighet i Göteborg och förvärvar i Helsingfors",
+      "link": "https://mfn.se/cis/a/peab/peab-saljer-kontorsfastighet-i-goteborg-och-forvarvar-i-helsingfors-5af773d9",
+      "source": "MFN",
+      "summary": "Peab säljer kontorsfastighet i Göteborg och förvärvar i Helsingfors 2026-10-12 09:01:00 Peab har med Annehem Fastigheter ingått villkorade avtal om att avyttra en nyproducerad kontorsfastighet i Göteborg samt förvärva en kontorsfastighet i Helsingfors. I Göteborg säljer Peab kontorsfastigheten Gamlestads smedja som har en uthyrningsbar yta om cirka 13 000 kvadratmeter och årliga hyresintäkter på cirka 41 miljoner svenska kronor. Underliggande fastighetsvärde uppgår till 675 miljoner svenska kronor. Transaktionen innebär en positiv resultateffekt om cirka 60 miljoner svenska kronor som redovisas i det fjärde kvartalet 2026. Samtidigt förvärvar",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5d3d764764d01ac3"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

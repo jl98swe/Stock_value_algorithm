@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-09T22:46:51+02:00",
+  "generated_at": "2026-10-13T00:53:18+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bts-group",
   "items": [
+    {
+      "ticker": "BTS-B.ST",
+      "company": "BTS Group",
+      "published_at": "2026-10-12T07:30:00+02:00",
+      "title": "BTS förvärvar Edward Lynx och stärker sin position i Norden och Europa",
+      "link": "https://mfn.se/one/a/bts-group/bts-forvarvar-edward-lynx-och-starker-sin-position-i-norden-och-europa-d762912a",
+      "source": "MFN",
+      "summary": "BTS förvärvar Edward Lynx och stärker sin position i Norden och Europa 2026-10-12 07:30:00 STOCKHOLM, SVERIGE – BTS Sverige AB, en del av BTS Group AB (publ), ett ledande globalt konsultbolag specialiserat på strategiimplementering, förändring och medarbetarutveckling, har tecknat ett avtal om att förvärva 100 procent av Edward Lynx AB, ett Stockholmsbaserat bolag specialiserat på utvärdering och utveckling av chefer och ledare på hög nivå. Förvärvet kommer att stärka BTS erbjudande inom Talent Insight and Assessment och förväntas bidra positivt till resultatet. Edward Lynx grundades 1996 och har sitt huvudkontor i Stockholm. Bolaget är verks",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "08883ddf18eff538"
+    },
     {
       "ticker": "BTS-B.ST",
       "company": "BTS Group",

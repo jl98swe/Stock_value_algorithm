@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-10-09T22:49:37+02:00",
+  "generated_at": "2026-10-13T00:56:43+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-10-12T15:00:00+02:00",
+      "title": "Addtech: Aktierelaterat incitamentsprogram",
+      "link": "https://mfn.se/cis/a/addtech/addtech-aktierelaterat-incitamentsprogram-4ac3158a",
+      "source": "MFN",
+      "summary": "Addtech: Aktierelaterat incitamentsprogram 2026-10-12 15:00:00 I det av årsstämman 2026 beslutade aktierelaterade incitamentsprogrammet som omfattade ca 150 ledningspersoner och maximalt 1 000 000 köpoptioner på återköpta aktier av serie B tecknades totalt 711 877 optioner. Köpoptionerna överlåts till ett pris av 47,15 SEK per köpoption vilket motsvarar marknadsvärde enligt en extern oberoende värdering utförd i enlighet med Black & Scholes-modellen. Lösenkursen för köpoptionerna uppgår till 399,90 SEK motsvarande 120 procent av den genomsnittliga aktiekursen under mätperioden 27 augusti - 9 september 2026. Varje köpoption berättigar till för",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c02caaf7a85be89d"
+    },
+    {
+      "ticker": "THULE.ST",
+      "company": "Thule Group AB (publ)",
+      "published_at": "2026-10-12T13:30:00+02:00",
+      "title": "Invitation to the presentation of Thule’s report for the third quarter 2026",
+      "link": "https://mfn.se/a/thule-group/invitation-to-the-presentation-of-thules-report-for-the-third-quarter-2026",
+      "source": "MFN",
+      "summary": "Invitation to the presentation of Thule’s report for the third quarter 2026 2026-10-12 13:30:00 On Thursday, October 22, 2026 at 07:45 a.m. (CEST) Thule will publish its report for the third quarter (July-September) 2026. Following the report’s publication, Thule will arrange a conference call with a web presentation. CEO and President Mattias Ankarberg and CFO Toby Lawton will present and comment on the report. A Q&A session will follow after the presentation. The presentation, as well as the Q&A session, will be held in English. Date and time October 22, 2026, at 11.00 (CEST). Conference call (questions can only be asked via the conference ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4d7cdc1e0d2ea99f"
+    },
+    {
+      "ticker": "EVO.ST",
+      "company": "Evolution",
+      "published_at": "2026-10-12T08:45:00+02:00",
+      "title": "Acquisitions of own shares in Evolution AB (publ)",
+      "link": "https://mfn.se/a/evolution/acquisitions-of-own-shares-in-evolution-ab-publ-14",
+      "source": "MFN",
+      "summary": "Acquisitions of own shares in Evolution AB (publ) 2026-10-12 08:45:00 Evolution AB (publ) (“Evolution”) has, during the period 05 October 2026 – 09 October 2026, acquired a total of 447,327 own shares within the framework of the repurchase program introduced by the board of directors to optimize the capital structure of Evolution by reducing the capital, and thereby creating added shareholder value. The repurchase program, which Evolution announced on 18 May 2026, is being implemented in accordance with the EU Market Abuse Regulation No 596/2014 (“MAR”) and the Commission Delegated Regulation No 2016/1052 (“Safe Harbour Regulation”). During t",
+      "is_regulatory": true,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4b28b09eb9ab0321"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-10-12T08:35:00+02:00",
+      "title": "Brittiska Diagnexia väljer Sectra för kortare svarstider i patologin inom NHS",
+      "link": "https://mfn.se/cis/a/sectra/brittiska-diagnexia-valjer-sectra-for-kortare-svarstider-i-patologin-inom-nhs-5001e0f6",
+      "source": "MFN",
+      "summary": "Brittiska Diagnexia väljer Sectra för kortare svarstider i patologin inom NHS 2026-10-12 08:35:00 Linköping - 12 oktober, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) har tecknat ett avtal med brittiska Diagnexia om att leverera sin tjänst för delning och samarbete även för avancerade arbetsflöden. Diagnexia kan nu ta emot, skicka och besvara patologifall digitalt från NHS-vårdgivare som behöver stöd av externa specialister. Detta bidrar till utvecklingen av nationella telepatologinätverk i Storbritannien och förbättrar patienternas tillgång till specialistkompetens. - Under de senaste tio åren ha",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "927673a1d07c717c"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-12T08:30:00+02:00",
+      "title": "Valberedningarna i Rejlers och Multiconsult presenterar förslag till styrelse för det sammanslagna bolaget",
+      "link": "https://mfn.se/cis/a/rejlers/valberedningarna-i-rejlers-och-multiconsult-presenterar-forslag-till-styrelse-for-det-sammanslagna-bolaget-c80d4e39",
+      "source": "MFN",
+      "summary": "Valberedningarna i Rejlers och Multiconsult presenterar förslag till styrelse för det sammanslagna bolaget 2026-10-12 08:30:00 Valberedningarna i Rejlers AB (publ) (\" Rejlers \") och Multiconsult ASA (\" Multiconsult \") presenterar förslag till styrelsesammansättning för det sammanslagna bolaget (\"det Sammanslagna Bolaget \" eller \" Multiconsult Rejlers \") i samband med den föreslagna gränsöverskridande fusionen mellan Multiconsult och Rejlers (\" Fusionen \"), offentliggjord den 7 september 2026. Fusionen genomförs med Rejlers som övertagande bolag och Multiconsult som överlåtande bolag. Förslaget till styrelse avser den nya styrelse som ska till",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ab76576a0a31ac21"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-11T23:01:03+02:00",
+      "title": "AstraZeneca: Efzimfotase alfa showed numerical improvement in 6-Minute Walk Test achieving mean difference of 17.05 metres vs placebo in treatment-naïve adolescents, adults with HPP at week 25 in HICKORY Ph3 trial",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-efzimfotase-alfa-showed-numerical-improvement-in-6-minute-walk-test-achieving-mean-difference-of-17-05-metres-vs-placebo-in-treatment-naive-adolescents-adults-with-hpp-at-week-25-in-hickory-ph3-trial-574af70b",
+      "source": "MFN",
+      "summary": "AstraZeneca: Efzimfotase alfa showed numerical improvement in 6-Minute Walk Test achieving mean difference of 17.05 metres vs placebo in treatment-naïve adolescents, adults with HPP at week 25 in HICKORY Ph3 trial 2026-10-11 23:01:03 Efzimfotase alfa showed improvement across primary and all key secondary endpoints including in fatigue and pain vs placebo at week 25 with continued improvement up to week 49. Efzimfotase alfa recently granted Priority Review in the US. Results from the HICKORY Phase III trial showed that efzimfotase alfa (ALXN1850), an investigational enzyme replacement therapy, did not achieve statistical significance but demo",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "82ff5caebff341f9"
+    },
     {
       "ticker": "BOL.ST",
       "company": "Boliden",
