@@ -8,6 +8,7 @@ sides, and dividends credited to lots held across the ex-date.
 
 from __future__ import annotations
 
+from dataclasses import replace
 import importlib.util
 import sys
 from pathlib import Path
@@ -281,10 +282,13 @@ def run_strategy(
     ticker: str,
     *,
     params: StrategyParameters | None = None,
+    stop_loss_pct: float | None = None,
 ) -> dict[str, Any]:
     """Run the strategy with strict <1 / >99 signals and net cash accounting."""
 
     effective_params = params or _strict_default_params()
+    if stop_loss_pct is not None:
+        effective_params = replace(effective_params, stop_loss_pct=stop_loss_pct)
     result = _LEGACY.run_strategy(frame, ticker, params=effective_params)
     _replay_net_cashflows(frame, ticker, result, effective_params)
     return result

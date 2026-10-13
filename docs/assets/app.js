@@ -99,7 +99,7 @@
 
   function renderRules() {
     $('rules-title').textContent = window.strategySelection.names[state.strategy];
-    $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
+    $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
     const rules = state.dashboard.meta?.rules || {};
     const rows = [
       ['Köp', `Score ${rules.buy_score ?? 1}`],
@@ -108,6 +108,7 @@
       ['Max positioner', `${rules.max_active_positions_per_stock ?? rules.max_buys_per_cycle ?? 1} per aktie`],
       ['Exekvering', rules.execution || 'Nästa öppning']
     ];
+    if (state.strategy === 'standard_stop_loss_10') rows.push(['Stop loss', '10 % under köpkursen · gäller under handelsdagen']);
     $('rules-list').innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
   }
 

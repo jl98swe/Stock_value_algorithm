@@ -23,7 +23,7 @@ const docs=path.resolve(__dirname,'../docs');
   await page.waitForFunction(()=>document.querySelector('#stock-name').textContent && document.querySelector('#trades-table tbody'));
   assert.equal(await page.locator('#home-strategy').inputValue(),'standard');
   assert((await page.locator('#home-strategy').boundingBox()).y < (await page.locator('#stock-name').boundingBox()).y);
-  for(const key of ['standard','ma200','report_avoidance']) {
+  for(const key of ['standard','ma200','report_avoidance','standard_stop_loss_10']) {
     await page.locator('#home-strategy').selectOption(key);
     const live=data.strategies[key].stocks['ABB.ST'];
     assert.equal(await page.locator('#metric-position').textContent(),live.position.lots ? '1 aktiv position' : 'Ingen aktiv position');
@@ -38,7 +38,7 @@ const docs=path.resolve(__dirname,'../docs');
   }
   await page.locator('.page-nav a').filter({hasText:'Metod',exact:true}).click();
   await page.waitForSelector('#method-results:not([hidden])');
-  assert.equal(await page.locator('#method-strategy').inputValue(),'report_avoidance');
+  assert.equal(await page.locator('#method-strategy').inputValue(),'standard_stop_loss_10');
   await page.locator('#method-strategy').selectOption('ma200');
   await page.locator('.page-nav a').filter({hasText:'Startsida',exact:true}).click();
   await page.waitForFunction(()=>document.querySelector('#trades-table tbody'));
@@ -84,7 +84,7 @@ const docs=path.resolve(__dirname,'../docs');
   assert.equal(await page.locator('#overview-strategy').inputValue(),'standard');
   assert.deepEqual(await page.locator('#overview-strategy option').evaluateAll(options=>options.map(o=>o.textContent)),['Standard','MA200','Rapportundvikande']);
   assert((await page.locator('#overview-strategy').boundingBox()).y < (await page.locator('h1').boundingBox()).y);
-  for(const key of ['standard','ma200','report_avoidance']) {
+  for(const key of ['standard','ma200','report_avoidance','standard_stop_loss_10']) {
    await page.locator('#overview-strategy').selectOption(key);
    const expected=Object.values(data.strategies[key].stocks).filter(s=>s.position.lots>0).length;
    assert.equal(await page.locator('#summary-count').textContent(),String(expected));
@@ -95,14 +95,14 @@ const docs=path.resolve(__dirname,'../docs');
   await page.waitForSelector('#overview-content:not([hidden])');
   assert.equal(await page.locator('#overview-strategy').inputValue(),'ma200');
   const dates=data.meta.trading_dates,cutoff=dates[0],end=dates.at(-1);
-  for(const key of ['standard','ma200','report_avoidance']) {
+  for(const key of ['standard','ma200','report_avoidance','standard_stop_loss_10']) {
    await page.locator('#overview-strategy').selectOption(key);
    const expected=Object.values(data.strategies[key].stocks).flatMap(s=>s.signals).filter(s=>s.status==='executed' && s.execution_date>=cutoff && s.execution_date<=end).length;
    assert.equal(await page.locator('#recent-count').textContent(),String(expected));
   }
   await page.goto('https://overview-ui.test/positions.html');
   await page.waitForSelector('#overview-content:not([hidden])');
-  assert.equal(await page.locator('#overview-strategy').inputValue(),'report_avoidance'); // saved choice
+  assert.equal(await page.locator('#overview-strategy').inputValue(),'standard_stop_loss_10'); // saved choice
   await page.locator('#overview-search').fill('does-not-exist');
   assert.equal(await page.locator('#summary-count').textContent(),'0');
   await page.locator('#overview-search').fill('');

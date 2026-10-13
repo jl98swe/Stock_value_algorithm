@@ -10,6 +10,7 @@ const variants = {
   standard:{closed_trades:[{return_pct:10},{return_pct:20}],open_lots:[{current_return_pct:999}]},
   ma200:{closed_trades:[{return_pct:-10}]},
   report_avoidance:{closed_trades:[]},
+  standard_stop_loss_10:{closed_trades:[{return_pct:-10}]},
   _dividends:[{date:'2024-10-09',amount:5}]
 };
 const index = {candles:[{date:'2024-10-09',close:200},{date:'2026-10-08',close:240}]};
@@ -24,17 +25,17 @@ test('shared calculations load on homepage without starting the method page', ()
 
 test('all strategies and references use full history and disclose actual benchmark coverage', () => {
   const rows = fullHistoryRows({candles}, variants, index);
-  assert.deepEqual(rows.map(r=>r.id), ['standard','ma200','report_avoidance','buy_and_hold','omxsgi']);
+  assert.deepEqual(rows.map(r=>r.id), ['standard','ma200','report_avoidance','standard_stop_loss_10','buy_and_hold','omxsgi']);
   assert(Math.abs(rows[0].return_pct - 32) < 1e-9);
   assert.equal(rows[0].trade_count,2); // excludes the unrealized open position
   assert(Math.abs(rows[1].return_pct + 10) < 1e-9);
   assert.equal(rows[2].return_pct,null);
-  assert(Math.abs(rows[3].return_pct - ((120*.9975+5)/(100*1.0025)-1)*100) < 1e-9);
-  assert(Math.abs(rows[4].return_pct - 20) < 1e-9);
-  assert.equal(rows[3].start,'2019-09-02');
-  assert.equal(rows[4].start,'2024-10-09');
+  assert(Math.abs(rows[4].return_pct - ((120*.9975+5)/(100*1.0025)-1)*100) < 1e-9);
+  assert(Math.abs(rows[5].return_pct - 20) < 1e-9);
+  assert.equal(rows[4].start,'2019-09-02');
+  assert.equal(rows[5].start,'2024-10-09');
   assert(rows.every(r=>r.end==='2026-10-08'));
-  assert.equal(fullHistoryRows({candles},variants,null)[4].return_pct,null);
+  assert.equal(fullHistoryRows({candles},variants,null)[5].return_pct,null);
 });
 
 test('homepage comparison render ignores active strategy and chart range', () => {
@@ -51,11 +52,11 @@ test('homepage comparison render ignores active strategy and chart range', () =>
       $, value=>value || '–', value=>value == null ? '–' : String(value),()=>0,{format:String},()=>{});
   render({candles,closed_trades:[],open_lots:[]});
   const initial = $('strategy-table').innerHTML;
-  for(const strategy of ['standard','ma200','report_avoidance']) for(const range of ['3m','ytd','1y','3y','5y','all']) {
+  for(const strategy of ['standard','ma200','report_avoidance','standard_stop_loss_10']) for(const range of ['3m','ytd','1y','3y','5y','all']) {
     state.strategy=strategy;state.range=range;
     render({candles:candles.slice(-1),closed_trades:[],open_lots:[]});
     assert.equal($('strategy-table').innerHTML,initial);
   }
-  assert.equal((initial.match(/<tr>/g)||[]).length,6);
+  assert.equal((initial.match(/<tr>/g)||[]).length,7);
   assert(initial.includes('2019-09-02'));
 });

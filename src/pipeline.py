@@ -448,7 +448,7 @@ def _stock_payload(
         "open_lots": strategy.get("open_lots", []) if strategy else [],
         "strategies": {key: backtests.get(key, {}).get("overview") or _strategy_live_payload(None, {
             "buy_allowed": False, "buy_block_reason": "Väntar på komplett värderingsunderlag"})
-            for key in ("standard", "ma200", "report_avoidance")},
+            for key in ("standard", "ma200", "report_avoidance", "standard_stop_loss_10")},
     }
     report_frame = valued if valued is not None else working
     report_columns = [

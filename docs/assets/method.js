@@ -5,7 +5,7 @@
   const percent = value => value == null || !Number.isFinite(value) ? '–' : `${value > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value)} %`;
   const number = value => value == null ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 4}).format(value);
   const ratio = value => value == null || !Number.isFinite(value) ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value);
-  const names = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande', buy_and_hold:'Buy and hold', omxsgi:'OMXSGI'};
+  const names = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%', buy_and_hold:'Buy and hold', omxsgi:'OMXSGI'};
   const reference = key => key === 'buy_and_hold' || key === 'omxsgi';
 
   function periodStart(end, years, first) {
@@ -128,7 +128,7 @@
     $('method-stock-link').hidden = all || key === 'omxsgi';
     $('method-stock-link').href = `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${window.strategySelection.get()}`;
     $('method-name').textContent = names[key];
-    $('method-summary').textContent = ({standard:'Köp under 1, sälj över 99. Högst en aktiv position per aktie.',ma200:'Standard med köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.',buy_and_hold:'Köp aktieurvalet vid periodens första tillgängliga stängning och behåll till periodens slut.',omxsgi:'Stockholmsbörsens breda avkastningsindex med återinvesterade utdelningar.'})[key];
+    $('method-summary').textContent = ({standard:'Köp under 1, sälj över 99. Högst en aktiv position per aktie.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Standard med köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.',buy_and_hold:'Köp aktieurvalet vid periodens första tillgängliga stängning och behåll till periodens slut.',omxsgi:'Stockholmsbörsens breda avkastningsindex med återinvesterade utdelningar.'})[key];
     $('scope-note').textContent = all ? `${variants.meta.stock_count} aktier · Lika kapitalandel per aktie · Öppna positioner redovisas separat.${variants.meta.excluded_stocks.length ? ` ${variants.meta.excluded_stocks.length} aktier saknar komplett underlag och ingår inte.` : ''}` : 'Enskild aktie · Öppna positioner redovisas separat.';
     document.querySelectorAll('[data-method]').forEach(el => el.hidden = el.dataset.method !== key);
     document.querySelectorAll('[data-signal-rules]').forEach(el => el.hidden = reference(key));
@@ -160,7 +160,7 @@
       const result = t.open ? t.current_return_pct : t.return_pct;
       const days = Math.round((Date.parse(t.open ? (t.valuation_date || end) : t.exit_date) - Date.parse(t.entry_date)) / 86400000);
       const label = key === 'omxsgi' ? 'OMXSGI' : `<a href="./method.html?ticker=${encodeURIComponent(t.ticker || ticker)}&amp;strategy=${key}&amp;period=${period}">${esc(stockMeta.stocks.find(s => s.ticker === (t.ticker || ticker))?.name || t.ticker || ticker)}</a>`;
-      return `<tr class="trade-${result > 5 ? 'win' : result < -5 ? 'loss' : 'flat'}"><td>${label}</td><td>${esc(t.entry_date)}</td><td>${t.open ? 'Öppen' : esc(t.exit_date)}</td><td>${days} dagar</td><td>${number(t.entry_price)}</td><td>${t.open ? '–' : number(t.exit_price)}</td><td>${percent(result)}${t.open ? ' (preliminärt)' : ''}</td><td>${t.open ? '–' : t.exit_reason === 'period_end' ? 'Periodens slut' : t.exit_reason === 'report' ? 'Inför rapport' : 'Värderingspoäng'}</td></tr>`;
+      return `<tr class="trade-${result > 5 ? 'win' : result < -5 ? 'loss' : 'flat'}"><td>${label}</td><td>${esc(t.entry_date)}</td><td>${t.open ? 'Öppen' : esc(t.exit_date)}</td><td>${days} dagar</td><td>${number(t.entry_price)}</td><td>${t.open ? '–' : number(t.exit_price)}</td><td>${percent(result)}${t.open ? ' (preliminärt)' : ''}</td><td>${t.open ? '–' : t.exit_reason === 'period_end' ? 'Periodens slut' : t.exit_reason === 'report' ? 'Inför rapport' : t.exit_reason === 'stop_loss' ? 'Stop loss 10 %' : 'Värderingspoäng'}</td></tr>`;
     }).join('') : '<tr><td colspan="8">Inga affärer som uppfyller periodens villkor.</td></tr>';
     $('method-trades-more').hidden = trades.length <= visibleTrades;
     $('method-trades-count').textContent = `Visar ${Math.min(visibleTrades,trades.length)} av ${trades.length} affärer.`;
@@ -174,7 +174,7 @@
       const [data, tests] = ticker === 'all' ? [null, await json('./data/backtests/all.json')] : await Promise.all([json(`./data/dashboard/${encodeURIComponent(ticker)}.json`),json(`./data/backtests/${encodeURIComponent(ticker)}.json`)]);
       if (id !== requestId) return;
       stock = data; variants = tests;
-      if (!tests.standard || !tests.ma200 || !tests.report_avoidance) throw new Error('Backtest saknas för aktien eftersom värderingsunderlaget ännu inte är komplett.');
+      if (!tests.standard || !tests.ma200 || !tests.report_avoidance || !tests.standard_stop_loss_10) throw new Error('Backtest saknas för aktien eftersom värderingsunderlaget ännu inte är komplett.');
       visibleTrades = 50; $('method-results').hidden = false; render();
     } catch(error) {
       if (id !== requestId) return;
