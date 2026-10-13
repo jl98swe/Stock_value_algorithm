@@ -1,7 +1,95 @@
 {
-  "generated_at": "2026-10-13T00:56:43+02:00",
+  "generated_at": "2026-10-13T23:18:23+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-13T08:30:00+02:00",
+      "title": "Rejlers bidrar till robustare kraftförsörjning för järnvägen i Katrineholm",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-bidrar-till-robustare-kraftforsorjning-for-jarnvagen-i-katrineholm-f92c4f93",
+      "source": "MFN",
+      "summary": "Rejlers bidrar till robustare kraftförsörjning för järnvägen i Katrineholm 2026-10-13 08:30:00 Rejlers har fått i uppdrag av Trafikverket att ta fram förfrågningsunderlaget för en ny kopplingscentral i Katrineholm. Den nya anläggningen ska säkra en långsiktigt robust kraftförsörjning till järnvägen, och omläggningen från den befintliga centralen ska kunna genomföras utan påverkan på tågtrafiken. Den befintliga kopplingscentralen i Katrineholm har nått sin tekniska livslängd, samtidigt som kontaktledningsanläggningen mellan Hallsberg och Sköldinge byggs om och konverteras till AT-system. Katrineholm är en viktig knytpunkt där banorna mot Halls",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "24141afbfb80d2e6"
+    },
+    {
+      "ticker": "INWI.ST",
+      "company": "Inwido AB (publ)",
+      "published_at": "2026-10-13T08:00:00+02:00",
+      "title": "Inwido publicerar rapport för tredje kvartalet den 21 oktober",
+      "link": "https://mfn.se/a/inwido/inwido-publicerar-rapport-for-tredje-kvartalet-den-21-oktober",
+      "source": "MFN",
+      "summary": "Inwido publicerar rapport för tredje kvartalet den 21 oktober 2026-10-13 08:00:00 Inwidos rapport för det tredje kvartalet 2026 publiceras onsdagen den 21 oktober, kl. 07:45. En webcast och telefonkonferens för analytiker, media och investerare hålls samma dag kl. 10:00. Rapporten presenteras då av Fredrik Meuller , VD och koncernchef, och Peter Welin , CFO och vice VD. Presentationen kommer att hållas på engelska och kan följas direkt via webbsändning på: https://www.inwido.com/se/financials . Här hittar du också presentationsmaterial för mötet innan det börjar. Det kommer också att vara möjligt att ta del av sändningen i efterhand på Inwido",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bceac9d7b7d98689"
+    },
+    {
+      "ticker": "BOL.ST",
+      "company": "Boliden",
+      "published_at": "2026-10-13T07:32:47+02:00",
+      "title": "Välkommen till extra bolagsstämma i Boliden AB (publ)",
+      "link": "https://mfn.se/cis/a/boliden/valkommen-till-extra-bolagsstamma-i-boliden-ab-publ-6a4529dd",
+      "source": "MFN",
+      "summary": "Välkommen till extra bolagsstämma i Boliden AB (publ) 2026-10-13 07:32:47 Aktieägarna i Boliden AB (publ) (org. nr 556051-4142) kallas till extra bolagsstämma måndag den 23 november 2026 kl. 10.00. Den extra bolagsstämman kommer att äga rum i Mannheimer Swartlings lokaler på Norrlandsgatan 21 i Stockholm. Stämmolokalen öppnas för registrering kl. 09.00. Styrelsen har beslutat att aktieägarna ska kunna utöva sin rösträtt på den extra bolagsstämman även genom förhandsröstning (poströstning) i enlighet med bestämmelserna i bolagsordningen, se nedan under \"Förhandsröstning (poströstning)\" för ytterligare information. Anmälan A) Den som önskar när",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f13f7ff16a7bf4e2"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-10-13T07:30:00+02:00",
+      "title": "Nordnet: Kenestä Vuoden Sijoittaja 2026? Entä Vuoden Sijoitusteko?",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-kenesta-vuoden-sijoittaja-2026-enta-vuoden-sijoitusteko-6fc62ea4",
+      "source": "MFN",
+      "summary": "Nordnet: Kenestä Vuoden Sijoittaja 2026? Entä Vuoden Sijoitusteko? 2026-10-13 07:30:00 Nordnet järjestää Vuoden Sijoittaja ja Sijoitusteko -kilpailun jo yhdeksättä kertaa. Yleisöäänestys on alkanut ja voittajat selviävät 25. marraskuuta. Vuoden Sijoittaja ja Sijoitusteko -kilpailun tavoite on nostaa esiin yksityissijoittajia ja muita tahoja, jotka edistävät suomalaista sijoituskeskustelua, omistajuutta ja kansankapitalismia; heitä, jotka omalla toiminnallaan kannustavat muita aloittamaan vaurastumisen ja ottamaan päivittäiset raha-asiat sekä säästöt haltuun. - Sijoittamisen ja omistajuuden voi tuoda osaksi jokapäiväistä arkea monella eri tava",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6c36406660bab1c2"
+    },
     {
       "ticker": "ADDT-B.ST",
       "company": "Addtech",
