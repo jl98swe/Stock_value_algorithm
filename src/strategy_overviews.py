@@ -1,9 +1,9 @@
-"""Compact current positions and recent executions for the three own strategies."""
+"""Compact current positions and recent executions for the four own strategies."""
 from pathlib import Path
 
 from .utils import write_json_atomic
 
-STRATEGIES = ("standard", "ma200", "report_avoidance")
+STRATEGIES = ("standard", "ma200", "report_avoidance", "standard_stop_loss_10")
 
 
 def write_strategy_overviews(stocks: dict, meta: dict, path: Path) -> dict:

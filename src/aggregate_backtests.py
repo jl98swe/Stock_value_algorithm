@@ -12,7 +12,7 @@ from .index_benchmark import INDEX_FILE
 from .method_metrics import equity_metrics, hold_curve, trade_metrics
 from .utils import read_json, write_json_atomic
 
-STRATEGIES = ("standard", "ma200", "report_avoidance")
+STRATEGIES = ("standard", "ma200", "report_avoidance", "standard_stop_loss_10")
 
 
 def closed_equity(candles: list[dict], trades: list[dict], dividends: list[dict], dates: list[str]) -> np.ndarray:

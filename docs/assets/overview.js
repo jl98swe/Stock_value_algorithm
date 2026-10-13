@@ -5,7 +5,7 @@
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
-  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande'};
+  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let strategy = 'standard';
   let priceBoundaries = {};
@@ -69,8 +69,8 @@
         <td>${money(latest.close, row.currency)}</td>
         <td class="${number(p.unrealized_pct) >= 0 ? 'positive' : 'negative'}">${pct(p.unrealized_pct)}</td>
         <td>${score(latest.score)}</td>
-        <td>${latest.fundamental_lock ? action.exit_reason === 'report' ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
-        <td>${action.type && action.type !== 'NONE' ? `<span class="status-chip action">${esc(action.label)}</span>${action.execute_on ? `<span class="cell-detail">${prettyDate(action.execute_on)}</span>` : ''}` : row.data.strategy_filter?.report_exit_date ? `Sälj senast ${prettyDate(row.data.strategy_filter.report_exit_date)} inför rapport` : '–'}</td>
+        <td>${latest.fundamental_lock ? action.exit_reason === 'report' ? 'Spärrad · rapportsälj tillåten' : row.data.strategy_filter?.stop_price ? 'Spärrad · stop loss gäller' : 'Spärrad' : 'Fri'}</td>
+        <td>${action.type && action.type !== 'NONE' ? `<span class="status-chip action">${esc(action.label)}</span>${action.execute_on ? `<span class="cell-detail">${prettyDate(action.execute_on)}</span>` : ''}` : row.data.strategy_filter?.report_exit_date ? `Sälj senast ${prettyDate(row.data.strategy_filter.report_exit_date)} inför rapport` : row.data.strategy_filter?.stop_price ? `Stop loss ${money(row.data.strategy_filter.stop_price, row.currency)}` : '–'}</td>
       </tr>`;
     }).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktiva positioner matchar filtret.</td></tr>';
   }
@@ -192,7 +192,7 @@
     $('recent-count').textContent = String(recent.length);
     $('recent-signals-body').innerHTML = recent.length ? recent.map((row) => `<tr>
       <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
-      <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span>${row.exit_reason === 'report' ? '<span class="cell-detail">Inför rapport</span>' : ''}</td>
+      <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span>${row.exit_reason === 'report' ? '<span class="cell-detail">Inför rapport</span>' : row.exit_reason === 'stop_loss' ? '<span class="cell-detail">Stop loss 10 %</span>' : ''}</td>
       <td><strong>${prettyDate(row.execution_date)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
       <td>${money(row.execution_price, row.currency)}</td>
       <td>${score(row.score)}</td>
@@ -238,7 +238,7 @@
           if (!/\/(positions|signals|method)\.html$/.test(new URL(link.href).pathname)) return;
           const target=new URL(link.href); target.searchParams.set('strategy',strategy); link.href=target;
         });
-        $('strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[strategy];
+        $('strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[strategy];
         const needle = ($('overview-search')?.value || '').trim().toLocaleLowerCase('sv-SE');
         if (page === 'positions') renderPositions(dashboard, stocksPayload, needle);
         else renderSignals(dashboard, stocksPayload, needle);

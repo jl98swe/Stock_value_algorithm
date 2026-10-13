@@ -8,7 +8,7 @@ from src.strategy_backtests import report_filters, build_strategy_backtests
 
 def frame(dates, scores, ma=100):
     return pd.DataFrame({"Date": pd.to_datetime(dates), "Open": 100., "Close": 100.,
-                         "Score": scores, "MA200": ma, "FundamentalLock": False})
+                         "Low": 100., "Score": scores, "MA200": ma, "FundamentalLock": False})
 
 
 def test_ten_sessions_blocks_and_eleven_sessions_allows_execution():
@@ -123,3 +123,23 @@ def test_report_overview_plans_forced_exit_even_with_neutral_score_and_lock(monk
     assert live["next_action"]["exit_reason"] == "report"
     assert live["next_action"]["execute_on"] == "2026-02-09"
     assert not live["signals"]  # old buy lies outside the recent twenty sessions
+
+
+def test_stop_strategy_has_independent_live_state_and_fixed_stop(monkeypatch):
+    import src.strategy_backtests as backtests
+    from src.pipeline import _strategy_live_payload
+    monkeypatch.setattr(backtests, 'automatic_calendar', lambda: pd.DataFrame())
+    data = frame(pd.bdate_range('2026-01-05', periods=3), [0, 50, 50])
+    variants = build_strategy_backtests(data, 'EXAMPLE.ST', pd.DataFrame(columns=['ticker']),
+                                       pd.DataFrame(), run_strategy(data, 'EXAMPLE.ST'), _strategy_live_payload)
+    live = variants['standard_stop_loss_10']['overview']
+    assert live['position']['lots'] == 1
+    assert live['strategy_filter']['stop_price'] == 90
+    data.loc[2, 'Low'] = 90
+    variants = build_strategy_backtests(data, 'EXAMPLE.ST', pd.DataFrame(columns=['ticker']),
+                                       pd.DataFrame(), run_strategy(data, 'EXAMPLE.ST'), _strategy_live_payload)
+    live = variants['standard_stop_loss_10']['overview']
+    assert live['position']['lots'] == 0
+    assert live['strategy_filter']['stop_price'] is None
+    assert live['signals'][-1]['exit_reason'] == 'stop_loss'
+    assert variants['standard']['overview']['position']['lots'] == 1

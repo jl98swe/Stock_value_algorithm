@@ -297,7 +297,7 @@ Signaler, rapportmarkörer, aktiefiler och backtest byggs från samma korrigerad
 underlag. Förberedande byggen med `--defer-score-history` konsumerar inte ändringen.
 
 Aktiva positioner och Kommande signaler har en strategiväljare överst för
-Standard, MA200 och Rapportundvikande. Valet sparas mellan sidorna och kan
+Standard, MA200, Rapportundvikande och Standard - stop loss 10%. Valet sparas mellan sidorna och kan
 delas med `?strategy=ma200` eller `?strategy=report_avoidance`. Pipeline
 exporterar oberoende modellpositioner, väntande åtgärder, strategifilter och
 exekverade signaler till `docs/data/strategy_overviews.json`. De senaste
@@ -318,3 +318,21 @@ Aktievalet sparas också i webbläsaren och följer med via navigationen, inklus
 Kommande signaler bevakar högst 10 poäng från 1/99. Rapportundvikande tar även med öppna positioner när rapporten är högst fem XSTO-börsdagar bort, med försäljningsdatum föregående börsdag. Poängsälj ersätts av den planerade rapportsäljningen i listan, medan utförda signaler förblir oförändrade.
 
 `signal_prices.json` uppdateras av pipelinen: nästa XSTO-stängning simuleras med oförändrad EPS och hela historiken. Närmaste funna övergång över/under 99/1 söks på ett numeriskt rutnät mellan 0,25 och 4 gånger senaste kursen och förfinas på signalsidan av gränsen. Det är en ungefärlig lokal gräns; fler intervall och smala intervall mellan rutnätspunkterna kan finnas. Ingen gräns hittad visas som streck. Gränser vars datum inte matchar strategins senaste kurs visas inte. Handelsregler och nästa öppningskurs gäller fortsatt.
+
+
+### Standard - stop loss 10%
+
+`standard_stop_loss_10` använder Standards köp- och poängregler med en fast
+stoppnivå på 90 % av faktisk köpkurs. Dagens Low kontrolleras från och med
+inträdesdagen. Om nästa öppning ligger under stoppnivån används öppningskursen;
+annars fylls stoppordern på nivån. Inget antagande om intradagsordning mellan
+högsta och lägsta kurs behövs eftersom alla köp sker vid öppningen. Vanlig
+poängförsäljning vid öppningen sker före senare intradagsstopp.
+
+En skyddande stopporder gäller även under fundamental EPS-spärr och utan
+sälj-cooldown. Nytt köp kräver en ny köpgränshändelse och Standards cooldown.
+Stoppnivån ändras inte av högre kurser, courtage eller utdelningar. Nettoresultatet
+inkluderar fortfarande courtage och utdelningar. Dagsbaserat backtest antar
+fyllning på stoppnivån utan slippage under dagen; kursgap och courtage kan
+ge förlust större än 10 %. Strategin har separata positioner och signaler på
+Startsida, Aktiva positioner, Kommande signaler och Metod & backtest.

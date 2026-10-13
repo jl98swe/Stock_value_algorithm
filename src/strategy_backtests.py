@@ -72,8 +72,10 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     ma["BuyExecutionAllowed"] = ma["BuyAllowed"].shift(1, fill_value=False) & (ma["Open"] > ma["MA200"].shift(1))
     report_frame = report_filters(frame, dates)
     variants = {"standard": standard, "ma200": run_strategy(ma, ticker),
-                "report_avoidance": run_strategy(report_frame, ticker)}
-    names = {"standard": "Standard", "ma200": "MA200", "report_avoidance": "Rapportundvikande"}
+                "report_avoidance": run_strategy(report_frame, ticker),
+                "standard_stop_loss_10": run_strategy(frame, ticker, stop_loss_pct=10)}
+    names = {"standard": "Standard", "ma200": "MA200", "report_avoidance": "Rapportundvikande",
+             "standard_stop_loss_10": "Standard - stop loss 10%"}
     result = {}
     latest_day = pd.Timestamp(frame["Date"].max()).normalize()
     sessions = xcals.get_calendar("XSTO", start=latest_day - pd.Timedelta(days=15),
@@ -84,6 +86,8 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     report_exit = sessions[sessions.searchsorted(next_report, side="left") - 1] if next_report is not None else None
     filter_info = {
         "standard": {"buy_allowed": True, "buy_block_reason": ""},
+        "standard_stop_loss_10": {"buy_allowed": True, "buy_block_reason": "", "stop_loss_pct": 10,
+            "stop_price": next((lot["entry_price"] * .9 for lot in variants["standard_stop_loss_10"].get("open_lots", [])), None)},
         "ma200": {"buy_allowed": bool(ma.iloc[-1]["BuyAllowed"]),
                   "buy_block_reason": "Köp kräver kurs över MA200"},
         "report_avoidance": {"buy_allowed": bool(report_frame.iloc[-1]["BuyAllowed"]),

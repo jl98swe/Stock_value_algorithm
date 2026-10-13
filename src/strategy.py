@@ -21,6 +21,7 @@ class StrategyParameters:
     sell_lot_policy: str = "fifo"
     respect_fundamental_locks: bool = True
     initial_capital: float = 1.0
+    stop_loss_pct: float | None = None
 
 
 @dataclass
@@ -66,10 +67,14 @@ def run_strategy(
     """
 
     p = params or StrategyParameters()
+    if p.stop_loss_pct is not None and not 0 < p.stop_loss_pct < 100:
+        raise ValueError("stop_loss_pct must be between 0 and 100")
     data = normalize_date_column(frame)
     for column in ("Open", "Close", "Score"):
         if column not in data.columns:
             raise ValueError(f"Missing strategy column: {column}")
+    if p.stop_loss_pct is not None and "Low" not in data.columns:
+        raise ValueError("Stop loss requires daily Low prices")
     if "FundamentalLock" not in data.columns:
         data["FundamentalLock"] = False
     if "LockReason" not in data.columns:
@@ -287,6 +292,47 @@ def run_strategy(
                     last_sell_signal_index = pending.get("previous_same_side_signal_index")
             pending = None
 
+        # A standing stop protects the position intraday, including the entry day.
+        # Daily OHLC cannot model slippage: opening gaps fill at the open;
+        # otherwise touching the stop fills at its fixed price. EPS locks and
+        # score cooldowns do not cancel this existing protective order.
+        stopped_today = False
+        if p.stop_loss_pct is not None and np.isfinite(open_price) and open_price > 0:
+            low_price = float(row["Low"]) if pd.notna(row["Low"]) else np.nan
+            for lot in list(open_lots):
+                stop_price = lot.entry_price * (1 - p.stop_loss_pct / 100)
+                if open_price > stop_price and (not np.isfinite(low_price) or low_price > stop_price):
+                    continue
+                execution_price = min(open_price, stop_price)
+                open_lots.remove(lot)
+                cash += lot.quantity * execution_price
+                signal_sequence += 1
+                signals.append({
+                    "signal_id": _signal_id(ticker, date_string, "SELL", signal_sequence),
+                    "ticker": ticker, "side": "SELL", "signal_date": date_string,
+                    "score": score, "status": "executed", "status_reason": "Stop loss 10%" if p.stop_loss_pct == 10 else "Stop loss",
+                    "exit_reason": "stop_loss", "stop_price": stop_price,
+                    "execute_on": date_string, "execution_date": date_string,
+                    "execution_price": execution_price, "lot_id": lot.lot_id, "quantity": lot.quantity,
+                })
+                trades.append({
+                    "ticker": ticker, "cycle_id": lot.cycle_id, "lot_id": lot.lot_id,
+                    "entry_signal_date": lot.entry_signal_date, "entry_date": lot.entry_date,
+                    "entry_price": lot.entry_price, "exit_signal_date": date_string,
+                    "exit_reason": "stop_loss", "exit_date": date_string,
+                    "exit_price": execution_price, "quantity": lot.quantity,
+                    "return_pct": (execution_price / lot.entry_price - 1) * 100,
+                    "holding_trading_days": index - lot.entry_index, "status": "closed",
+                })
+                executed_today.append("SELL")
+                signal_today.append("STOP_LOSS")
+                stopped_today = True
+            if stopped_today and not open_lots:
+                buys_in_cycle = 0
+                # Require a fresh buy boundary event after the protective exit.
+                buy_armed = False
+                last_sell_signal_index = index
+
         # Rearm only after leaving the relevant boundary. Separate bookkeeping
         # prevents one blocked/deferred marker from being emitted every day.
         if np.isfinite(score):
@@ -307,7 +353,7 @@ def run_strategy(
             buy_hit = score <= p.buy_threshold + p.threshold_epsilon
             sell_hit = score >= p.sell_threshold - p.threshold_epsilon
 
-            if buy_hit and buy_armed:
+            if buy_hit and buy_armed and not stopped_today:
                 capacity_ok = buys_in_cycle < p.max_lots and len(open_lots) < p.max_lots
                 cooldown_ok = _cooldown_ok(index, last_buy_signal_index, p.cooldown_trading_days)
                 # A fundamental lock is the primary reason no order may be
