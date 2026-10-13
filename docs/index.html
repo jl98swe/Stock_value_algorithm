@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261009-1"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
-  <script defer src="./assets/app.js?v=20261009-3"></script>
+  <script defer src="./assets/app.js?v=20261013-1"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261006-1"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20261009-1"></script>
@@ -217,6 +217,10 @@
                   <h2 id="trades-title">Senaste avslut</h2>
                 </div>
               </div>
+              <div class="home-strategy-control" style="margin-bottom:16px">
+                <label for="history-strategy">Strategi</label>
+                <select id="history-strategy" aria-controls="trades-table"></select>
+              </div>
               <div class="table-wrap"><table id="trades-table" class="data-table"></table></div>
               <div class="show-more-row">
                 <button id="trades-toggle" class="secondary-button" type="button" aria-expanded="false" hidden>Visa mer</button>
@@ -238,5 +242,4 @@
   </div>
 </body>
 </html>
-
 
