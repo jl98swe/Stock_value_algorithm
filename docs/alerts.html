@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Bevakningar och notiser · Stock Value Algorithm</title>
+<link rel="stylesheet" href="./assets/style.css?v=20261009-1">
+<link rel="stylesheet" href="./assets/alerts.css?v=1">
+<script defer src="./assets/alerts.js?v=1"></script>
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar"><div class="brand-wrap"><div class="brand-mark" aria-hidden="true">SV</div><div><div class="brand-title">Stock Value Algorithm</div><div class="brand-subtitle">Bevakningar och morgonsammanfattning</div></div></div><div class="header-actions"><nav class="page-nav" aria-label="Huvudnavigation"><a class="secondary-button" href="./index.html">Startsida</a><a class="secondary-button" href="./positions.html">Aktiva positioner</a><a class="secondary-button" href="./signals.html">Kommande signaler</a><a class="secondary-button" href="./reports.html">Rapporter</a><a class="secondary-button" href="./review.html">Granska nyheter och data</a><a class="secondary-button" href="./method.html">Metod &amp; backtest</a><a class="secondary-button active" href="./alerts.html" aria-current="page">Notiser</a></nav></div></header>
+<main class="alerts-main">
+<section class="alerts-header"><span class="eyebrow">Personliga bevakningar</span><h1>Morgonnotiser</h1><p>Välj vilka händelser du vill få sammanfattade via mejl och mobilnotiser. Målet är leverans vardagar kl. 07.15–07.30, svensk tid, baserat på senast färdigställda handelsdag.</p></section>
+<div class="alerts-grid"><section class="panel alerts-card">
+<h2>Skapa bevakning</h2><p class="muted">Du bekräftar din mejladress innan någon prenumeration börjar. Du kan när som helst ändra eller avsluta den via länken i mejlet.</p>
+<div id="alerts-unavailable" class="alerts-message" role="status" hidden>Tjänsten för utskick är ännu inte aktiverad. Inga personuppgifter samlas in på denna sida innan den säkra prenumerationstjänsten är ansluten.</div>
+<form id="alerts-form">
+<label for="alert-email">Mejladress</label><input id="alert-email" type="email" autocomplete="email" required maxlength="254" placeholder="din@epost.se">
+<fieldset><legend>Leveranssätt</legend><label><input type="checkbox" name="channel" value="email" checked> E-post</label><label><input type="checkbox" name="channel" value="push"> Pushnotiser på mobilen</label></fieldset>
+<fieldset><legend>Vad vill du bevaka?</legend>
+<label><input type="checkbox" name="topic" value="signals" checked> Bekräftade köp- och säljsignaler</label>
+<label><input type="checkbox" name="topic" value="near_signals"> Aktier nära köp- eller säljsignal</label>
+<label><input type="checkbox" name="topic" value="reports_upcoming"> Kommande rapporter inom fem börsdagar</label>
+<label><input type="checkbox" name="topic" value="reports_updated"> Uppdaterade rapportuppgifter</label>
+<label><input type="checkbox" name="topic" value="stop_loss"> Stop loss 10 %</label>
+<label><input type="checkbox" name="topic" value="data_issues"> Data som behöver granskas</label>
+</fieldset>
+<label for="alert-strategy">Strategi</label><select id="alert-strategy" name="strategy"><option value="all">Alla strategier</option><option value="standard">Standard</option><option value="ma200">MA200</option><option value="report_avoidance">Rapportundvikande</option><option value="standard_stop_loss_10">Standard – stop loss 10 %</option></select>
+<label for="alert-tickers">Aktier (frivilligt)</label><input id="alert-tickers" name="tickers" type="text" spellcheck="false" autocorrect="off" autocapitalize="characters" placeholder="Alla aktier (eller t.ex. CIBUS.ST, GENO.ST)"><p class="alerts-hint">Lämna tomt för alla aktier. Separera flera tickers med kommatecken.</p>
+<label class="alerts-consent"><input id="alert-consent" type="checkbox" required> Jag vill få de valda notiserna och godkänner att min mejladress används för prenumerationen.</label>
+<button type="submit" class="alerts-primary" id="alerts-submit">Skicka bekräftelsemejl</button>
+<p id="alerts-feedback" class="alerts-feedback" role="status" aria-live="polite"></p>
+</form></section>
+<aside class="panel alerts-card"><h2>Så fungerar det</h2><p><strong>07.15–07.30</strong><br>En samlad morgonuppdatering på svenska, inte ett nytt mejl för varje aktie.</p><p><strong>Bekräftade signaler</strong><br>Signaler bedöms mot färdiga börsdata från föregående handelsdag. Indikativa signaler markeras separat.</p><p><strong>Ändra eller avsluta</strong><br>Varje utskick innehåller länkar för att hantera bevakningar och avprenumerera. Ingen inloggning krävs.</p><p><strong>Push på iPhone</strong><br>Lägg till webbsidan på hemskärmen och godkänn notiser. Push måste aktiveras på den enhet där du vill ta emot dem.</p><p class="alerts-hint">Vid saknade eller försenade börsdata ska utdaterade signaler inte skickas som aktuella.</p></aside></div>
+</main></div>
+</body></html>
