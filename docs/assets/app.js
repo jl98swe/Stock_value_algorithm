@@ -411,12 +411,17 @@
   }
 
   function bindControls() {
-    $('home-strategy').value = state.strategy;
-    $('home-strategy').addEventListener('change',()=>{
-      state.strategy = $('home-strategy').value;
-      window.strategySelection.set(state.strategy);
-      const url = new URL(location.href); url.searchParams.set('strategy',state.strategy); history.replaceState({},'',url);
-      renderRules(); renderSelected();
+    const strategyControls = [$('home-strategy'), $('history-strategy')];
+    $('history-strategy').innerHTML = $('home-strategy').innerHTML;
+    strategyControls.forEach(control => {
+      control.value = state.strategy;
+      control.addEventListener('change', () => {
+        state.strategy = control.value;
+        strategyControls.forEach(select => { select.value = state.strategy; });
+        window.strategySelection.set(state.strategy);
+        const url = new URL(location.href); url.searchParams.set('strategy',state.strategy); history.replaceState({},'',url);
+        renderRules(); renderSelected();
+      });
     });
     $('stock-search').addEventListener('input', (event) => renderStockList(event.target.value));
     document.querySelectorAll('[data-range]').forEach((button) => {
@@ -479,5 +484,4 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
-
 
