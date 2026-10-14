@@ -12,11 +12,52 @@ from .index_benchmark import INDEX_FILE
 from .method_metrics import equity_metrics, hold_curve, trade_metrics
 from .utils import read_json, write_json_atomic
 
-STRATEGIES = ("standard", "ma200", "report_avoidance", "standard_stop_loss_10")
+STRATEGIES = ("standard", "ma200", "report_avoidance", "standard_stop_loss_10", "standard_two_positions")
 
 
-def closed_equity(candles: list[dict], trades: list[dict], dividends: list[dict], dates: list[str]) -> np.ndarray:
+def concurrent_closed_equity(candles: list[dict], trades: list[dict], dividends: list[dict],
+                             dates: list[str], max_lots: int) -> np.ndarray:
+    """Replay included closed lots against shared cash, allocating half the NAV per buy."""
+    entries = {}
+    for trade in trades:
+        entries.setdefault(trade["entry_date"], []).append(trade)
+    dividend_map = {}
+    for item in dividends:
+        dividend_map[item["date"]] = dividend_map.get(item["date"], 0) + float(item["amount"] or 0)
+    cash = 1.0
+    active = []
+    factors = {}
+    for candle in sorted(candles, key=lambda c: c["date"]):
+        day = candle["date"]
+        for lot in active:
+            paid = lot["quantity"] * dividend_map.get(day, 0)
+            cash += paid
+            lot["paid"] += paid
+        # Next-open score orders are mutually exclusive: sells release cash before buys.
+        for lot in list(active):
+            trade = lot["trade"]
+            if trade["exit_date"] == day:
+                cash += lot["budget"] * (1 + trade["return_pct"] / 100) - lot["paid"]
+                active.remove(lot)
+        for trade in entries.get(day, []):
+            price = float(trade["entry_price"])
+            nav = cash + sum(lot["quantity"] * price for lot in active)
+            budget = min(cash, nav / max_lots)
+            cash -= budget
+            active.append({"trade": trade, "budget": budget, "quantity": budget / (price * 1.0025), "paid": 0.0})
+        factors[day] = cash + sum(lot["quantity"] * candle["close"] for lot in active)
+    current = 1.0
+    values = []
+    for day in dates:
+        current = factors.get(day, current)
+        values.append(current)
+    return np.asarray(values)
+
+
+def closed_equity(candles: list[dict], trades: list[dict], dividends: list[dict], dates: list[str], max_lots: int = 1) -> np.ndarray:
     """Reinvest within each stock; exclude positions outside the requested window."""
+    if max_lots > 1:
+        return concurrent_closed_equity(candles, trades, dividends, dates, max_lots)
     factors = {}
     cash = 1.0
     by_day = {c["date"]: c for c in candles}
@@ -80,7 +121,8 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
                 trades = [t for t in variant.get("closed_trades", []) if start <= t["entry_date"] <= t["exit_date"] <= end]
                 closed.extend(trades)
                 opens.extend(t for t in variant.get("open_lots", []) if start <= t["entry_date"] <= end)
-                equity += closed_equity(stock["candles"], trades, backtests[ticker].get("_dividends", []), dates) / len(ready)
+                equity += closed_equity(stock["candles"], trades, backtests[ticker].get("_dividends", []), dates,
+                    variant.get("max_lots", 2 if strategy == "standard_two_positions" else 1)) / len(ready)
             prelim = [t["current_return_pct"] for t in opens if t.get("current_return_pct") is not None]
             summaries[strategy] = {**equity_metrics(equity), **trade_metrics(closed),
                 "open_count": len(opens), "open_return_pct": float(np.mean(prelim)) if prelim else None}

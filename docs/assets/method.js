@@ -5,7 +5,7 @@
   const percent = value => value == null || !Number.isFinite(value) ? '–' : `${value > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value)} %`;
   const number = value => value == null ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 4}).format(value);
   const ratio = value => value == null || !Number.isFinite(value) ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value);
-  const names = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%', buy_and_hold:'Buy and hold', omxsgi:'OMXSGI'};
+  const names = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%',standard_two_positions:'Standard – två positioner', buy_and_hold:'Buy and hold', omxsgi:'OMXSGI'};
   const reference = key => key === 'buy_and_hold' || key === 'omxsgi';
 
   function periodStart(end, years, first) {
@@ -37,7 +37,29 @@
     return {return_pct:(values.at(-1)-1)*100, max_drawdown_pct:worst,
       sharpe_ratio:deviation > 1e-12 ? mean / deviation * Math.sqrt(252) : null};
   }
-  function closedEquity(candles, trades, dividends, dates) {
+  function concurrentClosedEquity(candles, trades, dividends, dates, maxLots) {
+    let cash=1;
+    const entries=new Map(), dividendMap=new Map(), factors=new Map();
+    const active=[];
+    for(const t of trades) {if(!entries.has(t.entry_date)) entries.set(t.entry_date,[]);entries.get(t.entry_date).push(t);}
+    for(const d of dividends) dividendMap.set(d.date,(dividendMap.get(d.date)||0)+Number(d.amount||0));
+    for(const c of [...candles].sort((a,b)=>a.date.localeCompare(b.date))) {
+      for(const lot of active) {const paid=lot.quantity*(dividendMap.get(c.date)||0);cash+=paid;lot.paid+=paid;}
+      for(let i=active.length-1;i>=0;i--) if(active[i].trade.exit_date===c.date) {
+        const lot=active.splice(i,1)[0];cash+=lot.budget*(1+lot.trade.return_pct/100)-lot.paid;
+      }
+      for(const t of entries.get(c.date)||[]) {
+        const nav=cash+active.reduce((sum,lot)=>sum+lot.quantity*t.entry_price,0);
+        const budget=Math.min(cash,nav/maxLots);cash-=budget;
+        active.push({trade:t,budget,quantity:budget/(t.entry_price*1.0025),paid:0});
+      }
+      factors.set(c.date,cash+active.reduce((sum,lot)=>sum+lot.quantity*c.close,0));
+    }
+    let current=1;
+    return dates.map(day=>{current=factors.get(day)??current;return current;});
+  }
+  function closedEquity(candles, trades, dividends, dates, maxLots=1) {
+    if(maxLots>1) return concurrentClosedEquity(candles,trades,dividends,dates,maxLots);
     let capital = 1;
     const factors = new Map(), dividendMap = new Map();
     for (const d of dividends) dividendMap.set(d.date,(dividendMap.get(d.date) || 0) + Number(d.amount || 0));
@@ -92,7 +114,7 @@
     return Object.entries(names).map(([id, name]) => {
       const closed = reference(id) ? references[id].trades : variants?.[id]?.closed_trades || [];
       const summary = reference(id) ? references[id].summary : {
-        return_pct: compound(closed), trade_count: closed.length,
+        return_pct: id === 'standard_two_positions' ? (closed.length ? equityMetrics(closedEquity(candles,closed,variants?._dividends || [],dates,2)).return_pct : null) : compound(closed), trade_count: closed.length,
         win_rate_pct: closed.length ? closed.filter(t => t.return_pct > 0).length / closed.length * 100 : null
       };
       return { id, name, start: id === 'omxsgi' ? indexDates[0] : start,
@@ -128,7 +150,7 @@
     $('method-stock-link').hidden = all || key === 'omxsgi';
     $('method-stock-link').href = `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${window.strategySelection.get()}`;
     $('method-name').textContent = names[key];
-    $('method-summary').textContent = ({standard:'Köp under 1, sälj över 99. Högst en aktiv position per aktie.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Standard med köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.',buy_and_hold:'Köp aktieurvalet vid periodens första tillgängliga stängning och behåll till periodens slut.',omxsgi:'Stockholmsbörsens breda avkastningsindex med återinvesterade utdelningar.'})[key];
+    $('method-summary').textContent = ({standard:'Köp under 1, sälj över 99. Högst en aktiv position per aktie.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',standard_two_positions:'Högst två delpositioner. Nytt köp kräver poäng minst 5; ny sälj kräver högst 95. Fem handelsdagar mellan köp respektive sälj.',ma200:'Standard med köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.',buy_and_hold:'Köp aktieurvalet vid periodens första tillgängliga stängning och behåll till periodens slut.',omxsgi:'Stockholmsbörsens breda avkastningsindex med återinvesterade utdelningar.'})[key];
     $('scope-note').textContent = all ? `${variants.meta.stock_count} aktier · Lika kapitalandel per aktie · Öppna positioner redovisas separat.${variants.meta.excluded_stocks.length ? ` ${variants.meta.excluded_stocks.length} aktier saknar komplett underlag och ingår inte.` : ''}` : 'Enskild aktie · Öppna positioner redovisas separat.';
     document.querySelectorAll('[data-method]').forEach(el => el.hidden = el.dataset.method !== key);
     document.querySelectorAll('[data-signal-rules]').forEach(el => el.hidden = reference(key));
@@ -144,13 +166,13 @@
     $('backtest-summary').innerHTML = Object.entries(names).map(([id,name]) => {
       const trades = reference(id) ? {closed:all ? variants.periods[period].reference_trades?.[id] || [] : references[id].trades,open:[]} : selectTrades(variants[id] || {}, start,end), closed = trades.closed;
       const summary = all ? variants.periods[period].strategies[id] || {} : reference(id) ? references[id].summary : {
-        ...equityMetrics(closed.length ? closedEquity(stock.candles,closed,variants._dividends || [],dates) : []),
-        return_pct:compound(closed),trade_count:closed.length,
+        ...equityMetrics(closed.length ? closedEquity(stock.candles,closed,variants._dividends || [],dates,id === 'standard_two_positions' ? 2 : 1) : []),
+        ...(id === 'standard_two_positions' ? {} : {return_pct:compound(closed)}),trade_count:closed.length,
         win_rate_pct:closed.length ? closed.filter(t=>t.return_pct>0).length/closed.length*100 : null,
         average_trade_pct:closed.length ? closed.reduce((sum,t)=>sum+t.return_pct,0)/closed.length : null
       };
       const open = trades.open[0];
-      const openText = all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
+      const openText = !all && trades.open.length > 1 ? `${trades.open.length} st · ${trades.open.map(t=>percent(t.current_return_pct)).join(' / ')} (preliminärt)` : all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
       return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td></tr>`;
     }).join('');
     const indexTrades = all ? variants.periods[period].reference_trades?.omxsgi || [] : references.omxsgi.trades;

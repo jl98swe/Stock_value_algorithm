@@ -5,7 +5,7 @@
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
-  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%'};
+  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%',standard_two_positions:'Standard – två positioner'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let strategy = 'standard';
   let priceBoundaries = {};
@@ -238,7 +238,7 @@
           if (!/\/(positions|signals|method)\.html$/.test(new URL(link.href).pathname)) return;
           const target=new URL(link.href); target.searchParams.set('strategy',strategy); link.href=target;
         });
-        $('strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[strategy];
+        $('strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',standard_two_positions:'Högst två delpositioner. Nytt köp kräver poäng minst 5; ny sälj kräver högst 95. Fem handelsdagar mellan köp respektive sälj.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[strategy];
         const needle = ($('overview-search')?.value || '').trim().toLocaleLowerCase('sv-SE');
         if (page === 'positions') renderPositions(dashboard, stocksPayload, needle);
         else renderSignals(dashboard, stocksPayload, needle);

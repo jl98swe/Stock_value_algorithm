@@ -73,9 +73,12 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     report_frame = report_filters(frame, dates)
     variants = {"standard": standard, "ma200": run_strategy(ma, ticker),
                 "report_avoidance": run_strategy(report_frame, ticker),
-                "standard_stop_loss_10": run_strategy(frame, ticker, stop_loss_pct=10)}
+                "standard_stop_loss_10": run_strategy(frame, ticker, stop_loss_pct=10),
+                "standard_two_positions": run_strategy(frame, ticker, max_lots=2,
+                    buy_rearm_score=5, sell_rearm_score=95)}
     names = {"standard": "Standard", "ma200": "MA200", "report_avoidance": "Rapportundvikande",
-             "standard_stop_loss_10": "Standard - stop loss 10%"}
+             "standard_stop_loss_10": "Standard - stop loss 10%",
+             "standard_two_positions": "Standard – två positioner"}
     result = {}
     latest_day = pd.Timestamp(frame["Date"].max()).normalize()
     sessions = xcals.get_calendar("XSTO", start=latest_day - pd.Timedelta(days=15),
@@ -86,6 +89,7 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     report_exit = sessions[sessions.searchsorted(next_report, side="left") - 1] if next_report is not None else None
     filter_info = {
         "standard": {"buy_allowed": True, "buy_block_reason": ""},
+        "standard_two_positions": {"buy_allowed": True, "buy_block_reason": "", "max_lots": 2},
         "standard_stop_loss_10": {"buy_allowed": True, "buy_block_reason": "", "stop_loss_pct": 10,
             "stop_price": next((lot["entry_price"] * .9 for lot in variants["standard_stop_loss_10"].get("open_lots", [])), None)},
         "ma200": {"buy_allowed": bool(ma.iloc[-1]["BuyAllowed"]),
@@ -99,6 +103,7 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     }
     for key, variant in variants.items():
         result[key] = {"name": names[key], "closed_trades": variant.get("trades", []),
+                       "max_lots": variant.get("summary", {}).get("max_lots", 1),
                        "open_lots": variant.get("open_lots", []),
                        "start_date": frame["Date"].min().date().isoformat(),
                        "end_date": frame["Date"].max().date().isoformat()}

@@ -22,6 +22,8 @@ class StrategyParameters:
     respect_fundamental_locks: bool = True
     initial_capital: float = 1.0
     stop_loss_pct: float | None = None
+    buy_rearm_score: float | None = None
+    sell_rearm_score: float | None = None
 
 
 @dataclass
@@ -61,7 +63,7 @@ def run_strategy(
     * buy and sell cooldowns are independent and measured in trading rows;
     * a cooldown-delayed re-entry remains eligible if the score stays at the
       boundary until the five-day minimum has elapsed;
-    * at most one active position is allowed per stock;
+    * at most the configured number of active lots is allowed per stock;
     * a fundamental lock blocks or cancels a signal without consuming the
       threshold event, so it may fire after verified EPS arrives.
     """
@@ -186,7 +188,7 @@ def run_strategy(
                     signal.update({"status": "cancelled_filter", "execution_date": date_string,
                                    "execution_price": None, "status_reason": "Strategifilter"})
                     restore_arm = True
-                elif buys_in_cycle >= p.max_lots or len(open_lots) >= p.max_lots:
+                elif len(open_lots) >= p.max_lots:
                     signal.update(
                         {
                             "status": "cancelled_capacity",
@@ -333,14 +335,16 @@ def run_strategy(
                 buy_armed = False
                 last_sell_signal_index = index
 
-        # Rearm only after leaving the relevant boundary. Separate bookkeeping
+        # Rearm after the configured reset level (or leaving the boundary). Separate bookkeeping
         # prevents one blocked/deferred marker from being emitted every day.
         if np.isfinite(score):
-            if score > p.buy_threshold + p.threshold_epsilon:
+            if (score >= p.buy_rearm_score if p.buy_rearm_score is not None
+                    else score > p.buy_threshold + p.threshold_epsilon):
                 buy_armed = True
                 buy_block_logged = False
                 buy_deferred_logged = False
-            if score < p.sell_threshold - p.threshold_epsilon:
+            if (score <= p.sell_rearm_score if p.sell_rearm_score is not None
+                    else score < p.sell_threshold - p.threshold_epsilon):
                 sell_armed = True
                 sell_block_logged = False
                 sell_deferred_logged = False
@@ -354,7 +358,7 @@ def run_strategy(
             sell_hit = score >= p.sell_threshold - p.threshold_epsilon
 
             if buy_hit and buy_armed and not stopped_today:
-                capacity_ok = buys_in_cycle < p.max_lots and len(open_lots) < p.max_lots
+                capacity_ok = len(open_lots) < p.max_lots
                 cooldown_ok = _cooldown_ok(index, last_buy_signal_index, p.cooldown_trading_days)
                 # A fundamental lock is the primary reason no order may be
                 # created. Capacity and cooldown are evaluated only after the
@@ -379,7 +383,7 @@ def run_strategy(
                         date_string=date_string,
                         score=score,
                         status="suppressed_capacity",
-                        reason="Max en aktiv position per aktie",
+                        reason=f"Max {p.max_lots} aktiva positioner per aktie",
                     )
                     buy_armed = False
                 elif not cooldown_ok:
