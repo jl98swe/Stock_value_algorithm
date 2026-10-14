@@ -59,7 +59,7 @@ jobs:
       - name: Kontrollera periodregler för Metod
         run: |
           node tests/test_method_periods.cjs
-          node --test tests/test_home_backtest.cjs
+          node --test tests/test_home_backtest.cjs tests/test_strategy_order.cjs
 
       - name: Kontrollera översikternas strategifilter
         run: node tests/test_overview_strategy.cjs

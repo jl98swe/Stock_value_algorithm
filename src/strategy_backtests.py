@@ -77,8 +77,8 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
                 "standard_two_positions": run_strategy(frame, ticker, max_lots=2,
                     buy_rearm_score=5, sell_rearm_score=95)}
     names = {"standard": "Standard", "ma200": "MA200", "report_avoidance": "Rapportundvikande",
-             "standard_stop_loss_10": "Standard - stop loss 10%",
-             "standard_two_positions": "Standard – två positioner"}
+             "standard_stop_loss_10": "Standard — stop loss 10 %",
+             "standard_two_positions": "Standard — två positioner"}
     result = {}
     latest_day = pd.Timestamp(frame["Date"].max()).normalize()
     sessions = xcals.get_calendar("XSTO", start=latest_day - pd.Timedelta(days=15),
@@ -101,7 +101,8 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
                              "report_exit_date": report_exit.date().isoformat() if report_exit is not None and report_exit > latest_day else None,
                              "force_next_exit": report_exit == next_session if report_exit is not None else False},
     }
-    for key, variant in variants.items():
+    for key in ("standard", "standard_stop_loss_10", "standard_two_positions", "ma200", "report_avoidance"):
+        variant = variants[key]
         result[key] = {"name": names[key], "closed_trades": variant.get("trades", []),
                        "max_lots": variant.get("summary", {}).get("max_lots", 1),
                        "open_lots": variant.get("open_lots", []),

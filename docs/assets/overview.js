@@ -5,7 +5,7 @@
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
-  const strategies = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%',standard_two_positions:'Standard – två positioner'};
+  const strategies = {standard:'Standard',standard_stop_loss_10:'Standard — stop loss 10 %',standard_two_positions:'Standard — två positioner',ma200:'MA200',report_avoidance:'Rapportundvikande'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let strategy = 'standard';
   let priceBoundaries = {};
