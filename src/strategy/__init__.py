@@ -272,6 +272,9 @@ def _replay_net_cashflows(
             "commission_buy_pct": 0.25,
             "commission_sell_pct": 0.25,
             "dividends_in_trade_returns": True,
+            "max_lots": params.max_lots,
+            "buy_rearm_score": params.buy_rearm_score,
+            "sell_rearm_score": params.sell_rearm_score,
         }
     )
     result["summary"] = summary
@@ -283,12 +286,21 @@ def run_strategy(
     *,
     params: StrategyParameters | None = None,
     stop_loss_pct: float | None = None,
+    max_lots: int | None = None,
+    buy_rearm_score: float | None = None,
+    sell_rearm_score: float | None = None,
 ) -> dict[str, Any]:
     """Run the strategy with strict <1 / >99 signals and net cash accounting."""
 
     effective_params = params or _strict_default_params()
     if stop_loss_pct is not None:
         effective_params = replace(effective_params, stop_loss_pct=stop_loss_pct)
+    if max_lots is not None:
+        effective_params = replace(effective_params, max_lots=max_lots)
+    if buy_rearm_score is not None:
+        effective_params = replace(effective_params, buy_rearm_score=buy_rearm_score)
+    if sell_rearm_score is not None:
+        effective_params = replace(effective_params, sell_rearm_score=sell_rearm_score)
     result = _LEGACY.run_strategy(frame, ticker, params=effective_params)
     _replay_net_cashflows(frame, ticker, result, effective_params)
     return result

@@ -206,7 +206,9 @@ def _position_payload(strategy: dict[str, object] | None) -> dict[str, object]:
 
     return {
         "lots": int(summary.get("active_lots", len(lots)) or 0),
-        "max_lots": 1,
+        "max_lots": int(summary.get("max_lots", 1)),
+        "buy_rearm_score": summary.get("buy_rearm_score"),
+        "sell_rearm_score": summary.get("sell_rearm_score"),
         "avg_entry": _json_number(avg_entry, 4),
         "unrealized_pct": _json_number(summary.get("unrealized_pct"), 4),
         "last_buy_date": last_buy_date,
@@ -242,6 +244,7 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
 
 def _strategy_live_payload(strategy: dict | None, filters: dict) -> dict:
     position = _position_payload(strategy)
+    position["max_lots"] = int(filters.get("max_lots", position["max_lots"]))
     action = _next_action(strategy, strategy is not None)
     if filters.get("force_next_exit") and position["lots"] > 0:
         action = {"type": "SELL", "label": "Sälj inför rapport", "exit_reason": "report",
@@ -447,8 +450,9 @@ def _stock_payload(
         "closed_trades": strategy.get("trades", []) if strategy else [],
         "open_lots": strategy.get("open_lots", []) if strategy else [],
         "strategies": {key: backtests.get(key, {}).get("overview") or _strategy_live_payload(None, {
-            "buy_allowed": False, "buy_block_reason": "Väntar på komplett värderingsunderlag"})
-            for key in ("standard", "ma200", "report_avoidance", "standard_stop_loss_10")},
+            "buy_allowed": False, "buy_block_reason": "Väntar på komplett värderingsunderlag",
+            "max_lots": 2 if key == "standard_two_positions" else 1})
+            for key in ("standard", "ma200", "report_avoidance", "standard_stop_loss_10", "standard_two_positions")},
     }
     report_frame = valued if valued is not None else working
     report_columns = [

@@ -336,3 +336,18 @@ inkluderar fortfarande courtage och utdelningar. Dagsbaserat backtest antar
 fyllning på stoppnivån utan slippage under dagen; kursgap och courtage kan
 ge förlust större än 10 %. Strategin har separata positioner och signaler på
 Startsida, Aktiva positioner, Kommande signaler och Metod & backtest.
+
+### Standard – två positioner
+
+`standard_two_positions` tillåter högst två samtidiga delpositioner per aktie.
+Köp under 1 återaktiveras först när poängen nått minst 5; sälj över 99
+återaktiveras först när poängen nått högst 95. Minst fem handelsdagar
+mellan köp respektive sälj gäller samtidigt. Varje signal säljer en delposition
+(FIFO). Köp använder högst 50 % av aktuellt kapital per aktie, begränsat av
+tillgängliga kontanter, utan belåning. En ledig plats efter en delvis försäljning
+kan fyllas av en ny giltig köpsignal. Vanliga fundamentala spärrar,
+nästa öppning, courtage och utdelningar följer Standard.
+
+Backtestet visar avslutade delpositioner med gemensam kassa och öppna
+delpositioner separat. Överlappande affärer räknas inte som varsin investering
+av hela kapitalet. Poänghistoriken och övriga strategiers regler ändras inte.

@@ -99,15 +99,16 @@
 
   function renderRules() {
     $('rules-title').textContent = window.strategySelection.names[state.strategy];
-    $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
+    $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',standard_two_positions:'Högst två delpositioner. Nytt köp kräver poäng minst 5; ny sälj kräver högst 95. Fem handelsdagar mellan köp respektive sälj.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
     const rules = state.dashboard.meta?.rules || {};
     const rows = [
       ['Köp', `Score ${rules.buy_score ?? 1}`],
       ['Sälj', `Score ${rules.sell_score ?? 99}`],
       ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],
-      ['Max positioner', `${rules.max_active_positions_per_stock ?? rules.max_buys_per_cycle ?? 1} per aktie`],
+      ['Max positioner', `${state.strategy === 'standard_two_positions' ? 2 : rules.max_active_positions_per_stock ?? rules.max_buys_per_cycle ?? 1} per aktie`],
       ['Exekvering', rules.execution || 'Nästa öppning']
     ];
+    if (state.strategy === 'standard_two_positions') rows.push(['Nytt köp', 'Poäng minst 5 före nästa köp under 1'], ['Ny sälj', 'Poäng högst 95 före nästa sälj över 99'], ['Kapital', '50 % per delposition · äldsta säljs först']);
     if (state.strategy === 'standard_stop_loss_10') rows.push(['Stop loss', '10 % under köpkursen · gäller under handelsdagen']);
     $('rules-list').innerHTML = rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
   }
@@ -168,7 +169,7 @@
     $('metric-zone').className = `zone-pill ${zoneClass(latest.score)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
     $('metric-eps').textContent = latest.eps_ttm == null ? 'EPS –' : `EPS TTM ${formatEps(latest.eps_ttm)}`;
-    $('metric-position').textContent = position.lots ? '1 aktiv position' : 'Ingen aktiv position';
+    $('metric-position').textContent = position.lots ? `${position.lots} ${position.lots === 1 ? 'aktiv position' : 'aktiva positioner'}` : 'Ingen aktiv position';
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
     $('metric-action').className = `metric-value metric-action ${action.type === 'BUY' ? 'positive' : action.type === 'SELL' ? 'negative' : ''}`;
