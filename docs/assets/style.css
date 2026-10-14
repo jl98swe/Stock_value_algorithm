@@ -471,3 +471,6 @@ a { color: inherit; }
 
 /* App identity: use the same V icon in the page header and on home screens. */
 img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; padding:0; background:none; border-radius:11px; }
+
+.brand-mark.brand-link:has(img) { display:block; padding:0; overflow:hidden; }
+.brand-mark.brand-link img { display:block; width:100%; height:100%; object-fit:cover; }
