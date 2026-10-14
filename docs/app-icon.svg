@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Stock Value Algorithm">
+<defs>
+<linearGradient id="bg" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#020b23"/><stop offset=".56" stop-color="#05265d"/><stop offset="1" stop-color="#167de5"/></linearGradient>
+<linearGradient id="white" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d9ecff"/></linearGradient>
+<linearGradient id="green" x1="0" y1="1" x2="0.6" y2="0"><stop stop-color="#00b979"/><stop offset="1" stop-color="#35f66a"/></linearGradient>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<path d="M154 283 Q146 271 159 271 H319 Q335 271 341 287 L484 625 L364 802 Z" fill="url(#white)"/>
+<path d="M364 802 L676 309 Q683 298 672 292 L638 273 Q625 265 642 256 L858 158 Q877 150 877 173 L882 407 Q882 426 866 415 L818 378 Q809 371 801 385 L563 802 Q551 822 531 822 H388 Q369 822 364 802 Z" fill="url(#green)"/>
+</svg>
