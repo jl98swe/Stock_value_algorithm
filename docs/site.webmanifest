@@ -1,0 +1,17 @@
+{
+  "name": "Stock Value Algorithm",
+  "short_name": "Stock Value",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#020b23",
+  "theme_color": "#05265d",
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
