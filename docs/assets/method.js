@@ -5,7 +5,7 @@
   const percent = value => value == null || !Number.isFinite(value) ? '–' : `${value > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value)} %`;
   const number = value => value == null ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 4}).format(value);
   const ratio = value => value == null || !Number.isFinite(value) ? '–' : new Intl.NumberFormat('sv-SE', {maximumFractionDigits: 2}).format(value);
-  const names = {standard:'Standard', ma200:'MA200', report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%',standard_two_positions:'Standard – två positioner', buy_and_hold:'Buy and hold', omxsgi:'OMXSGI'};
+  const names = {standard:'Standard',standard_stop_loss_10:'Standard — stop loss 10 %',standard_two_positions:'Standard — två positioner',ma200:'MA200',report_avoidance:'Rapportundvikande',buy_and_hold:'Buy and hold',omxsgi:'OMXSGI'};
   const reference = key => key === 'buy_and_hold' || key === 'omxsgi';
 
   function periodStart(end, years, first) {

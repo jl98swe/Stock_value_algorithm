@@ -3,7 +3,7 @@ from pathlib import Path
 
 from .utils import write_json_atomic
 
-STRATEGIES = ("standard", "ma200", "report_avoidance", "standard_stop_loss_10", "standard_two_positions")
+STRATEGIES = ("standard", "standard_stop_loss_10", "standard_two_positions", "ma200", "report_avoidance")
 
 
 def write_strategy_overviews(stocks: dict, meta: dict, path: Path) -> dict:

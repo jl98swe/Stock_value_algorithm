@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const names = {standard:'Standard',ma200:'MA200',report_avoidance:'Rapportundvikande',standard_stop_loss_10:'Standard - stop loss 10%',standard_two_positions:'Standard – två positioner'};
+  const names = {standard:'Standard',standard_stop_loss_10:'Standard — stop loss 10 %',standard_two_positions:'Standard — två positioner',ma200:'MA200',report_avoidance:'Rapportundvikande'};
   let saved;
   try { saved = localStorage.getItem('overview-strategy'); } catch {}
   const params = new URLSearchParams(location.search);
