@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-13T23:14:39+02:00",
+  "generated_at": "2026-10-14T22:10:08+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/castellum",
-  "items": []
+  "items": [
+    {
+      "ticker": "CAST.ST",
+      "company": "Castellum",
+      "published_at": "2026-10-14T10:45:00+02:00",
+      "title": "Extra bolagsstämma i Castellum Aktiebolag",
+      "link": "https://mfn.se/a/castellum/extra-bolagsstamma-i-castellum-aktiebolag-2",
+      "source": "MFN",
+      "summary": "Extra bolagsstämma i Castellum Aktiebolag 2026-10-14 10:45:00 Castellum Aktiebolag har hållit extra bolagsstämma onsdagen den 14 oktober 2026. Den extra bolagsstämman beslutade i enlighet med styrelsens samtliga framlagda förslag. Bemyndigande för styrelsen att besluta om förvärv och överlåtelse av bolagets egna aktier Den extra bolagsstämman beslutade att bemyndiga styrelsen att, under tiden intill nästa årsstämma vid ett eller flera tillfällen, besluta om förvärv och överlåtelse av egna aktier. Sådana förvärv och överlåtelser får ske i syfte att kunna anpassa bolagets kapitalstruktur till kapitalbehovet från tid till annan för att därmed bi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4969d93f0d7495df"
+    }
+  ]
 }
