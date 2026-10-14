@@ -1,0 +1,44 @@
+name: Build app icons
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/site.webmanifest'
+      - 'docs/app-icon.svg'
+      - '.github/workflows/build-app-icons.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: app-icons-main
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Render iPhone and Android icons
+        run: |
+          python -m pip install --quiet cairosvg pillow
+          python - <<'PY'
+          import io
+          from pathlib import Path
+          import cairosvg
+          from PIL import Image
+          source=Path('docs/app-icon.svg').read_bytes()
+          for size,name in [(180,'apple-touch-icon.png'),(192,'app-icon-192.png'),(512,'app-icon-512.png')]:
+              png=cairosvg.svg2png(bytestring=source,output_width=size,output_height=size)
+              image=Image.open(io.BytesIO(png)).convert('RGB')
+              image.save(Path('docs')/name,optimize=True)
+          PY
+      - name: Commit generated icons
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/apple-touch-icon.png docs/app-icon-192.png docs/app-icon-512.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate PNG app icons for mobile home screens"
+            git push origin HEAD:main
+          fi
