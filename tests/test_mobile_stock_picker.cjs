@@ -19,9 +19,9 @@ function setup(isMobile = true) {
     focus() { document.activeElement = this; this.dispatchEvent(new Event('focus')); }
     blur() { if (document.activeElement === this) document.activeElement = null; }
   }
-  const sidebar = new Element(), toggle = new Element(), label = new Element(), search = new Element(), option = new Element();
-  const elements = { 'stock-picker-toggle': toggle, 'stock-picker-label': label, 'stock-search': search };
-  sidebar.contains = (node) => [sidebar, toggle, label, search, option].includes(node);
+  const sidebar = new Element(), toggle = new Element(), label = new Element(), search = new Element(), option = new Element(), list = new Element();
+  const elements = { 'stock-picker-toggle': toggle, 'stock-picker-label': label, 'stock-search': search, 'stock-list': list };
+  sidebar.contains = (node) => [sidebar, toggle, label, search, list, option].includes(node);
   document.querySelector = () => sidebar;
   document.getElementById = (id) => elements[id];
   const media = new EventTarget(); media.matches = isMobile;
@@ -83,6 +83,6 @@ test('mobile CSS caps the list height, keeps touch targets usable and does not c
   assert(css.includes('max-height: min(44vh, 320px)'));
   assert(css.includes('min-height: 44px !important'));
   assert(html.includes('aria-controls="stock-list"'));
-  assert(html.includes('mobile-stock-picker.js?v=20261006-1'));
+  assert(/mobile-stock-picker\.js\?v=\d{8}-\d+/.test(html));
   assert(app.includes("new CustomEvent('stock-selected'"));
 });
