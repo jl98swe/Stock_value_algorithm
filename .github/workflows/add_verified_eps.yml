@@ -1,6 +1,12 @@
 name: Lägg till EPS från rapport
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "data/fundamentals/reports.csv"
+      - "data/manual/report_submissions.csv"
+      - "data/earnings/quarterly_eps.csv"
   workflow_dispatch:
     inputs:
       ticker:
@@ -72,6 +78,7 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Lägg in manuellt EPS-värde
+        if: github.event_name == 'workflow_dispatch'
         env:
           TICKER: ${{ inputs.ticker }}
           REPORT_PERIOD: ${{ inputs.report_period }}
@@ -114,6 +121,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fundamentals/reports.csv data/manual/report_submissions.csv docs/data
           git add data/derived/valuation_score_history.csv.gz
+          git add data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           git add data/earnings/quarterly_eps.csv
           if [ -f data/fx/fx_updates.csv ]; then
             git add data/fx/fx_updates.csv
@@ -128,6 +136,6 @@ jobs:
             echo "Inga ändringar att spara."
             exit 0
           fi
-          git commit -m "fundamentals: manuellt EPS-värde ${{ inputs.ticker }} ${{ inputs.report_period }}"
+          git commit -m "fundamentals: publicera verifierade EPS och omräknade webbdata"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
