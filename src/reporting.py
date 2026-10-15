@@ -855,6 +855,8 @@ def build_reports_payload(
         "upcoming": upcoming,
         "recent": recent,
     }
+    from .report_data_status import report_data_status
+    payload.update(report_data_status(reports, today=generated_at))
     write_json_atomic(_resolve(output_path), payload)
     return payload
 

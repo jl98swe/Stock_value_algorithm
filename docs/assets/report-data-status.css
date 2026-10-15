@@ -1,0 +1,3 @@
+.report-data-alert{grid-column:1/-1;width:100%;box-sizing:border-box;margin:0 0 20px;padding:18px 20px;border:1px solid #c3d5e9;border-left:5px solid #47749e;border-radius:10px;background:#f1f6fc;color:#243f5a;line-height:1.5;overflow-wrap:anywhere}
+.report-data-alert-warning{border-color:#e2bb70;border-left-color:#b66b00;background:#fff5df;color:#674200}
+.report-data-alert strong{font-size:17px}.report-data-alert p{margin:8px 0}.report-data-alert ul{margin:8px 0 0;padding-left:22px}.report-data-alert a{color:inherit;font-weight:700;text-decoration:underline}
