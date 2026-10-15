@@ -62,5 +62,25 @@
       7,
       14
     ]
+  },
+  "ATRLJ-B.ST|2026-Q3": {
+    "anchor": "2026-10-09",
+    "completed": []
+  },
+  "ERIC-B.ST|2026-Q3": {
+    "anchor": "2026-10-15",
+    "completed": []
+  },
+  "INDU-A.ST|2026-Q3": {
+    "anchor": "2026-10-07",
+    "completed": []
+  },
+  "NDA-SE.ST|2026-Q3": {
+    "anchor": "2026-10-15",
+    "completed": []
+  },
+  "WALL-B.ST|2026-Q3": {
+    "anchor": "2026-10-15",
+    "completed": []
   }
 }
