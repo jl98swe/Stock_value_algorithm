@@ -27,10 +27,13 @@ from .events import (
 from .fetch_data import BASE_DATA_FILE, UPDATES_FILE, load_price_history, update_prices
 from .fundamentals import (
     attach_eps_ttm,
+    _attach_currency_conversion,
+    REPORT_CURRENCY_NOTE_PATTERN,
     latest_verified_report,
     load_reports,
     valuation_calculation_mode,
 )
+from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
@@ -492,9 +495,30 @@ def _dividend_events(dividends: pd.DataFrame) -> list[dict[str, object]]:
     return events
 
 
-def _report_events(reports: pd.DataFrame) -> list[dict[str, object]]:
+def _report_events(reports: pd.DataFrame, *, stock_metadata: pd.DataFrame | None = None,
+                   fx_history: pd.DataFrame | None = None) -> list[dict[str, object]]:
+    # Report markers use the same currency conversion and FX cutoff as valuation.
+    metadata = load_stock_currencies() if stock_metadata is None else stock_metadata
+    fx = load_fx_history() if fx_history is None else fx_history
+    model_values: dict[object, tuple[object, object]] = {}
+    for ticker, group in reports.groupby("ticker", sort=False):
+        working = pd.DataFrame(index=group.index)
+        working["date"] = pd.to_datetime(group["effective_date"], errors="coerce").dt.normalize()
+        published = pd.to_datetime(group["published_at"], errors="coerce", utc=True)
+        working["date"] = working["date"].fillna(published.dt.tz_convert("Europe/Stockholm").dt.tz_localize(None).dt.normalize())
+        working["EPS_TTM"] = group["eps_ttm"]
+        working["EPS_CURRENCY_SOURCE"] = group["notes"].astype("string").str.extract(REPORT_CURRENCY_NOTE_PATTERN, expand=False)
+        working = working.loc[working["date"].notna()]
+        if working.empty:
+            continue
+        converted = _attach_currency_conversion(working, str(ticker), date_column="date",
+                                                stock_metadata=metadata, fx_history=fx)
+        for index, value in converted.iterrows():
+            currency = value.get("PRICE_CURRENCY")
+            model_values[index] = (value.get("EPS_TTM") if pd.notna(currency) else None,
+                                   str(currency) if pd.notna(currency) else None)
     events: list[dict[str, object]] = []
-    for row in reports.itertuples(index=False):
+    for row in reports.itertuples(index=True):
         published_at = _iso_timestamp(row.published_at)
         effective_date = _iso_date(row.effective_date)
         if not published_at and not effective_date:
@@ -510,7 +534,9 @@ def _report_events(reports: pd.DataFrame) -> list[dict[str, object]]:
                 "categories": ["report", "earnings"],
                 "source": str(row.source or "Rapportdata"),
                 "title": f"Rapport {period}",
-                "eps_ttm": _json_number(row.eps_ttm),
+                "report_period": period,
+                "eps_ttm": _json_number(model_values.get(row.Index, (None, None))[0], None),
+                "eps_currency": model_values.get(row.Index, (None, None))[1],
                 "summary": str(row.notes or ""),
                 "link": "",
                 "is_regulatory": True,

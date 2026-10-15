@@ -28,7 +28,7 @@ function setup() {
   ], signals: [{ side: 'BUY', status: 'executed', execution_date: '2026-01-05', execution_price: 100 }] };
   const events = [
     { event_type: 'report', source: 'YAHOO', eps_ttm: 0.69 },
-    { event_type: 'report', source: 'TRADINGVIEW', eps_ttm: 0.69012345 },
+    { event_type: 'report', source: 'TRADINGVIEW | https://example.test/internal-audit', report_period: '2026-Q1', eps_ttm: 0.69012345, eps_currency: 'SEK' },
     { event_type: 'dividend', title: 'Utdelning' },
     { event_type: 'news', title: 'Nyhet ett' },
     { event_type: 'news', title: 'Nyhet två', locking: true }
@@ -55,8 +55,9 @@ test('events live in a separate coordinate system; only trade markers remain on 
   assert.equal(new Set(events.data.map((p) => p.id)).size, 3);
   assert.equal(events.animation, false);
   assert(events.data.every((p) => p.value[0] === '2026-01-05' && !p.coord));
-  assert.match(events.data[0].eventTooltip, /TRADINGVIEW/);
-  assert.match(events.data[0].eventTooltip, /0,6901(?:<|$)/);
+  assert.match(events.data[0].eventTooltip, /Rapport 2026-Q1 2026-01-05/);
+  assert.doesNotMatch(events.data[0].eventTooltip, /TRADINGVIEW|https:|internal-audit/);
+  assert.match(events.data[0].eventTooltip, /0,6901 SEK/);
   assert.match(events.data[2].eventTooltip, /Nyhet ett/);
   assert.match(events.data[2].eventTooltip, /Nyhet två/);
   assert.equal(events.data[2].itemStyle.borderWidth, 2.5);

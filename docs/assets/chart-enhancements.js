@@ -83,11 +83,8 @@
   }
 
   function reportDisplayTitle(event) {
-    const source = String(event.source || '').trim();
-    let sourceLabel = source.split('/')[0].trim();
-    if (/yahoo/i.test(source)) sourceLabel = 'YAHOO';
-    if (/tradingview/i.test(source)) sourceLabel = 'TRADINGVIEW';
-    return ['Rapport', sourceLabel, eventDay(event)].filter(Boolean).join(' ');
+    const period = String(event.report_period || event.title || '').match(/^(?:Rapport )?(\d{4}-Q[1-4])$/)?.[1] || '';
+    return ['Rapport', period, eventDay(event)].filter(Boolean).join(' ');
   }
 
   function reportSourcePriority(event) {
