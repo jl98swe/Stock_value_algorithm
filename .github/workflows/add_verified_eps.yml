@@ -115,6 +115,9 @@ jobs:
       - name: Validera data och webbexport
         run: python -m src.validate_outputs
 
+      - name: Flagga saknade rapportdata
+        run: python -m src.report_data_status
+
       - name: Spara verifierad EPS och webbdata
         run: |
           git config user.name "github-actions[bot]"
