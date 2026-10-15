@@ -6,15 +6,14 @@
       if (!response.ok) return;
       const payload = await response.json();
       const missing = payload.missing_data || [];
-      const withoutEps = location.pathname.endsWith('reports.html') ? (payload.reports_without_eps || []) : [];
-      if (!missing.length && !withoutEps.length) return;
+      if (!missing.length) return;
       const host = document.querySelector('main');
       if (!host) return;
       const panel = document.createElement('section');
-      panel.className = `report-data-alert ${missing.length ? 'report-data-alert-warning' : ''}`;
+      panel.className = 'report-data-alert report-data-alert-warning';
       panel.setAttribute('role', 'status');
       const title = document.createElement('strong');
-      title.textContent = missing.length ? `EPS-data saknas för ${missing.length} rapport${missing.length === 1 ? '' : 'er'}` : 'Redogörelse utan EPS';
+      title.textContent = `EPS-data saknas för ${missing.length} rapport${missing.length === 1 ? '' : 'er'}`;
       panel.append(title);
       if (missing.length) {
         const description = document.createElement('p');
@@ -22,7 +21,7 @@
         panel.append(description);
       }
       const list = document.createElement('ul');
-      for (const row of [...missing, ...withoutEps]) {
+      for (const row of missing) {
         const item = document.createElement('li');
         const link = document.createElement('a');
         link.href = `./index.html?ticker=${encodeURIComponent(row.ticker)}`;
