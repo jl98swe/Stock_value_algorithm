@@ -29,6 +29,13 @@
   const epsFmt = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
   const formatEps = (value) => value == null ? '–' : epsFmt.format(Number(value));
 
+  function formatModelEps(data) {
+    const value = data.latest?.eps_ttm;
+    if (value == null) return '–';
+    const currency = stockMeta(state.selectedTicker).currency || 'SEK';
+    return `${formatEps(value)} ${currency}`;
+  }
+
   function safeNumber(value, fallback = null) {
     if (value == null || value === '') return fallback;
     const n = Number(value);
@@ -168,7 +175,7 @@
     $('metric-zone').textContent = latest.zone || '–';
     $('metric-zone').className = `zone-pill ${zoneClass(latest.score)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
-    $('metric-eps').textContent = latest.eps_ttm == null ? 'EPS –' : `EPS TTM ${formatEps(latest.eps_ttm)}`;
+    $('metric-eps').textContent = `EPS TTM ${formatModelEps(data)}`;
     $('metric-position').textContent = position.lots ? `${position.lots} ${position.lots === 1 ? 'aktiv position' : 'aktiva positioner'}` : 'Ingen aktiv position';
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
@@ -186,7 +193,7 @@
     $('report-content').innerHTML = `
       <div class="status-stack">
         <div class="status-line"><span>Senaste rapport</span><strong>${report.period || '–'}</strong></div>
-        <div class="status-line"><span>EPS TTM</span><strong>${formatEps(report.eps_ttm)}</strong></div>
+        <div class="status-line"><span>EPS TTM</span><strong>${formatModelEps(data)}</strong></div>
         <div class="status-line"><span>Effektiv handelsdag</span><strong>${prettyDate(report.effective_date)}</strong></div>
         <div class="status-line"><span>Verifierad</span><strong>${report.verified ? 'Ja' : 'Nej'}</strong></div>
         <div class="status-line"><span>Nästa rapport</span><strong>${nextReport}${report.next_report_status === 'estimated_range' ? ' (preliminärt)' : ''}</strong></div>
