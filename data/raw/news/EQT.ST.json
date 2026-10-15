@@ -1,8 +1,52 @@
 {
-  "generated_at": "2026-10-14T22:10:50+02:00",
+  "generated_at": "2026-10-15T21:51:35+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-10-15T07:00:00+02:00",
+      "title": "EQT AB (publ) Q3 Redogörelse 2026",
+      "link": "https://mfn.se/cis/a/eqt/eqt-ab-publ-q3-redogorelse-2026-edee73f3",
+      "source": "MFN",
+      "summary": "EQT AB (publ) Q3 Redogörelse 2026 2026-10-15 07:00:00 Starkt momentum för kapitalanskaffning och attraktiva investeringsmöjligheter \"När vi går in i årets sista kvartal och jag reflekterar över de utmaningar och möjligheter som ligger framför investerare på den privata marknaden står det klart hur attraktiv EQT:s plattform är. Våra nyaste initiativ, AI Infrastructure-strategin och Scaleup Europe Fund, har fått en exceptionellt stark start. Det speglar våra kunders positiva mottagande av nyligen lanserade tematiska strategier inom områden där vår plattform är stark. Under det tredje kvartalet slutförde vi förvärvet av Coller Capital, vilket st",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bf7238a8b43a8325"
+    },
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-10-15T06:00:00+02:00",
+      "title": "EQT to acquire Stockbridge, accelerating EQT Real Estate's evolution into a thematically diversified platform",
+      "link": "https://mfn.se/cis/a/eqt/eqt-to-acquire-stockbridge-accelerating-eqt-real-estates-evolution-into-a-thematically-diversified-platform-a80506b2",
+      "source": "MFN",
+      "summary": "EQT to acquire Stockbridge, accelerating EQT Real Estate's evolution into a thematically diversified platform 2026-10-15 06:00:00 EQT to acquire Stockbridge, a leading U.S. real estate investment manager with approximately USD 16.5 billion in fee-generating assets under management and USD 27 billion in gross asset value The Transaction delivers on EQT Real Estate's strategic priority to evolve into a more diversified and globally scaled real estate platform, while staying true to its sector-specialist, local-with-locals approach Through this acquisition, EQT Real Estate will strengthen its position in industrial investments and broaden its re",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3b4822764920a4fd"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",

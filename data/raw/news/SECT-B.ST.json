@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-14T22:12:33+02:00",
+  "generated_at": "2026-10-15T21:53:12+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/sectra",
-  "items": []
+  "items": [
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-10-15T08:35:00+02:00",
+      "title": "Svenska myndigheter godkänner Sectras stationära telefon för hantering av Hemlig information",
+      "link": "https://mfn.se/cis/a/sectra/svenska-myndigheter-godkanner-sectras-stationara-telefon-for-hantering-av-hemlig-information-df5569d3",
+      "source": "MFN",
+      "summary": "Svenska myndigheter godkänner Sectras stationära telefon för hantering av Hemlig information 2026-10-15 08:35:00 Linköping - 15 oktober, 2026 - Det internationella cybersäkerhets- och medicinteknikföretaget Sectra (STO: SECT B) har fått godkännande från svenska myndigheter för den stationära versionen av telefonen för säker kommunikation, Sectra Tiger/S. Godkännandet gäller kommunikation av information som är säkerhetsskyddsklassificerad som Hemlig och ger svenska myndigheter möjlighet att kommunicera högt klassificerad information mellan och inom myndigheter, inklusive via konferenssamtal. Säkerhetsskyddsklassificeringen Hemlig används för i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "regulatory"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:regulatory",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "49564986d0e433ad"
+    }
+  ]
 }

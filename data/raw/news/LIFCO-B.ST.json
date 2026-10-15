@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-14T22:11:37+02:00",
+  "generated_at": "2026-10-15T21:52:21+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
   "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-10-15T12:15:00+02:00",
+      "title": "Lifco förvärvar Hega Medical i Tyskland",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-hega-medical-i-tyskland",
+      "source": "MFN",
+      "summary": "Lifco förvärvar Hega Medical i Tyskland 2026-10-15 12:15:00 Lifco har tecknat avtal om att förvärva samtliga aktier i det tyska bolaget Hega Medical GmbH. Hega Medical tillverkar produkter för rengöring av medicinsk utrustning för laboratorier, kliniker och sjukhus. Hega Medical omsatte cirka 1,6 MEUR 2025. Bolaget är baserat i München, Tyskland och har tio anställda. Hega Medical kommer att konsolideras i affärsområdet Dental. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat eller finansiella ställning under 2026. Läs mer på hega-medical.de . För mer information kontak",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c83e93a39d76f2e2"
+    },
     {
       "ticker": "LIFCO-B.ST",
       "company": "Lifco AB (publ)",

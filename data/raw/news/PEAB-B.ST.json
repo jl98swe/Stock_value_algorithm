@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-14T22:12:10+02:00",
+  "generated_at": "2026-10-15T21:52:49+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-10-15T08:00:00+02:00",
+      "title": "Peab builds homes in Askim",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-homes-in-askim-e5401e6d",
+      "source": "MFN",
+      "summary": "Peab builds homes in Askim 2026-10-15 08:00:00 Peab has been commissioned to build homes for the urban development project Bytorget in Askim, Norway. The customers are Askim Næringspark Bolig AS and Askim Næringspark AS. The order is worth NOK 319 million, which corresponds to SEK 334 million. The project comprises 116 apartments of various sizes and approximately 2,000 m2 of commercial space. The project also includes green areas, a parking garage and a community building for residents. With its central location the project will be part of what is known as Askim's \"3-minute city\" close to public transport, shops, cultural offerings and publi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fcfd39c5ac73a353"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

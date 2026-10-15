@@ -1,7 +1,117 @@
 {
-  "generated_at": "2026-10-14T22:13:14+02:00",
+  "generated_at": "2026-10-15T21:53:51+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-15T18:00:00+02:00",
+      "title": "Saab presenterar första GlobalEye för Sverige",
+      "link": "https://mfn.se/cis/a/saab/saab-presenterar-forsta-globaleye-for-sverige-c105e134",
+      "source": "MFN",
+      "summary": "Saab presenterar första GlobalEye för Sverige 2026-10-15 18:00:00 Saab har idag presenterat det första GlobalEye-systemet för luftburen tidig varning och ledning (AEW&C) som FMV beställt för det svenska flygvapnet. Med GlobalEye erhåller Sverige en mycket avancerad förmåga för luftburen tidig varning och ledning som ger det informationsövertag som krävs för snabba beslut och effektiva insatser. Systemet erbjuder långräckviddig övervakning och en samlad lägesbild i luften, till sjöss och på marken, vilket stärker Sveriges försvarsförmåga och bidrar till ökad nationell säkerhet. - Presentationen av Sveriges första GlobalEye markerar en viktig m",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9e74fca52a4ee48f"
+    },
+    {
+      "ticker": "BTS-B.ST",
+      "company": "BTS Group",
+      "published_at": "2026-10-15T16:00:00+02:00",
+      "title": "Notice to Extraordinary General Meeting for BTS Group AB (publ)",
+      "link": "https://mfn.se/one/a/bts-group/notice-to-extraordinary-general-meeting-for-bts-group-ab-publ-2b941ce2",
+      "source": "MFN",
+      "summary": "Notice to Extraordinary General Meeting for BTS Group AB (publ) 2026-10-15 16:00:00 The shareholders of BTS Group AB (publ), reg. no. 556566-7119, are hereby invited to attend the Extraordinary General Meeting on Friday, November 6 2026 at 10:00 a.m. at Hallvarsson & Halvarsson, Malmskillnadsgatan 29, 9th floor, Stockholm. Shareholders who wish to participate must be registered in the share register maintained by Euroclear Sweden AB on Thursday, October 29 2026, and must also notify the company of their participation no later than Monday, November 2 2026. The notice to participate is made either in writing to BTS Group AB, Grevgatan 34, SE-11",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "786d9eb56027266a"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-15T10:33:00+02:00",
+      "title": "Saab får beställning på ny styrautomat till Gripen från FMV",
+      "link": "https://mfn.se/cis/a/saab/saab-far-bestallning-pa-ny-styrautomat-till-gripen-fran-fmv-f4ecb99c",
+      "source": "MFN",
+      "summary": "Saab får beställning på ny styrautomat till Gripen från FMV 2026-10-15 10:33:00 Saab har tagit emot en beställning från Försvarets materielverk (FMV) för utveckling av en ny generation av styrautomat till Gripen. Ordervärdet är 1,3 miljarder kronor med leverans planerad under 2030. Den nya styrautomaten kommer att ersätta den befintliga versionen i Gripen med en framtidssäkrad lösning som möter långsiktiga krav på tillgänglighet, prestanda och försörjningstrygghet. Projektet genomförs i nära samarbete med FMV. Styrautomaten är en central komponent i Gripens styrsystem och bidrar till säker och precis manövrering av flygplanet. - Vi är stolta ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e048bd33848663b4"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-10-15T08:35:00+02:00",
+      "title": "Swedish authorities approve Sectra's stationary phone to handle information on classification level SECRET",
+      "link": "https://mfn.se/cis/a/sectra/swedish-authorities-approve-sectras-stationary-phone-to-handle-information-on-classification-level-secret-97c4293d",
+      "source": "MFN",
+      "summary": "Swedish authorities approve Sectra's stationary phone to handle information on classification level SECRET 2026-10-15 08:35:00 Linköping, Sweden - October 15, 2026 - International cybersecurity and medical imaging IT company Sectra (STO: SECT B) has received approval from the Swedish authorities for its stationary version of the Sectra Tiger/S phone for secure communication. The approval is for communication of information at the SECRET security level and allows authorities in Sweden to communicate highly classified information between and within authorities with conference call functionality. The SECRET security level is a classification for",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fc3211280035c354"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-10-15T08:00:00+02:00",
+      "title": "Peab bygger bostäder i Askim",
+      "link": "https://mfn.se/cis/a/peab/peab-bygger-bostader-i-askim-518a04d3",
+      "source": "MFN",
+      "summary": "Peab bygger bostäder i Askim 2026-10-15 08:00:00 Peab har fått uppdraget att bygga bostäder till stadsutvecklingsprojektet Bytorget i Askim, Norge. Beställare är Askim Næringspark Bolig AS och Askim Næringspark AS . Ordersumman uppgår till 319 miljoner norska kronor, vilket motsvarar 334 miljoner svenska kronor. Projektet omfattar 116 lägenheter i olika storlekar och cirka 2 000 kvadratmeter kommersiell yta. Projektet inkluderar även gemensamma grönområden, ett parkeringsgarage och en samlingslokal för de boende. Med sitt centrala läge kommer projektet att vara en del av det som kallas Askims \"3-minuterstad\", med kort avstånd till kollektivtr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8968a0211edeb0f8"
+    },
     {
       "ticker": "SCST.ST",
       "company": "Scandi Standard AB (publ)",

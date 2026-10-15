@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-14T22:09:45+02:00",
+  "generated_at": "2026-10-15T21:50:32+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/astrazeneca",
   "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-15T12:00:54+02:00",
+      "title": "AstraZeneca announces new strategic collaboration with insitro to use advanced AI systems to develop transformative therapeutics for difficult to treat cardiometabolic diseases",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-announces-new-strategic-collaboration-with-insitro-to-use-advanced-ai-systems-to-develop-transformative-therapeutics-for-difficult-to-treat-cardiometabolic-diseases-33403299",
+      "source": "MFN",
+      "summary": "AstraZeneca announces new strategic collaboration with insitro to use advanced AI systems to develop transformative therapeutics for difficult to treat cardiometabolic diseases 2026-10-15 12:00:54 Collaboration to discover novel targets and advance new programmes across MASH and cardiomyopathies. AstraZeneca today announced that it has entered into a new strategic drug discovery collaboration and licensing agreement with insitro, a leading artificial intelligence (AI) therapeutics company. Using advanced AI systems, the collaboration will identify novel drug targets and advance the design of new therapeutics for patients for metabolic dysfunc",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "660ad5e2060a914f"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",

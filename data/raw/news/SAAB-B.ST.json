@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-14T22:12:22+02:00",
+  "generated_at": "2026-10-15T21:53:02+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/saab",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-15T10:33:00+02:00",
+      "title": "Saab receives order for new Gripen computer",
+      "link": "https://mfn.se/cis/a/saab/saab-receives-order-for-new-gripen-computer-4b60c5ed",
+      "source": "MFN",
+      "summary": "Saab receives order for new Gripen computer 2026-10-15 10:33:00 Saab has received an order from the Swedish Defence Materiel Administration (FMV) for the development of a new generation flight control computer for Gripen. The order value is SEK 1.3 billion with deliveries planned during 2030. Saab will replace the current version of Gripen's flight control computer with a future-proof solution designed to meet long-term requirements for availability, performance and security of supply. The project will be carried out in close cooperation with FMV. The flight control computer is a central component in Gripen's flight control system and contrib",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "386030e92aee1517"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",
