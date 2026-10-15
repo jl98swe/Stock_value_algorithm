@@ -2,7 +2,7 @@
   'use strict';
 
   const numberFormat = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
-  const epsFormat = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
+  const epsFormat = new Intl.NumberFormat('sv-SE', { useGrouping: false, minimumFractionDigits: 4, maximumFractionDigits: 4 });
   const scoreFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const percentFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFormat = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -107,12 +107,12 @@
 
   function neutralEps(row) {
     if (row.neutral_quarter_eps == null) return '–';
-    return `<strong>${formatNumber(row.neutral_quarter_eps)} ${escapeHtml(row.neutral_eps_currency || '')}</strong>`;
+    return `<strong>${formatEps(row.neutral_quarter_eps)} ${escapeHtml(row.neutral_eps_currency || '')}</strong>`;
   }
 
   function expectedEps(row) {
     if (row.expected_eps != null && row.estimate_status === 'verified_comparable') {
-      return `<strong>${formatNumber(row.expected_eps)} ${escapeHtml(row.expected_eps_currency || '')}</strong>`;
+      return `<strong>${formatEps(row.expected_eps)} ${escapeHtml(row.expected_eps_currency || '')}</strong>`;
     }
     if (row.unverified_estimate_available) {
       return '<span class="not-comparable">Estimatet är inte jämförbart</span>';
@@ -168,8 +168,8 @@
       return `<tr>
         <td>${stockLink(row)}</td>
         <td><strong>${formatDate(row.report_date)}</strong>${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
-        <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatNumber(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
-        <td>${row.prior_year_quarter_eps == null ? '–' : `${formatNumber(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
+        <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatEps(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
+        <td>${row.prior_year_quarter_eps == null ? '–' : `${formatEps(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
         <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency, formatEps)}</td>
         <td>${scorePair(row.score_before, row.score_after)}<span class="cell-note">${formatDate(row.before_date)} → ${formatDate(row.after_date)}</span></td>
         <td class="${scoreClass}"><strong>${signed(row.score_change)}</strong></td>
