@@ -198,6 +198,7 @@ ATRLJ-B.ST,2025-12-31,2026-01-30,2026-09-19,reportedEPS,0.52,SEK,Yahoo Finance /
 ATRLJ-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.32,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATRLJ-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATRLJ-B.ST,2026-06-30,2026-07-03,2026-09-19,reportedEPS,0.49,SEK,Yahoo Finance / Reported EPS
+ATRLJ-B.ST,2026-09-30,2026-10-09,2026-10-15,manualDilutedEPS,0.56,SEK,"Atrium Ljungberg Q3 2026, p. 13 | https://storage.mfn.se/69188726-7e1d-4334-8585-e115b57a73f4/atrium-ljungberg-q3-2026-sv.pdf"
 ATT.ST,2024-06-30,2024-07-19,2026-09-19,reportedEPS,0.68,SEK,Yahoo Finance / Reported EPS
 ATT.ST,2024-09-30,2024-10-24,2026-09-19,reportedEPS,1.5,SEK,Yahoo Finance / Reported EPS
 ATT.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -708,6 +709,7 @@ ERIC-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.27,SEK,Yahoo Finance / qu
 ERIC-B.ST,2026-03-31,2026-04-17,2026-09-19,reportedEPS,1.07,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.22,SEK,Yahoo Finance / quarterlyDilutedEPS
 ERIC-B.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,1.35,SEK,Yahoo Finance / Reported EPS
+ERIC-B.ST,2026-09-30,2026-10-15,2026-10-15,manualDilutedEPS,1.77,SEK,Ericsson Q3 2026 | https://www.ericsson.com/en/press-releases/2026/10/ericsson-reports-third-quarter-results-2026
 ESSITY-B.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,4.9,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2023-12-31,2024-01-25,2026-09-19,reportedEPS,4.54,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,4.33,SEK,Yahoo Finance / Reported EPS
@@ -937,6 +939,7 @@ INDU-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,17.099999999999994,SEK,Yaho
 INDU-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,42.64,SEK,Yahoo Finance / quarterlyDilutedEPS
 INDU-A.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,28.77,SEK,Yahoo Finance / quarterlyDilutedEPS
 INDU-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,57.03,SEK,Yahoo Finance / quarterlyDilutedEPS
+INDU-A.ST,2026-09-30,2026-10-07,2026-10-15,manualDilutedEPS,-3.83,SEK,"Industrivärden Q3 2026, p. 7 | https://storage.mfn.se/a4e075a7-dd35-4ef1-a955-2966a8755971/delarsrapport-9m-2026-sve.pdf"
 INTRUM.ST,2023-09-30,2023-10-25,2026-09-19,reportedEPS,-3.41,SEK,Yahoo Finance / Reported EPS
 INTRUM.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,-1.98,SEK,Yahoo Finance / Reported EPS
 INTRUM.ST,2024-06-30,2024-07-18,2026-09-19,reportedEPS,-11.06,SEK,Yahoo Finance / Reported EPS
@@ -1198,6 +1201,7 @@ NDA-SE.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.32,EUR,Yahoo Finance / qu
 NDA-SE.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,0.36,EUR,Yahoo Finance / Reported EPS
 NDA-SE.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.36,EUR,Yahoo Finance / quarterlyDilutedEPS
 NDA-SE.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,0.36,EUR,Yahoo Finance / Reported EPS
+NDA-SE.ST,2026-09-30,2026-10-15,2026-10-15,manualDilutedEPS,0.35,EUR,"Nordea Q3 2026, including items affecting comparability | https://www.nordea.com/en/press/2026-10-15/third-quarter-results-2026"
 NEWA-B.ST,2023-09-30,2023-11-07,2026-09-19,reportedEPS,2.04,SEK,Yahoo Finance / Reported EPS
 NEWA-B.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,0.91,SEK,Yahoo Finance / Reported EPS
 NEWA-B.ST,2024-06-30,2024-08-15,2026-09-19,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
@@ -1783,6 +1787,7 @@ WALL-B.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,0.37,SEK,Yahoo Finance / 
 WALL-B.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,0.6999999999999997,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 WALL-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 WALL-B.ST,2026-06-30,2026-07-06,2026-09-19,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
+WALL-B.ST,2026-09-30,2026-10-15,2026-10-15,manualDilutedEPS,1.5,SEK,"Wallenstam Q3 2026, p. 4 | https://mb.cision.com/Main/590/4409184/4319166.pdf"
 WIHL.ST,2023-09-30,2023-10-24,2026-09-19,reportedEPS,1.11,SEK,Yahoo Finance / Reported EPS
 WIHL.ST,2024-03-31,2024-04-23,2026-09-19,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
 WIHL.ST,2024-06-30,2024-07-08,2026-09-19,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
