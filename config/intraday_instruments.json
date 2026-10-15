@@ -1,0 +1,828 @@
+{
+  "AAK.ST": {
+    "isin": "SE0011337708",
+    "currency": "SEK",
+    "avanza_id": "26268",
+    "avanza_symbol": "AAK",
+    "venue": "XSTO"
+  },
+  "ABB.ST": {
+    "isin": "CH0012221716",
+    "currency": "SEK",
+    "avanza_id": "5447",
+    "avanza_symbol": "ABB",
+    "venue": "XSTO"
+  },
+  "ADDT-B.ST": {
+    "isin": "SE0014781795",
+    "currency": "SEK",
+    "avanza_id": "5537",
+    "avanza_symbol": "ADDT B",
+    "venue": "XSTO"
+  },
+  "ALIG.ST": {
+    "isin": "SE0007158910",
+    "currency": "SEK",
+    "avanza_id": "572678",
+    "avanza_symbol": "ALIG",
+    "venue": "XSTO"
+  },
+  "ALIV-SDB.ST": {
+    "isin": "SE0021309614",
+    "currency": "SEK",
+    "avanza_id": "5236",
+    "avanza_symbol": "ALIV SDB",
+    "venue": "XSTO"
+  },
+  "ALLEI.ST": {
+    "isin": "SE0017615644",
+    "currency": "SEK",
+    "avanza_id": "1455120",
+    "avanza_symbol": "ALLEI",
+    "venue": "XSTO"
+  },
+  "ANOD-B.ST": {
+    "isin": "SE0017885767",
+    "currency": "SEK",
+    "avanza_id": "5442",
+    "avanza_symbol": "ANOD B",
+    "venue": "XSTO"
+  },
+  "ARJO-B.ST": {
+    "isin": "SE0010468116",
+    "currency": "SEK",
+    "avanza_id": "810953",
+    "avanza_symbol": "ARJO B",
+    "venue": "XSTO"
+  },
+  "ASSA-B.ST": {
+    "isin": "SE0007100581",
+    "currency": "SEK",
+    "avanza_id": "5271",
+    "avanza_symbol": "ASSA B",
+    "venue": "XSTO"
+  },
+  "ATCO-A.ST": {
+    "isin": "SE0017486889",
+    "currency": "SEK",
+    "avanza_id": "5234",
+    "avanza_symbol": "ATCO A",
+    "venue": "XSTO"
+  },
+  "ATCO-B.ST": {
+    "isin": "SE0017486897",
+    "currency": "SEK",
+    "avanza_id": "5235",
+    "avanza_symbol": "ATCO B",
+    "venue": "XSTO"
+  },
+  "ATRLJ-B.ST": {
+    "isin": "SE0024320832",
+    "currency": "SEK",
+    "avanza_id": "5374",
+    "avanza_symbol": "ATRLJ B",
+    "venue": "XSTO"
+  },
+  "ATT.ST": {
+    "isin": "SE0007666110",
+    "currency": "SEK",
+    "avanza_id": "612517",
+    "avanza_symbol": "ATT",
+    "venue": "XSTO"
+  },
+  "AXFO.ST": {
+    "isin": "SE0006993770",
+    "currency": "SEK",
+    "avanza_id": "5465",
+    "avanza_symbol": "AXFO",
+    "venue": "XSTO"
+  },
+  "AZA.ST": {
+    "isin": "SE0012454072",
+    "currency": "SEK",
+    "avanza_id": "5361",
+    "avanza_symbol": "AZA",
+    "venue": "XSTO"
+  },
+  "AZN.ST": {
+    "isin": "GB0009895292",
+    "currency": "SEK",
+    "avanza_id": "5431",
+    "avanza_symbol": "AZN",
+    "venue": "XSTO"
+  },
+  "BAHN-B.ST": {
+    "isin": "SE0010442418",
+    "currency": "SEK",
+    "avanza_id": "106733",
+    "avanza_symbol": "BAHN B",
+    "venue": "FNSE"
+  },
+  "BALD-B.ST": {
+    "isin": "SE0017832488",
+    "currency": "SEK",
+    "avanza_id": "5459",
+    "avanza_symbol": "BALD B",
+    "venue": "XSTO"
+  },
+  "BEIA-B.ST": {
+    "isin": "SE0011090547",
+    "currency": "SEK",
+    "avanza_id": "5303",
+    "avanza_symbol": "BEIA B",
+    "venue": "XSTO"
+  },
+  "BEIJ-B.ST": {
+    "isin": "SE0015949748",
+    "currency": "SEK",
+    "avanza_id": "5274",
+    "avanza_symbol": "BEIJ B",
+    "venue": "XSTO"
+  },
+  "BERG-B.ST": {
+    "isin": "SE0000101362",
+    "currency": "SEK",
+    "avanza_id": "5275",
+    "avanza_symbol": "BERG B",
+    "venue": "XSTO"
+  },
+  "BETS-B.ST": {
+    "isin": "SE0022726485",
+    "currency": "SEK",
+    "avanza_id": "5482",
+    "avanza_symbol": "BETS B",
+    "venue": "XSTO"
+  },
+  "BILI-A.ST": {
+    "isin": "SE0009921588",
+    "currency": "SEK",
+    "avanza_id": "5276",
+    "avanza_symbol": "BILI A",
+    "venue": "XSTO"
+  },
+  "BIOG-B.ST": {
+    "isin": "SE0017769995",
+    "currency": "SEK",
+    "avanza_id": "5349",
+    "avanza_symbol": "BIOG B",
+    "venue": "XSTO"
+  },
+  "BOL.ST": {
+    "isin": "SE0020050417",
+    "currency": "SEK",
+    "avanza_id": "5564",
+    "avanza_symbol": "BOL",
+    "venue": "XSTO"
+  },
+  "BORG.ST": {
+    "isin": "SE0021921327",
+    "currency": "SEK",
+    "avanza_id": "78529",
+    "avanza_symbol": "BORG",
+    "venue": "XSTO"
+  },
+  "BRAV.ST": {
+    "isin": "SE0007491303",
+    "currency": "SEK",
+    "avanza_id": "602637",
+    "avanza_symbol": "BRAV",
+    "venue": "XSTO"
+  },
+  "BTS-B.ST": {
+    "isin": "SE0000805426",
+    "currency": "SEK",
+    "avanza_id": "5503",
+    "avanza_symbol": "BTS B",
+    "venue": "XSTO"
+  },
+  "CAST.ST": {
+    "isin": "SE0000379190",
+    "currency": "SEK",
+    "avanza_id": "5353",
+    "avanza_symbol": "CAST",
+    "venue": "XSTO"
+  },
+  "CATE.ST": {
+    "isin": "SE0001664707",
+    "currency": "SEK",
+    "avanza_id": "41007",
+    "avanza_symbol": "CATE",
+    "venue": "XSTO"
+  },
+  "CIBUS.ST": {
+    "isin": "SE0010832204",
+    "currency": "SEK",
+    "avanza_id": "831975",
+    "avanza_symbol": "CIBUS",
+    "venue": "XSTO"
+  },
+  "CLA-B.ST": {
+    "isin": "SE0002626861",
+    "currency": "SEK",
+    "avanza_id": "163148",
+    "avanza_symbol": "CLA B",
+    "venue": "XSTO"
+  },
+  "CLAS-B.ST": {
+    "isin": "SE0000584948",
+    "currency": "SEK",
+    "avanza_id": "5457",
+    "avanza_symbol": "CLAS B",
+    "venue": "XSTO"
+  },
+  "COOR.ST": {
+    "isin": "SE0007158829",
+    "currency": "SEK",
+    "avanza_id": "572375",
+    "avanza_symbol": "COOR",
+    "venue": "XSTO"
+  },
+  "CTT.ST": {
+    "isin": "SE0000418923",
+    "currency": "SEK",
+    "avanza_id": "5425",
+    "avanza_symbol": "CTT",
+    "venue": "XSTO"
+  },
+  "DIOS.ST": {
+    "isin": "SE0001634262",
+    "currency": "SEK",
+    "avanza_id": "43267",
+    "avanza_symbol": "DIOS",
+    "venue": "XSTO"
+  },
+  "DOM.ST": {
+    "isin": "SE0007691613",
+    "currency": "SEK",
+    "avanza_id": "611718",
+    "avanza_symbol": "DOM",
+    "venue": "XSTO"
+  },
+  "DUNI.ST": {
+    "isin": "SE0000616716",
+    "currency": "SEK",
+    "avanza_id": "102327",
+    "avanza_symbol": "DUNI",
+    "venue": "XSTO"
+  },
+  "DYVOX.ST": {
+    "isin": "SE0017105620",
+    "currency": "SEK",
+    "avanza_id": "1314432",
+    "avanza_symbol": "DYVOX",
+    "venue": "XSTO"
+  },
+  "EAST.ST": {
+    "isin": "SE0022050183",
+    "currency": "SEK",
+    "avanza_id": "100687",
+    "avanza_symbol": "EAST",
+    "venue": "XSTO"
+  },
+  "EKTA-B.ST": {
+    "isin": "SE0000163628",
+    "currency": "SEK",
+    "avanza_id": "5280",
+    "avanza_symbol": "EKTA B",
+    "venue": "XSTO"
+  },
+  "EMBRAC-B.ST": {
+    "isin": "SE0023615885",
+    "currency": "SEK",
+    "avanza_id": "707695",
+    "avanza_symbol": "EMBRAC B",
+    "venue": "XSTO"
+  },
+  "EPI-A.ST": {
+    "isin": "SE0015658109",
+    "currency": "SEK",
+    "avanza_id": "861430",
+    "avanza_symbol": "EPI A",
+    "venue": "XSTO"
+  },
+  "EPI-B.ST": {
+    "isin": "SE0015658117",
+    "currency": "SEK",
+    "avanza_id": "861431",
+    "avanza_symbol": "EPI B",
+    "venue": "XSTO"
+  },
+  "EQL.ST": {
+    "isin": "SE0005497732",
+    "currency": "SEK",
+    "avanza_id": "449644",
+    "avanza_symbol": "EQL",
+    "venue": "XSTO"
+  },
+  "EQT.ST": {
+    "isin": "SE0012853455",
+    "currency": "SEK",
+    "avanza_id": "1001617",
+    "avanza_symbol": "EQT",
+    "venue": "XSTO"
+  },
+  "ERIC-B.ST": {
+    "isin": "SE0000108656",
+    "currency": "SEK",
+    "avanza_id": "5240",
+    "avanza_symbol": "ERIC B",
+    "venue": "XSTO"
+  },
+  "ESSITY-B.ST": {
+    "isin": "SE0009922164",
+    "currency": "SEK",
+    "avanza_id": "764241",
+    "avanza_symbol": "ESSITY B",
+    "venue": "XSTO"
+  },
+  "EVO.ST": {
+    "isin": "SE0012673267",
+    "currency": "SEK",
+    "avanza_id": "549768",
+    "avanza_symbol": "EVO",
+    "venue": "XSTO"
+  },
+  "FABG.ST": {
+    "isin": "SE0011166974",
+    "currency": "SEK",
+    "avanza_id": "5300",
+    "avanza_symbol": "FABG",
+    "venue": "XSTO"
+  },
+  "FOI-B.ST": {
+    "isin": "CH0242214887",
+    "currency": "SEK",
+    "avanza_id": "488741",
+    "avanza_symbol": "FOI B",
+    "venue": "XSTO"
+  },
+  "GENO.ST": {
+    "isin": "SE0002485979",
+    "currency": "SEK",
+    "avanza_id": "51227",
+    "avanza_symbol": "GENO",
+    "venue": "FNSE"
+  },
+  "GETI-B.ST": {
+    "isin": "SE0000202624",
+    "currency": "SEK",
+    "avanza_id": "5282",
+    "avanza_symbol": "GETI B",
+    "venue": "XSTO"
+  },
+  "HANZA.ST": {
+    "isin": "SE0005878543",
+    "currency": "SEK",
+    "avanza_id": "488235",
+    "avanza_symbol": "HANZA",
+    "venue": "XSTO"
+  },
+  "HEXA-B.ST": {
+    "isin": "SE0015961909",
+    "currency": "SEK",
+    "avanza_id": "5286",
+    "avanza_symbol": "HEXA B",
+    "venue": "XSTO"
+  },
+  "HMS.ST": {
+    "isin": "SE0009997018",
+    "currency": "SEK",
+    "avanza_id": "98412",
+    "avanza_symbol": "HMS",
+    "venue": "XSTO"
+  },
+  "HOLM-A.ST": {
+    "isin": "SE0011090000",
+    "currency": "SEK",
+    "avanza_id": "5250",
+    "avanza_symbol": "HOLM A",
+    "venue": "XSTO"
+  },
+  "HPOL-B.ST": {
+    "isin": "SE0007074281",
+    "currency": "SEK",
+    "avanza_id": "130828",
+    "avanza_symbol": "HPOL B",
+    "venue": "XSTO"
+  },
+  "HTRO.ST": {
+    "isin": "SE0018040677",
+    "currency": "SEK",
+    "avanza_id": "299737",
+    "avanza_symbol": "HTRO",
+    "venue": "XSTO"
+  },
+  "HUFV-A.ST": {
+    "isin": "SE0000170375",
+    "currency": "SEK",
+    "avanza_id": "5287",
+    "avanza_symbol": "HUFV A",
+    "venue": "XSTO"
+  },
+  "INDT.ST": {
+    "isin": "SE0001515552",
+    "currency": "SEK",
+    "avanza_id": "26607",
+    "avanza_symbol": "INDT",
+    "venue": "XSTO"
+  },
+  "INDU-A.ST": {
+    "isin": "SE0000190126",
+    "currency": "SEK",
+    "avanza_id": "5244",
+    "avanza_symbol": "INDU A",
+    "venue": "XSTO"
+  },
+  "INTRUM.ST": {
+    "isin": "SE0000936478",
+    "currency": "SEK",
+    "avanza_id": "5583",
+    "avanza_symbol": "INTRUM",
+    "venue": "XSTO"
+  },
+  "INVE-A.ST": {
+    "isin": "SE0015811955",
+    "currency": "SEK",
+    "avanza_id": "5246",
+    "avanza_symbol": "INVE A",
+    "venue": "XSTO"
+  },
+  "INWI.ST": {
+    "isin": "SE0006220018",
+    "currency": "SEK",
+    "avanza_id": "507540",
+    "avanza_symbol": "INWI",
+    "venue": "XSTO"
+  },
+  "KAMBI.ST": {
+    "isin": "MT0000780107",
+    "currency": "SEK",
+    "avanza_id": "482657",
+    "avanza_symbol": "KAMBI",
+    "venue": "FNSE"
+  },
+  "KNOW.ST": {
+    "isin": "SE0000421273",
+    "currency": "SEK",
+    "avanza_id": "5428",
+    "avanza_symbol": "KNOW",
+    "venue": "XSTO"
+  },
+  "LAGR-B.ST": {
+    "isin": "SE0014990966",
+    "currency": "SEK",
+    "avanza_id": "5536",
+    "avanza_symbol": "LAGR B",
+    "venue": "XSTO"
+  },
+  "LIFCO-B.ST": {
+    "isin": "SE0015949201",
+    "currency": "SEK",
+    "avanza_id": "520898",
+    "avanza_symbol": "LIFCO B",
+    "venue": "XSTO"
+  },
+  "LIME.ST": {
+    "isin": "SE0011870195",
+    "currency": "SEK",
+    "avanza_id": "910303",
+    "avanza_symbol": "LIME",
+    "venue": "XSTO"
+  },
+  "LOOMIS.ST": {
+    "isin": "SE0014504817",
+    "currency": "SEK",
+    "avanza_id": "154930",
+    "avanza_symbol": "LOOMIS",
+    "venue": "XSTO"
+  },
+  "LUMI.ST": {
+    "isin": "CA5503721063",
+    "currency": "SEK",
+    "avanza_id": "7010",
+    "avanza_symbol": "LUMI",
+    "venue": "XSTO"
+  },
+  "MCAP.ST": {
+    "isin": "SE0009160872",
+    "currency": "SEK",
+    "avanza_id": "46487",
+    "avanza_symbol": "MCAP",
+    "venue": "XSTO"
+  },
+  "MCOV-B.ST": {
+    "isin": "SE0009778848",
+    "currency": "SEK",
+    "avanza_id": "756355",
+    "avanza_symbol": "MCOV B",
+    "venue": "XSTO"
+  },
+  "MSAB-B.ST": {
+    "isin": "SE0000526626",
+    "currency": "SEK",
+    "avanza_id": "330177",
+    "avanza_symbol": "MSAB B",
+    "venue": "XSTO"
+  },
+  "MTG-B.ST": {
+    "isin": "SE0018012494",
+    "currency": "SEK",
+    "avanza_id": "5438",
+    "avanza_symbol": "MTG B",
+    "venue": "XSTO"
+  },
+  "MTRS.ST": {
+    "isin": "SE0009806607",
+    "currency": "SEK",
+    "avanza_id": "755803",
+    "avanza_symbol": "MTRS",
+    "venue": "XSTO"
+  },
+  "MYCR.ST": {
+    "isin": "SE0025158629",
+    "currency": "SEK",
+    "avanza_id": "5466",
+    "avanza_symbol": "MYCR",
+    "venue": "XSTO"
+  },
+  "NDA-SE.ST": {
+    "isin": "FI4000297767",
+    "currency": "SEK",
+    "avanza_id": "5249",
+    "avanza_symbol": "NDA SE",
+    "venue": "XSTO"
+  },
+  "NEWA-B.ST": {
+    "isin": "SE0020356970",
+    "currency": "SEK",
+    "avanza_id": "5324",
+    "avanza_symbol": "NEWA B",
+    "venue": "XSTO"
+  },
+  "NIBE-B.ST": {
+    "isin": "SE0015988019",
+    "currency": "SEK",
+    "avanza_id": "5325",
+    "avanza_symbol": "NIBE B",
+    "venue": "XSTO"
+  },
+  "NMAN.ST": {
+    "isin": "SE0011204510",
+    "currency": "SEK",
+    "avanza_id": "80187",
+    "avanza_symbol": "NMAN",
+    "venue": "XSTO"
+  },
+  "NOLA-B.ST": {
+    "isin": "SE0015962477",
+    "currency": "SEK",
+    "avanza_id": "5327",
+    "avanza_symbol": "NOLA B",
+    "venue": "XSTO"
+  },
+  "NORION.ST": {
+    "isin": "SE0017831795",
+    "currency": "SEK",
+    "avanza_id": "1447081",
+    "avanza_symbol": "NORION",
+    "venue": "XSTO"
+  },
+  "PACT.ST": {
+    "isin": "SE0015961222",
+    "currency": "SEK",
+    "avanza_id": "5453",
+    "avanza_symbol": "PACT",
+    "venue": "XSTO"
+  },
+  "PEAB-B.ST": {
+    "isin": "SE0000106205",
+    "currency": "SEK",
+    "avanza_id": "5330",
+    "avanza_symbol": "PEAB B",
+    "venue": "XSTO"
+  },
+  "PLAZ-B.ST": {
+    "isin": "SE0004977692",
+    "currency": "SEK",
+    "avanza_id": "445784",
+    "avanza_symbol": "PLAZ B",
+    "venue": "XSTO"
+  },
+  "PNDX-B.ST": {
+    "isin": "SE0007100359",
+    "currency": "SEK",
+    "avanza_id": "572898",
+    "avanza_symbol": "PNDX B",
+    "venue": "XSTO"
+  },
+  "REJL-B.ST": {
+    "isin": "SE0000123671",
+    "currency": "SEK",
+    "avanza_id": "62367",
+    "avanza_symbol": "REJL B",
+    "venue": "XSTO"
+  },
+  "SAAB-B.ST": {
+    "isin": "SE0021921269",
+    "currency": "SEK",
+    "avanza_id": "5401",
+    "avanza_symbol": "SAAB B",
+    "venue": "XSTO"
+  },
+  "SAGA-A.ST": {
+    "isin": "SE0004635878",
+    "currency": "SEK",
+    "avanza_id": "96768",
+    "avanza_symbol": "SAGA A",
+    "venue": "XSTO"
+  },
+  "SAVE.ST": {
+    "isin": "SE0015192067",
+    "currency": "SEK",
+    "avanza_id": "1162349",
+    "avanza_symbol": "SAVE",
+    "venue": "XSTO"
+  },
+  "SCA-B.ST": {
+    "isin": "SE0000112724",
+    "currency": "SEK",
+    "avanza_id": "5263",
+    "avanza_symbol": "SCA B",
+    "venue": "XSTO"
+  },
+  "SCST.ST": {
+    "isin": "SE0005999760",
+    "currency": "SEK",
+    "avanza_id": "488892",
+    "avanza_symbol": "SCST",
+    "venue": "XSTO"
+  },
+  "SEB-A.ST": {
+    "isin": "SE0000148884",
+    "currency": "SEK",
+    "avanza_id": "5255",
+    "avanza_symbol": "SEB A",
+    "venue": "XSTO"
+  },
+  "SECARE.ST": {
+    "isin": "SE0015988167",
+    "currency": "SEK",
+    "avanza_id": "666686",
+    "avanza_symbol": "SECARE",
+    "venue": "FNSE"
+  },
+  "SECT-B.ST": {
+    "isin": "SE0022419784",
+    "currency": "SEK",
+    "avanza_id": "5426",
+    "avanza_symbol": "SECT B",
+    "venue": "XSTO"
+  },
+  "SECU-B.ST": {
+    "isin": "SE0000163594",
+    "currency": "SEK",
+    "avanza_id": "5270",
+    "avanza_symbol": "SECU B",
+    "venue": "XSTO"
+  },
+  "SFAST.ST": {
+    "isin": "SE0014956819",
+    "currency": "SEK",
+    "avanza_id": "1162078",
+    "avanza_symbol": "SFAST",
+    "venue": "XSTO"
+  },
+  "SHB-A.ST": {
+    "isin": "SE0007100599",
+    "currency": "SEK",
+    "avanza_id": "5264",
+    "avanza_symbol": "SHB A",
+    "venue": "XSTO"
+  },
+  "SHOT.ST": {
+    "isin": "SE0007640156",
+    "currency": "SEK",
+    "avanza_id": "613140",
+    "avanza_symbol": "SHOT",
+    "venue": "XSTO"
+  },
+  "SINT.ST": {
+    "isin": "SE0000950982",
+    "currency": "SEK",
+    "avanza_id": "5406",
+    "avanza_symbol": "SINT",
+    "venue": "XSTO"
+  },
+  "SOBI.ST": {
+    "isin": "SE0000872095",
+    "currency": "SEK",
+    "avanza_id": "51308",
+    "avanza_symbol": "SOBI",
+    "venue": "XSTO"
+  },
+  "SVED-B.ST": {
+    "isin": "SE0000407991",
+    "currency": "SEK",
+    "avanza_id": "5335",
+    "avanza_symbol": "SVED B",
+    "venue": "XSTO"
+  },
+  "SWEC-A.ST": {
+    "isin": "SE0014960365",
+    "currency": "SEK",
+    "avanza_id": "5408",
+    "avanza_symbol": "SWEC A",
+    "venue": "XSTO"
+  },
+  "SWEC-B.ST": {
+    "isin": "SE0014960373",
+    "currency": "SEK",
+    "avanza_id": "5409",
+    "avanza_symbol": "SWEC B",
+    "venue": "XSTO"
+  },
+  "SWED-A.ST": {
+    "isin": "SE0000242455",
+    "currency": "SEK",
+    "avanza_id": "5241",
+    "avanza_symbol": "SWED A",
+    "venue": "XSTO"
+  },
+  "SYSR.ST": {
+    "isin": "SE0016609499",
+    "currency": "SEK",
+    "avanza_id": "97407",
+    "avanza_symbol": "SYSR",
+    "venue": "XSTO"
+  },
+  "TEL2-B.ST": {
+    "isin": "SE0005190238",
+    "currency": "SEK",
+    "avanza_id": "5386",
+    "avanza_symbol": "TEL2 B",
+    "venue": "XSTO"
+  },
+  "THULE.ST": {
+    "isin": "SE0006422390",
+    "currency": "SEK",
+    "avanza_id": "521491",
+    "avanza_symbol": "THULE",
+    "venue": "XSTO"
+  },
+  "TREL-B.ST": {
+    "isin": "SE0000114837",
+    "currency": "SEK",
+    "avanza_id": "5267",
+    "avanza_symbol": "TREL B",
+    "venue": "XSTO"
+  },
+  "VBG-B.ST": {
+    "isin": "SE0000115107",
+    "currency": "SEK",
+    "avanza_id": "5342",
+    "avanza_symbol": "VBG B",
+    "venue": "XSTO"
+  },
+  "VIT-B.ST": {
+    "isin": "SE0007871363",
+    "currency": "SEK",
+    "avanza_id": "5526",
+    "avanza_symbol": "VIT B",
+    "venue": "XSTO"
+  },
+  "VITR.ST": {
+    "isin": "SE0011205202",
+    "currency": "SEK",
+    "avanza_id": "5508",
+    "avanza_symbol": "VITR",
+    "venue": "XSTO"
+  },
+  "VOLV-A.ST": {
+    "isin": "SE0000115420",
+    "currency": "SEK",
+    "avanza_id": "5268",
+    "avanza_symbol": "VOLV A",
+    "venue": "XSTO"
+  },
+  "WALL-B.ST": {
+    "isin": "SE0017780133",
+    "currency": "SEK",
+    "avanza_id": "5344",
+    "avanza_symbol": "WALL B",
+    "venue": "XSTO"
+  },
+  "WIHL.ST": {
+    "isin": "SE0018012635",
+    "currency": "SEK",
+    "avanza_id": "18813",
+    "avanza_symbol": "WIHL",
+    "venue": "XSTO"
+  },
+  "ZZ-B.ST": {
+    "isin": "SE0002480442",
+    "currency": "SEK",
+    "avanza_id": "249109",
+    "avanza_symbol": "ZZ B",
+    "venue": "FNSE"
+  }
+}

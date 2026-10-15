@@ -48,6 +48,51 @@ Detta verifierar intern konsistens, inte att Yahoo har publicerat alla bolagsrap
 
 ## Prisdata
 
+### Tillfälliga intradagskurser
+
+`Intradagskurser · Nasdaq och Avanza` hämtar för hela det aktiva universumet
+kl. 09.00, 13.00, 17.00 och 17.30 i Europe/Stockholm. Nasdaq är primärkälla;
+Avanza används för saknade eller äldre avslut och saknad öppningskurs.
+Nasdaqs filer är 15 minuter fördröjda. Extra körningar 09.20 och 17.50
+efterkontrollerar öppnings- respektive stängningsauktionen. Faktisk start och
+kurstid kan vara senare än schemat eftersom GitHub Actions kan försenas.
+XSTO-kalendern hanterar helgdagar, halvdagar och sommar-/vintertid.
+
+`config/intraday_instruments.json` innehåller kontrollerade ISIN, SEK-valuta,
+aktieslag och Avanza-ID. Endast reguljära avslut på svensk handelsplats används.
+Det är senaste tillgängliga avslut vid hämtningen som visas, inte en garanti
+om ett avslut exakt kl. 13.00 eller 17.00. Öppning är första avslutet, alternativt
+första dagens minutstapels Open från den identitetskontrollerade Avanza-källan.
+Ett instrument som inte handlats idag får ingen påhittad dagskurs.
+
+Gemensam cache: den publika grenen `intraday-cache`, med endast `intraday.json`.
+Varje publicering ersätter grenen med en föräldralös ögonblicksbild; ingen
+löpande kurshistorik byggs på grenen och inga dagskurser skrivs till `main`.
+Publicering är låst till denna särskilda gren och använder force-with-lease.
+Den ändrar aldrig den vanliga prisbasen, modellpoäng, signaler eller backtest.
+Som vid andra Git-ref-ersättningar kan GitHub behålla onåbara objekt en tid;
+detta är en tillfällig visningscache, inte en garanti om omedelbar fysisk radering.
+
+Efter lyckad daglig marknadsuppdatering rensas cacheposter vars stängningskurs
+för samma datum faktiskt finns i den publicerade `stocks.json`. En extra
+kontroll 18.30 fångar senare uppdateringar. Delvis saknade slutkurser gör att
+övriga poster behålls till dagens slut. Startsidan undertrycker dessutom
+intradagskursen om dess publicerade stängningskurs hunnit ikapp eller cachen
+gått ut. Alla besökare läser samma cache vid sidladdning, flikåterkomst och
+var femte minut när sidan visas. Aktieval byter omedelbart till den valda
+aktiens gemensamma uppgifter; knappen hämtar senaste gemensamma uppdatering.
+Inga externa nycklar eller nya betaltjänster behövs. Direkta extraanrop från
+besökarens webbläsare används inte eftersom källorna saknar CORS-stöd.
+
+Källornas fria fördröjda filer beskrivs på
+https://tradereports.nasdaq.com/shares/trade-reports/post-trade.
+Källan anger fri icke-kommersiell användning; kommersiell användning kan kräva
+avtal. Avanzas öppna webbgränssnitt saknar garanterad stabilitet.
+
+Manuell kontroll utan publicering: `python -m src.intraday`.
+Rensning utan nya källanrop: `python -m src.intraday --cleanup`.
+Tillfälliga lokala resultat skrivs i `.cache/` och ska inte committas.
+
 Fryst historik:
 
 ```text
