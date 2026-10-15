@@ -100,7 +100,7 @@
   function daysLabel(value) {
     const days = number(value);
     if (days === null) return '–';
-    if (days === 0) return '<strong>I dag</strong>';
+    if (days === 0) return '<strong>Idag</strong>';
     if (days === 1) return '<strong>1 handelsdag</strong>';
     return `<strong>${days} handelsdagar</strong>`;
   }

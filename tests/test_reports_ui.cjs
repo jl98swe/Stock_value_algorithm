@@ -37,7 +37,7 @@ test('today uses Stockholm date, shows all imminent reports, toggles both lists'
   const recent = Array.from({length:8},(_,i)=>({ticker:`R${i}`,report_date:`2026-10-${String(7+i).padStart(2,'0')}`,report_date_verified:true}));
   const {element:e} = await setup('2026-10-14T22:30:00Z', upcoming, recent);
   assert.equal(count(e('upcoming-body')),8);
-  assert.equal((e('upcoming-body').innerHTML.match(/I dag/g)||[]).length,7);
+  assert.equal((e('upcoming-body').innerHTML.match(/Idag/g)||[]).length,7);
   assert.equal(e('upcoming-count').textContent,'9');
   assert.equal(count(e('recent-body')),5);
   assert(!e('recent-body').innerHTML.includes('R0</strong>'));
