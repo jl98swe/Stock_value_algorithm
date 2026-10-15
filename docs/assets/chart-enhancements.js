@@ -120,7 +120,7 @@
   }
 
   const markerEnabled = (name) => document.querySelector(`[data-marker="${name}"]`)?.checked !== false;
-  const epsText = (value) => value == null ? '–' : new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 }).format(Number(value));
+  const epsText = (value) => value == null ? '–' : new Intl.NumberFormat('sv-SE', { useGrouping: false, minimumFractionDigits: 4, maximumFractionDigits: 4 }).format(Number(value));
 
   function ensureDividendPanel() {
     let panel = document.getElementById('dividend-history-panel');

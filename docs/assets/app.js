@@ -26,7 +26,7 @@
   const fmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
-  const epsFmt = new Intl.NumberFormat('sv-SE', { useGrouping: false, maximumFractionDigits: 20 });
+  const epsFmt = new Intl.NumberFormat('sv-SE', { useGrouping: false, minimumFractionDigits: 4, maximumFractionDigits: 4 });
   const formatEps = (value) => value == null ? '–' : epsFmt.format(Number(value));
 
   function formatModelEps(data) {
