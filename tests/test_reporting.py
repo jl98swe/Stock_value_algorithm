@@ -339,3 +339,32 @@ def test_borskollen_has_priority_over_yahoo_for_same_report() -> None:
 
     assert len(schedule) == 1
     assert schedule.iloc[0]["source"] == reporting.BORSKOLLEN_SOURCE
+
+
+def test_report_countdown_uses_stockholm_today_while_prices_keep_their_date(monkeypatch, tmp_path):
+    calls = {}
+    monkeypatch.setattr(reporting, '_metadata', lambda: pd.DataFrame())
+    monkeypatch.setattr(reporting, '_combined_schedule', lambda *args: pd.DataFrame())
+    def upcoming(**kwargs):
+        calls['upcoming'] = kwargs['as_of']
+        return []
+    def recent(**kwargs):
+        calls['recent'] = kwargs['as_of']
+        return []
+    monkeypatch.setattr(reporting, '_upcoming_rows', upcoming)
+    monkeypatch.setattr(reporting, '_recent_rows', recent)
+    import src.report_data_status as status
+    monkeypatch.setattr(status, 'report_data_status', lambda *args, **kwargs: {})
+    payload = reporting.build_reports_payload(
+        reports=pd.DataFrame(),
+        valuation_frames={'TEST.ST': pd.DataFrame({'Date': ['2026-10-14']})},
+        generated_at='2026-10-14T22:30:00Z',
+        auto_calendar=pd.DataFrame(), manual_calendar=pd.DataFrame(), quarterly=pd.DataFrame(),
+        output_path=tmp_path / 'reports.json',
+    )
+    assert calls['upcoming'] == pd.Timestamp('2026-10-15')
+    assert calls['recent'] == pd.Timestamp('2026-10-14')
+    assert payload['as_of_date'] == '2026-10-14'
+    assert payload['calendar_as_of_date'] == '2026-10-15'
+    assert '2026-12-25' not in payload['trading_sessions']
+    assert '2026-10-16' in payload['trading_sessions']

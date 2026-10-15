@@ -816,6 +816,14 @@ def build_reports_payload(
         if frame is not None and not frame.empty and "Date" in frame.columns
     ]
     as_of = pd.Timestamp(max(latest_dates)).tz_localize(None).normalize() if latest_dates else pd.Timestamp.now().normalize()
+    calendar_as_of = pd.Timestamp(generated_at)
+    if calendar_as_of.tzinfo is None:
+        calendar_as_of = calendar_as_of.tz_localize(STOCKHOLM_TZ)
+    calendar_as_of = calendar_as_of.tz_convert(STOCKHOLM_TZ).tz_localize(None).normalize()
+    session_start = calendar_as_of - pd.Timedelta(days=90)
+    session_end = calendar_as_of + pd.Timedelta(days=400)
+    calendar = xcals.get_calendar("XSTO", start=session_start, end=session_end)
+    trading_sessions = [day.date().isoformat() for day in calendar.sessions_in_range(session_start, session_end)]
     schedule = _combined_schedule(automatic, manual)
     upcoming = _upcoming_rows(
         schedule=schedule,
@@ -823,7 +831,7 @@ def build_reports_payload(
         quarterly=quarter_data,
         valuation_frames=valuation_frames,
         metadata=metadata,
-        as_of=as_of,
+        as_of=calendar_as_of,
     )
     recent = _recent_rows(
         reports=reports,
@@ -835,6 +843,10 @@ def build_reports_payload(
     payload = {
         "generated_at": generated_at,
         "as_of_date": as_of.date().isoformat(),
+        "calendar_as_of_date": calendar_as_of.date().isoformat(),
+        "trading_sessions": trading_sessions,
+        "trading_sessions_start": session_start.date().isoformat(),
+        "trading_sessions_end": session_end.date().isoformat(),
         "upcoming_trading_days": UPCOMING_TRADING_DAYS,
         "urgent_trading_days": URGENT_TRADING_DAYS,
         "recent_trading_days": RECENT_TRADING_DAYS,

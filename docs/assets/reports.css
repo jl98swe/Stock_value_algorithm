@@ -10,3 +10,10 @@
   font-weight: 800;
   white-space: nowrap;
 }
+
+.report-summary-link { text-decoration: none; }
+.report-summary-link:hover { border-color: var(--brand); }
+.report-summary-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+#recent-reports { scroll-margin-top: 20px; }
+.report-expand { display: flex; justify-content: center; padding: 16px; }
+.report-expand:has(button[hidden]) { display: none; }

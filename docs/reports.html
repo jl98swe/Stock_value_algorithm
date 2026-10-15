@@ -10,8 +10,8 @@
   <title>Rapporter · Stock Value Algorithm</title>
   <meta name="description" content="Kommande rapporter och faktisk rapportpåverkan i Stock Value Algorithm.">
   <link rel="stylesheet" href="./assets/style.css?v=20261015-icon">
-  <link rel="stylesheet" href="./assets/reports.css?v=20260915-1">
-  <script defer src="./assets/reports.js?v=20260927-1"></script>
+  <link rel="stylesheet" href="./assets/reports.css?v=20261015-2">
+  <script defer src="./assets/reports.js?v=20261015-2"></script>
   <script src="./assets/strategy-selection.js?v=20261014-3"></script>
   <link rel="stylesheet" href="./assets/report-data-status.css?v=20261015">
   <script defer src="./assets/report-data-status.js?v=20261015-2"></script>
@@ -59,7 +59,7 @@
         <section class="reports-summary" aria-label="Sammanfattning">
           <article class="report-summary-card"><span>Rapporter inom 10 handelsdagar</span><strong id="upcoming-count">0</strong></article>
           <article class="report-summary-card urgent-card"><span>Rapporter inom 5 handelsdagar</span><strong id="urgent-count">0</strong></article>
-          <article class="report-summary-card"><span>Rapporter senaste 20 handelsdagarna</span><strong id="recent-count">0</strong></article>
+          <a class="report-summary-card report-summary-link" href="#recent-reports"><span>Rapporter de senaste 20 handelsdagarna</span><strong id="recent-count">0</strong></a>
         </section>
 
         <section class="panel" aria-labelledby="upcoming-title">
@@ -67,7 +67,7 @@
             <div>
               <span class="eyebrow">Kommande 10 handelsdagar</span>
               <h2 id="upcoming-title">Kommande rapporter</h2>
-              <p class="panel-description">Sorterade efter rapportdatum. Rapporter inom fem handelsdagar markeras.</p>
+              <p class="panel-description">De fem närmaste samt alla rapporter med högst en handelsdag kvar visas. Rapporter inom fem handelsdagar markeras.</p>
             </div>
           </div>
           <div class="report-table-wrap">
@@ -87,14 +87,15 @@
               <tbody id="upcoming-body"></tbody>
             </table>
           </div>
+          <div class="report-expand"><button id="upcoming-more" class="secondary-button" type="button" aria-controls="upcoming-body" aria-expanded="false" hidden>Visa mer</button></div>
         </section>
 
-        <section class="panel" aria-labelledby="recent-title">
+        <section id="recent-reports" class="panel" aria-labelledby="recent-title" tabindex="-1">
           <div class="panel-header split-header">
             <div>
               <span class="eyebrow">Senaste 20 handelsdagarna</span>
               <h2 id="recent-title">Nyligen rapporterade aktier</h2>
-              <p class="panel-description">Värdena före och efter rapporten bygger på den aktuella versionen av värderingsmodellen. Förändringen i värderingspoäng påverkas av både EPS TTM och aktiekurs.</p>
+              <p class="panel-description">De fem senaste visas. Rapporter ligger kvar under de senaste 20 handelsdagarna. Värdena före och efter rapporten bygger på den aktuella versionen av värderingsmodellen. Förändringen i värderingspoäng påverkas av både EPS TTM och aktiekurs.</p>
             </div>
           </div>
           <div class="report-table-wrap">
@@ -115,6 +116,7 @@
               <tbody id="recent-body"></tbody>
             </table>
           </div>
+          <div class="report-expand"><button id="recent-more" class="secondary-button" type="button" aria-controls="recent-body" aria-expanded="false" hidden>Visa mer</button></div>
         </section>
 
       </div>
