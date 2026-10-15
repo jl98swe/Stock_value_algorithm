@@ -155,6 +155,11 @@
     $('latest-price').textContent = money(latest.close, meta.currency || 'SEK');
     $('price-change').textContent = pct(latest.change_pct);
     $('price-change').className = `change-value ${safeNumber(latest.change_pct, 0) >= 0 ? 'positive' : 'negative'}`;
+    window.intradayQuotes?.select(ticker, {
+      close: latest.close, date: latest.date, currency: meta.currency || 'SEK',
+      changeText: $('price-change').textContent, changeClass: $('price-change').className,
+      dateText: $('stock-date').textContent
+    });
 
     const locked = Boolean(latest.fundamental_lock);
     setHidden('lock-badge', !locked);

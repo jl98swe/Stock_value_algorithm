@@ -474,3 +474,10 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 
 .brand-mark.brand-link:has(img) { display:block; padding:0; overflow:hidden; }
 .brand-mark.brand-link img { display:block; width:100%; height:100%; object-fit:cover; }
+[hidden] { display: none !important; }
+.intraday-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; padding: 16px 20px; margin: -4px 0 20px; border: 1px solid var(--line); border-radius: 12px; background: #f5f8fc; }
+.intraday-panel > div { display: grid; gap: 4px; }
+.intraday-panel strong { font-size: 19px; }
+.intraday-panel .intraday-detail { flex: 1 1 260px; }
+.intraday-detail p { margin: 0 0 6px; font-size: 13px; line-height: 1.5; }
+.intraday-detail button { justify-self: start; }

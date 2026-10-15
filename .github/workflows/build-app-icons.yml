@@ -10,15 +10,16 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: app-icons-main
+  group: stock-data-${{ github.ref }}
   cancel-in-progress: false
+  queue: max
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
       - name: Render iPhone and Android icons
         run: |
           python -m pip install --quiet cairosvg pillow
@@ -40,5 +41,5 @@ jobs:
           git add docs/apple-touch-icon.png docs/app-icon-192.png docs/app-icon-512.png
           if ! git diff --cached --quiet; then
             git commit -m "Generate PNG app icons for mobile home screens"
-            git push origin HEAD:main
+            git push origin HEAD:"$GITHUB_REF_NAME"
           fi

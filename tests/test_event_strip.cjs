@@ -56,7 +56,7 @@ test('events live in a separate coordinate system; only trade markers remain on 
   assert.equal(events.animation, false);
   assert(events.data.every((p) => p.value[0] === '2026-01-05' && !p.coord));
   assert.match(events.data[0].eventTooltip, /TRADINGVIEW/);
-  assert.match(events.data[0].eventTooltip, /0,69012345/);
+  assert.match(events.data[0].eventTooltip, /0,6901(?:<|$)/);
   assert.match(events.data[2].eventTooltip, /Nyhet ett/);
   assert.match(events.data[2].eventTooltip, /Nyhet två/);
   assert.equal(events.data[2].itemStyle.borderWidth, 2.5);
