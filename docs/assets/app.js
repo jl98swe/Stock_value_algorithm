@@ -192,6 +192,10 @@
         <div class="status-line"><span>Nästa rapport</span><strong>${nextReport}${report.next_report_status === 'estimated_range' ? ' (preliminärt)' : ''}</strong></div>
       </div>`;
 
+    if (state.selectedTicker === 'EQT.ST') {
+      $('report-content').insertAdjacentHTML('beforeend', '<p class="panel-description">EQT rapporterar vinst per aktie (EPS) vid halvårsrapporten och bokslutet, alltså vid varannan rapport. Redogörelserna för första och tredje kvartalet innehåller verksamhetsinformation men ingen ny EPS. EPS TTM ligger därför kvar på tidigare underlag tills nästa halvårs- eller helårsrapport.</p>');
+    }
+
     $('report-workflow-link').href = `${repo}/actions`;
     $('review-workflow-link').href = `${repo}/actions`;
   }
