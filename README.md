@@ -51,11 +51,14 @@ Detta verifierar intern konsistens, inte att Yahoo har publicerat alla bolagsrap
 ### Tillfälliga intradagskurser
 
 `Intradagskurser · Nasdaq och Avanza` hämtar för hela det aktiva universumet
-kl. 09.00, 13.00, 17.00 och 17.30 i Europe/Stockholm. Nasdaq är primärkälla;
+kl. 09.20 (öppningskurs), 13.00, 17.00 och 17.30 i Europe/Stockholm. Nasdaq är primärkälla;
 Avanza används för saknade eller äldre avslut och saknad öppningskurs.
-Nasdaqs filer är 15 minuter fördröjda. Extra körningar 09.20 och 17.50
-efterkontrollerar öppnings- respektive stängningsauktionen. Faktisk start och
-kurstid kan vara senare än schemat eftersom GitHub Actions kan försenas.
+Nasdaqs filer är 15 minuter fördröjda. Extra körningar 17.50 och 18.30
+efterkontrollerar stängningsauktionen. UTC-baserade reservstarter varje kvart
+kontrollerar den gemensamma cachen och försöker hämta senaste förfallna tid
+om den saknas eller misslyckats. Redan hämtade tider och dagar med färdiga
+stängningskurser hoppas över. Reservstarterna använder samma GitHub-schemaläggare;
+de ger ingen garanti för starttid. Faktisk start och kurstid kan bli senare.
 XSTO-kalendern hanterar helgdagar, halvdagar och sommar-/vintertid.
 
 `config/intraday_instruments.json` innehåller kontrollerade ISIN, SEK-valuta,

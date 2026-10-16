@@ -53,7 +53,7 @@
     el('intraday-daily-date').textContent = selection.daily.date;
     el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
       (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza används som reservkälla. ') +
-      'Uppdatering kl. 09.00, 13.00, 17.00 och 17.30. Öppning och stängning efterkontrolleras efter 20 minuter. Poäng och signaler avser senaste stängning.';
+      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Poäng och signaler avser senaste stängning.';
   }
 
   async function refresh() {
