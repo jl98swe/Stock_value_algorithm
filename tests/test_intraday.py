@@ -97,7 +97,15 @@ def test_cleanup_is_per_stock_and_only_after_published_matching_close():
     cache = {"session_date": "2026-10-15", "stocks": {"EXAMPLE-A.ST": {"latest": quote()},
                                                         "OTHER.ST": {"latest": quote()}}}
     stocks = STOCKS + [{"ticker": "OTHER.ST", "latest_date": "2026-10-15"}]
-    assert set(q.prune(cache, stocks, NOW)["stocks"]) == {"EXAMPLE-A.ST"}
+    cache["coverage"] = {"available": 118, "expected": 118}
+    cache["errors"] = ["old error"]
+    partial = q.prune(cache, stocks, NOW)
+    assert set(partial["stocks"]) == {"EXAMPLE-A.ST"}
+    assert partial["coverage"] == {"available": 1, "expected": 1}
+    assert "errors" not in partial
+    completed = q.prune(cache, [{**STOCKS[0], "latest_date": "2026-10-15"}], NOW)
+    assert completed["coverage"] == {"available": 0, "expected": 0}
+    assert completed["collection_state"] == "completed"
     assert q.prune(cache, STOCKS, q.instant("2026-10-16T08:00:00+02:00"))["stocks"] == {}
     assert "OTHER.ST" in cache["stocks"]  # Input never mutated.
 

@@ -85,6 +85,11 @@ def prune(cache: dict, stocks: list[dict], now: datetime) -> dict:
         ticker: row for ticker, row in output.get("stocks", {}).items()
         if ticker in active and str(active[ticker].get("latest_date", "")) < day
     }
+    expected = sum(str(stock.get("latest_date", "")) < day for stock in active.values())
+    output["coverage"] = {"available": sum(bool(row.get("latest")) for row in output["stocks"].values()),
+                          "expected": expected}
+    output["collection_state"] = "completed" if not expected else "pending"
+    output.pop("errors", None)
     return output
 
 
@@ -250,6 +255,8 @@ def collect(cache: dict, stocks: list[dict], instruments: dict, now: datetime,
             client=requests, fallback=fetch_avanza) -> dict:
     output = prune(cache, stocks, now)
     bounds = session_bounds(now)
+    if not bounds:
+        output["collection_state"] = "not_trading_day"
     if not bounds or now < bounds[0] or now > bounds[1] + timedelta(hours=2):
         return output
     day = now.date().isoformat()
@@ -301,6 +308,8 @@ def collect(cache: dict, stocks: list[dict], instruments: dict, now: datetime,
     output["errors"] = errors
     output["coverage"] = {"available": sum(bool(x.get("latest")) for x in rows.values()),
                           "expected": len(eligible)}
+    fresh = any(row.get("latest") and instant(row["latest"]["as_of"]) >= stale_before for row in rows.values())
+    output["collection_state"] = "available" if fresh else "stale"
     return output
 
 
