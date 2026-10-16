@@ -381,7 +381,7 @@ def main():
         output = collect(cache, stocks, read_json("config/intraday_instruments.json"), now)
     if not args.cleanup:
         from .intraday_valuation import add_preliminary_scores
-        add_preliminary_scores(output, stocks, now)
+        add_preliminary_scores(output, stocks, instant(args.as_of))
     write_json_atomic(args.output, output)
     print(json.dumps({"session_date": output["session_date"], "coverage": output.get("coverage"),
                       "cached_stocks": len(output["stocks"]), "errors": output.get("errors", [])}, ensure_ascii=False))

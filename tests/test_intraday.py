@@ -242,3 +242,19 @@ def test_publish_only_updates_disposable_branch_without_parents(monkeypatch):
     monkeypatch.setenv("GITHUB_REF_NAME", "feature")
     with pytest.raises(ValueError):
         q.publish({})
+
+
+def test_scoring_accepts_trades_that_arrive_during_collection(monkeypatch, tmp_path):
+    # Synthetic clock: a batch starts before its last valid quote is received.
+    from src import intraday_valuation
+    times = iter([NOW, NOW + q.timedelta(minutes=3)])
+    monkeypatch.setattr(q, "instant", lambda value=None: next(times))
+    monkeypatch.setattr(q, "read_cache", lambda: {})
+    monkeypatch.setattr(q, "read_json", lambda path: {"stocks": STOCKS} if "stocks.json" in path else INSTRUMENTS)
+    output = {"session_date": "2026-10-15", "stocks": {}, "coverage": {"available": 0, "expected": 0}}
+    monkeypatch.setattr(q, "collect", lambda *args: output)
+    scored_at = []
+    monkeypatch.setattr(intraday_valuation, "add_preliminary_scores", lambda payload, stocks, now: scored_at.append(now))
+    monkeypatch.setattr("sys.argv", ["intraday", "--output", str(tmp_path / "cache.json")])
+    q.main()
+    assert scored_at == [NOW + q.timedelta(minutes=3)]
