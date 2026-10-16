@@ -29,3 +29,15 @@ const earlierSell=candidate({...planned,next_action:{type:'SELL',exit_reason:'sc
 assert.equal(earlierSell.actual,true);
 assert.equal(earlierSell.reportExit,false); // A score sell tomorrow must not be delayed to the report exit.
 console.log('Overview strategy filters and report-exit checks passed.');
+// Synthetic examples: current intraday score controls inclusion and direction.
+const interim={score:50,price:100,ma200:99,session:'2026-10-16',as_of:'2026-10-16T11:10:00+02:00'};
+const preview=(data,v=interim,key='standard')=>signalCandidate('TEST',data,{name:'Test'},{buy_score:1,sell_score:99},v,key);
+assert.equal(preview({...stock,next_action:{type:'BUY',label:'Köp'}}),null);
+assert.equal(preview({...stock,latest:{score:50}},{...interim,score:.5}).side,'BUY');
+assert.equal(preview(stock,{...interim,score:.5}).actual,false);
+assert.equal(preview({...stock,position:{lots:1,max_lots:1}},{...interim,score:99.5}).side,'SELL');
+assert.equal(preview({...stock,strategy_filter:{buy_allowed:false}},{...interim,score:.5},'ma200').side,'BUY');
+assert.equal(preview(stock,{...interim,score:.5,ma200:101},'ma200'),null);
+assert.equal(preview({...stock,strategy_filter:{buy_allowed:true,trading_days_to_report:12,next_report_date:'2026-11-02'}},{...interim,score:.5},'report_avoidance'),null);
+assert.equal(preview({...stock,strategy_filter:{buy_allowed:true,trading_days_to_report:13,next_report_date:'2026-11-03'}},{...interim,score:.5},'report_avoidance').side,'BUY');
+assert.equal(preview({...planned,strategy_filter:{...planned.strategy_filter,next_report_date:'2026-10-23',report_exit_date:'2026-10-22',trading_days_to_report:6}},interim,'report_avoidance').reportDays,5);

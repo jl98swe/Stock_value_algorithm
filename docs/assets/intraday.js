@@ -1,4 +1,4 @@
-/* Shared display quotes; daily candles, scores and trades are kept separate. */
+/* Shared display quotes; preliminary scores are separate from daily candles and trades. */
 (() => {
   'use strict';
   const CACHE_URL = 'https://raw.githubusercontent.com/jl98swe/Stock_value_algorithm/intraday-cache/intraday.json';
@@ -7,6 +7,7 @@
   let cache = null;
   let selection = null;
   let pending = null;
+  const listeners = new Set();
   const el = id => document.getElementById(id);
   const validPrice = value => typeof value === 'number' && Number.isFinite(value) && value > 0;
 
@@ -24,6 +25,16 @@
     return quoteDay === payload.session_date ? item : null;
   }
 
+  function currentValuation(payload, ticker, dailyDate, currency = 'SEK', now = Date.now()) {
+    const item = currentQuote(payload, ticker, dailyDate, now);
+    const v = item?.valuation, q = item?.latest;
+    if (!v || v.preliminary !== true || typeof v.score !== 'number' || !Number.isFinite(v.score) ||
+        v.score < 0 || v.score > 100 || v.session !== payload.session_date ||
+        v.basis_date !== dailyDate || v.as_of !== q.as_of || v.price !== q.price ||
+        v.currency !== currency || q.currency !== currency) return null;
+    return v;
+  }
+
   function preview(ticker, dailyDate, now = Date.now()) {
     const item = currentQuote(cache, ticker, dailyDate, now);
     if (!item || (selection?.ticker === ticker && item.latest.currency !== selection.daily.currency)) return null;
@@ -31,14 +42,12 @@
     const high = item.day_high, low = item.day_low;
     const completeOHLC = [open, high, low].every(validPrice) && high >= Math.max(open, price) && low <= Math.min(open, price);
     // Consume only a valuation computed for this exact cached quote.
-    const v = item.valuation;
-    const score = v?.as_of === item.latest.as_of && v?.price === price &&
-      typeof v.score === 'number' && Number.isFinite(v.score) && v.score >= 0 && v.score <= 100 ? v.score : null;
+    const score = currentValuation(cache, ticker, dailyDate, item.latest.currency, now)?.score ?? null;
     return { score, candle: { date: cache.session_date, open, close: price, high, low, preliminary: true, completeOHLC } };
   }
 
   function notify() {
-    document.dispatchEvent(new CustomEvent('intraday-updated'));
+    document.dispatchEvent?.(new CustomEvent('intraday-updated'));
   }
 
   function restore() {
@@ -71,7 +80,7 @@
     el('intraday-daily-date').textContent = selection.daily.date;
     el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
       (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza är huvudkälla; kursen kan vara fördröjd. ') +
-      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Slutliga signaler beslutas vid stängning.';
+      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Preliminär poäng gäller om aktien stänger på den visade kursen, med senast verifierad EPS. Ordinarie poäng och signaler fastställs efter stängning.';
     notify();
   }
 
@@ -83,7 +92,7 @@
         if (!response.ok) throw new Error('cache unavailable');
         cache = await response.json();
       } catch { /* Keep a still-valid shared quote until expiry; never block the dashboard. */ }
-      finally { pending = null; render(); }
+      finally { pending = null; render(); listeners.forEach(callback => callback()); }
     })();
     return pending;
   }
@@ -92,6 +101,9 @@
     select(ticker, daily) { selection = { ticker, daily }; render(); },
     currentQuote,
     preview,
+    currentValuation,
+    valuation(ticker, dailyDate, currency) { return currentValuation(cache, ticker, dailyDate, currency); },
+    onUpdate(callback) { listeners.add(callback); },
     refresh
   };
   el('intraday-refresh')?.addEventListener('click', refresh);
