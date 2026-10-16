@@ -419,6 +419,7 @@
   function renderSelected() {
     const ticker = state.selectedTicker;
     const data = selectedData();
+    window.reportDataStatus.setTickers([ticker]);
     renderHero(ticker, data);
     renderMetrics(data);
     renderStatus(data);
