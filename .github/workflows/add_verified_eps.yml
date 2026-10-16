@@ -7,6 +7,7 @@ on:
       - "data/fundamentals/reports.csv"
       - "data/manual/report_submissions.csv"
       - "data/earnings/quarterly_eps.csv"
+      - "src/reporting.py"
   workflow_dispatch:
     inputs:
       ticker:

@@ -823,7 +823,7 @@ def build_reports_payload(
     session_start = calendar_as_of - pd.Timedelta(days=90)
     session_end = calendar_as_of + pd.Timedelta(days=400)
     calendar = xcals.get_calendar("XSTO", start=session_start, end=session_end)
-    trading_sessions = [day.date().isoformat() for day in calendar.sessions_in_range(session_start, session_end)]
+    trading_sessions = [day.date().isoformat() for day in calendar.sessions]
     schedule = _combined_schedule(automatic, manual)
     upcoming = _upcoming_rows(
         schedule=schedule,
