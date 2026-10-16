@@ -72,7 +72,25 @@ Gemensam cache: den publika grenen `intraday-cache`, med endast `intraday.json`.
 Varje publicering ersätter grenen med en föräldralös ögonblicksbild; ingen
 löpande kurshistorik byggs på grenen och inga dagskurser skrivs till `main`.
 Publicering är låst till denna särskilda gren och använder force-with-lease.
-Den ändrar aldrig den vanliga prisbasen, modellpoäng, signaler eller backtest.
+Den ändrar aldrig den vanliga prisbasen, slutliga modellpoäng, signaler eller backtest.
+
+Vid varje kurshämtning beräknas även en preliminär värderingspoäng för dagens
+aktuella kurs, som om aktien stängde där. Samma modell, EPS-/valutaregler och
+historik som i den dagliga motorn används; endast dagens modellrad utvärderas.
+En ny rapport känd vid kurstiden kan ändra dagens EPS. Varje hämtning börjar
+från färdiga handelsdagar, så intradagsuppdateringar blir aldrig extra dagar.
+Poängen sparas med exakt kurstid, kurs, EPS och senaste färdiga handelsdag
+i samma tillfälliga cache. Saknad EPS eller ofullständig historik ger ingen
+preliminär poäng.
+
+Startsidan visar preliminär poäng bredvid dagskursen. Kommande signaler
+använder den för urval, poäng och avstånd till signalgränsen när kurs och
+underlag matchar; annars används stängningspoängen. Kurstid och preliminär
+status visas per rad. MA200 prövas med dagens kurs och preliminära MA200;
+rapportavstånd flyttas fram en börsdag. Positioner, återaktivering och
+cooldown utgår fortsatt från slutligt strategitillstånd. En intradagsgräns
+är en bevakning inför stängningen och skapar ingen exekverad signal.
+Senaste signaler, fryst historik och backtest ändras inte.
 Som vid andra Git-ref-ersättningar kan GitHub behålla onåbara objekt en tid;
 detta är en tillfällig visningscache, inte en garanti om omedelbar fysisk radering.
 
