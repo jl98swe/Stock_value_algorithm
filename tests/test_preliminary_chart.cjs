@@ -43,3 +43,20 @@ test('provisional score is a separate dashed series and missing OHLC uses a pric
   assert.equal(ui.option.xAxis[0].data.at(-1), '2026-10-15');
   assert.equal(ui.element('chart-preliminary-note').hidden, true);
 });
+
+test('complete preliminary OHLC renders a normal solid purple candle', () => {
+  const ui = setup();
+  const data = { latest: { date: '2026-10-15' }, candles: [candle('2026-10-15')], scores: [] };
+  ui.setPreview({ candle: { date: '2026-10-16', open: 101, close: 99, low: 97, high: 104,
+    preliminary: true, completeOHLC: true }, score: null });
+  ui.renderChart('EXAMPLE.ST', data);
+  const price = ui.option.series.find(s => s.name === 'Pris');
+  assert.deepEqual(Array.from(price.data.at(-1).value), [101, 99, 97, 104]);
+  assert.equal(price.data.at(-1).itemStyle.color, '#8056b3');
+  assert.equal(price.data.at(-1).itemStyle.color0, '#8056b3');
+  assert.notEqual(price.data.at(-1).itemStyle.borderType, 'dashed');
+  assert.equal(ui.option.series.find(s => s.name === 'Preliminär kurs').data.at(-1), null);
+  assert.match(ui.element('chart-preliminary-description').textContent, /poäng saknas/);
+  assert.equal(ui.element('chart-preliminary-note').hidden, false);
+  assert.equal(data.candles.length, 1);
+});
