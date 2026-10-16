@@ -9,12 +9,12 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20261016-single-row">
+  <link rel="stylesheet" href="./assets/style.css?v=20261016-purple-candle">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261014-3"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
   <script defer src="./assets/intraday.js?v=20261016-preliminary-chart"></script>
-  <script defer src="./assets/app.js?v=20261016-preliminary-chart"></script>
+  <script defer src="./assets/app.js?v=20261016-purple-candle"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261013-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20261016-preliminary-chart"></script>
@@ -166,7 +166,16 @@
                 <button type="button" data-range="all">Allt</button>
               </div>
             </div>
-            <div id="chart-preliminary-note" class="preliminary-note" hidden>Streckad lila markering visar preliminär dagskurs och värderingspoäng. Värdena kan ändras före stängning.</div>
+            <button id="chart-preliminary-note" class="preliminary-note" type="button" popovertarget="preliminary-info" hidden>Preliminär data</button>
+            <div id="preliminary-info" class="preliminary-info" popover role="dialog" aria-labelledby="preliminary-info-title">
+              <div class="preliminary-info-heading">
+                <h3 id="preliminary-info-title">Preliminär data</h3>
+                <button type="button" popovertarget="preliminary-info" popovertargetaction="hide" aria-label="Stäng information">×</button>
+              </div>
+              <p id="chart-preliminary-description"></p>
+              <p>Dagens lila candle visar O (öppning), H (högsta), L (lägsta) och senaste avslut som preliminärt C. Om fullständig OHLC saknas visas senaste kurs som en punkt.</p>
+              <p>Kurser kan vara fördröjda. Dagens candle och värderingspoäng kan ändras före stängning. De ersätts av slutliga värden när stängningsdata har publicerats.</p>
+            </div>
             <div id="range-return" class="range-return" aria-live="polite"></div>
             <div id="market-chart" class="market-chart" role="img" aria-label="Candlestickdiagram och värderingspoäng"></div>
             <div id="chart-message" class="chart-message" hidden></div>

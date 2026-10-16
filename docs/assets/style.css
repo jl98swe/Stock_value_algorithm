@@ -482,8 +482,14 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 .intraday-detail p { margin: 0 0 6px; font-size: 13px; line-height: 1.5; }
 .intraday-detail button { justify-self: start; }
 
-/* A distinct colour plus text and dashed edges identify unfinished observations. */
-.preliminary-note { margin: 8px 0; padding: 8px 12px; border-left: 3px dashed #8056b3; background: #f5f0fa; color: #69428f; font-size: 12px; line-height: 1.5; }
+/* Purple marks unfinished observations; details open on demand. */
+.preliminary-note { display: inline-block; margin: 6px 0; padding: 0; border: 0; background: transparent; color: #69428f; font-size: 12px; line-height: 1.5; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.preliminary-note:hover { color: #4d286e; }
+.preliminary-info { width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--text); box-shadow: 0 12px 45px rgba(23,33,43,.18); font-size: 13px; line-height: 1.6; }
+.preliminary-info-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.preliminary-info-heading h3 { margin: 0; color: #69428f; font-size: 16px; }
+.preliminary-info-heading button { border: 0; background: transparent; color: var(--muted); padding: 4px 8px; font-size: 22px; cursor: pointer; }
+.preliminary-info p:last-child { margin-bottom: 0; }
 .preliminary-note[hidden] { display: none; }
 .preliminary-key { width: 18px; margin-right: 6px; border-top: 2px dashed #8056b3; }
 .score-card.is-preliminary { border: 1px dashed #8056b3; background: repeating-linear-gradient(135deg, #fdfbff 0 8px, #f5f0fa 8px 10px); }

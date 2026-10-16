@@ -301,7 +301,8 @@
       scores: [...(data.scores || []), { date: preview.candle.date, value: preview.score }]
     } : data;
     $('chart-preliminary-note').hidden = !preview;
-    $('chart-preliminary-note').textContent = preview?.score != null ? 'Streckad lila markering visar preliminär dagskurs och värderingspoäng. Värdena kan ändras före stängning.' : 'Lila markering visar preliminär dagskurs. Preliminär värderingspoäng saknas; poängen avser senaste stängning.';
+    $('chart-preliminary-description').textContent = preview?.score != null ? 'Lila färg markerar dagens preliminära kurs och värderingspoäng.' : 'Lila färg markerar dagens preliminära kurs. Preliminär värderingspoäng saknas; poängen avser senaste stängning.';
+    if (!preview) $('preliminary-info').hidePopover?.();
     const sliced = sliceData(chartData);
     const firstClose = Number(state.range === 'ytd'
       ? [...(data.candles || [])].reverse().find((row) => row.date < sliced.candles[0]?.date)?.close ?? sliced.candles[0]?.close
@@ -312,7 +313,7 @@
     const dates = sliced.candles.map((d) => d.date);
     const candleValues = sliced.candles.map((d) => d.preliminary ? {
       value: d.completeOHLC ? [d.open, d.close, d.low, d.high] : '-',
-      itemStyle: { color: '#eee6f8', color0: '#eee6f8', borderColor: '#8056b3', borderColor0: '#8056b3', borderType: 'dashed', borderWidth: 2 }
+      itemStyle: { color: '#8056b3', color0: '#8056b3', borderColor: '#8056b3', borderColor0: '#8056b3', borderWidth: 1 }
     } : [d.open, d.close, d.low, d.high]);
     const scoreMap = new Map(sliced.scores.map((d) => [d.date, d.value]));
     const scores = dates.map((d) => d === preview?.candle.date ? null : scoreMap.get(d) ?? null);
