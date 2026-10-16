@@ -226,8 +226,8 @@ a { color: inherit; }
 .panel-header h2 { font-size: 18px; }
 .panel-description { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
 .chart-panel { padding-bottom: 12px; }
-.range-buttons { display: flex; gap: 5px; padding: 3px; background: #eef2f3; border-radius: 10px; }
-.range-buttons button { border: 0; border-radius: 8px; padding: 6px 9px; background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; font-weight: 800; }
+.range-buttons { display: flex; flex-wrap: nowrap; gap: 5px; padding: 3px; background: #eef2f3; border-radius: 10px; }
+.range-buttons button { white-space: nowrap; border: 0; border-radius: 8px; padding: 6px 9px; background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; font-weight: 800; }
 .range-buttons button:hover, .range-buttons button.active { background: #fff; color: var(--brand); box-shadow: 0 2px 8px rgba(23,33,43,.08); }
 .market-chart { width: 100%; height: 610px; }
 .chart-message { padding: 30px; text-align: center; color: var(--muted); }
@@ -461,8 +461,8 @@ a { color: inherit; }
   .metric-grid { grid-template-columns: 1fr 1fr; }
   .metric-value { font-size: 21px; }
   .stock-hero, .chart-header, .split-header { align-items: flex-start; flex-direction: column; }
-  .range-buttons { width: 100%; justify-content: space-between; }
-  .range-buttons button { flex: 1; }
+  .range-buttons { width: 100%; gap: 2px; padding: 2px; justify-content: space-between; }
+  .range-buttons button { flex: 1 1 0; min-width: 0; min-height: 34px; padding: 6px 3px; }
   .form-grid { grid-template-columns: 1fr; }
   .form-field-wide { grid-column: auto; }
   .market-chart { height: 470px; }
