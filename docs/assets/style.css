@@ -481,3 +481,10 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 .intraday-panel .intraday-detail { flex: 1 1 260px; }
 .intraday-detail p { margin: 0 0 6px; font-size: 13px; line-height: 1.5; }
 .intraday-detail button { justify-self: start; }
+
+/* A distinct colour plus text and dashed edges identify unfinished observations. */
+.preliminary-note { margin: 8px 0; padding: 8px 12px; border-left: 3px dashed #8056b3; background: #f5f0fa; color: #69428f; font-size: 12px; line-height: 1.5; }
+.preliminary-note[hidden] { display: none; }
+.preliminary-key { width: 18px; margin-right: 6px; border-top: 2px dashed #8056b3; }
+.score-card.is-preliminary { border: 1px dashed #8056b3; background: repeating-linear-gradient(135deg, #fdfbff 0 8px, #f5f0fa 8px 10px); }
+.score-card.is-preliminary .zone-pill { background: #eee6f8; color: #69428f; }

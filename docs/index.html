@@ -9,15 +9,15 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20261015-intraday">
+  <link rel="stylesheet" href="./assets/style.css?v=20261016-preliminary-chart">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261014-3"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
-  <script defer src="./assets/intraday.js?v=20261016-avanza"></script>
-  <script defer src="./assets/app.js?v=20261016-eps-scope"></script>
+  <script defer src="./assets/intraday.js?v=20261016-preliminary-chart"></script>
+  <script defer src="./assets/app.js?v=20261016-preliminary-chart"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261013-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
-  <script defer src="./assets/chart-enhancements.js?v=20261016-report-hover"></script>
+  <script defer src="./assets/chart-enhancements.js?v=20261016-preliminary-chart"></script>
   <script src="./assets/strategy-selection.js?v=20261014-3"></script>
 <style>.home-strategy-control{grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}.home-strategy-control label{font-weight:700}.home-strategy-control select{padding:9px;border:1px solid var(--line);border-radius:8px;background:white}.home-strategy-control p{margin:0;font-size:13px}</style>
   <link rel="stylesheet" href="./assets/report-data-status.css?v=20261015">
@@ -130,6 +130,7 @@
                 <span id="metric-zone" class="zone-pill">–</span>
               </div>
               <div class="metric-foot">Köp 1 · Sälj 99</div>
+              <div id="metric-score-status" class="metric-foot" aria-live="polite"></div>
             </article>
             <article class="metric-card">
               <div class="metric-label">P/E TTM</div>
@@ -155,15 +156,17 @@
                 <h2 id="chart-title">Daglig utveckling</h2>
               </div>
               <div class="range-buttons" role="group" aria-label="Välj tidsperiod">
+                <button type="button" data-range="1m">1M</button>
                 <button type="button" data-range="3m">3M</button>
                 <button type="button" data-range="6m">6M</button>
-                <button type="button" data-range="ytd">I år</button>
+                <button type="button" data-range="ytd">i år</button>
                 <button type="button" data-range="1y">1 år</button>
                 <button type="button" data-range="3y">3 år</button>
                 <button type="button" data-range="5y">5 år</button>
                 <button type="button" data-range="all">Allt</button>
               </div>
             </div>
+            <div id="chart-preliminary-note" class="preliminary-note" hidden>Streckad lila markering visar preliminär dagskurs och värderingspoäng. Värdena kan ändras före stängning.</div>
             <div id="range-return" class="range-return" aria-live="polite"></div>
             <div id="market-chart" class="market-chart" role="img" aria-label="Candlestickdiagram och värderingspoäng"></div>
             <div id="chart-message" class="chart-message" hidden></div>

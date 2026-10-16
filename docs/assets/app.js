@@ -171,13 +171,18 @@
   }
 
   function renderMetrics(data) {
+    const preview = window.intradayQuotes?.preview(state.selectedTicker, data.latest?.date);
+    const provisionalScore = preview?.score;
     const latest = data.latest || {};
     const position = data.position || {};
     const action = data.next_action || {};
 
-    $('metric-score').textContent = latest.score == null ? '–' : fmt.format(latest.score);
-    $('metric-score').style.color = scoreColor(latest.score);
-    $('metric-zone').textContent = latest.zone || '–';
+    const shownScore = provisionalScore ?? latest.score;
+    $('metric-score').textContent = shownScore == null ? '–' : fmt.format(shownScore);
+    $('metric-score-status').textContent = provisionalScore != null ? 'Preliminär · kan ändras före stängning' : preview ? 'Senaste slutliga poäng · preliminär poäng saknas' : 'Slutlig poäng';
+    $('metric-score').closest('.score-card').classList.toggle('is-preliminary', provisionalScore != null);
+    $('metric-score').style.color = provisionalScore != null ? '#8056b3' : scoreColor(latest.score);
+    $('metric-zone').textContent = provisionalScore != null ? 'Preliminär' : latest.zone || '–';
     $('metric-zone').className = `zone-pill ${zoneClass(latest.score)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
     $('metric-eps').textContent = `EPS TTM ${formatModelEps(data)}`;
@@ -270,8 +275,11 @@
     const cutoff = new Date(last);
     if (state.range === 'ytd') cutoff.setUTCFullYear(last.getUTCFullYear(), 0, 1);
     else {
-      const months = { '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[state.range] || 3;
+      const months = { '1m': 1, '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[state.range] || 3;
+      const day = cutoff.getUTCDate();
+      cutoff.setUTCDate(1);
       cutoff.setUTCMonth(cutoff.getUTCMonth() - months);
+      cutoff.setUTCDate(Math.min(day, new Date(Date.UTC(cutoff.getUTCFullYear(), cutoff.getUTCMonth() + 1, 0)).getUTCDate()));
     }
     const start = cutoff.toISOString().slice(0, 10);
     return { candles: candles.filter((row) => row.date >= start), scores: scores.filter((row) => row.date >= start) };
@@ -287,17 +295,27 @@
     setHidden('chart-message', true);
     if (!state.chart) state.chart = echarts.init(container, null, { renderer: 'canvas' });
 
-    const sliced = sliceData(data);
+    const preview = window.intradayQuotes?.preview(ticker, data.latest?.date);
+    const chartData = preview ? { ...data,
+      candles: [...(data.candles || []), preview.candle],
+      scores: [...(data.scores || []), { date: preview.candle.date, value: preview.score }]
+    } : data;
+    $('chart-preliminary-note').hidden = !preview;
+    $('chart-preliminary-note').textContent = preview?.score != null ? 'Streckad lila markering visar preliminär dagskurs och värderingspoäng. Värdena kan ändras före stängning.' : 'Lila markering visar preliminär dagskurs. Preliminär värderingspoäng saknas; poängen avser senaste stängning.';
+    const sliced = sliceData(chartData);
     const firstClose = Number(state.range === 'ytd'
       ? [...(data.candles || [])].reverse().find((row) => row.date < sliced.candles[0]?.date)?.close ?? sliced.candles[0]?.close
       : sliced.candles[0]?.close);
     const lastClose = Number(sliced.candles.at(-1)?.close);
     $('range-return').textContent = firstClose > 0 && Number.isFinite(lastClose)
-      ? `Kursutveckling ${state.range === 'all' ? 'hela perioden' : document.querySelector('[data-range].active')?.textContent.trim()}: ${pct((lastClose / firstClose - 1) * 100)} (stängningskurser, utan utdelning)` : 'Kursutveckling saknas för perioden.';
+      ? `Kursutveckling ${state.range === 'all' ? 'hela perioden' : document.querySelector('[data-range].active')?.textContent.trim()}: ${pct((lastClose / firstClose - 1) * 100)} (${preview ? 'inklusive preliminärt senaste avslut' : 'stängningskurser'}, utan utdelning)` : 'Kursutveckling saknas för perioden.';
     const dates = sliced.candles.map((d) => d.date);
-    const candleValues = sliced.candles.map((d) => [d.open, d.close, d.low, d.high]);
+    const candleValues = sliced.candles.map((d) => d.preliminary ? {
+      value: d.completeOHLC ? [d.open, d.close, d.low, d.high] : '-',
+      itemStyle: { color: '#eee6f8', color0: '#eee6f8', borderColor: '#8056b3', borderColor0: '#8056b3', borderType: 'dashed', borderWidth: 2 }
+    } : [d.open, d.close, d.low, d.high]);
     const scoreMap = new Map(sliced.scores.map((d) => [d.date, d.value]));
-    const scores = dates.map((d) => scoreMap.get(d) ?? null);
+    const scores = dates.map((d) => d === preview?.candle.date ? null : scoreMap.get(d) ?? null);
     const startDate = dates[0];
     const endDate = dates[dates.length - 1];
 
@@ -340,6 +358,7 @@
           const candle = sliced.candles.find((d) => d.date === date);
           const score = scoreMap.get(date);
           if (!candle) return date;
+          if (candle.preliminary) return `<strong>${date} · Preliminär</strong><br>Senaste avslut ${fmt.format(candle.close)}<br>${candle.completeOHLC ? `O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)}<br>` : 'Fullständig OHLC saknas<br>'}Värderingspoäng <strong>${score == null ? 'saknas' : fmt.format(score)}</strong><br>Kan ändras före stängning`;
           return `<strong>${date}</strong><br>O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)} · C ${fmt.format(candle.close)}<br>Score <strong>${score == null ? '–' : fmt.format(score)}</strong>`;
         }
       },
@@ -378,12 +397,17 @@
           areaStyle: { color: 'rgba(47,111,176,.05)' },
           markArea: { silent: true, data: [[{ yAxis: 0, itemStyle: { color: 'rgba(31,143,103,.10)' } }, { yAxis: 25 }], [{ yAxis: 75, itemStyle: { color: 'rgba(199,71,71,.10)' } }, { yAxis: 100 }]] },
           markLine: { silent: true, symbol: ['none','none'], label: { show: true, position: 'insideEndTop', fontSize: 9 }, lineStyle: { type: 'dashed', width: 1 }, data: [{ yAxis: 1, name: 'Köp 1', lineStyle: { color: '#1f8f67' } }, { yAxis: 99, name: 'Sälj 99', lineStyle: { color: '#c74747' } }] }
-        }
+        },
+        { name: 'Preliminär kurs', type: 'scatter', data: dates.map(d => d === preview?.candle.date && !preview.candle.completeOHLC ? preview.candle.close : null),
+          symbol: 'emptyCircle', symbolSize: 10, itemStyle: { color: '#8056b3', borderWidth: 2 }, z: 6 },
+        { name: 'Preliminär poäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1,
+          data: dates.map((d, i) => preview?.score != null && (d === preview.candle.date || i === dates.length - 2) ? scoreMap.get(d) ?? null : null),
+          symbol: 'emptyCircle', symbolSize: 7, lineStyle: { type: 'dashed', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
       ]
     };
     state.chart.setOption(option, true);
     document.dispatchEvent(new CustomEvent('market-chart-rendered', {
-      detail: { ticker, stock: data, eventsPayload: state.eventsPayload }
+      detail: { ticker, stock: chartData, eventsPayload: state.eventsPayload }
     }));
   }
 
@@ -462,6 +486,12 @@
       renderTables(selectedData());
     });
     window.addEventListener('resize', () => state.chart?.resize());
+    document.addEventListener('intraday-updated', () => {
+      if (!state.chart || !state.selectedTicker) return;
+      const data = selectedData();
+      renderMetrics(data);
+      renderChart(state.selectedTicker, data);
+    });
   }
 
   async function init() {
