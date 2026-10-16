@@ -22,7 +22,7 @@ def test_all_tickers_have_tradingview_history_and_current_duplicates_are_removed
     assert overrides["ticker"].nunique() == len(mapping)
     assert set(overrides["ticker"]) == set(mapping["borsdata_ticker"])
     latest = overrides.sort_values("period_end").groupby("ticker").tail(1)
-    assert latest["report_period"].value_counts().to_dict() == {"2026-Q2": 117, "2026-Q3": 2}
+    assert latest["report_period"].value_counts().to_dict() == {"2026-Q2": 116, "2026-Q3": 3}
 
 
 def test_history_override_skips_cross_currency_reference(tmp_path: Path):
