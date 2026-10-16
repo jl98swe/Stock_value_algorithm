@@ -226,12 +226,19 @@ def fetch_avanza(instrument: dict, now: datetime, need_open: bool) -> dict:
         client.headers["User-Agent"] = "StockValueAlgorithm/1.0 intraday quotes"
         response = client.get(AVANZA_URL + instrument["avanza_id"], timeout=20)
         response.raise_for_status()
-        result = parse_avanza(response.json(), instrument, now)
+        # The universe is fetched over several minutes. Validate against the
+        # response time, not the start of the whole collection. Keep --as-of
+        # on its requested session when inspecting an older day.
+        received = datetime.now(TZ)
+        observed = max(now, received) if received.date() == now.date() else now
+        result = parse_avanza(response.json(), instrument, observed)
         if need_open and result:
             response = client.get("https://www.avanza.se/_api/price-chart/stock/" +
                                   instrument["avanza_id"], params={"timePeriod": "today"}, timeout=20)
             response.raise_for_status()
-            opening = parse_avanza_open(response.json(), instrument, now)
+            received = datetime.now(TZ)
+            observed = max(now, received) if received.date() == now.date() else now
+            opening = parse_avanza_open(response.json(), instrument, observed)
             if opening:
                 result["opening"] = opening
         return result

@@ -130,6 +130,35 @@ def test_avanza_checks_identity_currency_and_session_timestamp():
         q.parse_avanza(wrong, instrument, NOW)
 
 
+def test_avanza_accepts_trade_after_batch_start_but_not_after_response(monkeypatch):
+    class Clock(q.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return q.instant("2026-10-15T13:03:00+02:00")
+    class Reply:
+        def raise_for_status(self):
+            pass
+        def json(self):
+            return avanza("2026-10-15T13:02:00+02:00")
+    class Client:
+        headers = {}
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+        def get(self, *args, **kwargs):
+            return Reply()
+    monkeypatch.setattr(q, "datetime", Clock)
+    monkeypatch.setattr(q.requests, "Session", Client)
+    result = q.fetch_avanza(INSTRUMENTS["EXAMPLE-A.ST"], NOW, False)
+    assert result["latest"]["as_of"] == "2026-10-15T13:02:00+02:00"
+    assert q.parse_avanza(avanza("2026-10-15T13:04:00+02:00"),
+                          INSTRUMENTS["EXAMPLE-A.ST"], Clock.now()) == {}
+    # A historical --as-of must still reject a quote from another session.
+    assert q.fetch_avanza(INSTRUMENTS["EXAMPLE-A.ST"],
+                          q.instant("2026-10-14T13:00:00+02:00"), False) == {}
+
+
 def test_complete_avanza_chart_provides_first_bar_open_not_last_price():
     data = {"ohlc": [{"timestamp": q.instant(at).timestamp() * 1000, "open": price}
                       for at, price in [("2026-10-15T09:01:00+02:00", 100),
