@@ -24,6 +24,23 @@
     return quoteDay === payload.session_date ? item : null;
   }
 
+  function preview(ticker, dailyDate, now = Date.now()) {
+    const item = currentQuote(cache, ticker, dailyDate, now);
+    if (!item || (selection?.ticker === ticker && item.latest.currency !== selection.daily.currency)) return null;
+    const price = item.latest.price, open = item.opening?.price;
+    const high = item.day_high, low = item.day_low;
+    const completeOHLC = [open, high, low].every(validPrice) && high >= Math.max(open, price) && low <= Math.min(open, price);
+    // Consume only a valuation computed for this exact cached quote.
+    const v = item.valuation;
+    const score = v?.as_of === item.latest.as_of && v?.price === price &&
+      typeof v.score === 'number' && Number.isFinite(v.score) && v.score >= 0 && v.score <= 100 ? v.score : null;
+    return { score, candle: { date: cache.session_date, open, close: price, high, low, preliminary: true, completeOHLC } };
+  }
+
+  function notify() {
+    document.dispatchEvent(new CustomEvent('intraday-updated'));
+  }
+
   function restore() {
     if (!selection) return;
     const { daily } = selection;
@@ -32,6 +49,7 @@
     el('price-change').className = daily.changeClass;
     el('stock-date').textContent = daily.dateText;
     el('intraday-panel').hidden = true;
+    notify();
   }
 
   function render() {
@@ -53,7 +71,8 @@
     el('intraday-daily-date').textContent = selection.daily.date;
     el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
       (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza är huvudkälla; kursen kan vara fördröjd. ') +
-      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Poäng och signaler avser senaste stängning.';
+      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Slutliga signaler beslutas vid stängning.';
+    notify();
   }
 
   async function refresh() {
@@ -72,6 +91,7 @@
   window.intradayQuotes = {
     select(ticker, daily) { selection = { ticker, daily }; render(); },
     currentQuote,
+    preview,
     refresh
   };
   el('intraday-refresh')?.addEventListener('click', refresh);

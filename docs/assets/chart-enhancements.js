@@ -41,6 +41,7 @@
       <span><i class="legend-swatch legend-sell"></i>Säljsignal</span>
       <span><i class="legend-swatch legend-lock"></i>Fundamental spärr</span>
       <span><i class="ma200-key"></i>MA200</span>
+      <span><i class="preliminary-key"></i>Preliminär</span>
       <span><i class="event-key report">E</i>Rapport</span>
       <span><i class="event-key dividend">D</i>Utdelning</span>
       <span><i class="event-key news">N</i>Nyhet</span>`;
@@ -112,7 +113,12 @@
     const last = new Date(`${candles.at(-1).date}T12:00:00Z`);
     const cutoff = new Date(last);
     if (range === 'ytd') cutoff.setUTCFullYear(last.getUTCFullYear(), 0, 1);
-    else cutoff.setUTCMonth(cutoff.getUTCMonth() - ({ '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[range] || 3));
+    else {
+      const day = cutoff.getUTCDate();
+      cutoff.setUTCDate(1);
+      cutoff.setUTCMonth(cutoff.getUTCMonth() - ({ '1m': 1, '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60 }[range] || 3));
+      cutoff.setUTCDate(Math.min(day, new Date(Date.UTC(cutoff.getUTCFullYear(), cutoff.getUTCMonth() + 1, 0)).getUTCDate()));
+    }
     return candles.filter((row) => row.date >= cutoff.toISOString().slice(0, 10));
   }
 
@@ -204,7 +210,7 @@
 
     const current = chart.getOption();
     const series = current.series || [];
-    const priceSeries = series.find((item) => item.name === 'Pris') || series[0] || {};
+    const priceSeries = series.find((item) => item.name === 'Pris') || {};
     const markPoint = Array.isArray(priceSeries.markPoint) ? priceSeries.markPoint[0] : priceSeries.markPoint;
     const signalPoints = markerEnabled('signals') ? (stock.signals || [])
       .filter((signal) => signal.status === 'executed' && signal.execution_date >= startDate && signal.execution_date <= endDate)

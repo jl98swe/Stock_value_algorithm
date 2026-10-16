@@ -18,7 +18,7 @@ function setup() {
       opening: { price: 100, source: 'Nasdaq', as_of: '2026-10-15T09:00:30+02:00' } } } };
   const window = {};
   vm.runInNewContext(fs.readFileSync('docs/assets/intraday.js', 'utf8'), { window,
-    document: { getElementById: element, addEventListener() {} }, Date: Clock, Intl,
+    document: { getElementById: element, addEventListener() {}, dispatchEvent() {} }, CustomEvent: class { constructor(type) { this.type = type; } }, Date: Clock, Intl,
     setInterval() {}, fetch: async () => ({ ok: true, json: async () => payload }) });
   return { api: window.intradayQuotes, payload, now, element };
 }
@@ -47,4 +47,21 @@ test('stock switching restores matching daily price instead of previous stock qu
   api.select('EXAMPLE.ST', { ...daily, date: '2026-10-15', close: 103 });
   assert.equal(element('latest-price').textContent, '103 SEK');
   assert.equal(element('stock-date').textContent, daily.dateText);
+});
+
+
+test('synthetic provisional quote uses real OHLC only and requires matching score provenance', async () => {
+  const { api, payload, element } = setup();
+  await api.refresh();
+  const item = payload.stocks['EXAMPLE.ST'];
+  assert.equal(api.preview('EXAMPLE.ST', '2026-10-14').candle.completeOHLC, false);
+  item.day_high = 105; item.day_low = 99;
+  item.valuation = { score: 42, price: 102, as_of: item.latest.as_of };
+  let preview = api.preview('EXAMPLE.ST', '2026-10-14');
+  assert.equal(preview.candle.completeOHLC, true);
+  assert.equal(preview.score, 42);
+  item.valuation.price = 101;
+  assert.equal(api.preview('EXAMPLE.ST', '2026-10-14').score, null);
+  assert.equal(api.preview('EXAMPLE.ST', '2026-10-15'), null);
+  assert.equal(api.preview('OTHER.ST', '2026-10-14'), null);
 });
