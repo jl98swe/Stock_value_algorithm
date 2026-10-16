@@ -57,6 +57,7 @@
       .filter((row) => textIncludes(row, needle))
       .sort((a, b) => Number(b.data.position?.unrealized_pct || 0) - Number(a.data.position?.unrealized_pct || 0));
 
+    window.reportDataStatus.setTickers(rows.map(row => row.ticker));
     $('summary-count').textContent = String(rows.length);
     $('overview-body').innerHTML = rows.length ? rows.map((row) => {
       const p = row.data.position || {};

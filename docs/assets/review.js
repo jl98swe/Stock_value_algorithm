@@ -210,6 +210,7 @@
   }
 
   function renderEvent() {
+    window.reportDataStatus.setTickers([state.selectedTicker]);
     const event = currentEvent();
     const reviewForm = $('review-form-title')?.closest('section.panel');
     $('eps-ticker').value = state.selectedTicker;
