@@ -3,6 +3,7 @@
 
   const fmt = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 });
   const pctFmt = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const clockFmt = new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Stockholm',hour:'2-digit',minute:'2-digit'});
   const dateFmt = new Intl.DateTimeFormat('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' });
   const $ = (id) => document.getElementById(id);
   const strategies = {standard:'Standard',standard_stop_loss_10:'Standard — stop loss 10 %',standard_two_positions:'Standard — två positioner',ma200:'MA200',report_avoidance:'Rapportundvikande'};
@@ -76,13 +77,28 @@
     }).join('') : '<tr><td colspan="8" class="empty-cell">Inga aktiva positioner matchar filtret.</td></tr>';
   }
 
-  function signalCandidate(ticker, data, meta, rules) {
+  function signalCandidate(ticker, data, meta, rules, preliminary = null, selectedStrategy = strategy) {
     if (data.active_for_updates === false) return null;
     const latest = data.latest || {};
     const position = data.position || {};
     const action = data.next_action || {};
-    const value = number(latest.score);
-    const filters = data.strategy_filter || {};
+    const value = number(preliminary ? preliminary.score : latest.score);
+    const filters = { ...(data.strategy_filter || {}) };
+    if (preliminary && selectedStrategy === 'ma200') {
+      filters.buy_allowed = number(preliminary.ma200) !== null && preliminary.price > preliminary.ma200;
+    }
+    if (preliminary && selectedStrategy === 'report_avoidance') {
+      // The producer requires yesterday's completed session as basis, so today
+      // advances the exchange-session distance by exactly one, including weekends.
+      filters.trading_days_to_report = number(filters.trading_days_to_report) === null ? null :
+        Math.max(0, number(filters.trading_days_to_report) - 1);
+      if (!filters.next_report_date || filters.next_report_date < preliminary.session) {
+        filters.trading_days_to_report = null;
+        filters.buy_allowed = false;
+      } else {
+        filters.buy_allowed = filters.trading_days_to_report > 11;
+      }
+    }
     const reportDays = number(filters.trading_days_to_report);
     const plannedReport = Number(position.lots || 0) > 0 && reportDays !== null && reportDays >= 0 && reportDays <= 5 && Boolean(filters.report_exit_date);
     const reportExit = (action.type === 'SELL' && action.exit_reason === 'report') || (plannedReport && action.type !== 'SELL');
@@ -93,9 +109,9 @@
     const lots = Number(position.lots || 0);
     const maxLots = Number(position.max_lots || 1);
     const hasPosition = lots > 0;
-    const canBuy = lots < maxLots && data.strategy_filter?.buy_allowed !== false;
+    const canBuy = lots < maxLots && filters.buy_allowed !== false;
     const canSell = hasPosition;
-    const actual = (action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell);
+    const actual = (!preliminary || reportExit) && ((action.type === 'BUY' && canBuy) || (action.type === 'SELL' && canSell));
     const buyDistance = Math.max(0, value - buy);
     const sellDistance = Math.max(0, sell - value);
 
@@ -122,6 +138,7 @@
       name: meta.name || ticker,
       score: value,
       latestDate: latest.date,
+      preliminary,
       side,
       distance,
       actual,
@@ -149,7 +166,11 @@
   function renderSignals(dashboard, stocksPayload, needle) {
     const rules = dashboard.meta?.rules || {};
     const upcoming = Object.entries(dashboard.stocks || {})
-      .map(([ticker, data]) => signalCandidate(ticker, data, stockMeta(stocksPayload, ticker), rules))
+      .map(([ticker, data]) => {
+        const meta = stockMeta(stocksPayload, ticker);
+        const preliminary = window.intradayQuotes?.valuation(ticker, data.latest?.date, meta.currency || 'SEK');
+        return signalCandidate(ticker, data, meta, rules, preliminary, strategy);
+      })
       .filter(Boolean)
       .filter((row) => textIncludes(row, needle))
       .sort((a, b) => Number(b.actual) - Number(a.actual) || Number(b.reportExit) - Number(a.reportExit) || a.distance - b.distance || a.score - b.score);
@@ -158,13 +179,13 @@
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
       <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
-      <td>${score(row.score)}</td>
-      <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? '<strong>Signalgräns nådd</strong>' : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${score(row.score)}<span class="cell-detail">${row.preliminary ? `Preliminär · ${clockFmt.format(new Date(row.preliminary.as_of))}` : `Stängning ${prettyDate(row.latestDate)}`}</span></td>
+      <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? `<strong>${row.preliminary ? 'Preliminär gräns nådd' : 'Signalgräns nådd'}</strong>` : `${fmt.format(row.distance)} p från gräns`}</td>
       <td>${boundaryText(row)}</td>
       <td>${row.lots ? 'Aktiv' : 'Ingen'}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? row.reportExit ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
-      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.exitDate)}${row.reportDate ? `<span class="cell-detail">Rapport ${prettyDate(row.reportDate)}</span>` : ''}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
+      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.exitDate)}${row.reportDate ? `<span class="cell-detail">Rapport ${prettyDate(row.reportDate)}</span>` : ''}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.preliminary ? (row.reached ? 'Gräns nådd intradag; inväntar stängning och strategivillkor' : 'Preliminär bevakning; inväntar stängning') : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="9" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
 
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
@@ -249,6 +270,7 @@
       $('last-updated').textContent = generated ? new Date(generated).toLocaleString('sv-SE') : 'Okänt';
       $('overview-search')?.addEventListener('input', render);
       $('overview-strategy').addEventListener('change', render);
+      if (page === 'signals') window.intradayQuotes?.onUpdate(render);
       render();
       $('loading-state').hidden = true;
       $('overview-content').hidden = false;

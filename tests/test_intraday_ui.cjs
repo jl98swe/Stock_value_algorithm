@@ -56,7 +56,7 @@ test('synthetic provisional quote uses real OHLC only and requires matching scor
   const item = payload.stocks['EXAMPLE.ST'];
   assert.equal(api.preview('EXAMPLE.ST', '2026-10-14').candle.completeOHLC, false);
   item.day_high = 105; item.day_low = 99;
-  item.valuation = { score: 42, price: 102, as_of: item.latest.as_of };
+  item.valuation = { preliminary: true, score: 42, price: 102, as_of: item.latest.as_of, currency: 'SEK', basis_date: '2026-10-14', session: '2026-10-15' };
   let preview = api.preview('EXAMPLE.ST', '2026-10-14');
   assert.equal(preview.candle.completeOHLC, true);
   assert.equal(preview.score, 42);
@@ -64,4 +64,20 @@ test('synthetic provisional quote uses real OHLC only and requires matching scor
   assert.equal(api.preview('EXAMPLE.ST', '2026-10-14').score, null);
   assert.equal(api.preview('EXAMPLE.ST', '2026-10-15'), null);
   assert.equal(api.preview('OTHER.ST', '2026-10-14'), null);
+});
+
+test('preliminary score must match the exact quote, session and daily basis', async () => {
+  const { api, payload, now } = setup();
+  const item = payload.stocks['EXAMPLE.ST'];
+  item.valuation = { preliminary: true, score: 0, price: 102, currency: 'SEK',
+    as_of: item.latest.as_of, basis_date: '2026-10-14', session: '2026-10-15' };
+  const get = () => api.currentValuation(payload, 'EXAMPLE.ST', '2026-10-14', 'SEK', now);
+  assert.equal(get().score, 0);
+  assert.equal(api.currentValuation(payload, 'EXAMPLE.ST', '2026-10-15', 'SEK', now), null);
+  assert.equal(api.currentValuation(payload, 'EXAMPLE.ST', '2026-10-14', 'EUR', now), null);
+  item.latest.price = 103;
+  assert.equal(get(), null);
+  item.latest.price = 102;
+  item.valuation.score = null;
+  assert.equal(get(), null);
 });

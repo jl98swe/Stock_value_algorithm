@@ -46,10 +46,10 @@ def _batch_evaluate(model, features):
 
 class NextCloseScore:
     """Calculate only the new row; EMA and lagged features use the entire history."""
-    def __init__(self, frame, model, negative_model=None):
+    def __init__(self, frame, model, negative_model=None, *, eps=None):
         self.history = calculate_valuation(frame, model=_ZeroModel(), negative_model=_ZeroModel())
         self.pe = self.history.PE_TTM.to_numpy(dtype=float)
-        self.eps = float(frame.EPS_TTM.iloc[-1])
+        self.eps = float(frame.EPS_TTM.iloc[-1] if eps is None else eps)
         self.model = model if self.eps > 0 else negative_model or _negative_model()
 
     def __call__(self, prices):
