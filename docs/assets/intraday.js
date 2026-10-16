@@ -52,7 +52,7 @@
     el('intraday-daily').textContent = `${fmt.format(selection.daily.close)} ${quote.currency}`;
     el('intraday-daily-date').textContent = selection.daily.date;
     el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
-      (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza används som reservkälla. ') +
+      (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza är huvudkälla; kursen kan vara fördröjd. ') +
       'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Poäng och signaler avser senaste stängning.';
   }
 
