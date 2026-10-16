@@ -1,8 +1,8 @@
 """Shared, disposable display quotes. Never input to valuation or price history.
 
-Nasdaq's public MiFID post-trade files are primary. Avanza is only queried for
-instruments missing a recent Nasdaq observation or an opening price. Every
-fallback is checked against the instrument's ISIN, currency and current session.
+Avanza is queried first for every instrument. Nasdaq's public MiFID post-trade
+files fill missing or stale quotes and missing opening prices. Instrument
+identity, currency and the current session are checked before using quotes.
 """
 from __future__ import annotations
 
@@ -226,12 +226,19 @@ def fetch_avanza(instrument: dict, now: datetime, need_open: bool) -> dict:
         client.headers["User-Agent"] = "StockValueAlgorithm/1.0 intraday quotes"
         response = client.get(AVANZA_URL + instrument["avanza_id"], timeout=20)
         response.raise_for_status()
-        result = parse_avanza(response.json(), instrument, now)
+        # The universe is fetched over several minutes. Validate against the
+        # response time, not the start of the whole collection. Keep --as-of
+        # on its requested session when inspecting an older day.
+        received = datetime.now(TZ)
+        observed = max(now, received) if received.date() == now.date() else now
+        result = parse_avanza(response.json(), instrument, observed)
         if need_open and result:
             response = client.get("https://www.avanza.se/_api/price-chart/stock/" +
                                   instrument["avanza_id"], params={"timePeriod": "today"}, timeout=20)
             response.raise_for_status()
-            opening = parse_avanza_open(response.json(), instrument, now)
+            received = datetime.now(TZ)
+            observed = max(now, received) if received.date() == now.date() else now
+            opening = parse_avanza_open(response.json(), instrument, observed)
             if opening:
                 result["opening"] = opening
         return result
@@ -252,7 +259,7 @@ def parse_avanza_open(data: dict, instrument: dict, now: datetime):
 
 
 def collect(cache: dict, stocks: list[dict], instruments: dict, now: datetime,
-            client=requests, fallback=fetch_avanza) -> dict:
+            client=requests, primary=fetch_avanza) -> dict:
     output = prune(cache, stocks, now)
     bounds = session_bounds(now)
     if not bounds:
@@ -267,35 +274,51 @@ def collect(cache: dict, stocks: list[dict], instruments: dict, now: datetime,
     instruments = {t: row for t, row in instruments.items() if t in eligible and row.get("isin")}
     rows = output["stocks"]
     errors = []
-    try:
-        incoming, errors = fetch_nasdaq(client, instruments, now,
-                                       any(not rows.get(t, {}).get("opening") for t in instruments))
-    except (requests.RequestException, ValueError, KeyError) as error:
-        incoming = {}
-        errors = [f"Nasdaq: {type(error).__name__}"]
-    merge_nasdaq(rows, incoming)
-    # Nasdaq has priority for a recent trade, even if Avanza is newer. A stale
-    # Nasdaq trade may be replaced by a more recent verified fallback.
     stale_before = min(now - timedelta(minutes=30), bounds[1] - timedelta(minutes=15))
-    needs = [t for t in instruments if not rows.get(t, {}).get("opening") or
-             not rows.get(t, {}).get("latest") or instant(rows[t]["latest"]["as_of"]) < stale_before]
+    fresh_primary = set()
+    failed_primary = set()
+    # Always refresh the full universe from the primary source at each due slot.
     with ThreadPoolExecutor(max_workers=3) as pool:
-        jobs = {pool.submit(fallback, instruments[t], now, not rows.get(t, {}).get("opening")): t for t in needs}
+        jobs = {pool.submit(primary, instruments[t], now, not rows.get(t, {}).get("opening")
+                            or rows[t]["opening"].get("source") != "Avanza"): t for t in instruments}
         for future in as_completed(jobs):
             ticker = jobs[future]
             try:
                 data = future.result()
                 item = rows.setdefault(ticker, {})
-                if data.get("opening") and not item.get("opening"):
+                if data.get("opening") and (not item.get("opening") or item["opening"].get("source") != "Avanza"):
                     item["opening"] = data["opening"]
                 quote = data.get("latest")
-                if quote and (not item.get("latest") or instant(quote["as_of"]) > instant(item["latest"]["as_of"])):
+                if quote and instant(quote["as_of"]) >= stale_before:
+                    fresh_primary.add(ticker)
+                if not quote:
+                    failed_primary.add(ticker)
+                if quote and (not item.get("latest") or
+                              (ticker in fresh_primary and item["latest"].get("source") != "Avanza") or
+                              instant(quote["as_of"]) >= instant(item["latest"]["as_of"])):
                     item["latest"] = quote
                 for field in ("day_high", "day_low"):
                     if data.get(field) is not None:
                         item[field] = data[field]
             except (requests.RequestException, ValueError, KeyError, TypeError) as error:
+                failed_primary.add(ticker)
                 errors.append(f"Avanza {ticker}: {type(error).__name__}")
+    needs = {t: instruments[t] for t in instruments if t in failed_primary or
+             not rows.get(t, {}).get("opening") or not rows.get(t, {}).get("latest") or
+             instant(rows[t]["latest"]["as_of"]) < stale_before}
+    if needs:
+        try:
+            incoming, secondary_errors = fetch_nasdaq(client, needs, now,
+                                           any(not rows.get(t, {}).get("opening") for t in needs))
+            errors.extend(secondary_errors)
+            for ticker, data in incoming.items():
+                if ticker in fresh_primary:
+                    data.pop("latest", None)
+                if rows.get(ticker, {}).get("opening"):
+                    data.pop("opening", None)
+            merge_nasdaq(rows, incoming)
+        except (requests.RequestException, ValueError, KeyError) as error:
+            errors.append(f"Nasdaq: {type(error).__name__}")
     for ticker in eligible:
         item = rows.setdefault(ticker, {})
         latest = item.get("latest")

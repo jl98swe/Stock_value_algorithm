@@ -130,6 +130,35 @@ def test_avanza_checks_identity_currency_and_session_timestamp():
         q.parse_avanza(wrong, instrument, NOW)
 
 
+def test_avanza_accepts_trade_after_batch_start_but_not_after_response(monkeypatch):
+    class Clock(q.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return q.instant("2026-10-15T13:03:00+02:00")
+    class Reply:
+        def raise_for_status(self):
+            pass
+        def json(self):
+            return avanza("2026-10-15T13:02:00+02:00")
+    class Client:
+        headers = {}
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+        def get(self, *args, **kwargs):
+            return Reply()
+    monkeypatch.setattr(q, "datetime", Clock)
+    monkeypatch.setattr(q.requests, "Session", Client)
+    result = q.fetch_avanza(INSTRUMENTS["EXAMPLE-A.ST"], NOW, False)
+    assert result["latest"]["as_of"] == "2026-10-15T13:02:00+02:00"
+    assert q.parse_avanza(avanza("2026-10-15T13:04:00+02:00"),
+                          INSTRUMENTS["EXAMPLE-A.ST"], Clock.now()) == {}
+    # A historical --as-of must still reject a quote from another session.
+    assert q.fetch_avanza(INSTRUMENTS["EXAMPLE-A.ST"],
+                          q.instant("2026-10-14T13:00:00+02:00"), False) == {}
+
+
 def test_complete_avanza_chart_provides_first_bar_open_not_last_price():
     data = {"ohlc": [{"timestamp": q.instant(at).timestamp() * 1000, "open": price}
                       for at, price in [("2026-10-15T09:01:00+02:00", 100),
@@ -139,29 +168,54 @@ def test_complete_avanza_chart_provides_first_bar_open_not_last_price():
     assert result["as_of"].startswith("2026-10-15T09:01")
 
 
-def test_fallback_does_not_replace_recent_primary_quote(monkeypatch):
-    monkeypatch.setattr(q, "fetch_nasdaq", lambda *a: ({"EXAMPLE-A.ST": {"latest": quote()}}, []))
-    def fallback(*a):
-        return {"latest": quote("2026-10-15T12:43:00+02:00", 101, "Avanza"),
+def test_complete_primary_skips_nasdaq_and_refreshes_even_with_cached_quotes(monkeypatch):
+    def forbidden(*a):
+        pytest.fail("Complete Avanza response must not query Nasdaq")
+    monkeypatch.setattr(q, "fetch_nasdaq", forbidden)
+    calls = []
+    def primary(*args):
+        calls.append(args)
+        return {"latest": quote(source="Avanza"),
                 "opening": quote("2026-10-15T09:00:00+02:00", 100, "Avanza")}
-    result = q.collect({}, STOCKS, INSTRUMENTS, NOW, fallback=fallback)
+    cache = {"session_date": "2026-10-15", "stocks": {
+        "EXAMPLE-A.ST": {"latest": quote("2026-10-15T12:45:00+02:00"),
+                         "opening": quote("2026-10-15T09:00:00+02:00")}}}
+    result = q.collect(cache, STOCKS, INSTRUMENTS, NOW, primary=primary)
+    assert len(calls) == 1
+    assert calls[0][2] is True  # Replace opening from the former primary.
     row = result["stocks"]["EXAMPLE-A.ST"]
-    assert row["latest"]["source"] == "Nasdaq"
+    assert row["latest"]["source"] == row["opening"]["source"] == "Avanza"
     assert row["latest"]["change_pct"] == 2
-    assert row["opening"]["source"] == "Avanza"
 
 
-def test_fallback_replaces_stale_primary_and_failed_fetch_preserves_good_quote(monkeypatch):
-    monkeypatch.setattr(q, "fetch_nasdaq", lambda *a: ({"EXAMPLE-A.ST": {
-        "latest": quote("2026-10-15T09:01:00+02:00")}}, []))
-    result = q.collect({}, STOCKS, INSTRUMENTS, NOW, fallback=lambda *a: {"latest": quote(source="Avanza")})
-    assert result["stocks"]["EXAMPLE-A.ST"]["latest"]["source"] == "Avanza"
+def test_secondary_only_fills_missing_fields_without_replacing_fresh_avanza(monkeypatch):
+    calls = []
+    def secondary(client, instruments, now, need_open):
+        calls.append((instruments, need_open))
+        return {"EXAMPLE-A.ST": {"latest": quote("2026-10-15T12:45:00+02:00", 103),
+                                 "opening": quote("2026-10-15T09:00:00+02:00", 100)}}, []
+    monkeypatch.setattr(q, "fetch_nasdaq", secondary)
+    result = q.collect({}, STOCKS, INSTRUMENTS, NOW,
+                       primary=lambda *a: {"latest": quote(source="Avanza")})
+    row = result["stocks"]["EXAMPLE-A.ST"]
+    assert row["latest"]["source"] == "Avanza"
+    assert row["opening"]["source"] == "Nasdaq"
+    assert calls == [(INSTRUMENTS, True)]
+
+
+def test_secondary_recovers_stale_or_failed_primary_and_preserves_cache_on_failure(monkeypatch):
+    monkeypatch.setattr(q, "fetch_nasdaq", lambda *a: ({"EXAMPLE-A.ST": {"latest": quote()}}, []))
+    result = q.collect({}, STOCKS, INSTRUMENTS, NOW, primary=lambda *a: {
+        "latest": quote("2026-10-15T09:01:00+02:00", source="Avanza")})
+    assert result["stocks"]["EXAMPLE-A.ST"]["latest"]["source"] == "Nasdaq"
     def failed(*a):
         raise q.requests.RequestException("synthetic failure")
+    recovered = q.collect({}, STOCKS, INSTRUMENTS, NOW, primary=failed)
+    assert recovered["stocks"]["EXAMPLE-A.ST"]["latest"]["source"] == "Nasdaq"
     monkeypatch.setattr(q, "fetch_nasdaq", failed)
-    preserved = q.collect(result, STOCKS, INSTRUMENTS, NOW, fallback=failed)
+    preserved = q.collect(result, STOCKS, INSTRUMENTS, NOW, primary=failed)
     assert preserved["stocks"]["EXAMPLE-A.ST"]["latest"]["price"] == 102
-    assert preserved["errors"]
+    assert len(preserved["errors"]) == 2
 
 
 def test_closed_and_delisted_stocks_never_trigger_collection(monkeypatch):

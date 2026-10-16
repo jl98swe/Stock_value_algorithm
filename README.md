@@ -51,8 +51,8 @@ Detta verifierar intern konsistens, inte att Yahoo har publicerat alla bolagsrap
 ### Tillfälliga intradagskurser
 
 `Intradagskurser · Nasdaq och Avanza` hämtar för hela det aktiva universumet
-kl. 09.20 (öppningskurs), 13.00, 17.00 och 17.30 i Europe/Stockholm. Nasdaq är primärkälla;
-Avanza används för saknade eller äldre avslut och saknad öppningskurs.
+kl. 09.20 (öppningskurs), 13.00, 17.00 och 17.30 i Europe/Stockholm. Avanza är primärkälla;
+Nasdaq används för saknade eller äldre avslut och saknad öppningskurs.
 Nasdaqs filer är 15 minuter fördröjda. Extra körningar 17.50 och 18.30
 efterkontrollerar stängningsauktionen. UTC-baserade reservstarter varje kvart
 kontrollerar den gemensamma cachen och försöker hämta senaste förfallna tid
