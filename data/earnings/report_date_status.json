@@ -1,7 +1,8 @@
 {
-  "checked_at": "2026-10-15",
+  "checked_at": "2026-10-16",
   "counts": {
-    "retry_missing_evidence": 5
+    "confirmed": 3,
+    "retry_missing_evidence": 2
   },
   "missing_historical_dates": [
     {
@@ -745,7 +746,12 @@
       "report_period": "2023-Q2"
     }
   ],
-  "missing_upcoming_tickers": [],
+  "missing_upcoming_tickers": [
+    "EQT.ST",
+    "ERIC-B.ST",
+    "NDA-SE.ST",
+    "WALL-B.ST"
+  ],
   "calendar_source_conflicts": [
     {
       "ticker": "FOI-B.ST",

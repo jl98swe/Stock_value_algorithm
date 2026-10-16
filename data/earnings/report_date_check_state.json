@@ -69,7 +69,9 @@
   },
   "ERIC-B.ST|2026-Q3": {
     "anchor": "2026-10-15",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "INDU-A.ST|2026-Q3": {
     "anchor": "2026-10-07",
@@ -77,10 +79,14 @@
   },
   "NDA-SE.ST|2026-Q3": {
     "anchor": "2026-10-15",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "WALL-B.ST|2026-Q3": {
     "anchor": "2026-10-15",
-    "completed": []
+    "completed": [
+      0
+    ]
   }
 }
