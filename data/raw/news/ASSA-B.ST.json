@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-15T21:50:18+02:00",
+  "generated_at": "2026-10-16T21:31:12+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/assa-abloy",
   "items": [
+    {
+      "ticker": "ASSA-B.ST",
+      "company": "Assa Abloy",
+      "published_at": "2026-10-16T18:00:00+02:00",
+      "title": "ASSA ABLOY säljer affärsenheten PKI till Vista Equity Partners",
+      "link": "https://mfn.se/cis/a/assa-abloy/assa-abloy-saljer-affarsenheten-pki-till-vista-equity-partners-5a1ad5ad",
+      "source": "MFN",
+      "summary": "ASSA ABLOY säljer affärsenheten PKI till Vista Equity Partners 2026-10-16 18:00:00 ASSA ABLOY har tecknat avtal om att avyttra HID's affärsenhet PKI till Vista Equity Partners (\"Vista\"). Affärsenheten PKI (Public Key Infrastructure) tillhandahåller lösningar för digital identitet, autentisering, kryptering och hantering av digitala certifikat. Affärsenheten omfattar PKI SaaS - IdenTrust och HydrantID - lösningar för autentiseringsuppgifter, samt ZeroSSL. \"Jag är mycket nöjd att affärsenheten PKI, dess anställda och kunder med Vista får en långsiktig ägare som kommer att skapa nya möjligheter för framtiden och jag önskar dem fortsatt framgång\"",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "68630586b67a5631"
+    },
     {
       "ticker": "ASSA-B.ST",
       "company": "Assa Abloy",

@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-10-15T21:52:13+02:00",
+  "generated_at": "2026-10-16T21:33:03+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/investor",
-  "items": []
+  "items": [
+    {
+      "ticker": "INVE-A.ST",
+      "company": "Investor AB (publ)",
+      "published_at": "2026-10-16T08:19:58+02:00",
+      "title": "Investor förvärvar aktier i EQT av Wallenberg Investments",
+      "link": "https://mfn.se/cis/a/investor/investor-forvarvar-aktier-i-eqt-av-wallenberg-investments-14e86173",
+      "source": "MFN",
+      "summary": "Investor förvärvar aktier i EQT av Wallenberg Investments 2026-10-16 08:19:58 Investor har förvärvat 12 500 000 aktier i EQT AB från Wallenberg Investments till en total köpeskilling om cirka 3,5 miljarder kronor. Transaktionen genomfördes till ett pris om 282,7 kronor per aktie. Efter transaktionen innehar Investor 195 788 016 aktier i EQT AB, motsvarande 14,98 procent av kapitalet och rösterna i bolaget. Med hänsyn till relationen mellan Investor och Wallenberg Investments har transaktionens marknadsvärde bekräftats genom ett oberoende utlåtande från en tredje part. Ingen styrelseledamot som kan anses ha en intressekonflikt har deltagit i b",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "53794049c1f81e23"
+    },
+    {
+      "ticker": "INVE-A.ST",
+      "company": "Investor AB (publ)",
+      "published_at": "2026-10-16T08:15:45+02:00",
+      "title": "Investor: Delårsredogörelse januari-september 2026",
+      "link": "https://mfn.se/cis/a/investor/investor-delarsredogorelse-januari-september-2026-c66c331e",
+      "source": "MFN",
+      "summary": "Investor: Delårsredogörelse januari-september 2026 2026-10-16 08:15:45 Viktiga händelser under det tredje kvartalet Det justerade substansvärdet uppgick till 1 258,0 mdr kr (411 kr per aktie) per den 30 september 2026, en förändring om 43,3 mdr kr, motsvarande 4 procent, under kvartalet. Totalavkastningen uppgick till 1 procent, jämfört med 2 procent för SIXRX avkastningsindex. För niomånadersperioden uppgick tillväxten i det justerade substansvärdet till 17 procent och totalavkastningen till 24 procent, jämfört med 11 procent för SIXRX avkastningsindex. Noterade Bolags totalavkastning uppgick till 1 procent. Investor avyttrade 2,0 miljoner a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6603e1d1c9a887a9"
+    }
+  ]
 }

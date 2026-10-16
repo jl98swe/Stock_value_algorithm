@@ -1,7 +1,117 @@
 {
-  "generated_at": "2026-10-15T21:53:51+02:00",
+  "generated_at": "2026-10-16T21:34:38+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ASSA-B.ST",
+      "company": "Assa Abloy",
+      "published_at": "2026-10-16T18:00:00+02:00",
+      "title": "ASSA ABLOY sells PKI business unit to Vista Equity Partners",
+      "link": "https://mfn.se/cis/a/assa-abloy/assa-abloy-sells-pki-business-unit-to-vista-equity-partners-bc2b3bb5",
+      "source": "MFN",
+      "summary": "ASSA ABLOY sells PKI business unit to Vista Equity Partners 2026-10-16 18:00:00 ASSA ABLOY has signed an agreement to sell HID's PKI business unit to Vista Equity Partners (\"Vista\"). The PKI business unit (Public Key Infrastructure) provides digital trust, identity, authentication, encryption, and certificate management solutions. The business unit includes PKI SaaS - IdenTrust and HydrantID - credential management, and ZeroSSL. \"I find it very satisfying that with Vista, the PKI business unit and its employees and customers gain a committed long-term investor, creating new opportunities for the future and I wish them every success,\" says Nic",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "dc8852e54848bbf3"
+    },
+    {
+      "ticker": "ZZ-B.ST",
+      "company": "Zinzino AB (publ)",
+      "published_at": "2026-10-16T17:00:00+02:00",
+      "title": "ZINZINO AB (PUBL): Aktieteckning på grund av teckningsoptioner",
+      "link": "https://mfn.se/cis/a/zinzino/zinzino-ab-publ-aktieteckning-pa-grund-av-teckningsoptioner-c8d218e4",
+      "source": "MFN",
+      "summary": "ZINZINO AB (PUBL): Aktieteckning på grund av teckningsoptioner 2026-10-16 17:00:00 I det optionsprogram Zinzinos bolagsstämma beslutade om 2022-05-31 har 34 500 B-aktier tecknats (serie 2022/2027:1). Priset per aktie uppgick till 56 SEK och totalt tillfördes Zinzinos egna kapital 1 932 000 SEK. I det optionsprogram Zinzinos bolagsstämma beslutade om 2022-05-31 har 2 143 B-aktier tecknats (serie 2022/2027:2). Priset per aktie uppgick till 56 SEK och totalt tillfördes Zinzinos egna kapital 120 008 SEK. Antalet B-aktier ökade totalt med 36 643 till 34 922 597. Totalt antal aktier uppgick efter ökningen till 39 435 989. Utspädningen uppgick till ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "273b9382770d92a8"
+    },
+    {
+      "ticker": "BORG.ST",
+      "company": "Björn Borg",
+      "published_at": "2026-10-16T15:00:00+02:00",
+      "title": "Björn Borg – livepresentation 23 oktober",
+      "link": "https://mfn.se/a/bjorn-borg/bjorn-borg-livepresentation-23-oktober",
+      "source": "MFN",
+      "summary": "Björn Borg – livepresentation 23 oktober 2026-10-16 15:00:00 Björn Borg AB (publ) kommer att hålla en livepresentation för investerare, analytiker och media den 23 oktober kl. 08:30. Presentationen avser Björn Borgs tredje kvartal för 2026. Rapporten släpps samma dag kl. 07:30. VD Henrik Bunge och CFO Jens Nyström kommer att presentera och kommentera rapporten och svara på frågor. Frågor kan ställas via mejlen nedan eller live under presentationen via länken nedan. Presentationen kommer att hållas på engelska. Se presentationen live via: Access.dnbcarnegie.com/companies/1404/live Frågor kan skickas live eller via: hjalmar.jernstrom@dnbcarnegi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3bbb36faf752c65e"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-16T10:01:27+02:00",
+      "title": "Saab, FMV and the Swedish Armed Forces launch uncrewed underwater vehicle",
+      "link": "https://mfn.se/cis/a/saab/saab-fmv-and-the-swedish-armed-forces-launch-uncrewed-underwater-vehicle-bad0ac50",
+      "source": "MFN",
+      "summary": "Saab, FMV and the Swedish Armed Forces launch uncrewed underwater vehicle 2026-10-16 10:01:27 Less than one year after contract award, Saab, the Swedish Defence Materiel Administration (FMV) and the Swedish Armed Forces have successfully developed, built and launched a demonstrator for a Large Uncrewed Underwater Vehicle (LUUV). Developed at pace and according to plan, the demonstrator has progressed from concept to a fully functional vehicle. Following successful sea trials, the first phase of the project has been completed. The next phase is expected to focus on developing more advanced capabilities. The results will support the continued d",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0ef29cbcb6b8787b"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-16T10:01:27+02:00",
+      "title": "Saab, FMV och Försvarsmakten har sjösatt en obemannad undervattensfarkost",
+      "link": "https://mfn.se/cis/a/saab/saab-fmv-och-forsvarsmakten-har-sjosatt-en-obemannad-undervattensfarkost-03b4269e",
+      "source": "MFN",
+      "summary": "Saab, FMV och Försvarsmakten har sjösatt en obemannad undervattensfarkost 2026-10-16 10:01:27 På mindre än ett år efter kontrakt har Saab, Försvarets materielverk (FMV) och Försvarsmakten framgångsrikt utvecklat, byggt och sjösatt en demonstrator för en stor obemannad undervattensfarkost (LUUV). I hög takt och enligt plan har demonstratorn utvecklats från koncept till en fungerande farkost. Efter godkända sjöprover är första delen av projektet genomfört, nu väntas fortsättning i form av vidareutveckling av mer avancerade förmågor. Resultaten kommer att ligga till grund för den fortsatta utvecklingen av mjukvara, sensorer och autonoma förmågor",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8a291ac5285ae774"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",
