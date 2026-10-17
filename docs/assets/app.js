@@ -83,7 +83,7 @@
   }
 
   async function loadJson(path) {
-    const response = await fetch(path, { cache: 'no-store' });
+    const response = await fetch(path, { cache: 'no-store', ...(typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? {signal:AbortSignal.timeout(15000)} : {}) });
     if (!response.ok) throw new Error(`${path} gav HTTP ${response.status}`);
     return response.json();
   }
@@ -97,6 +97,36 @@
     state.dashboard.stocks[ticker] = stock;
     state.backtests[ticker] = await loadJson(`./data/backtests/${encodeURIComponent(ticker)}.json`);
     return stock;
+  }
+
+  async function refreshPublishedData() {
+    if (!state.stocksPayload || !state.selectedTicker) return false;
+    const stocksPayload = await loadJson(PATHS.stocks);
+    if (stocksPayload.generated_at === state.stocksPayload.generated_at) return false;
+    const ticker = state.selectedTicker;
+    const [dashboard, eventsPayload, overviews, indexData] = await Promise.all([
+      loadJson(PATHS.dashboard), loadJson(PATHS.events), loadJson('./data/strategy_overviews.json'),
+      loadJson('./data/benchmarks/omxsgi.json').catch(() => state.indexData)
+    ]);
+    if (dashboard.meta?.generated_at !== stocksPayload.generated_at || overviews.meta?.generated_at !== stocksPayload.generated_at) {
+      throw new Error('Ny publicering pågår; försök igen strax.');
+    }
+    const filename = dashboard.files?.[ticker];
+    if (!filename) throw new Error('Aktiedata saknas i publiceringen.');
+    const [stock, backtests] = await Promise.all([
+      loadJson(`${PATHS.dashboardStocks}${encodeURIComponent(filename)}`),
+      loadJson(`./data/backtests/${encodeURIComponent(ticker)}.json`)
+    ]);
+    if (state.selectedTicker !== ticker) return false;
+    // Commit the complete snapshot together, retaining the user's stock, strategy,
+    // chart range, search and expanded sections. Never mix old and new strategies.
+    Object.assign(state, {stocksPayload, dashboard:{...dashboard,stocks:{[ticker]:stock}},
+      eventsPayload, overviews, indexData, backtests:{[ticker]:backtests}});
+    $('last-updated').textContent = new Date(stocksPayload.generated_at).toLocaleString('sv-SE');
+    renderRules();
+    renderStockList($('stock-search').value);
+    renderSelected();
+    return true;
   }
 
   function setHidden(id, hidden) {
@@ -454,6 +484,7 @@
   }
 
   function bindControls() {
+    window.intradayQuotes?.onRefresh(refreshPublishedData);
     const strategyControls = [$('home-strategy'), $('history-strategy')];
     $('history-strategy').innerHTML = $('home-strategy').innerHTML;
     strategyControls.forEach(control => {

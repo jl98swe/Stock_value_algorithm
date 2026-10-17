@@ -9,12 +9,12 @@
   <meta name="color-scheme" content="light">
   <title>Stock Value Algorithm</title>
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
-  <link rel="stylesheet" href="./assets/style.css?v=20261016-purple-candle">
+  <link rel="stylesheet" href="./assets/style.css?v=20261017-feedback">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261014-3"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
-  <script defer src="./assets/intraday.js?v=20261016-score"></script>
-  <script defer src="./assets/app.js?v=20261016-purple-candle"></script>
+  <script defer src="./assets/intraday.js?v=20261017-feedback"></script>
+  <script defer src="./assets/app.js?v=20261017-feedback"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261013-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20261016-preliminary-chart"></script>
@@ -108,10 +108,14 @@
             </div>
           </section>
 
+          <div class="quote-refresh-controls">
+            <button id="intraday-refresh" type="button" class="secondary-button" aria-describedby="quote-refresh-status"><span id="quote-refresh-spinner" class="quote-refresh-spinner" aria-hidden="true" hidden></span><span id="quote-refresh-label">Kontrollera senaste data</span></button>
+            <p id="quote-refresh-status" class="muted" role="status" aria-live="polite">Kontrolleras automatiskt var femte minut. En kontroll tar vanligen 1–5 sekunder.</p>
+          </div>
           <section id="intraday-panel" class="intraday-panel" aria-label="Tillfälliga dagskurser" hidden>
             <div><span class="muted">Öppningskurs</span><strong id="intraday-open">–</strong><small id="intraday-open-time" class="muted"></small></div>
             <div><span class="muted">Senaste stängningskurs</span><strong id="intraday-daily">–</strong><small id="intraday-daily-date" class="muted"></small></div>
-            <div class="intraday-detail"><p id="intraday-note" class="muted"></p><button id="intraday-refresh" type="button" class="secondary-button">Hämta senaste uppdatering</button></div>
+            <div class="intraday-detail"><p id="intraday-note" class="muted"></p></div>
           </section>
 
           <div id="lock-alert" class="lock-alert" hidden>
