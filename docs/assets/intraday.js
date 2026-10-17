@@ -8,6 +8,8 @@
   let selection = null;
   let pending = null;
   const listeners = new Set();
+  const refreshers = new Set();
+  let lastCheck = null;
   const el = id => document.getElementById(id);
   const validPrice = value => typeof value === 'number' && Number.isFinite(value) && value > 0;
 
@@ -84,29 +86,73 @@
     notify();
   }
 
+  function feedback(busy = false) {
+    const button = el('intraday-refresh');
+    if (!button) return;
+    button.disabled = busy;
+    button.setAttribute?.('aria-busy', String(busy));
+    if (el('quote-refresh-spinner')) el('quote-refresh-spinner').hidden = !busy;
+    if (el('quote-refresh-label')) el('quote-refresh-label').textContent = busy ? 'Kontrollerar…' : 'Kontrollera senaste data';
+    const status = el('quote-refresh-status');
+    if (!status) return;
+    if (busy) { status.textContent = 'Kontrollerar senaste publicerade data… Vanligen 1–5 sekunder.'; return; }
+    if (!lastCheck) return;
+    if (!lastCheck.ok) {
+      status.textContent = 'Kontrollen blev inte fullständig. Senaste tillgängliga värden visas. Försök igen.';
+      return;
+    }
+    const item = selection && currentQuote(cache, selection.ticker, selection.daily.date);
+    const weekday = new Intl.DateTimeFormat('en-US', {timeZone:'Europe/Stockholm', weekday:'short'}).format(new Date(Date.now()));
+    const weekend = weekday === 'Sat' || weekday === 'Sun';
+    status.textContent = `Kontrollerad ${clock.format(new Date(lastCheck.at))}. ` +
+      (lastCheck.changed ? 'Nyare publicerade data har lästs in.' : 'Inga nyare publicerade värden finns.') +
+      (item ? ` Senaste avslut ${clock.format(new Date(item.latest.as_of))}.` : weekend ? ' Börsen är stängd under helgen; senaste publicerade slutkurs visas.' : ' Senaste publicerade slutkurs visas när intradagsdata saknas.') +
+      ' Knappen kontrollerar publicerade data; nya börskurser hämtas vid schemalagda tillfällen.';
+  }
+
   async function refresh() {
     if (pending) return pending;
+    const signature = () => JSON.stringify({ticker:selection?.ticker, daily:selection?.daily, quote:cache?.stocks?.[selection?.ticker]});
+    const before = signature();
+    feedback(true);
     pending = (async () => {
       try {
-        const response = await fetch(`${CACHE_URL}?t=${Math.floor(Date.now() / 60000)}`, { cache: 'no-store' });
-        if (!response.ok) throw new Error('cache unavailable');
-        cache = await response.json();
-      } catch { /* Keep a still-valid shared quote until expiry; never block the dashboard. */ }
-      finally { pending = null; render(); listeners.forEach(callback => callback()); }
+        let failed = false, dailyChanged = false;
+        try {
+          const options = { cache: 'no-store' };
+          if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) options.signal = AbortSignal.timeout(15000);
+          const response = await fetch(`${CACHE_URL}?t=${Date.now()}`, options);
+          if (!response.ok) throw new Error('cache unavailable');
+          const incoming = await response.json();
+          if (incoming?.schema_version !== 1 || !incoming.stocks || typeof incoming.stocks !== 'object' || Array.isArray(incoming.stocks)) throw new Error('invalid cache');
+          cache = incoming;
+        } catch { failed = true; }
+        for (const callback of refreshers) {
+          try { dailyChanged = (await callback()) || dailyChanged; }
+          catch { failed = true; }
+        }
+        lastCheck = {ok:!failed, at:Date.now(), changed:dailyChanged || before !== signature()};
+      } finally {
+        pending = null;
+        render();
+        listeners.forEach(callback => callback());
+        feedback();
+      }
     })();
     return pending;
   }
 
   window.intradayQuotes = {
-    select(ticker, daily) { selection = { ticker, daily }; render(); },
+    select(ticker, daily) { selection = { ticker, daily }; render(); feedback(Boolean(pending)); },
     currentQuote,
     preview,
     currentValuation,
     valuation(ticker, dailyDate, currency) { return currentValuation(cache, ticker, dailyDate, currency); },
+    onRefresh(callback) { refreshers.add(callback); },
     onUpdate(callback) { listeners.add(callback); },
     refresh
   };
-  el('intraday-refresh')?.addEventListener('click', refresh);
+  el('intraday-refresh')?.addEventListener('click', () => refresh());
   document.addEventListener('stock-selected', () => { render(); });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
   setInterval(() => { render(); if (!document.hidden) refresh(); }, 5 * 60000);

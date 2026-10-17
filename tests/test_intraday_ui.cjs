@@ -4,10 +4,10 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-function setup() {
+function setup(request = null) {
   const elements = new Map();
   const element = id => {
-    if (!elements.has(id)) elements.set(id, { textContent: '', className: '', hidden: true, addEventListener() {} });
+    if (!elements.has(id)) elements.set(id, { textContent: '', className: '', hidden: true, listeners: {}, addEventListener(name, fn) { this.listeners[name] = fn; } });
     return elements.get(id);
   };
   const now = Date.parse('2026-10-15T13:01:00+02:00');
@@ -19,7 +19,7 @@ function setup() {
   const window = {};
   vm.runInNewContext(fs.readFileSync('docs/assets/intraday.js', 'utf8'), { window,
     document: { getElementById: element, addEventListener() {}, dispatchEvent() {} }, CustomEvent: class { constructor(type) { this.type = type; } }, Date: Clock, Intl,
-    setInterval() {}, fetch: async () => ({ ok: true, json: async () => payload }) });
+    setInterval() {}, fetch: async () => request ? request(payload) : ({ ok: true, json: async () => payload }) });
   return { api: window.intradayQuotes, payload, now, element };
 }
 
@@ -80,4 +80,55 @@ test('preliminary score must match the exact quote, session and daily basis', as
   item.latest.price = 102;
   item.valuation.score = null;
   assert.equal(get(), null);
+});
+
+
+test('manual refresh shows progress, updates values automatically and distinguishes unchanged and failed reads', async () => {
+  let responder = payload => ({ok:true,json:async()=>payload});
+  const ui = setup(payload => responder(payload));
+  await ui.api.refresh();
+  ui.api.select('EXAMPLE.ST', {date:'2026-10-14',close:100,currency:'SEK'});
+  let release, calls = 0;
+  responder = payload => { calls++; return new Promise(resolve => {release=()=>resolve({ok:true,json:async()=>payload});}); };
+  const button = ui.element('intraday-refresh');
+  const pending = button.listeners.click();
+  assert.equal(button.disabled, true);
+  assert.equal(ui.element('quote-refresh-spinner').hidden, false);
+  assert.match(ui.element('quote-refresh-status').textContent, /1–5 sekunder/);
+  const duplicate = ui.api.refresh();
+  assert.equal(calls, 1, 'duplicate clicks share the active request');
+  ui.payload.stocks['EXAMPLE.ST'].latest.price = 103;
+  release(); await pending; await duplicate;
+  assert.equal(ui.element('latest-price').textContent, '103 SEK');
+  assert.equal(button.disabled, false);
+  assert.equal(ui.element('quote-refresh-spinner').hidden, true);
+  assert.match(ui.element('quote-refresh-status').textContent, /Nyare publicerade data/);
+  responder = payload => ({ok:true,json:async()=>payload});
+  await button.listeners.click();
+  assert.match(ui.element('quote-refresh-status').textContent, /Inga nyare/);
+  responder = () => {throw new Error('synthetic network error');};
+  await button.listeners.click();
+  assert.match(ui.element('quote-refresh-status').textContent, /inte fullständig/);
+  assert.equal(ui.element('latest-price').textContent, '103 SEK');
+  assert.equal(button.disabled, false);
+});
+
+test('daily-data refresh is awaited and still runs when the intraday cache fails', async () => {
+  let fail = false;
+  const ui = setup(payload => {if(fail) throw new Error('synthetic failure'); return {ok:true,json:async()=>payload};});
+  await ui.api.refresh();
+  let called = 0;
+  ui.api.onRefresh(async () => { called++; return true; });
+  fail = true;
+  await ui.api.refresh();
+  assert.equal(called, 1);
+  assert.equal(ui.element('intraday-refresh').disabled, false);
+});
+
+test('refresh control lives outside the temporary panel so closing data cannot hide it', () => {
+  const html=fs.readFileSync('docs/index.html','utf8');
+  const button=html.indexOf('id="intraday-refresh"');
+  assert(button > html.indexOf('class="quote-refresh-controls"'));
+  assert(button < html.indexOf('<section id="intraday-panel"'));
+  assert.match(html,/id="quote-refresh-status"[^>]*role="status"/);
 });

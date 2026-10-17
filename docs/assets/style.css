@@ -494,3 +494,11 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 .preliminary-key { width: 18px; margin-right: 6px; border-top: 2px dashed #8056b3; }
 .score-card.is-preliminary { border: 1px dashed #8056b3; background: repeating-linear-gradient(135deg, #fdfbff 0 8px, #f5f0fa 8px 10px); }
 .score-card.is-preliminary .zone-pill { background: #eee6f8; color: #69428f; }
+
+.quote-refresh-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: -4px 0 20px; }
+.quote-refresh-controls button { display: inline-flex; align-items: center; gap: 8px; }
+.quote-refresh-controls p { flex: 1 1 240px; margin: 0; font-size: 12px; line-height: 1.5; }
+.quote-refresh-controls button:disabled { cursor: wait; opacity: .75; }
+.quote-refresh-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: quote-refresh-spin .8s linear infinite; }
+@keyframes quote-refresh-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .quote-refresh-spinner { animation-duration: 2s; } }
