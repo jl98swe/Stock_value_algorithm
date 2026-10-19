@@ -41,3 +41,7 @@ Officiella källor:
 EQT:s Q3-redogörelse innehåller fortsatt ingen EPS; tidigare TTM behålls enligt
 den tidigare dokumenterade halvårsvisa finansiella rapporteringen. Detta ska
 visas som redogörelse utan EPS och inte som en misslyckad EPS-hämtning.
+
+Publiceringstider (Europe/Stockholm): Avanza 07:45, Investor 08:15 och Platzer
+08:00 den 16 oktober. Exakta tider frigör Investors datumstyrda rapportspärr
+när den verifierade rapporten publicerats. Kalenderns manuella datum bevaras.
