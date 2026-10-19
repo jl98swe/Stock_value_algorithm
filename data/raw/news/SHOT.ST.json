@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-16T21:34:03+02:00",
+  "generated_at": "2026-10-19T23:03:31+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandic-hotels-group",
   "items": [
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-10-19T10:00:00+02:00",
+      "title": "Scandic Hotels Group AB: Scandic and Hilton sign new Nordics strategic agreement",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/scandic-hotels-group-ab-scandic-and-hilton-sign-new-nordics-strategic-agreement-4a9ef5b8",
+      "source": "MFN",
+      "summary": "Scandic Hotels Group AB: Scandic and Hilton sign new Nordics strategic agreement 2026-10-19 10:00:00 Scandic Hotels Group has entered into a multi-year development agreement with Hilton covering Sweden, Norway, Denmark and Finland. The partnership combines Scandic's strong Nordic market position with Hilton's global brand portfolio, creating new hotel development opportunities while exploring future benefits for Hilton Honors and Scandic Friends memberships. Scandic Hotels Group and Hilton have entered into a strategic agreement that marks another step in Scandic's growth journey to pursue new hotel development opportunities across Sweden, No",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "81dd9778cb339e49"
+    },
     {
       "ticker": "SHOT.ST",
       "company": "Scandic Hotels Group AB (publ)",

@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-16T21:34:12+02:00",
+  "generated_at": "2026-10-19T23:03:44+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/sweco",
-  "items": []
+  "items": [
+    {
+      "ticker": "SWEC-B.ST",
+      "company": "Sweco AB (publ)",
+      "published_at": "2026-10-19T08:00:00+02:00",
+      "title": "SWECO: Sweco awarded framework agreements worth SEK 500 million for high-security facilities in Sweden",
+      "link": "https://mfn.se/cis/a/sweco/sweco-sweco-awarded-framework-agreements-worth-sek-500-million-for-high-security-facilities-in-sweden-f6bda352",
+      "source": "MFN",
+      "summary": "SWECO: Sweco awarded framework agreements worth SEK 500 million for high-security facilities in Sweden 2026-10-19 08:00:00 Sweco has won three framework agreements with property company Specialfastigheter with an estimated combined order value of approximately SEK 500 million. The agreements cover feasibility studies, design, and project and construction management for properties used by the Swedish Prison and Probation Service, the Swedish Police Authority and the courts, all of which have stringent requirements for security and functionality. Specialfastigheter is a Swedish state-owned property company that develops, owns and manages highly",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cf688dcc7cc19834"
+    }
+  ]
 }

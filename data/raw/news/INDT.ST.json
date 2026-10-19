@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-16T21:32:56+02:00",
+  "generated_at": "2026-10-19T23:02:08+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/indutrade",
-  "items": []
+  "items": [
+    {
+      "ticker": "INDT.ST",
+      "company": "Indutrade AB (publ)",
+      "published_at": "2026-10-19T09:30:00+02:00",
+      "title": "Indutrade förvärvar Euromed i Polen – specialist inom bilddiagnostik",
+      "link": "https://mfn.se/a/indutrade/indutrade-forvarvar-euromed-i-polen-specialist-inom-bilddiagnostik",
+      "source": "MFN",
+      "summary": "Indutrade förvärvar Euromed i Polen – specialist inom bilddiagnostik 2026-10-19 09:30:00 Indutrade har tecknat avtal om förvärv av samtliga aktier i det polska bolaget Euromed Medical Solution Sp. z o. o, www.euromed.net.pl , med en årsomsättning om cirka 230 miljoner SEK. Euromed är ett teknikhandelsbolag specialiserat på utrustning för bilddiagnostik, främst ultraljudssystem, för tillämpningar inom hälso- och sjukvård samt veterinärmedicin. Produktutbudet kompletteras av lösningar för fosterövervakning, digital röntgen och mobil datortomografi. Bolaget har en diversifierad kundbas som bland annat omfattar offentliga och privata sjukhus, vår",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ad3f6c6526e72dc7"
+    }
+  ]
 }

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-16T21:32:25+02:00",
+  "generated_at": "2026-10-19T23:01:30+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-10-19T00:29:52+02:00",
+      "title": "EQT agrees to acquire Cleanaway, a leading Australian integrated waste management and resource recovery platform",
+      "link": "https://mfn.se/cis/a/eqt/eqt-agrees-to-acquire-cleanaway-a-leading-australian-integrated-waste-management-and-resource-recovery-platform-aa1f67c7",
+      "source": "MFN",
+      "summary": "EQT agrees to acquire Cleanaway, a leading Australian integrated waste management and resource recovery platform 2026-10-19 00:29:52 EQT enters into definitive agreements to acquire 100% of the shares in Cleanaway through a scheme of arrangement for A$3.095 cash per share less the cash amount of any dividends (including any special dividend) or other distributions declared or paid 1 The Cleanaway Board unanimously recommends shareholders vote in favor of the Scheme, in the absence of a superior proposal and subject to an Independent Expert concluding (and continuing to conclude) that the Scheme is in Cleanaway shareholders' best interests EQT",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "71ce715b1a567b7a"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",
