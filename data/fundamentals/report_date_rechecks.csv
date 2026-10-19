@@ -1,8 +1,10 @@
 ticker,report_period,report_date,source,published_at,checked_at
+AZA.ST,2026-Q3,2026-10-16,Yahoo Finance / earnings date recheck,2026-10-16T04:00:00+02:00,2026-10-19
 EKTA-B.ST,2026-Q3,2026-08-27,Yahoo Finance / earnings date recheck,2026-08-27T02:00:00+02:00,2026-10-06
 EKTA-B.ST,YAHOO-2026-07-31,2026-08-27,Yahoo Finance / earnings date recheck,2026-08-27T02:00:00+02:00,2026-10-06
 ERIC-B.ST,2026-Q3,2026-10-15,Yahoo Finance / earnings date recheck,2026-10-15T07:00:00+02:00,2026-10-16
 NDA-SE.ST,2026-Q3,2026-10-15,Yahoo Finance / earnings date recheck,2026-10-15T06:00:00+02:00,2026-10-16
+PLAZ-B.ST,2026-Q3,2026-10-16,Yahoo Finance / earnings date recheck,2026-10-16T04:00:00+02:00,2026-10-19
 SECT-B.ST,YAHOO-2026-07-31,2026-09-04,Yahoo Finance / earnings date recheck,2026-09-04T08:00:00+02:00,2026-10-06
 SYSR.ST,YAHOO-2026-07-31,2026-08-28,Yahoo Finance / earnings date recheck,2026-08-27T18:00:00+02:00,2026-10-06
 WALL-B.ST,2026-Q3,2026-10-15,Yahoo Finance / earnings date recheck,2026-10-15T08:00:00+02:00,2026-10-16

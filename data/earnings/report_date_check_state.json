@@ -88,5 +88,21 @@
     "completed": [
       0
     ]
+  },
+  "AZA.ST|2026-Q3": {
+    "anchor": "2026-10-16",
+    "completed": [
+      0
+    ]
+  },
+  "INVE-A.ST|2026-Q3": {
+    "anchor": "2026-10-16",
+    "completed": []
+  },
+  "PLAZ-B.ST|2026-Q3": {
+    "anchor": "2026-10-16",
+    "completed": [
+      0
+    ]
   }
 }
