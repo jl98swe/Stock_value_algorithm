@@ -242,12 +242,14 @@ AZA.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,4.48,SEK,Yahoo Finance / quart
 AZA.ST,2025-03-31,2025-04-15,2026-09-19,reportedEPS,4.48,SEK,Yahoo Finance / Reported EPS
 AZA.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 AZA.ST,2025-06-30,2025-07-11,2026-09-19,reportedEPS,3.81,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2025-09-30,2025-10-17,2026-10-19,manualDilutedEPS,4.35,SEK,"Avanza Q3 2026, pp. 8, 16 | https://investors.avanza.se/files/mfn/858cce81-a6df-4132-ab47-c7226728025b/avanza-bank-holding-ab-publ-delarsrapport-januariseptember-2026.pdf"
 AZA.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,4.370000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 AZA.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,3.88,SEK,Yahoo Finance / quarterlyDilutedEPS
 AZA.ST,2025-12-31,2026-01-21,2026-09-19,reportedEPS,3.88,SEK,Yahoo Finance / Reported EPS
 AZA.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.699999999999999,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 AZA.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,4.96,SEK,Yahoo Finance / quarterlyDilutedEPS
 AZA.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,4.96,SEK,Yahoo Finance / Reported EPS
+AZA.ST,2026-09-30,2026-10-16,2026-10-19,manualDilutedEPS,4.88,SEK,"Avanza Q3 2026, pp. 8, 16 | https://investors.avanza.se/files/mfn/858cce81-a6df-4132-ab47-c7226728025b/avanza-bank-holding-ab-publ-delarsrapport-januariseptember-2026.pdf"
 AZN.ST,2023-09-30,2023-11-09,2026-09-19,reportedEPS,1.73,USD,Yahoo Finance / Reported EPS
 AZN.ST,2024-06-30,2024-07-25,2026-09-19,reportedEPS,1.98,USD,Yahoo Finance / Reported EPS
 AZN.ST,2024-09-30,2024-11-12,2026-09-19,reportedEPS,2.08,USD,Yahoo Finance / Reported EPS
@@ -958,10 +960,12 @@ INTRUM.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.32,SEK,Yahoo Finance / qu
 INVE-A.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,-10.35,SEK,Yahoo Finance / quarterlyDilutedEPS
 INVE-A.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,-0.99,SEK,Yahoo Finance / quarterlyDilutedEPS
 INVE-A.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,14.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2025-09-30,2025-10-16,2026-10-19,manualDilutedEPS,19.52,SEK,"Investor Q3 2026, p. 23 | https://www.investorab.com/media/lqmkx2d5/interim-management-statement-january-september-2026.pdf"
 INVE-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,19.53,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 INVE-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,18.07,SEK,Yahoo Finance / quarterlyDilutedEPS
 INVE-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,9.829999999999998,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 INVE-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,38.26,SEK,Yahoo Finance / quarterlyDilutedEPS
+INVE-A.ST,2026-09-30,2026-10-16,2026-10-19,manualDilutedEPS,3.89,SEK,"Investor Q3 2026, p. 23 | https://www.investorab.com/media/lqmkx2d5/interim-management-statement-january-september-2026.pdf"
 INWI.ST,2023-09-30,2023-10-24,2026-09-19,reportedEPS,3.16,SEK,Yahoo Finance / Reported EPS
 INWI.ST,2024-03-31,2024-04-23,2026-09-19,reportedEPS,0.57,SEK,Yahoo Finance / Reported EPS
 INWI.ST,2024-09-30,2024-10-22,2026-09-19,reportedEPS,3.22,SEK,Yahoo Finance / Reported EPS
@@ -1317,11 +1321,13 @@ PLAZ-B.ST,2024-09-30,2025-01-28,2026-09-19,reportedEPS,2.64,SEK,Yahoo Finance / 
 PLAZ-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,-0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
+PLAZ-B.ST,2025-09-30,2025-10-10,2026-10-19,manualDilutedEPS,1.75,SEK,"Platzer Q3 2026, pp. 17, 28 | https://investors.platzer.se/sites/platzer/files/pr/202610154047-1.pdf"
 PLAZ-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.75,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 PLAZ-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,2.58,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.26,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,-0.46,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2026-06-30,2026-07-03,2026-09-19,reportedEPS,1.97,SEK,Yahoo Finance / Reported EPS
+PLAZ-B.ST,2026-09-30,2026-10-16,2026-10-19,manualDilutedEPS,2.48,SEK,"Platzer Q3 2026, pp. 17, 28 | https://investors.platzer.se/sites/platzer/files/pr/202610154047-1.pdf"
 PNDX-B.ST,2023-12-31,2024-02-08,2026-09-19,reportedEPS,2.52,SEK,Yahoo Finance / Reported EPS
 PNDX-B.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
 PNDX-B.ST,2024-06-30,2024-07-12,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
