@@ -177,7 +177,7 @@
 
     $('upcoming-count').textContent = String(upcoming.length);
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
-      <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
+      <td><a class="stock-link" href="${stockHref(row.ticker)}" title="${esc(row.name)}"><strong>${esc(row.ticker)}</strong></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}<span class="cell-detail">${row.preliminary ? `${row.preliminary.preliminary ? "Preliminär" : "Efter stängning"} · ${clockFmt.format(new Date(row.preliminary.as_of))}` : `Stängning ${prettyDate(row.latestDate)}`}</span></td>
       <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? `<strong>${row.preliminary?.preliminary ? 'Preliminär gräns nådd' : 'Signalgräns nådd'}</strong>` : `${fmt.format(row.distance)} p från gräns`}</td>
@@ -213,7 +213,7 @@
 
     $('recent-count').textContent = String(recent.length);
     $('recent-signals-body').innerHTML = recent.length ? recent.map((row) => `<tr>
-      <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
+      <td><a class="stock-link" href="${stockHref(row.ticker)}" title="${esc(row.name)}"><strong>${esc(row.ticker)}</strong></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span>${row.exit_reason === 'report' ? '<span class="cell-detail">Inför rapport</span>' : row.exit_reason === 'stop_loss' ? '<span class="cell-detail">Stop loss 10 %</span>' : ''}</td>
       <td><strong>${prettyDate(row.execution_date)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
       <td>${money(row.execution_price, row.currency)}</td>

@@ -57,7 +57,7 @@ const docs=path.resolve(__dirname,'../docs');
   assert.equal(await page.locator('#review-action-link').count(),1);
   await page.locator('#review-stock').selectOption('AAK.ST');
   await page.waitForFunction(()=>new URL(location.href).searchParams.get('ticker')==='AAK.ST');
-  for(const label of ['Rapporter','Kommande signaler','Aktiva positioner','Startsida']) {
+  for(const label of ['Rapporter','Signaler','Aktiva positioner','Startsida']) {
     const link=page.locator('.page-nav a').filter({hasText:label,exact:true});
     assert.equal(new URL(await link.getAttribute('href'),'https://overview-ui.test').searchParams.get('ticker'),'AAK.ST');
     await link.click();
@@ -91,7 +91,7 @@ const docs=path.resolve(__dirname,'../docs');
    assert.equal(new URL(page.url()).searchParams.get('strategy'),key);
   }
   await page.locator('#overview-strategy').selectOption('ma200');
-  await page.locator('.page-nav a').filter({hasText:'Kommande signaler'}).click();
+  await page.locator('.page-nav a').filter({hasText:'Signaler'}).click();
   await page.waitForSelector('#overview-content:not([hidden])');
   assert.equal(await page.locator('#overview-strategy').inputValue(),'ma200');
   const dates=data.meta.trading_dates,cutoff=dates[0],end=dates.at(-1);
