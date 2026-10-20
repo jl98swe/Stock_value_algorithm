@@ -75,20 +75,25 @@ GitHubs schemaläggare kan fortfarande fördröja båda starter; tiderna är ing
 ### Tillfälliga intradagskurser
 
 `Intradagskurser · Nasdaq och Avanza` hämtar för hela det aktiva universumet
-kl. 09.20 (öppningskurs), 13.00 och 17.00 i Europe/Stockholm. Avanza är primärkälla;
+kl. 09.20 (öppningskurs), 13.00 och 16.00 i Europe/Stockholm. Avanza är primärkälla;
 Nasdaq används för saknade eller äldre avslut och saknad öppningskurs.
 Nasdaqs filer är 15 minuter fördröjda. UTC-baserade reservstarter varje kvart
 kontrollerar den gemensamma cachen och försöker hämta senaste förfallna tid
 om den saknas eller misslyckats. Redan hämtade tider och dagar med färdiga
-stängningskurser hoppas över. Efter kl. 18 görs inga intradagsförsök;
-kvällsuppdateringen sköts av de två dagskursjobben. Reservstarterna använder samma GitHub-schemaläggare;
+stängningskurser hoppas över. Försenade försök tillåts även på kvällen samma
+handelsdag, men endast för aktier som ännu saknar dagens publicerade dagskurs.
+Märkningen preliminär styrs av kursens egen lyckade hämtningstid: före 17.30
+svensk tid är kurs och poäng preliminära, från 17.30 tas märkningen bort.
+Ett äldre avslut kan fortfarande vara källans senaste tillgängliga kurs; avslutstid
+visas separat. En senare publicering eller misslyckad hämtning ändrar inte märkningen.
+Reservstarterna använder samma GitHub-schemaläggare;
 de ger ingen garanti för starttid. Faktisk start och kurstid kan bli senare.
 XSTO-kalendern hanterar helgdagar, halvdagar och sommar-/vintertid.
 
 `config/intraday_instruments.json` innehåller kontrollerade ISIN, SEK-valuta,
 aktieslag och Avanza-ID. Endast reguljära avslut på svensk handelsplats används.
 Det är senaste tillgängliga avslut vid hämtningen som visas, inte en garanti
-om ett avslut exakt kl. 13.00 eller 17.00. Öppning är första avslutet, alternativt
+om ett avslut exakt kl. 13.00 eller 16.00. Öppning är första avslutet, alternativt
 första dagens minutstapels Open från den identitetskontrollerade Avanza-källan.
 Ett instrument som inte handlats idag får ingen påhittad dagskurs.
 

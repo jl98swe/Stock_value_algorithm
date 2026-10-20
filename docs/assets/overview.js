@@ -179,13 +179,13 @@
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
       <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
-      <td>${score(row.score)}<span class="cell-detail">${row.preliminary ? `Preliminär · ${clockFmt.format(new Date(row.preliminary.as_of))}` : `Stängning ${prettyDate(row.latestDate)}`}</span></td>
-      <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? `<strong>${row.preliminary ? 'Preliminär gräns nådd' : 'Signalgräns nådd'}</strong>` : `${fmt.format(row.distance)} p från gräns`}</td>
+      <td>${score(row.score)}<span class="cell-detail">${row.preliminary ? `${row.preliminary.preliminary ? "Preliminär" : "Efter stängning"} · ${clockFmt.format(new Date(row.preliminary.as_of))}` : `Stängning ${prettyDate(row.latestDate)}`}</span></td>
+      <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? `<strong>${row.preliminary?.preliminary ? 'Preliminär gräns nådd' : 'Signalgräns nådd'}</strong>` : `${fmt.format(row.distance)} p från gräns`}</td>
       <td>${boundaryText(row)}</td>
       <td>${row.lots ? 'Aktiv' : 'Ingen'}</td>
       <td>${row.armed ? 'Ja' : 'Nej'}</td>
       <td>${row.locked ? row.reportExit ? 'Spärrad · rapportsälj tillåten' : 'Spärrad' : 'Fri'}</td>
-      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.exitDate)}${row.reportDate ? `<span class="cell-detail">Rapport ${prettyDate(row.reportDate)}</span>` : ''}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.preliminary ? (row.reached ? 'Gräns nådd intradag; inväntar stängning och strategivillkor' : 'Preliminär bevakning; inväntar stängning') : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
+      <td>${row.reportExit ? `Sälj inför rapport · ${prettyDate(row.exitDate)}${row.reportDate ? `<span class="cell-detail">Rapport ${prettyDate(row.reportDate)}</span>` : ''}` : row.locked ? 'Handel spärrad' : row.actual ? esc(row.action.label) : row.preliminary ? (row.preliminary.preliminary ? (row.reached ? 'Gräns nådd intradag; inväntar stängning och strategivillkor' : 'Preliminär bevakning; inväntar stängning') : 'Inväntar ordinarie signalberäkning') : row.reached ? 'Gräns nådd; inväntar exekverbar signal' : 'Bevaka nästa stängning'}</td>
     </tr>`).join('') : '<tr><td colspan="9" class="empty-cell">Inga aktier ligger nära en signalgräns just nu.</td></tr>';
 
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})

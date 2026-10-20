@@ -27,14 +27,25 @@
     return quoteDay === payload.session_date ? item : null;
   }
 
+  function isPreliminary(item, session, now = Date.now()) {
+    // Classify the quote's own successful fetch, never the cache publication.
+    const fetched = Date.parse(item?.latest?.fetched_at);
+    if (!Number.isFinite(fetched) || fetched > now + 60000) return true;
+    const parts = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm',
+      year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+      .formatToParts(new Date(fetched));
+    const p = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${p.year}-${p.month}-${p.day}` !== session || Number(p.hour) * 60 + Number(p.minute) < 17 * 60 + 30;
+  }
+
   function currentValuation(payload, ticker, dailyDate, currency = 'SEK', now = Date.now()) {
     const item = currentQuote(payload, ticker, dailyDate, now);
     const v = item?.valuation, q = item?.latest;
-    if (!v || v.preliminary !== true || typeof v.score !== 'number' || !Number.isFinite(v.score) ||
+    if (!v || typeof v.preliminary !== 'boolean' || typeof v.score !== 'number' || !Number.isFinite(v.score) ||
         v.score < 0 || v.score > 100 || v.session !== payload.session_date ||
         v.basis_date !== dailyDate || v.as_of !== q.as_of || v.price !== q.price ||
         v.currency !== currency || q.currency !== currency) return null;
-    return v;
+    return { ...v, preliminary: isPreliminary(item, payload.session_date, now) };
   }
 
   function preview(ticker, dailyDate, now = Date.now()) {
@@ -45,7 +56,7 @@
     const completeOHLC = [open, high, low].every(validPrice) && high >= Math.max(open, price) && low <= Math.min(open, price);
     // Consume only a valuation computed for this exact cached quote.
     const score = currentValuation(cache, ticker, dailyDate, item.latest.currency, now)?.score ?? null;
-    return { score, candle: { date: cache.session_date, open, close: price, high, low, preliminary: true, completeOHLC } };
+    return { score, preliminary: isPreliminary(item, cache.session_date, now), candle: { date: cache.session_date, open, close: price, high, low, preliminary: isPreliminary(item, cache.session_date, now), completeOHLC } };
   }
 
   function notify() {
