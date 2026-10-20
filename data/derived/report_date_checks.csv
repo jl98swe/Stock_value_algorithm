@@ -30,3 +30,10 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-10-19,INDU-A.ST,2026-Q3,0+7,2026-10-07,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
 2026-10-19,INVE-A.ST,2026-Q3,0,2026-10-16,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
 2026-10-19,PLAZ-B.ST,2026-Q3,0,2026-10-16,2026-10-16,confirmed,
+2026-10-20,ABB.ST,2026-Q3,0,2026-10-20,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,ATRLJ-B.ST,2026-Q3,0+7,2026-10-09,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,INDU-A.ST,2026-Q3,0+7,2026-10-07,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,INVE-A.ST,2026-Q3,0,2026-10-16,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,LIME.ST,2026-Q3,0,2026-10-20,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,SCST.ST,2026-Q3,0,2026-10-20,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-20,TEL2-B.ST,2026-Q3,0,2026-10-20,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.

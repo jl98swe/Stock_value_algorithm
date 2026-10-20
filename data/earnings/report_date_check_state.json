@@ -104,5 +104,21 @@
     "completed": [
       0
     ]
+  },
+  "ABB.ST|2026-Q3": {
+    "anchor": "2026-10-20",
+    "completed": []
+  },
+  "LIME.ST|2026-Q3": {
+    "anchor": "2026-10-20",
+    "completed": []
+  },
+  "SCST.ST|2026-Q3": {
+    "anchor": "2026-10-20",
+    "completed": []
+  },
+  "TEL2-B.ST|2026-Q3": {
+    "anchor": "2026-10-20",
+    "completed": []
   }
 }

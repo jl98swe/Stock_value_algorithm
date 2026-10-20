@@ -1,8 +1,7 @@
 {
-  "checked_at": "2026-10-19",
+  "checked_at": "2026-10-20",
   "counts": {
-    "retry_missing_evidence": 3,
-    "confirmed": 2
+    "retry_missing_evidence": 7
   },
   "missing_historical_dates": [
     {
