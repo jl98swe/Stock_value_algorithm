@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-19T22:59:46+02:00",
+  "generated_at": "2026-10-20T21:58:12+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/abb",
-  "items": []
+  "items": [
+    {
+      "ticker": "ABB.ST",
+      "company": "ABB",
+      "published_at": "2026-10-20T06:52:06+02:00",
+      "title": "ABB: Resultat tredje kvartalet 2026",
+      "link": "https://mfn.se/cis/a/abb/abb-resultat-tredje-kvartalet-2026-c567e85c",
+      "source": "MFN",
+      "summary": "ABB: Resultat tredje kvartalet 2026 2026-10-20 06:52:06 Hög marknadsaktivitiet, starkt operativt resultat Order 12 055 miljoner dollar, +40%; på jämförbar basis 1 +40% Intäkter 9 701 miljoner dollar, +14%; på jämförbar basis 1 +14% Rörelseresultat 1 846 miljoner dollar; marginal 19,0% Operativt EBITA 1 2 026 miljoner dollar; marginal 1 20,8% Resultat per aktie 0,65 dollar; -2% 2 Kassaflöde från rörelsen 1 862 miljoner dollar; +5% Avkastning på sysselsatt kapital 1 29,9% \"ABB levererade en rekordhög orderingång och ett förbättrat operativt resultat med ett starkt kassaflöde och avkastning på kapital. Vi flyttade fram vår ledande position inom ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "860c0b0e8a49c90c"
+    }
+  ]
 }

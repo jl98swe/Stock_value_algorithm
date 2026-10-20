@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-19T23:00:43+02:00",
+  "generated_at": "2026-10-20T21:59:10+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/castellum",
   "items": [
+    {
+      "ticker": "CAST.ST",
+      "company": "Castellum",
+      "published_at": "2026-10-20T13:00:00+02:00",
+      "title": "Castellum divests properties in Linköping and Umeå for SEK 258 million",
+      "link": "https://mfn.se/a/castellum/castellum-divests-properties-in-linkoping-and-umea-for-sek-258-million",
+      "source": "MFN",
+      "summary": "Castellum divests properties in Linköping and Umeå for SEK 258 million 2026-10-20 13:00:00 Castellum has signed agreements with Emilshus and Runnstaden to divest six properties in Linköping and Umeå, with a total underlying property value of SEK 258 million. The underlying property value in the transactions amounts to SEK 258 million, compared to the book value as of June 30 2026, of SEK 231 million. The estimated total effect on earnings from the transactions amounts to approximately SEK 30 million. Of this, approximately SEK 10 million is expected to be recorded as changes in the value of properties, approximately SEK -10 million as changes",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b2f47aa91041ff98"
+    },
     {
       "ticker": "CAST.ST",
       "company": "Castellum",
