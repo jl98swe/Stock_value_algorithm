@@ -82,7 +82,7 @@
     el('intraday-daily-date').textContent = selection.daily.date;
     el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
       (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza är huvudkälla; kursen kan vara fördröjd. ') +
-      'Öppningskurs från 09.20. Övriga hämtningar kl. 13.00, 17.00 och 17.30, med efterkontroll 17.50. Schemalagda starter kan försenas. Preliminär poäng gäller om aktien stänger på den visade kursen, med senast verifierad EPS. Ordinarie poäng och signaler fastställs efter stängning.';
+      'Öppningskurs från 09.20. Övriga intradagshämtningar kl. 13.00 och 17.00. Dagskurser hämtas från Yahoo kl. 17.30 och Avanza kl. 18.30. Schemalagda starter kan försenas. Preliminär poäng gäller om aktien stänger på den visade kursen, med senast verifierad EPS. Ordinarie poäng och signaler beräknas efter stängning.';
     notify();
   }
 

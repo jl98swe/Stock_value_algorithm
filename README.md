@@ -4,9 +4,12 @@ Dagligt uppdaterad värderings- och signalpipeline för svenska aktier. Webbgrä
 
 ## Daglig körning
 
-GitHub Action `Daglig marknadsuppdatering` kör cirka 17:30 Europe/Stockholm på handelsdagar och gör i ordning:
+Två GitHub Actions schemaläggs på vardagar i Europe/Stockholm:
+`Daglig marknadsuppdatering` kl. 17:30 med Yahoo Finance och
+`Dagskurser 18.30 · Avanza` kl. 18:30 med Avanza. Börskalendern stoppar
+insamling på helgdagar och före dagens stängning. Båda använder samma pipeline:
 
-1. hämtar nya OHLCV-priser från Yahoo Finance,
+1. hämtar dagens OHLC-priser och tillgänglig volym från sin egen källa,
 2. kombinerar den frysta prisbasen med löpande uppdateringar,
 3. räknar MA200 per ticker på hela prisserien,
 4. uppdaterar utdelningshändelser,
@@ -27,7 +30,10 @@ python -m src.validate_outputs
 ### Säker publicering av data
 
 Alla skrivande GitHub Actions-jobb delar en kö per gren (`stock-data-${{ github.ref }}`).
-De körs ett i taget, hämtar grenens senaste innehåll efter väntan och sparar tillbaka
+Yahoo och Avanza samlar däremot in kurser oberoende, utan detta lås, även om
+dagens kurser redan publicerats av den andra källan. Insamlingarna kan överlappa.
+Sammanfogning, poäng-/signalbygge och publicering körs ett i taget,
+hämtar grenens senaste innehåll efter väntan och sparar tillbaka
 till samma gren. `queue: max` låter flera väntande jobb behållas utan att ersätta
 varandra. En samtidig manuell ändring kan fortfarande ge en konflikt; då stoppas
 sparningen i stället för att någon version skrivs över.
@@ -48,16 +54,34 @@ Detta verifierar intern konsistens, inte att Yahoo har publicerat alla bolagsrap
 
 ## Prisdata
 
+### Två källor efter stängning
+
+`src.closing_prices` samlar källspecifika ögonblicksbilder före publiceringskön.
+Båda kvällskörningarna räknar om poäng och signaler och validerar samma webbexport.
+Yahoo prioriteras när båda har en giltig dagsrad för samma aktie; Avanza fyller
+luckor. Om Avanza blir klar först får dess rader användas direkt. Senare Yahoo-data
+ersätter dem och dagens poäng räknas om. Äldre svar från samma källa ersätter
+inte nyare svar. Den frysta prisbasen skrivs aldrig om.
+
+Avanzas senaste avslut efter börsens stängning används som dags-C, tillsammans
+med dagens faktiska O/H/L. Ingen uttrycklig flagga för slutlig stängningskurs antas.
+Saknad volym lämnas tom; saknad OHLC, fel instrument eller fel handelsdag avvisas.
+Källval sparas i `data/prices/closing_sources.csv`. Körningarnas planerade tider,
+faktiska insamlingstider, täckning och kursavvikelser sparas i
+`data/prices/closing_audit/<datum>/`. Ursprungliga ögonblicksbilder finns även som
+Actions-artifacts i 14 dagar. Yahoo har batchtider, Avanza tider per instrument.
+GitHubs schemaläggare kan fortfarande fördröja båda starter; tiderna är inga garantier.
+
 ### Tillfälliga intradagskurser
 
 `Intradagskurser · Nasdaq och Avanza` hämtar för hela det aktiva universumet
-kl. 09.20 (öppningskurs), 13.00, 17.00 och 17.30 i Europe/Stockholm. Avanza är primärkälla;
+kl. 09.20 (öppningskurs), 13.00 och 17.00 i Europe/Stockholm. Avanza är primärkälla;
 Nasdaq används för saknade eller äldre avslut och saknad öppningskurs.
-Nasdaqs filer är 15 minuter fördröjda. Extra körningar 17.50 och 18.30
-efterkontrollerar stängningsauktionen. UTC-baserade reservstarter varje kvart
+Nasdaqs filer är 15 minuter fördröjda. UTC-baserade reservstarter varje kvart
 kontrollerar den gemensamma cachen och försöker hämta senaste förfallna tid
 om den saknas eller misslyckats. Redan hämtade tider och dagar med färdiga
-stängningskurser hoppas över. Reservstarterna använder samma GitHub-schemaläggare;
+stängningskurser hoppas över. Efter kl. 18 görs inga intradagsförsök;
+kvällsuppdateringen sköts av de två dagskursjobben. Reservstarterna använder samma GitHub-schemaläggare;
 de ger ingen garanti för starttid. Faktisk start och kurstid kan bli senare.
 XSTO-kalendern hanterar helgdagar, halvdagar och sommar-/vintertid.
 
@@ -94,14 +118,13 @@ Senaste signaler, fryst historik och backtest ändras inte.
 Som vid andra Git-ref-ersättningar kan GitHub behålla onåbara objekt en tid;
 detta är en tillfällig visningscache, inte en garanti om omedelbar fysisk radering.
 
-Efter lyckad daglig marknadsuppdatering rensas cacheposter vars stängningskurs
-för samma datum faktiskt finns i den publicerade `stocks.json`. En extra
-kontroll 18.30 fångar senare uppdateringar. Delvis saknade slutkurser gör att
+Efter lyckad Yahoo- eller Avanza-uppdatering rensas cacheposter vars dagskurs
+för samma datum faktiskt finns i den publicerade `stocks.json`. Delvis saknade dagskurser gör att
 övriga poster behålls till dagens slut. Startsidan undertrycker dessutom
 intradagskursen om dess publicerade stängningskurs hunnit ikapp eller cachen
 gått ut. Alla besökare läser samma cache vid sidladdning, flikåterkomst och
 var femte minut när sidan visas. Aktieval byter omedelbart till den valda
-aktiens gemensamma uppgifter; knappen hämtar senaste gemensamma uppdatering.
+aktiens gemensamma uppgifter.
 Inga externa nycklar eller nya betaltjänster behövs. Direkta extraanrop från
 besökarens webbläsare används inte eftersom källorna saknar CORS-stöd.
 

@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Stockholm")
 CACHE_URL = "https://raw.githubusercontent.com/jl98swe/Stock_value_algorithm/intraday-cache/intraday.json"
-SLOTS = ("09:20", "13:00", "17:00", "17:30", "17:50", "18:30")
+SLOTS = ("09:20", "13:00", "17:00")
 
 
 def timestamp(value):
@@ -32,6 +32,8 @@ def decision(now: datetime, cache: dict) -> tuple[bool, str]:
     now = now.astimezone(TZ)
     if now.weekday() >= 5:
         return False, "Helg"
+    if now.hour >= 18:
+        return False, "Kvällens dagskurser hanteras av Yahoo och Avanza separat"
     slots = [now.replace(hour=int(s[:2]), minute=int(s[3:]), second=0, microsecond=0) for s in SLOTS]
     due = [slot for slot in slots if slot <= now]
     if not due:
