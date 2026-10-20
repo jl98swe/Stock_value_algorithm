@@ -15,24 +15,73 @@ on:
     - cron: "30 17 * * 1-5"
       timezone: "Europe/Stockholm"
   workflow_dispatch:
+    inputs:
+      source:
+        type: choice
+        options: [Yahoo, Avanza]
+        default: Yahoo
+  workflow_call:
+    inputs:
+      source:
+        type: string
+        default: Yahoo
+      planned:
+        type: string
+        default: "17:30"
 
 permissions:
   contents: write
 
-concurrency:
-  group: stock-data-${{ github.ref }}
-  cancel-in-progress: false
-  queue: max
-
 jobs:
-  update:
+  collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      ready: ${{ steps.prices.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installera insamlingens beroenden
+        run: python -m pip install 'requests>=2.32' 'pandas>=2.2,<3' 'exchange-calendars>=4.11' 'pyarrow>=16.1' 'yfinance>=0.2.54'
+      - name: Hämta dagsdata utan publiceringslås
+        id: prices
+        env:
+          PRICE_SOURCE: ${{ inputs.source || 'Yahoo' }}
+          PLANNED_TIME: ${{ inputs.planned || '17:30' }}
+        run: python -m src.closing_prices collect --source "$PRICE_SOURCE" --planned "$PLANNED_TIME"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: closing-snapshot-${{ inputs.source || 'Yahoo' }}-${{ github.run_id }}
+          path: .cache/closing_snapshot.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  update:
+    needs: collect
+    if: needs.collect.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: stock-data-${{ github.ref }}
+      cancel-in-progress: false
+      queue: max
     steps:
       - name: Checka ut repot
         uses: actions/checkout@v6
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: closing-snapshot-${{ inputs.source || 'Yahoo' }}-${{ github.run_id }}
+          path: .cache
 
       - name: Installera Python
         uses: actions/setup-python@v6
@@ -48,8 +97,11 @@ jobs:
       - name: Uppdatera valutakurser
         run: python -m src.fx
 
-      - name: Uppdatera priser och utdelningar
-        run: python -m src.pipeline --defer-score-history
+      - name: Slå ihop med senast publicerade dagsdata
+        run: python -m src.closing_prices apply
+
+      - name: Uppdatera poäng och utdelningar utan ny kurshämtning
+        run: python -m src.closing_prices build --defer-score-history
 
       - name: Uppdatera Yahoo trailingDilutedEPS
         run: python -m src.earnings --due-reports-only
@@ -67,7 +119,7 @@ jobs:
         run: python -m src.recheck_report_dates
 
       - name: Bygg om dashboard med dagens EPS
-        run: python -m src.pipeline --skip-fetch --skip-dividends
+        run: python -m src.closing_prices build
 
       - name: Begränsa dashboard från 2019-09-02
         run: python -m src.limit_dashboard_window
@@ -84,6 +136,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add docs/data
+          git add data/prices/closing_sources.csv data/prices/closing_audit
           git add data/fundamentals/reports.csv
           git add data/derived/valuation_score_history.csv.gz
           git add data/derived/report_score_dates.csv

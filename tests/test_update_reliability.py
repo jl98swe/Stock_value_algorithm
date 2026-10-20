@@ -29,7 +29,8 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
     trigger = workflow.get("on", workflow.get(True))
     if "push" in trigger:
         assert trigger["push"]["branches"] == ["main"]
-    assert workflow["concurrency"] == {
+    lock = workflow["jobs"]["update"]["concurrency"] if path.name == "daily_update.yml" else workflow["concurrency"]
+    assert lock == {
         "group": "stock-data-${{ github.ref }}",
         "cancel-in-progress": False,
         "queue": "max",
@@ -69,9 +70,9 @@ def test_manual_eps_rebuilds_without_network_refresh() -> None:
 def test_daily_update_freezes_scores_only_after_eps_sync() -> None:
     workflow = yaml.safe_load((WORKFLOWS / "daily_update.yml").read_text())
     commands = [step.get("run", "") for step in workflow["jobs"]["update"]["steps"]]
-    assert "python -m src.pipeline --defer-score-history" in commands
+    assert "python -m src.closing_prices build --defer-score-history" in commands
     assert commands.index("python -m src.sync_yahoo_eps_reports") < commands.index(
-        "python -m src.pipeline --skip-fetch --skip-dividends"
+        "python -m src.closing_prices build"
     )
 
 

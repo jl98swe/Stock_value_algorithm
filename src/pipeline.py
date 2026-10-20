@@ -676,7 +676,7 @@ def build_dashboard(
         "max_active_positions_per_stock": 1,
         "execution": "Nästa handelsdags öppning",
         "shorting": False,
-        "update_time": "17:30 Europe/Stockholm",
+        "update_time": "17:30 Yahoo / 18:30 Avanza Europe/Stockholm (schemalagda starter)",
     }
 
     ready_count = sum(item.get("latest_score") is not None for item in stock_list)

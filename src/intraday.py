@@ -33,7 +33,7 @@ REPOSITORY = "jl98swe/Stock_value_algorithm"
 CACHE_URL = f"https://raw.githubusercontent.com/{REPOSITORY}/{CACHE_BRANCH}/intraday.json"
 NASDAQ_URL = "https://tradereports.nasdaq.com/api/regulatory"
 AVANZA_URL = "https://www.avanza.se/_api/market-guide/stock/"
-SLOTS = ("09:00", "13:00", "17:00", "17:30")
+SLOTS = ("09:20", "13:00", "17:00")
 
 
 def instant(value=None) -> datetime:

@@ -13,21 +13,15 @@ on:
   schedule:
     - cron: "0 13,17 * * 1-5"
       timezone: "Europe/Stockholm"
-    - cron: "30 17 * * 1-5"
-      timezone: "Europe/Stockholm"
-    # Nasdaq's 09:00 opening and 17:30 auction are not visible until later.
+    # The 09:00 opening is not visible in Nasdaq's delayed feed until later.
     - cron: "20 9 * * 1-5"
-      timezone: "Europe/Stockholm"
-    - cron: "50 17 * * 1-5"
-      timezone: "Europe/Stockholm"
-    - cron: "30 18 * * 1-5"
       timezone: "Europe/Stockholm"
     # Independent UTC wake-ups retry missed starts. Python checks Stockholm
     # time (including DST) and skips slots already present in the shared cache.
     - cron: "7,22,37,52 7-18 * * 1-5"
   workflow_dispatch:
   workflow_run:
-    workflows: [Daglig marknadsuppdatering]
+    workflows: [Daglig marknadsuppdatering, Dagskurser 18.30 · Avanza]
     types: [completed]
     branches: [main]
 
