@@ -258,3 +258,24 @@ def test_scoring_accepts_trades_that_arrive_during_collection(monkeypatch, tmp_p
     monkeypatch.setattr("sys.argv", ["intraday", "--output", str(tmp_path / "cache.json")])
     q.main()
     assert scored_at == [NOW + q.timedelta(minutes=3)]
+
+
+def test_delayed_evening_collection_only_fetches_stocks_missing_daily_close(monkeypatch):
+    # Synthetic example: even a 22:00 start may recover the last intraday slot.
+    now = q.instant("2026-10-15T22:00:00+02:00")
+    calls = []
+    def primary(instrument, *args):
+        calls.append(instrument)
+        return {"latest": quote("2026-10-15T17:29:00+02:00", source="Avanza"),
+                "opening": quote("2026-10-15T09:01:00+02:00", 100, "Avanza")}
+    def forbidden(*args):
+        pytest.fail("Complete primary response must not call Nasdaq")
+    monkeypatch.setattr(q, "fetch_nasdaq", forbidden)
+    result = q.collect({}, STOCKS, INSTRUMENTS, now, primary=primary)
+    assert len(calls) == 1
+    assert result["stocks"]["EXAMPLE-A.ST"]["latest"]["price"] == 102
+    calls.clear()
+    result = q.collect({}, [{**STOCKS[0], "latest_date": "2026-10-15"}],
+                       INSTRUMENTS, now, primary=primary)
+    assert calls == []
+    assert result["collection_state"] == "completed"

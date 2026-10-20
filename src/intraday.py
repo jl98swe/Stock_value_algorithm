@@ -33,7 +33,7 @@ REPOSITORY = "jl98swe/Stock_value_algorithm"
 CACHE_URL = f"https://raw.githubusercontent.com/{REPOSITORY}/{CACHE_BRANCH}/intraday.json"
 NASDAQ_URL = "https://tradereports.nasdaq.com/api/regulatory"
 AVANZA_URL = "https://www.avanza.se/_api/market-guide/stock/"
-SLOTS = ("09:20", "13:00", "17:00")
+SLOTS = ("09:20", "13:00", "16:00")
 
 
 def instant(value=None) -> datetime:
@@ -264,7 +264,7 @@ def collect(cache: dict, stocks: list[dict], instruments: dict, now: datetime,
     bounds = session_bounds(now)
     if not bounds:
         output["collection_state"] = "not_trading_day"
-    if not bounds or now < bounds[0] or now > bounds[1] + timedelta(hours=2):
+    if not bounds or now < bounds[0]:
         return output
     day = now.date().isoformat()
     eligible = {s["ticker"]: s for s in stocks if s.get("active_for_updates", True)

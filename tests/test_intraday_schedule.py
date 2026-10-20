@@ -47,3 +47,26 @@ def test_failed_stale_or_invalid_snapshot_cannot_suppress_retry():
 def test_completed_day_is_not_repopulated_by_later_retry(state):
     assert not decision(at("2026-10-16T18:55:00+02:00"),
                         {**cache(state=state), "stocks": {}})[0]
+
+
+def test_final_slot_is_due_at_1600_and_delayed_collection_remains_allowed():
+    midday = cache("2026-10-16T13:08:00+02:00")
+    assert not decision(at("2026-10-16T15:59:00+02:00"), midday)[0]
+    assert decision(at("2026-10-16T16:00:00+02:00"), midday)[0]
+    assert decision(at("2026-10-16T19:35:00+02:00"), midday)[0]
+    assert decision(at("2026-10-16T23:59:00+02:00"), {})[0]
+    assert not decision(at("2026-10-16T19:35:00+02:00"),
+                        cache("2026-10-16T16:08:00+02:00"))[0]
+
+
+def test_workflow_and_cache_advertise_the_same_intraday_times():
+    from pathlib import Path
+    import yaml
+    from src.intraday import SLOTS as cache_slots
+    from src.intraday_schedule import SLOTS
+    workflow = yaml.safe_load((Path(__file__).parents[1] /
+                               ".github/workflows/intraday_quotes.yml").read_text())
+    trigger = workflow.get("on", workflow.get(True))
+    assert trigger["schedule"][0] == {"cron": "0 13,16 * * 1-5",
+                                      "timezone": "Europe/Stockholm"}
+    assert SLOTS == cache_slots == ("09:20", "13:00", "16:00")
