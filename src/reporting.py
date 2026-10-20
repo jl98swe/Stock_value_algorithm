@@ -26,6 +26,7 @@ from bs4 import BeautifulSoup
 
 from .config import ROOT
 from .events import load_report_calendar
+from .fundamentals import REPORT_CURRENCY_NOTE_PATTERN
 from .manual_eps import find_prior_year_diluted_eps
 from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
 from .utils import write_json_atomic
@@ -641,17 +642,18 @@ def _upcoming_rows(
     rows: list[dict[str, object]] = []
     for event in future.itertuples(index=False):
         ticker = str(event.ticker)
+        report_start = pd.Timestamp(event.report_date_start)
         valued = valuation_frames.get(ticker)
         latest = valued.iloc[-1] if valued is not None and not valued.empty else pd.Series(dtype=object)
         ticker_reports = reports.loc[
             (reports["ticker"].astype(str) == ticker)
             & reports["verified"]
             & reports["effective_date"].notna()
+            & (reports["effective_date"] < report_start)
             & (reports["effective_date"] <= as_of)
         ].sort_values(["effective_date", "period_end"])
         latest_report = None if ticker_reports.empty else ticker_reports.iloc[-1]
         next_period = _next_period_end(latest_report.get("period_end")) if latest_report is not None else None
-        report_start = pd.Timestamp(event.report_date_start)
         period_is_plausible = (
             next_period is not None
             and next_period <= report_start
@@ -669,6 +671,29 @@ def _upcoming_rows(
             if period_is_plausible
             else "report_period_not_safely_inferred"
         )
+
+        # A report may arrive before today's closing price. Match the actual
+        # publication to this calendar event, independently of valuation dates.
+        published = reports.loc[
+            reports["ticker"].astype(str).eq(ticker)
+            & reports["verified"]
+            & reports["eps_ttm"].notna()
+            & reports["effective_date"].le(as_of)
+        ].copy()
+        published["_publication_date"] = pd.to_datetime(
+            published["published_at"].map(_stockholm_date), errors="coerce"
+        ).fillna(published["effective_date"])
+        published = published.loc[
+            published["_publication_date"].between(report_start, pd.Timestamp(event.report_date_end))
+            & published["period_end"].between(report_start - pd.Timedelta(days=140), report_start)
+        ]
+        if period_is_plausible:
+            published = published.loc[published["period_end"].eq(next_period)]
+        new_report = None if published.empty else published.sort_values(["period_end", "effective_date"]).iloc[-1]
+        new_currency = None
+        if new_report is not None:
+            match = re.search(REPORT_CURRENCY_NOTE_PATTERN, str(new_report.get("notes", "")))
+            new_currency = match.group(1).upper() if match else report_currencies.get(ticker) or None
 
         expected_verified = bool(event.expected_eps_verified)
         expected_metric = str(event.expected_eps_metric or "")
@@ -696,6 +721,8 @@ def _upcoming_rows(
                 "current_score": _json_number(latest.get("Score")),
                 "current_eps_ttm": _json_number(latest.get("EPS_TTM"), None),
                 "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
+                "new_eps_ttm": _json_number(new_report.get("eps_ttm"), None) if new_report is not None else None,
+                "new_eps_ttm_currency": new_currency,
                 "next_period_end": _iso_date(next_period) if period_is_plausible else None,
                 "neutral_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
                 "neutral_eps_currency": str(prior.get("eps_currency") or "") if prior is not None else None,

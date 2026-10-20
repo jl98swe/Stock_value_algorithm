@@ -93,6 +93,39 @@ def test_yahoo_calendar_estimate_is_explicitly_unverified() -> None:
     assert row["expected_eps_currency"] == "SEK"
 
 
+def test_new_eps_matches_calendar_report_before_closing_price() -> None:
+    # Synthetic report: the new quarter is known while prices still end yesterday.
+    schedule = reporting._combined_schedule(
+        reporting._normalise_calendar(pd.DataFrame([_calendar_row()])), pd.DataFrame()
+    )
+    old = _reports()
+    new = old.iloc[0].to_dict()
+    new.update(period_end="2026-09-30", report_period="2026-Q3",
+               published_at="2026-10-08T07:50:00+02:00", effective_date="2026-10-08",
+               eps_ttm=5.25, notes="report_currency=USD")
+    reports = normalise_reports(pd.concat([old, pd.DataFrame([new])], ignore_index=True))
+    rows = reporting._upcoming_rows(
+        schedule=schedule, reports=reports, quarterly=_quarterly(),
+        valuation_frames={"TEST.ST": pd.DataFrame([{
+            "Date": pd.Timestamp("2026-10-07"), "EPS_TTM": 4.0,
+        }])}, metadata=_metadata(), as_of=pd.Timestamp("2026-10-08"),
+    )
+    assert rows[0]["new_eps_ttm"] == 5.25
+    assert rows[0]["new_eps_ttm_currency"] == "USD"
+    assert rows[0]["next_period_end"] == "2026-09-30"
+    assert rows[0]["neutral_quarter_eps"] == 1.1
+
+    for day in ["2026-10-01", "2026-10-09"]:
+        other = reporting._combined_schedule(reporting._normalise_calendar(
+            pd.DataFrame([_calendar_row(report_date_start=day, report_date_end=day)])
+        ), pd.DataFrame())
+        result = reporting._upcoming_rows(
+            schedule=other, reports=reports, quarterly=_quarterly(),
+            valuation_frames={}, metadata=_metadata(), as_of=pd.Timestamp(day),
+        )
+        assert result[0]["new_eps_ttm"] is None
+
+
 def test_upcoming_uses_xsto_sessions_and_hides_unverified_estimate() -> None:
     schedule = reporting._combined_schedule(
         reporting._normalise_calendar(pd.DataFrame([_calendar_row()])),

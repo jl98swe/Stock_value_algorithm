@@ -11,7 +11,7 @@
   <meta name="description" content="Kommande rapporter och faktisk rapportpåverkan i Stock Value Algorithm.">
   <link rel="stylesheet" href="./assets/style.css?v=20261015-icon">
   <link rel="stylesheet" href="./assets/reports.css?v=20261015-2">
-  <script defer src="./assets/reports.js?v=20261015-eps4"></script>
+  <script defer src="./assets/reports.js?v=20261020-new-eps"></script>
   <script src="./assets/strategy-selection.js?v=20261014-3"></script>
   <link rel="stylesheet" href="./assets/report-data-status.css?v=20261015">
   <script defer src="./assets/report-data-status.js?v=20261016-scope"></script>
@@ -80,6 +80,7 @@
                   <th>Aktiekurs</th>
                   <th>Värderingspoäng <span class="info-tip" tabindex="0" data-tooltip="Strategins värderingspoäng från 0 till 100. En låg poäng betyder lägre värdering och en hög poäng betyder högre värdering.">?</span></th>
                   <th>EPS TTM <span class="info-tip" tabindex="0" data-tooltip="Utspädd vinst per aktie för de senaste tolv månaderna, uttryckt i den valuta som används i värderingsberäkningen.">?</span></th>
+                  <th>Ny EPS TTM <span class="info-tip" tabindex="0" data-tooltip="Verifierad utspädd EPS TTM från den nya rapporten, i den angivna rapportvalutan. Visas så snart rapportuppgifterna registrerats, även innan dagens slutkurs finns. Streck betyder att uppgiften ännu saknas.">?</span></th>
                   <th>Kvartals-EPS föregående år <span class="info-tip" tabindex="0" data-tooltip="Utspädd EPS för motsvarande rapportperiod föregående år. Om kommande kvartals-EPS blir densamma förändras inte EPS TTM framåt. Värderingspoängen kan ändå påverkas av aktiekursen.">?</span></th>
                   <th>Förväntad kvartals-EPS <span class="info-tip" tabindex="0" data-tooltip="Analytikernas estimat för den kommande rapportens kvartals-EPS. Visas bara när måttdefinitionen är jämförbar med strategins utspädda kvartals-EPS.">?</span></th>
                 </tr>

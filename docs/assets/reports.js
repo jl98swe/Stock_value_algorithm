@@ -134,9 +134,10 @@
         <td>${formatMoney(row.current_price, row.price_currency)}</td>
         <td><strong>${formatScore(row.current_score)}</strong></td>
         <td><strong>${formatEps(row.current_eps_ttm)} ${escapeHtml(row.eps_ttm_currency || '')}</strong></td>
+        <td>${row.new_eps_ttm == null ? '–' : `<strong>${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}</strong>`}</td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>
-      </tr>`).join('') : '<tr><td colspan="8" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
+      </tr>`).join('') : '<tr><td colspan="9" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
   }
 
   function pair(before, after, currency = '', formatter = formatNumber) {
