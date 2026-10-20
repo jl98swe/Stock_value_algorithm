@@ -4,9 +4,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-function setup(request = null) {
+function setup(request = null, withoutControl = false) {
   const elements = new Map();
+  let interval;
   const element = id => {
+    if (withoutControl && (id === 'intraday-refresh' || id.startsWith('quote-refresh-'))) return null;
     if (!elements.has(id)) elements.set(id, { textContent: '', className: '', hidden: true, listeners: {}, addEventListener(name, fn) { this.listeners[name] = fn; } });
     return elements.get(id);
   };
@@ -19,8 +21,8 @@ function setup(request = null) {
   const window = {};
   vm.runInNewContext(fs.readFileSync('docs/assets/intraday.js', 'utf8'), { window,
     document: { getElementById: element, addEventListener() {}, dispatchEvent() {} }, CustomEvent: class { constructor(type) { this.type = type; } }, Date: Clock, Intl,
-    setInterval() {}, fetch: async () => request ? request(payload) : ({ ok: true, json: async () => payload }) });
-  return { api: window.intradayQuotes, payload, now, element };
+    setInterval(fn) { interval = fn; }, fetch: async () => request ? request(payload) : ({ ok: true, json: async () => payload }) });
+  return { api: window.intradayQuotes, payload, now, element, runInterval: () => interval() };
 }
 
 test('published daily close, expired quotes and wrong trading date are suppressed', () => {
@@ -125,10 +127,20 @@ test('daily-data refresh is awaited and still runs when the intraday cache fails
   assert.equal(ui.element('intraday-refresh').disabled, false);
 });
 
-test('refresh control lives outside the temporary panel so closing data cannot hide it', () => {
+test('the unused manual refresh control and explanatory copy are absent from the homepage', () => {
   const html=fs.readFileSync('docs/index.html','utf8');
-  const button=html.indexOf('id="intraday-refresh"');
-  assert(button > html.indexOf('class="quote-refresh-controls"'));
-  assert(button < html.indexOf('<section id="intraday-panel"'));
-  assert.match(html,/id="quote-refresh-status"[^>]*role="status"/);
+  assert.doesNotMatch(html,/id="intraday-refresh"|quote-refresh-controls|quote-refresh-status|Kontrollera senaste data|En kontroll tar vanligen/);
+});
+
+test('automatic quote and daily refresh still run with no refresh control in the DOM', async () => {
+  const ui = setup(null, true);
+  await ui.api.refresh();
+  ui.api.select('EXAMPLE.ST', {date:'2026-10-14',close:100,currency:'SEK'});
+  let dailyRefreshes = 0;
+  ui.api.onRefresh(async () => { dailyRefreshes++; return false; });
+  ui.payload.stocks['EXAMPLE.ST'].latest.price = 104;
+  ui.runInterval();
+  await ui.api.refresh();
+  assert.equal(ui.element('latest-price').textContent, '104 SEK');
+  assert.equal(dailyRefreshes, 1);
 });
