@@ -28,6 +28,7 @@ ABB.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.6,USD,Yahoo Finance / quarte
 ABB.ST,2025-03-31,2025-04-17,2026-09-19,reportedEPS,0.61,USD,Yahoo Finance / Reported EPS
 ABB.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.63,USD,Yahoo Finance / quarterlyDilutedEPS
 ABB.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,0.7,USD,Yahoo Finance / Reported EPS
+ABB.ST,2025-09-30,2025-10-16,2026-10-20,manualDilutedEPS,0.66,USD,"ABB Q3 2026 Financial Information, pp. 1, 8 | https://www.eqs-news.com/news/category/abb-ltd-q3-2026-results/50d2285d-3931-4dd6-87c9-175ebf9be15a | prior-year comparative"
 ABB.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.6599999999999999,USD,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 ABB.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.7,USD,Yahoo Finance / quarterlyDilutedEPS
 ABB.ST,2025-12-31,2026-01-29,2026-09-19,reportedEPS,0.73,USD,Yahoo Finance / Reported EPS
@@ -35,6 +36,7 @@ ABB.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.73,USD,Yahoo Finance / quart
 ABB.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,0.84,USD,Yahoo Finance / Reported EPS
 ABB.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.68,USD,Yahoo Finance / quarterlyDilutedEPS
 ABB.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,0.8,USD,Yahoo Finance / Reported EPS
+ABB.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,0.65,USD,"ABB Q3 2026 Financial Information, pp. 1, 8 | https://www.eqs-news.com/news/category/abb-ltd-q3-2026-results/50d2285d-3931-4dd6-87c9-175ebf9be15a"
 ADDT-B.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
 ADDT-B.ST,2023-12-31,2024-02-07,2026-09-19,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
 ADDT-B.ST,2024-03-31,2024-05-16,2026-09-19,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
@@ -1429,6 +1431,7 @@ SCST.ST,2024-12-31,2025-02-06,2026-09-19,reportedEPS,0.61,SEK,Yahoo Finance / Re
 SCST.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.01,SEK,Yahoo Finance / quarterlyDilutedEPS
 SCST.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.29,SEK,Yahoo Finance / quarterlyDilutedEPS
 SCST.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,1.29,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2025-09-30,2025-10-23,2026-10-20,manualDilutedEPS,1.83,SEK,"Scandi Standard Q3 2026, p. 11 | https://investors.scandistandard.com/sites/default/files/pr/202610196601-1.pdf | prior-year comparative"
 SCST.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.8400000000000003,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SCST.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.47,SEK,Yahoo Finance / quarterlyDilutedEPS
 SCST.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,1.47,SEK,Yahoo Finance / Reported EPS
@@ -1436,6 +1439,7 @@ SCST.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quar
 SCST.ST,2026-03-31,2026-04-28,2026-09-19,reportedEPS,1.55,SEK,Yahoo Finance / Reported EPS
 SCST.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 SCST.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
+SCST.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,1.97,SEK,"Scandi Standard Q3 2026, p. 11 | https://investors.scandistandard.com/sites/default/files/pr/202610196601-1.pdf"
 SEB-A.ST,2023-09-30,2023-10-25,2026-09-19,reportedEPS,5.03,SEK,Yahoo Finance / Reported EPS
 SEB-A.ST,2023-12-31,2024-01-25,2026-09-19,reportedEPS,4.0,SEK,Yahoo Finance / Reported EPS
 SEB-A.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,4.56,SEK,Yahoo Finance / Reported EPS
@@ -1664,6 +1668,7 @@ TEL2-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.26,SEK,Yahoo Finance / qu
 TEL2-B.ST,2025-03-31,2025-04-23,2026-09-19,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
 TEL2-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.72,SEK,Yahoo Finance / quarterlyDilutedEPS
 TEL2-B.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,1.81,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2025-09-30,2025-10-21,2026-10-20,manualDilutedEPS,1.85,SEK,"Tele2 Q3 2026, pp. 2, 17 | https://www.tele2.com/files/Public/3372/4411972/interim-report-q3-2026.pdf | prior-year comparative"
 TEL2-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 TEL2-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.76,SEK,Yahoo Finance / quarterlyDilutedEPS
 TEL2-B.ST,2025-12-31,2026-01-28,2026-09-19,reportedEPS,1.87,SEK,Yahoo Finance / Reported EPS
@@ -1671,6 +1676,7 @@ TEL2-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,9.16,SEK,Yahoo Finance / qu
 TEL2-B.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
 TEL2-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 TEL2-B.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,1.82,SEK,Yahoo Finance / Reported EPS
+TEL2-B.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,2.02,SEK,"Tele2 Q3 2026, pp. 2, 17 | https://www.tele2.com/files/Public/3372/4411972/interim-report-q3-2026.pdf"
 THULE.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2024-03-31,2024-04-26,2026-09-19,reportedEPS,2.83,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2024-06-30,2024-07-17,2026-09-19,reportedEPS,5.28,SEK,Yahoo Finance / Reported EPS
