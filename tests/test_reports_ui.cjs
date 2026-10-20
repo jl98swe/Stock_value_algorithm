@@ -32,6 +32,21 @@ async function setup(today, upcoming, recent = []) {
 const row = (ticker, day) => ({ticker, report_date_start: day, report_date_end: day});
 const count = element => (element.innerHTML.match(/<tr[ >]/g)||[]).length;
 
+test('new reported TTM is separate from estimates, missing data stays a dash', async () => {
+  const {element:e} = await setup('2026-10-15T12:00Z', [
+    {...row('REPORTED','2026-10-15'), new_eps_ttm:9.22, new_eps_ttm_currency:'SEK'},
+    {...row('MISSING','2026-10-16'), new_eps_ttm:null},
+    {...row('ZERO','2026-10-16'), new_eps_ttm:0, new_eps_ttm_currency:'USD'},
+  ]);
+  const html = e('upcoming-body').innerHTML;
+  assert(html.includes('9,2200 SEK'));
+  assert(html.includes('0,0000 USD'));
+  for (const tr of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)) {
+    assert.equal((tr[1].match(/<td>/g)||[]).length,9);
+    if(tr[1].includes('MISSING')) assert.equal([...tr[1].matchAll(/<td>([\s\S]*?)<\/td>/g)][6][1],'–');
+  }
+});
+
 test('today uses Stockholm date, shows all imminent reports, toggles both lists', async () => {
   const upcoming = Array.from({length:7},(_,i)=>row(`TODAY${i}`, '2026-10-15')).concat([row('NEXT','2026-10-16'), row('LATER','2026-10-19')]);
   const recent = Array.from({length:8},(_,i)=>({ticker:`R${i}`,report_date:`2026-10-${String(7+i).padStart(2,'0')}`,report_date_verified:true}));

@@ -1061,6 +1061,7 @@ LIME.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quar
 LIME.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,2.21,SEK,Yahoo Finance / Reported EPS
 LIME.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.95,SEK,Yahoo Finance / quarterlyDilutedEPS
 LIME.ST,2025-06-30,2025-07-12,2026-09-19,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2025-09-30,2025-10-21,2026-10-20,manualDilutedEPS,1.9,SEK,"Lime Q3 2026, pp. 3, 11 | https://via.tt.se/ir-files/3236251/4604393/7445/Lime%20Q3%202026.pdf | prior-year comparative"
 LIME.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.92,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 LIME.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,2.39,SEK,Yahoo Finance / quarterlyDilutedEPS
 LIME.ST,2025-12-31,2026-02-12,2026-09-19,reportedEPS,2.4,SEK,Yahoo Finance / Reported EPS
@@ -1068,6 +1069,7 @@ LIME.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.27,SEK,Yahoo Finance / quar
 LIME.ST,2026-03-31,2026-04-21,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
 LIME.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.39,SEK,Yahoo Finance / quarterlyDilutedEPS
 LIME.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,2.39,SEK,Yahoo Finance / Reported EPS
+LIME.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,2.14,SEK,"Lime Q3 2026, pp. 3, 11 | https://via.tt.se/ir-files/3236251/4604393/7445/Lime%20Q3%202026.pdf"
 LOOMIS.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,5.95,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2023-12-31,2024-01-31,2026-09-19,reportedEPS,5.5,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2024-03-31,2024-05-06,2026-09-19,reportedEPS,5.17,SEK,Yahoo Finance / Reported EPS
