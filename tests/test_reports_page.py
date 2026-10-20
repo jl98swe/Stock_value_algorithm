@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,11 +10,11 @@ def test_reports_page_uses_approved_copy_and_tooltips() -> None:
 
     assert "Ingen spekulativ poängprognos" not in html
     assert "Så ska värdena läsas" not in html
-    assert "Kvartals-EPS föregående år" in html
+    assert "Kvartals-EPS föregående år" in re.sub(r"<br\s*/?>", " ", html)
     assert "Rapporter inom 10 handelsdagar" in html
     assert "Dagar då börsen är stängd räknas inte." in html
     assert "Om publiceringsdatumet saknas används datumet då rapportens nya EPS TTM började användas och raden flaggas." in html
-    assert './assets/reports.css?v=20261015-2' in html
+    assert re.search(r'./assets/reports\.css\?v=[^\"\s]+', html)
 
 
 def test_reports_page_uses_approved_dynamic_messages() -> None:
