@@ -50,7 +50,7 @@ const docs=path.resolve(__dirname,'../docs');
   assert.equal(await page.locator('#method-stock').inputValue(),'AAK.ST');
   await page.locator('#method-stock').selectOption('ABB.ST');
   await page.waitForSelector('#method-results:not([hidden])');
-  await page.locator('.page-nav a').filter({hasText:'Granska nyheter och data',exact:true}).click();
+  await page.locator('.page-nav a').filter({hasText:'Nyheter och data',exact:true}).click();
   await page.waitForFunction(()=>document.querySelector('#review-stock')?.options.length>0);
   assert.equal(await page.locator('#review-stock').inputValue(),'ABB.ST');
   assert.equal(await page.locator('#repository-link').count(),0);
