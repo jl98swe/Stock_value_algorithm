@@ -94,7 +94,7 @@
   }
 
   function stockLink(row) {
-    return `<a class="report-stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}"><strong>${escapeHtml(row.ticker)}</strong><span>${escapeHtml(row.name || row.ticker)}</span></a>`;
+    return `<a class="report-stock-link" href="./index.html?ticker=${encodeURIComponent(row.ticker)}" title="${escapeHtml(row.name || row.ticker)}"><strong>${escapeHtml(row.ticker)}</strong></a>`;
   }
 
   function daysLabel(value) {

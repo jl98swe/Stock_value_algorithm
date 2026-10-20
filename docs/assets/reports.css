@@ -17,3 +17,9 @@
 #recent-reports { scroll-margin-top: 20px; }
 .report-expand { display: flex; justify-content: center; padding: 16px; }
 .report-expand:has(button[hidden]) { display: none; }
+
+/* Compact report tables: explicit two-line headings and ticker-only links. */
+.reports-page .report-table { min-width: 1040px; }
+.reports-page .recent-report-table { min-width: 1270px; }
+.reports-page .report-table th { line-height: 1.5; }
+.reports-page .report-stock-link { min-width: 0; white-space: nowrap; }
