@@ -8,6 +8,7 @@ function setup(request = null, withoutControl = false) {
   const elements = new Map();
   let interval;
   const element = id => {
+    if (/^intraday-(panel|open|daily|note)/.test(id)) return null;
     if (withoutControl && (id === 'intraday-refresh' || id.startsWith('quote-refresh-'))) return null;
     if (!elements.has(id)) elements.set(id, { textContent: '', className: '', hidden: true, listeners: {}, addEventListener(name, fn) { this.listeners[name] = fn; } });
     return elements.get(id);
@@ -41,11 +42,8 @@ test('stock switching restores matching daily price instead of previous stock qu
   await api.refresh();
   api.select('EXAMPLE.ST', daily);
   assert.equal(element('latest-price').textContent, '102 SEK');
-  assert.equal(element('intraday-open').textContent, '100');
-  assert.equal(element('intraday-panel').hidden, false);
   api.select('OTHER.ST', { ...daily, close: 250 });
   assert.equal(element('latest-price').textContent, '250 SEK');
-  assert.equal(element('intraday-panel').hidden, true);
   api.select('EXAMPLE.ST', { ...daily, date: '2026-10-15', close: 103 });
   assert.equal(element('latest-price').textContent, '103 SEK');
   assert.equal(element('stock-date').textContent, daily.dateText);
@@ -130,6 +128,14 @@ test('daily-data refresh is awaited and still runs when the intraday cache fails
 test('the unused manual refresh control and explanatory copy are absent from the homepage', () => {
   const html=fs.readFileSync('docs/index.html','utf8');
   assert.doesNotMatch(html,/id="intraday-refresh"|quote-refresh-controls|quote-refresh-status|Kontrollera senaste data|En kontroll tar vanligen/);
+});
+
+test('the redundant quote panel is absent while intraday updates remain enabled', () => {
+  const html = fs.readFileSync('docs/index.html', 'utf8');
+  const script = fs.readFileSync('docs/assets/intraday.js', 'utf8');
+  assert.doesNotMatch(html, /intraday-panel|intraday-open|intraday-daily|intraday-note|Tillfälliga dagskurser/);
+  assert.doesNotMatch(script, /intraday-panel|intraday-open|intraday-daily|intraday-note/);
+  assert.match(html, /assets\/intraday\.js\?v=20261020-no-panel/);
 });
 
 test('automatic quote and daily refresh still run with no refresh control in the DOM', async () => {

@@ -13,7 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./assets/method.js?v=20261014-3"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
-  <script defer src="./assets/intraday.js?v=20261020-closing"></script>
+  <script defer src="./assets/intraday.js?v=20261020-no-panel"></script>
   <script defer src="./assets/app.js?v=20261017-feedback"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261013-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
@@ -108,11 +108,6 @@
             </div>
           </section>
 
-          <section id="intraday-panel" class="intraday-panel" aria-label="Tillfälliga dagskurser" hidden>
-            <div><span class="muted">Öppningskurs</span><strong id="intraday-open">–</strong><small id="intraday-open-time" class="muted"></small></div>
-            <div><span class="muted">Senaste stängningskurs</span><strong id="intraday-daily">–</strong><small id="intraday-daily-date" class="muted"></small></div>
-            <div class="intraday-detail"><p id="intraday-note" class="muted"></p></div>
-          </section>
 
           <div id="lock-alert" class="lock-alert" hidden>
             <div class="lock-icon" aria-hidden="true">!</div>

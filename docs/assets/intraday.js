@@ -59,7 +59,6 @@
     el('price-change').textContent = daily.changeText;
     el('price-change').className = daily.changeClass;
     el('stock-date').textContent = daily.dateText;
-    el('intraday-panel').hidden = true;
     notify();
   }
 
@@ -68,21 +67,12 @@
     const item = currentQuote(cache, selection.ticker, selection.daily.date);
     if (!item || item.latest.currency !== selection.daily.currency) { restore(); return; }
     const quote = item.latest;
-    el('intraday-panel').hidden = false;
     el('latest-price').textContent = `${fmt.format(quote.price)} ${quote.currency}`;
     const change = validPrice(selection.daily.close) ? (quote.price / selection.daily.close - 1) * 100 : null;
     el('price-change').textContent = change === null ? '–' :
       `${change > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 }).format(change)} %`;
     el('price-change').className = `change-value ${change >= 0 ? 'positive' : 'negative'}`;
     el('stock-date').textContent = `Senaste avslut ${clock.format(new Date(quote.as_of))} · ${quote.source} · ${quote.currency}`;
-    el('intraday-open').textContent = validPrice(item.opening?.price) ? fmt.format(item.opening.price) : 'Inväntar avslut';
-    el('intraday-open-time').textContent = item.opening?.as_of ?
-      `${item.opening.source} · ${clock.format(new Date(item.opening.as_of))}` : '';
-    el('intraday-daily').textContent = `${fmt.format(selection.daily.close)} ${quote.currency}`;
-    el('intraday-daily-date').textContent = selection.daily.date;
-    el('intraday-note').textContent = `Hämtad ${clock.format(new Date(cache.generated_at))}. ` +
-      (quote.source === 'Nasdaq' ? 'Nasdaq har minst 15 minuters fördröjning. ' : 'Avanza är huvudkälla; kursen kan vara fördröjd. ') +
-      'Öppningskurs från 09.20. Övriga intradagshämtningar kl. 13.00 och 17.00. Dagskurser hämtas från Yahoo kl. 17.30 och Avanza kl. 18.30. Schemalagda starter kan försenas. Preliminär poäng gäller om aktien stänger på den visade kursen, med senast verifierad EPS. Ordinarie poäng och signaler beräknas efter stängning.';
     notify();
   }
 
