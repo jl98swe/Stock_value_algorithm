@@ -151,7 +151,8 @@ def parse_trades(text: str, instruments: dict, now: datetime) -> dict:
         if price is None or not opening <= at <= min(now, closing):
             continue
         observation = {"price": price, "as_of": at.isoformat(), "source": "Nasdaq",
-                       "delay_minutes": 15, "currency": row["Price currency"]}
+                       "delay_minutes": 15, "currency": row["Price currency"],
+                       "fetched_at": now.isoformat()}
         item = result.setdefault(ticker, {})
         if not item.get("latest") or at > instant(item["latest"]["as_of"]):
             item["latest"] = observation
@@ -169,7 +170,7 @@ def merge_nasdaq(target: dict, incoming: dict) -> None:
         for field, quote in data.items():
             previous = item.get(field)
             if (not previous or (field == "opening" and previous.get("source") != "Nasdaq") or
-                (instant(quote["as_of"]) > instant(previous["as_of"]) if field == "latest"
+                (instant(quote["as_of"]) >= instant(previous["as_of"]) if field == "latest"
                  else instant(quote["as_of"]) < instant(previous["as_of"]))):
                 item[field] = quote
 
@@ -187,7 +188,9 @@ def fetch_nasdaq(client, instruments: dict, now: datetime, need_open: bool) -> t
             response = client.get(NASDAQ_URL + "/trade-report/download", params={
                 "type": "POST_TRADE", "assetClass": "EQUITY", "fileName": name}, timeout=45)
             response.raise_for_status()
-            merge_nasdaq(result, parse_trades(response.content.decode("utf-8-sig"), instruments, now))
+            received = datetime.now(TZ)
+            observed = max(now, received) if received.date() == now.date() else now
+            merge_nasdaq(result, parse_trades(response.content.decode("utf-8-sig"), instruments, observed))
         except (requests.RequestException, ValueError) as error:
             errors.append(f"Nasdaq {name}: {type(error).__name__}")
             if name.endswith(tuple(f"T090{i}" for i in range(5))):
@@ -214,7 +217,7 @@ def parse_avanza(data: dict, instrument: dict, now: datetime) -> dict:
     previous = number(data.get("historicalClosingPrices", {}).get("oneDay"))
     return {"latest": {"price": float(quote["last"]), "as_of": at.isoformat(),
                        "source": "Avanza", "currency": instrument["currency"],
-                       "delayed": not bool(quote.get("isRealTime"))},
+                       "fetched_at": now.isoformat(), "delayed": not bool(quote.get("isRealTime"))},
             "day_high": number(quote.get("highest")), "day_low": number(quote.get("lowest")),
             "previous_close": previous}
 

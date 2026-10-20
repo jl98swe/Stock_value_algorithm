@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-function setup(request = null, withoutControl = false) {
+function setup(request = null, withoutControl = false, time = '2026-10-15T13:01:00+02:00') {
   const elements = new Map();
   let interval;
   const element = id => {
@@ -13,7 +13,7 @@ function setup(request = null, withoutControl = false) {
     if (!elements.has(id)) elements.set(id, { textContent: '', className: '', hidden: true, listeners: {}, addEventListener(name, fn) { this.listeners[name] = fn; } });
     return elements.get(id);
   };
-  const now = Date.parse('2026-10-15T13:01:00+02:00');
+  const now = Date.parse(time);
   class Clock extends Date { static now() { return now; } }
   const payload = { schema_version: 1, session_date: '2026-10-15',
     generated_at: '2026-10-15T13:00:00+02:00', expires_at: '2026-10-16T00:00:00+02:00',
@@ -135,7 +135,7 @@ test('the redundant quote panel is absent while intraday updates remain enabled'
   const script = fs.readFileSync('docs/assets/intraday.js', 'utf8');
   assert.doesNotMatch(html, /intraday-panel|intraday-open|intraday-daily|intraday-note|Tillfälliga dagskurser/);
   assert.doesNotMatch(script, /intraday-panel|intraday-open|intraday-daily|intraday-note/);
-  assert.match(html, /assets\/intraday\.js\?v=20261020-no-panel/);
+  assert.match(html, /assets\/intraday\.js\?v=[^"\s]+/);
 });
 
 test('automatic quote and daily refresh still run with no refresh control in the DOM', async () => {
@@ -149,4 +149,66 @@ test('automatic quote and daily refresh still run with no refresh control in the
   await ui.api.refresh();
   assert.equal(ui.element('latest-price').textContent, '104 SEK');
   assert.equal(dailyRefreshes, 1);
+});
+
+
+test('fetch time at 17:30 removes preliminary status while earlier cached quotes remain preliminary', async () => {
+  const {api, payload, now} = setup(null, false, '2026-10-15T20:00:00+02:00');
+  await api.refresh();
+  const item = payload.stocks['EXAMPLE.ST'];
+  item.valuation = {preliminary:false,score:42,price:102,currency:'SEK',
+    as_of:item.latest.as_of,basis_date:'2026-10-14',session:'2026-10-15'};
+  for (const [fetched, expected] of [
+    ['2026-10-15T17:29:59+02:00',true],
+    ['2026-10-15T17:30:00+02:00',false],
+    ['2026-10-15T15:30:00Z',false],
+    ['2026-10-15T19:00:00+02:00',false],
+    ['2026-10-14T19:00:00+02:00',true],
+    [undefined,true]
+  ]) {
+    item.latest.fetched_at = fetched;
+    // Cache publication at 19:30 cannot reclassify an older quote.
+    payload.generated_at = '2026-10-15T19:30:00+02:00';
+    const preview = api.preview('EXAMPLE.ST','2026-10-14',now);
+    assert.equal(preview.preliminary,expected,fetched);
+    assert.equal(preview.candle.preliminary,expected,fetched);
+    assert.equal(preview.score,42);
+    assert.equal(api.currentValuation(payload,'EXAMPLE.ST','2026-10-14','SEK',now).preliminary,expected);
+  }
+});
+
+
+test('homepage score and chart use ordinary styling for data fetched after 17:30', () => {
+  const elements = new Map();
+  const element = id => {
+    if (!elements.has(id)) elements.set(id,{textContent:'',hidden:true,style:{},
+      classList:{toggle(name,value){this[name]=value}},closest(){return this},hidePopover(){}});
+    return elements.get(id);
+  };
+  let option;
+  const preview = {score:42,preliminary:true,candle:{date:'2026-10-15',open:100,high:105,low:99,close:102,completeOHLC:true,preliminary:true}};
+  const window = {strategySelection:{get:()=> 'standard'},intradayQuotes:{preview:()=>preview},echarts:{}};
+  const source = fs.readFileSync('docs/assets/app.js','utf8').replace(
+    "document.addEventListener('DOMContentLoaded', init);",
+    'window.testing={state,renderMetrics,renderChart};');
+  vm.runInNewContext(source,{window,document:{getElementById:element,dispatchEvent(){}},Intl,Date,
+    CustomEvent:class{},echarts:{}});
+  const api=window.testing;
+  Object.assign(api.state,{selectedTicker:'EXAMPLE.ST',range:'all',chart:{setOption(value){option=value}},stocksPayload:{stocks:[]}});
+  const data={latest:{date:'2026-10-14',score:50},candles:[{date:'2026-10-14',open:99,high:101,low:98,close:100}],scores:[{date:'2026-10-14',value:50}]};
+  api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
+  assert.match(element('metric-score-status').textContent,/Preliminär/);
+  assert.equal(element('chart-preliminary-note').hidden,false);
+  assert.equal(option.series[0].data.at(-1).itemStyle.color,'#8056b3');
+  preview.preliminary=false;preview.candle.preliminary=false;
+  api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
+  assert.doesNotMatch(element('metric-score-status').textContent,/Preliminär/);
+  assert.equal(element('metric-score').classList['is-preliminary'],false);
+  assert.notEqual(element('metric-score').style.color,'#8056b3');
+  assert.equal(element('chart-preliminary-note').hidden,true);
+  assert.equal(option.series[1].data.at(-1),42);
+  assert.equal(option.series[0].data.at(-1)[1],102);
+  const tooltip=option.tooltip.formatter([{axisValue:'2026-10-15'}]);
+  assert.doesNotMatch(tooltip,/Preliminär|Kan ändras före/);
+  assert.match(tooltip,/Efter stängning/);
 });

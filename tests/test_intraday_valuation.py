@@ -73,3 +73,18 @@ def test_report_published_after_quote_is_not_used():
     reports.loc[1,'published_at'] = pd.Timestamp('2026-10-16T10:00:00Z')
     add_preliminary_scores(cache,stocks,now,prices=prices,reports=reports)
     assert cache['stocks']['EXAMPLE.ST']['valuation']['eps_ttm'] == 5.
+
+
+@pytest.mark.parametrize("fetched,expected", [
+    ("2026-10-16T17:29:59+02:00", True),
+    ("2026-10-16T17:30:00+02:00", False),
+    ("2026-10-16T15:30:00Z", False),
+    (None, True),
+])
+def test_valuation_status_uses_successful_quote_fetch_time(fetched, expected):
+    prices, reports, now, stocks, cache = example()
+    now = now.replace(hour=20)
+    cache["generated_at"] = now.isoformat()
+    cache["stocks"]["EXAMPLE.ST"]["latest"]["fetched_at"] = fetched
+    add_preliminary_scores(cache, stocks, now, prices=prices, reports=reports)
+    assert cache["stocks"]["EXAMPLE.ST"]["valuation"]["preliminary"] is expected

@@ -279,3 +279,24 @@ def test_delayed_evening_collection_only_fetches_stocks_missing_daily_close(monk
                        INSTRUMENTS, now, primary=primary)
     assert calls == []
     assert result["collection_state"] == "completed"
+
+
+def test_failed_late_refresh_keeps_the_original_successful_fetch_time(monkeypatch):
+    early = {"latest": {**quote(source="Avanza"), "fetched_at": NOW.isoformat()},
+             "opening": quote("2026-10-15T09:01:00+02:00", 100, "Avanza")}
+    before = q.collect({}, STOCKS, INSTRUMENTS, NOW, primary=lambda *args: early)
+    def failed(*args):
+        raise q.requests.RequestException("synthetic failure")
+    monkeypatch.setattr(q, "fetch_nasdaq", failed)
+    after = q.collect(before, STOCKS, INSTRUMENTS,
+                      q.instant("2026-10-15T20:00:00+02:00"), primary=failed)
+    assert after["stocks"]["EXAMPLE-A.ST"]["latest"]["fetched_at"] == NOW.isoformat()
+
+
+def test_parsed_quotes_record_fetch_time_separately_from_trade_time():
+    now = q.instant("2026-10-15T18:00:00+02:00")
+    item = q.parse_avanza(avanza(), INSTRUMENTS["EXAMPLE-A.ST"], now)
+    assert item["latest"]["fetched_at"] == now.isoformat()
+    assert item["latest"]["as_of"] != item["latest"]["fetched_at"]
+    rows = q.parse_trades(HEADER + trade("10:40:00", 101), INSTRUMENTS, now)
+    assert rows["EXAMPLE-A.ST"]["latest"]["fetched_at"] == now.isoformat()
