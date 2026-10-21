@@ -85,11 +85,12 @@ om den saknas eller misslyckats. Redan hämtade tider och dagar med färdiga
 stängningskurser hoppas över. Försenade försök tillåts även på kvällen samma
 handelsdag, men endast för aktier som ännu saknar dagens publicerade dagskurs.
 Märkningen preliminär styrs av kurskällans avslutstid (`as_of`) och XSTO-kalendern.
-Faktiska avslut under dagens sista fem minuter får ordinarie visning: normalt
-från 17.25, men från 12.55 när kalendern anger stängning 13.00. Hämtningstid
+Faktiska avslut från stängningsauktionens matchningsfönster får ordinarie visning:
+från 17.29.30 på heldagar och från 12.59.30 när kalendern anger stängning 13.00.
+Tidigare avslut visas preliminärt, även om de hämtas efter stängning. Hämtningstid
 eller publiceringstid ändrar inte klassningen. Saknade kalendergränser i äldre
 cache ger försiktigt preliminär visning. Cachen anger sessionens öppning,
-stängning och auktionsstart; inga datumlistor eller 17.30-gränser hårdkodas i webben.
+stängning, auktionsstart och matchningsfönstrets början; inga datumlistor eller 17.30-gränser hårdkodas i webben.
 Dagens publicerade dagsdata ersätter alltid cachevisningen per aktie, även
 innan cachen rensats. Cachen skrivs aldrig direkt till ordinarie prishistorik.
 Reservstarterna använder samma GitHub-schemaläggare;

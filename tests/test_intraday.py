@@ -307,4 +307,5 @@ def test_cache_exports_calendar_session_boundaries(date,close,start):
     result=q.prune({},[],now)
     assert q.instant(result['session_close']).strftime('%H:%M:%S') == close
     assert q.instant(result['closing_auction_start']).strftime('%H:%M:%S') == start
+    assert q.instant(result['closing_match_start']) == q.instant(result['session_close']) - q.timedelta(seconds=30)
     assert result['session_date']==date
