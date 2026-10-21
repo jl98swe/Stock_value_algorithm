@@ -48,10 +48,10 @@
     return `${fmt.format(n)} ${currency}`;
   }
 
-  function pct(value) {
+  function pct(value, signed = true) {
     const n = safeNumber(value);
     if (n === null) return '–';
-    return `${n > 0 ? '+' : ''}${pctFmt.format(n)} %`;
+    return `${signed && n > 0 ? '+' : ''}${pctFmt.format(n)} %`;
   }
 
   function prettyDate(value) {
@@ -276,7 +276,7 @@
 
   function renderTables(data) {
     const rows = window.backtestMetrics.fullHistoryRows(state.dashboard.stocks[state.selectedTicker], state.backtests[state.selectedTicker], state.indexData);
-    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
+    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct, false)}</td></tr>`).join('')}</tbody>`;
     $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
