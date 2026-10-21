@@ -69,11 +69,9 @@ def add_preliminary_scores(payload, stocks, now, *, prices=None, reports=None, m
         if not math.isfinite(value):
             continue
         ma200 = float(trial.Close.iloc[-200:].mean()) if len(trial) >= 200 else None
-        fetched = pd.to_datetime(quote.get("fetched_at"), utc=True, errors="coerce")
-        fetched_local = fetched.tz_convert("Europe/Stockholm") if not pd.isna(fetched) else None
-        preliminary = (fetched_local is None or fetched_local.date() != day.date()
-                       or fetched > pd.Timestamp(now)
-                       or (fetched_local.hour, fetched_local.minute) < (17, 30))
+        # The source's trade timestamp determines status, never retrieval time.
+        quote_local = at.tz_convert("Europe/Stockholm")
+        preliminary = (quote_local.hour, quote_local.minute) < (17, 30)
         item["valuation"] = {"score": round(value, 4), "zone": price_zone(value),
                              "pe_ttm": float(price / eps), "eps_ttm": float(eps),
                              "ma200": ma200, "price": price, "currency": quote["currency"],

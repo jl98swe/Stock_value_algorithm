@@ -28,12 +28,12 @@
   }
 
   function isPreliminary(item, session, now = Date.now()) {
-    // Classify the quote's own successful fetch, never the cache publication.
-    const fetched = Date.parse(item?.latest?.fetched_at);
-    if (!Number.isFinite(fetched) || fetched > now + 60000) return true;
+    // Classify the source's trade timestamp, never retrieval or publication time.
+    const quoted = Date.parse(item?.latest?.as_of);
+    if (!Number.isFinite(quoted) || quoted > now + 60000) return true;
     const parts = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm',
       year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
-      .formatToParts(new Date(fetched));
+      .formatToParts(new Date(quoted));
     const p = Object.fromEntries(parts.map(part => [part.type, part.value]));
     return `${p.year}-${p.month}-${p.day}` !== session || Number(p.hour) * 60 + Number(p.minute) < 17 * 60 + 30;
   }

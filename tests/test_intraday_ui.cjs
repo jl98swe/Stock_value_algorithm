@@ -152,26 +152,26 @@ test('automatic quote and daily refresh still run with no refresh control in the
 });
 
 
-test('fetch time at 17:30 removes preliminary status while earlier cached quotes remain preliminary', async () => {
+test('source trade time at 17:30 determines status even when retrieved late', async () => {
   const {api, payload, now} = setup(null, false, '2026-10-15T20:00:00+02:00');
   await api.refresh();
   const item = payload.stocks['EXAMPLE.ST'];
   item.valuation = {preliminary:false,score:42,price:102,currency:'SEK',
     as_of:item.latest.as_of,basis_date:'2026-10-14',session:'2026-10-15'};
-  for (const [fetched, expected] of [
+  for (const [quoted, expected] of [
     ['2026-10-15T17:29:59+02:00',true],
     ['2026-10-15T17:30:00+02:00',false],
     ['2026-10-15T15:30:00Z',false],
     ['2026-10-15T19:00:00+02:00',false],
-    ['2026-10-14T19:00:00+02:00',true],
-    [undefined,true]
   ]) {
-    item.latest.fetched_at = fetched;
+    item.latest.as_of = quoted;
+    item.latest.fetched_at = '2026-10-15T19:30:00+02:00';
+    item.valuation.as_of = quoted;
     // Cache publication at 19:30 cannot reclassify an older quote.
     payload.generated_at = '2026-10-15T19:30:00+02:00';
     const preview = api.preview('EXAMPLE.ST','2026-10-14',now);
-    assert.equal(preview.preliminary,expected,fetched);
-    assert.equal(preview.candle.preliminary,expected,fetched);
+    assert.equal(preview.preliminary,expected,quoted);
+    assert.equal(preview.candle.preliminary,expected,quoted);
     assert.equal(preview.score,42);
     assert.equal(api.currentValuation(payload,'EXAMPLE.ST','2026-10-14','SEK',now).preliminary,expected);
   }
@@ -233,7 +233,10 @@ test('header keeps trade time only for preliminary quotes', async () => {
   quote.fetched_at = '2026-10-15T17:29:00+02:00';
   ui.api.select('EXAMPLE.ST',daily);
   assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:29/);
-  quote.fetched_at = '2026-10-15T17:30:00+02:00';
+  quote.fetched_at = '2026-10-15T18:00:00+02:00';
+  ui.api.select('EXAMPLE.ST',daily);
+  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:29/);
+  quote.as_of = '2026-10-15T17:30:00+02:00';
   ui.api.select('EXAMPLE.ST',daily);
   assert.equal(ui.element('stock-date').textContent,'Stängning 2026-10-15 · Nasdaq · SEK');
   assert.doesNotMatch(ui.element('quote-refresh-status').textContent,/Senaste avslut/);
