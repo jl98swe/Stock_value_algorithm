@@ -251,7 +251,7 @@ AZA.ST,2025-12-31,2026-01-21,2026-09-19,reportedEPS,3.88,SEK,Yahoo Finance / Rep
 AZA.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,4.699999999999999,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 AZA.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,4.96,SEK,Yahoo Finance / quarterlyDilutedEPS
 AZA.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,4.96,SEK,Yahoo Finance / Reported EPS
-AZA.ST,2026-09-30,2026-10-16,2026-10-19,manualDilutedEPS,4.88,SEK,"Avanza Q3 2026, pp. 8, 16 | https://investors.avanza.se/files/mfn/858cce81-a6df-4132-ab47-c7226728025b/avanza-bank-holding-ab-publ-delarsrapport-januariseptember-2026.pdf"
+AZA.ST,2026-09-30,2026-10-16,2026-10-21,manualDilutedEPS,4.88,SEK,"Avanza Q3 2026, pp. 8, 16 | https://investors.avanza.se/files/mfn/858cce81-a6df-4132-ab47-c7226728025b/avanza-bank-holding-ab-publ-delarsrapport-januariseptember-2026.pdf"
 AZN.ST,2023-09-30,2023-11-09,2026-09-19,reportedEPS,1.73,USD,Yahoo Finance / Reported EPS
 AZN.ST,2024-06-30,2024-07-25,2026-09-19,reportedEPS,1.98,USD,Yahoo Finance / Reported EPS
 AZN.ST,2024-09-30,2024-11-12,2026-09-19,reportedEPS,2.08,USD,Yahoo Finance / Reported EPS
@@ -717,7 +717,7 @@ ERIC-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.27,SEK,Yahoo Finance / qu
 ERIC-B.ST,2026-03-31,2026-04-17,2026-09-19,reportedEPS,1.07,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.22,SEK,Yahoo Finance / quarterlyDilutedEPS
 ERIC-B.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,1.35,SEK,Yahoo Finance / Reported EPS
-ERIC-B.ST,2026-09-30,2026-10-15,2026-10-15,manualDilutedEPS,1.77,SEK,Ericsson Q3 2026 | https://www.ericsson.com/en/press-releases/2026/10/ericsson-reports-third-quarter-results-2026
+ERIC-B.ST,2026-09-30,2026-10-15,2026-10-21,manualDilutedEPS,1.77,SEK,Ericsson Q3 2026 | https://www.ericsson.com/en/press-releases/2026/10/ericsson-reports-third-quarter-results-2026
 ESSITY-B.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,4.9,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2023-12-31,2024-01-25,2026-09-19,reportedEPS,4.54,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,4.33,SEK,Yahoo Finance / Reported EPS
@@ -953,7 +953,7 @@ INDU-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,17.099999999999994,SEK,Yaho
 INDU-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,42.64,SEK,Yahoo Finance / quarterlyDilutedEPS
 INDU-A.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,28.77,SEK,Yahoo Finance / quarterlyDilutedEPS
 INDU-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,57.03,SEK,Yahoo Finance / quarterlyDilutedEPS
-INDU-A.ST,2026-09-30,2026-10-07,2026-10-15,manualDilutedEPS,-3.83,SEK,"Industrivärden Q3 2026, p. 7 | https://storage.mfn.se/a4e075a7-dd35-4ef1-a955-2966a8755971/delarsrapport-9m-2026-sve.pdf"
+INDU-A.ST,2026-09-30,2026-10-07,2026-10-21,manualDilutedEPS,-3.83,SEK,"Industrivärden Q3 2026, p. 7 | https://storage.mfn.se/a4e075a7-dd35-4ef1-a955-2966a8755971/delarsrapport-9m-2026-sve.pdf"
 INTRUM.ST,2023-09-30,2023-10-25,2026-09-19,reportedEPS,-3.41,SEK,Yahoo Finance / Reported EPS
 INTRUM.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,-1.98,SEK,Yahoo Finance / Reported EPS
 INTRUM.ST,2024-06-30,2024-07-18,2026-09-19,reportedEPS,-11.06,SEK,Yahoo Finance / Reported EPS
@@ -977,7 +977,7 @@ INVE-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,19.53,SEK,Yahoo Finance / d
 INVE-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,18.07,SEK,Yahoo Finance / quarterlyDilutedEPS
 INVE-A.ST,2026-03-31,,2026-08-31,quarterlyDilutedEPS,9.829999999999998,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 INVE-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,38.26,SEK,Yahoo Finance / quarterlyDilutedEPS
-INVE-A.ST,2026-09-30,2026-10-16,2026-10-19,manualDilutedEPS,3.89,SEK,"Investor Q3 2026, p. 23 | https://www.investorab.com/media/lqmkx2d5/interim-management-statement-january-september-2026.pdf"
+INVE-A.ST,2026-09-30,2026-10-16,2026-10-21,manualDilutedEPS,3.89,SEK,"Investor Q3 2026, p. 23 | https://www.investorab.com/media/lqmkx2d5/interim-management-statement-january-september-2026.pdf"
 INWI.ST,2023-09-30,2023-10-24,2026-09-19,reportedEPS,3.16,SEK,Yahoo Finance / Reported EPS
 INWI.ST,2024-03-31,2024-04-23,2026-09-19,reportedEPS,0.57,SEK,Yahoo Finance / Reported EPS
 INWI.ST,2024-09-30,2024-10-22,2026-09-19,reportedEPS,3.22,SEK,Yahoo Finance / Reported EPS
@@ -1081,7 +1081,7 @@ LIME.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.27,SEK,Yahoo Finance / quar
 LIME.ST,2026-03-31,2026-04-21,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
 LIME.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.39,SEK,Yahoo Finance / quarterlyDilutedEPS
 LIME.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,2.39,SEK,Yahoo Finance / Reported EPS
-LIME.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,2.14,SEK,"Lime Q3 2026, pp. 3, 11 | https://via.tt.se/ir-files/3236251/4604393/7445/Lime%20Q3%202026.pdf"
+LIME.ST,2026-09-30,2026-10-20,2026-10-21,manualDilutedEPS,2.14,SEK,"Lime Q3 2026, pp. 3, 11 | https://via.tt.se/ir-files/3236251/4604393/7445/Lime%20Q3%202026.pdf"
 LOOMIS.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,5.95,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2023-12-31,2024-01-31,2026-09-19,reportedEPS,5.5,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2024-03-31,2024-05-06,2026-09-19,reportedEPS,5.17,SEK,Yahoo Finance / Reported EPS
@@ -1696,7 +1696,7 @@ TEL2-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,9.16,SEK,Yahoo Finance / qu
 TEL2-B.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
 TEL2-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 TEL2-B.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,1.82,SEK,Yahoo Finance / Reported EPS
-TEL2-B.ST,2026-09-30,2026-10-20,2026-10-20,manualDilutedEPS,2.02,SEK,"Tele2 Q3 2026, pp. 2, 17 | https://www.tele2.com/files/Public/3372/4411972/interim-report-q3-2026.pdf"
+TEL2-B.ST,2026-09-30,2026-10-20,2026-10-21,manualDilutedEPS,2.02,SEK,"Tele2 Q3 2026, pp. 2, 17 | https://www.tele2.com/files/Public/3372/4411972/interim-report-q3-2026.pdf"
 THULE.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2024-03-31,2024-04-26,2026-09-19,reportedEPS,2.83,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2024-06-30,2024-07-17,2026-09-19,reportedEPS,5.28,SEK,Yahoo Finance / Reported EPS
