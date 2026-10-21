@@ -70,8 +70,8 @@ def add_preliminary_scores(payload, stocks, now, *, prices=None, reports=None, m
             continue
         ma200 = float(trial.Close.iloc[-200:].mean()) if len(trial) >= 200 else None
         # The source's trade timestamp determines status, never retrieval time.
-        quote_local = at.tz_convert("Europe/Stockholm")
-        preliminary = (quote_local.hour, quote_local.minute) < (17, 30)
+        auction_start = calendar.session_close(day) - pd.Timedelta(minutes=5)
+        preliminary = at < auction_start or at > calendar.session_close(day)
         item["valuation"] = {"score": round(value, 4), "zone": price_zone(value),
                              "pe_ttm": float(price / eps), "eps_ttm": float(eps),
                              "ma200": ma200, "price": price, "currency": quote["currency"],
