@@ -76,6 +76,7 @@ def test_manual_period_eps_derives_new_ttm() -> None:
         current_period_eps=0.68,
         quarterly_frame=_quarterly_rows(),
         earnings_frame=_earnings_rows(),
+        reports_frame=pd.DataFrame(),
     )
 
     assert result["eps_ttm"] == pytest.approx(2.76)
@@ -97,6 +98,7 @@ def test_reported_eps_alone_is_not_accepted_as_diluted_component() -> None:
             current_period_eps=0.68,
             quarterly_frame=reported_only,
             earnings_frame=_earnings_rows(),
+            reports_frame=pd.DataFrame(),
         )
 
 
@@ -108,6 +110,7 @@ def test_derivation_stops_on_currency_conflict() -> None:
             current_period_eps=0.68,
             quarterly_frame=_quarterly_rows(),
             earnings_frame=_earnings_rows(currency="SEK"),
+            reports_frame=pd.DataFrame(),
         )
 
 
@@ -119,4 +122,73 @@ def test_derivation_stops_when_prior_year_period_is_missing() -> None:
             current_period_eps=0.70,
             quarterly_frame=_quarterly_rows(),
             earnings_frame=_earnings_rows(),
+            reports_frame=pd.DataFrame(),
         )
+
+
+def _manual_ttm(value: float = 2.70, currency: str = "USD", *, verified=True,
+                period: str = "2026-03-31") -> pd.DataFrame:
+    return pd.DataFrame([dict(
+        ticker="ABB.ST", period_end=period, report_period="2026-Q1",
+        effective_date="2026-04-23", eps_ttm=value,
+        source="TradingView / EARNINGS_PER_SHARE_DILUTED TTM",
+        verified=verified, verified_at="2026-04-24T00:00:00Z",
+        notes=f"tradingview_eps_manual_override_v1; report_currency={currency}",
+    )])
+
+
+def test_verified_tv_base_beats_later_yahoo_observation() -> None:
+    yahoo = _earnings_rows()
+    yahoo["observed_date"] = "2026-05-20"
+    result = derive_manual_eps_ttm_safe(
+        ticker="ABB.ST", period_end="2026-06-30", current_period_eps=.68,
+        quarterly_frame=_quarterly_rows(), earnings_frame=yahoo,
+        reports_frame=_manual_ttm(),
+    )
+    assert result["eps_ttm"] == pytest.approx(2.74)
+    assert result["previous_ttm"] == 2.70
+    assert result["previous_ttm_kind"] == "manual_tradingview"
+    assert "previous_ttm_source=TradingView" in result["audit_note"]
+
+
+def test_verified_tv_base_works_without_yahoo() -> None:
+    result = derive_manual_eps_ttm_safe(
+        ticker="ABB.ST", period_end="2026-06-30", current_period_eps=.68,
+        quarterly_frame=_quarterly_rows(), earnings_frame=pd.DataFrame(),
+        reports_frame=_manual_ttm(),
+    )
+    assert result["eps_ttm"] == pytest.approx(2.74)
+
+
+@pytest.mark.parametrize("manual", [
+    _manual_ttm(verified=False),
+    _manual_ttm(period="2025-12-31"),
+    _manual_ttm(period="2026-06-30"),
+])
+def test_unverified_older_or_current_period_tv_does_not_replace_previous_quarter(manual) -> None:
+    result = derive_manual_eps_ttm_safe(
+        ticker="ABB.ST", period_end="2026-06-30", current_period_eps=.68,
+        quarterly_frame=_quarterly_rows(), earnings_frame=_earnings_rows(),
+        reports_frame=manual,
+    )
+    assert result["eps_ttm"] == pytest.approx(2.76)
+    assert result["previous_ttm_kind"] == "yahoo_trailing_diluted"
+
+
+def test_tv_currency_conflict_stops_instead_of_silently_falling_back_to_yahoo() -> None:
+    with pytest.raises(ValueError, match="Valutakonflikt"):
+        derive_manual_eps_ttm_safe(
+            ticker="ABB.ST", period_end="2026-06-30", current_period_eps=.68,
+            quarterly_frame=_quarterly_rows(), earnings_frame=_earnings_rows(),
+            reports_frame=_manual_ttm(currency="SEK"),
+        )
+
+
+def test_legacy_entry_point_obeys_tv_priority_and_diluted_metric() -> None:
+    from src.quarterly_eps import derive_manual_eps_ttm
+    result = derive_manual_eps_ttm(
+        ticker="ABB.ST", period_end="2026-06-30", current_quarter_eps=.68,
+        quarterly_frame=_quarterly_rows(), earnings_frame=_earnings_rows(),
+        reports_frame=_manual_ttm(),
+    )
+    assert result["eps_ttm"] == pytest.approx(2.74)

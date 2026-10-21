@@ -49,3 +49,18 @@ Full pipeline körd utan ny marknadsdatahämtning, dashboard begränsad från 20
 Rapportstatus kontrollerad för 21 oktober: missing_data är tom och has_missing_report_data är false. Ny EPS TTM visas för alla tio aktier i rapportsidans webbdata. EQT:s redogörelse utan EPS ligger separat och tidigare TTM behålls.
 
 Publicering sker genom befintligt EPS-workflow på main, som bygger om och validerar webbdata innan det sparar resultatet. Övriga samtidiga ändringar på main bevaras.
+
+## Korrigering: manuell TradingView-bas prioriteras
+
+Användaren förtydligade efter genomgången att manuella TV-värden alltid ska prioriteras över Yahoo. Den tidigare Yahoo-baserade härledningen ovan är därför ersatt för Dynavox och Handelsbanken. Kvartalskomponenterna, rapportdatumen, valutan SEK och tidigare Q2-värden är oförändrade.
+
+| Aktie | Manuell TV-bas Q2 | Q3 2026 | Q3 2025 | Korrigerad TTM | Ersätter |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DYVOX.ST | 2,1177 | 0,8300 | 0,3500 | 2,5977 | 2,6000 |
+| SHB-A.ST | 11,8696 | 2,8700 | 3,0000 | 11,7396 | 11,7000 |
+
+Derivationsmotorn väljer för den senaste föregående rapportperioden verifierad manuell TradingView TTM före övrig manuellt verifierad rapport-TTM och därefter Yahoo. Även den äldre derivationsingången använder nu samma prioritering och kräver diluted kvartalskomponenter. Källvalet sparas i audit trail. Saknad valuta eller valutakonflikt hos det prioriterade värdet stoppar beräkningen; Yahoo används inte för att kringgå kontrollen. Yahoo-synkens befintliga skydd för manuella kanoniska rapportposter behålls.
+
+De gamla inmatningarna finns kvar i auditloggen och ersätts av nya korrigeringsposter; aktuell kanonisk rapport och rapportkontroll innehåller de korrigerade talen. Kontrollen visar att endast de två angivna Q3-rapporterna har ändrats.
+
+Validering av korrigeringen: 299 Python-tester passerade, inklusive sju nya testfall för TV-prioritet, Yahoo-reservväg, periodurval, valutakonflikt och den äldre derivationsingången.

@@ -5,6 +5,7 @@ import math
 import pandas as pd
 
 from .earnings import EPS_SOURCE, load_earnings_history
+from .fundamentals import verified_reports
 from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
 
 DERIVED_MANUAL_MARKER = "manual_quarterly_eps_derived_v1"
@@ -79,6 +80,7 @@ def derive_manual_eps_ttm_safe(
     current_period_eps: float,
     quarterly_frame: pd.DataFrame | None = None,
     earnings_frame: pd.DataFrame | None = None,
+    reports_frame: pd.DataFrame | None = None,
 ) -> dict[str, object]:
     period = pd.to_datetime(period_end, errors="coerce")
     if pd.isna(period):
@@ -105,20 +107,51 @@ def derive_manual_eps_ttm_safe(
         & earnings["eps_ttm"].notna()
         & earnings["eps_currency"].str.len().gt(0)
     ].copy()
+    subset["base_priority"] = 2
+    subset["base_kind"] = "yahoo_trailing_diluted"
+
+    # Canonical manual values are the valuation source of truth. Prefer them
+    # over even a later Yahoo observation of the same reporting period.
+    reports = verified_reports(reports_frame)
+    tv = reports["source"].str.startswith("TradingView") | reports["notes"].str.contains(
+        "tradingview_eps_manual_override_v1", regex=False
+    )
+    manual = tv | reports["notes"].str.contains("manual_report_submission_v1", regex=False)
+    canonical = reports.loc[
+        reports["ticker"].eq(str(ticker).strip()) & manual
+        & reports["period_end"].notna() & reports["period_end"].lt(period)
+    ].copy()
+    canonical["eps_currency"] = canonical["notes"].str.extract(
+        r"(?:^|;\s*)report_currency=([A-Za-z]{3})(?:;|$)", expand=False
+    ).fillna("").str.upper()
+    canonical["observed_date"] = pd.to_datetime(
+        canonical["verified_at"], errors="coerce", utc=True
+    ).dt.tz_localize(None)
+    canonical["base_priority"] = tv.loc[canonical.index].map({True: 0, False: 1})
+    canonical["base_kind"] = tv.loc[canonical.index].map(
+        {True: "manual_tradingview", False: "manual_report"}
+    )
+    if not canonical.empty:
+        subset = canonical if subset.empty else pd.concat([subset, canonical], ignore_index=True)
     if subset.empty:
         raise ValueError(
-            f"Saknar föregående Yahoo trailingDilutedEPS för {ticker}; kan inte härleda ny TTM säkert."
+            f"Saknar föregående verifierad EPS TTM eller Yahoo trailingDilutedEPS för {ticker}; "
+            "kan inte härleda ny TTM säkert."
         )
 
-    previous = subset.sort_values(["period_end", "observed_date"]).iloc[-1]
+    previous = subset.sort_values(
+        ["period_end", "base_priority", "observed_date"], ascending=[False, True, False]
+    ).iloc[0]
     gap_days = int((period - pd.Timestamp(previous["period_end"]).normalize()).days)
     if gap_days <= 0 or gap_days > MAX_PREVIOUS_PERIOD_GAP_DAYS:
         raise ValueError(
-            f"Föregående Yahoo TTM-period för {ticker} ligger {gap_days} dagar från nya perioden; "
+            f"Föregående TTM-period för {ticker} ligger {gap_days} dagar från nya perioden; "
             "automatisk härledning stoppas."
         )
 
     previous_currency = str(previous["eps_currency"] or "").strip().upper()
+    if not previous_currency:
+        raise ValueError(f"Saknar EPS-valuta för prioriterad TTM-bas för {ticker}; TTM härleds inte.")
     prior_currency = str(prior["eps_currency"] or "").strip().upper()
     if prior_currency and previous_currency and prior_currency != previous_currency:
         raise ValueError(
@@ -137,6 +170,7 @@ def derive_manual_eps_ttm_safe(
 
     audit_note = (
         f"{DERIVED_MANUAL_MARKER}; previous_ttm={previous_ttm:.12g}; "
+        f"previous_ttm_kind={previous['base_kind']}; previous_ttm_source={previous['source']}; "
         f"previous_period_end={pd.Timestamp(previous['period_end']).date().isoformat()}; "
         f"current_period_eps={current_eps:.12g}; prior_year_eps={prior_eps:.12g}; "
         f"prior_year_period_end={pd.Timestamp(prior['period_end']).date().isoformat()}; "
@@ -146,6 +180,8 @@ def derive_manual_eps_ttm_safe(
         "eps_ttm": float(derived_ttm),
         "eps_currency": currency,
         "previous_ttm": previous_ttm,
+        "previous_ttm_kind": str(previous["base_kind"]),
+        "previous_ttm_source": str(previous["source"]),
         "previous_period_end": pd.Timestamp(previous["period_end"]).normalize(),
         "prior_year_eps": prior_eps,
         "prior_year_period_end": pd.Timestamp(prior["period_end"]).normalize(),
