@@ -75,16 +75,18 @@ def test_report_published_after_quote_is_not_used():
     assert cache['stocks']['EXAMPLE.ST']['valuation']['eps_ttm'] == 5.
 
 
-@pytest.mark.parametrize("fetched,expected", [
+@pytest.mark.parametrize("quoted,expected", [
     ("2026-10-16T17:29:59+02:00", True),
     ("2026-10-16T17:30:00+02:00", False),
     ("2026-10-16T15:30:00Z", False),
-    (None, True),
+    ("2026-10-16T11:10:00+02:00", True),
 ])
-def test_valuation_status_uses_successful_quote_fetch_time(fetched, expected):
+def test_valuation_status_uses_source_trade_time_even_when_fetched_late(quoted, expected):
     prices, reports, now, stocks, cache = example()
     now = now.replace(hour=20)
     cache["generated_at"] = now.isoformat()
-    cache["stocks"]["EXAMPLE.ST"]["latest"]["fetched_at"] = fetched
+    quote = cache["stocks"]["EXAMPLE.ST"]["latest"]
+    quote["fetched_at"] = now.isoformat()
+    quote["as_of"] = quoted
     add_preliminary_scores(cache, stocks, now, prices=prices, reports=reports)
     assert cache["stocks"]["EXAMPLE.ST"]["valuation"]["preliminary"] is expected
