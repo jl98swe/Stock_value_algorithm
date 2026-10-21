@@ -14,6 +14,9 @@ on:
   schedule:
     - cron: "30 17 * * 1-5"
       timezone: "Europe/Stockholm"
+    # Only collects on early-close sessions; full days return not_due.
+    - cron: "15 13 * * 1-5"
+      timezone: "Europe/Stockholm"
   workflow_dispatch:
     inputs:
       source:
@@ -52,7 +55,7 @@ jobs:
         id: prices
         env:
           PRICE_SOURCE: ${{ inputs.source || 'Yahoo' }}
-          PLANNED_TIME: ${{ inputs.planned || '17:30' }}
+          PLANNED_TIME: ${{ inputs.planned || (github.event.schedule == '15 13 * * 1-5' && '13:15') || '17:30' }}
         run: python -m src.closing_prices collect --source "$PRICE_SOURCE" --planned "$PLANNED_TIME"
       - uses: actions/upload-artifact@v4
         if: always()

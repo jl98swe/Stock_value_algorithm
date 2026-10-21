@@ -7,7 +7,9 @@ Dagligt uppdaterad värderings- och signalpipeline för svenska aktier. Webbgrä
 Två GitHub Actions schemaläggs på vardagar i Europe/Stockholm:
 `Daglig marknadsuppdatering` kl. 17:30 med Yahoo Finance och
 `Dagskurser 18.30 · Avanza` kl. 18:30 med Avanza. Börskalendern stoppar
-insamling på helgdagar och före dagens stängning. Båda använder samma pipeline:
+insamling på helgdagar och före dagens stängning. På halvdagar görs också
+försök med Yahoo kl. 13:15 och Avanza kl. 14:00; de tidiga försöken hoppar över
+heldagar. Kvällskörningarna finns kvar som efterkontroll. Båda använder samma pipeline:
 
 1. hämtar dagens OHLC-priser och tillgänglig volym från sin egen källa,
 2. kombinerar den frysta prisbasen med löpande uppdateringar,
@@ -82,12 +84,14 @@ kontrollerar den gemensamma cachen och försöker hämta senaste förfallna tid
 om den saknas eller misslyckats. Redan hämtade tider och dagar med färdiga
 stängningskurser hoppas över. Försenade försök tillåts även på kvällen samma
 handelsdag, men endast för aktier som ännu saknar dagens publicerade dagskurs.
-Märkningen preliminär styrs av kurskällans avslutstid (`as_of`): före 17.30
-svensk tid är kurs och poäng preliminära, från 17.30 tas märkningen bort.
-Hämtningstid (`fetched_at`) och publiceringstid ändrar aldrig klassningen.
-Ett avslut före 17.30 förblir alltså preliminärt även om det hämtas sent på kvällen.
-Denna visningsregel bevisar inte att kursen är börsens officiella stängningskurs;
-ordinarie dagsdata hämtas separat och intradagscachen skrivs inte till prishistoriken.
+Märkningen preliminär styrs av kurskällans avslutstid (`as_of`) och XSTO-kalendern.
+Faktiska avslut under dagens sista fem minuter får ordinarie visning: normalt
+från 17.25, men från 12.55 när kalendern anger stängning 13.00. Hämtningstid
+eller publiceringstid ändrar inte klassningen. Saknade kalendergränser i äldre
+cache ger försiktigt preliminär visning. Cachen anger sessionens öppning,
+stängning och auktionsstart; inga datumlistor eller 17.30-gränser hårdkodas i webben.
+Dagens publicerade dagsdata ersätter alltid cachevisningen per aktie, även
+innan cachen rensats. Cachen skrivs aldrig direkt till ordinarie prishistorik.
 Reservstarterna använder samma GitHub-schemaläggare;
 de ger ingen garanti för starttid. Faktisk start och kurstid kan bli senare.
 XSTO-kalendern hanterar helgdagar, halvdagar och sommar-/vintertid.

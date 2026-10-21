@@ -107,9 +107,9 @@ def test_daily_workflows_have_independent_collection_and_only_serialize_publicat
     assert "concurrency" not in w["jobs"]["collect"]
     assert w["jobs"]["update"]["needs"] == "collect"
     assert w["jobs"]["update"]["concurrency"]["group"] == "stock-data-${{ github.ref }}"
-    assert w.get("on",w.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}]
+    assert w.get("on",w.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"15 13 * * 1-5","timezone":"Europe/Stockholm"}]
     a=yaml.safe_load((root/"avanza_closing.yml").read_text())
-    assert a.get("on",a.get(True))["schedule"] == [{"cron":"30 18 * * 1-5","timezone":"Europe/Stockholm"}]
+    assert a.get("on",a.get(True))["schedule"] == [{"cron":"30 18 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"0 14 * * 1-5","timezone":"Europe/Stockholm"}]
     assert a["jobs"]["daily"]["with"]["source"] == "Avanza"
 
 
@@ -134,3 +134,18 @@ def test_avanza_daily_bar_uses_real_ohlc_and_does_not_invent_missing_volume(monk
     result=closing.fetch_avanza_daily(instrument,now)
     assert [result[k] for k in ["open","high","low","close"]] == [100.,110.,95.,105.]
     assert result["volume"] is None
+
+@pytest.mark.parametrize('date,time,expected', [('2026-04-02','12:59:59',False),('2026-04-02','13:15:00',True),('2026-04-02','14:00:00',True),('2026-04-01','13:15:00',False),('2026-04-01','20:00:00',False),('2026-04-03','14:00:00',False)])
+@pytest.mark.parametrize('source', ['Yahoo','Avanza'])
+def test_calendar_controls_early_closing_collection(date,time,expected,source):
+    calls=[]
+    def yahoo(*a,**k):
+        calls.append(source)
+        return pd.DataFrame([{**row(),'date':date}])
+    def avanza(*a):
+        calls.append(source)
+        return row()
+    result=collect(source,'13:15',now=datetime.fromisoformat(date+'T'+time+'+02:00'),stocks=STOCKS,
+                   instruments={'EXAMPLE.ST':{}},yahoo=yahoo,avanza=avanza)
+    assert bool(calls) is expected
+    assert bool(result['rows']) is expected

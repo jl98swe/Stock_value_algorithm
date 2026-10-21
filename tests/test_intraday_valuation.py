@@ -14,8 +14,8 @@ from src.model_data import ensure_gbm_model
 from src.valuation import GBMModel, calculate_valuation
 
 
-def example(eps=5.):
-    day = pd.Timestamp('2026-10-16')
+def example(eps=5., date='2026-10-16'):
+    day = pd.Timestamp(date)
     dates = xcals.get_calendar('XSTO').sessions
     dates = dates.tz_localize(None) if dates.tz is not None else dates
     dates = dates[dates < day][-240:]
@@ -27,10 +27,10 @@ def example(eps=5.):
         {'ticker':'EXAMPLE.ST','period_end':'2026-09-30','report_period':'2026-Q3',
          'effective_date':'2026-10-16','published_at':'2026-10-16T07:00:00+02:00','eps_ttm':eps * 1.2,'verified':True},
     ]))
-    now = datetime(2026,10,16,11,30,tzinfo=ZoneInfo('Europe/Stockholm'))
-    stocks = [{'ticker':'EXAMPLE.ST','latest_date':'2026-10-15','currency':'SEK'}]
-    cache = {'session_date':'2026-10-16','stocks':{'EXAMPLE.ST':{'latest':{
-        'price':110.,'as_of':'2026-10-16T11:10:00+02:00','currency':'SEK'}}}}
+    now = datetime.fromisoformat(date+'T11:30:00').replace(tzinfo=ZoneInfo('Europe/Stockholm'))
+    stocks = [{'ticker':'EXAMPLE.ST','latest_date':dates[-1].date().isoformat(),'currency':'SEK'}]
+    cache = {'session_date':date,'stocks':{'EXAMPLE.ST':{'latest':{
+        'price':110.,'as_of':now.replace(minute=10).isoformat(),'currency':'SEK'}}}}
     return prices, reports, now, stocks, cache
 
 
@@ -76,7 +76,8 @@ def test_report_published_after_quote_is_not_used():
 
 
 @pytest.mark.parametrize("quoted,expected", [
-    ("2026-10-16T17:29:59+02:00", True),
+    ("2026-10-16T17:24:59+02:00", True),
+    ("2026-10-16T17:29:43+02:00", False),
     ("2026-10-16T17:30:00+02:00", False),
     ("2026-10-16T15:30:00Z", False),
     ("2026-10-16T11:10:00+02:00", True),
@@ -90,3 +91,11 @@ def test_valuation_status_uses_source_trade_time_even_when_fetched_late(quoted, 
     quote["as_of"] = quoted
     add_preliminary_scores(cache, stocks, now, prices=prices, reports=reports)
     assert cache["stocks"]["EXAMPLE.ST"]["valuation"]["preliminary"] is expected
+
+@pytest.mark.parametrize('quoted,expected', [('12:54:59',True),('12:55:00',False),('12:59:43',False),('13:00:00',False)])
+def test_half_day_valuation_uses_actual_calendar_close(quoted,expected):
+    prices,reports,now,stocks,cache=example(date='2026-04-02')
+    now=now.replace(hour=18)
+    cache['stocks']['EXAMPLE.ST']['latest'].update(as_of='2026-04-02T'+quoted+'+02:00',fetched_at=now.isoformat())
+    add_preliminary_scores(cache,stocks,now,prices=prices,reports=reports)
+    assert cache['stocks']['EXAMPLE.ST']['valuation']['preliminary'] is expected

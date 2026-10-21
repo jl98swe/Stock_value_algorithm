@@ -16,6 +16,7 @@ function setup(request = null, withoutControl = false, time = '2026-10-15T13:01:
   const now = Date.parse(time);
   class Clock extends Date { static now() { return now; } }
   const payload = { schema_version: 1, session_date: '2026-10-15',
+    closing_auction_start: '2026-10-15T17:25:00+02:00', session_close: '2026-10-15T17:30:00+02:00',
     generated_at: '2026-10-15T13:00:00+02:00', expires_at: '2026-10-16T00:00:00+02:00',
     stocks: { 'EXAMPLE.ST': { latest: { price: 102, currency: 'SEK', source: 'Nasdaq', as_of: '2026-10-15T12:44:00+02:00' },
       opening: { price: 100, source: 'Nasdaq', as_of: '2026-10-15T09:00:30+02:00' } } } };
@@ -152,17 +153,19 @@ test('automatic quote and daily refresh still run with no refresh control in the
 });
 
 
-test('source trade time at 17:30 determines status even when retrieved late', async () => {
+test('source trade time and calendar auction determine status even when retrieved late', async () => {
   const {api, payload, now} = setup(null, false, '2026-10-15T20:00:00+02:00');
   await api.refresh();
   const item = payload.stocks['EXAMPLE.ST'];
   item.valuation = {preliminary:false,score:42,price:102,currency:'SEK',
     as_of:item.latest.as_of,basis_date:'2026-10-14',session:'2026-10-15'};
   for (const [quoted, expected] of [
-    ['2026-10-15T17:29:59+02:00',true],
+    ['2026-10-15T17:24:59+02:00',true],
+    ['2026-10-15T17:25:00+02:00',false],
+    ['2026-10-15T17:29:43+02:00',false],
     ['2026-10-15T17:30:00+02:00',false],
     ['2026-10-15T15:30:00Z',false],
-    ['2026-10-15T19:00:00+02:00',false],
+    ['2026-10-15T19:00:00+02:00',true],
   ]) {
     item.latest.as_of = quoted;
     item.latest.fetched_at = '2026-10-15T19:30:00+02:00';
@@ -229,16 +232,33 @@ test('header keeps trade time only for preliminary quotes', async () => {
   await ui.api.refresh();
   const daily = {date:'2026-10-14',close:100,currency:'SEK'};
   const quote = ui.payload.stocks['EXAMPLE.ST'].latest;
-  quote.as_of = '2026-10-15T17:29:00+02:00';
+  quote.as_of = '2026-10-15T17:24:00+02:00';
   quote.fetched_at = '2026-10-15T17:29:00+02:00';
   ui.api.select('EXAMPLE.ST',daily);
-  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:29/);
+  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:24/);
   quote.fetched_at = '2026-10-15T18:00:00+02:00';
   ui.api.select('EXAMPLE.ST',daily);
-  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:29/);
+  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:24/);
   quote.as_of = '2026-10-15T17:30:00+02:00';
   ui.api.select('EXAMPLE.ST',daily);
   assert.equal(ui.element('stock-date').textContent,'Stängning 2026-10-15 · Nasdaq · SEK');
   assert.doesNotMatch(ui.element('quote-refresh-status').textContent,/Senaste avslut/);
   assert.equal(ui.api.preview('EXAMPLE.ST',daily.date).as_of,quote.as_of);
+});
+
+// Synthetic half-day: source time, not late retrieval, determines status.
+test('half-day auction uses 12:55 while daily prices always replace cached quotes', async () => {
+  const {api,payload} = setup(null,false,'2026-10-15T18:00:00+02:00');
+  payload.closing_auction_start='2026-10-15T12:55:00+02:00';
+  payload.session_close='2026-10-15T13:00:00+02:00';
+  const q=payload.stocks['EXAMPLE.ST'].latest;
+  q.fetched_at='2026-10-15T17:00:00+02:00';
+  await api.refresh();
+  q.as_of='2026-10-15T12:54:59+02:00';
+  assert.equal(api.preview('EXAMPLE.ST','2026-10-14').preliminary,true);
+  q.as_of='2026-10-15T12:59:43+02:00';
+  assert.equal(api.preview('EXAMPLE.ST','2026-10-14').preliminary,false);
+  assert.equal(api.preview('EXAMPLE.ST','2026-10-15'),null);
+  delete payload.session_close;
+  assert.equal(api.preview('EXAMPLE.ST','2026-10-14').preliminary,true);
 });

@@ -300,3 +300,11 @@ def test_parsed_quotes_record_fetch_time_separately_from_trade_time():
     assert item["latest"]["as_of"] != item["latest"]["fetched_at"]
     rows = q.parse_trades(HEADER + trade("10:40:00", 101), INSTRUMENTS, now)
     assert rows["EXAMPLE-A.ST"]["latest"]["fetched_at"] == now.isoformat()
+
+@pytest.mark.parametrize('date,close,start', [('2026-04-02','13:00:00','12:55:00'),('2026-10-15','17:30:00','17:25:00'),('2026-01-07','17:30:00','17:25:00')])
+def test_cache_exports_calendar_session_boundaries(date,close,start):
+    now=q.instant(date+'T18:00:00'+ ('+01:00' if date.startswith('2026-01') else '+02:00'))
+    result=q.prune({},[],now)
+    assert q.instant(result['session_close']).strftime('%H:%M:%S') == close
+    assert q.instant(result['closing_auction_start']).strftime('%H:%M:%S') == start
+    assert result['session_date']==date
