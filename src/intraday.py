@@ -81,11 +81,12 @@ def prune(cache: dict, stocks: list[dict], now: datetime) -> dict:
                   expires_at=(now.replace(hour=0, minute=0, second=0, microsecond=0)
                               + timedelta(days=1)).isoformat(), schedule=list(SLOTS))
     bounds = session_bounds(now)
-    for key in ("session_open", "session_close", "closing_auction_start"):
+    for key in ("session_open", "session_close", "closing_auction_start", "closing_match_start"):
         output.pop(key, None)
     if bounds:
         output.update(session_open=bounds[0].isoformat(), session_close=bounds[1].isoformat(),
-                      closing_auction_start=(bounds[1] - timedelta(minutes=5)).isoformat())
+                      closing_auction_start=(bounds[1] - timedelta(minutes=5)).isoformat(),
+                      closing_match_start=(bounds[1] - timedelta(seconds=30)).isoformat())
     active = {s["ticker"]: s for s in stocks if s.get("active_for_updates", True)}
     output["stocks"] = {
         ticker: row for ticker, row in output.get("stocks", {}).items()
