@@ -272,7 +272,7 @@
 
   function renderTables(data) {
     const rows = window.backtestMetrics.fullHistoryRows(state.dashboard.stocks[state.selectedTicker], state.backtests[state.selectedTicker], state.indexData);
-    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
+    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct)}</td></tr>`).join('')}</tbody>`;
     $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
@@ -428,7 +428,6 @@
           name: 'Score', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#2f6fb0' },
           areaStyle: { color: 'rgba(47,111,176,.05)' },
           markArea: { silent: true, data: [[{ yAxis: 0, itemStyle: { color: 'rgba(31,143,103,.10)' } }, { yAxis: 25 }], [{ yAxis: 75, itemStyle: { color: 'rgba(199,71,71,.10)' } }, { yAxis: 100 }]] },
-          markLine: { silent: true, symbol: ['none','none'], label: { show: true, position: 'insideEndTop', fontSize: 9 }, lineStyle: { type: 'dashed', width: 1 }, data: [{ yAxis: 1, name: 'Köp 1', lineStyle: { color: '#1f8f67' } }, { yAxis: 99, name: 'Sälj 99', lineStyle: { color: '#c74747' } }] }
         },
         { name: preview?.preliminary === false ? 'Senaste kurs' : 'Preliminär kurs', type: 'scatter', data: dates.map(d => d === preview?.candle.date && !preview.candle.completeOHLC ? preview.candle.close : null),
           symbol: 'emptyCircle', symbolSize: 10, itemStyle: { color: preview?.preliminary === false ? '#2f6fb0' : '#8056b3', borderWidth: 2 }, z: 6 },
