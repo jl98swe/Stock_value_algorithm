@@ -27,15 +27,16 @@
     return quoteDay === payload.session_date ? item : null;
   }
 
-  function isPreliminary(item, session, now = Date.now()) {
-    // Classify the source's trade timestamp, never retrieval or publication time.
+  function isPreliminary(item, payload, now = Date.now()) {
+    // Session boundaries come from XSTO, including half days and DST.
     const quoted = Date.parse(item?.latest?.as_of);
-    if (!Number.isFinite(quoted) || quoted > now + 60000) return true;
-    const parts = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm',
-      year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
-      .formatToParts(new Date(quoted));
-    const p = Object.fromEntries(parts.map(part => [part.type, part.value]));
-    return `${p.year}-${p.month}-${p.day}` !== session || Number(p.hour) * 60 + Number(p.minute) < 17 * 60 + 30;
+    const start = Date.parse(payload?.closing_auction_start);
+    const close = Date.parse(payload?.session_close);
+    if (![quoted, start, close].every(Number.isFinite) || quoted > now + 60000 ||
+        close - start !== 5 * 60000) return true;
+    const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm',
+      year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(close));
+    return day !== payload.session_date || quoted < start || quoted > close;
   }
 
   function currentValuation(payload, ticker, dailyDate, currency = 'SEK', now = Date.now()) {
@@ -45,7 +46,7 @@
         v.score < 0 || v.score > 100 || v.session !== payload.session_date ||
         v.basis_date !== dailyDate || v.as_of !== q.as_of || v.price !== q.price ||
         v.currency !== currency || q.currency !== currency) return null;
-    return { ...v, preliminary: isPreliminary(item, payload.session_date, now) };
+    return { ...v, preliminary: isPreliminary(item, payload, now) };
   }
 
   function preview(ticker, dailyDate, now = Date.now()) {
@@ -56,7 +57,7 @@
     const completeOHLC = [open, high, low].every(validPrice) && high >= Math.max(open, price) && low <= Math.min(open, price);
     // Consume only a valuation computed for this exact cached quote.
     const score = currentValuation(cache, ticker, dailyDate, item.latest.currency, now)?.score ?? null;
-    return { score, as_of: item.latest.as_of, preliminary: isPreliminary(item, cache.session_date, now), candle: { date: cache.session_date, open, close: price, high, low, preliminary: isPreliminary(item, cache.session_date, now), completeOHLC } };
+    return { score, as_of: item.latest.as_of, preliminary: isPreliminary(item, cache, now), candle: { date: cache.session_date, open, close: price, high, low, preliminary: isPreliminary(item, cache, now), completeOHLC } };
   }
 
   function notify() {
@@ -83,7 +84,7 @@
     el('price-change').textContent = change === null ? '–' :
       `${change > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 }).format(change)} %`;
     el('price-change').className = `change-value ${change >= 0 ? 'positive' : 'negative'}`;
-    el('stock-date').textContent = isPreliminary(item, cache.session_date)
+    el('stock-date').textContent = isPreliminary(item, cache)
       ? `Senaste avslut ${clock.format(new Date(quote.as_of))} · ${quote.source} · ${quote.currency}`
       : `Stängning ${cache.session_date} · ${quote.source} · ${quote.currency}`;
     notify();
@@ -109,7 +110,7 @@
     const weekend = weekday === 'Sat' || weekday === 'Sun';
     status.textContent = `Kontrollerad ${clock.format(new Date(lastCheck.at))}. ` +
       (lastCheck.changed ? 'Nyare publicerade data har lästs in.' : 'Inga nyare publicerade värden finns.') +
-      (item ? (isPreliminary(item, cache.session_date) ? ` Senaste avslut ${clock.format(new Date(item.latest.as_of))}.` : ` Stängning ${cache.session_date}.`) : weekend ? ' Börsen är stängd under helgen; senaste publicerade slutkurs visas.' : ' Senaste publicerade slutkurs visas när intradagsdata saknas.') +
+      (item ? (isPreliminary(item, cache) ? ` Senaste avslut ${clock.format(new Date(item.latest.as_of))}.` : ` Stängning ${cache.session_date}.`) : weekend ? ' Börsen är stängd under helgen; senaste publicerade slutkurs visas.' : ' Senaste publicerade slutkurs visas när intradagsdata saknas.') +
       ' Knappen kontrollerar publicerade data; nya börskurser hämtas vid schemalagda tillfällen.';
   }
 
