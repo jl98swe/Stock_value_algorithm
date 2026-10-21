@@ -77,6 +77,10 @@ def test_report_published_after_quote_is_not_used():
 
 @pytest.mark.parametrize("quoted,expected", [
     ("2026-10-16T17:24:59+02:00", True),
+    ("2026-10-16T17:25:00+02:00", True),
+    ("2026-10-16T17:25:01+02:00", True),
+    ("2026-10-16T17:29:29+02:00", True),
+    ("2026-10-16T17:29:30+02:00", False),
     ("2026-10-16T17:29:43+02:00", False),
     ("2026-10-16T17:30:00+02:00", False),
     ("2026-10-16T15:30:00Z", False),
@@ -92,7 +96,7 @@ def test_valuation_status_uses_source_trade_time_even_when_fetched_late(quoted, 
     add_preliminary_scores(cache, stocks, now, prices=prices, reports=reports)
     assert cache["stocks"]["EXAMPLE.ST"]["valuation"]["preliminary"] is expected
 
-@pytest.mark.parametrize('quoted,expected', [('12:54:59',True),('12:55:00',False),('12:59:43',False),('13:00:00',False)])
+@pytest.mark.parametrize('quoted,expected', [('12:54:59',True),('12:55:00',True),('12:55:01',True),('12:59:29',True),('12:59:30',False),('12:59:43',False),('13:00:00',False)])
 def test_half_day_valuation_uses_actual_calendar_close(quoted,expected):
     prices,reports,now,stocks,cache=example(date='2026-04-02')
     now=now.replace(hour=18)
