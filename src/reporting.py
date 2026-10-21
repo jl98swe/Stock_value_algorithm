@@ -648,11 +648,20 @@ def _upcoming_rows(
         ticker_reports = reports.loc[
             (reports["ticker"].astype(str) == ticker)
             & reports["verified"]
+            & reports["eps_ttm"].notna()
             & reports["effective_date"].notna()
             & (reports["effective_date"] < report_start)
             & (reports["effective_date"] <= as_of)
         ].sort_values(["effective_date", "period_end"])
         latest_report = None if ticker_reports.empty else ticker_reports.iloc[-1]
+        # Use the preceding report in its stated currency, just like the new
+        # report below. TV valuation frames may already place the new EPS at
+        # period-end, so even a pre-publication valuation can contain new EPS.
+        previous_eps = _json_number(latest_report.get("eps_ttm"), None) if latest_report is not None else None
+        previous_currency = None
+        if latest_report is not None:
+            match = re.search(REPORT_CURRENCY_NOTE_PATTERN, str(latest_report.get("notes", "")))
+            previous_currency = match.group(1).upper() if match else report_currencies.get(ticker) or None
         next_period = _next_period_end(latest_report.get("period_end")) if latest_report is not None else None
         period_is_plausible = (
             next_period is not None
@@ -720,6 +729,8 @@ def _upcoming_rows(
                 "price_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "current_score": _json_number(latest.get("Score")),
                 "current_eps_ttm": _json_number(latest.get("EPS_TTM"), None),
+                "previous_eps_ttm": previous_eps,
+                "previous_eps_ttm_currency": previous_currency,
                 "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "new_eps_ttm": _json_number(new_report.get("eps_ttm"), None) if new_report is not None else None,
                 "new_eps_ttm_currency": new_currency,

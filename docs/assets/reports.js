@@ -54,6 +54,7 @@
   }
 
   function number(value) {
+    if (value == null || value === '') return null;
     const parsed = Number(value);
     return Number.isFinite(parsed) ? parsed : null;
   }
@@ -133,7 +134,7 @@
         <td><span class="days-chip ${row.urgent ? 'urgent' : ''}">${daysLabel(row.trading_days_to_report)}</span></td>
         <td>${formatMoney(row.current_price, row.price_currency)}</td>
         <td><strong>${formatScore(row.current_score)}</strong></td>
-        <td><strong>${formatEps(row.current_eps_ttm)} ${escapeHtml(row.eps_ttm_currency || '')}</strong></td>
+        <td>${row.previous_eps_ttm == null ? '–' : `<strong>${formatEps(row.previous_eps_ttm)} ${escapeHtml(row.previous_eps_ttm_currency || '')}</strong>`}</td>
         <td>${row.new_eps_ttm == null ? '–' : `<strong>${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}</strong>`}</td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>

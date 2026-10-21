@@ -93,7 +93,8 @@ def test_yahoo_calendar_estimate_is_explicitly_unverified() -> None:
     assert row["expected_eps_currency"] == "SEK"
 
 
-def test_new_eps_matches_calendar_report_before_closing_price() -> None:
+@pytest.mark.parametrize("valuation_eps", [4.0, 5.25])
+def test_new_eps_matches_calendar_report_before_closing_price(valuation_eps: float) -> None:
     # Synthetic report: the new quarter is known while prices still end yesterday.
     schedule = reporting._combined_schedule(
         reporting._normalise_calendar(pd.DataFrame([_calendar_row()])), pd.DataFrame()
@@ -107,13 +108,32 @@ def test_new_eps_matches_calendar_report_before_closing_price() -> None:
     rows = reporting._upcoming_rows(
         schedule=schedule, reports=reports, quarterly=_quarterly(),
         valuation_frames={"TEST.ST": pd.DataFrame([{
-            "Date": pd.Timestamp("2026-10-07"), "EPS_TTM": 4.0,
-        }])}, metadata=_metadata(), as_of=pd.Timestamp("2026-10-08"),
+            "Date": pd.Timestamp("2026-10-07"), "EPS_TTM": valuation_eps,
+        }, {"Date": pd.Timestamp("2026-10-08"), "EPS_TTM": 5.25}])},
+        metadata=_metadata(), as_of=pd.Timestamp("2026-10-08"),
     )
+    assert rows[0]["previous_eps_ttm"] == 4.0
+    assert rows[0]["previous_eps_ttm_currency"] == "SEK"
     assert rows[0]["new_eps_ttm"] == 5.25
     assert rows[0]["new_eps_ttm_currency"] == "USD"
     assert rows[0]["next_period_end"] == "2026-09-30"
     assert rows[0]["neutral_quarter_eps"] == 1.1
+
+    # Synthetic example: before publication only the preceding report is known.
+    waiting = reporting._upcoming_rows(
+        schedule=schedule, reports=old, quarterly=_quarterly(), valuation_frames={},
+        metadata=_metadata(), as_of=pd.Timestamp("2026-10-07"),
+    )[0]
+    assert waiting["previous_eps_ttm"] == 4.0
+    assert waiting["new_eps_ttm"] is None
+
+    missing_old = reporting._upcoming_rows(
+        schedule=schedule, reports=normalise_reports(pd.DataFrame([new])),
+        quarterly=_quarterly(), valuation_frames={}, metadata=_metadata(),
+        as_of=pd.Timestamp("2026-10-08"),
+    )[0]
+    assert missing_old["previous_eps_ttm"] is None
+    assert missing_old["new_eps_ttm"] == 5.25
 
     for day in ["2026-10-01", "2026-10-09"]:
         other = reporting._combined_schedule(reporting._normalise_calendar(

@@ -32,6 +32,27 @@ async function setup(today, upcoming, recent = []) {
 const row = (ticker, day) => ({ticker, report_date_start: day, report_date_end: day});
 const count = element => (element.innerHTML.match(/<tr[ >]/g)||[]).length;
 
+test('previous EPS stays separate from current EPS, including zero and missing values', async () => {
+  // Synthetic examples: waiting, newly reported, unchanged and missing history.
+  const {element:e} = await setup('2026-10-15T12:00Z', [
+    {...row('WAITING','2026-10-15'), previous_eps_ttm:4, previous_eps_ttm_currency:'SEK'},
+    {...row('REPORTED','2026-10-15'), previous_eps_ttm:4, previous_eps_ttm_currency:'SEK', current_eps_ttm:5, new_eps_ttm:5, new_eps_ttm_currency:'USD'},
+    {...row('UNCHANGED','2026-10-15'), previous_eps_ttm:0, previous_eps_ttm_currency:'SEK', new_eps_ttm:0, new_eps_ttm_currency:'SEK'},
+    {...row('NOHISTORY','2026-10-15'), current_eps_ttm:5, previous_eps_ttm:null, new_eps_ttm:5, new_eps_ttm_currency:'SEK'},
+  ]);
+  const cells = [...e('upcoming-body').innerHTML.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)]
+    .map(tr => [...tr[1].matchAll(/<td>([\s\S]*?)<\/td>/g)].map(td => td[1]));
+  const byTicker = ticker => cells.find(row => row[0].includes(`>${ticker}</strong>`));
+  assert(byTicker('WAITING')[5].includes('4,0000 SEK'));
+  assert.equal(byTicker('WAITING')[6], '–');
+  assert(byTicker('REPORTED')[5].includes('4,0000 SEK'));
+  assert(byTicker('REPORTED')[6].includes('5,0000 USD'));
+  assert(byTicker('UNCHANGED')[5].includes('0,0000 SEK'));
+  assert(byTicker('UNCHANGED')[6].includes('0,0000 SEK'));
+  assert.equal(byTicker('NOHISTORY')[5], '–');
+  assert(byTicker('NOHISTORY')[6].includes('5,0000 SEK'));
+});
+
 test('new reported TTM is separate from estimates, missing data stays a dash', async () => {
   const {element:e} = await setup('2026-10-15T12:00Z', [
     {...row('REPORTED','2026-10-15'), new_eps_ttm:9.22, new_eps_ttm_currency:'SEK'},
