@@ -29,7 +29,8 @@
       <a class="secondary-button" href="./signals.html?v=20260910-1">Signaler</a>
       <a class="secondary-button" href="./reports.html">Rapporter</a>
       <a class="secondary-button" href="./review.html?v=20260910-1">Nyheter och data</a>
-      <a class="secondary-button" href="./method.html?v=20261006-1">Metod &amp; backtest</a>`;
+      <a class="secondary-button" href="./method.html?v=20261006-1">Metod &amp; backtest</a>
+      <a class="secondary-button" href="./alerts.html">Notiser</a>`;
     actions.insertBefore(nav, actions.firstChild);
   }
 
