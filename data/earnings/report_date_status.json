@@ -1,7 +1,8 @@
 {
-  "checked_at": "2026-10-20",
+  "checked_at": "2026-10-21",
   "counts": {
-    "retry_missing_evidence": 7
+    "retry_missing_evidence": 13,
+    "confirmed": 4
   },
   "missing_historical_dates": [
     {
@@ -746,9 +747,13 @@
     }
   ],
   "missing_upcoming_tickers": [
+    "ABB.ST",
     "AZA.ST",
     "ERIC-B.ST",
-    "NDA-SE.ST"
+    "LIME.ST",
+    "NDA-SE.ST",
+    "SCST.ST",
+    "TEL2-B.ST"
   ],
   "calendar_source_conflicts": [
     {

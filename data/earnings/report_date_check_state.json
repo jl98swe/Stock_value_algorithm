@@ -107,18 +107,66 @@
   },
   "ABB.ST|2026-Q3": {
     "anchor": "2026-10-20",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "LIME.ST|2026-Q3": {
     "anchor": "2026-10-20",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SCST.ST|2026-Q3": {
     "anchor": "2026-10-20",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "TEL2-B.ST|2026-Q3": {
     "anchor": "2026-10-20",
+    "completed": [
+      0
+    ]
+  },
+  "BERG-B.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "DYVOX.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "FABG.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "GETI-B.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "HMS.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "INWI.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "NMAN.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "SECARE.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "SHB-A.ST|2026-Q3": {
+    "anchor": "2026-10-21",
+    "completed": []
+  },
+  "WIHL.ST|2026-Q3": {
+    "anchor": "2026-10-21",
     "completed": []
   }
 }
