@@ -210,10 +210,13 @@
 
     const shownScore = provisionalScore ?? latest.score;
     $('metric-score').textContent = shownScore == null ? '–' : fmt.format(shownScore);
-    $('metric-score-status').textContent = provisionalScore != null ? (isPreliminary ? 'Preliminär · kan ändras före stängning' : 'Poäng efter stängning') : preview ? (isPreliminary ? 'Senaste slutliga poäng · preliminär poäng saknas' : 'Senaste slutliga poäng · ny poäng saknas') : 'Slutlig poäng';
+    $('metric-score-status').textContent = preview ? (provisionalScore == null ? 'Senaste slutliga poäng · ny poäng saknas' : isPreliminary ? 'Preliminär · kan ändras före stängning' : '') : '';
+    $('metric-score-status').hidden = !$('metric-score-status').textContent;
     $('metric-score').closest('.score-card').classList.toggle('is-preliminary', provisionalScore != null && isPreliminary);
     $('metric-score').style.color = provisionalScore != null && isPreliminary ? '#8056b3' : scoreColor(shownScore);
-    $('metric-zone').textContent = provisionalScore != null ? (isPreliminary ? 'Preliminär' : 'Efter stängning') : latest.zone || '–';
+    $('metric-zone').textContent = provisionalScore != null
+      ? (isPreliminary ? 'Preliminär' : shownScore >= 80 ? 'Övervärderad' : shownScore >= 60 ? 'Relativt dyr' : shownScore >= 40 ? 'Neutral' : shownScore >= 20 ? 'Relativt attraktiv' : 'Undervärderad')
+      : latest.zone || '–';
     $('metric-zone').className = `zone-pill ${zoneClass(shownScore)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
     $('metric-eps').textContent = `EPS TTM ${formatModelEps(data)}`;
@@ -390,8 +393,12 @@
           const candle = sliced.candles.find((d) => d.date === date);
           const score = scoreMap.get(date);
           if (!candle) return date;
-          if (date === preview?.candle.date) return `<strong>${date} · ${candle.preliminary ? 'Preliminär' : 'Efter stängning'}</strong><br>Senaste avslut ${fmt.format(candle.close)}<br>${candle.completeOHLC ? `O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)}<br>` : 'Fullständig OHLC saknas<br>'}Värderingspoäng <strong>${score == null ? 'saknas' : fmt.format(score)}</strong>${candle.preliminary ? '<br>Kan ändras före stängning' : ''}`;
-          return `<strong>${date}</strong><br>O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)} · C ${fmt.format(candle.close)}<br>Score <strong>${score == null ? '–' : fmt.format(score)}</strong>`;
+          const time = candle.preliminary && preview?.as_of
+            ? ` · ${new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm', hour: '2-digit', minute: '2-digit' }).format(new Date(preview.as_of))}` : '';
+          const ohlc = candle.completeOHLC === false
+            ? `C ${fmt.format(candle.close)}<br>Fullständig OHLC saknas`
+            : `O ${fmt.format(candle.open)} · H ${fmt.format(candle.high)} · L ${fmt.format(candle.low)} · C ${fmt.format(candle.close)}`;
+          return `<strong>${date}${time}</strong><br>${ohlc}<br>Värderingspoäng <strong>${score == null ? '–' : fmt.format(score)}</strong>${candle.preliminary ? '<br>Preliminär · kan ändras före stängning' : ''}`;
         }
       },
       grid: [

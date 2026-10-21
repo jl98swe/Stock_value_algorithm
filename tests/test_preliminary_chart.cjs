@@ -29,7 +29,7 @@ test('1M clamps a month-end cutoff instead of rolling into the next month', () =
 test('provisional score is a separate dashed series and missing OHLC uses a price point', () => {
   const ui = setup(); ui.state.range = '1m';
   const data = { latest: { date: '2026-10-15' }, candles: [candle('2026-10-15')], scores: [{ date: '2026-10-15', value: 30 }] };
-  ui.setPreview({ candle: { date: '2026-10-16', close: 102, preliminary: true, completeOHLC: false }, score: 42 });
+  ui.setPreview({ preliminary: true, candle: { date: '2026-10-16', close: 102, preliminary: true, completeOHLC: false }, score: 42 });
   ui.renderChart('EXAMPLE.ST', data);
   assert.equal(ui.option.xAxis[0].data.at(-1), '2026-10-16');
   assert.equal(ui.option.series.find(s => s.name === 'Pris').data.at(-1).value, '-');
@@ -47,7 +47,7 @@ test('provisional score is a separate dashed series and missing OHLC uses a pric
 test('complete preliminary OHLC renders a normal solid purple candle', () => {
   const ui = setup();
   const data = { latest: { date: '2026-10-15' }, candles: [candle('2026-10-15')], scores: [] };
-  ui.setPreview({ candle: { date: '2026-10-16', open: 101, close: 99, low: 97, high: 104,
+  ui.setPreview({ preliminary: true, candle: { date: '2026-10-16', open: 101, close: 99, low: 97, high: 104,
     preliminary: true, completeOHLC: true }, score: null });
   ui.renderChart('EXAMPLE.ST', data);
   const price = ui.option.series.find(s => s.name === 'Pris');

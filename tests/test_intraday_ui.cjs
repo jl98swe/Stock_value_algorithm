@@ -186,7 +186,7 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
     return elements.get(id);
   };
   let option;
-  const preview = {score:42,preliminary:true,candle:{date:'2026-10-15',open:100,high:105,low:99,close:102,completeOHLC:true,preliminary:true}};
+  const preview = {score:42,as_of:'2026-10-15T13:15:00+02:00',preliminary:true,candle:{date:'2026-10-15',open:100,high:105,low:99,close:102,completeOHLC:true,preliminary:true}};
   const window = {strategySelection:{get:()=> 'standard'},intradayQuotes:{preview:()=>preview},echarts:{}};
   const source = fs.readFileSync('docs/assets/app.js','utf8').replace(
     "document.addEventListener('DOMContentLoaded', init);",
@@ -200,6 +200,9 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   assert.match(element('metric-score-status').textContent,/Preliminär/);
   assert.equal(element('chart-preliminary-note').hidden,false);
   assert.equal(option.series[0].data.at(-1).itemStyle.color,'#8056b3');
+  const preliminaryTooltip=option.tooltip.formatter([{axisValue:'2026-10-15'}]);
+  assert.match(preliminaryTooltip,/2026-10-15 · 13:15/);
+  assert.match(preliminaryTooltip,/O 100 · H 105 · L 99 · C 102/);
   preview.preliminary=false;preview.candle.preliminary=false;
   api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
   assert.doesNotMatch(element('metric-score-status').textContent,/Preliminär/);
@@ -210,5 +213,29 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   assert.equal(option.series[0].data.at(-1)[1],102);
   const tooltip=option.tooltip.formatter([{axisValue:'2026-10-15'}]);
   assert.doesNotMatch(tooltip,/Preliminär|Kan ändras före/);
-  assert.match(tooltip,/Efter stängning/);
+  assert.doesNotMatch(tooltip,/Efter stängning|Senaste avslut|13:15|Score/);
+  assert.match(tooltip,/O 100 · H 105 · L 99 · C 102/);
+  assert.match(tooltip,/Värderingspoäng <strong>42/);
+  assert.equal(element('metric-score-status').hidden,true);
+  assert.equal(element('metric-zone').textContent,'Neutral');
+  const historicalTooltip=option.tooltip.formatter([{axisValue:'2026-10-14'}]);
+  assert.match(historicalTooltip,/Värderingspoäng/);
+  assert.doesNotMatch(historicalTooltip,/Score/);
+});
+
+// Synthetic example: a closing fetch uses the ordinary closing label, without trade time.
+test('header keeps trade time only for preliminary quotes', async () => {
+  const ui = setup(null, false, '2026-10-15T18:00:00+02:00');
+  await ui.api.refresh();
+  const daily = {date:'2026-10-14',close:100,currency:'SEK'};
+  const quote = ui.payload.stocks['EXAMPLE.ST'].latest;
+  quote.as_of = '2026-10-15T17:29:00+02:00';
+  quote.fetched_at = '2026-10-15T17:29:00+02:00';
+  ui.api.select('EXAMPLE.ST',daily);
+  assert.match(ui.element('stock-date').textContent,/Senaste avslut 17:29/);
+  quote.fetched_at = '2026-10-15T17:30:00+02:00';
+  ui.api.select('EXAMPLE.ST',daily);
+  assert.equal(ui.element('stock-date').textContent,'Stängning 2026-10-15 · Nasdaq · SEK');
+  assert.doesNotMatch(ui.element('quote-refresh-status').textContent,/Senaste avslut/);
+  assert.equal(ui.api.preview('EXAMPLE.ST',daily.date).as_of,quote.as_of);
 });

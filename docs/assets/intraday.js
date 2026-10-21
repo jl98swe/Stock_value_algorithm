@@ -56,7 +56,7 @@
     const completeOHLC = [open, high, low].every(validPrice) && high >= Math.max(open, price) && low <= Math.min(open, price);
     // Consume only a valuation computed for this exact cached quote.
     const score = currentValuation(cache, ticker, dailyDate, item.latest.currency, now)?.score ?? null;
-    return { score, preliminary: isPreliminary(item, cache.session_date, now), candle: { date: cache.session_date, open, close: price, high, low, preliminary: isPreliminary(item, cache.session_date, now), completeOHLC } };
+    return { score, as_of: item.latest.as_of, preliminary: isPreliminary(item, cache.session_date, now), candle: { date: cache.session_date, open, close: price, high, low, preliminary: isPreliminary(item, cache.session_date, now), completeOHLC } };
   }
 
   function notify() {
@@ -83,7 +83,9 @@
     el('price-change').textContent = change === null ? '–' :
       `${change > 0 ? '+' : ''}${new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 2 }).format(change)} %`;
     el('price-change').className = `change-value ${change >= 0 ? 'positive' : 'negative'}`;
-    el('stock-date').textContent = `Senaste avslut ${clock.format(new Date(quote.as_of))} · ${quote.source} · ${quote.currency}`;
+    el('stock-date').textContent = isPreliminary(item, cache.session_date)
+      ? `Senaste avslut ${clock.format(new Date(quote.as_of))} · ${quote.source} · ${quote.currency}`
+      : `Stängning ${cache.session_date} · ${quote.source} · ${quote.currency}`;
     notify();
   }
 
@@ -107,7 +109,7 @@
     const weekend = weekday === 'Sat' || weekday === 'Sun';
     status.textContent = `Kontrollerad ${clock.format(new Date(lastCheck.at))}. ` +
       (lastCheck.changed ? 'Nyare publicerade data har lästs in.' : 'Inga nyare publicerade värden finns.') +
-      (item ? ` Senaste avslut ${clock.format(new Date(item.latest.as_of))}.` : weekend ? ' Börsen är stängd under helgen; senaste publicerade slutkurs visas.' : ' Senaste publicerade slutkurs visas när intradagsdata saknas.') +
+      (item ? (isPreliminary(item, cache.session_date) ? ` Senaste avslut ${clock.format(new Date(item.latest.as_of))}.` : ` Stängning ${cache.session_date}.`) : weekend ? ' Börsen är stängd under helgen; senaste publicerade slutkurs visas.' : ' Senaste publicerade slutkurs visas när intradagsdata saknas.') +
       ' Knappen kontrollerar publicerade data; nya börskurser hämtas vid schemalagda tillfällen.';
   }
 
