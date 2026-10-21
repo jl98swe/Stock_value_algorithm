@@ -64,7 +64,18 @@ a { color: inherit; }
 .brand-title { font-weight: 800; font-size: 17px; }
 .brand-subtitle { color: var(--muted); font-size: 12px; margin-top: 1px; }
 .header-actions, .top-actions { gap: 10px; }
-.page-nav { display: flex; align-items: center; gap: 8px; }
+.header-actions { min-width: 0; flex-wrap: wrap; }
+.page-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.page-nav .secondary-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.45;
+  padding: 7px 10px;
+  text-decoration: none;
+}
 .page-nav .secondary-button.active,
 .page-nav .secondary-button[aria-current="page"] {
   border-color: var(--brand);
