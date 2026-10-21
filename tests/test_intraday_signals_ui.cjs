@@ -40,7 +40,9 @@ test('signals page refreshes preliminary selection and falls back without changi
  assert.match(el('upcoming-signals-body').innerHTML,/0,75/);
  assert.equal(el('recent-signals-body').innerHTML,recent);
  now=Date.parse('2026-10-16T18:00:00+02:00');
- cache.stocks['B.ST'].latest.fetched_at='2026-10-16T17:30:00+02:00';
+ cache.stocks['B.ST'].latest.fetched_at='2026-10-16T18:00:00+02:00';
+ cache.stocks['B.ST'].latest.as_of='2026-10-16T17:30:00+02:00';
+ cache.stocks['B.ST'].valuation.as_of=cache.stocks['B.ST'].latest.as_of;
  cache.stocks['B.ST'].valuation.preliminary=false;
  await window.intradayQuotes.refresh();
  assert.match(el('upcoming-signals-body').innerHTML,/Efter stängning/);
