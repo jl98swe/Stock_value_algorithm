@@ -16,9 +16,9 @@ PAGES = {
 EXPECTED_LINKS = [
     ("./index.html", "Startsida"),
     ("./positions.html", "Aktiva positioner"),
-    ("./signals.html", "Kommande signaler"),
+    ("./signals.html", "Signaler"),
     ("./reports.html", "Rapporter"),
-    ("./review.html", "Granska nyheter och data"),
+    ("./review.html", "Nyheter och data"),
     ("./method.html", "Metod & backtest"),
     ("./alerts.html", "Notiser"),
 ]
