@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-20T22:00:25+02:00",
+  "generated_at": "2026-10-21T22:06:04+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hexpol",
   "items": [
+    {
+      "ticker": "HPOL-B.ST",
+      "company": "HEXPOL AB (publ)",
+      "published_at": "2026-10-21T15:40:00+02:00",
+      "title": "HEXPOL förvärvar det ledande turkiska företaget inom termoplastiska elastomer, Symplast A.Ş.",
+      "link": "https://mfn.se/a/hexpol/hexpol-forvarvar-det-ledande-turkiska-foretaget-inom-termoplastiska-elastomer-symplast-a-s",
+      "source": "MFN",
+      "summary": "HEXPOL förvärvar det ledande turkiska företaget inom termoplastiska elastomer, Symplast A.Ş. 2026-10-21 15:40:00 HEXPOL (publ) förvärvar 80 procent av bolaget Symplast A.Ş., med huvudkontor i Izmir, Turkiet. Bolaget är en ledande turkisk utvecklare och tillverkare av specialiserade termoplastiska elastomer, med en stark ställning inom kundanpassade och högt värdeskapande lösningar för fordons-, bygg-, konsument- och elektronikindustrin. Förvärvet stärker HEXPOLs plattform för termoplastiska elastomer avsevärt och befäster ytterligare positionen på den växande turkiska marknaden. Symplast förvärvas av företagets fyra grundare, tillika aktieäga",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b8c804637dfa72a6"
+    },
     {
       "ticker": "HPOL-B.ST",
       "company": "HEXPOL AB (publ)",

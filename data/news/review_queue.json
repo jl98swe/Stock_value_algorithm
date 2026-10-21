@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-10-20T22:02:33+02:00",
+  "generated_at": "2026-10-21T22:08:41+02:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-10-21T11:00:00+02:00",
+      "title": "Unika tar första spadtaget för nytt LSS-boende i Vallentuna",
+      "link": "https://mfn.se/a/attendo/unika-tar-forsta-spadtaget-for-nytt-lss-boende-i-vallentuna",
+      "source": "MFN",
+      "summary": "Unika tar första spadtaget för nytt LSS-boende i Vallentuna 2026-10-21 11:00:00 Den 21 oktober tas det första spadtaget för Unika Berga, ett nytt LSS-boende med sex lägenheter i Vallentuna, norr om Stockholm. Boendet blir en del av Unika, Attendos samlade erbjudande inom LSS. Här byggs moderna bostäder i naturnära miljö, där stöd och omsorg anpassat efter individuella behov erbjuds. Boendet riktar sig till personer med intellektuell funktionsnedsättning och/eller autism inom personkrets 1 enligt LSS. Unika Berga uppförs som ett enplanshus med sex lägenheter, där varje lägenhet får en egen uteplats. Det kommer även att finnas utrymmen för geme",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ffd07c85107ae360"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-21T08:30:00+02:00",
+      "title": "Kokemäen ja Nakkilan uudet sähköasemat valmistuvat käyttöön paikallisin voimin",
+      "link": "https://mfn.se/a/enersense-international/kokemaen-ja-nakkilan-uudet-sahkoasemat-valmistuvat-kayttoon-paikallisin-voimin",
+      "source": "MFN",
+      "summary": "Kokemäen ja Nakkilan uudet sähköasemat valmistuvat käyttöön paikallisin voimin 2026-10-21 08:30:00 Enersense International Oyj | Lehdistötiedote | 21.10.2026 klo 09:30:00 EEST Satakunnassa on valmistumassa kaksi uutta kantaverkon suurjännitteistä sähköasemaa. Nakkilan ja Kokemäen asemat ovat osa kolmen aseman rakennusprojektia. Kyseessä on tärkeä pilottihanke niin Enersenselle kuin kantaverkkoyhtiöllekin, sillä ulkorakenteissa hyödynnettiin ensimmäistä kertaa vähäpäästöisempää terästä. Projektit on toteutettu pitkälti paikallisin voimin. Satakunnassa on parhaillaan käynnissä kolmen sähköaseman rakennusprojekti, jonka kaksi ensimmäistä asemaa ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ec794e0d8ac703b0"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-21T08:30:00+02:00",
+      "title": "Rejlers tecknar nytt ramavtal med Trafikverket för besiktning av telekominfrastruktur",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-tecknar-nytt-ramavtal-med-trafikverket-for-besiktning-av-telekominfrastruktur-a1d0fa6c",
+      "source": "MFN",
+      "summary": "Rejlers tecknar nytt ramavtal med Trafikverket för besiktning av telekominfrastruktur 2026-10-21 08:30:00 Rejlers har tecknat ett nytt ramavtal med Trafikverket som omfattar besiktning av radiobasstationer över hela Sverige. Uppdraget innebär en breddning av det befintliga samarbetet med Trafikverket. Ramavtalet omfattar tekniska besiktningar av radiobasstationernas fysiska infrastruktur, däribland master, torn och tillhörande anläggningar. Ramavtalet löper över två år med 3 optionsår (1+1+1). Uppdraget är rikstäckande och kommer att genomföras löpande efter behov. Syftet är att säkerställa en god överblick över anläggningarnas skick och skap",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "63b6072644860f8c"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-10-21T08:00:00+02:00",
+      "title": "Attendo öppnar nytt äldreboende i Helsingfors, Finland",
+      "link": "https://mfn.se/a/attendo/attendo-oppnar-nytt-aldreboende-i-helsingfors-finland",
+      "source": "MFN",
+      "summary": "Attendo öppnar nytt äldreboende i Helsingfors, Finland 2026-10-21 08:00:00 Attendos nya äldreboende Attendo Kuisma i Helsingfors står nu klart. Boendet har 74 lägenheter och de första väntas flytta in i slutet av oktober 2026. Det nya äldreboendet ligger centralt och erbjuder en trygg och tillgänglig boendemiljö Huset består av fyra våningar med fokus på tillgänglighet och en omsorg som utgår från varje individs behov. På varje våningsplan finns gemensamma matplatser, vardagsrum och ett hemlikt kök som skapar möjligheter till gemenskap och social samvaro. – För oss är det viktigt att varje person som bor på Attendo Kuisma har en vardag som kä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "39fb62b87ed45a97"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-10-21T08:00:00+02:00",
+      "title": "Ledningsförändring i Mycronic",
+      "link": "https://mfn.se/a/mycronic/ledningsforandring-i-mycronic-3",
+      "source": "MFN",
+      "summary": "Ledningsförändring i Mycronic 2026-10-21 08:00:00 Mycronic AB (publ) har utnämnt Mikael Wahlsten till Senior Vice President Pattern Generators och medlem i Mycronics koncernledning, med tillträde den 1 november 2026. Efter 30 framgångsrika år inom Mycronic, varav de senaste 9 åren som Senior Vice President Pattern Generators, har Charlott Samuelsson beslutat att gå i pension. Hon efterträds av Mikael Wahlsten, som varit anställd i Mycronic sedan 2003 och sedan 2020 haft rollen som Chef Product Strategy & Development inom Pattern Generators. ”Jag vill tacka Charlott för hennes ovärderliga insatser för Mycronic under nästan ett helt arbetsliv o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5b509617946920d9"
+    },
+    {
+      "ticker": "INWI.ST",
+      "company": "Inwido AB (publ)",
+      "published_at": "2026-10-21T07:45:00+02:00",
+      "title": "Organisk tillväxt i orderingång samt marginalförbättring inom samtliga affärsområden",
+      "link": "https://mfn.se/a/inwido/organisk-tillvaxt-i-orderingang-samt-marginalforbattring-inom-samtliga-affarsomraden",
+      "source": "MFN",
+      "summary": "Organisk tillväxt i orderingång samt marginalförbättring inom samtliga affärsområden 2026-10-21 07:45:00 ”Inwido fortsätter att exekvera sin strategiska plan och levererar sitt högsta resultat hittills i ett enskilt kvartal.” Tredje kvartalet Nettoomsättningen ökade med 22% till 2 724 MSEK (2 224). Den organiska tillväxten uppgick till 5%. Orderingången ökade organiskt med 7%, varav projektsegmentet ökade med 18% och konsumentsegmentet ökade med 1%. Orderstocken per den 30 september ökade till 3 453 MSEK (2 769), den högsta nivån hittills. Operationell EBITA ökade till 334 MSEK (268), det högsta resultatet för Inwido hittills i ett enskilt kv",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "17aa8449d0659b4c"
+    },
+    {
+      "ticker": "THULE.ST",
+      "company": "Thule Group AB (publ)",
+      "published_at": "2026-10-20T23:40:00+02:00",
+      "title": "Thule Group har mottagit begäran om extra bolagsstämma för val av styrelse varvid ordförande valt att avgå",
+      "link": "https://mfn.se/a/thule-group/thule-group-har-mottagit-begaran-om-extra-bolagsstamma-for-val-av-styrelse-varvid-ordforande-valt-att-avga",
+      "source": "MFN",
+      "summary": "Thule Group har mottagit begäran om extra bolagsstämma för val av styrelse varvid ordförande valt att avgå 2026-10-20 23:40:00 Styrelsen i Thule Group har mottagit en begäran från aktieägare representerande cirka 28 procent av aktierna och rösterna i Thule Group om att styrelsen ska kalla till extra bolagsstämma för behandling av bland annat förslag om val av styrelse och styrelseordförande. Med anledning av begäran har styrelsens ordförande Hans Eckerström valt att avgå som styrelseordförande i Thule Group med omedelbar verkan. Begäran har lämnats av AMF, Handelsbanken Fonder och Alecta som tillsammans representerar cirka 28 procent av aktie",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ddcd9de71458f4fd"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",

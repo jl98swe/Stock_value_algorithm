@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-20T22:02:14+02:00",
+  "generated_at": "2026-10-21T22:08:17+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/thule-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "THULE.ST",
+      "company": "Thule Group AB (publ)",
+      "published_at": "2026-10-21T13:02:00+02:00",
+      "title": "Återkallelse av begäran om extra bolagsstämma – Per-Arne Blomquist ny styrelseordförande i Thule",
+      "link": "https://mfn.se/a/thule-group/aterkallelse-av-begaran-om-extra-bolagsstamma-per-arne-blomquist-ny-styrelseordforande-i-thule",
+      "source": "MFN",
+      "summary": "Återkallelse av begäran om extra bolagsstämma – Per-Arne Blomquist ny styrelseordförande i Thule 2026-10-21 13:02:00 Styrelsen i Thule Group erhöll under gårdagen en begäran från AMF, Handelsbanken Fonder och Alecta, representerande cirka 28 procent av aktierna och rösterna i Thule Group, om att styrelsen ska kalla till extra bolagsstämma för val av styrelse och styrelseordförande. Hans Eckerström avgick därefter som styrelseordförande i Thule. AMF, Handelsbanken Fonder och Alecta har idag återkallat sin begäran om extra bolagsstämma. Thules styrelse har konstituerat sig och vice ordförande, Per-Arne Blomqvist, har utsetts till ny styrelseord",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d123bb3e75e183b9"
+    }
+  ]
 }

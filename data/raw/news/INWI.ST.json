@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-20T22:00:42+02:00",
+  "generated_at": "2026-10-21T22:06:22+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/inwido",
   "items": [
+    {
+      "ticker": "INWI.ST",
+      "company": "Inwido AB (publ)",
+      "published_at": "2026-10-21T07:45:00+02:00",
+      "title": "Organic growth in order intake and margin improvement in all business areas",
+      "link": "https://mfn.se/a/inwido/organic-growth-in-order-intake-and-margin-improvement-in-all-business-areas",
+      "source": "MFN",
+      "summary": "Organic growth in order intake and margin improvement in all business areas 2026-10-21 07:45:00 “Inwido continues to execute its strategic plan and delivers its strongest quarterly result to date.” Third quarter Net sales increased by 22 percent to SEK 2,724 million (2,224). Organic growth amounted to 5 percent. Order intake increased organically by 7 percent, with the Project segment growing by 18 percent and the Consumer segment by 1 percent. The order backlog as of September 30 increased to SEK 3,453 million (2,769), the highest level to date. Operating EBITA increased to SEK 334 million (268), Inwido’s highest quarterly result to date. Th",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "70f895472dd807d4"
+    },
     {
       "ticker": "INWI.ST",
       "company": "Inwido AB (publ)",

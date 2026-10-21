@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-20T22:02:17+02:00",
+  "generated_at": "2026-10-21T22:08:21+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/trelleborg",
   "items": [
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-10-21T15:00:00+02:00",
+      "title": "Trelleborg stärker positionen inom flygindustrin genom förvärv av Tri-Mack",
+      "link": "https://mfn.se/a/trelleborg/trelleborg-starker-positionen-inom-flygindustrin-genom-forvarv-av-tri-mack",
+      "source": "MFN",
+      "summary": "Trelleborg stärker positionen inom flygindustrin genom förvärv av Tri-Mack 2026-10-21 15:00:00 Trelleborgkoncernen har genom affärsområdet Trelleborg Sealing Solutions tecknat avtal om att förvärva amerikanska Tri-Mack Plastics Manufacturing Corp. Förvärvet stärker Trelleborgs position inom högpresterande termoplastlösningar för flygindustrin och utökar koncernens kapacitet inom avancerade komposit- och plastkomponenter för flygplansstrukturer och motorer. Tri-Mack, som grundades 1974, är en etablerad leverantör till flygindustrin med specialistkompetens inom högpresterande termoplaster och kompositmaterial. Företagets anläggning i Bristol, R",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "158f4cadde380634"
+    },
     {
       "ticker": "TREL-B.ST",
       "company": "Trelleborg AB (publ)",

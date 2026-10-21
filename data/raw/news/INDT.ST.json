@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-20T22:00:32+02:00",
+  "generated_at": "2026-10-21T22:06:11+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/indutrade",
   "items": [
+    {
+      "ticker": "INDT.ST",
+      "company": "Indutrade AB (publ)",
+      "published_at": "2026-10-21T09:30:00+02:00",
+      "title": "Indutrade förvärvar det polska life science-bolaget Sinmed",
+      "link": "https://mfn.se/a/indutrade/indutrade-forvarvar-det-polska-life-science-bolaget-sinmed",
+      "source": "MFN",
+      "summary": "Indutrade förvärvar det polska life science-bolaget Sinmed 2026-10-21 09:30:00 Indutrade har tecknat avtal om förvärv av samtliga aktier i det polska bolaget Sinmed Sp. z o.o, www.sinmed.pl/en , med en årsomsättning om cirka 130 miljoner SEK. Sinmed är ett teknikhandelsbolag specialiserat på single-use produkter och medicinska förbrukningsvaror. Produktutbudet omfattar produkter för anestesi och patienthygien samt positionerings- och fixeringsprodukter. Bolaget har en diversifierad kundbas som bland annat omfattar sjukhus, universitet, vårdgivare och distributörer av medicintekniska produkter. Sinmed grundades 2016, har 48 anställda och är ba",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8f0a91624e4cec5d"
+    },
     {
       "ticker": "INDT.ST",
       "company": "Indutrade AB (publ)",
