@@ -1,0 +1,67 @@
+/* Help content lives outside scrolling table containers. */
+.info-tip[data-help-ready]::after { display: none; }
+.help-popover {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  width: min(300px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #252423;
+  color: #fff;
+  box-shadow: 0 6px 24px #17212b33;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.info-tip[data-help-ready] { padding: 0; background: transparent; color: inherit; cursor: pointer; }
+.info-tip[data-help-ready]:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+/* Empty history and news should take only the space their message needs. */
+#dividend-history-list .empty-state, #news-list .empty-state { padding: 12px 8px; font-size: 12px; }
+.show-more-row:has(button[hidden]) { display: none; }
+#report-content .status-stack { gap: 0; }
+#report-content .status-line { padding: 6px 0; }
+#strategy-table th { line-height: 1.4; vertical-align: bottom; }
+
+@media (max-width: 800px) {
+  body[data-overview] .overview-table,
+  body[data-overview="signals"] .overview-table,
+  .reports-page .report-table,
+  .reports-page .recent-report-table {
+    width: max-content;
+    min-width: 100%;
+  }
+  body[data-overview] .overview-table th,
+  body[data-overview] .overview-table td,
+  .reports-page .report-table th,
+  .reports-page .report-table td {
+    padding: 8px 5px;
+  }
+  body[data-overview] .overview-table td,
+  .reports-page .report-table td { max-width: 180px; overflow-wrap: break-word; }
+  body[data-overview] .overview-table th:first-child,
+  body[data-overview] .overview-table td:first-child { width: 1%; white-space: nowrap; }
+  body[data-overview] .cell-detail, .reports-page .cell-note { max-width: 150px; }
+}
+
+/* The nine-column watchlist needs the full desktop width. */
+body[data-overview="signals"] .signals-layout { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 801px) {
+  .reports-page .report-table,
+  .reports-page .recent-report-table { min-width: 0; }
+  .reports-page .report-table th,
+  .reports-page .report-table td { padding: 9px 7px; }
+  .reports-page .cell-note { max-width: 155px; }
+  .reports-page .value-pair { white-space: normal; flex-wrap: wrap; gap: 2px 6px; }
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .reports-page .report-table th,
+  .reports-page .report-table td { padding-right: 5px; padding-left: 5px; }
+  .reports-page .report-table th { white-space: normal; letter-spacing: .02em; }
+  .reports-page .cell-note { max-width: 125px; }
+  .reports-page .date-status-chip { white-space: normal; }
+}
