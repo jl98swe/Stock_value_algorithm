@@ -30,10 +30,10 @@
   function isPreliminary(item, payload, now = Date.now()) {
     // Session boundaries come from XSTO, including half days and DST.
     const quoted = Date.parse(item?.latest?.as_of);
-    const start = Date.parse(payload?.closing_auction_start);
+    const start = Date.parse(payload?.closing_match_start);
     const close = Date.parse(payload?.session_close);
     if (![quoted, start, close].every(Number.isFinite) || quoted > now + 60000 ||
-        close - start !== 5 * 60000) return true;
+        close - start !== 30000) return true;
     const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm',
       year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(close));
     return day !== payload.session_date || quoted < start || quoted > close;
