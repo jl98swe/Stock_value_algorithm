@@ -224,7 +224,8 @@
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
     $('metric-action').className = `metric-value metric-action ${action.type === 'BUY' ? 'positive' : action.type === 'SELL' ? 'negative' : ''}`;
-    $('metric-action-detail').textContent = action.detail || '–';
+    $('metric-action-detail').textContent = ['BUY', 'SELL'].includes(action.type) ? '' : action.detail || '';
+    $('metric-action-detail').hidden = !$('metric-action-detail').textContent;
   }
 
   function renderStatus(data) {
