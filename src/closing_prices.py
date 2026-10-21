@@ -57,7 +57,7 @@ def collect(source, planned, *, now=None, stocks=None, instruments=None,
                "planned_at": f"{day}T{planned}:00{now.strftime('%z')[:3]}:{now.strftime('%z')[3:]}",
                "started_at": now.isoformat(), "run_id": os.getenv("GITHUB_RUN_ID", "local"),
                "rows": [], "errors": [], "state": "not_due"}
-    if not bounds or now < bounds[1]:
+    if not bounds or now < bounds[1] or instant(payload["planned_at"]) < bounds[1]:
         payload["state"] = "not_trading_day" if not bounds else "not_due"
         payload["completed_at"] = instant().isoformat()
         return payload
