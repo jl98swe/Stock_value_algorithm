@@ -14,7 +14,6 @@ import pandas as pd
 import yfinance as yf
 
 from .config import ROOT
-from .earnings import EPS_SOURCE, load_earnings_history
 from .fetch_data import load_price_history
 from .utils import write_json_atomic
 
@@ -498,22 +497,6 @@ def find_prior_year_eps(
     return subset.sort_values(["distance_days", "metric_priority", "observed_date"]).iloc[0]
 
 
-def _normalise_earnings_for_derivation(frame: pd.DataFrame | None) -> pd.DataFrame:
-    if frame is None:
-        return load_earnings_history()
-    result = frame.copy()
-    for column in ["ticker", "period_end", "observed_date", "eps_ttm", "eps_currency", "source"]:
-        if column not in result.columns:
-            result[column] = pd.NA
-    result["ticker"] = result["ticker"].astype(str).str.strip()
-    result["period_end"] = pd.to_datetime(result["period_end"], errors="coerce").dt.tz_localize(None).dt.normalize()
-    result["observed_date"] = pd.to_datetime(result["observed_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
-    result["eps_ttm"] = pd.to_numeric(result["eps_ttm"], errors="coerce")
-    result["eps_currency"] = result["eps_currency"].fillna("").astype(str).str.strip().str.upper()
-    result["source"] = result["source"].fillna("").astype(str).str.strip()
-    return result
-
-
 def derive_manual_eps_ttm(
     *,
     ticker: str,
@@ -521,78 +504,19 @@ def derive_manual_eps_ttm(
     current_quarter_eps: float,
     quarterly_frame: pd.DataFrame | None = None,
     earnings_frame: pd.DataFrame | None = None,
+    reports_frame: pd.DataFrame | None = None,
 ) -> dict[str, object]:
-    period = pd.to_datetime(period_end, errors="coerce")
-    if pd.isna(period):
-        raise ValueError("period_end är inte ett giltigt datum")
-    period = pd.Timestamp(period).tz_localize(None).normalize()
-    current_eps = float(current_quarter_eps)
-    if not math.isfinite(current_eps):
-        raise ValueError("EPS måste vara ett ändligt tal")
+    """Compatibility entry point; use the same verified/manual priority rules."""
+    from .manual_eps import derive_manual_eps_ttm_safe
 
-    prior = find_prior_year_eps(ticker, period, quarterly_frame)
-    if prior is None:
-        target = _target_prior_year(period).date().isoformat()
-        raise ValueError(
-            f"Saknar sparad EPS för {ticker} omkring motsvarande kvartal {target}. "
-            "TTM härleds inte genom gissning."
-        )
-
-    earnings = _normalise_earnings_for_derivation(earnings_frame)
-    subset = earnings.loc[
-        (earnings["ticker"].astype(str) == str(ticker))
-        & (earnings["source"].astype(str) == EPS_SOURCE)
-        & earnings["period_end"].notna()
-        & (earnings["period_end"] < period)
-        & earnings["eps_ttm"].notna()
-        & earnings["eps_currency"].astype(str).str.len().gt(0)
-    ].copy()
-    if subset.empty:
-        raise ValueError(
-            f"Saknar föregående Yahoo trailingDilutedEPS för {ticker}; kan inte härleda ny TTM säkert."
-        )
-    previous = subset.sort_values(["period_end", "observed_date"]).iloc[-1]
-    gap_days = int((period - pd.Timestamp(previous["period_end"]).normalize()).days)
-    if gap_days <= 0 or gap_days > MAX_PREVIOUS_PERIOD_GAP_DAYS:
-        raise ValueError(
-            f"Föregående Yahoo TTM-period för {ticker} ligger {gap_days} dagar från nya perioden; "
-            "automatisk härledning stoppas."
-        )
-
-    previous_currency = str(previous["eps_currency"] or "").strip().upper()
-    prior_currency = str(prior["eps_currency"] or "").strip().upper()
-    if prior_currency and previous_currency and prior_currency != previous_currency:
-        raise ValueError(
-            f"Valutakonflikt för {ticker}: föregående TTM är {previous_currency}, "
-            f"föregående års kvartals-EPS är {prior_currency}."
-        )
-    currency = previous_currency or prior_currency
-    if not currency:
-        raise ValueError(f"Saknar EPS-valuta för {ticker}; TTM härleds inte.")
-
-    previous_ttm = float(previous["eps_ttm"])
-    prior_eps = float(prior["eps"])
-    derived_ttm = previous_ttm + current_eps - prior_eps
-    if not math.isfinite(derived_ttm):
-        raise ValueError("Härledd EPS TTM blev inte ett ändligt tal")
-
-    audit_note = (
-        f"{DERIVED_MANUAL_MARKER}; previous_ttm={previous_ttm:.12g}; "
-        f"previous_period_end={pd.Timestamp(previous['period_end']).date().isoformat()}; "
-        f"current_quarter_eps={current_eps:.12g}; prior_year_eps={prior_eps:.12g}; "
-        f"prior_year_period_end={pd.Timestamp(prior['period_end']).date().isoformat()}; "
-        f"prior_year_metric={prior['metric']}; report_currency={currency}"
+    return derive_manual_eps_ttm_safe(
+        ticker=ticker,
+        period_end=period_end,
+        current_period_eps=current_quarter_eps,
+        quarterly_frame=quarterly_frame,
+        earnings_frame=earnings_frame,
+        reports_frame=reports_frame,
     )
-    return {
-        "eps_ttm": float(derived_ttm),
-        "eps_currency": currency,
-        "previous_ttm": previous_ttm,
-        "previous_period_end": pd.Timestamp(previous["period_end"]).normalize(),
-        "prior_year_eps": prior_eps,
-        "prior_year_period_end": pd.Timestamp(prior["period_end"]).normalize(),
-        "prior_year_metric": str(prior["metric"]),
-        "audit_note": audit_note,
-    }
 
 
 def upsert_manual_quarterly_eps(

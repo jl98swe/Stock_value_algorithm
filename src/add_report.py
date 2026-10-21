@@ -45,7 +45,8 @@ def add_report(
     """Lägg till eller ersätt en manuellt registrerad rapportpost.
 
     Normalvägen tar endast periodens utspädda EPS. Ny TTM härleds från föregående
-    Yahoo trailingDilutedEPS och motsvarande utspädda period-EPS ett år tidigare::
+    verifierad EPS TTM (manuell TradingView prioriteras före Yahoo för samma
+    rapportperiod) och motsvarande utspädda period-EPS ett år tidigare::
 
         ny_TTM = föregående_TTM + aktuell_period_EPS - EPS_samma_period_fjol
 

@@ -30,16 +30,18 @@ Den dagliga körningen hämtar Yahoo `quarterlyDilutedEPS` för bolag som har pa
 
 För normala kvartalsrapporterande bolag behöver användaren bara mata in **utspädd EPS för den nya rapportperioden**. Systemet härleder en provisorisk EPS TTM enligt:
 
-`ny TTM = föregående Yahoo trailingDilutedEPS + aktuell period-EPS - motsvarande period-EPS föregående år`
+`ny TTM = föregående prioriterade EPS TTM + aktuell period-EPS - motsvarande period-EPS föregående år`
 
 Automatisk härledning får bara använda:
 
 1. `manualDilutedEPS` som verifierats manuellt, eller
 2. Yahoo `quarterlyDilutedEPS`.
 
-Yahoo `Reported EPS` sparas endast som referens/audit och får **inte** användas i TTM-formeln, eftersom måttdefinitionen kan skilja sig från diluted EPS. Om jämförbar diluted EPS, föregående Yahoo TTM eller korrekt valuta saknas stoppas inmatningen i stället för att ett värde uppskattas.
+Yahoo `Reported EPS` sparas endast som referens/audit och får **inte** användas i TTM-formeln, eftersom måttdefinitionen kan skilja sig från diluted EPS. Om jämförbar diluted EPS, föregående TTM eller korrekt valuta saknas stoppas inmatningen i stället för att ett värde uppskattas.
 
-När Yahoo senare publicerar faktisk `trailingDilutedEPS` för samma period ersätter den den provisoriskt härledda TTM-posten utan att rapportens verifierade `effective_date` flyttas.
+För den senaste föregående rapportperioden prioriteras manuellt verifierad TradingView EPS TTM, därefter övrig manuellt verifierad EPS TTM och sist Yahoo `trailingDilutedEPS`. En senare Yahoo-observation för samma period får aldrig gå före det manuella värdet. Rapportens uttryckliga `report_currency` används; en valutakonflikt stoppar härledningen och får inte kringgås genom att välja Yahoo.
+
+Yahoo-synken får inte skriva över manuellt verifierade rapportposter eller deras `effective_date`, inklusive manuellt härledda TTM-värden.
 
 ### Bolag utan kvartalsvisa finansiella rapporter
 
