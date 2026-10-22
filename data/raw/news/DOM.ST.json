@@ -1,8 +1,52 @@
 {
-  "generated_at": "2026-10-21T22:05:04+02:00",
+  "generated_at": "2026-10-22T21:59:26+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/dometic-group",
   "items": [
+    {
+      "ticker": "DOM.ST",
+      "company": "Dometic",
+      "published_at": "2026-10-22T07:31:00+02:00",
+      "title": "Dometic Group: Dometic appoints Kristoffer Ljungfelt as CFO",
+      "link": "https://mfn.se/cis/a/dometic-group/dometic-group-dometic-appoints-kristoffer-ljungfelt-as-cfo-36370525",
+      "source": "MFN",
+      "summary": "Dometic Group: Dometic appoints Kristoffer Ljungfelt as CFO 2026-10-22 07:31:00 Dometic has appointed Kristoffer Ljungfelt as the new Chief Financial Officer of Dometic Group. Kristoffer joins Dometic on 1 November from Nobia, where he has held positions including CEO and CFO. He will be based in Stockholm, join Group Management and report to Juan Vargues, President and CEO. Previous roles prior to Nobia include several leading roles at Electrolux. \"Kristoffer's experience from both finance and business roles in listed, global and decentralized organizations, will be a great asset in our continued transformation journey. I am very pleased to ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2134e1bafc2d9401"
+    },
+    {
+      "ticker": "DOM.ST",
+      "company": "Dometic",
+      "published_at": "2026-10-22T07:31:00+02:00",
+      "title": "Dometic Group: Dometic initierar omstruktureringsprogram och redovisar ej kassaflödespåverkande goodwillnedskrivningar",
+      "link": "https://mfn.se/cis/a/dometic-group/dometic-group-dometic-initierar-omstruktureringsprogram-och-redovisar-ej-kassaflodespaverkande-goodwillnedskrivningar-4b51f641",
+      "source": "MFN",
+      "summary": "Dometic Group: Dometic initierar omstruktureringsprogram och redovisar ej kassaflödespåverkande goodwillnedskrivningar 2026-10-22 07:31:00 Dometic har initierat ett omstruktureringsprogram med huvudsakligt fokus på region Americas inom segment Land Vehicles, i syfte att ytterligare anpassa kapacitet, strukturella kostnader och produktutbud till rådande marknadsförhållanden samt förbättra lönsamheten över tid. Omstruktureringsprogrammet omfattar kapacitetsanpassningar, förenkling av produktutbudet och en mer selektiv kanalstrategi. Programmet medför omstruktureringskostnader om -425 Mkr och förväntas generera årliga besparingar om cirka 215 Mk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "restructuring"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:restructuring",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4d8bca379e94354b"
+    },
     {
       "ticker": "DOM.ST",
       "company": "Dometic",

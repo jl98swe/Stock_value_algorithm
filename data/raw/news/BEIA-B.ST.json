@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-21T22:04:23+02:00",
+  "generated_at": "2026-10-22T21:58:33+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/beijer-alma",
-  "items": []
+  "items": [
+    {
+      "ticker": "BEIA-B.ST",
+      "company": "Beijer Alma",
+      "published_at": "2026-10-22T08:40:00+02:00",
+      "title": "Beijer Alma utser Per-Johan Dahlgren till ny vd och koncernchef",
+      "link": "https://mfn.se/a/beijer-alma/beijer-alma-utser-per-johan-dahlgren-till-ny-vd-och-koncernchef",
+      "source": "MFN",
+      "summary": "Beijer Alma utser Per-Johan Dahlgren till ny vd och koncernchef 2026-10-22 08:40:00 Styrelsen i Beijer Alma AB (publ) har utsett Per-Johan Dahlgren till ny vd och koncernchef. Per-Johan har en gedigen internationell erfarenhet från decentraliserade industriella serieförvärvare. Per-Johan tillträder senast i april 2027. Fram till dess kvarstår Johnny Alvarsson, styrelseledamot i Beijer Alma, som tillförordnad vd och koncernchef. Beijer Almas styrelse har utsett Per-Johan Dahlgren till ny vd och koncernchef. Per-Johan har en gedigen internationell och industriell bakgrund, bland annat som vd och koncernchef för S:t Eriks Group AB och AQ Group A",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "922c68583f349f8a"
+    }
+  ]
 }

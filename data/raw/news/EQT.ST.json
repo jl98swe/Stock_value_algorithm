@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-21T22:05:32+02:00",
+  "generated_at": "2026-10-22T21:59:55+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-10-22T00:00:38+02:00",
+      "title": "QIAGEN and EQT Private Equity announce agreement on a recommended voluntary all-cash public takeover offer",
+      "link": "https://mfn.se/cis/a/eqt/qiagen-and-eqt-private-equity-announce-agreement-on-a-recommended-voluntary-all-cash-public-takeover-offer-47b6c343",
+      "source": "MFN",
+      "summary": "QIAGEN and EQT Private Equity announce agreement on a recommended voluntary all-cash public takeover offer 2026-10-22 00:00:38 Click here for more information. With this investment, EQT XI (target fund size of EUR 23 billion and hard cap of EUR 24 billion) will be 10-15 percent invested based on its target fund size. EQT XI has been activated and started charging management fees. EQT X is currently 85-90 percent invested and continues to be in its commitment period but management fees will, following activation of EQT XI, be based on net invested capital. Contact EQT Press Office, press@eqtpartners.com Källa Cision",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "838f87f4d978cb96"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",

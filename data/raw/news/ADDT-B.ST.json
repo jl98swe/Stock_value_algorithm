@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-21T22:03:47+02:00",
+  "generated_at": "2026-10-22T21:57:54+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/addtech",
   "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-10-22T09:00:00+02:00",
+      "title": "Addtech förvärvar Connectors & Switchgear Ltd",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-connectors-and-switchgear-ltd-0e06a182",
+      "source": "MFN",
+      "summary": "Addtech förvärvar Connectors & Switchgear Ltd 2026-10-22 09:00:00 Addtech Energy, ett affärsområde inom Addtech-koncernen, har idag tecknat avtal om att förvärva 100 procent av aktierna i Connectors & Switchgear Ltd (\"C&S\"). C&S utvecklar och tillverkar högspänningsanslutningar och tillhörande komponenter för transformatorstationer och ställverk till framförallt brittiska nätägare, entreprenörer och tillverkare av stationsutrustning. Bolaget har sitt huvudkontor i Banbury, Storbritannien, har 42 anställda och en årlig försäljning om cirka 10 miljoner GBP. C&S blir en del av och kompletterar väl verksamheten inom Allied Insulators Ltd som är e",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8f06153b402101db"
+    },
     {
       "ticker": "ADDT-B.ST",
       "company": "Addtech",

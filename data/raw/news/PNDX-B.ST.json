@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-21T22:07:22+02:00",
+  "generated_at": "2026-10-22T22:01:45+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/pandox",
-  "items": []
+  "items": [
+    {
+      "ticker": "PNDX-B.ST",
+      "company": "Pandox AB (publ)",
+      "published_at": "2026-10-22T06:55:00+02:00",
+      "title": "Pandox avyttrar sju hotellfastigheter i Danmark och Sverige för 2 100 MSEK",
+      "link": "https://mfn.se/a/pandox/pandox-avyttrar-sju-hotellfastigheter-i-danmark-och-sverige-for-2-100-msek",
+      "source": "MFN",
+      "summary": "Pandox avyttrar sju hotellfastigheter i Danmark och Sverige för 2 100 MSEK 2026-10-22 06:55:00 Pandox har ingått avtal om att avyttra sju hotellfastigheter i affärssegmentet Hyresavtal med totalt 1 248 rum i Danmark och Sverige i två separata transaktioner. Det sammanlagda underliggande fastighetsvärdet uppgår till cirka 2 100 MSEK, före avdrag för uppskjuten skatt, vilket är över bokfört värde per 30 september 2026, såväl som per 30 september 2025. I Danmark avyttras Motel One Copenhagen, Scandic Sluseholmen, Scandic Glostrup, Scandic Hvidovre och Scandic Kolding med totalt 928 rum. Det underliggande fastighetsvärdet, före avdrag för uppskju",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e8c795909b26a4bc"
+    }
+  ]
 }
