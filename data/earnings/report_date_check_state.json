@@ -70,7 +70,8 @@
   "ERIC-B.ST|2026-Q3": {
     "anchor": "2026-10-15",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "INDU-A.ST|2026-Q3": {
@@ -80,13 +81,15 @@
   "NDA-SE.ST|2026-Q3": {
     "anchor": "2026-10-15",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "WALL-B.ST|2026-Q3": {
     "anchor": "2026-10-15",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "AZA.ST|2026-Q3": {
@@ -131,42 +134,144 @@
   },
   "BERG-B.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "DYVOX.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "FABG.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "GETI-B.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "HMS.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "INWI.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "NMAN.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SECARE.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SHB-A.ST|2026-Q3": {
     "anchor": "2026-10-21",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "WIHL.ST|2026-Q3": {
     "anchor": "2026-10-21",
+    "completed": []
+  },
+  "ADDT-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "ARJO-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "AXFO.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "BEIJ-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "BIOG-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "CAST.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "COOR.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "DOM.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "ESSITY-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "HOLM-A.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "HTRO.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "MYCR.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "NORION.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "PACT.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "PNDX-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "SAVE.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "SEB-A.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "SVED-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "SWED-A.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "THULE.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": []
+  },
+  "VITR.ST|2026-Q3": {
+    "anchor": "2026-10-22",
     "completed": []
   }
 }

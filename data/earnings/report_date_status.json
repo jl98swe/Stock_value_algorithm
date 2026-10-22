@@ -1,7 +1,8 @@
 {
-  "checked_at": "2026-10-21",
+  "checked_at": "2026-10-22",
   "counts": {
-    "retry_missing_evidence": 13
+    "retry_missing_evidence": 25,
+    "confirmed": 12
   },
   "missing_historical_dates": [
     {
@@ -748,11 +749,21 @@
   "missing_upcoming_tickers": [
     "ABB.ST",
     "AZA.ST",
+    "BERG-B.ST",
+    "DYVOX.ST",
     "ERIC-B.ST",
+    "FABG.ST",
+    "GETI-B.ST",
+    "HMS.ST",
+    "INWI.ST",
     "LIME.ST",
     "NDA-SE.ST",
+    "NMAN.ST",
     "SCST.ST",
-    "TEL2-B.ST"
+    "SECARE.ST",
+    "SHB-A.ST",
+    "TEL2-B.ST",
+    "WIHL.ST"
   ],
   "calendar_source_conflicts": [
     {
