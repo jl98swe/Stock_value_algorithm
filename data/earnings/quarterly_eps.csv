@@ -48,6 +48,7 @@ ADDT-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.95,SEK,Yahoo Finance / qu
 ADDT-B.ST,2025-03-31,2025-05-15,2026-09-19,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
 ADDT-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,2.0,SEK,Yahoo Finance / quarterlyDilutedEPS
 ADDT-B.ST,2025-06-30,2025-07-15,2026-09-19,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.8,SEK,"ADDT-B.ST official interim report September 2026, pp. 1 | https://mb.cision.com/Main/3619/4408596/4331361.pdf | comparative diluted Q3 2025"
 ADDT-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.8000000000000007,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 ADDT-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.9,SEK,Yahoo Finance / quarterlyDilutedEPS
 ADDT-B.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
@@ -55,6 +56,7 @@ ADDT-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.25,SEK,Yahoo Finance / qu
 ADDT-B.ST,2026-03-31,2026-05-20,2026-09-19,reportedEPS,2.25,SEK,Yahoo Finance / Reported EPS
 ADDT-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 ADDT-B.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
+ADDT-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,2.1,SEK,"ADDT-B.ST official interim report September 2026, pp. 1 | https://mb.cision.com/Main/3619/4408596/4331361.pdf"
 ALIG.ST,2023-09-30,2023-10-24,2026-09-19,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
 ALIG.ST,2023-12-31,2024-02-12,2026-09-19,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
 ALIG.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,1.66,SEK,Yahoo Finance / Reported EPS
@@ -134,6 +136,7 @@ ARJO-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.34,SEK,Yahoo Finance / qu
 ARJO-B.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,0.44,SEK,Yahoo Finance / Reported EPS
 ARJO-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.34,SEK,Yahoo Finance / quarterlyDilutedEPS
 ARJO-B.ST,2025-06-30,2025-07-11,2026-09-19,reportedEPS,0.43,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.3,SEK,"ARJO-B.ST official interim report September 2026, PDF pp. 1, 9 | https://mb.cision.com/Main/12208/4413619/4331849.pdf | comparative diluted Q3 2025"
 ARJO-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.2899999999999999,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 ARJO-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.26,SEK,Yahoo Finance / quarterlyDilutedEPS
 ARJO-B.ST,2025-12-31,2026-01-30,2026-09-19,reportedEPS,0.43,SEK,Yahoo Finance / Reported EPS
@@ -141,6 +144,7 @@ ARJO-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / qua
 ARJO-B.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,0.41,SEK,Yahoo Finance / Reported EPS
 ARJO-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.46,SEK,Yahoo Finance / quarterlyDilutedEPS
 ARJO-B.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,0.46,SEK,Yahoo Finance / Reported EPS
+ARJO-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.21,SEK,"ARJO-B.ST official interim report September 2026, PDF pp. 1, 9 | https://mb.cision.com/Main/12208/4413619/4331849.pdf"
 ASSA-B.ST,2023-09-30,2023-10-25,2026-09-19,reportedEPS,3.31,SEK,Yahoo Finance / Reported EPS
 ASSA-B.ST,2023-12-31,2024-02-07,2026-09-19,reportedEPS,3.56,SEK,Yahoo Finance / Reported EPS
 ASSA-B.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,3.12,SEK,Yahoo Finance / Reported EPS
@@ -226,6 +230,7 @@ AXFO.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,2.08,SEK,Yahoo Finance / quar
 AXFO.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,2.22,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,2.83,SEK,Yahoo Finance / quarterlyDilutedEPS
 AXFO.ST,2025-06-30,2025-07-11,2026-09-19,reportedEPS,2.96,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2025-09-30,,2026-10-22,manualDilutedEPS,3.29,SEK,"AXFO.ST official interim report September 2026, PDF pp. 15, 21 | https://mb.cision.com/Main/1306/4413471/4331143.pdf | comparative diluted Q3 2025"
 AXFO.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,3.289999999999999,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 AXFO.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,2.59,SEK,Yahoo Finance / quarterlyDilutedEPS
 AXFO.ST,2025-12-31,2026-01-29,2026-09-19,reportedEPS,2.69,SEK,Yahoo Finance / Reported EPS
@@ -233,6 +238,7 @@ AXFO.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.41,SEK,Yahoo Finance / quar
 AXFO.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,2.43,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.93,SEK,Yahoo Finance / quarterlyDilutedEPS
 AXFO.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,2.95,SEK,Yahoo Finance / Reported EPS
+AXFO.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.45,SEK,"AXFO.ST official interim report September 2026, PDF pp. 15, 21 | https://mb.cision.com/Main/1306/4413471/4331143.pdf"
 AZA.ST,2023-09-30,2023-10-20,2026-09-19,reportedEPS,3.25,SEK,Yahoo Finance / Reported EPS
 AZA.ST,2023-12-31,2024-01-19,2026-09-19,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
 AZA.ST,2024-03-31,2024-04-19,2026-09-19,reportedEPS,3.53,SEK,Yahoo Finance / Reported EPS
@@ -321,6 +327,7 @@ BEIJ-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.94,SEK,Yahoo Finance / qu
 BEIJ-B.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
 BEIJ-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.56,SEK,Yahoo Finance / quarterlyDilutedEPS
 BEIJ-B.ST,2025-06-30,2025-07-18,2026-09-19,reportedEPS,1.56,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.44,SEK,"BEIJ-B.ST official interim report September 2026, PDF pp. 2 | https://mb.cision.com/Main/1860/4413478/4331217.pdf | comparative diluted Q3 2025"
 BEIJ-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.4499999999999995,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 BEIJ-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.64,SEK,Yahoo Finance / quarterlyDilutedEPS
 BEIJ-B.ST,2025-12-31,2026-01-30,2026-09-19,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
@@ -328,6 +335,7 @@ BEIJ-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.94,SEK,Yahoo Finance / qu
 BEIJ-B.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,0.94,SEK,Yahoo Finance / Reported EPS
 BEIJ-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
 BEIJ-B.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
+BEIJ-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,1.71,SEK,"BEIJ-B.ST official interim report September 2026, PDF pp. 2 | https://mb.cision.com/Main/1860/4413478/4331217.pdf"
 BERG-B.ST,2023-09-30,2023-10-19,2026-09-19,reportedEPS,1.8,SEK,Yahoo Finance / Reported EPS
 BERG-B.ST,2023-12-31,2024-02-09,2026-09-19,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
 BERG-B.ST,2024-03-31,2024-05-15,2026-09-19,reportedEPS,1.7,SEK,Yahoo Finance / Reported EPS
@@ -359,6 +367,7 @@ BETS-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.34,EUR,Yahoo Finance / qu
 BETS-B.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,3.72,EUR,Yahoo Finance / Reported EPS
 BETS-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
 BETS-B.ST,2025-06-30,2025-07-18,2026-09-19,reportedEPS,3.96,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.34,EUR,"Betsson Q3 2026, p. 22 | https://mb.cision.com/Main/1067/4413421/4331427.pdf"
 BETS-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.51,EUR,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 BETS-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.24,EUR,Yahoo Finance / quarterlyDilutedEPS
 BETS-B.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,2.55,EUR,Yahoo Finance / Reported EPS
@@ -366,6 +375,7 @@ BETS-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / qu
 BETS-B.ST,2026-03-31,2026-04-24,2026-09-19,reportedEPS,1.94,EUR,Yahoo Finance / Reported EPS
 BETS-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.21,EUR,Yahoo Finance / quarterlyDilutedEPS
 BETS-B.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,2.32,EUR,Yahoo Finance / Reported EPS
+BETS-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.19,EUR,"Betsson Q3 2026, p. 22 | https://mb.cision.com/Main/1067/4413421/4331427.pdf"
 BILI-A.ST,2023-09-30,2023-10-24,2026-09-19,reportedEPS,1.83,SEK,Yahoo Finance / Reported EPS
 BILI-A.ST,2023-12-31,2024-02-07,2026-09-19,reportedEPS,2.16,SEK,Yahoo Finance / Reported EPS
 BILI-A.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,1.7,SEK,Yahoo Finance / Reported EPS
@@ -388,6 +398,7 @@ BIOG-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.81,SEK,Yahoo Finance / qu
 BIOG-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
 BIOG-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.87,SEK,Yahoo Finance / quarterlyDilutedEPS
 BIOG-B.ST,2025-06-30,2025-07-18,2026-09-19,reportedEPS,0.87,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.65,SEK,"BIOG-B.ST official interim report September 2026, pp. 10 | https://mb.cision.com/Main/3271/4413465/4331197.pdf | comparative diluted Q3 2025"
 BIOG-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.6499999999999999,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 BIOG-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.98,SEK,Yahoo Finance / quarterlyDilutedEPS
 BIOG-B.ST,2025-12-31,2026-02-12,2026-09-19,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
@@ -395,6 +406,7 @@ BIOG-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.78,SEK,Yahoo Finance / qu
 BIOG-B.ST,2026-03-31,2026-05-07,2026-09-19,reportedEPS,0.78,SEK,Yahoo Finance / Reported EPS
 BIOG-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.02,SEK,Yahoo Finance / quarterlyDilutedEPS
 BIOG-B.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,1.11,SEK,Yahoo Finance / Reported EPS
+BIOG-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,1.09,SEK,"BIOG-B.ST official interim report September 2026, pp. 10 | https://mb.cision.com/Main/3271/4413465/4331197.pdf"
 BOL.ST,2023-09-30,2023-10-20,2026-09-19,reportedEPS,4.96,SEK,Yahoo Finance / Reported EPS
 BOL.ST,2023-12-31,2024-02-08,2026-09-19,reportedEPS,6.06,SEK,Yahoo Finance / Reported EPS
 BOL.ST,2024-03-31,2024-04-23,2026-09-19,reportedEPS,4.16,SEK,Yahoo Finance / Reported EPS
@@ -476,6 +488,7 @@ CAST.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.0,SEK,Yahoo Finance / quart
 CAST.ST,2025-03-31,2025-05-05,2026-09-19,reportedEPS,2.0,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.38,SEK,Yahoo Finance / quarterlyDilutedEPS
 CAST.ST,2025-06-30,2025-07-14,2026-09-19,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.61,SEK,"CAST.ST official interim report September 2026, PDF pp. 2 | https://storage.mfn.se/28024f1a-16f2-476a-a897-e1d953725afc/castellum-delarsrapport-januari-september-2026.pdf | comparative diluted Q3 2025"
 CAST.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.76,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 CAST.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,-0.23,SEK,Yahoo Finance / quarterlyDilutedEPS
 CAST.ST,2025-12-31,2026-02-18,2026-09-19,reportedEPS,2.32,SEK,Yahoo Finance / Reported EPS
@@ -483,6 +496,7 @@ CAST.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.66,SEK,Yahoo Finance / quar
 CAST.ST,2026-03-31,2026-04-24,2026-09-19,reportedEPS,1.99,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
 CAST.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,2.36,SEK,Yahoo Finance / Reported EPS
+CAST.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,1.97,SEK,"CAST.ST official interim report September 2026, PDF pp. 2 | https://storage.mfn.se/28024f1a-16f2-476a-a897-e1d953725afc/castellum-delarsrapport-januari-september-2026.pdf"
 CATE.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,4.11,SEK,Yahoo Finance / Reported EPS
 CATE.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,3.92,SEK,Yahoo Finance / Reported EPS
 CATE.ST,2024-06-30,2024-07-05,2026-09-19,reportedEPS,4.65,SEK,Yahoo Finance / Reported EPS
@@ -552,6 +566,7 @@ COOR.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.5,SEK,Yahoo Finance / quart
 COOR.ST,2025-03-31,2025-04-23,2026-09-19,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
 COOR.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 COOR.ST,2025-06-30,2025-07-14,2026-09-19,reportedEPS,0.84,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.5,SEK,"COOR.ST official interim report September 2026, PDF pp. 2, 18 | https://mb.cision.com/Main/8962/4413617/4331831.pdf | comparative diluted Q3 2025"
 COOR.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.5,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 COOR.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
 COOR.ST,2025-12-31,2026-02-11,2026-09-19,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
@@ -559,6 +574,7 @@ COOR.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.7,SEK,Yahoo Finance / quart
 COOR.ST,2026-03-31,2026-04-22,2026-09-19,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
 COOR.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
 COOR.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,1.0,SEK,Yahoo Finance / Reported EPS
+COOR.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.5,SEK,"COOR.ST official interim report September 2026, PDF pp. 2, 18 | https://mb.cision.com/Main/8962/4413617/4331831.pdf"
 CTT.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.93,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.19,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -584,6 +600,7 @@ DOM.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.57,SEK,Yahoo Finance / quart
 DOM.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,0.88,SEK,Yahoo Finance / Reported EPS
 DOM.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.09,SEK,Yahoo Finance / quarterlyDilutedEPS
 DOM.ST,2025-06-30,2025-07-15,2026-09-19,reportedEPS,1.1,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.35,SEK,"DOM.ST official interim report September 2026, pp. 1, 9 | https://mb.cision.com/Main/10773/4412621/4331614.pdf | comparative diluted Q3 2025"
 DOM.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.3500000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 DOM.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,-0.67,SEK,Yahoo Finance / quarterlyDilutedEPS
 DOM.ST,2025-12-31,2026-01-28,2026-09-19,reportedEPS,-0.67,SEK,Yahoo Finance / Reported EPS
@@ -591,6 +608,7 @@ DOM.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quart
 DOM.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,0.86,SEK,Yahoo Finance / Reported EPS
 DOM.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.75,SEK,Yahoo Finance / quarterlyDilutedEPS
 DOM.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,1.27,SEK,Yahoo Finance / Reported EPS
+DOM.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,-13.71,SEK,"DOM.ST official interim report September 2026, pp. 1, 9 | https://mb.cision.com/Main/10773/4412621/4331614.pdf"
 DUNI.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.14,SEK,Yahoo Finance / quarterlyDilutedEPS
 DUNI.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.35,SEK,Yahoo Finance / quarterlyDilutedEPS
 DUNI.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.25,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -729,6 +747,7 @@ ESSITY-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,4.43,SEK,Yahoo Finance / 
 ESSITY-B.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,4.39,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,4.39,SEK,Yahoo Finance / quarterlyDilutedEPS
 ESSITY-B.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,4.51,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,4.86,SEK,"ESSITY-B.ST official interim report September 2026, PDF pp. 13, 26 | https://mb.cision.com/Main/15798/4413428/4331007.pdf | comparative diluted Q3 2025"
 ESSITY-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,4.860000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 ESSITY-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,4.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 ESSITY-B.ST,2025-12-31,2026-01-22,2026-09-19,reportedEPS,4.84,SEK,Yahoo Finance / Reported EPS
@@ -736,6 +755,7 @@ ESSITY-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,4.23,SEK,Yahoo Finance / 
 ESSITY-B.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,4.44,SEK,Yahoo Finance / Reported EPS
 ESSITY-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,3.94,SEK,Yahoo Finance / quarterlyDilutedEPS
 ESSITY-B.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,4.59,SEK,Yahoo Finance / Reported EPS
+ESSITY-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.47,SEK,"ESSITY-B.ST official interim report September 2026, PDF pp. 13, 26 | https://mb.cision.com/Main/15798/4413428/4331007.pdf"
 EVO.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,1.26,EUR,Yahoo Finance / Reported EPS
 EVO.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,1.25,EUR,Yahoo Finance / Reported EPS
 EVO.ST,2024-06-30,2024-07-19,2026-09-19,reportedEPS,1.28,EUR,Yahoo Finance / Reported EPS
@@ -872,10 +892,12 @@ HMS.ST,2026-09-30,2026-10-21,2026-10-21,manualDilutedEPS,3.26,SEK,"HMS Q3 2026, 
 HOLM-A.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,3.5,SEK,Yahoo Finance / quarterlyDilutedEPS
 HOLM-A.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,4.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 HOLM-A.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2025-09-30,,2026-10-22,manualDilutedEPS,6.1,SEK,"HOLM-A.ST official interim report September 2026, pp. 9 | https://mb.cision.com/Main/308/4413423/4331005.pdf | comparative diluted Q3 2025"
 HOLM-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,6.100000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 HOLM-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 HOLM-A.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,4.0,SEK,Yahoo Finance / quarterlyDilutedEPS
 HOLM-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,3.3,SEK,Yahoo Finance / quarterlyDilutedEPS
+HOLM-A.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,2.6,SEK,"HOLM-A.ST official interim report September 2026, pp. 9 | https://mb.cision.com/Main/308/4413423/4331005.pdf"
 HPOL-B.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,1.95,SEK,Yahoo Finance / Reported EPS
 HPOL-B.ST,2024-03-31,2024-04-26,2026-09-19,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
 HPOL-B.ST,2024-06-30,2024-07-17,2026-09-19,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
@@ -904,6 +926,7 @@ HTRO.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.42,SEK,Yahoo Finance / quar
 HTRO.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
 HTRO.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.38,SEK,Yahoo Finance / quarterlyDilutedEPS
 HTRO.ST,2025-06-30,2025-07-14,2026-09-19,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2025-09-30,,2026-10-22,manualDilutedEPS,-0.59,SEK,"HTRO.ST official interim report September 2026, pp. 2, 16 | https://storage.mfn.se/451bffdf-bac0-4f30-9562-bb4bd51f8ae0/hexatronic-group-ab-publ-delarsrapport-q3-2026.pdf | comparative diluted Q3 2025"
 HTRO.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,-0.6000000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 HTRO.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,-0.27,SEK,Yahoo Finance / quarterlyDilutedEPS
 HTRO.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
@@ -911,6 +934,7 @@ HTRO.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quart
 HTRO.ST,2026-03-31,2026-04-29,2026-09-19,reportedEPS,0.45,SEK,Yahoo Finance / Reported EPS
 HTRO.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.61,SEK,Yahoo Finance / quarterlyDilutedEPS
 HTRO.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,0.61,SEK,Yahoo Finance / Reported EPS
+HTRO.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.81,SEK,"HTRO.ST official interim report September 2026, pp. 2, 16 | https://storage.mfn.se/451bffdf-bac0-4f30-9562-bb4bd51f8ae0/hexatronic-group-ab-publ-delarsrapport-q3-2026.pdf"
 HUFV-A.ST,2023-09-30,2023-11-09,2026-09-19,reportedEPS,1.12,SEK,Yahoo Finance / Reported EPS
 HUFV-A.ST,2024-03-31,2024-05-08,2026-09-19,reportedEPS,1.03,SEK,Yahoo Finance / Reported EPS
 HUFV-A.ST,2024-06-30,2024-08-22,2026-09-19,reportedEPS,1.17,SEK,Yahoo Finance / Reported EPS
@@ -1196,6 +1220,7 @@ MYCR.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,3.18,SEK,Yahoo Finance / quar
 MYCR.ST,2025-03-31,2025-04-25,2026-09-19,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
 MYCR.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,2.28,SEK,Yahoo Finance / quarterlyDilutedEPS
 MYCR.ST,2025-06-30,2025-07-11,2026-09-19,reportedEPS,2.28,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.11,SEK,"MYCR.ST official interim report September 2026, pp. 1, 10 | https://storage.mfn.se/78b2df50-78f5-42ce-a441-be759e0f617d/delarsrapport-januari-september-2026.pdf | comparative diluted Q3 2025"
 MYCR.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.1100000000000003,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 MYCR.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.42,SEK,Yahoo Finance / quarterlyDilutedEPS
 MYCR.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
@@ -1203,6 +1228,7 @@ MYCR.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,3.66,SEK,Yahoo Finance / quar
 MYCR.ST,2026-03-31,2026-04-24,2026-09-19,reportedEPS,3.66,SEK,Yahoo Finance / Reported EPS
 MYCR.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 MYCR.ST,2026-06-30,2026-07-14,2026-09-19,reportedEPS,2.81,SEK,Yahoo Finance / Reported EPS
+MYCR.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,2.41,SEK,"MYCR.ST official interim report September 2026, pp. 1, 10 | https://storage.mfn.se/78b2df50-78f5-42ce-a441-be759e0f617d/delarsrapport-januari-september-2026.pdf"
 NDA-SE.ST,2023-09-30,2023-10-19,2026-09-19,reportedEPS,0.38,EUR,Yahoo Finance / Reported EPS
 NDA-SE.ST,2023-12-31,2024-02-05,2026-09-19,reportedEPS,0.31,EUR,Yahoo Finance / Reported EPS
 NDA-SE.ST,2024-03-31,2024-04-18,2026-09-19,reportedEPS,0.38,EUR,Yahoo Finance / Reported EPS
@@ -1294,12 +1320,14 @@ NORION.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / qu
 NORION.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,2.01,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.81,SEK,Yahoo Finance / quarterlyDilutedEPS
 NORION.ST,2025-06-30,2025-07-14,2026-09-19,reportedEPS,1.81,SEK,Yahoo Finance / Reported EPS
+NORION.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.7,SEK,"NORION.ST official interim report September 2026, pp. 4 | https://storage.mfn.se/ffb4d67b-97e5-4bbb-9827-9f362f0197bb/norion-bank-ab-kvartalsrapport-januari-september-2026.pdf | comparative diluted Q3 2025"
 NORION.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.71,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 NORION.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.59,SEK,Yahoo Finance / quarterlyDilutedEPS
 NORION.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,1.54,SEK,Yahoo Finance / quarterlyDilutedEPS
 NORION.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+NORION.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,2.18,SEK,"NORION.ST official interim report September 2026, pp. 4 | https://storage.mfn.se/ffb4d67b-97e5-4bbb-9827-9f362f0197bb/norion-bank-ab-kvartalsrapport-januari-september-2026.pdf"
 PACT.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,1.05,SEK,Yahoo Finance / Reported EPS
 PACT.ST,2024-03-31,2024-05-07,2026-09-19,reportedEPS,2.22,SEK,Yahoo Finance / Reported EPS
 PACT.ST,2024-06-30,2024-07-12,2026-09-19,reportedEPS,2.13,SEK,Yahoo Finance / Reported EPS
@@ -1310,6 +1338,7 @@ PACT.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.79,SEK,Yahoo Finance / quar
 PACT.ST,2025-03-31,2025-05-06,2026-09-19,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
 PACT.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / quarterlyDilutedEPS
 PACT.ST,2025-06-30,2025-07-14,2026-09-19,reportedEPS,0.89,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2025-09-30,,2026-10-22,manualDilutedEPS,1.39,SEK,"PACT.ST official interim report September 2026, pp. 19 | https://storage.mfn.se/3b6cd65d-7da5-4adf-a328-fcaa2de80ec8/proact-it-group-delarsrapport-q3-2026.pdf | comparative diluted Q3 2025"
 PACT.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.4299999999999995,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 PACT.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.56,SEK,Yahoo Finance / quarterlyDilutedEPS
 PACT.ST,2025-12-31,2026-02-10,2026-09-19,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
@@ -1317,6 +1346,7 @@ PACT.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,3.04,SEK,Yahoo Finance / quar
 PACT.ST,2026-03-31,2026-05-05,2026-09-19,reportedEPS,3.04,SEK,Yahoo Finance / Reported EPS
 PACT.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,2.47,SEK,Yahoo Finance / quarterlyDilutedEPS
 PACT.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,2.47,SEK,Yahoo Finance / Reported EPS
+PACT.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.18,SEK,"PACT.ST official interim report September 2026, pp. 19 | https://storage.mfn.se/3b6cd65d-7da5-4adf-a328-fcaa2de80ec8/proact-it-group-delarsrapport-q3-2026.pdf"
 PEAB-B.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,1.85,SEK,Yahoo Finance / Reported EPS
 PEAB-B.ST,2023-12-31,2024-02-02,2026-09-19,reportedEPS,-0.25,SEK,Yahoo Finance / Reported EPS
 PEAB-B.ST,2024-03-31,2024-05-06,2026-09-19,reportedEPS,-0.45,SEK,Yahoo Finance / Reported EPS
@@ -1356,6 +1386,7 @@ PNDX-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / qu
 PNDX-B.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,1.54,SEK,Yahoo Finance / Reported EPS
 PNDX-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,3.61,SEK,Yahoo Finance / quarterlyDilutedEPS
 PNDX-B.ST,2025-06-30,2025-07-11,2026-09-19,reportedEPS,3.02,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,3.25,SEK,"PNDX-B.ST official interim report September 2026, pp. 2, 15 | https://storage.mfn.se/5ebe2564-311a-4b0a-8677-7002c176fda3/pandox-ab-publ-delarsrapport-januari-september-2026.pdf | comparative diluted Q3 2025"
 PNDX-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,3.26,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 PNDX-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,8.68,SEK,Yahoo Finance / quarterlyDilutedEPS
 PNDX-B.ST,2025-12-31,2026-02-05,2026-09-19,reportedEPS,2.07,SEK,Yahoo Finance / Reported EPS
@@ -1363,6 +1394,7 @@ PNDX-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,3.29,SEK,Yahoo Finance / qu
 PNDX-B.ST,2026-03-31,2026-04-29,2026-09-19,reportedEPS,3.29,SEK,Yahoo Finance / Reported EPS
 PNDX-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
 PNDX-B.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,3.48,SEK,Yahoo Finance / Reported EPS
+PNDX-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,5.28,SEK,"PNDX-B.ST official interim report September 2026, pp. 2, 15 | https://storage.mfn.se/5ebe2564-311a-4b0a-8677-7002c176fda3/pandox-ab-publ-delarsrapport-januari-september-2026.pdf"
 REJL-B.ST,2024-06-30,2024-07-15,2026-09-19,reportedEPS,2.2,SEK,Yahoo Finance / Reported EPS
 REJL-B.ST,2024-09-30,2024-10-24,2026-09-19,reportedEPS,1.75,SEK,Yahoo Finance / Reported EPS
 REJL-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,3.73,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1414,6 +1446,7 @@ SAVE.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,3.13,SEK,Yahoo Finance / quar
 SAVE.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,3.13,SEK,Yahoo Finance / Reported EPS
 SAVE.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,2.84,SEK,Yahoo Finance / quarterlyDilutedEPS
 SAVE.ST,2025-06-30,2025-07-18,2026-09-19,reportedEPS,2.84,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2025-09-30,,2026-10-22,manualDilutedEPS,2.81,SEK,"SAVE.ST official interim report September 2026, pp. 2, 15 | https://mb.cision.com/Main/116/4413494/4331238.pdf | comparative diluted Q3 2025"
 SAVE.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,2.8000000000000007,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SAVE.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,3.05,SEK,Yahoo Finance / quarterlyDilutedEPS
 SAVE.ST,2025-12-31,2026-01-28,2026-09-19,reportedEPS,3.05,SEK,Yahoo Finance / Reported EPS
@@ -1421,6 +1454,7 @@ SAVE.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,3.32,SEK,Yahoo Finance / quar
 SAVE.ST,2026-03-31,2026-04-24,2026-09-19,reportedEPS,3.32,SEK,Yahoo Finance / Reported EPS
 SAVE.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,3.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 SAVE.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,3.8,SEK,Yahoo Finance / Reported EPS
+SAVE.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.5,SEK,"SAVE.ST official interim report September 2026, pp. 2, 15 | https://mb.cision.com/Main/116/4413494/4331238.pdf"
 SCA-B.ST,2023-09-30,2023-10-27,2026-09-19,reportedEPS,0.96,SEK,Yahoo Finance / Reported EPS
 SCA-B.ST,2023-12-31,2024-01-26,2026-09-19,reportedEPS,1.22,SEK,Yahoo Finance / Reported EPS
 SCA-B.ST,2024-03-31,2024-04-26,2026-09-19,reportedEPS,1.12,SEK,Yahoo Finance / Reported EPS
@@ -1467,6 +1501,7 @@ SEB-A.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,3.84,SEK,Yahoo Finance / qua
 SEB-A.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,3.84,SEK,Yahoo Finance / Reported EPS
 SEB-A.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,4.08,SEK,Yahoo Finance / quarterlyDilutedEPS
 SEB-A.ST,2025-06-30,2025-07-16,2026-09-19,reportedEPS,4.08,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2025-09-30,,2026-10-22,manualDilutedEPS,3.83,SEK,"SEB-A.ST official interim report September 2026, pp. 5 | https://mb.cision.com/Main/4324/4413613/4331801.pdf | comparative diluted Q3 2025"
 SEB-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,3.84,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SEB-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,3.67,SEK,Yahoo Finance / quarterlyDilutedEPS
 SEB-A.ST,2025-12-31,2026-01-29,2026-09-19,reportedEPS,3.88,SEK,Yahoo Finance / Reported EPS
@@ -1474,6 +1509,7 @@ SEB-A.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,3.79,SEK,Yahoo Finance / qua
 SEB-A.ST,2026-03-31,2026-04-29,2026-09-19,reportedEPS,3.79,SEK,Yahoo Finance / Reported EPS
 SEB-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,4.39,SEK,Yahoo Finance / quarterlyDilutedEPS
 SEB-A.ST,2026-06-30,2026-07-15,2026-09-19,reportedEPS,4.39,SEK,Yahoo Finance / Reported EPS
+SEB-A.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.81,SEK,"SEB-A.ST official interim report September 2026, pp. 5 | https://mb.cision.com/Main/4324/4413613/4331801.pdf"
 SECARE.ST,2023-09-30,2023-10-25,2026-09-19,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
 SECARE.ST,2023-12-31,2024-02-15,2026-09-19,reportedEPS,-0.08,SEK,Yahoo Finance / Reported EPS
 SECARE.ST,2024-03-31,2024-04-25,2026-09-19,reportedEPS,0.23,SEK,Yahoo Finance / Reported EPS
@@ -1612,12 +1648,14 @@ SVED-B.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.99,SEK,Yahoo Finance / qu
 SVED-B.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,0.99,SEK,Yahoo Finance / Reported EPS
 SVED-B.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.97,SEK,Yahoo Finance / quarterlyDilutedEPS
 SVED-B.ST,2025-06-30,2025-07-18,2026-09-19,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
+SVED-B.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.92,SEK,"SVED-B.ST official interim report September 2026, pp. 1, 9 | https://storage.mfn.se/37245c96-c15e-442d-99e4-621e8f1b4980/q3-rapport-2026.pdf | comparative diluted Q3 2025"
 SVED-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.91,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SVED-B.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,1.2,SEK,Yahoo Finance / quarterlyDilutedEPS
 SVED-B.ST,2025-12-31,2026-02-04,2026-09-19,reportedEPS,1.2,SEK,Yahoo Finance / Reported EPS
 SVED-B.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,1.13,SEK,Yahoo Finance / quarterlyDilutedEPS
 SVED-B.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,1.13,SEK,Yahoo Finance / Reported EPS
 SVED-B.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.78,SEK,Yahoo Finance / quarterlyDilutedEPS
+SVED-B.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.76,SEK,"SVED-B.ST official interim report September 2026, pp. 1, 9 | https://storage.mfn.se/37245c96-c15e-442d-99e4-621e8f1b4980/q3-rapport-2026.pdf"
 SWEC-A.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1654,6 +1692,7 @@ SWED-A.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,7.26,SEK,Yahoo Finance / qu
 SWED-A.ST,2025-03-31,2025-04-29,2026-09-19,reportedEPS,7.26,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,6.99,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWED-A.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,6.99,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2025-09-30,,2026-10-22,manualDilutedEPS,7.53,SEK,"SWED-A.ST official interim report September 2026, PDF pp. 5, 52 | https://mb.cision.com/Main/67/4413450/4331103.pdf | comparative diluted Q3 2025"
 SWED-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,7.510000000000002,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SWED-A.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,7.22,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWED-A.ST,2025-12-31,2026-01-29,2026-09-19,reportedEPS,7.22,SEK,Yahoo Finance / Reported EPS
@@ -1661,6 +1700,7 @@ SWED-A.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,6.5,SEK,Yahoo Finance / qua
 SWED-A.ST,2026-03-31,2026-04-29,2026-09-19,reportedEPS,6.5,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,6.37,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWED-A.ST,2026-06-30,2026-07-17,2026-09-19,reportedEPS,6.37,SEK,Yahoo Finance / Reported EPS
+SWED-A.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,7.3,SEK,"SWED-A.ST official interim report September 2026, PDF pp. 5, 52 | https://mb.cision.com/Main/67/4413450/4331103.pdf"
 SYSR.ST,2023-10-31,2023-12-07,2026-09-19,reportedEPS,1.18,SEK,Yahoo Finance / Reported EPS
 SYSR.ST,2024-01-31,2024-03-05,2026-09-19,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
 SYSR.ST,2024-04-30,2024-06-04,2026-09-19,reportedEPS,0.8,SEK,Yahoo Finance / Reported EPS
@@ -1707,6 +1747,7 @@ THULE.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,2.46,SEK,Yahoo Finance / qua
 THULE.ST,2025-03-31,2025-04-28,2026-09-19,reportedEPS,2.46,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,4.75,SEK,Yahoo Finance / quarterlyDilutedEPS
 THULE.ST,2025-06-30,2025-07-15,2026-09-19,reportedEPS,4.97,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2025-09-30,,2026-10-22,manualDilutedEPS,2.91,SEK,"THULE.ST official interim report September 2026, pp. 14 | https://storage.mfn.se/e803185e-eedf-4c75-a2e2-60183076f4f0/report-q3-2026-swe.pdf | comparative diluted Q3 2025"
 THULE.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,2.92,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 THULE.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,0.2,SEK,Yahoo Finance / quarterlyDilutedEPS
 THULE.ST,2025-12-31,2026-02-10,2026-09-19,reportedEPS,0.2,SEK,Yahoo Finance / Reported EPS
@@ -1714,6 +1755,7 @@ THULE.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,2.71,SEK,Yahoo Finance / qua
 THULE.ST,2026-03-31,2026-04-29,2026-09-19,reportedEPS,2.71,SEK,Yahoo Finance / Reported EPS
 THULE.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,4.98,SEK,Yahoo Finance / quarterlyDilutedEPS
 THULE.ST,2026-06-30,2026-07-20,2026-09-19,reportedEPS,5.14,SEK,Yahoo Finance / Reported EPS
+THULE.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,3.65,SEK,"THULE.ST official interim report September 2026, pp. 14 | https://storage.mfn.se/e803185e-eedf-4c75-a2e2-60183076f4f0/report-q3-2026-swe.pdf"
 TREL-B.ST,2023-09-30,2023-10-26,2026-09-19,reportedEPS,4.19,SEK,Yahoo Finance / Reported EPS
 TREL-B.ST,2024-03-31,2024-04-24,2026-09-19,reportedEPS,4.23,SEK,Yahoo Finance / Reported EPS
 TREL-B.ST,2024-06-30,2024-07-18,2026-09-19,reportedEPS,4.49,SEK,Yahoo Finance / Reported EPS
@@ -1775,6 +1817,7 @@ VITR.ST,2025-03-31,,2026-09-19,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quar
 VITR.ST,2025-03-31,2025-04-24,2026-09-19,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
 VITR.ST,2025-06-30,,2026-09-19,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 VITR.ST,2025-06-30,2025-07-17,2026-09-19,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2025-09-30,,2026-10-22,manualDilutedEPS,0.75,SEK,"VITR.ST official interim report September 2026, pp. 3, 14 | https://storage.mfn.se/284afa5b-8ba3-4834-849b-11ce0a5c6a7b/delarsrapport-q3-2026.pdf | comparative diluted Q3 2025"
 VITR.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.7500000000000071,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 VITR.ST,2025-12-31,,2026-09-19,quarterlyDilutedEPS,-39.24,SEK,Yahoo Finance / quarterlyDilutedEPS
 VITR.ST,2025-12-31,2026-02-03,2026-09-19,reportedEPS,0.66,SEK,Yahoo Finance / Reported EPS
@@ -1782,6 +1825,7 @@ VITR.ST,2026-03-31,,2026-09-19,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / quar
 VITR.ST,2026-03-31,2026-04-23,2026-09-19,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
 VITR.ST,2026-06-30,,2026-09-19,quarterlyDilutedEPS,0.95,SEK,Yahoo Finance / quarterlyDilutedEPS
 VITR.ST,2026-06-30,2026-07-16,2026-09-19,reportedEPS,0.95,SEK,Yahoo Finance / Reported EPS
+VITR.ST,2026-09-30,2026-10-22,2026-10-22,manualDilutedEPS,0.94,SEK,"VITR.ST official interim report September 2026, pp. 3, 14 | https://storage.mfn.se/284afa5b-8ba3-4834-849b-11ce0a5c6a7b/delarsrapport-q3-2026.pdf"
 VIVA.ST,2024-06-30,2024-08-28,2026-09-19,reportedEPS,0.38,SEK,Yahoo Finance / Reported EPS
 VIVA.ST,2024-09-30,2024-11-20,2026-09-19,reportedEPS,0.5,SEK,Yahoo Finance / Reported EPS
 VIVA.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.6,SEK,Yahoo Finance / quarterlyDilutedEPS
