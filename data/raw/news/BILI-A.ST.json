@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-22T21:58:45+02:00",
+  "generated_at": "2026-10-23T21:56:06+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bilia",
-  "items": []
+  "items": [
+    {
+      "ticker": "BILI-A.ST",
+      "company": "Bilia",
+      "published_at": "2026-10-23T08:00:00+02:00",
+      "title": "Tredje kvartalet 2026",
+      "link": "https://mfn.se/a/bilia/tredje-kvartalet-2026",
+      "source": "MFN",
+      "summary": "Tredje kvartalet 2026 2026-10-23 08:00:00 Högre resultat och marginal för både Serviceaffären och Bilaffären Tredje kvartalet 2026 • Nettoomsättningen uppgick till 9 961 Mkr (9 717). • Operativt rörelseresultat uppgick till 380 Mkr (310). Det högre operativa rörelseresultatet var hänförligt till Sverige och Norge medan Västeuropa redovisade ett något lägre resultat. • Rörelseresultatet uppgick till 326 Mkr (284) och rörelsemarginalen ökade från 2,9 procent till 3,3 procent. Föregående år inkluderade en vinst vid avyttring av fastigheter om 35 Mkr. • Periodens resultat uppgick till 185 Mkr (191). Föregående år inkluderade en skattefri vinst om",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9f66a8b6712ea8fb"
+    }
+  ]
 }

@@ -1,8 +1,52 @@
 {
-  "generated_at": "2026-10-22T22:00:44+02:00",
+  "generated_at": "2026-10-23T21:57:50+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/intrum",
   "items": [
+    {
+      "ticker": "INTRUM.ST",
+      "company": "Intrum AB (publ)",
+      "published_at": "2026-10-23T07:00:00+02:00",
+      "title": "Balance sheet strengthened, Servicing income still under pressure and Investing volumes increased",
+      "link": "https://mfn.se/a/intrum/balance-sheet-strengthened-servicing-income-still-under-pressure-and-investing-volumes-increased",
+      "source": "MFN",
+      "summary": "Balance sheet strengthened, Servicing income still under pressure and Investing volumes increased 2026-10-23 07:00:00 Capital raise, asset sale and good cost control takes the Servicing leverage ratio to 4.5x, compared to 5.7x at year end 2025 Negative Servicing income trend from H1 2026 continued, leading to a goodwill impairment of SEK 1.5bn in Germany. Operational Excellence programme accelerated. Investment pace increased with returns remaining high – SEK 617m was invested in the quarter at a 17% blended IRR Key figures, third quarter 2026 SEK m, unless otherwise indicated Third quarter 9 months Rolling 12 months Full year Jul–Sep 2026 Ju",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e1d3c53051051d68"
+    },
+    {
+      "ticker": "INTRUM.ST",
+      "company": "Intrum AB (publ)",
+      "published_at": "2026-10-23T07:00:00+02:00",
+      "title": "Stärkt balansräkning, fortsatt press på Servicing-intäkterna och ökade investeringsvolymer",
+      "link": "https://mfn.se/a/intrum/starkt-balansrakning-fortsatt-press-pa-servicing-intakterna-och-okade-investeringsvolymer",
+      "source": "MFN",
+      "summary": "Stärkt balansräkning, fortsatt press på Servicing-intäkterna och ökade investeringsvolymer 2026-10-23 07:00:00 Kapitalanskaffning, avyttring av tillgångar och god kostnadskontroll bidrar till att skuldsättningsgraden för Servicing förbättras till 4,5x, jämfört med 5,7x vid utgången av 2025 Den negativa utvecklingen av externa Servicingintäkter från H1 2026 fortsatte, vilket resulterade i en nedskrivning av goodwill om 1,5 miljarder kronor i Tyskland. Operational Excellence-programmet accelererades. Investeringstakten ökade med fortsatt hög avkastning – 617 miljoner kronor investerades under kvartalet till en sammanvägd IRR om 17 procent Nycke",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8a3a406056ee0067"
+    },
     {
       "ticker": "INTRUM.ST",
       "company": "Intrum AB (publ)",

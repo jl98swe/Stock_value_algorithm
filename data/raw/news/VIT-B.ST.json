@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-22T22:02:41+02:00",
+  "generated_at": "2026-10-23T21:59:36+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/vitec-software-group",
   "items": [
+    {
+      "ticker": "VIT-B.ST",
+      "company": "Vitec Software Group AB (publ)",
+      "published_at": "2026-10-23T08:15:00+02:00",
+      "title": "Vitec Software Group AB resolves to acquire own Class B Shares",
+      "link": "https://mfn.se/a/vitec-software-group/vitec-software-group-ab-resolves-to-acquire-own-class-b-shares",
+      "source": "MFN",
+      "summary": "Vitec Software Group AB resolves to acquire own Class B Shares 2026-10-23 08:15:00 The Board of Directors of Vitec Software Group AB (publ) (“Vitec Software Group” or the “Company”) has today resolved, in accordance with the authorisation granted by the Annual General Meeting held on 28 April 2026, to acquire a maximum of 200,000 own class B shares on Nasdaq Stockholm, corresponding to approximately 0.5 per cent of all shares in Vitec Software Group at the time of this press release. The purpose of the resolution is to secure the delivery of class B shares in Vitec Software Group to the participants in the Company’s employee share savings pro",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "16b5fc13ca261b05"
+    },
     {
       "ticker": "VIT-B.ST",
       "company": "Vitec Software Group AB (publ)",

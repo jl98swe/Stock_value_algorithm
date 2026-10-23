@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-22T22:00:37+02:00",
+  "generated_at": "2026-10-23T21:57:43+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/indutrade",
   "items": [
+    {
+      "ticker": "INDT.ST",
+      "company": "Indutrade AB (publ)",
+      "published_at": "2026-10-23T07:30:00+02:00",
+      "title": "Indutrade förvärvar Schraner – specialist inom brandtekniksystem",
+      "link": "https://mfn.se/a/indutrade/indutrade-forvarvar-schraner-specialist-inom-brandtekniksystem",
+      "source": "MFN",
+      "summary": "Indutrade förvärvar Schraner – specialist inom brandtekniksystem 2026-10-23 07:30:00 Indutrade har tecknat avtal om förvärv av samtliga aktier i det tyska bolaget Schraner GmbH, www.schraner.de , med en årsomsättning om cirka 90 miljoner SEK. Schraner är en specialiserad tillverkare av utrustning och sensorer för brandskydd, främst för den tyska marknaden. Produktutbudet omfattar centraler och kontrollenheter för insatsåtkomst, kompletterat med branddetekteringsprodukter och signalanordningar från ledande leverantörer. Bolaget har en diversifierad kundbas som bland annat omfattar industriella OEM-kunder och installationsföretag. Schraner grun",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "07cb0b7b7d0ceaec"
+    },
     {
       "ticker": "INDT.ST",
       "company": "Indutrade AB (publ)",

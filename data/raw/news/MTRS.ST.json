@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-22T22:01:15+02:00",
+  "generated_at": "2026-10-23T21:58:22+02:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/munters-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-10-23T07:30:00+02:00",
+      "title": "Munters Group AB: Significant order growth as operational improvements progress",
+      "link": "https://mfn.se/cis/a/munters-group/munters-group-ab-significant-order-growth-as-operational-improvements-progress-1524bc51",
+      "source": "MFN",
+      "summary": "Munters Group AB: Significant order growth as operational improvements progress 2026-10-23 07:30:00 July - September Order intake increased +70%, driven by strong demand in Data Center Technologies (DCT) and AirTech. Net sales increased +18%, driven by all business areas, particularly AirTech. In AirTech growth was driven primarily by Americas and APAC. DCT grew through continued backlog execution and higher production volumes, while FoodTech recorded slight growth. The adjusted EBITA margin declined. AirTech's margin rose on higher volumes, favorable mix and cost savings. DCT's margin fell, reflecting changed product mix, component shortages",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "af5317910beb425a"
+    }
+  ]
 }
