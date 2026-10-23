@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.opening_sessions import append_opening, ingest, opening_fingerprint
+from src.opening_sessions import append_opening, ingest, opening_fingerprint, export_pending
 from src.strategy import run_strategy
 from src.strategy_backtests import build_strategy_backtests
 
@@ -70,6 +70,19 @@ def test_opening_export_fingerprint_is_stable_until_new_input(tmp_path):
     assert first == opening_fingerprint(path)
     path.write_text('{"2026-10-26":{}}')
     assert opening_fingerprint(path) != first
+
+
+def test_partial_publication_retries_until_chart_and_signals_match(tmp_path):
+    import json
+    openings = tmp_path / "openings.json"
+    openings.write_text('{}')
+    chart, signals = tmp_path / "chart.json", tmp_path / "signals.json"
+    current = json.dumps({"meta": {"opening_sessions_sha256": opening_fingerprint(openings)}})
+    chart.write_text(current)
+    signals.write_text('{}')
+    assert export_pending(openings, [chart, signals])
+    signals.write_text(current)
+    assert not export_pending(openings, [chart, signals])
 
 
 def test_opening_ingest_rejects_late_wrong_currency_and_is_idempotent(tmp_path):

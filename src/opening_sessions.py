@@ -21,6 +21,13 @@ def opening_fingerprint(path: Path = OPENINGS_FILE) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else ""
 
 
+def export_pending(path: Path = OPENINGS_FILE, manifests=None) -> bool:
+    manifests = manifests or [ROOT / "docs/data/dashboard/index.json", ROOT / "docs/data/strategy_overviews.json"]
+    fingerprint = opening_fingerprint(path)
+    return any(fingerprint != read_json(target, default={}).get("meta", {}).get("opening_sessions_sha256", "")
+               for target in manifests)
+
+
 def ingest(cache: dict, path: Path = OPENINGS_FILE, *, now=None) -> int:
     now = pd.Timestamp(now or datetime.now(ZoneInfo("Europe/Stockholm")))
     day = pd.Timestamp(cache.get("session_date"))
@@ -78,8 +85,7 @@ def main():
     parser.add_argument("snapshot", type=Path)
     args = parser.parse_args()
     print(f"Saved {ingest(read_json(args.snapshot))} new opening observations")
-    published = read_json(ROOT / "docs/data/dashboard/index.json", default={})
-    if opening_fingerprint() != published.get("meta", {}).get("opening_sessions_sha256", ""):
+    if export_pending():
         import os
         if os.getenv("GITHUB_OUTPUT"):
             with open(os.environ["GITHUB_OUTPUT"], "a") as handle:
