@@ -99,6 +99,7 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
         "ma200": {"buy_allowed": bool(ma.iloc[-1]["BuyAllowed"]),
                   "buy_block_reason": "Köp kräver kurs över MA200"},
         "report_avoidance": {"buy_allowed": bool(report_frame.iloc[-1]["BuyAllowed"]),
+                             "basis_date": latest_day.date().isoformat(),
                              "buy_block_reason": "Köp blockerat inför rapport" if next_report is not None else "Nästa rapportdatum saknas",
                              "next_report_date": next_report.date().isoformat() if next_report is not None else None,
                              "trading_days_to_report": int(sessions.searchsorted(next_report, side="right") - sessions.searchsorted(latest_day, side="right")) if next_report is not None else None,

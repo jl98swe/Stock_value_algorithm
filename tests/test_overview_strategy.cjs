@@ -40,4 +40,5 @@ assert.equal(preview({...stock,strategy_filter:{buy_allowed:false}},{...interim,
 assert.equal(preview(stock,{...interim,score:.5,ma200:101},'ma200'),null);
 assert.equal(preview({...stock,strategy_filter:{buy_allowed:true,trading_days_to_report:12,next_report_date:'2026-11-02'}},{...interim,score:.5},'report_avoidance'),null);
 assert.equal(preview({...stock,strategy_filter:{buy_allowed:true,trading_days_to_report:13,next_report_date:'2026-11-03'}},{...interim,score:.5},'report_avoidance').side,'BUY');
+assert.equal(preview({...stock,strategy_filter:{buy_allowed:true,basis_date:'2026-10-16',trading_days_to_report:12,next_report_date:'2026-11-03'}},{...interim,score:.5},'report_avoidance').side,'BUY');
 assert.equal(preview({...planned,strategy_filter:{...planned.strategy_filter,next_report_date:'2026-10-23',report_exit_date:'2026-10-22',trading_days_to_report:6}},interim,'report_avoidance').reportDays,5);
