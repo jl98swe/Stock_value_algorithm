@@ -191,7 +191,7 @@
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
       .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))].sort();
     const recentCutoff = tradingDates.length > 20 ? tradingDates.at(-20) : tradingDates[0];
-    const latestTradingDate = tradingDates.at(-1);
+    const latestTradingDate = dashboard.meta?.latest_execution_date || tradingDates.at(-1);
     const recent = Object.entries(dashboard.stocks || {})
       .flatMap(([ticker, data]) => {
         const meta = stockMeta(stocksPayload, ticker);
