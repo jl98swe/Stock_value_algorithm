@@ -162,3 +162,60 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-10-22,THULE.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
 2026-10-22,VITR.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
 2026-10-22,WIHL.ST,2026-Q3,0,2026-10-21,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,AAK.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,ADDT-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,ALIG.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,ALIV-SDB.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,ANOD-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,ARJO-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,ATCO-A.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,ATCO-B.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,ATRLJ-B.ST,2026-Q3,0+7+14,2026-10-09,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,AXFO.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,AZA.ST,2026-Q3,7,2026-10-16,2026-10-16,confirmed,
+2026-10-23,BALD-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,BEIA-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,BEIJ-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,BILI-A.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,BIOG-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,BORG.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,BRAV.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,CAST.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,CATE.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,COOR.ST,2026-Q3,0,2026-10-22,2026-10-21,corrected,
+2026-10-23,DIOS.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,DOM.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,DUNI.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,EAST.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,ESSITY-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,EVO.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,HOLM-A.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,HTRO.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,INDT.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,INDU-A.ST,2026-Q3,0+7+14,2026-10-07,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,INVE-A.ST,2026-Q3,0+7,2026-10-16,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,KNOW.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,LAGR-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,LIFCO-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,MCAP.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,MSAB-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,MTRS.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,MYCR.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,NORION.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,PACT.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,PLAZ-B.ST,2026-Q3,7,2026-10-16,2026-10-16,confirmed,
+2026-10-23,PNDX-B.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,SAAB-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,SAGA-A.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,SAVE.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,SCA-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,SEB-A.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,SECU-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,SVED-B.ST,2026-Q3,0,2026-10-22,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,SWED-A.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,THULE.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,TREL-B.ST,2026-Q3,0,2026-10-23,2026-10-23,confirmed,
+2026-10-23,VIT-B.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,VITR.ST,2026-Q3,0,2026-10-22,2026-10-22,confirmed,
+2026-10-23,VOLV-A.ST,2026-Q3,0,2026-10-23,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
+2026-10-23,WIHL.ST,2026-Q3,0,2026-10-21,,retry_missing_evidence,Ingen entydig rapporthändelse med rapporterad EPS nära datumet.
