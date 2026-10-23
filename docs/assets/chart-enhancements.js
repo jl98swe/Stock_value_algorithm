@@ -226,7 +226,7 @@
           symbol: 'triangle', symbolRotate: buy ? 0 : 180, symbolSize: 18,
           itemStyle: { color: buy ? '#1f8f67' : '#c74747', borderColor: '#fff', borderWidth: 1 },
           label: { show: false },
-          signalTooltip: `<strong>${buy ? 'Köp' : signal.exit_reason === 'stop_loss' ? 'Sälj · Stop loss 10 %' : 'Sälj'}</strong><br>${esc(signal.execution_date)} · ${esc(signal.execution_price)}`
+          signalTooltip: `<strong>${buy ? 'Köp' : signal.exit_reason === 'stop_loss' ? 'Sälj · Stop loss 10 %' : 'Sälj'}</strong><br>${esc(signal.execution_date)} · ${esc(signal.execution_price)}${signal.signal_date ? `<br>Signal ${esc(signal.signal_date)}` : ''}`
         };
       }).filter(Boolean) : [];
 

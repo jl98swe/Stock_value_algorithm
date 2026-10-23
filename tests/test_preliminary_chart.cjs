@@ -60,3 +60,16 @@ test('complete preliminary OHLC renders a normal solid purple candle', () => {
   assert.equal(ui.element('chart-preliminary-note').hidden, false);
   assert.equal(data.candles.length, 1);
 });
+
+test('opening execution marker remains visible without the temporary quote cache', () => {
+  const ui = setup();
+  const data = { latest:{date:'2026-10-22'}, candles:[candle('2026-10-22')], scores:[],
+    opening_candle:{date:'2026-10-23',open:102,high:102,low:102,close:102,completeOHLC:false,preliminary:true},
+    signals:[{status:'executed',side:'BUY',signal_date:'2026-10-22',execution_date:'2026-10-23',execution_price:102}] };
+  ui.renderChart('EXAMPLE.ST',data);
+  assert.equal(ui.option.xAxis[0].data.at(-1),'2026-10-23');
+  const markers=ui.option.series.find(s=>s.name==='Pris').markPoint.data;
+  assert.equal(markers.length,1);
+  assert.equal(markers[0].coord[0],'2026-10-23');
+  assert.equal(data.candles.length,1);
+});

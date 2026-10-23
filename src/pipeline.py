@@ -35,6 +35,7 @@ from .fundamentals import (
 )
 from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
+from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
 from .report_date_revisions import changed_date_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
@@ -398,6 +399,12 @@ def _stock_payload(
         valued["FundamentalLock"] = working["FundamentalLock"].to_numpy()
         valued["LockReason"] = working["LockReason"].to_numpy()
         strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
+        strategy_frame = append_opening(strategy_frame, ticker, read_json(OPENINGS_FILE, default={}))
+        if len(strategy_frame) and bool(strategy_frame.iloc[-1].get("OpeningOnly", False)):
+            opening_locks = build_lock_series(strategy_frame[["Date"]].iloc[-1:]["Date"],
+                                             ticker, news, reviews, reports, calendar)
+            strategy_frame.loc[strategy_frame.index[-1], ["FundamentalLock", "LockReason"]] = (
+                opening_locks.iloc[-1][["FundamentalLock", "LockReason"]].to_list())
         if strategy_frame["Score"].notna().any():
             strategy = run_strategy(strategy_frame, ticker)
             backtests = build_strategy_backtests(strategy_frame, ticker, reports, calendar, strategy,
@@ -444,6 +451,14 @@ def _stock_payload(
             "lock_reason": lock_reason,
         },
         "candles": _candles(frame),
+        "opening_candle": ({"date": _iso_date(strategy_frame.iloc[-1]["Date"]),
+                            "open": float(strategy_frame.iloc[-1]["Open"]),
+                            "high": float(strategy_frame.iloc[-1]["Open"]),
+                            "low": float(strategy_frame.iloc[-1]["Open"]),
+                            "close": float(strategy_frame.iloc[-1]["Open"]),
+                            "completeOHLC": False, "preliminary": True}
+                           if strategy is not None and bool(strategy_frame.iloc[-1].get("OpeningOnly", False))
+                           else None),
         "scores": _score_rows(valued) if valued is not None else [],
         "signals": _signal_rows(strategy),
         "position": _position_payload(strategy),
@@ -687,6 +702,7 @@ def build_dashboard(
     dashboard_payload = {
         "meta": {
             "generated_at": generated_at,
+            "opening_sessions_sha256": opening_fingerprint(),
             "is_demo": False,
             "repository_url": REPOSITORY_URL,
             "data_status": "valuation_ready" if ready_count else "price_live_eps_pending",

@@ -88,10 +88,10 @@
       filters.buy_allowed = number(preliminary.ma200) !== null && preliminary.price > preliminary.ma200;
     }
     if (preliminary && selectedStrategy === 'report_avoidance') {
-      // The producer requires yesterday's completed session as basis, so today
-      // advances the exchange-session distance by exactly one, including weekends.
+      // Opening execution exports may already count from today's session.
+      // Only a previous-session filter needs advancing one exchange session.
       filters.trading_days_to_report = number(filters.trading_days_to_report) === null ? null :
-        Math.max(0, number(filters.trading_days_to_report) - 1);
+        Math.max(0, number(filters.trading_days_to_report) - (filters.basis_date === preliminary.session ? 0 : 1));
       if (!filters.next_report_date || filters.next_report_date < preliminary.session) {
         filters.trading_days_to_report = null;
         filters.buy_allowed = false;
@@ -191,7 +191,7 @@
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
       .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))].sort();
     const recentCutoff = tradingDates.length > 20 ? tradingDates.at(-20) : tradingDates[0];
-    const latestTradingDate = tradingDates.at(-1);
+    const latestTradingDate = dashboard.meta?.latest_execution_date || tradingDates.at(-1);
     const recent = Object.entries(dashboard.stocks || {})
       .flatMap(([ticker, data]) => {
         const meta = stockMeta(stocksPayload, ticker);

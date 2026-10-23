@@ -330,7 +330,8 @@
     setHidden('chart-message', true);
     if (!state.chart) state.chart = echarts.init(container, null, { renderer: 'canvas' });
 
-    const preview = window.intradayQuotes?.preview(ticker, data.latest?.date);
+    const preview = window.intradayQuotes?.preview(ticker, data.latest?.date)
+      || (data.opening_candle ? {candle:data.opening_candle, score:null, preliminary:true} : null);
     const chartData = preview ? { ...data,
       candles: [...(data.candles || []), preview.candle],
       scores: [...(data.scores || []), { date: preview.candle.date, value: preview.score }]
@@ -473,9 +474,9 @@
     if (!live) throw new Error('Strategidata saknas för aktien.');
     const closed = variant?.closed_trades || [], open = variant?.open_lots || [];
     const signals = closed.flatMap(t=>[
-      {side:'BUY',status:'executed',execution_date:t.entry_date,execution_price:t.entry_price},
-      {side:'SELL',status:'executed',execution_date:t.exit_date,execution_price:t.exit_price,exit_reason:t.exit_reason}
-    ]).concat(open.map(t=>({side:'BUY',status:'executed',execution_date:t.entry_date,execution_price:t.entry_price})));
+      {side:'BUY',status:'executed',signal_date:t.entry_signal_date,execution_date:t.entry_date,execution_price:t.entry_price},
+      {side:'SELL',status:'executed',signal_date:t.exit_signal_date,execution_date:t.exit_date,execution_price:t.exit_price,exit_reason:t.exit_reason}
+    ]).concat(open.map(t=>({side:'BUY',status:'executed',signal_date:t.entry_signal_date,execution_date:t.entry_date,execution_price:t.entry_price})));
     return {...base,...live,closed_trades:closed,open_lots:open,signals};
   }
 
