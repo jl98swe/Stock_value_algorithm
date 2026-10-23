@@ -35,7 +35,7 @@ from .fundamentals import (
 )
 from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
-from .opening_sessions import OPENINGS_FILE, append_opening
+from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
 from .report_date_revisions import changed_date_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
@@ -702,6 +702,7 @@ def build_dashboard(
     dashboard_payload = {
         "meta": {
             "generated_at": generated_at,
+            "opening_sessions_sha256": opening_fingerprint(),
             "is_demo": False,
             "repository_url": REPOSITORY_URL,
             "data_status": "valuation_ready" if ready_count else "price_live_eps_pending",

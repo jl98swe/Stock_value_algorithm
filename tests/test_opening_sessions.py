@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.opening_sessions import append_opening, ingest
+from src.opening_sessions import append_opening, ingest, opening_fingerprint
 from src.strategy import run_strategy
 from src.strategy_backtests import build_strategy_backtests
 
@@ -60,6 +60,16 @@ def test_no_guessing_across_missing_session_or_missing_open():
     original = frame([50, .4])
     assert append_opening(original, "TEST.ST", {}) is original
     assert append_opening(original, "TEST.ST", {"2026-10-26": observation()["2026-10-23"]}) is original
+
+
+def test_opening_export_fingerprint_is_stable_until_new_input(tmp_path):
+    path = tmp_path / "openings.json"
+    assert opening_fingerprint(path) == ""
+    path.write_text('{"2026-10-23":{}}')
+    first = opening_fingerprint(path)
+    assert first == opening_fingerprint(path)
+    path.write_text('{"2026-10-26":{}}')
+    assert opening_fingerprint(path) != first
 
 
 def test_opening_ingest_rejects_late_wrong_currency_and_is_idempotent(tmp_path):

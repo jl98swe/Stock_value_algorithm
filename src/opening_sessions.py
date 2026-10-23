@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -14,6 +15,10 @@ from .config import ROOT
 from .utils import read_json, write_json_atomic
 
 OPENINGS_FILE = ROOT / "data/prices/opening_sessions.json"
+
+
+def opening_fingerprint(path: Path = OPENINGS_FILE) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else ""
 
 
 def ingest(cache: dict, path: Path = OPENINGS_FILE, *, now=None) -> int:
@@ -73,6 +78,12 @@ def main():
     parser.add_argument("snapshot", type=Path)
     args = parser.parse_args()
     print(f"Saved {ingest(read_json(args.snapshot))} new opening observations")
+    published = read_json(ROOT / "docs/data/dashboard/index.json", default={})
+    if opening_fingerprint() != published.get("meta", {}).get("opening_sessions_sha256", ""):
+        import os
+        if os.getenv("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a") as handle:
+                handle.write("changed=true\n")
 
 
 if __name__ == "__main__":
