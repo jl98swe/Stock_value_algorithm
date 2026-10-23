@@ -65,7 +65,11 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     if not schedule.empty:
         future = schedule.loc[schedule["ticker"].astype(str) == ticker, "report_date_start"]
         # Prefer realised dates for past reports; schedules supply only future dates.
-        dates.extend(pd.Timestamp(d).normalize() for d in future if pd.notna(d) and d > frame["Date"].max())
+        # An opening observation must not age today's scheduled report out of
+        # the historical simulation (and thereby erase yesterday's report exit).
+        completed = frame.loc[~frame.get("OpeningOnly", pd.Series(False, index=frame.index)).fillna(False).astype(bool)]
+        completed_day = completed["Date"].max()
+        dates.extend(pd.Timestamp(d).normalize() for d in future if pd.notna(d) and d > completed_day)
     ma = frame.copy()
     ma["BuyAllowed"] = (ma["Close"] > ma["MA200"]) & ma["MA200"].notna()
     # At the next open only the previous close's completed MA200 is known.

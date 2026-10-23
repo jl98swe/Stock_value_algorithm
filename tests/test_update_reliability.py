@@ -29,7 +29,12 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
     trigger = workflow.get("on", workflow.get(True))
     if "push" in trigger:
         assert trigger["push"]["branches"] == ["main"]
-    lock = workflow["jobs"]["update"]["concurrency"] if path.name == "daily_update.yml" else workflow["concurrency"]
+    if path.name == "intraday_quotes.yml":
+        assert workflow["concurrency"] == {"group": "shared-intraday-cache", "cancel-in-progress": False, "queue": "max"}
+        lock = workflow["jobs"]["executions"]["concurrency"]
+        assert workflow["jobs"]["executions"]["needs"] == "quotes"
+    else:
+        lock = workflow["jobs"]["update"]["concurrency"] if path.name == "daily_update.yml" else workflow["concurrency"]
     assert lock == {
         "group": "stock-data-${{ github.ref }}",
         "cancel-in-progress": False,
