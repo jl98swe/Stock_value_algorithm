@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from .earnings import load_earnings_history
-from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
+from .quarterly_eps import DILUTED_METRIC, load_quarterly_eps
 from .reporting import CALENDAR_HISTORY_FILE, load_auto_report_calendar
 from .reporting import _combined_schedule
 from .events import load_report_calendar
@@ -74,5 +74,6 @@ def pending_ttm_tickers(today: object | None = None) -> list[str]:
 def pending_quarterly_tickers(today: object | None = None) -> list[str]:
     quarterly = load_quarterly_eps()
     if not quarterly.empty:
-        quarterly = quarterly.loc[quarterly["metric"].isin({DILUTED_METRIC, MANUAL_METRIC})]
+        # A manual model value must not stop collection of Yahoo's own value.
+        quarterly = quarterly.loc[quarterly["metric"].eq(DILUTED_METRIC)]
     return _pending(_recent_report_dates(today), quarterly)

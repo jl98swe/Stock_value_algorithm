@@ -50,3 +50,15 @@ def test_quarterly_polling_ignores_non_comparable_reported_eps(monkeypatch) -> N
     ]))
 
     assert due.pending_quarterly_tickers("2026-09-17") == ["DUE.ST"]
+
+
+def test_manual_quarterly_value_does_not_stop_yahoo_polling(monkeypatch):
+    # Synthetic example: the model has a manual value, Yahoo has not caught up.
+    monkeypatch.setattr(due, "load_auto_report_calendar", _calendar)
+    monkeypatch.setattr(due, "load_quarterly_eps", lambda: pd.DataFrame([
+        {"ticker": "DUE.ST", "period_end": "2026-06-30", "observed_date": "2026-07-20", "metric": DILUTED_METRIC},
+        {"ticker": "DUE.ST", "period_end": "2026-09-30", "observed_date": "2026-09-17", "metric": "manualDilutedEPS"},
+        {"ticker": "DONE.ST", "period_end": "2026-06-30", "observed_date": "2026-07-20", "metric": DILUTED_METRIC},
+        {"ticker": "DONE.ST", "period_end": "2026-09-30", "observed_date": "2026-09-17", "metric": DILUTED_METRIC},
+    ]))
+    assert due.pending_quarterly_tickers("2026-09-17") == ["DUE.ST"]
