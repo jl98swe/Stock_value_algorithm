@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+from .yahoo_observations import archive_eps
+
 import pandas as pd
 import yfinance as yf
 
@@ -117,6 +119,7 @@ def backfill_component_gaps(*, workers: int = 4) -> pd.DataFrame:
             print(f"Yahoo component EPS {index}/{len(tickers)} klar: {ticker}")
 
     fetched = pd.DataFrame(rows, columns=QUARTERLY_COLUMNS)
+    archive_eps(fetched, "quarterly_components")
     if fetched.empty:
         print("Yahoo component-timeseries: inga diluted EPS-rader kunde härledas.")
         return existing

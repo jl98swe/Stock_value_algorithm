@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import yfinance as yf
 
+from .yahoo_observations import archive_eps
 from .config import ROOT
 from .fetch_data import load_price_history
 from .utils import write_json_atomic
@@ -227,6 +228,7 @@ def update_recent(*, workers: int = 4, tickers: list[str] | None = None) -> pd.D
                 print(f"VARNING {ticker}: kvartals-EPS-hämtningen misslyckades: {exc}")
             print(f"Kvartals-EPS {index}/{len(tickers)} klar: {ticker}")
 
+    archive_eps(pd.DataFrame(rows, columns=QUARTERLY_COLUMNS), "quarterlyDilutedEPS")
     fetched = _normalise(pd.DataFrame(rows, columns=QUARTERLY_COLUMNS))
     if fetched.empty:
         if targeted:
@@ -452,6 +454,7 @@ def backfill_from_audit(*, workers: int = 4) -> pd.DataFrame:
             ignore_index=True,
         )
     )
+    archive_eps(pd.concat([diluted_rows, pd.DataFrame(reported_rows, columns=QUARTERLY_COLUMNS)], ignore_index=True), "quarterly_backfill")
     combined = _normalise(pd.concat([existing, new_rows], ignore_index=True))
     save_quarterly_eps(combined)
 

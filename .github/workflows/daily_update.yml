@@ -51,6 +51,9 @@ jobs:
           cache: pip
       - name: Installera insamlingens beroenden
         run: python -m pip install 'requests>=2.32' 'pandas>=2.2,<3' 'exchange-calendars>=4.11' 'pyarrow>=16.1' 'yfinance>=0.2.54'
+      - name: Bevara befintlig Yahoo EPS-historik i observationsarkivet
+        run: python -m src.yahoo_observations
+
       - name: Hämta dagsdata utan publiceringslås
         id: prices
         env:
@@ -138,6 +141,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          if [ -d data/earnings/yahoo_observations ]; then git add data/earnings/yahoo_observations; fi
           git add docs/data
           git add data/prices/closing_sources.csv data/prices/closing_audit
           git add data/fundamentals/reports.csv
@@ -204,5 +208,17 @@ jobs:
           fi
 
           git commit -m "data: daglig marknadsuppdatering"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"
+
+      - name: Spara Yahoo-observationer även om ett senare steg misslyckas
+        if: always()
+        run: |
+          if [ ! -d data/earnings/yahoo_observations ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings/yahoo_observations
+          if git diff --cached --quiet -- data/earnings/yahoo_observations; then exit 0; fi
+          git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"

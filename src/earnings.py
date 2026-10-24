@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import yfinance as yf
 
+from .yahoo_observations import archive_eps
 from .config import ROOT
 from .fetch_data import load_price_history
 from .utils import write_json_atomic
@@ -140,6 +141,7 @@ def _fetch_eps_one(ticker: str, observed_date: str) -> dict[str, object] | None:
         return None
 
     candidates: list[tuple[pd.Timestamp, float, str]] = []
+    observations: list[dict[str, object]] = []
     for block in (payload.get("timeseries") or {}).get("result") or []:
         values = block.get(EPS_METRIC)
         if not isinstance(values, list):
@@ -151,10 +153,14 @@ def _fetch_eps_one(ticker: str, observed_date: str) -> dict[str, object] | None:
             if pd.isna(raw) or pd.isna(period_end) or not math.isfinite(float(raw)):
                 continue
             currency = str(item.get("currencyCode") or block_currency or "").strip().upper()
+            observations.append({"ticker": ticker, "period_end": period_end,
+                                 "eps_ttm": float(raw), "eps_currency": currency,
+                                 "source": EPS_SOURCE, "observed_date": observed_date})
             if not currency:
                 continue
             candidates.append((pd.Timestamp(period_end).tz_localize(None).normalize(), float(raw), currency))
 
+    archive_eps(pd.DataFrame(observations), "trailingDilutedEPS_periods")
     if not candidates:
         print(f"INFO {ticker}: Yahoo saknar användbar {EPS_METRIC}.")
         return None
@@ -360,6 +366,7 @@ def update_earnings(
         _publish_json(history)
         return history
     fetched = _fetch_current_eps(selected, workers)
+    archive_eps(fetched, "trailingDilutedEPS")
     if fetched.empty:
         if tickers is not None:
             print(f"VARNING: Yahoo returnerade ingen {EPS_METRIC}; försöket upprepas nästa vardag.")

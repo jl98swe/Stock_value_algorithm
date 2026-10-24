@@ -12,6 +12,7 @@ import pandas as pd
 import yfinance as yf
 
 from .fetch_data import load_price_history
+from .yahoo_observations import archive_eps
 from .quarterly_eps import (
     DILUTED_METRIC,
     QUARTERLY_COLUMNS,
@@ -157,6 +158,7 @@ def backfill_statement_gaps(*, workers: int = 4, stale_only: bool = False, ticke
             print(f"Yahoo statement EPS {index}/{len(selected)} klar: {ticker}")
 
     fetched = pd.DataFrame(rows, columns=QUARTERLY_COLUMNS)
+    archive_eps(fetched, "quarterly_statement")
     if fetched.empty:
         print("Yahoo income-statement fallback: inga diluted EPS-komponenter returnerades.")
         return existing
