@@ -29,6 +29,12 @@ def test_every_fetch_and_same_day_revisions_are_retained(tmp_path):
     assert all(r["fetched_at"] and r["records"][0]["eps_currency"] == "USD" for r in rows)
 
 
+def test_archive_does_not_round_fetched_float(tmp_path):
+    value = 0.12345678901234567
+    archive_eps(pd.DataFrame([{"eps": value}]), "precision", tmp_path)
+    assert json.loads((tmp_path / "precision.jsonl").read_text())["records"][0]["eps"] == value
+
+
 def test_quarterly_archive_precedes_existing_period_filter_and_keeps_manual_priority(tmp_path, monkeypatch):
     import src.quarterly_eps as q
     import src.yahoo_observations as archive

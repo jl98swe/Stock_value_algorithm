@@ -15,10 +15,11 @@ def archive_eps(frame: pd.DataFrame, collection: str, directory: Path | None = N
         return
     target = (directory or ARCHIVE_DIR) / f"{collection}.jsonl"
     target.parent.mkdir(parents=True, exist_ok=True)
-    payload = {"fetched_at": datetime.now(timezone.utc).isoformat(),
-               "records": json.loads(frame.to_json(orient="records", date_format="iso", double_precision=15))}
+    records = frame.astype(object).where(frame.notna(), None).to_dict(orient="records")
+    payload = {"fetched_at": datetime.now(timezone.utc).isoformat(), "records": records}
     with target.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(payload, ensure_ascii=False, allow_nan=False) + "\n")
+        handle.write(json.dumps(payload, ensure_ascii=False, allow_nan=False,
+                                default=lambda value: value.isoformat()) + "\n")
 
 
 def seed_history(root: Path = ROOT) -> None:
