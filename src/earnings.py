@@ -141,6 +141,7 @@ def _fetch_eps_one(ticker: str, observed_date: str) -> dict[str, object] | None:
         return None
 
     candidates: list[tuple[pd.Timestamp, float, str]] = []
+    observations: list[dict[str, object]] = []
     for block in (payload.get("timeseries") or {}).get("result") or []:
         values = block.get(EPS_METRIC)
         if not isinstance(values, list):
@@ -152,10 +153,14 @@ def _fetch_eps_one(ticker: str, observed_date: str) -> dict[str, object] | None:
             if pd.isna(raw) or pd.isna(period_end) or not math.isfinite(float(raw)):
                 continue
             currency = str(item.get("currencyCode") or block_currency or "").strip().upper()
+            observations.append({"ticker": ticker, "period_end": period_end,
+                                 "eps_ttm": float(raw), "eps_currency": currency,
+                                 "source": EPS_SOURCE, "observed_date": observed_date})
             if not currency:
                 continue
             candidates.append((pd.Timestamp(period_end).tz_localize(None).normalize(), float(raw), currency))
 
+    archive_eps(pd.DataFrame(observations), "trailingDilutedEPS_periods")
     if not candidates:
         print(f"INFO {ticker}: Yahoo saknar användbar {EPS_METRIC}.")
         return None

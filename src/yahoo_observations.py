@@ -1,6 +1,7 @@
 """Append fetched EPS observations before model selection or manual priority."""
 from datetime import datetime, timezone
 import json
+from threading import Lock
 from pathlib import Path
 
 import pandas as pd
@@ -8,6 +9,7 @@ import pandas as pd
 from .config import ROOT
 
 ARCHIVE_DIR = ROOT / "data/earnings/yahoo_observations"
+_LOCK = Lock()
 
 
 def archive_eps(frame: pd.DataFrame, collection: str, directory: Path | None = None) -> None:
@@ -17,9 +19,11 @@ def archive_eps(frame: pd.DataFrame, collection: str, directory: Path | None = N
     target.parent.mkdir(parents=True, exist_ok=True)
     records = frame.astype(object).where(frame.notna(), None).to_dict(orient="records")
     payload = {"fetched_at": datetime.now(timezone.utc).isoformat(), "records": records}
-    with target.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(payload, ensure_ascii=False, allow_nan=False,
-                                default=lambda value: value.isoformat()) + "\n")
+    line = json.dumps(payload, ensure_ascii=False, allow_nan=False,
+                      default=lambda value: value.isoformat()) + "\n"
+    with _LOCK:
+        with target.open("a", encoding="utf-8") as handle:
+            handle.write(line)
 
 
 def seed_history(root: Path = ROOT) -> None:

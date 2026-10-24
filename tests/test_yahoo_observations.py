@@ -35,6 +35,23 @@ def test_archive_does_not_round_fetched_float(tmp_path):
     assert json.loads((tmp_path / "precision.jsonl").read_text())["records"][0]["eps"] == value
 
 
+def test_all_returned_ttm_periods_archived_including_unknown_currency(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    import src.earnings as e
+    import src.yahoo_observations as archive
+    monkeypatch.setattr(archive, "ARCHIVE_DIR", tmp_path)
+    values = [{"asOfDate": "2026-06-30", "currencyCode": "SEK", "reportedValue": {"raw": 2.0}},
+              {"asOfDate": "2026-09-30", "reportedValue": {"raw": 3.0}}]
+    payload = {"timeseries": {"result": [{e.EPS_METRIC: values}]}}
+    client = SimpleNamespace(cache_get=lambda **kwargs: SimpleNamespace(text=json.dumps(payload)))
+    monkeypatch.setattr(e.yf, "Ticker", lambda *args: SimpleNamespace(_data=client))
+    selected = e._fetch_eps_one("TEST.ST", "2026-10-24")
+    assert selected["eps_ttm"] == 2.0
+    records = json.loads((tmp_path / "trailingDilutedEPS_periods.jsonl").read_text())["records"]
+    assert [r["eps_ttm"] for r in records] == [2.0, 3.0]
+    assert records[1]["eps_currency"] == ""
+
+
 def test_quarterly_archive_precedes_existing_period_filter_and_keeps_manual_priority(tmp_path, monkeypatch):
     import src.quarterly_eps as q
     import src.yahoo_observations as archive
