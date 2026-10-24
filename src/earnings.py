@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import yfinance as yf
 
+from .yahoo_observations import archive_eps
 from .config import ROOT
 from .fetch_data import load_price_history
 from .utils import write_json_atomic
@@ -360,6 +361,7 @@ def update_earnings(
         _publish_json(history)
         return history
     fetched = _fetch_current_eps(selected, workers)
+    archive_eps(fetched, "trailingDilutedEPS")
     if fetched.empty:
         if tickers is not None:
             print(f"VARNING: Yahoo returnerade ingen {EPS_METRIC}; försöket upprepas nästa vardag.")

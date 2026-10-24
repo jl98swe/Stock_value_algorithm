@@ -41,6 +41,17 @@ def _period_key(value: str) -> tuple[int, int]:
         raise ValueError(f"Ogiltig report_period: {value}") from exc
 
 
+def _cache_period_key(value: str) -> tuple[int, int, int]:
+    """Sort cache labels without treating fiscal dates as quarter labels."""
+    text = str(value).strip().upper()
+    if text.startswith("YAHOO-"):
+        from datetime import date
+        day = date.fromisoformat(text.removeprefix("YAHOO-"))
+        return day.year, day.month, day.day
+    year, quarter = _period_key(text)
+    return year, quarter * 3, 0
+
+
 def _load_mapping(path: Path = MAPPING_FILE) -> pd.DataFrame:
     mapping = _read_csv(path)
     columns = ["borsdata_ticker", "tradingview_symbol", "yahoo_ticker"]
@@ -112,7 +123,7 @@ def _write_report_date_cache(
     if not frame.empty:
         frame = frame.sort_values(
             ["ticker", "report_period"],
-            key=lambda column: column if column.name == "ticker" else column.map(_period_key),
+            key=lambda column: column if column.name == "ticker" else column.map(_cache_period_key),
         ).reset_index(drop=True)
     path.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(path, index=False)

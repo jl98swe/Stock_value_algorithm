@@ -40,6 +40,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Bevara befintlig Yahoo EPS-historik i observationsarkivet
+        run: python -m src.yahoo_observations
+
       - name: Fyll diluted EPS-luckor från Yahoo resultaträkningar
         run: python -m src.backfill_quarterly_eps_statement
 
@@ -56,6 +59,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -d data/earnings/yahoo_observations ]; then git add data/earnings/yahoo_observations; fi
           git add data/earnings/quarterly_eps.csv
           git add docs/data/quarterly_eps.json
           git add data/derived/quarterly_eps_derived_summary.json
@@ -66,5 +70,17 @@ jobs:
             exit 0
           fi
           git commit -m "data: fill Yahoo diluted EPS gaps"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"
+
+      - name: Spara Yahoo-observationer även om ett senare steg misslyckas
+        if: always()
+        run: |
+          if [ ! -d data/earnings/yahoo_observations ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings/yahoo_observations
+          if git diff --cached --quiet -- data/earnings/yahoo_observations; then exit 0; fi
+          git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"

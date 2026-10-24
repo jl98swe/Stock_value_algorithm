@@ -64,6 +64,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Bevara befintlig Yahoo EPS-historik i observationsarkivet
+        run: python -m src.yahoo_observations
+
       - name: Applicera manuella EPS-kompletteringar
         run: python -m src.apply_manual_eps_history_updates
 
@@ -174,6 +177,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          if [ -d data/earnings/yahoo_observations ]; then git add data/earnings/yahoo_observations; fi
           git add data/fundamentals/eps_ttm_history.csv
           git add data/fundamentals/eps_report_date_cache.csv
           git add data/fundamentals/eps_ttm_history_enriched.csv
@@ -195,6 +199,7 @@ jobs:
           git add data/derived/latest_eps_yahoo_comparison.csv
           git add data/derived/valuation_score_history.csv.gz
           git add docs/data/backtests docs/data/dashboard.json docs/data/dashboard docs/data/stocks.json docs/data/earnings.json docs/data/reports.json docs/data/events.json
+          git add docs/data/strategy_overviews.json docs/data/signal_prices.json docs/data/manual_reports.json
 
           if [ -f data/fx/fx_initial.csv ]; then git add data/fx/fx_initial.csv; fi
           if [ -f data/fx/fx_updates.csv ]; then git add data/fx/fx_updates.csv; fi
@@ -209,3 +214,15 @@ jobs:
           git commit -m "data: update Yahoo historical EPS coverage"
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"${GITHUB_REF_NAME}"
+
+      - name: Spara Yahoo-observationer även om ett senare steg misslyckas
+        if: always()
+        run: |
+          if [ ! -d data/earnings/yahoo_observations ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/earnings/yahoo_observations
+          if git diff --cached --quiet -- data/earnings/yahoo_observations; then exit 0; fi
+          git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"

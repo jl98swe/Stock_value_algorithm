@@ -8,6 +8,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from .yahoo_observations import archive_eps
+
 import pandas as pd
 import yfinance as yf
 
@@ -126,6 +128,7 @@ def audit(
             print(f"Yahoo EPS-timeseries {index}/{len(tickers)} klar: {ticker}")
 
     result = pd.DataFrame(rows, columns=["ticker", "metric", "as_of_date", "value", "currency_code"])
+    archive_eps(result, "eps_timeseries")
     if not result.empty:
         result["as_of_date"] = pd.to_datetime(result["as_of_date"], errors="coerce").dt.strftime("%Y-%m-%d")
         result["value"] = pd.to_numeric(result["value"], errors="coerce")

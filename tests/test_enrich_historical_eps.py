@@ -15,6 +15,16 @@ def test_period_key_handles_fiscal_year_labels() -> None:
     assert _period_key("2026-Q4") == (2026, 4)
 
 
+def test_cache_roundtrip_preserves_date_label_without_guessing_quarter(tmp_path):
+    # Synthetic example: fiscal period end is a date, not a quarter label.
+    from src.enrich_historical_eps import _write_report_date_cache, _load_report_date_cache
+    cache = {("TEST.ST", "YAHOO-2026-07-31"): pd.Timestamp("2026-08-27"),
+             ("TEST.ST", "2026-Q2"): pd.Timestamp("2026-07-15")}
+    path = tmp_path / "cache.csv"
+    _write_report_date_cache(cache, path)
+    assert _load_report_date_cache(path) == cache
+
+
 def test_align_dates_matches_oldest_to_oldest_when_complete() -> None:
     periods = ["2024-Q1", "2024-Q2", "2024-Q3"]
     dates = [
