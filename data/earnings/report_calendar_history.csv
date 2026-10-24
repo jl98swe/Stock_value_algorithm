@@ -179,6 +179,7 @@ AZA.ST,2026-10-16,2026-10-16,confirmed,,,,,,False,Börskollen / rapportkalender,
 AZA.ST,2026-10-16,2026-10-16,confirmed,5.04616,4.85272,5.14416,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 AZA.ST,2026-10-16,2026-10-16,confirmed,5.02866,4.85272,5.14416,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
 AZA.ST,2026-10-16,2026-10-16,confirmed,4.8855,4.5,5.08923,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-11
+AZA.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-24
 AZN.ST,2026-10-30,2026-10-30,confirmed,2.685,2.67,2.7,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 AZN.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 AZN.ST,2026-10-30,2026-10-30,confirmed,2.685,2.67,2.7,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -503,6 +504,7 @@ ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkal
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-16
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-18
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-19
+ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-24
 EVO.ST,2026-10-23,2026-10-23,confirmed,1.33522,1.3,1.38,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 EVO.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 EVO.ST,2026-10-23,2026-10-23,confirmed,1.33522,1.3,1.38,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -675,6 +677,7 @@ INVE-A.ST,2026-10-16,2026-10-16,confirmed,,,,,,False,MFN / bolagets rapportkalen
 INVE-A.ST,2026-10-16,2026-10-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-15
 INVE-A.ST,2026-10-16,2026-10-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-16
 INVE-A.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-18
+INVE-A.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-24
 INWI.ST,2026-10-21,2026-10-21,confirmed,3.86,3.86,3.86,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 INWI.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 INWI.ST,2026-10-21,2026-10-21,confirmed,3.86,3.86,3.86,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
