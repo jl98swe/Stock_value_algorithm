@@ -8,6 +8,7 @@ import pandas as pd
 
 from .config import ROOT
 from .fetch_data import load_price_history
+from .listing_status import active_tickers
 from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
 
 OUT_CSV = ROOT / "data" / "derived" / "quarterly_eps_readiness.csv"
@@ -21,7 +22,8 @@ SAFE_METRICS = {DILUTED_METRIC, MANUAL_METRIC}
 
 def _universe() -> list[str]:
     prices = load_price_history()
-    return sorted(prices["ticker"].dropna().astype(str).str.strip().unique().tolist())
+    tickers = prices["ticker"].dropna().astype(str).str.strip().unique().tolist()
+    return sorted(active_tickers(tickers))
 
 
 def _next_period(period_end: pd.Timestamp) -> pd.Timestamp:
