@@ -35,10 +35,8 @@ BRAV.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted 
 CAST.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 CATE.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 CATE.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
-CIBUS.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar säkert rapportdatum.
 CIBUS.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 CIBUS.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
-CIBUS.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 CLA-B.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 CLAS-B.ST,leading_missing_report_date,,2023-10-31,,,Första Yahoo-perioden saknar säkert rapportdatum.
 CLAS-B.ST,leading_missing_report_date,2023-10-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
@@ -179,7 +177,6 @@ VIT-B.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted
 VIT-B.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VITR.ST,internal_missing_yahoo_period,2024-09-30,2025-03-31,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VITR.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
-VIVA.ST,internal_missing_yahoo_period,2023-12-31,2024-06-30,182,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 VOLV-A.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 WALL-B.ST,internal_missing_yahoo_period,2023-09-30,2024-03-31,183,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 WALL-B.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.

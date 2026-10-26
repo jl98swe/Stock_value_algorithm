@@ -113,7 +113,7 @@ TREL-B.ST,10,155.87709760083428,4,False,every comparable Yahoo period must be <1
 VBG-B.ST,11,0.0222428458570808,0,True,every comparable Yahoo period must be <1%; median is ignored
 VIT-B.ST,9,1.2455034232004023,1,False,every comparable Yahoo period must be <1%; median is ignored
 VITR.ST,10,0.2025738798855962,0,True,every comparable Yahoo period must be <1%; median is ignored
-VIVA.ST,11,0.9448437373818982,0,True,every comparable Yahoo period must be <1%; median is ignored
+VIVA.ST,0,,0,False,every comparable Yahoo period must be <1%; median is ignored
 VOLV-A.ST,11,0.0441089089059775,0,True,every comparable Yahoo period must be <1%; median is ignored
 WALL-B.ST,10,19.95201919232307,8,False,every comparable Yahoo period must be <1%; median is ignored
 WIHL.ST,10,2.1891010712622307,1,False,every comparable Yahoo period must be <1%; median is ignored
