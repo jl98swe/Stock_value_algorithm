@@ -74,6 +74,7 @@
   }
 
   function formatNumber(value) {
+    if (value === null || value === undefined || value === '') return '–';
     const number = Number(value);
     return Number.isFinite(number) ? numFmt.format(number) : '–';
   }
@@ -194,9 +195,11 @@
         <dl>
           <div><dt>${inputLabel}</dt><dd>${esc(formatNumber(item.input_eps))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
           <div><dt>Sparat EPS TTM</dt><dd>${esc(formatNumber(item.result_eps_ttm))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
+          <div><dt>Status</dt><dd>${esc(item.status === 'pending_ttm' ? 'Sparat – TTM-underlag saknas' : item.status === 'currency_review' ? 'Sparat – kontrollera valuta' : 'Tillämpat')}</dd></div>
           <div><dt>Källa</dt><dd>${esc(item.source || '–')}</dd></div>
           <div><dt>Registrerad</dt><dd>${esc(formatDate(item.submitted_at))}</dd></div>
         </dl>
+        ${item.status_reason ? `<p>${esc(item.status_reason)}</p>` : ''}
         ${item.notes ? `<p>${esc(item.notes)}</p>` : ''}
       </article>`;
     }).join('') : '<div class="empty-state">Inga manuella rapporteringar för aktien.</div>';
@@ -349,7 +352,7 @@
 
   function setWorkflowLinks() {
     ['review-action-link','calendar-action-link','trade-action-link'].forEach((id) => { $(id).href = `${REPO}/actions`; });
-    $('eps-action-link').href = `${REPO}/actions/workflows/add_verified_eps.yml`;
+
   }
 
   async function init() {
@@ -387,6 +390,15 @@
       document.querySelector('.review-page').insertAdjacentHTML('afterbegin', `<div class="lock-alert"><div class="lock-icon">!</div><div><strong>Kunde inte ladda granskningsdata</strong><p>${esc(error.message)}</p></div></div>`);
     }
   }
+
+  document.addEventListener('eps-saved', async () => {
+    const [manual, quarterly] = await Promise.all([loadJsonOptional('./data/manual_reports.json'), loadJsonOptional('./data/quarterly_eps.json')]);
+    state.manualReports = manual?.submissions || state.manualReports;
+    state.quarterly = quarterly?.history || state.quarterly;
+    await loadActiveStock();
+    renderEarnings();
+    renderManualReports();
+  });
 
   document.addEventListener('DOMContentLoaded', init);
 })();

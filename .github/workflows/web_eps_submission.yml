@@ -1,0 +1,79 @@
+name: Spara EPS från webbplatsen
+run-name: Webb-EPS ${{ inputs.request_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: Registrerings-id från webbformuläret
+        type: string
+        required: true
+      submission:
+        description: JSON från webbformuläret
+        type: string
+        required: true
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: stock-data-${{ github.ref }}
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  save:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Installera beroenden
+        run: python -m pip install -r requirements.txt
+      - name: Validera och spara EPS
+        env:
+          EPS_SUBMISSION: ${{ inputs.submission }}
+          REQUEST_ID: ${{ inputs.request_id }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from src.web_eps_submission import submit
+          payload = json.loads(os.environ['EPS_SUBMISSION'])
+          if payload.get('request_id') != os.environ['REQUEST_ID']:
+              raise ValueError('Registrerings-id stämmer inte')
+          result = submit(payload)
+          print(json.dumps(result, ensure_ascii=False))
+          PY
+      - name: Räkna om poäng, historik och signaler
+        run: python -m src.pipeline --skip-fetch --skip-dividends
+      - name: Begränsa dashboard
+        run: python -m src.limit_dashboard_window
+      - name: Validera webbdata
+        run: python -m src.validate_outputs
+      - name: Uppdatera rapportstatus
+        run: python -m src.report_data_status
+      - name: Spara data och publicera
+        env:
+          REQUEST_ID: ${{ inputs.request_id }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/fundamentals/reports.csv data/manual/report_submissions.csv data/earnings/quarterly_eps.csv docs/data
+          git add data/derived/valuation_score_history.csv.gz data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fundamentals: registrera webb-EPS $REQUEST_ID"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin HEAD:"$GITHUB_REF_NAME"
+      # GITHUB_TOKEN commits do not start branch-based Pages builds themselves.
+      - name: Starta publicering på GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds
