@@ -314,19 +314,27 @@
   },
   "AAK.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "ALIG.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "ALIV-SDB.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "ANOD-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "ATCO-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
@@ -340,15 +348,21 @@
   },
   "BALD-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "BEIA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "BILI-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "BORG.ST|2026-Q3": {
     "anchor": "2026-10-23",
@@ -356,11 +370,15 @@
   },
   "BRAV.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "CATE.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "DIOS.ST|2026-Q3": {
     "anchor": "2026-10-23",
@@ -378,27 +396,39 @@
   },
   "EVO.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "INDT.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "KNOW.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "LAGR-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "LIFCO-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "MCAP.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "MSAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
@@ -406,11 +436,15 @@
   },
   "MTRS.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SAAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SAGA-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
@@ -418,11 +452,15 @@
   },
   "SCA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "SECU-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "TREL-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
@@ -432,10 +470,36 @@
   },
   "VIT-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
-    "completed": []
+    "completed": [
+      0
+    ]
   },
   "VOLV-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": []
+  },
+  "BETS-B.ST|2026-Q3": {
+    "anchor": "2026-10-22",
+    "completed": [
+      0
+    ]
+  },
+  "HEXA-B.ST|2026-Q3": {
+    "anchor": "2026-10-23",
+    "completed": [
+      0
+    ]
+  },
+  "HPOL-B.ST|YAHOO-2026-09-30": {
+    "anchor": "2026-10-22",
+    "completed": [
+      0
+    ]
+  },
+  "INTRUM.ST|2026-Q3": {
+    "anchor": "2026-10-23",
+    "completed": [
+      0
+    ]
   }
 }
