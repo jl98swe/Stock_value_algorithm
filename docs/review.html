@@ -8,9 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Nyheter och data · Stock Value Algorithm</title>
-  <meta name="description" content="Läs bolagsnyheter och skapa säkra manuella kommandon för granskning, EPS, rapportkalender och faktiska affärer.">
-  <link rel="stylesheet" href="./assets/style.css?v=20261021-navigation">
-  <script defer src="./assets/review.js?v=20261016-eps-scope"></script>
+  <meta name="description" content="Läs bolagsnyheter och registrera EPS TTM eller kvartals-EPS direkt på sidan.">
+  <link rel="stylesheet" href="./assets/style.css?v=20261026-web-eps">
+  <script defer src="./assets/review.js?v=20261026-web-eps"></script>
+  <script defer src="./assets/eps-entry.js?v=20261026-1"></script>
   <script src="./assets/strategy-selection.js?v=20261014-3"></script>
   <link rel="stylesheet" href="./assets/report-data-status.css?v=20261015">
   <script defer src="./assets/report-data-status.js?v=20261016-scope"></script>
@@ -40,9 +41,9 @@
 
     <main class="review-page">
       <section class="review-intro panel">
-        <span class="eyebrow">Säker arbetsgång</span>
-        <h1>Läs nyheten själv innan något påverkar handelsspärren</h1>
-        <p>Den här sidan klassificerar inte rubriker eller artikeltext. Den visar originalkällan och genererar ett granskningskommando. GitHub Pages är statisk och skriver därför inte direkt till repot eller exponerar någon token.</p>
+        <span class="eyebrow">Manuell inmatning</span>
+        <h1>Nyheter och rapportdata</h1>
+        <p>Registrera utspädd EPS TTM eller senaste kvartalets utspädda EPS. Manuella värden prioriteras framför automatiskt hämtade värden. Nyhetsbedömningar, rapportkalender och utförd handel använder tills vidare sina tidigare arbetsflöden.</p>
       </section>
 
       <section class="review-layout">
@@ -59,6 +60,48 @@
         </aside>
 
         <div class="review-main">
+          <section class="panel" aria-labelledby="eps-form-title">
+            <div class="panel-header">
+              <div>
+                <span class="eyebrow">Rapportdata</span>
+                <h2 id="eps-form-title">Lägg till EPS från en rapport</h2>
+                <p class="panel-description">Välj EPS TTM när rapporten anger ett rullande tolvmånadersvärde. Det värdet används då direkt i strategin och prioriteras framför Yahoo. Välj kvartals-EPS endast när källan anger utspädd EPS för den enskilda rapportperioden; då räknar systemet fram EPS TTM med hjälp av motsvarande period föregående år. Värdet börjar användas på rapportdatumet. Saknas underlag för TTM sparas kvartalsvärdet med en förklaring. Valutaavvikelser flaggas och tillämpas inte automatiskt.</p>
+              </div>
+            </div>
+            <details id="eps-access" class="eps-access">
+              <summary>Skrivåtkomst – tillfällig lösning utan inloggning</summary>
+              <p>För att spara behövs en personlig fine-grained GitHub-nyckel för <strong>Stock_value_algorithm</strong> med <strong>Actions: Read and write</strong>. Den används bara mot GitHubs API och hålls i minnet tills du lämnar eller laddar om sidan. Ingen nyckel sparas i sidans kod eller webbläsarens lagring.</p>
+              <p><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">Skapa nyckeln i GitHub</a> en gång. Därefter görs inmatning, sparande och uppföljning här. Använd en nyckel begränsad till detta repo med kort giltighetstid.</p>
+              <form id="eps-key-form" class="form-grid">
+                <div class="form-field form-field-wide"><label for="eps-access-key">Personlig skrivnyckel</label><input id="eps-access-key" type="password" autocomplete="off" spellcheck="false"></div>
+                <button class="secondary-button" type="submit">Anslut skrivnyckel</button>
+              </form>
+              <p id="eps-access-status" class="fine-print"></p>
+              <button id="eps-disconnect" class="text-button" type="button" hidden>Koppla från nyckeln</button>
+            </details>
+            <form id="eps-entry-form">
+            <div class="form-grid">
+              <div class="form-field"><label for="eps-ticker">Ticker</label><input id="eps-ticker" type="text" readonly required></div>
+              <div class="form-field"><label for="eps-period">Rapportperiod</label><input id="eps-period" type="text" placeholder="2026-Q3" required pattern="[0-9]{4}-Q[1-4]"></div>
+              <div class="form-field"><label for="eps-period-end">Periodslut</label><input id="eps-period-end" type="date" required></div>
+              <div class="form-field"><label for="eps-published">Rapportdatum</label><input id="eps-published" type="date" required></div>
+              <div class="form-field"><label for="eps-metric">EPS-mått</label><select id="eps-metric"><option value="eps_ttm">EPS TTM (direkt värde)</option><option value="quarterly_eps">Kvartals-EPS (beräkna EPS TTM)</option></select></div>
+              <div class="form-field"><label id="eps-value-label" for="eps-value">EPS TTM</label><input id="eps-value" type="text" inputmode="decimal" placeholder="Exempel: 2,78" required></div>
+              <div class="form-field"><label for="eps-currency">Valuta för inmatat EPS</label><input id="eps-currency" type="text" value="SEK" maxlength="3" required pattern="[A-Za-z]{3}"></div>
+              <div class="form-field"><label for="eps-source">Källa</label><input id="eps-source" type="text" value="manuell rapportgranskning" maxlength="250" required></div>
+              <div class="form-field"><label for="eps-note">Notering</label><input id="eps-note" type="text" maxlength="2000"></div>
+            </div>
+            <p class="fine-print">Inmatningarna och källuppgifterna publiceras öppet. Ange utspädd EPS för ett enskilt kvartal, inte ackumulerad EPS för sex eller nio månader. Ett verifierat TTM-värde i SEK kan anges direkt, även när bolaget redovisar i en annan valuta. En ny registrering kan ersätta ett tidigare manuellt värde för samma rapportperiod; tidigare inmatningar finns kvar i historiken.</p>
+            <div class="action-row">
+              <button id="eps-save" class="secondary-button" type="submit">Spara och räkna om</button>
+              <button id="eps-edit" class="text-button" type="button" hidden>Redigera inmatningen</button>
+              <button id="eps-resume" class="text-button" type="button" hidden>Kontrollera / återuppta</button>
+            </div>
+            <p id="eps-save-status" role="status" aria-live="polite"></p>
+            </form>
+            <code id="eps-command" hidden></code>
+          </section>
+
           <section class="panel" aria-labelledby="event-heading">
             <div id="event-empty" class="empty-state">Välj en bolagsnyhet.</div>
             <div id="event-detail" hidden>
@@ -123,32 +166,6 @@
             </div>
           </section>
 
-          <section class="panel" aria-labelledby="eps-form-title">
-            <div class="panel-header">
-              <div>
-                <span class="eyebrow">Steg 2 vid rapport</span>
-                <h2 id="eps-form-title">Lägg till EPS från en rapport</h2>
-                <p class="panel-description">Välj EPS TTM när rapporten anger ett rullande tolvmånadersvärde. Det värdet används då direkt i strategin och prioriteras framför Yahoo. Välj kvartals-EPS endast när källan anger utspädd EPS för den enskilda rapportperioden; då räknar systemet fram EPS TTM med hjälp av motsvarande period föregående år. Värdet börjar användas på rapportdatumet.</p>
-              </div>
-            </div>
-            <div class="form-grid">
-              <div class="form-field"><label for="eps-ticker">Ticker</label><input id="eps-ticker" type="text"></div>
-              <div class="form-field"><label for="eps-period">Rapportperiod</label><input id="eps-period" type="text" placeholder="2026-Q2"></div>
-              <div class="form-field"><label for="eps-period-end">Periodslut</label><input id="eps-period-end" type="date"></div>
-              <div class="form-field"><label for="eps-published">Rapportdatum</label><input id="eps-published" type="date"></div>
-              <div class="form-field"><label for="eps-metric">EPS-mått</label><select id="eps-metric"><option value="eps_ttm">EPS TTM (direkt värde)</option><option value="quarterly_eps">Kvartals-EPS (beräkna EPS TTM)</option></select></div>
-              <div class="form-field"><label id="eps-value-label" for="eps-value">EPS TTM</label><input id="eps-value" type="number" step="any"></div>
-              <div class="form-field"><label for="eps-source">Källa</label><input id="eps-source" type="text" value="manuell rapportgranskning"></div>
-              <div class="form-field"><label for="eps-note">Notering</label><input id="eps-note" type="text"></div>
-            </div>
-            <div class="command-box">
-              <code id="eps-command"></code>
-              <button id="copy-eps-command" class="text-button" type="button">Kopiera kommando</button>
-              <span id="eps-copy-status" class="copy-feedback"></span>
-            </div>
-            <a id="eps-action-link" class="primary-link" href="#" target="_blank" rel="noopener">Öppna EPS-arbetsflöde</a>
-            <p class="fine-print">När arbetsflödet startas sparas värdet direkt. Det finns inget ytterligare granskningssteg.</p>
-          </section>
 
           <section class="panel" aria-labelledby="manual-reports-title">
             <div class="panel-header">

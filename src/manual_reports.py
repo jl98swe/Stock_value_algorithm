@@ -28,6 +28,8 @@ AUDIT_COLUMNS = [
     "source",
     "notes",
     "submitted_at",
+    "status",
+    "status_reason",
 ]
 
 
@@ -51,11 +53,14 @@ def append_manual_submission(
     effective_date: str,
     input_metric: str,
     input_eps: float,
-    result_eps_ttm: float,
+    result_eps_ttm: float | None,
     eps_currency: str,
     source: str,
     notes: str,
     path: str | Path = AUDIT_FILE,
+    submission_id: str | None = None,
+    status: str = "applied",
+    status_reason: str = "",
 ) -> pd.DataFrame:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -65,7 +70,7 @@ def append_manual_submission(
         ensure_ascii=False,
     )
     row = {
-        "submission_id": hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16],
+        "submission_id": submission_id or hashlib.sha256(identity.encode("utf-8")).hexdigest()[:16],
         "ticker": ticker.strip(),
         "report_period": report_period.strip(),
         "period_end": period_end,
@@ -73,11 +78,13 @@ def append_manual_submission(
         "effective_date": effective_date,
         "input_metric": input_metric,
         "input_eps": str(float(input_eps)),
-        "result_eps_ttm": str(float(result_eps_ttm)),
+        "result_eps_ttm": "" if result_eps_ttm is None else str(float(result_eps_ttm)),
         "eps_currency": eps_currency.strip().upper(),
         "source": source.strip(),
         "notes": notes.strip(),
         "submitted_at": submitted_at,
+        "status": status,
+        "status_reason": status_reason,
     }
     combined = pd.concat([load_manual_submissions(target), pd.DataFrame([row])], ignore_index=True)
     temp = target.with_suffix(target.suffix + ".tmp")

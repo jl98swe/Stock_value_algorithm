@@ -41,6 +41,8 @@ def add_report(
     effective_date: str | None = None,
     eps: float | None = None,
     eps_ttm: float | None = None,
+    eps_currency: str | None = None,
+    submission_id: str | None = None,
 ) -> pd.DataFrame:
     """Lägg till eller ersätt en manuellt registrerad rapportpost.
 
@@ -70,6 +72,7 @@ def add_report(
     user_notes = str(notes or "").strip()
     final_notes = user_notes
     final_eps_ttm: float
+    requested_currency = str(eps_currency or "").strip().upper()
     eps_currency: str
     input_metric: str
     if eps is not None:
@@ -78,6 +81,8 @@ def add_report(
             period_end=period_end,
             current_period_eps=float(eps),
         )
+        if requested_currency and requested_currency != derivation["eps_currency"]:
+            raise ValueError("Valutan för inmatad kvartals-EPS skiljer sig från TTM-underlaget")
         final_eps_ttm = float(derivation["eps_ttm"])
         eps_currency = str(derivation["eps_currency"])
         input_metric = "quarterly_eps"
@@ -87,9 +92,9 @@ def add_report(
         final_eps_ttm = float(eps_ttm)
         currencies = load_stock_currencies()
         match = currencies.loc[currencies["ticker"] == ticker.strip(), "report_currency"]
-        if match.empty or not str(match.iloc[-1]).strip():
+        if not requested_currency and (match.empty or not str(match.iloc[-1]).strip()):
             raise ValueError(f"Rapportvaluta saknas för {ticker.strip()}")
-        eps_currency = str(match.iloc[-1]).strip().upper()
+        eps_currency = requested_currency or str(match.iloc[-1]).strip().upper()
         input_metric = "eps_ttm"
 
     audit_marker = (
@@ -155,6 +160,7 @@ def add_report(
         eps_currency=eps_currency,
         source=source.strip(),
         notes=user_notes,
+        submission_id=submission_id,
     )
     publish_manual_reports(combined)
 

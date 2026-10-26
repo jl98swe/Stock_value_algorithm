@@ -500,3 +500,11 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 .score-card.is-preliminary { border: 1px dashed #8056b3; background: repeating-linear-gradient(135deg, #fdfbff 0 8px, #f5f0fa 8px 10px); }
 .score-card.is-preliminary .zone-pill { background: #eee6f8; color: #69428f; }
 
+
+/* EPS entry on the static review page. */
+.eps-access { padding: 12px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.eps-access summary { color: var(--brand); font-size: 13px; font-weight: 700; cursor: pointer; }
+.eps-access p { color: var(--muted); font-size: 12px; line-height: 1.55; }
+#eps-save-status { margin-bottom: 0; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+#eps-entry-form .action-row { flex-wrap: wrap; }
+#eps-entry-form button:disabled { opacity: .6; cursor: wait; }
