@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-23T21:58:24+02:00",
+  "generated_at": "2026-10-26T22:36:21+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/mycronic",
   "items": [
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-10-26T08:00:00+01:00",
+      "title": "Mycronic receives order for a mask writer and a metrology system",
+      "link": "https://mfn.se/a/mycronic/mycronic-receives-order-for-a-mask-writer-and-a-metrology-system",
+      "source": "MFN",
+      "summary": "Mycronic receives order for a mask writer and a metrology system 2026-10-26 08:00:00 Mycronic AB (publ) has received an order for a Prexision Lite 8 Evo and a Prexision MMS from an existing customer in Asia. The order value is in the range of USD 12-14 million. Delivery of the Prexision Lite 8 Evo is planned during the second quarter of 2027, whereas delivery of the Prexision MMS is planned during the third quarter of 2027. The Prexision Lite 8 Evo mask writer is designed to meet the requirements for cost-efficient production of mainstream photomasks for displays up to G8 mask size. Prexision MMS is a metrology system for quality assurance of",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2cbe33689565486f"
+    },
     {
       "ticker": "MYCR.ST",
       "company": "Mycronic AB (publ)",

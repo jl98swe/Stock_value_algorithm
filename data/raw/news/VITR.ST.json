@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-23T21:59:38+02:00",
+  "generated_at": "2026-10-26T22:37:34+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/vitrolife",
-  "items": []
+  "items": [
+    {
+      "ticker": "VITR.ST",
+      "company": "Vitrolife AB (publ)",
+      "published_at": "2026-10-26T10:11:00+01:00",
+      "title": "Elin Frostehav utsedd till VD för Vitrolife Group",
+      "link": "https://mfn.se/a/vitrolife/elin-frostehav-utsedd-till-vd-for-vitrolife-group",
+      "source": "MFN",
+      "summary": "Elin Frostehav utsedd till VD för Vitrolife Group 2026-10-26 10:11:00 Vitrolife AB (publ) (\"Vitrolife Group\") meddelar idag att Elin Frostehav har utsetts till vd och koncernchef, med tillträde den 1 maj 2027 eller tidigare om så beslutas. Vidare har Rickard Ericsson, Senior Vice President Innovation på Vitrolife Group, utsetts till tillförordnad vd och koncernchef från och med den 1 november 2026. Han efterträder Bronwyn Brophy O’Connor, som lämnar rollen som vd och koncernchef samma dag. Elin Frostehav är idag affärsområdeschef för Acute Care Therapies på medicinteknikbolaget Getinge och medlem av koncernledningen. Dessförinnan var hon Vice",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c8c6fa0c5087e87d"
+    }
+  ]
 }

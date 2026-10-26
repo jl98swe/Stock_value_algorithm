@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-23T21:58:04+02:00",
+  "generated_at": "2026-10-26T22:36:02+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
   "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-10-26T16:10:00+01:00",
+      "title": "Lifco förvärvar Maxlight i Storbritannien",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-maxlight-i-storbritannien",
+      "source": "MFN",
+      "summary": "Lifco förvärvar Maxlight i Storbritannien 2026-10-26 16:10:00 Lifco har tecknat avtal om att förvärva samtliga aktier i det brittiska bolaget Maxlight. Maxlight designar, tillverkar och installerar skjutdörrar i tunna aluminiumramar och andra glaslösningar för exklusiva bostäder. Maxlight omsatte cirka 10 MEUR 2025. Bolaget är baserat i London, Storbritannien och har 50 anställda. Maxlight kommer att konsolideras i affärsområdet Systems Solutions, divisionen Infrastructure Products. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat eller finansiella ställning under 2026.",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "50bf3dec01e94946"
+    },
     {
       "ticker": "LIFCO-B.ST",
       "company": "Lifco AB (publ)",
