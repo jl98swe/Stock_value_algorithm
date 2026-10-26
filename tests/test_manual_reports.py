@@ -71,8 +71,8 @@ def test_review_page_distinguishes_strategy_eps_from_yahoo() -> None:
     workflow = (root / ".github" / "workflows" / "add_verified_eps.yml").read_text(encoding="utf-8")
 
     assert "EPS TTM (direkt värde)" in html
-    assert "Manuella rapporteringar" in html
-    assert "Aktivt EPS TTM i strategin" in script
+    assert "Tidigare inmatningar" in html
+    assert "Nuvarande EPS TTM" in script
     assert "Yahoo trailing EPS TTM" not in script
     assert "Yahoo-jämförelse" not in script
     assert "Senast sparad Yahoo trailing EPS TTM" not in script

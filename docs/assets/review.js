@@ -129,13 +129,11 @@
 
     const panel = document.createElement('div');
     panel.id = 'eps-candidate-panel';
-    panel.className = 'lock-alert';
-    panel.style.marginBottom = '18px';
+    panel.className = 'eps-current';
     panel.innerHTML = `
-      <div class="lock-icon">i</div>
-      <div style="width:100%">
+      <div>
         <strong id="eps-candidate-title">Aktivt EPS TTM</strong>
-        <p id="eps-candidate-summary" style="margin:.35rem 0 .65rem"></p>
+        <p id="eps-candidate-summary" ></p>
         <div id="eps-candidate-meta" class="fine-print"></div>
       </div>`;
     header.insertAdjacentElement('afterend', panel);
@@ -166,7 +164,7 @@
     panel.hidden = false;
     const activeEps = state.activeStock?.latest?.eps_ttm;
     const activeReport = state.activeStock?.report;
-    $('eps-candidate-title').textContent = `Aktivt EPS TTM i strategin · ${state.selectedTicker}`;
+    $('eps-candidate-title').textContent = 'Nuvarande EPS TTM';
     $('eps-candidate-summary').textContent = Number.isFinite(Number(activeEps))
       ? `${formatNumber(activeEps)}${activeReport?.period ? ` för ${activeReport.period}` : ''}${activeReport?.effective_date ? `, används från ${activeReport.effective_date}` : ''}.`
       : '–';
@@ -195,19 +193,22 @@
         <dl>
           <div><dt>${inputLabel}</dt><dd>${esc(formatNumber(item.input_eps))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
           <div><dt>Sparat EPS TTM</dt><dd>${esc(formatNumber(item.result_eps_ttm))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
-          <div><dt>Status</dt><dd>${esc(item.status === 'pending_ttm' ? 'Sparat – TTM-underlag saknas' : item.status === 'currency_review' ? 'Sparat – kontrollera valuta' : 'Tillämpat')}</dd></div>
+          <div><dt>Status</dt><dd>${esc(item.status === 'pending_ttm' ? 'Sparat – underlag saknas' : item.status === 'currency_review' ? 'Kontrollera valuta' : 'Tillämpat')}</dd></div>
           <div><dt>Källa</dt><dd>${esc(item.source || '–')}</dd></div>
           <div><dt>Registrerad</dt><dd>${esc(formatDate(item.submitted_at))}</dd></div>
         </dl>
         ${item.status_reason ? `<p>${esc(item.status_reason)}</p>` : ''}
         ${item.notes ? `<p>${esc(item.notes)}</p>` : ''}
       </article>`;
-    }).join('') : '<div class="empty-state">Inga manuella rapporteringar för aktien.</div>';
+    }).join('') : '<div class="empty-state">Inga tidigare inmatningar.</div>';
   }
 
   function updateEpsMetric() {
     const direct = $('eps-metric')?.value === 'eps_ttm';
     if ($('eps-value-label')) $('eps-value-label').textContent = direct ? 'EPS TTM' : 'Kvartals-EPS (utspädd)';
+    if ($('eps-metric-help')) $('eps-metric-help').textContent = direct
+      ? 'EPS TTM är utspädd vinst per aktie för de senaste tolv månaderna.'
+      : 'Ange utspädd EPS för ett enda kvartal. TTM räknas fram om underlaget räcker.';
     renderEarnings();
     updateCommands();
   }
