@@ -27,7 +27,7 @@
     panel.append(title);
     if (visible.length) {
       const description = document.createElement('p');
-      description.textContent = 'Rapportdatumet har passerat, men nya EPS-data har inte kommit in. Värderingspoäng och signaler använder fortfarande äldre rapportdata.';
+      description.textContent = 'Nya EPS saknas. Poäng och signaler använder äldre rapportdata.';
       panel.append(description);
     }
     const list = document.createElement('ul');
@@ -36,7 +36,13 @@
       const link = document.createElement('a');
       link.href = `./index.html?ticker=${encodeURIComponent(row.ticker)}`;
       link.textContent = row.ticker;
-      item.append(link, ` · ${row.report_date} · ${row.message}`);
+      const entry = document.createElement('a');
+      entry.href = location.pathname.endsWith('/review.html')
+        ? '#eps-form-title'
+        : `./review.html?ticker=${encodeURIComponent(row.ticker)}#eps-form-title`;
+      entry.textContent = 'Lägg in EPS';
+      entry.setAttribute('aria-label', `Lägg in EPS för ${row.ticker} på Nyheter och data`);
+      item.append(link, ` · ${row.report_date} · `, entry);
       list.append(item);
     }
     panel.append(list);
