@@ -189,7 +189,12 @@ def _load_metadata() -> pd.DataFrame:
 def _extend_metadata(history: pd.DataFrame, *, workers: int) -> pd.DataFrame:
     existing = _load_metadata()
     existing_map = existing.set_index("ticker") if not existing.empty else pd.DataFrame()
-    tickers = sorted(history["ticker"].astype(str).unique())
+    # Behåll metadata även för bolag som inte längre ger nya Yahoo-rader. Det
+    # gäller bland annat avnoterade bolag vars historiska EPS fortfarande ska
+    # kunna valideras och användas i den kanoniska rapporthistoriken.
+    history_tickers = set(history["ticker"].astype(str).unique())
+    existing_tickers = set(existing["ticker"].astype(str)) if not existing.empty else set()
+    tickers = sorted(history_tickers | existing_tickers)
 
     missing_price = [
         ticker
