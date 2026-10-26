@@ -53,7 +53,15 @@
         const data = await request(`/actions/workflows/${WORKFLOW}/runs?event=workflow_dispatch&branch=main&per_page=100`);
         return data.workflow_runs.find(run => run.display_title === `Webb-EPS ${id}`) || null;
       },
-      receipt(id) { return request(`/contents/docs/data/manual_requests/${id}.json?ref=main`, {optional: true, headers: {Accept: 'application/vnd.github.raw+json'}}); }
+      async receipt(id) {
+        // Public files need no credential or Contents permission. Reading raw
+        // receipts also avoids consuming the unauthenticated REST API quota.
+        if (!/^[a-f0-9]{32}$/.test(id)) throw Error('Ogiltigt registrerings-id.');
+        const response = await fetcher(`https://raw.githubusercontent.com/jl98swe/Stock_value_algorithm/main/docs/data/manual_requests/${id}.json?t=${Date.now()}`, {cache:'no-store', redirect:'error', credentials:'omit'});
+        if (response.status === 404) return null;
+        if (!response.ok) throw Error('Publiceringskvittot kunde inte kontrolleras.');
+        return response.json();
+      }
     };
   }
   if (typeof module !== 'undefined' && module.exports) { module.exports = {validate, createClient}; return; }

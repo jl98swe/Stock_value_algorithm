@@ -12,7 +12,7 @@ test('Swedish decimal comma, zero and negative EPS work; invalid and future valu
 });
 test('dispatch sends one validated request to main; key is removed after disconnect', async () => {
   const calls = [];
-  const client = createClient(async (url, options) => {calls.push({url, options}); return {ok:true,status:204};});
+  const client = createClient(async (url, options) => {calls.push({url, options}); return url.startsWith('https://raw.githubusercontent.com/') ? {ok:false,status:404} : {ok:true,status:204};});
   await client.connect('github_pat_SYNTHETIC');
   const input = {...validate(sample(),'2026-10-26'), request_id:'a'.repeat(32)};
   await client.dispatch(input);
@@ -26,13 +26,13 @@ test('dispatch sends one validated request to main; key is removed after disconn
   assert(!call.options.body.includes('github_pat_'));
   client.disconnect();
   await client.receipt(input.request_id);
-  assert.equal(calls.at(-1).options.headers.Authorization, undefined);
+  assert.equal(calls.at(-1).options.headers?.Authorization, undefined);
 });
 test('expired credentials are cleared; failure is never treated as success', async () => {
   const calls = [];
   const client = createClient(async (url, options) => {calls.push(options); return {ok:false,status:401};});
   await assert.rejects(client.connect('github_pat_SYNTHETIC'), /behörighet/);
-  await assert.rejects(client.receipt('a'.repeat(32)), /behörighet/);
+  await assert.rejects(client.run('a'.repeat(32)), /behörighet/);
   assert.equal(calls[1].headers.Authorization, undefined);
 });
 test('run matching uses the unique request id, never another stock or submission', async () => {
@@ -56,7 +56,7 @@ async function page({outcome = 'applied', failDispatch = false, published = true
   const fetch = async (url, options = {}) => {
     calls.push({url, options});
     if (url.endsWith('/dispatches')) {sent=true; if(failDispatch) throw Error('Network'); return {ok:true,status:204};}
-    if (url.includes('/contents/')) return {ok:sent,status:sent?200:404,json:async()=>receipt};
+    if (url.startsWith('https://raw.githubusercontent.com/')) return {ok:sent,status:sent?200:404,json:async()=>receipt};
     if (url.startsWith('./data/manual_requests/')) return {ok:published,status:published?200:404,json:async()=>receipt};
     if (url.includes('/runs?')) return {ok:true,status:200,json:async()=>({workflow_runs:[{display_title:`Webb-EPS ${id}`, status:'in_progress'}]})};
     return {ok:true,status:200,json:async()=>({})};
