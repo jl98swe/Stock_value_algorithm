@@ -32,11 +32,16 @@ const shown = main => main.children.flatMap(panel => panel.children.at(-1).child
   for (const page of ['signals','reports']) {
     const test=setup(page); await test.load();
     assert.deepEqual(shown(test.main), ['AAA.ST','BBB.ST','CCC.ST']);
+    const row = test.main.children[0].children.at(-1).children[1];
+    assert.equal(row.children.at(-1).textContent, 'Lägg in EPS');
+    assert.equal(row.children.at(-1).href, './review.html?ticker=BBB.ST#eps-form-title');
   }
   for (const page of ['index','review']) {
     const test=setup(page);
     await test.load(()=>test.api.setTickers(['BBB.ST']));
     assert.deepEqual(shown(test.main), ['BBB.ST']);
+    const entry = test.main.children[0].children.at(-1).children[0].children.at(-1);
+    assert.equal(entry.href, page === 'review' ? '#eps-form-title' : './review.html?ticker=BBB.ST#eps-form-title');
     test.api.setTickers(['NO-WARNING.ST']);
     assert.deepEqual(shown(test.main), []);
     test.api.setTickers(['AAA.ST']);

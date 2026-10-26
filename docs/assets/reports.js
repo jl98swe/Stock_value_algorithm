@@ -121,6 +121,10 @@
     return '–';
   }
 
+  function missingEpsLink(row) {
+    return `<a href="./review.html?ticker=${encodeURIComponent(row.ticker)}#eps-form-title" aria-label="Lägg in EPS för ${escapeHtml(row.ticker)} på Nyheter och data">Lägg in EPS</a>`;
+  }
+
   function renderUpcoming(rows) {
     $('upcoming-count').textContent = String(rows.length);
     $('urgent-count').textContent = String(rows.filter((row) => row.urgent).length);
@@ -135,7 +139,7 @@
         <td>${formatMoney(row.current_price, row.price_currency)}</td>
         <td><strong>${formatScore(row.current_score)}</strong></td>
         <td>${row.previous_eps_ttm == null ? '–' : `<strong>${formatEps(row.previous_eps_ttm)} ${escapeHtml(row.previous_eps_ttm_currency || '')}</strong>`}</td>
-        <td>${row.new_eps_ttm == null ? '–' : `<strong>${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}</strong>`}</td>
+        <td>${row.new_eps_ttm == null ? ((payload.missing_data || []).some(item => item.ticker === row.ticker) ? missingEpsLink(row) : '–') : `<strong>${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}</strong>`}</td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>
       </tr>`).join('') : '<tr><td colspan="9" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
@@ -172,7 +176,7 @@
         <td><strong>${formatDate(row.report_date)}</strong>${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
         <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatEps(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
         <td>${row.prior_year_quarter_eps == null ? '–' : `${formatEps(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
-        <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency, formatEps)}</td>
+        <td>${pair(row.eps_ttm_before, row.eps_ttm_after, row.eps_ttm_currency, formatEps)}${row.eps_ttm_after == null ? `<span class="cell-note">${missingEpsLink(row)}</span>` : ''}</td>
         <td>${scorePair(row.score_before, row.score_after)}<span class="cell-note">${formatDate(row.before_date)} → ${formatDate(row.after_date)}</span></td>
         <td class="${scoreClass}"><strong>${signed(row.score_change)}</strong></td>
         <td>${pair(row.price_before, row.price_after, row.price_currency)}</td>

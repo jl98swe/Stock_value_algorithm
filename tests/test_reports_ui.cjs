@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const fs = require('node:fs');
 const source = fs.readFileSync('docs/assets/reports.js', 'utf8');
 
-async function setup(today, upcoming, recent = []) {
+async function setup(today, upcoming, recent = [], missing_data = []) {
   const elements = new Map();
   const element = id => {
     if (!elements.has(id)) elements.set(id, {hidden: false, textContent: '', innerHTML: '', listeners: {}, attrs: {},
@@ -23,7 +23,7 @@ async function setup(today, upcoming, recent = []) {
     const day = date.toISOString().slice(0,10);
     if (![0,6].includes(date.getUTCDay()) && !['2026-12-24','2026-12-25','2026-12-31'].includes(day)) sessions.push(day);
   }
-  const payload = {as_of_date: '2026-10-14', trading_sessions: sessions, trading_sessions_start: '2026-09-01', trading_sessions_end: '2026-12-31', upcoming, recent};
+  const payload = {as_of_date: '2026-10-14', trading_sessions: sessions, trading_sessions_start: '2026-09-01', trading_sessions_end: '2026-12-31', upcoming, recent, missing_data};
   vm.runInNewContext(source, {Intl, Date: Clock, console, document: {getElementById: element, addEventListener(event, handler) {if(event === 'DOMContentLoaded') init=handler;}},
     fetch: async () => ({ok:true, json:async()=>payload}), setInterval: handler => {tick=handler;}});
   await init();
@@ -103,4 +103,31 @@ test('five future reports shown when none are imminent', async () => {
   assert.equal(count(e('upcoming-body')),5);
   e('upcoming-more').listeners.click();
   assert.equal(count(e('upcoming-body')),8);
+});
+
+// Synthetic examples: only confirmed missing report data gets an entry link.
+test('missing EPS links to the selected stock form; future reports and zero stay unchanged', async () => {
+  const {element:e} = await setup('2026-10-26T12:00Z', [
+    {...row('MISSING.ST','2026-10-26'), new_eps_ttm:null},
+    {...row('FUTURE.ST','2026-10-27'), new_eps_ttm:null},
+    {...row('ZERO.ST','2026-10-26'), new_eps_ttm:0},
+  ], [{ticker:'RECENT.ST',report_date:'2026-10-23',report_date_verified:true,eps_ttm_after:null}], [{ticker:'MISSING.ST'}]);
+  const rows = [...e('upcoming-body').innerHTML.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)].map(x=>x[1]);
+  assert(rows.find(x=>x.includes('>MISSING.ST</strong>')).includes('./review.html?ticker=MISSING.ST#eps-form-title'));
+  assert(!rows.find(x=>x.includes('>FUTURE.ST</strong>')).includes('Lägg in EPS'));
+  assert(!rows.find(x=>x.includes('>ZERO.ST</strong>')).includes('Lägg in EPS'));
+  assert(e('recent-body').innerHTML.includes('./review.html?ticker=RECENT.ST#eps-form-title'));
+});
+
+test('homepage manual EPS action follows stock changes and opens the form on the website', () => {
+  const app = fs.readFileSync('docs/assets/app.js','utf8');
+  const section = app.slice(app.indexOf('  function renderStatus('), app.indexOf('  function isCompanyNews('));
+  const state = {selectedTicker:'FIRST.ST', dashboard:{meta:{}}};
+  const nodes = {};
+  const render = new Function('state','$','prettyDate','formatModelEps', section + '; return renderStatus;')(state, id=>nodes[id] ||= {}, x=>x || '–', ()=> '–');
+  render({});
+  assert.equal(nodes['report-workflow-link'].href, './review.html?ticker=FIRST.ST#eps-form-title');
+  state.selectedTicker='SECOND-B.ST';
+  render({});
+  assert.equal(nodes['report-workflow-link'].href, './review.html?ticker=SECOND-B.ST#eps-form-title');
 });
