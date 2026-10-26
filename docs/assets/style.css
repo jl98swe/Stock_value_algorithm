@@ -508,3 +508,25 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 #eps-save-status { margin-bottom: 0; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 #eps-entry-form .action-row { flex-wrap: wrap; }
 #eps-entry-form button:disabled { opacity: .6; cursor: wait; }
+
+/* Keep the EPS form short; show secondary tools only when requested. */
+.review-page { max-width: 980px; }
+.review-intro { padding: 14px 16px; }
+.review-intro h1 { margin: 0; font-size: 25px; }
+.review-intro p { margin-top: 5px; font-size: 13px; }
+.review-layout { grid-template-columns: minmax(0,1fr); gap: 10px; }
+.review-sidebar { position: static; padding: 12px 16px; margin-bottom: 0; }
+.review-sidebar .form-field { max-width: 480px; }
+.eps-current { margin-bottom: 12px; padding: 8px 10px; border-radius: 8px; background: #f2f7f7; font-size: 12px; }
+.eps-current strong { font-size: 12px; }
+.eps-current p { margin: 3px 0 0; }
+.eps-current .fine-print:empty, #eps-save-status:empty { display: none; }
+.eps-access { padding: 8px 10px; margin-bottom: 12px; }
+.eps-help { margin: 8px 0; font-size: 12px; }
+.eps-help summary, .review-fold > summary { cursor: pointer; color: var(--brand); font-weight: 700; }
+.eps-help p { margin: 7px 0; color: var(--muted); }
+.eps-help .form-field { margin-top: 8px; }
+.review-fold { padding: 12px 16px; }
+.review-fold > summary { font-size: 13px; }
+.review-fold[open] > summary { margin-bottom: 12px; }
+#eps-entry-form .fine-print { margin: 8px 0; }

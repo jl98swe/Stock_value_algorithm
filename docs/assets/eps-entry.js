@@ -34,7 +34,7 @@
       });
       if (response.status === 404 && options.optional) return null;
       if (!response.ok) {
-        if ([401, 403].includes(response.status)) throw Error('Nyckeln saknar behörighet, har löpt ut eller API-gränsen har nåtts. Kontrollera Actions: Read and write för detta repo.');
+        if ([401, 403].includes(response.status)) throw Error('Kontrollera nyckelns behörighet och giltighetstid. Behörigheten ska vara Actions: Read and write.');
         if (response.status === 422) throw Error('Inmatningen kunde inte skickas. Kontrollera fälten och försök med samma registrering.');
         throw Error(`Sparandet kunde inte kontrolleras (HTTP ${response.status}).`);
       }
@@ -42,7 +42,7 @@
     }
     return {
       async connect(value) {
-        if (!/^github_pat_[A-Za-z0-9_]+$/.test(value)) throw Error('Ange en fine-grained GitHub-nyckel för detta repo.');
+        if (!/^github_pat_[A-Za-z0-9_]+$/.test(value)) throw Error('Ange en fine-grained GitHub-nyckel.');
         key = value;
         try { await request(`/actions/workflows/${WORKFLOW}`); }
         catch (error) { key = ''; throw error; }
@@ -86,7 +86,7 @@
       $('eps-edit').disabled = busy;
       $('eps-disconnect').hidden = !connected;
       $('eps-key-form').hidden = connected;
-      $('eps-access-status').textContent = connected ? 'Skrivnyckel ansluten för denna sidvisning.' : 'Ingen skrivnyckel ansluten.';
+      $('eps-access-status').textContent = connected ? 'Ansluten.' : 'Inte ansluten.';
     }
     async function published(item, receipt) {
       const response = await fetch(`./data/manual_requests/${item.request_id}.json?t=${Date.now()}`, {cache: 'no-store'});
@@ -128,12 +128,12 @@
           }
           message(run?.status === 'in_progress' ? 'Sparar och räknar om poäng, historik och signaler…' : 'Registreringen väntar på bearbetning…');
         } else {
-          message('En registrering väntar på kontroll. Anslut skrivnyckeln för att följa eller återuppta den.');
+          message('En inmatning väntar. Anslut nyckeln för att kontrollera den.');
           return;
         }
         timer = setTimeout(monitor, 15000);
       } catch {
-        message('Status kunde inte kontrolleras. Registreringen finns kvar här. Använd Kontrollera / återuppta; skicka inte ett nytt värde.');
+        message('Kunde inte kontrollera status. Inmatningen finns kvar. Välj Kontrollera / återuppta.');
       } finally { busy = false; buttons(); }
     }
     $('eps-key-form').addEventListener('submit', async event => {
@@ -142,7 +142,7 @@
       $('eps-access-key').value = '';
       try {
         await client.connect(value); connected = true; buttons();
-        message('Skrivnyckeln är ansluten. Fyll i rapportvärdet och välj Spara och räkna om.');
+        message('Ansluten. Du kan nu spara värden.');
         if (pending) await monitor();
       } catch (error) { message(error.message); }
     });
@@ -150,7 +150,7 @@
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (busy || pending) return;
-      if (!connected) { message('Anslut en skrivnyckel på sidan innan du sparar.'); $('eps-access').open = true; $('eps-access-key').focus(); return; }
+      if (!connected) { message('Anslut din GitHub-nyckel för att spara.'); $('eps-access').open = true; $('eps-access-key').focus(); return; }
       let item;
       try {
         // Another tab may already be processing a submission.
@@ -163,12 +163,12 @@
       remember(item); failed = false; busy = true; buttons();
       message('Skickar registreringen…');
       try { await client.dispatch(item); }
-      catch { message('Det gick inte att bekräfta mottagandet. Kontrollera / återuppta använder samma registrerings-id för att undvika dubbla ändringar.'); busy = false; buttons(); return; }
+      catch { message('Kunde inte bekräfta mottagandet. Välj Kontrollera / återuppta innan du lägger in ett nytt värde.'); busy = false; buttons(); return; }
       busy = false; await monitor();
     });
     $('eps-resume').addEventListener('click', async () => {
       if (!pending || busy) return;
-      if (!connected) { message('Anslut skrivnyckeln för att kontrollera registreringen.'); return; }
+      if (!connected) { message('Anslut nyckeln för att kontrollera inmatningen.'); return; }
       busy = true; buttons();
       try {
         const receipt = await client.receipt(pending.request_id);
@@ -195,6 +195,6 @@
     } catch { /* No unfinished request. */ }
     buttons();
     if (pending) monitor();
-    root.addEventListener('pagehide', () => { client.disconnect(); connected = false; clearTimeout(timer); });
+    root.addEventListener('pagehide', () => { client.disconnect(); connected = false; clearTimeout(timer); buttons(); });
   });
 })(typeof window === 'undefined' ? globalThis : window);
