@@ -36,3 +36,10 @@ Hexpol är redan komplett med Yahoo trailingDilutedEPS 5,25 SEK, giltig från 23
 Tidigare körning rapporterar 380 godkända Python-tester, omräknade webbdata och verifierad Pages-publicering för de fem redan registrerade rapporterna. Denna komplettering testas på nytt med befintlig GitHub Actions CI: samtliga kärntester, frontendtester, full pipeline utan ny kurshämtning, historikbegränsning och utdata-/valutavalidering. Manuella EPS-registreringar inkluderas i CI:s sökvägsfilter så även dataändringar får dessa kontroller.
 
 Efter merge kör befintlig publiceringspipeline om webbdata och saknad-EPS-status. Slutlig status och publicering verifieras separat; lokal fullkörning räknas inte som godkänd eftersom körmiljön tappade körningsfilerna.
+
+
+## Slutförd datavalidering
+
+PR 108 är mergad till main som 96213e49de01445591194fef6dc3a33226c355be. CI 40537688595 passerade: 387 Python-tester, frontendtester, full pipeline, historikbegränsning och utdata-/valutavalidering för 119 aktier och 306 985 prisrader. Publiceringspipeline 40538509898 sparade omräknade webbdata i abf9a5b476d337a055c83b65ec1a635d111860d4.
+
+Den exporterade rapportstatusen har missing_data=[]; EQT kvarstår enbart som published_without_eps. Alla sex nya rapporters före-/eftervärden är verifierade i reports.json. CTT:s dashboard ändrar endast latest (EPS och P/E) och report; poäng, signaler, positioner och alla strategier är exakt oförändrade jämfört med föregående main. Hela den frysta poänghistorikens Git-blob är oförändrad mot 9b23ae8. Senaste tillgängliga stängningskurs är fortfarande 26 oktober, så rapporten från 27 oktober skapar inga påhittade slutkurser eller historiska signaler.
