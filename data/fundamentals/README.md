@@ -1,5 +1,18 @@
 # Fundamentaldata
 
+Rapportdatum styrs av rapportkalendrar före datum i EPS-observationer. Prioritet:
+uttrycklig verifierad datumkorrigering, manuellt verifierad rapportkalender,
+MFN/bolagets kalender, Börskollen, Yahoos kalender och sist EPS-postens datum.
+Endast bekräftade exakta kalenderdatum som säkert matchar samma rapport används;
+intervall, uppskattningar och nästa kvartals datum används inte som ersättning.
+Kalenderhistoriken behålls när kommande kalender går vidare till nästa rapport.
+Motstridiga likvärdiga kalenderuppgifter stoppar datumvalet för granskning.
+En kalenderdag i framtiden hindrar EPS från att börja gälla för tidigt.
+Faktiskt publiceringsklockslag bevaras om det ligger på rätt svensk kalenderdag.
+Datumregeln ändrar inte EPS-värden eller deras manuella prioritet och gäller även
+vid sparning/import och automatiska datumkontroller. Ändrade datum hanteras av
+befintlig begränsad omräkning; äldre publicerad poänghistorik före brytdagen bevaras.
+
 `reports.csv` är den kanoniska point-in-time-källan för EPS TTM. Endast verifierade rader i den filen får påverka P/E, värderingsscore eller signaler.
 
 ## Kanoniskt schema

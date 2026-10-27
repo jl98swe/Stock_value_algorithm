@@ -67,8 +67,13 @@ def recheck(*, today: object | None = None, reports: pd.DataFrame | None = None,
             status_path: Path = STATUS_FILE, save: bool = True) -> pd.DataFrame:
     day = pd.Timestamp(today or datetime.now(TZ).date()).normalize()
     current = load_reports() if reports is None else reports.copy()
+    from .calendar_date_evidence import calendar_dates
+    from .report_date_revisions import apply_date_evidence
+    calendar = calendar_dates(current, today=day)
+    calendar_keys = set(zip(calendar.ticker, calendar.report_period))
+    current = apply_date_evidence(current, manual_path=manual_path, auto_path=auto_path)
     state = read_json(state_path, default={})
-    manual = verified_date_keys(current, manual_path)
+    manual = verified_date_keys(current, manual_path, include_calendar=False)
     evidence = date_overrides(auto_path)
     for column in ["published_at", "checked_at"]:
         if column not in evidence:
@@ -93,6 +98,11 @@ def recheck(*, today: object | None = None, reports: pd.DataFrame | None = None,
         if (report.ticker, report.report_period) in manual:
             record["status"] = "manual_date_preserved"
             entry["completed"] = sorted(set(entry["completed"] + due))
+        elif (report.ticker, report.report_period) in calendar_keys:
+            record['status'] = 'calendar_date_preserved'
+            record['detail'] = str(calendar.loc[calendar.ticker.eq(report.ticker) & calendar.report_period.eq(report.report_period), 'source'].iloc[-1])
+            record['new_date'] = pd.Timestamp(report.effective_date).date().isoformat()
+            entry['completed'] = sorted(set(entry['completed'] + due))
         else:
             if report.ticker not in fetched:
                 try:
