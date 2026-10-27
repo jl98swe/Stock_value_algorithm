@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-26T22:36:48+01:00",
+  "generated_at": "2026-10-27T22:16:36+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/saab",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-27T14:00:00+01:00",
+      "title": "Saab Announces Key Partners for Gripen Canada",
+      "link": "https://mfn.se/cis/a/saab/saab-announces-key-partners-for-gripen-canada-c88602ac",
+      "source": "MFN",
+      "summary": "Saab Announces Key Partners for Gripen Canada 2026-10-27 14:00:00 Saab plans to work with CAE, IMP and Magellan Aerospace as its principal Canadian industry partners if Gripen E is selected by the Government of Canada. Saab today confirms its intention to collaborate with several of Canada's major international aerospace firms in a first step to establish a broad, national ecosystem that will build, deliver and support the Gripen E advanced multi-role fighter, should the Government of Canada proceed with a Gripen acquisition. If selected, Saab and its Canadian partners will establish a comprehensive, in-country capability for the production, ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d058a2c6e5980be2"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",

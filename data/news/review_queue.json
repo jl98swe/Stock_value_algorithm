@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-10-26T22:37:47+01:00",
+  "generated_at": "2026-10-27T22:17:40+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "HANZA.ST",
+      "company": "Hanza AB (publ)",
+      "published_at": "2026-10-27T16:00:00+01:00",
+      "title": "HANZAs VD och styrelseordförande ökar sina aktieinnehav",
+      "link": "https://mfn.se/a/hanza/hanzas-vd-och-styrelseordforande-okar-sina-aktieinnehav-1",
+      "source": "MFN",
+      "summary": "HANZAs VD och styrelseordförande ökar sina aktieinnehav 2026-10-27 16:00:00 HANZAs vd Erik Stenfors har i dag köpt 2 000 aktier i HANZA för sammanlagt 309 150 kronor. HANZAs styrelseordförande Francesco Franzé har i dag köpt 5 000 aktier i HANZA för sammanlagt 779 000 kronor. Efter köpet uppgår Erik Stenfors innehav till 662 000 aktier, motsvarande cirka 1,05 procent av aktierna i HANZA. Francesco Franzés innehav uppgår efter köpet till 3 545 500 aktier, motsvarande cirka 5,63 procent av aktierna i HANZA. Kontakter Erik Stenfors, vd +46-70 950 80 70 erik.stenfors@hanza.com Lars Åkerblom, CFO +46-70 794 98 78 lars.akerblom@hanza.com Om oss Man",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7df7757f97d08138"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "company": "Medicover AB (publ)",
+      "published_at": "2026-10-27T15:00:00+01:00",
+      "title": "Medicover Genetics har lanserat OncoSentia MRD för icke-småcellig lungcancer (NSCLC) som inte kan behandlas genom operation",
+      "link": "https://mfn.se/a/medicover/medicover-genetics-har-lanserat-oncosentia-mrd-for-icke-smacellig-lungcancer-nsclc-som-inte-kan-behandlas-genom-operation",
+      "source": "MFN",
+      "summary": "Medicover Genetics har lanserat OncoSentia MRD för icke-småcellig lungcancer (NSCLC) som inte kan behandlas genom operation 2026-10-27 15:00:00 OncoSentia MRD ett plasmabaserat test som stödjer longitudinell ctDNA-monitorering utan krav på tidigare tumörvävnadsprofilering. Medicover Genetics har lanserat OncoSentia MRD, ett plasmabaserat test för longitudinell övervakning av minimal kvarvarande sjukdom (MRD) hos patienter med inoperabel icke-småcellig lungcancer (NSCLC), i samband med ESMO 2026 i Madrid. OncoSentia MRD erbjuds nu som en centraliserad laboratorietjänst genom Medicover Genetics CAP-ackrediterade och CLIA-certifierade laboratori",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a4cbcd11d7812712"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-27T14:00:00+01:00",
+      "title": "Saab presenterar nyckelpartners för Gripen i Kanada",
+      "link": "https://mfn.se/cis/a/saab/saab-presenterar-nyckelpartners-for-gripen-i-kanada-f558f229",
+      "source": "MFN",
+      "summary": "Saab presenterar nyckelpartners för Gripen i Kanada 2026-10-27 14:00:00 Saab avser att samarbeta med CAE, IMP och Magellan Aerospace som huvudsakliga kanadensiska industripartners om Gripen E väljs av Kanadas regering. Saab bekräftar idag sin avsikt att samarbeta med flera av Kanadas ledande internationella försvarsföretag som ett första steg mot att etablera ett landsomfattande ekosystem för tillverkning, leverans och stöd av det avancerade stridsflygplanet Gripen E, förutsatt att Kanadas regering beslutar att gå vidare med en anskaffning av Gripen. Om Gripen väljs kommer Saab och de kanadensiska partnerföretagen att etablera en heltäckande ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "97dd4e28ffb2df9b"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-27T08:35:11+01:00",
+      "title": "AstraZeneca: Enhertu approved in the EU as adjuvant treatment for patients with residual disease after neoadjuvant treatment for HER2-positive early breast cancer",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-enhertu-approved-in-the-eu-as-adjuvant-treatment-for-patients-with-residual-disease-after-neoadjuvant-treatment-for-her2-positive-early-breast-cancer-1018c88a",
+      "source": "MFN",
+      "summary": "AstraZeneca: Enhertu approved in the EU as adjuvant treatment for patients with residual disease after neoadjuvant treatment for HER2-positive early breast cancer 2026-10-27 08:35:11 Based on DESTINY-Breast05 Phase III trial which showed AstraZeneca and Daiichi Sankyo's Enhertu reduced the risk of invasive disease recurrence or death by 53% vs. T-DM1. First EU approval of Enhertu in the curative-intent early breast cancer setting. AstraZeneca and Daiichi Sankyo's Enhertu (trastuzumab deruxtecan) has been approved in the European Union (EU) as a monotherapy for the adjuvant treatment of adult patients with resected HER2-positive breast cancer ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "723d2ee2cae8ea99"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-27T08:30:00+01:00",
+      "title": "AstraZeneca: Enhertu approved in EU for HER2-positive eBC",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-enhertu-approved-in-eu-for-her2-positive-ebc-a7323c4b",
+      "source": "MFN",
+      "summary": "AstraZeneca: Enhertu approved in EU for HER2-positive eBC 2026-10-27 08:30:00 27 October 2026 Enhertu approved in the EU as adjuvant treatment for patients with residual disease after neoadjuvant treatment for HER2-positive early breast cancer Based on DESTINY-Breast05 Phase III trial which showed AstraZeneca and Daiichi Sankyo's Enhertu reduced the risk of invasive disease recurrence or death by 53% vs. T-DM1 First EU approval of Enhertu in the curative-intent early breast cancer setting AstraZeneca and Daiichi Sankyo's Enhertu (trastuzumab deruxtecan) has been approved in the European Union (EU) as a monotherapy for the adjuvant treatment o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d707e4ee89e1cbf1"
+    },
+    {
+      "ticker": "SWEC-A.ST",
+      "company": "Sweco AB (publ)",
+      "published_at": "2026-10-27T08:00:00+01:00",
+      "title": "SWECO: Sweco tilldelas ett ramavtal värt 182 MSEK av ett danskt energi- och vattenbolag",
+      "link": "https://mfn.se/cis/a/sweco/sweco-sweco-tilldelas-ett-ramavtal-vart-182-msek-av-ett-danskt-energi-och-vattenbolag-f470b27e",
+      "source": "MFN",
+      "summary": "SWECO: Sweco tilldelas ett ramavtal värt 182 MSEK av ett danskt energi- och vattenbolag 2026-10-27 08:00:00 Sweco har tilldelats ett ramavtal som konsult till Aalborg Forsyning, ett kommunalt el-, värme- och vattenbolag i Danmark. Det tvååriga avtalet har ett värde på högst 182 MSEK och löper till september 2028, med option om förlängning i upp till två år. Aalborg Forsyning tillhandahåller en rad tjänster, däribland fjärrvärme, el, värmeproduktion, dricksvatten, avloppsvatten och fjärrkyla, till hushåll och företag i Aalborg och dess närområde i norra Danmark. Företaget utvecklar ett mer diversifierat energisystem som bland annat ska omfatta",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2747d0516b23b357"
+    },
     {
       "ticker": "MSAB-B.ST",
       "company": "Micro Systemation AB (publ)",

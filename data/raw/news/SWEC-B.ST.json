@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-26T22:37:16+01:00",
+  "generated_at": "2026-10-27T22:17:09+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/sweco",
   "items": [
+    {
+      "ticker": "SWEC-B.ST",
+      "company": "Sweco AB (publ)",
+      "published_at": "2026-10-27T08:00:00+01:00",
+      "title": "SWECO: Sweco awarded SEK 182 million framework agreement by Danish utility company",
+      "link": "https://mfn.se/cis/a/sweco/sweco-sweco-awarded-sek-182-million-framework-agreement-by-danish-utility-company-e35fbe75",
+      "source": "MFN",
+      "summary": "SWECO: Sweco awarded SEK 182 million framework agreement by Danish utility company 2026-10-27 08:00:00 Sweco has been awarded a framework agreement as sole consultant to Aalborg Forsyning, a municipally owned multi-utility company in Denmark. The two-year agreement has a maximum value of SEK 182 million for Sweco and runs until September 2028, with an option to extend by up to two years. Aalborg Forsyning provides a range of services, including district heating, electricity, heat generation, drinking water, wastewater and district cooling, to households and businesses in and around Aalborg in northern Denmark. The company is developing a more",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e5a3a70b551ddba3"
+    },
     {
       "ticker": "SWEC-B.ST",
       "company": "Sweco AB (publ)",
