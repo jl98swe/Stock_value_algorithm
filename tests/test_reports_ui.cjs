@@ -131,3 +131,15 @@ test('homepage manual EPS action follows stock changes and opens the form on the
   render({});
   assert.equal(nodes['report-workflow-link'].href, './review.html?ticker=SECOND-B.ST#eps-form-title');
 });
+
+test('recent EPS uses four decimals, separate currencies and a plain dash for missing history', async () => {
+  const {element:e} = await setup('2026-10-15T12:00Z', [], [
+    {ticker:'CHANGED',report_date:'2026-10-15',eps_ttm_before:4,eps_ttm_after:5.12345,eps_ttm_before_currency:'SEK',eps_ttm_after_currency:'EUR'},
+    {ticker:'MISSING',report_date:'2026-10-15',eps_ttm_before:null,eps_ttm_after:5,eps_ttm_before_currency:'SEK',eps_ttm_after_currency:'SEK'},
+  ]);
+  const html=e('recent-body').innerHTML;
+  assert(html.includes('4,0000 SEK'));
+  assert(html.includes('5,1235 EUR'));
+  assert(html.includes('<span>–</span><span aria-hidden="true">→</span><strong>5,0000 SEK'));
+  assert(!html.includes('– SEK'));
+});

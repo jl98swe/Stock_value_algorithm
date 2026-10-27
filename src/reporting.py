@@ -751,6 +751,75 @@ def _upcoming_rows(
     return rows
 
 
+def _report_eps(row: pd.Series, fallback_currency: str) -> tuple[float | None, str | None]:
+    """Read canonical stored EPS, never the model's period-end calculation state."""
+    match = re.search(REPORT_CURRENCY_NOTE_PATTERN, str(row.get("notes", "")))
+    # Older Yahoo rows use eps_currency instead of report_currency.
+    match = match or re.search(r"(?:^|;\s*)eps_currency=([A-Za-z]{3})(?:;|$)", str(row.get("notes", "")))
+    currency = match.group(1).upper() if match else fallback_currency or None
+    return (_json_number(row.get("eps_ttm"), None) if currency else None, currency)
+
+
+def _quarterly_ttm_before(quarterly: pd.DataFrame, ticker: str, period_end: object,
+                          cutoff: pd.Timestamp) -> tuple[float | None, str | None]:
+    """Conservative fallback: four consecutive, comparable, already observed quarters."""
+    required = {"ticker", "period_end", "observed_date", "metric", "eps", "eps_currency"}
+    if not required.issubset(quarterly.columns) or pd.isna(period_end):
+        return None, None
+    data = quarterly.loc[(quarterly["ticker"] == ticker) & quarterly["metric"].isin(SAFE_ESTIMATE_METRICS)].copy()
+    data["period_end"] = pd.to_datetime(data["period_end"], errors="coerce")
+    data["observed_date"] = pd.to_datetime(data["observed_date"], errors="coerce")
+    data["eps"] = pd.to_numeric(data["eps"], errors="coerce")
+    data = data.loc[data["observed_date"].lt(cutoff) & data["eps"].notna()]
+    values, currencies = [], set()
+    for offset in range(1, 5):
+        end = pd.Timestamp(period_end) - pd.offsets.QuarterEnd(offset)
+        part = data.loc[data["period_end"].eq(end)].copy()
+        if part.empty:
+            return None, None
+        part["priority"] = part["metric"].eq(MANUAL_METRIC).astype(int)
+        row = part.sort_values(["priority", "observed_date"]).iloc[-1]
+        currency = str(row["eps_currency"]).strip().upper()
+        if not re.fullmatch(r"[A-Z]{3}", currency):
+            return None, None
+        values.append(float(row["eps"]))
+        currencies.add(currency)
+    if len(currencies) != 1:
+        return None, None
+    return _json_number(sum(values), None), currencies.pop()
+
+
+def _report_eps_change(report: pd.Series, reports: pd.DataFrame, quarterly: pd.DataFrame,
+                       fallback_currency: str) -> dict[str, object]:
+    published = _stockholm_date(report["published_at"])
+    cutoff = pd.Timestamp(published or report["effective_date"]).normalize()
+    # Canonical reports preserve one row per reporting period. The current or a
+    # later period must never become its own predecessor, even after a refresh.
+    prior = reports.loc[
+        reports["verified"] & reports["ticker"].eq(report["ticker"])
+        & reports["effective_date"].lt(cutoff)
+        & reports["period_end"].lt(report["period_end"])
+        & reports["report_period"].ne(report["report_period"])
+    ].sort_values(["effective_date", "published_at"])
+    before, before_currency, before_period = None, None, None
+    basis = "missing"
+    if not prior.empty:
+        previous = prior.iloc[-1]
+        before, before_currency = _report_eps(previous, fallback_currency)
+        before_period = str(previous["report_period"])
+        basis = "stored_report" if before is not None else "missing"
+    if before is None:
+        before, before_currency = _quarterly_ttm_before(quarterly, str(report["ticker"]), report["period_end"], cutoff)
+        if before is not None:
+            basis = "four_quarters"
+    after, after_currency = _report_eps(report, fallback_currency)
+    return {"eps_ttm_before": before, "eps_ttm_after": after,
+            "eps_ttm_currency": before_currency if before_currency == after_currency else None,
+            "eps_ttm_before_currency": before_currency, "eps_ttm_after_currency": after_currency,
+            "eps_ttm_before_period": before_period, "eps_ttm_after_period": str(report["report_period"]),
+            "eps_ttm_before_basis": basis, "eps_ttm_after_basis": "stored_report" if after is not None else "missing"}
+
+
 def _recent_rows(
     *,
     reports: pd.DataFrame,
@@ -759,14 +828,16 @@ def _recent_rows(
     metadata: pd.DataFrame,
     as_of: pd.Timestamp,
 ) -> list[dict[str, object]]:
-    names, price_currencies, _ = _meta_maps(metadata)
+    names, price_currencies, report_currencies = _meta_maps(metadata)
     start = _recent_window_start(as_of)
     from .report_date_revisions import verified_date_keys
     pinned_dates = verified_date_keys(reports)
+    release_dates = reports["published_at"].map(_stockholm_date)
+    release_dates = pd.to_datetime(release_dates).fillna(reports["effective_date"])
     recent = reports.loc[
         reports["verified"]
         & reports["effective_date"].notna()
-        & reports["effective_date"].between(start, as_of)
+        & release_dates.between(start, as_of)
     ].copy()
     recent = recent.sort_values(["ticker", "effective_date", "published_at"]).drop_duplicates(
         ["ticker", "effective_date"], keep="last"
@@ -776,18 +847,14 @@ def _recent_rows(
     for report in recent.itertuples(index=False):
         ticker = str(report.ticker)
         valued = valuation_frames.get(ticker)
-        if valued is None or valued.empty:
-            continue
-        data = valued.copy()
+        data = valued.copy() if valued is not None else pd.DataFrame(columns=["Date"])
         data["Date"] = pd.to_datetime(data["Date"], errors="coerce").dt.tz_localize(None).dt.normalize()
         effective = pd.Timestamp(report.effective_date).tz_localize(None).normalize()
         published_date = _stockholm_date(report.published_at)
         before = data.loc[data["Date"] < effective].tail(1)
         after = data.loc[data["Date"] >= effective].head(1)
-        if before.empty or after.empty:
-            continue
-        before_row = before.iloc[0]
-        after_row = after.iloc[0]
+        before_row = before.iloc[0] if not before.empty else pd.Series(dtype=object)
+        after_row = after.iloc[0] if not after.empty else pd.Series(dtype=object)
         current_quarter = _safe_quarter_eps(quarterly, ticker, report.period_end)
         prior = find_prior_year_diluted_eps(ticker, report.period_end, quarterly)
         price_before = _finite_number(before_row.get("Close"))
@@ -809,9 +876,7 @@ def _recent_rows(
                 "reported_eps_currency": str(current_quarter.get("eps_currency") or "") if current_quarter is not None else None,
                 "prior_year_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
                 "prior_year_eps_currency": str(prior.get("eps_currency") or "") if prior is not None else None,
-                "eps_ttm_before": _json_number(before_row.get("EPS_TTM"), None),
-                "eps_ttm_after": _json_number(after_row.get("EPS_TTM"), None),
-                "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
+                **_report_eps_change(pd.Series(report._asdict()), reports, quarterly, report_currencies.get(ticker, "")),
                 "score_before": _json_number(score_before),
                 "score_after": _json_number(score_after),
                 "score_change": _json_number(
@@ -876,7 +941,7 @@ def build_reports_payload(
         quarterly=quarter_data,
         valuation_frames=valuation_frames,
         metadata=metadata,
-        as_of=as_of,
+        as_of=calendar_as_of,
     )
     payload = {
         "generated_at": generated_at,
@@ -898,7 +963,7 @@ def build_reports_payload(
                 "Yahoos generella EPS-estimat används inte i strategins TTM-formel."
             ),
             "recent_change": (
-                "Före/efter är rekonstruerat med aktuell modell och point-in-time-data. "
+                "EPS före/efter hämtas från sparade rapportvärden i angiven valuta. Saknade värden visas som streck. "
                 "Scoreförändringen omfattar både ny EPS TTM och kursrörelsen mellan handelsdagarna."
             ),
         },
