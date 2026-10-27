@@ -130,6 +130,9 @@ def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
 
     output = normalise_reports(frame).copy()
+    if target.resolve() == REPORTS_FILE.resolve():
+        from .report_date_revisions import apply_date_evidence
+        output = normalise_reports(apply_date_evidence(output))
     for column in ("period_end", "effective_date"):
         output[column] = output[column].dt.strftime("%Y-%m-%d")
     for column in ("published_at", "verified_at"):

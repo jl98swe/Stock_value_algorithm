@@ -44,9 +44,13 @@ def _date_mask(reports: pd.DataFrame, ticker: str, period: str, *, include_alias
 def apply_date_evidence(reports: pd.DataFrame, *, manual_path: Path = MANUAL_DATES,
                         auto_path: Path = AUTO_DATES) -> pd.DataFrame:
     result = reports.copy()
-    # Manual date evidence wins, independently of who supplied the EPS value.
-    for path in (auto_path, manual_path):
-        for row in date_overrides(path).itertuples(index=False):
+    from .calendar_date_evidence import calendar_dates
+    # EPS/Yahoo observations are fallback evidence; calendars then explicit
+    # verified date corrections win independently of EPS value priority.
+    for path, evidence in ((auto_path, date_overrides(auto_path)),
+                           (None, calendar_dates(reports)),
+                           (manual_path, date_overrides(manual_path))):
+        for row in evidence.itertuples(index=False):
             mask = _date_mask(result, row.ticker, row.report_period,
                               include_aliases=path == manual_path)
             day = pd.to_datetime(row.report_date, errors="coerce")
@@ -55,18 +59,28 @@ def apply_date_evidence(reports: pd.DataFrame, *, manual_path: Path = MANUAL_DAT
             result.loc[mask, "effective_date"] = pd.Timestamp(day).normalize()
             # A previous published_at must not keep driving marker/backtest dates.
             if "published_at" in result and mask.any():
-                if path == auto_path and "published_at" in row._fields:
+                if path is None:
+                    published = pd.to_datetime(result.loc[mask, 'published_at'], errors='coerce', utc=True)
+                    local = published.dt.tz_convert('Europe/Stockholm').dt.tz_localize(None).dt.normalize()
+                    # Retain actual publication time only when it agrees with calendar day.
+                    result.loc[local.index[~local.eq(day)], 'published_at'] = pd.NaT
+                elif path == auto_path and "published_at" in row._fields:
                     result.loc[mask, "published_at"] = pd.to_datetime(row.published_at, utc=True)
                 else:
                     result.loc[mask, "published_at"] = pd.NaT
     return result
 
 
-def verified_date_keys(reports: pd.DataFrame, path: Path = MANUAL_DATES) -> set[tuple[str, str]]:
+def verified_date_keys(reports: pd.DataFrame, path: Path = MANUAL_DATES, *,
+                       include_calendar: bool = True) -> set[tuple[str, str]]:
     keys: set[tuple[str, str]] = set()
     for row in date_overrides(path).itertuples(index=False):
         mask = _date_mask(reports, row.ticker, row.report_period, include_aliases=True)
         keys.update((str(row.ticker), str(period)) for period in reports.loc[mask, "report_period"])
+    if include_calendar:
+        from .calendar_date_evidence import calendar_dates
+        calendar = calendar_dates(reports)
+        keys.update(zip(calendar.ticker, calendar.report_period))
     return keys
 
 
