@@ -3,8 +3,8 @@ AAK.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,13.6,SEK,,no_same_perio
 ABB.ST,,2026-09-30,,2026-10-20,,no_same_period_history,,,2.76,USD,,no_same_period_history,,2026-10-26
 ADDT-B.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,8.55,SEK,,no_same_period_history,,2026-10-26
 ALIG.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,5.32,SEK,,no_same_period_history,,2026-10-26
-ALIV-SDB.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,8.48,USD,8.48,USD,0.0,match,yahoo_trailing_diluted,2026-08-15
-ALLEI.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,3.65,SEK,3.65,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
+ALIV-SDB.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,8.32,USD,,no_same_period_history,,2026-10-27
+ALLEI.ST,,2026-09-30,,2026-10-26,,no_same_period_history,,,4.12,SEK,,no_same_period_history,,2026-10-27
 ANOD-B.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,2.81,SEK,,no_same_period_history,,2026-10-26
 ARJO-B.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,1.33,SEK,,no_same_period_history,,2026-10-26
 ASSA-B.ST,2026-Q2,2026-06-30,2026-07-17,2026-07-17,0.0,match,14.75,SEK,14.75,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
@@ -36,7 +36,7 @@ COOR.ST,,2026-09-30,,2026-10-20,,no_same_period_history,,,2.78,SEK,,no_same_peri
 CTT.ST,2026-Q2,2026-06-30,2026-07-21,2023-02-07,1260.0,mismatch,2.92,SEK,2.92,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 DIOS.ST,,2026-09-30,,2018-10-25,,no_same_period_history,,,8.43,SEK,,no_same_period_history,,2026-10-26
 DOM.ST,,2026-09-30,,2026-10-21,,no_same_period_history,,,-13.1,SEK,,no_same_period_history,,2026-10-26
-DUNI.ST,2026-Q2,2026-06-30,2026-07-14,2018-07-13,2923.0,mismatch,4.33,SEK,4.33,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
+DUNI.ST,,2026-09-30,,2018-07-13,,no_same_period_history,,,2.8,SEK,,no_same_period_history,,2026-10-27
 DYVOX.ST,,2026-09-30,,2026-10-21,,no_same_period_history,,,2.58,SEK,,no_same_period_history,,2026-10-26
 EAST.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,0.32,EUR,,no_same_period_history,,2026-10-26
 EKTA-B.ST,2026-Q3,2026-07-31,2026-08-26,2026-08-26,0.0,match,-0.95,SEK,-0.95,SEK,0.0,match,yahoo_trailing_diluted,2026-08-29
@@ -53,7 +53,7 @@ FOI-B.ST,2026-Q2,2026-06-30,2026-07-21,2023-02-09,1258.0,mismatch,0.179,EUR,0.17
 GENO.ST,2026-Q2,2026-06-30,2026-07-23,2026-04-28,86.0,mismatch,0.31,SEK,0.31,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
 GETI-B.ST,,2026-09-30,,2026-10-20,,no_same_period_history,,,10.39,SEK,,no_same_period_history,,2026-10-26
 HANZA.ST,2026-Q2,2026-06-30,2026-07-21,2026-07-20,1.0,near,6.26,SEK,6.26,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
-HEXA-B.ST,2026-Q2,2026-06-30,2026-07-29,2026-07-28,1.0,near,0.788,EUR,0.788,EUR,0.0,match,yahoo_trailing_diluted,2026-08-15
+HEXA-B.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,0.967,EUR,,no_same_period_history,,2026-10-27
 HMS.ST,,2026-09-30,,2026-10-20,,no_same_period_history,,,11.02,SEK,,no_same_period_history,,2026-10-26
 HOLM-A.ST,,2026-09-30,,,,no_same_period_history,,,13.8,SEK,,no_same_period_history,,2026-10-26
 HPOL-B.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,5.25,SEK,,no_same_period_history,,2026-10-26
@@ -91,7 +91,7 @@ REJL-B.ST,2026-Q2,2026-06-30,2026-07-15,2026-07-15,0.0,match,7.52,SEK,7.52,SEK,0
 SAAB-B.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,13.93,SEK,,no_same_period_history,,2026-10-26
 SAGA-A.ST,,2026-09-30,,2012-10-25,,no_same_period_history,,,19.12,SEK,,no_same_period_history,,2026-10-26
 SAVE.ST,,2026-09-30,,2026-10-21,,no_same_period_history,,,13.67,SEK,,no_same_period_history,,2026-10-26
-SCA-B.ST,2026-Q2,2026-06-30,2026-07-22,2026-07-21,1.0,near,3.16,SEK,3.16,SEK,0.0,match,yahoo_trailing_diluted,2026-08-15
+SCA-B.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,3.07,SEK,,no_same_period_history,,2026-10-27
 SCST.ST,,2026-09-30,,2026-10-19,,no_same_period_history,,,6.753153,SEK,,no_same_period_history,,2026-10-26
 SEB-A.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,15.66,SEK,,no_same_period_history,,2026-10-26
 SECARE.ST,,2026-09-30,,2026-10-20,,no_same_period_history,,,0.55,SEK,,no_same_period_history,,2026-10-26
