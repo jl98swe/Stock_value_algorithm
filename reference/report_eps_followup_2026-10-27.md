@@ -45,3 +45,11 @@ Nordea, Betsson, Autoliv, Evolution och Hexagon har redan lösts med användarve
 Hanzas fullständiga rapport anger diluted R12 6,53 SEK i tabellen på s. 1 (https://attachment.news.eu.nasdaq.com/a707f778371d31a97c4b12385c9ae6ebe). Projektets befintliga kvartalsbrygga från prioriterad manuell TV-bas ger 6,5397 SEK. Skillnaden 0,0097 SEK redovisas uttryckligen; ingen ny direkt TradingView-avläsning påstås. Kvartalstal är avrundade och aktieantalet har ökat efter BMK-förvärvet, vilket är skäl att jämföra med ett nytt TradingView-värde. Den här körningen ändrar inte projektets metod.
 
 37 relevanta Python-tester och 9 JavaScript-tester passerar. Samtliga tidigare kanoniska rapportfält och tidigare manuella inmatningsvärden är kontrollerade oförändrade mot utgångsläget; fem rapporter tillkommer.
+
+## Slutlig validering och publicering
+
+PR 105 registrerar rapporterna; PR 106 rättar en äldre utdata-kontroll som felaktigt uteslöt dagens rapporter när senaste stängningskurs var från gårdagen. Kontrollens marknadsdatum och svenska kalenderdatum hålls nu isär; framtida rapporter, fel datum samt saknade/dubbla poster avvisas fortfarande.
+
+380 Python-tester passerar lokalt och i main-CI. Main-CI validerar 119 aktier och 306 985 prisrader. Publiceringsjobbet 40519565222, försök 2, avslutades med success och sparade omräknade webbdata i c4c3e6c26ba187f22397ba7e1c0f8da59a67dacf. Pages-körningen 40523529757 är success. Endast CTT.ST kvarstår i missing_data; EQT behåller sitt dokumenterade undantag. De fem kompletterade aktierna samt Coor och HPOL saknar EPS-varning.
+
+Fryst poänghistorik jämförd mot utgångsläget: 197 422 rader före och efter. Endast ALLEI.ST 2026-10-26 har ändrat score/frozen_at. Alla övriga ticker-/datumrader och all historik före respektive rapportdatum är oförändrade. Dagens fyra rapporter får inga påhittade stängningskurser för 27 oktober; kursberoende eftervärden fylls när sådan kursdata finns.
