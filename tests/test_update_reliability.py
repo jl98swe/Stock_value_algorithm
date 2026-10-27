@@ -144,11 +144,42 @@ def test_incomplete_recent_reports_are_rejected(mode) -> None:
         _validate_report_exports(reports, stocks, events, analysis)
 
 
-def test_report_without_before_price_not_required_in_impact_table() -> None:
+def test_report_eps_without_before_price_is_still_required() -> None:
     reports, stocks, events, analysis = _report_fixture()
     stocks["EXAMPLE.ST"]["candles"] = [{"date": "2026-09-03"}, {"date": "2026-09-14"}]
-    analysis["recent"] = []
     _validate_report_exports(reports, stocks, events, analysis)
+    analysis["recent"] = []
+    with pytest.raises(ValueError, match="Rapportfliken avviker"):
+        _validate_report_exports(reports, stocks, events, analysis)
+
+
+def test_today_report_before_new_closing_price_uses_swedish_release_date() -> None:
+    # Synthetic example: both UTC timestamps are yesterday, Sweden is today.
+    reports, stocks, events, analysis = _report_fixture()
+    reports.loc[0, "effective_date"] = pd.Timestamp("2026-09-15")
+    reports.loc[0, "published_at"] = pd.Timestamp("2026-09-14T22:30:00Z")
+    stocks["EXAMPLE.ST"]["report"]["effective_date"] = "2026-09-15"
+    events[0]["event_date"] = "2026-09-15"
+    analysis.update(generated_at="2026-09-14T23:00:00Z", calendar_as_of_date="2026-09-15")
+    analysis["recent"][0]["report_date"] = "2026-09-15"
+    _validate_report_exports(reports, stocks, events, analysis)
+    analysis["recent"] = []
+    with pytest.raises(ValueError, match="Rapportfliken avviker"):
+        _validate_report_exports(reports, stocks, events, analysis)
+
+
+def test_future_report_and_wrong_calendar_date_are_rejected() -> None:
+    reports, stocks, events, analysis = _report_fixture()
+    analysis.update(generated_at="2026-09-14T10:00:00+02:00", calendar_as_of_date="2026-09-15")
+    with pytest.raises(ValueError, match="fel kalenderdatum"):
+        _validate_report_exports(reports, stocks, events, analysis)
+    analysis["calendar_as_of_date"] = "2026-09-14"
+    reports.loc[0, "effective_date"] = pd.Timestamp("2026-09-15")
+    stocks["EXAMPLE.ST"]["report"]["effective_date"] = "2026-09-15"
+    events[0]["event_date"] = "2026-09-15"
+    analysis["recent"][0]["report_date"] = "2026-09-15"
+    with pytest.raises(ValueError, match="Rapportfliken avviker"):
+        _validate_report_exports(reports, stocks, events, analysis)
 
 
 def test_split_dashboard_must_match_full_export(tmp_path: Path) -> None:

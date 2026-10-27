@@ -324,7 +324,20 @@ def _validate_report_exports(
     as_of = pd.Timestamp(max(latest_days))
     if analysis.get("as_of_date") != as_of.date().isoformat():
         raise ValueError("reports.json har annat marknadsdatum än dashboard.json")
-    start = _recent_window_start(as_of)
+    # Reports can be public before a new closing price exists. Keep the market
+    # date check above, but use the export's Swedish calendar date for releases.
+    calendar_as_of = as_of
+    if analysis.get("generated_at"):
+        calendar_as_of = pd.Timestamp(analysis["generated_at"])
+        if calendar_as_of.tzinfo is None:
+            calendar_as_of = calendar_as_of.tz_localize("Europe/Stockholm")
+        calendar_as_of = calendar_as_of.tz_convert("Europe/Stockholm").tz_localize(None).normalize()
+        if analysis.get("calendar_as_of_date") != calendar_as_of.date().isoformat():
+            raise ValueError("reports.json har fel kalenderdatum för byggtidpunkten")
+    start = _recent_window_start(calendar_as_of)
+    release_dates = pd.to_datetime(verified["published_at"], utc=True, errors="coerce")
+    release_dates = release_dates.dt.tz_convert("Europe/Stockholm").dt.tz_localize(None).dt.normalize()
+    release_dates = release_dates.fillna(verified["effective_date"])
     expected_recent: set[tuple[str, str]] = set()
     for ticker, stock in stocks.items():
         latest_report = latest_verified_report(ticker, reports)
@@ -339,17 +352,12 @@ def _validate_report_exports(
             ):
                 raise ValueError(f"Aktiesidans senaste rapport avviker från reports.csv: {ticker}")
 
-        dates = sorted(row["date"] for row in stock.get("candles", []) if row.get("date"))
-        if not dates:
-            continue
         recent = verified.loc[
-            verified["ticker"].eq(ticker) & verified["effective_date"].between(start, as_of)
+            verified["ticker"].eq(ticker) & release_dates.between(start, calendar_as_of)
         ]
-        for day in recent["effective_date"]:
+        for day in release_dates.loc[recent.index]:
             value = day.date().isoformat()
-            # The impact table requires a price both before and on/after the report.
-            if dates[0] < value <= dates[-1]:
-                expected_recent.add((ticker, value))
+            expected_recent.add((ticker, value))
     actual_rows = [
         (str(row.get("ticker")), str(row.get("report_date")))
         for row in analysis.get("recent", [])
