@@ -38,6 +38,7 @@ def test_original_currency_and_manual_sek_are_preserved():
     result=change(data)
     assert result['eps_ttm_before_currency']=='SEK'
     assert result['eps_ttm_after_currency']=='EUR'
+    assert result['eps_ttm_currency'] is None
     assert result['eps_ttm_before']==4
 
 

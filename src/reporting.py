@@ -814,6 +814,7 @@ def _report_eps_change(report: pd.Series, reports: pd.DataFrame, quarterly: pd.D
             basis = "four_quarters"
     after, after_currency = _report_eps(report, fallback_currency)
     return {"eps_ttm_before": before, "eps_ttm_after": after,
+            "eps_ttm_currency": before_currency if before_currency == after_currency else None,
             "eps_ttm_before_currency": before_currency, "eps_ttm_after_currency": after_currency,
             "eps_ttm_before_period": before_period, "eps_ttm_after_period": str(report["report_period"]),
             "eps_ttm_before_basis": basis, "eps_ttm_after_basis": "stored_report" if after is not None else "missing"}
@@ -876,7 +877,6 @@ def _recent_rows(
                 "prior_year_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
                 "prior_year_eps_currency": str(prior.get("eps_currency") or "") if prior is not None else None,
                 **_report_eps_change(pd.Series(report._asdict()), reports, quarterly, report_currencies.get(ticker, "")),
-                "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "score_before": _json_number(score_before),
                 "score_after": _json_number(score_after),
                 "score_change": _json_number(
