@@ -11,19 +11,28 @@ function element() {
     setAttribute(){}, remove(){this.parent.children = this.parent.children.filter(child => child !== this);},
     prepend(child){child.parent=this; this.children.unshift(child);}};
 }
-function setup(page) {
+function setup(page, initialPayload = {missing_data:missing}, today = '2026-10-15T12:00Z') {
   const main = element();
   let ready;
   let resolveResponse;
+  let interval;
+  let visibility;
+  let data = initialPayload;
+  let currentDay = today;
+  class Clock extends Date { constructor(...args) {super(...(args.length ? args : [currentDay]));} }
   const document = {body:{dataset:{overview:page==='positions' || page==='signals' ? page : undefined}},
-    addEventListener(event, callback){ready=callback;}, querySelector(){return main;}, createElement:element};
+    addEventListener(event, callback){if(event==='DOMContentLoaded') ready=callback; if(event==='visibilitychange') visibility=callback;}, querySelector(){return main;}, createElement:element};
   const window = {};
   vm.runInNewContext(source, {document, window, location:{pathname:`/project/${page}.html`},
-    fetch:()=>new Promise(resolve => {resolveResponse=resolve;}), console});
-  return {main, api:window.reportDataStatus, async load(beforeResponse){
+    Date:Clock, Intl, setInterval:callback=>{interval=callback;},
+    fetch:()=>resolveResponse ? Promise.resolve({ok:true,json:async()=>data}) : new Promise(resolve => {resolveResponse=resolve;}), console});
+  return {main, api:window.reportDataStatus,
+    async tick(day, nextPayload=data) { currentDay=day; data=nextPayload; await interval(); },
+    async reopen(nextPayload=data) {data=nextPayload; await visibility();},
+    async load(beforeResponse){
     const loading=ready();
     beforeResponse?.();
-    resolveResponse({ok:true,json:async()=>({missing_data:missing})});
+    resolveResponse({ok:true,json:async()=>data});
     await loading;
   }};
 }
@@ -68,5 +77,25 @@ const shown = main => main.children.flatMap(panel => panel.children.at(-1).child
   assert.deepEqual(shown(test.main),[]);
   render({stocks:{'BBB.ST':{position:{lots:1}}}}, {}, '');
   assert.deepEqual(shown(test.main),['BBB.ST']);
+  // Synthetic stale export rolls into report day before the next backend run.
+  const calendar = [
+    {ticker:'TODAY.ST',report_date_start:'2026-10-15',report_date_end:'2026-10-15',new_eps_ttm:null},
+    {ticker:'TOMORROW.ST',report_date_start:'2026-10-16',report_date_end:'2026-10-16',new_eps_ttm:null},
+    {ticker:'ZERO.ST',report_date_start:'2026-10-15',report_date_end:'2026-10-15',new_eps_ttm:0},
+    {ticker:'NOEPS.ST',report_date_start:'2026-10-15',report_date_end:'2026-10-15',new_eps_ttm:null},
+    {ticker:'RECENT.ST',report_date_start:'2026-10-15',report_date_end:'2026-10-15',new_eps_ttm:null},
+  ];
+  const stale = {data_checked_at:'2026-10-14',missing_data:[],upcoming:calendar,
+    recent:[{ticker:'RECENT.ST',report_date:'2026-10-15',eps_ttm_after:0}],
+    reports_without_eps:[{ticker:'NOEPS.ST',report_date:'2026-10-15'}]};
+  const rollover=setup('reports',stale,'2026-10-14T21:30Z'); await rollover.load();
+  assert.deepEqual(shown(rollover.main),[]);
+  await rollover.tick('2026-10-14T22:30Z'); // Already Oct 15 in Stockholm.
+  assert.deepEqual(shown(rollover.main),['TODAY.ST']);
+  const updated={...stale,upcoming:calendar.map(r=>r.ticker==='TODAY.ST'?{...r,new_eps_ttm:5}:r)};
+  await rollover.reopen(updated);
+  assert.deepEqual(shown(rollover.main),[]);
+  await rollover.tick('2026-10-16T08:00Z');
+  assert.deepEqual(shown(rollover.main),['TOMORROW.ST']);
   console.log('EPS warning UI passed: all pages, stock changes, active positions, search, strategy changes and delayed data.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
