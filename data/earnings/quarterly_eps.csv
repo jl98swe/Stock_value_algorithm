@@ -2100,3 +2100,5 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2025-09-30,,2026-10-27,manualDilutedEPS,1.15,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
+CTT.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,1.38,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
