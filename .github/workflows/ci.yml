@@ -8,6 +8,7 @@ on:
       - "tests/**"
       - "requirements.txt"
       - "data/model/**"
+      - "data/manual/report_submissions.csv"
       - ".github/workflows/**"
   pull_request:
     branches: [main]
@@ -16,6 +17,7 @@ on:
       - "tests/**"
       - "requirements.txt"
       - "data/model/**"
+      - "data/manual/report_submissions.csv"
       - ".github/workflows/**"
   workflow_dispatch:
 
