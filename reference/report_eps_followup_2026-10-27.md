@@ -39,3 +39,9 @@ Källor:
 | EAST.ST | Rapporterad diluted R12 i EUR behöver jämföras med TradingView i SEK. | EUR → SEK | 0,31 EUR lagras och omräknas av befintlig värderingslogik. Inget nytt värde registreras. | https://mb.cision.com/Main/13001/4413938/4334001.pdf |
 
 Nordea, Betsson, Autoliv, Evolution och Hexagon har redan lösts med användarverifierade SEK-värden. Pausade verifieringar för Avanza, Investor A, Platzer B och Ericsson förblir pausade. EQT:s redogörelse utan EPS är ett dokumenterat undantag.
+
+## Kompletterande rimlighetskontroll
+
+Hanzas fullständiga rapport anger diluted R12 6,53 SEK i tabellen på s. 1 (https://attachment.news.eu.nasdaq.com/a707f778371d31a97c4b12385c9ae6ebe). Projektets befintliga kvartalsbrygga från prioriterad manuell TV-bas ger 6,5397 SEK. Skillnaden 0,0097 SEK redovisas uttryckligen; ingen ny direkt TradingView-avläsning påstås. Kvartalstal är avrundade och aktieantalet har ökat efter BMK-förvärvet, vilket är skäl att jämföra med ett nytt TradingView-värde. Den här körningen ändrar inte projektets metod.
+
+37 relevanta Python-tester och 9 JavaScript-tester passerar. Samtliga tidigare kanoniska rapportfält och tidigare manuella inmatningsvärden är kontrollerade oförändrade mot utgångsläget; fem rapporter tillkommer.
