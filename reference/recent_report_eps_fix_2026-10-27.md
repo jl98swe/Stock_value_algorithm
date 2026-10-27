@@ -18,4 +18,4 @@ Verifierade mot sparade rapportposter:
 
 Avgränsning: detta verifierar jämförelsen mot projektets sparade, verifierade uppgifter. Det är ingen ny extern granskning av varje bolags rapport eller tidigare manuell korrigering.
 
-Validering: 378 Python-tester och 46 Node-tester passerade. Regressionstester täcker identisk modell-EPS på båda sidor, olika perioder med samma EPS, noll/negativa värden, saknad historik, separata valutor, komplett/ofullständig kvartalsrekonstruktion, sparning/återläsning och nästa rapport. Rapportexportens övriga priser, poäng och metadata jämfördes med föregående export och är identiska.
+Validering: 378 Python-tester och 46 Node-tester passerade. src.validate_outputs godkände 119 aktier och 306 985 prisrader. Regressionstester täcker identisk modell-EPS på båda sidor, olika perioder med samma EPS, noll/negativa värden, saknad historik, separata valutor, komplett/ofullständig kvartalsrekonstruktion, sparning/återläsning och nästa rapport. Rapportexportens övriga priser, poäng och metadata jämfördes med föregående export och är identiska.
