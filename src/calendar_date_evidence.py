@@ -15,7 +15,17 @@ def calendar_dates(reports, *, paths=CALENDAR_FILES, manual_path=MANUAL_CALENDAR
     calendar = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
     manual = pd.read_csv(manual_path).fillna('') if Path(manual_path).exists() else pd.DataFrame()
     result = []
-    for r in reports.itertuples(index=False):
+    # Historical reports outside the calendar's date range cannot match.
+    # Filter once, rather than rescanning calendars for every old quarter.
+    candidates = pd.Series(False, index=reports.index)
+    if not calendar.empty:
+        dates = pd.to_datetime(calendar.report_date_start, errors='coerce')
+        anchors = pd.to_datetime(reports.effective_date, errors='coerce')
+        candidates |= anchors.between(dates.min()-pd.Timedelta(days=21),
+                                      dates.max()+pd.Timedelta(days=21))
+    if not manual.empty:
+        candidates |= reports.ticker.isin(manual.ticker)
+    for r in reports.loc[candidates].itertuples(index=False):
         anchor = pd.to_datetime(r.effective_date, errors='coerce')
         if pd.isna(anchor):
             continue
