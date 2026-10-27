@@ -223,6 +223,12 @@ def test_recent_report_shows_actual_before_after_change() -> None:
             ]
         )
     )
+    # Synthetic prior report is the source of truth; the calculation frame
+    # deliberately already contains the new EPS on both sides of publication.
+    previous = reports.iloc[0].to_dict()
+    previous.update(period_end="2026-03-31", report_period="2026-Q1",
+                    effective_date="2026-05-01", published_at="2026-05-01T07:00:00Z", eps_ttm=4.0)
+    reports = normalise_reports(pd.concat([reports, pd.DataFrame([previous])], ignore_index=True))
     quarterly = pd.DataFrame(
         [
             {"ticker": "TEST.ST", "period_end": "2025-06-30", "observed_date": "2025-07-20", "metric": DILUTED_METRIC, "eps": 0.8, "eps_currency": "SEK"},
@@ -231,7 +237,7 @@ def test_recent_report_shows_actual_before_after_change() -> None:
     )
     valued = pd.DataFrame(
         [
-            {"Date": "2026-09-01", "Close": 100.0, "EPS_TTM": 4.0, "Score": 50.0},
+            {"Date": "2026-09-01", "Close": 100.0, "EPS_TTM": 4.5, "Score": 50.0},
             {"Date": "2026-09-02", "Close": 104.0, "EPS_TTM": 4.5, "Score": 44.0},
             {"Date": "2026-09-10", "Close": 105.0, "EPS_TTM": 4.5, "Score": 43.0},
         ]
@@ -278,7 +284,7 @@ def test_recent_report_flags_effective_date_when_publication_date_is_missing() -
     )
     valued = pd.DataFrame(
         [
-            {"Date": "2026-09-01", "Close": 100.0, "EPS_TTM": 4.0, "Score": 50.0},
+            {"Date": "2026-09-01", "Close": 100.0, "EPS_TTM": 4.5, "Score": 50.0},
             {"Date": "2026-09-02", "Close": 104.0, "EPS_TTM": 4.5, "Score": 44.0},
         ]
     )
@@ -416,7 +422,7 @@ def test_report_countdown_uses_stockholm_today_while_prices_keep_their_date(monk
         output_path=tmp_path / 'reports.json',
     )
     assert calls['upcoming'] == pd.Timestamp('2026-10-15')
-    assert calls['recent'] == pd.Timestamp('2026-10-14')
+    assert calls['recent'] == pd.Timestamp('2026-10-15')
     assert payload['as_of_date'] == '2026-10-14'
     assert payload['calendar_as_of_date'] == '2026-10-15'
     assert '2026-12-25' not in payload['trading_sessions']
