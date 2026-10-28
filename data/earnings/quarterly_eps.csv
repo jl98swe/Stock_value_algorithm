@@ -650,10 +650,12 @@ COOR.ST,2026-09-30,2026-10-21,2026-10-26,reportedEPS,0.59,SEK,Yahoo Finance / Re
 CTT.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.93,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.19,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2025-09-30,,2026-10-27,manualDilutedEPS,1.15,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
 CTT.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 CTT.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.45,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
+CTT.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,1.38,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
 DIOS.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 DIOS.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
 DIOS.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -773,6 +775,7 @@ EPI-A.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / qua
 EPI-A.ST,2025-03-31,2025-04-29,2026-10-26,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
 EPI-A.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-A.ST,2025-06-30,2025-07-18,2026-10-26,reportedEPS,1.83,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2025-09-30,,2026-10-28,manualDilutedEPS,1.62,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf; comparison quarter verified in Q3 2026 report; original publication date not reverified
 EPI-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.62,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 EPI-A.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.94,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-A.ST,2025-12-31,2026-01-26,2026-10-26,reportedEPS,1.91,SEK,Yahoo Finance / Reported EPS
@@ -780,13 +783,16 @@ EPI-A.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / qua
 EPI-A.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,1.75,SEK,Yahoo Finance / Reported EPS
 EPI-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-A.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
+EPI-A.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,2.0,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf
 EPI-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.96,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2025-09-30,,2026-10-28,manualDilutedEPS,1.62,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf; comparison quarter verified in Q3 2026 report; original publication date not reverified
 EPI-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.62,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 EPI-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.94,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
+EPI-B.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,2.0,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf
 EQL.ST,2024-03-31,2024-05-14,2026-10-26,reportedEPS,0.16,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2024-06-30,2024-08-08,2026-10-26,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2024-09-30,2024-11-06,2026-10-26,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
@@ -1510,6 +1516,7 @@ PEAB-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,-1.3,SEK,Yahoo Finance / qu
 PEAB-B.ST,2025-03-31,2025-05-06,2026-10-26,reportedEPS,-1.24,SEK,Yahoo Finance / Reported EPS
 PEAB-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 PEAB-B.ST,2025-06-30,2025-07-15,2026-10-26,reportedEPS,0.2,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2025-09-30,,2026-10-28,manualDilutedEPS,2.89,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://mb.cision.com/Main/424/4416131/4341946.pdf; comparison quarter verified in Q3 2026 report; original publication date not reverified
 PEAB-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,2.890000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 PEAB-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,2.9,SEK,Yahoo Finance / quarterlyDilutedEPS
 PEAB-B.ST,2025-12-31,2026-02-04,2026-10-26,reportedEPS,2.69,SEK,Yahoo Finance / Reported EPS
@@ -1517,6 +1524,7 @@ PEAB-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,-0.61,SEK,Yahoo Finance / q
 PEAB-B.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,-0.6,SEK,Yahoo Finance / Reported EPS
 PEAB-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
 PEAB-B.ST,2026-06-30,2026-07-14,2026-10-26,reportedEPS,2.45,SEK,Yahoo Finance / Reported EPS
+PEAB-B.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,3.45,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://mb.cision.com/Main/424/4416131/4341946.pdf
 PLAZ-B.ST,2024-09-30,2025-01-28,2026-10-26,reportedEPS,2.64,SEK,Yahoo Finance / Reported EPS
 PLAZ-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -2100,5 +2108,3 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
-CTT.ST,2025-09-30,,2026-10-27,manualDilutedEPS,1.15,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
-CTT.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,1.38,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
