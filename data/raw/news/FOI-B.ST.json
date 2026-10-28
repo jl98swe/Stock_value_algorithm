@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-27T22:15:04+01:00",
+  "generated_at": "2026-10-28T22:39:44+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/enersense-international",
-  "items": []
+  "items": [
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-28T08:00:00+01:00",
+      "title": "Enersense continues substation maintenance across Finland – option-year agreement worth approximately EUR 4 million",
+      "link": "https://mfn.se/a/enersense-international/enersense-continues-substation-maintenance-across-finland-option-year-agreement-worth-approximately-eur-4-million",
+      "source": "MFN",
+      "summary": "Enersense continues substation maintenance across Finland – option-year agreement worth approximately EUR 4 million 2026-10-28 08:00:00 Enersense International Oyj | Lehdistötiedote | 28.10.2026 klo 09:00:00 EET Enersense will continue to provide substation maintenance services for transmission system operator Fingrid under an option year included in the agreement. The total value of the agreement is approximately EUR 4 million, and it will remain in force until the end of 2027. The option-year agreement with Fingrid covers substation maintenance in four regions: South Ostrobothnia, Central Ostrobothnia, Southwest Finland and Southeast Finlan",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bbf83a749dfa5052"
+    }
+  ]
 }

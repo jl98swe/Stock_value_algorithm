@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-10-27T22:17:40+01:00",
+  "generated_at": "2026-10-28T22:43:08+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-10-28T20:33:25+01:00",
+      "title": "Atlas Copco Gas and Process expands manufacturing footprint with investment in Voorheesville, New York",
+      "link": "https://mfn.se/one/a/atlas-copco/atlas-copco-gas-and-process-expands-manufacturing-footprint-with-investment-in-voorheesville-new-york-4ba948d1",
+      "source": "MFN",
+      "summary": "Atlas Copco Gas and Process expands manufacturing footprint with investment in Voorheesville, New York 2026-10-28 20:33:25 PARSIPPANY, N.J., Oct. 28, 2026 (GLOBE NEWSWIRE) -- On October 26, 2026, Atlas Copco Comptec, part of the Gas and Process division within Atlas Copco Group, inaugurated its expanded manufacturing facility in Voorheesville, New York. The 63,000-square-foot addition will help the company meet the needs of current and future projects that involve producing large integrally geared centrifugal compressors. Atlas Copco Comptec LLC has operated in upstate New York since 1980. At its 45-acre site, the company engineers, manufactu",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "696036e444ba542d"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-10-28T17:00:00+01:00",
+      "title": "Saab och GA-ASI har testflugit med LoyalEye på obemannade MQ-9B",
+      "link": "https://mfn.se/cis/a/saab/saab-och-ga-asi-har-testflugit-med-loyaleye-pa-obemannade-mq-9b-e086df9f",
+      "source": "MFN",
+      "summary": "Saab och GA-ASI har testflugit med LoyalEye på obemannade MQ-9B 2026-10-28 17:00:00 Saab och General Atomics Aeronautical Systems, Inc. (GA-ASI) har framgångsrikt genomfört flygtester av en obemannad luftburen tidig varningsförmåga (Airborne Early Warning, AEW), där Saabs luftburna spaningsradar LoyalEye integrerades med det fjärrstyrda flygsystemet MQ-9B. Under flygningarna, som genomfördes vid GA-ASI:s anläggning Desert Horizon Flight Operations Facility i södra Kalifornien, verifierades det integrerade systemets förmåga att exempelvis upptäcka, följa och klassificera luftmål från en obemannad plattform. Åskådarna som var på plats kunde i r",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8e1d2bb2c68fe77f"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-28T10:00:00+01:00",
+      "title": "Kutsu Enersensen tammi-syyskuun tulosjulkistuksen webcastiin",
+      "link": "https://mfn.se/a/enersense-international/kutsu-enersensen-tammi-syyskuun-tulosjulkistuksen-webcastiin-1",
+      "source": "MFN",
+      "summary": "Kutsu Enersensen tammi-syyskuun tulosjulkistuksen webcastiin 2026-10-28 10:00:00 Enersense International Oyj | Lehdistötiedote | 28.10.2026 klo 11:00:00 EET Enersense International Oyj julkaisee tammi-syyskuun 2026 liiketoimintakatsauksen 5.11.2026 noin klo 8.30. Toimitusjohtaja Kari Sundbäck ja talousjohtaja Jan-Elof Cavander esittelevät tuloksen samana päivänä webcast-tilaisuudessa klo 12.30. Englanninkielinen tilaisuus on suunnattu sijoittajille, analyytikoille ja medialle. Tilaisuuden tallenne on saatavilla myöhemmin yhtiön verkkosivuilla. Ilmoittauduthan webcastiin täällä: https://enersense.events.inderes.com/q3-2026 Tervetuloa! Lisätiet",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c9d62b0d62cd9d79"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-10-28T08:30:00+01:00",
+      "title": "Rejlers bidrar till att stärka fjärrvärmenätet i södra Sverige",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-bidrar-till-att-starka-fjarrvarmenatet-i-sodra-sverige-2b33e352",
+      "source": "MFN",
+      "summary": "Rejlers bidrar till att stärka fjärrvärmenätet i södra Sverige 2026-10-28 08:30:00 Rejlers har fått i uppdrag av Kraftringen Energi AB att genomföra förprojektering av nya pumpstationer som ska öka kapaciteten i fjärrvärmeledningen mellan Lund och Lomma. De tekniska lösningarna ska göra det möjligt att överföra mer fjärrvärme genom den befintliga ledningen och bidra till en trygg och långsiktigt hållbar värmeförsörjning i regionen. Kraftringen satsar cirka 3 miljarder kronor på att förnya och bygga ut fjärrvärmesystemet fram till 2030. Investeringarna omfattar ett nytt kraftvärmeverk i Örtofta och en ny fjärrvärmeledning mellan Örtofta och Lu",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "530fcc256de7bd4a"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-10-28T08:00:00+01:00",
+      "title": "Attendo öppnar nytt äldreboende i Karleby, Finland",
+      "link": "https://mfn.se/a/attendo/attendo-oppnar-nytt-aldreboende-i-karleby-finland",
+      "source": "MFN",
+      "summary": "Attendo öppnar nytt äldreboende i Karleby, Finland 2026-10-28 08:00:00 Attendo öppnar Villa Puntus, ett nytt äldreboende i Karleby i Finland. Boendet ligger i området Rytinmäki och erbjuder 50 platser i moderna och tillgängliga lokaler, utformade för att skapa en trygg och trivsam boendemiljö för äldre. Boendet är fördelat på två våningar med gemensamma sällskapsytor och kök på varje våningsplan, vilket skapar möjligheter till umgänge och social samvaro. Medarbetare finns på plats dygnet runt för att ge omsorg och stöd utifrån de boendes behov. ”Vår ambition är att tillsammans med våra medarbetare skapa ett tryggt och välkomnande hem där de b",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d617f028003c83f6"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-28T08:00:00+01:00",
+      "title": "Enersense jatkaa sähköasemien kunnossapitoa eri puolilla Suomea – optiovuosisopimuksen arvo yhteensä 4 miljoonaa euroa",
+      "link": "https://mfn.se/a/enersense-international/enersense-jatkaa-sahkoasemien-kunnossapitoa-eri-puolilla-suomea-optiovuosisopimuksen-arvo-yhteensa-4-miljoonaa-euroa",
+      "source": "MFN",
+      "summary": "Enersense jatkaa sähköasemien kunnossapitoa eri puolilla Suomea – optiovuosisopimuksen arvo yhteensä 4 miljoonaa euroa 2026-10-28 08:00:00 Enersense International Plc | Press Release | October 28, 2026 at 09:00:00 EET Enersense jatkaa sähköasemien kunnossapitoa kantaverkkoyhtiö Fingridille sopimukseen sisältyvän optiovuoden myötä. Sopimuksen arvo on yhteensä noin 4 miljoonaa euroa, ja se on voimassa vuoden 2027 loppuun asti. Fingridin kanssa solmittu optiovuosisopimus koskee sähköasemien kunnossapitoa neljällä alueella: Etelä-Pohjanmaalla, Keski-Pohjanmaalla, Lounais-Suomessa ja Kaakkois-Suomessa. Enersense on vastannut Fingridin kantaverkon ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9e227273a309b7c0"
+    },
     {
       "ticker": "HANZA.ST",
       "company": "Hanza AB (publ)",
@@ -2225,6 +2357,28 @@
       "event_id": "b78e58206e87f385"
     },
     {
+      "ticker": "MTG-B.ST",
+      "company": "Modern Times Group MTG AB",
+      "published_at": "2026-10-08T09:00:00+02:00",
+      "title": "INBJUDAN TILL NIMBUS GROUPS RAPPORT FÖR DET TREDJE KVARTALET 2026",
+      "link": "https://mfn.se/a/nimbus-group/inbjudan-till-nimbus-groups-rapport-for-det-tredje-kvartalet-2026",
+      "source": "MFN",
+      "summary": "INBJUDAN TILL NIMBUS GROUPS RAPPORT FÖR DET TREDJE KVARTALET 2026 2026-10-08 09:00:00 Nimbus Group AB (publ) publicerar rapporten för det tredje kvartalet 2026, torsdagen den 22 oktober, 2026 klockan 07:30. Klockan 10:00 samma dag hålls en webbsänd telefonkonferens där VD och koncernchef Johan Inden presenterar rapporten tillsammans med bolagets CFO Mikael Mårtensson. Presentationen följs av en frågestund. Presentationen kommer att hållas på engelska. Om du önskar följa presentationen via webcast samt ha möjlighet att ställa skriftliga frågor, gå in på nedan länk: https://events.inderes.com/nimbus/q3-report-2026 Om du önskar delta via telefon",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "179c5f4e01902d02"
+    },
+    {
       "ticker": "ATCO-A.ST",
       "company": "Atlas Copco A",
       "published_at": "2026-10-08T08:30:00+02:00",
@@ -2355,6 +2509,28 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "dd95381c910a0f82"
+    },
+    {
+      "ticker": "MTG-B.ST",
+      "company": "Modern Times Group MTG AB",
+      "published_at": "2026-10-07T15:00:00+02:00",
+      "title": "Nimbus Group presenterar Sport Coupé 35, en Sport Cruiser med komforten från en Coupé",
+      "link": "https://mfn.se/a/nimbus-group/nimbus-group-presenterar-sport-coupe-35-en-sport-cruiser-med-komforten-fran-en-coupe",
+      "source": "MFN",
+      "summary": "Nimbus Group presenterar Sport Coupé 35, en Sport Cruiser med komforten från en Coupé 2026-10-07 15:00:00 Nimbus Group AB (publ) visar idag de första bilderna av Sport Coupé 35, Coupé-modellen i den nya Sport Cruiser 35-serien. Båten gör världspremiär på boot Düsseldorf den 23-31 januari 2027. Sport Cruiser 35-serien består av tre modeller på samma skrov, Sport Tender, Sport Weekender och Sport Coupé. Sport Coupé 35 bygger på samma luftsmorda tvåstegsskrov som Sport Tender 35, som hade världspremiär på Cannes Yachting Festival i september 2026 och sedan dess har nominerats till European Powerboat of the Year 2027. Sport Coupé 35 är en Coupé b",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b0feb963aa9e094c"
     },
     {
       "ticker": "GETI-B.ST",
