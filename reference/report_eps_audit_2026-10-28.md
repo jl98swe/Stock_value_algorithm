@@ -20,3 +20,9 @@ Registreringen använder befintlig regel: föregående prioriterade TTM + dilute
 Antagandet att kvartalsbryggan motsvarar direkt beräknad R12 är inte exakt när aktieantalet ändras. Peabs officiella diluted IFRS R12 är 7,83 SEK, medan projektets befintliga regel från manuell TV-bas ger 7,8757 SEK (skillnad 0,0457). Avrundade kvartalstal och skiftande vägt aktieantal kan ge avvikelser. Befintlig metod behålls; värdet utges inte för att vara direkt rapporterad R12 eller ny TradingView-avläsning.
 
 Samtliga 3 828 tidigare kanoniska rapportposter jämfördes fält för fält mot utgångsläget och är oförändrade. Tre rapportposter tillkommer. Tidigare manuella värden, Hexpols datumkorrigering till 23 oktober och pausade verifieringar bevaras. ABB/EAST:s tidigare dokumenterade valutaverifiering kvarstår; inga nya SEK-värden uppskattas. Äldre historiska datumluckor hanteras separat från aktuella EPS-luckor.
+
+## Genomförd validering
+
+387 Python-tester och 17 relevanta JavaScript-tester passerar. Full omräkning med `src.pipeline --skip-fetch --skip-dividends`, begränsning av webbperioden och `src.validate_outputs` godkänner 119 aktier och 307 103 prisrader. Rapportstatus per 28 oktober har inga saknade förväntade EPS; EQT kvarstår som publicerad redogörelse utan EPS.
+
+Alla 197 540 frysta poänghistorikrader är exakt oförändrade mot utgångsläget. Senaste färdiga stängningsdag är 27 oktober. De tre aktiernas split-exporter ändrar endast aktuell EPS/P-E och rapportmetadata; historiska poäng, historiska signaler och affärer är oförändrade. Rapportdagens slutliga score_after är tom tills stängningsdata för 28 oktober finns. Befintliga signal- och backtestregler har körts utan att skapa framtida stängningskurser. Aktuell P/E ändras från 34,4818 till 32,7775 för Epiroc A, 29,4737 till 28,0170 för Epiroc B och 13,2181 till 12,2783 för Peab B.
