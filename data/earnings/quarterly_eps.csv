@@ -187,6 +187,7 @@ ASSA-B.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,3.18,SEK,Yahoo Finance / 
 ASSA-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,3.98,SEK,Yahoo Finance / quarterlyDilutedEPS
 ASSA-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,3.98,SEK,Yahoo Finance / Reported EPS
 ASSA-B.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,4.24,SEK,ASSA ABLOY Q3 2026 p. 12 (unadjusted diluted) | https://mb.cision.com/Main/7333/4415570/4340384.pdf
+ASSA-B.ST,2026-09-30,,2026-10-28,quarterlyDilutedEPS,4.24,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATCO-A.ST,2023-09-30,2023-10-25,2026-10-26,reportedEPS,1.6,SEK,Yahoo Finance / Reported EPS
 ATCO-A.ST,2024-03-31,2024-04-24,2026-10-26,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
 ATCO-A.ST,2024-06-30,2024-07-18,2026-10-26,reportedEPS,1.59,SEK,Yahoo Finance / Reported EPS
@@ -656,6 +657,7 @@ CTT.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.45,SEK,Yahoo Finance / quart
 CTT.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
 CTT.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,1.38,SEK,"CTT Systems Q3 2026, pp. 1, 14 | https://storage.mfn.se/dc7175ef-3f53-4295-a86e-4b7b7ce34dc3/ctt-systems-ab-delarsrapport-q3-2026.pdf"
+CTT.ST,2026-09-30,,2026-10-28,quarterlyDilutedEPS,1.38,SEK,Yahoo Finance / quarterlyDilutedEPS
 DIOS.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 DIOS.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.14,SEK,Yahoo Finance / quarterlyDilutedEPS
 DIOS.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.05,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -958,6 +960,7 @@ HANZA.ST,2026-03-31,2026-05-05,2026-10-26,reportedEPS,2.15,SEK,Yahoo Finance / R
 HANZA.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.85,SEK,Yahoo Finance / quarterlyDilutedEPS
 HANZA.ST,2026-06-30,2026-07-21,2026-10-26,reportedEPS,1.79,SEK,Yahoo Finance / Reported EPS
 HANZA.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,1.96,SEK,HANZA Q3 2026 official release | https://hanza.com/investor/pressreleases/hanza-interim-report-january-september-2026/
+HANZA.ST,2026-09-30,,2026-10-28,quarterlyDilutedEPS,1.96,SEK,Yahoo Finance / quarterlyDilutedEPS
 HEXA-B.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,0.11,EUR,Yahoo Finance / Reported EPS
 HEXA-B.ST,2023-12-31,2024-02-01,2026-10-26,reportedEPS,0.12,EUR,Yahoo Finance / Reported EPS
 HEXA-B.ST,2024-03-31,2024-04-26,2026-10-26,reportedEPS,0.1,EUR,Yahoo Finance / Reported EPS
