@@ -231,7 +231,11 @@
   function renderStatus(data) {
     const report = data.report || {};
     const repo = state.dashboard.meta?.repository_url || 'https://github.com/jl98swe/Stock_value_algorithm';
-    const nextReport = report.next_report_end && report.next_report_end !== report.next_report
+    const today = new Intl.DateTimeFormat('sv-SE', {
+      timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).format(new Date());
+    const hasNextReport = Boolean(report.next_report) && (report.next_report_end || report.next_report) >= today;
+    const nextReport = !hasNextReport ? '–' : report.next_report_end && report.next_report_end !== report.next_report
       ? `${prettyDate(report.next_report)}–${prettyDate(report.next_report_end)}`
       : prettyDate(report.next_report);
 
@@ -241,7 +245,7 @@
         <div class="status-line"><span>EPS TTM</span><strong>${formatModelEps(data)}</strong></div>
         <div class="status-line"><span>Effektiv handelsdag</span><strong>${prettyDate(report.effective_date)}</strong></div>
         <div class="status-line"><span>Verifierad</span><strong>${report.verified ? 'Ja' : 'Nej'}</strong></div>
-        <div class="status-line"><span>Nästa rapport</span><strong>${nextReport}${report.next_report_status === 'estimated_range' ? ' (preliminärt)' : ''}</strong></div>
+        <div class="status-line"><span>Nästa rapport</span><strong>${nextReport}${hasNextReport && report.next_report_status === 'estimated_range' ? ' (preliminärt)' : ''}</strong></div>
       </div>`;
 
     if (state.selectedTicker === 'EQT.ST') {
