@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-28T22:41:19+01:00",
+  "generated_at": "2026-10-29T22:47:53+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/nolato",
   "items": [
+    {
+      "ticker": "NOLA-B.ST",
+      "company": "Nolato AB (publ)",
+      "published_at": "2026-10-29T07:45:00+01:00",
+      "title": "Strategiska förvärv och stark organisk tillväxt för Medical Solutions",
+      "link": "https://mfn.se/a/nolato/strategiska-forvarv-och-stark-organisk-tillvaxt-for-medical-solutions",
+      "source": "MFN",
+      "summary": "Strategiska förvärv och stark organisk tillväxt för Medical Solutions 2026-10-29 07:45:00 Tredje kvartalet 2026 i sammandrag Omsättningen ökade till 2.500 MSEK (2.342). Justerat för valuta och förvärv, en ökning med 3 procent Rörelseresultatet (EBITA) uppgick till 254 MSEK (281) EBITA-marginal om 10,2 procent (12,0) Resultat efter skatt var 172 MSEK (215) Resultat per aktie före och efter utspädning uppgick till 0,64 SEK (0,80) Kassaflödet från den löpande verksamheten ökade till 332 MSEK (301) Affärsområdesutveckling Medical Solutions omsättning uppgick till 1.469 MSEK (1.311) vilket justerat för valuta och förvärv är en ökning med hela 9 pr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3110148ac7b211e5"
+    },
     {
       "ticker": "NOLA-B.ST",
       "company": "Nolato AB (publ)",

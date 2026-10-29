@@ -1,7 +1,183 @@
 {
-  "generated_at": "2026-10-28T22:43:08+01:00",
+  "generated_at": "2026-10-29T22:49:27+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-29T15:00:00+01:00",
+      "title": "Enersense uudistaa Slokan sähköaseman Jūrmalassa Latviassa",
+      "link": "https://mfn.se/a/enersense-international/enersense-uudistaa-slokan-sahkoaseman-jurmalassa-latviassa",
+      "source": "MFN",
+      "summary": "Enersense uudistaa Slokan sähköaseman Jūrmalassa Latviassa 2026-10-29 15:00:00 Enersense International Oyj | Lehdistötiedote | 29.10.2026 klo 16:00:00 EET Energia- ja infrastruktuuriratkaisujen toteuttaja Enersense toteuttaa Slokan sähköaseman modernisointihankkeen Jūrmalassa Latvian sähkönjakeluverkkoyhtiö AS Sadales tīklsille. Hankkeeseen kuuluu uuden kytkinlaitosrakennuksen rakentaminen, sähkölaitteiden asentaminen sekä nykyisen sähköverkon saneeraaminen. Tavoitteena on parantaa sähkönjakelun luotettavuutta ja laatua sekä varmistaa verkon vakaampi toiminta pitkällä aikavälillä. Modernisointi on tarpeen, sillä nykyinen 6 kV:n kytkinlaitosra",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "dd15d807942f1832"
+    },
+    {
+      "ticker": "BOL.ST",
+      "company": "Boliden",
+      "published_at": "2026-10-29T13:00:00+01:00",
+      "title": "Boliden Q3 2026: Stark utveckling inom Gruvor och Smältverk",
+      "link": "https://mfn.se/cis/a/boliden/boliden-q3-2026-stark-utveckling-inom-gruvor-och-smaltverk-d9029aed",
+      "source": "MFN",
+      "summary": "Boliden Q3 2026: Stark utveckling inom Gruvor och Smältverk 2026-10-29 13:00:00 \"Bland våra gruvor har Somincor integrerats väldigt väl i Boliden och haft en mycket stark produktion, medan Kevitsa satte nytt rekord för anrikad volym och Garpenberg förbättrades enligt plan. På smältverkssidan satte Harjavalta nytt rekord för nickelavverkning och tillgängligheten för den nya rostugnen vid Odda ökade avsevärt mot slutet av kvartalet.\" - Mikael Staffas, VD och koncernchef. Finansiell utveckling · Försäljningsintäkter: 30 442 (21 971) MSEK · Rörelseresultat: 5 416 (3 237) MSEK · Rörelseresultat exkl. PIR*: 4 894 (2 752) MSEK · Fritt kassaflöde: 1 ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "04dcc0e023fb9a76"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-10-29T08:35:00+01:00",
+      "title": "Meritus Health implementerar Sectra One Cloud för effektivare radiologiarbetsflöden och snabbare diagnostik",
+      "link": "https://mfn.se/cis/a/sectra/meritus-health-implementerar-sectra-one-cloud-for-effektivare-radiologiarbetsfloden-och-snabbare-diagnostik-76c8143a",
+      "source": "MFN",
+      "summary": "Meritus Health implementerar Sectra One Cloud för effektivare radiologiarbetsflöden och snabbare diagnostik 2026-10-29 08:35:00 Linköping - 29 oktober, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) meddelar att Meritus Health nu har gått live med Sectra One Cloud, Sectras helhetslösning för medicinsk bildhantering som en molntjänst. Inledningsvis kommer radiologimodulen att användas. Med lösningen kan radiologerna arbeta i en och samma applikation genom hela arbetsflödet, vilket bidrar till snabbare diagnostik för patienterna i de samhällen där Meritus Health verkar. - Bildvolymerna fortsätter att ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d3e9a1ae8319a1c1"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-10-29T08:30:00+01:00",
+      "title": "Bara en av fyra lokalpolitiker tror att äldreomsorgens resurser räcker till i framtiden",
+      "link": "https://mfn.se/a/attendo/bara-en-av-fyra-lokalpolitiker-tror-att-aldreomsorgens-resurser-racker-till-i-framtiden",
+      "source": "MFN",
+      "summary": "Bara en av fyra lokalpolitiker tror att äldreomsorgens resurser räcker till i framtiden 2026-10-29 08:30:00 I en ny undersökning, som Demoskop utfört på uppdrag av omsorgsbolaget Attendo, uppger endast 25 procent av landets lokalpolitiker att resurserna till äldreomsorgen i kommunen kommer att vara tillräcklig i förhållande till behoven om fem år. I undersökningen har 4 556 kommunpolitiker svarat på frågan om äldreomsorgens resurser kommer att vara tillräckliga om fem år. Totalt svarar 50 procent nej, 25 procent ja och 25 procent vet ej eller lämnar frågan obesvarad. - När så många lokalpolitiker ser en risk för att resurserna inte ska räcka ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5dc168e77bdce766"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-10-29T08:00:00+01:00",
+      "title": "Attendo öppnar nytt äldreboende i Åbo, Finland",
+      "link": "https://mfn.se/a/attendo/attendo-oppnar-nytt-aldreboende-i-abo-finland",
+      "source": "MFN",
+      "summary": "Attendo öppnar nytt äldreboende i Åbo, Finland 2026-10-29 08:00:00 Attendos nya äldreboende Attendo Pläkkäri i Åbo står nu klart. Boendet har 25 lägenheter och erbjuder omsorg dygnet runt i en trygg och hemlik miljö. Det nya äldreboendet är utformat med fokus på gemenskap, tillgänglighet och omsorg som utgår från varje individs behov. Det nya äldreboendet är byggt i ett plan och uppdelat i två mindre boendeenheter med 13 respektive 12 lägenheter. Lägenheterna är mellan 20 och 23 kvadratmeter stora och har egna tillgänglighetsanpassade badrum. De boende kan inreda sina lägenheter med egna möbler och personliga tillhörigheter för att skapa ett ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f09106b595e095d1"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-10-29T08:00:00+01:00",
+      "title": "Mycronic erhåller order på en SLX-maskritare",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-en-slx-maskritare-27",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på en SLX-maskritare 2026-10-29 08:00:00 Mycronic AB (publ) har erhållit en order på en SLX-maskritare från en ny SLX-kund i Asien. Ordervärdet ligger i intervallet 4-6 MUSD. Systemet är planerat att levereras under det tredje kvartalet 2027. Den laserbaserade maskritaren SLX möter en stigande efterfrågan på fotomasker till halvledarindustrin, samt ett ersättnings- och moderniseringsbehov. Fotomasker tillverkade av laserbaserade maskritare är mycket viktiga och står för en majoritet av alla producerade fotomasker för halvledartillverkning. SLX är en modern och energisnål maskritare baserad på samma teknologi som Mycron",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7f204b6f270084be"
+    },
+    {
+      "ticker": "NOLA-B.ST",
+      "company": "Nolato AB (publ)",
+      "published_at": "2026-10-29T07:45:00+01:00",
+      "title": "Strategic acquisitions and strong organic growth for Medical Solutions",
+      "link": "https://mfn.se/a/nolato/strategic-acquisitions-and-strong-organic-growth-for-medical-solutions",
+      "source": "MFN",
+      "summary": "Strategic acquisitions and strong organic growth for Medical Solutions 2026-10-29 07:45:00 Third quarter of 2026 in brief Sales rose to SEK 2,500 million (2,342) – adjusted for currency and acquisitions, this was a 3% increase Operating profit (EBITA) was SEK 254 million (281) EBITA margin of 10.2% (12.0) Profit after tax was SEK 172 million (215) Earnings per share, basic and diluted, totaled SEK 0.64 (0.80) Cash flow from operating activities increased to SEK 332 million (301) Business area performance Medical Solutions sales amounted to SEK 1,469 million (1,311) which, adjusted for currency and acquisitions, is an increase of a full 9%. Op",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2db08a5b2674396a"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-10-29T06:00:00+01:00",
+      "title": "Fondsparande oktober: Spararna säljer räntefonder medan breda global- och indexfonder dominerar köptoppen",
+      "link": "https://mfn.se/cis/a/nordnet/fondsparande-oktober-spararna-saljer-rantefonder-medan-breda-global-och-indexfonder-dominerar-koptoppen-5859791f",
+      "source": "MFN",
+      "summary": "Fondsparande oktober: Spararna säljer räntefonder medan breda global- och indexfonder dominerar köptoppen 2026-10-29 06:00:00 - Spararna fortsätter att premiera fonder med låga avgifter och bred exponering mot aktiemarknaden. Under oktober månad ser vi samtidigt att säljlistan till stor del utgörs av företagsobligations- och räntefonder. Vidare väljer spararna att fortsätta minska i nischade teman och aktivt förvaltade Sverigefonder till förmån för passiva indexlösningar, konstaterar Carl-Henrik Söderberg, sparekonom på Nordnet. Säljtryck i räntefonder - Vi noterar att räntefonder tillhör de mest nettosålda även denna månad. Sannolikt drivs d",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "44d465a20a425ab4"
+    },
     {
       "ticker": "ATCO-A.ST",
       "company": "Atlas Copco A",
@@ -3213,6 +3389,28 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "f1c7513fcdb062c9"
+    },
+    {
+      "ticker": "MTG-B.ST",
+      "company": "Modern Times Group MTG AB",
+      "published_at": "2026-10-01T08:00:00+02:00",
+      "title": "Mikael Mårtensson tillträder som CFO för Nimbus Group idag 1 oktober",
+      "link": "https://mfn.se/a/nimbus-group/mikael-martensson-tilltrader-som-cfo-for-nimbus-group-idag-1-oktober",
+      "source": "MFN",
+      "summary": "Mikael Mårtensson tillträder som CFO för Nimbus Group idag 1 oktober 2026-10-01 08:00:00 Som tidigare meddelats har Mikael Mårtensson utsetts till CFO för Nimbus Group. Idag tillträder han sin post. Han efterträder Christian Johansson som varit interim CFO. Mikael har en Bachelor in Business and Economics från Högskolan i Väst och mer än 25 års erfarenhet från ledande ekonomi- och CFO-roller i svenska och internationella bolag. ”I Mikael Mårtensson har Nimbus Group fått en erfaren ledare och finanschef med bred erfarenhet från producerande industri och jag är väldigt glad att välkomna Mikael till teamet’, säger Johan Inden, vd för Nimbus Grou",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "12e7265a1dc6b729"
     },
     {
       "ticker": "FABG.ST",

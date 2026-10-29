@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-28T22:39:44+01:00",
+  "generated_at": "2026-10-29T22:46:36+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/enersense-international",
   "items": [
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-29T15:00:00+01:00",
+      "title": "Enersense to modernise Sloka substation in Jūrmala, Latvia",
+      "link": "https://mfn.se/a/enersense-international/enersense-to-modernise-sloka-substation-in-jurmala-latvia",
+      "source": "MFN",
+      "summary": "Enersense to modernise Sloka substation in Jūrmala, Latvia 2026-10-29 15:00:00 Enersense International Plc | Press Release | October 29, 2026 at 16:00:00 EET Energy and infrastructure solutions company Enersense will carry out a modernisation project at the Sloka substation in Jūrmala for the Latvian electricity distribution system operator AS Sadales tīkls. The project includes the construction of a new switchgear building, installation of modern electrical equipment and reconstruction of the existing power network. The aim is to improve the reliability and quality of electricity supply and ensure more stable network operation in the long te",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "distress"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:distress",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5b9cbc898f3d169c"
+    },
     {
       "ticker": "FOI-B.ST",
       "company": "Fenix Outdoor International AG",

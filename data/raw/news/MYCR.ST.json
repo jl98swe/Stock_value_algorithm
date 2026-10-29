@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-28T22:41:09+01:00",
+  "generated_at": "2026-10-29T22:47:46+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/mycronic",
   "items": [
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-10-29T08:00:00+01:00",
+      "title": "Mycronic receives order for an SLX mask writer",
+      "link": "https://mfn.se/a/mycronic/mycronic-receives-order-for-an-slx-mask-writer-27",
+      "source": "MFN",
+      "summary": "Mycronic receives order for an SLX mask writer 2026-10-29 08:00:00 Mycronic AB (publ) has received an order for an SLX mask writer from a new SLX customer in Asia. The order value is in the range of USD 4-6 million. Delivery of the system is planned for the third quarter of 2027. The SLX laser mask writer meets rising demand for photomasks for the semiconductor industry and a need for replacement and modernization. Photomasks manufactured by laser mask writers are of high importance and account for a majority of all photomasks produced for semiconductor manufacturing. SLX is a modern and energy efficient mask writer based on the same technolo",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f66dfcc6458be3a9"
+    },
     {
       "ticker": "MYCR.ST",
       "company": "Mycronic AB (publ)",

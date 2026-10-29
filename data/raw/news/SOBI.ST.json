@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-28T22:42:27+01:00",
+  "generated_at": "2026-10-29T22:48:45+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/swedish-orphan-biovitrum",
   "items": [
+    {
+      "ticker": "SOBI.ST",
+      "company": "Swedish Orphan Biovitrum AB (publ)",
+      "published_at": "2026-10-29T19:45:00+01:00",
+      "title": "Swedish Orphan Biovitrum AB: Börje Ekholm föreslås som ny styrelseordförande i Sobi",
+      "link": "https://mfn.se/cis/a/swedish-orphan-biovitrum/swedish-orphan-biovitrum-ab-borje-ekholm-foreslas-som-ny-styrelseordforande-i-sobi-80414c67",
+      "source": "MFN",
+      "summary": "Swedish Orphan Biovitrum AB: Börje Ekholm föreslås som ny styrelseordförande i Sobi 2026-10-29 19:45:00 Valberedningen för Swedish Orphan Biovitrum AB (publ) (Sobi ®) föreslår att Börje Ekholm väljs som ny styrelseledamot och styrelseordförande vid årsstämman 2027. David Meek, styrelseordförande i Sobi, har meddelat valberedningen sitt beslut att inte stå till förfogande för omval vid årsstämman 2027. David Meek har varit styrelseledamot och styrelseordförande i Sobi sedan december 2024 och kommer att fortsätta som styrelseordförande under resten av mandatperioden till maj 2027. Under hans ordförandeskap har Sobi levererat stark tillväxt, avk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "058167a6a54192ad"
+    },
     {
       "ticker": "SOBI.ST",
       "company": "Swedish Orphan Biovitrum AB (publ)",
