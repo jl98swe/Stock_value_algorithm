@@ -38,6 +38,8 @@ DYVOX.ST,2026-09-30,2026-10-21,2026-10-26,2.58,SEK,Yahoo Finance / trailingDilut
 EAST.ST,2026-09-30,2026-10-22,2026-10-26,0.32,EUR,Yahoo Finance / trailingDilutedEPS
 EKTA-B.ST,2026-07-31,2026-08-26,2026-08-29,-0.95,SEK,Yahoo Finance / trailingDilutedEPS
 EMBRAC-B.ST,2026-06-30,2026-08-13,2026-09-07,-25.52,SEK,Yahoo Finance / trailingDilutedEPS
+EPI-A.ST,2026-09-30,2026-10-28,2026-10-29,7.7,SEK,Yahoo Finance / trailingDilutedEPS
+EPI-B.ST,2026-09-30,,2026-10-29,7.7,SEK,Yahoo Finance / trailingDilutedEPS
 ERIC-B.ST,2026-09-30,2026-10-15,2026-10-26,5.81,SEK,Yahoo Finance / trailingDilutedEPS
 ESSITY-B.ST,2026-09-30,2026-10-21,2026-10-26,16.34,SEK,Yahoo Finance / trailingDilutedEPS
 EVO.ST,2026-09-30,2026-10-23,2026-10-26,5.36,EUR,Yahoo Finance / trailingDilutedEPS
@@ -69,8 +71,10 @@ NDA-SE.ST,2026-09-30,2026-10-15,2026-10-26,1.36,EUR,Yahoo Finance / trailingDilu
 NEWA-B.ST,2026-06-30,2026-08-20,2026-08-23,6.05,SEK,Yahoo Finance / trailingDilutedEPS
 NIBE-B.ST,2026-06-30,2026-08-21,2026-08-23,1.31,SEK,Yahoo Finance / trailingDilutedEPS
 NMAN.ST,2026-09-30,2026-10-20,2026-10-26,6.39,SEK,Yahoo Finance / trailingDilutedEPS
+NOLA-B.ST,2026-09-30,2026-02-05,2026-10-29,2.5,SEK,Yahoo Finance / trailingDilutedEPS
 NORION.ST,2026-09-30,2026-07-14,2026-10-26,6.48,SEK,Yahoo Finance / trailingDilutedEPS
 PACT.ST,2026-09-30,2026-10-22,2026-10-26,9.26,SEK,Yahoo Finance / trailingDilutedEPS
+PEAB-B.ST,2026-09-30,2026-10-28,2026-10-29,7.83,SEK,Yahoo Finance / trailingDilutedEPS
 PLAZ-B.ST,2026-09-30,2026-10-15,2026-10-26,6.85,SEK,Yahoo Finance / trailingDilutedEPS
 PNDX-B.ST,2026-09-30,2026-10-21,2026-10-26,18.39,SEK,Yahoo Finance / trailingDilutedEPS
 SAAB-B.ST,2026-09-30,2026-10-23,2026-10-26,13.93,SEK,Yahoo Finance / trailingDilutedEPS
@@ -84,12 +88,16 @@ SECT-B.ST,2026-07-31,2026-09-04,2026-09-07,3.22,SEK,Yahoo Finance / trailingDilu
 SECU-B.ST,2026-09-30,2026-10-23,2026-10-26,12.34,SEK,Yahoo Finance / trailingDilutedEPS
 SHB-A.ST,2026-09-30,2026-10-20,2026-10-26,11.69,SEK,Yahoo Finance / trailingDilutedEPS
 SINT.ST,2026-06-30,2026-04-29,2026-08-23,2.71,SEK,Yahoo Finance / trailingDilutedEPS
+SOBI.ST,2026-09-30,2026-10-27,2026-10-29,18.99,SEK,Yahoo Finance / trailingDilutedEPS
 SVED-B.ST,2026-09-30,2026-07-15,2026-10-26,3.87,SEK,Yahoo Finance / trailingDilutedEPS
+SWEC-A.ST,2026-09-30,,2026-10-29,6.57,SEK,Yahoo Finance / trailingDilutedEPS
+SWEC-B.ST,2026-09-30,2026-04-28,2026-10-29,6.57,SEK,Yahoo Finance / trailingDilutedEPS
 SWED-A.ST,2026-09-30,2026-10-21,2026-10-26,27.37,SEK,Yahoo Finance / trailingDilutedEPS
 SYSR.ST,2026-07-31,2026-06-10,2026-09-07,3.84,SEK,Yahoo Finance / trailingDilutedEPS
 TEL2-B.ST,2026-09-30,2026-10-19,2026-10-26,14.67,SEK,Yahoo Finance / trailingDilutedEPS
 THULE.ST,2026-09-30,2026-10-22,2026-10-26,11.54,SEK,Yahoo Finance / trailingDilutedEPS
 TREL-B.ST,2026-09-30,2026-10-22,2026-10-26,17.83,SEK,Yahoo Finance / trailingDilutedEPS
+VBG-B.ST,2026-09-30,2026-10-27,2026-10-29,16.72,SEK,Yahoo Finance / trailingDilutedEPS
 VIT-B.ST,2026-09-30,2026-10-23,2026-10-26,11.88,SEK,Yahoo Finance / trailingDilutedEPS
 VITR.ST,2026-09-30,2026-10-22,2026-10-26,-36.6,SEK,Yahoo Finance / trailingDilutedEPS
 VIVA.ST,2026-06-30,2026-02-19,2026-08-23,2.32,SEK,Yahoo Finance / trailingDilutedEPS

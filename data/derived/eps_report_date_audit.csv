@@ -7,7 +7,7 @@ ALIV SDB,ALIV-SDB.ST,ALIV-SDB.ST,10,25,10,10,0,complete,2026-10-23,
 ALLEI,ALLEI.ST,ALLEI.ST,16,14,16,5,0,complete,2026-10-26,
 ANOD B,ANOD-B.ST,ANOD-B.ST,32,14,32,21,0,complete,2026-10-23,
 ARJO B,ARJO-B.ST,ARJO-B.ST,32,36,32,22,0,complete,2026-10-22,
-ASSA B,ASSA-B.ST,ASSA-B.ST,32,50,32,21,0,complete,2026-07-17,
+ASSA B,ASSA-B.ST,ASSA-B.ST,32,50,32,21,0,complete,2026-10-27,
 ATCO A,ATCO-A.ST,ATCO-A.ST,32,50,32,21,0,complete,2026-10-22,
 ATCO B,ATCO-B.ST,ATCO-A.ST,32,50,32,22,0,complete,2026-10-22,Rapportdatum hämtade via systeraktien ATCO-A.ST
 ATRLJ B,ATRLJ-B.ST,ATRLJ-B.ST,32,1,32,20,0,complete,2026-07-03,
@@ -15,7 +15,7 @@ ATT,ATT.ST,ATT.ST,32,9,32,21,0,complete,2026-08-20,
 AXFO,AXFO.ST,AXFO.ST,32,50,32,21,0,complete,2026-10-22,
 AZA,AZA.ST,AZA.ST,32,50,32,20,0,complete,2026-10-16,
 AZN,AZN.ST,AZN.ST,10,9,10,10,0,complete,2026-07-27,
-BAHN B,BAHN-B.ST,BAHN-B.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2026-02-17 (252 dagar sedan)
+BAHN B,BAHN-B.ST,BAHN-B.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2026-02-17 (254 dagar sedan)
 BALD B,BALD-B.ST,BALD-B.ST,32,3,32,21,0,complete,2026-10-23,
 BEIA B,BEIA-B.ST,BEIA-B.ST,32,50,32,20,0,complete,2026-10-23,
 BEIJ B,BEIJ-B.ST,BEIJ-B.ST,32,50,32,20,0,complete,2026-10-22,
@@ -23,7 +23,7 @@ BERG B,BERG-B.ST,BERG-B.ST,32,50,32,20,0,complete,2026-10-21,
 BETS B,BETS-B.ST,BETS-B.ST,10,25,10,10,0,complete,2026-10-22,
 BILI A,BILI-A.ST,BILI-A.ST,32,14,32,20,0,complete,2026-10-23,
 BIOG B,BIOG-B.ST,BIOG-B.ST,32,6,32,22,0,complete,2026-10-22,
-BOL,BOL.ST,BOL.ST,32,50,32,20,0,complete,2026-07-21,
+BOL,BOL.ST,BOL.ST,32,50,32,20,0,complete,2026-04-28,
 BORG,BORG.ST,BORG.ST,32,9,32,23,0,complete,2026-08-14,
 BRAV,BRAV.ST,BRAV.ST,32,44,32,20,0,complete,2026-10-23,
 BTS B,BTS-B.ST,BTS-B.ST,32,27,32,21,0,complete,2026-08-14,
@@ -33,23 +33,23 @@ CIBUS,CIBUS.ST,CIBUS.ST,10,4,10,10,0,complete,2026-07-16,
 CLA B,CLA-B.ST,CLA-B.ST,32,50,32,20,0,complete,2026-07-15,
 CLAS B,CLAS-B.ST,CLAS-B.ST,32,2,32,22,0,complete,2026-09-03,
 COOR,COOR.ST,COOR.ST,32,46,32,20,0,complete,2026-10-21,
-CTT,CTT.ST,CTT.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2022-10-28 (1460 dagar sedan)
-DIOS,DIOS.ST,DIOS.ST,32,0,32,23,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-10-25 (2924 dagar sedan)
+CTT,CTT.ST,CTT.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2023-02-07 (1360 dagar sedan)
+DIOS,DIOS.ST,DIOS.ST,32,0,32,23,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-10-25 (2926 dagar sedan)
 DOM,DOM.ST,DOM.ST,32,44,32,20,0,complete,2026-10-22,
-DUNI,DUNI.ST,DUNI.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-07-13 (3028 dagar sedan)
+DUNI,DUNI.ST,DUNI.ST,32,0,32,22,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-07-13 (3030 dagar sedan)
 DYVOX,DYVOX.ST,DYVOX.ST,19,6,19,0,0,complete,2026-10-21,
 EAST,EAST.ST,EAST.ST,10,2,10,10,0,complete,2026-10-22,
 EKTA B,EKTA-B.ST,EKTA-B.ST,32,50,32,21,0,complete,2026-08-27,
 EMBRAC B,EMBRAC-B.ST,EMBRAC-B.ST,32,36,32,22,0,complete,2026-08-13,
-EPI A,EPI-A.ST,EPI-A.ST,32,33,32,21,0,complete,2026-07-17,
-EPI B,EPI-B.ST,EPI-A.ST,32,33,32,22,0,complete,2026-07-17,Rapportdatum hämtade via systeraktien EPI-A.ST
+EPI A,EPI-A.ST,EPI-A.ST,32,34,32,21,0,complete,2026-10-28,
+EPI B,EPI-B.ST,EPI-A.ST,32,34,32,22,0,complete,2026-10-28,Rapportdatum hämtade via systeraktien EPI-A.ST
 EQL,EQL.ST,EQL.ST,28,9,28,18,0,complete,2026-05-08,
 EQT,EQT.ST,EQT.ST,10,0,10,10,0,complete,,
 ERIC B,ERIC-B.ST,ERIC-B.ST,32,50,32,20,0,complete,2026-10-15,
 ESSITY B,ESSITY-B.ST,ESSITY-B.ST,32,38,32,20,0,complete,2026-10-22,
 EVO,EVO.ST,EVO.ST,10,25,10,10,0,complete,2026-10-23,
 FABG,FABG.ST,FABG.ST,32,50,32,21,0,complete,2026-10-21,
-FOI B,FOI-B.ST,FOI-B.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2023-02-09 (1356 dagar sedan)
+FOI B,FOI-B.ST,FOI-B.ST,10,0,10,10,0,complete,,Yahoo-historiken är för gammal: senaste datum 2023-02-09 (1358 dagar sedan)
 GENO,GENO.ST,GENO.ST,32,16,32,20,0,complete,2026-04-28,
 GETI B,GETI-B.ST,GETI-B.ST,32,50,32,20,0,complete,2026-10-21,
 HANZA,HANZA.ST,HANZA.ST,32,28,32,20,0,complete,2026-10-27,
@@ -62,7 +62,7 @@ HUFV A,HUFV-A.ST,HUFV-A.ST,32,50,32,21,0,complete,2026-08-20,
 INDT,INDT.ST,INDT.ST,32,50,32,20,0,complete,2026-10-23,
 INDU A,INDU-A.ST,INDU-A.ST,26,0,26,26,0,complete,,
 INTRUM,INTRUM.ST,INTRUM.ST,32,1,32,23,0,complete,2026-10-23,
-INVE A,INVE-A.ST,INVE-A.ST,32,0,32,32,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-01-23 (3199 dagar sedan)
+INVE A,INVE-A.ST,INVE-A.ST,32,0,32,32,0,complete,,Yahoo-historiken är för gammal: senaste datum 2018-01-23 (3201 dagar sedan)
 INWI,INWI.ST,INWI.ST,32,9,32,22,0,complete,2026-10-21,
 KAMBI,KAMBI.ST,KAMBI.ST,10,15,10,10,0,complete,2026-07-22,
 KNOW,KNOW.ST,KNOW.ST,32,26,32,20,0,complete,2026-10-23,
@@ -81,15 +81,15 @@ NDA SE,NDA-SE.ST,NDA-SE.ST,10,25,10,10,0,complete,2026-10-15,
 NEWA B,NEWA-B.ST,NEWA-B.ST,32,18,32,22,0,complete,2026-08-20,
 NIBE B,NIBE-B.ST,NIBE-B.ST,32,50,32,20,0,complete,2026-08-21,
 NMAN,NMAN.ST,NMAN.ST,32,2,32,31,0,complete,2026-10-21,
-NOLA B,NOLA-B.ST,NOLA-B.ST,32,1,32,21,0,complete,2026-07-17,
+NOLA B,NOLA-B.ST,NOLA-B.ST,32,0,32,21,0,complete,,Yahoo-historiken är för gammal: senaste datum 2026-02-05 (266 dagar sedan)
 NORION,NORION.ST,NORION.ST,32,16,32,21,0,complete,2026-07-14,
 PACT,PACT.ST,PACT.ST,32,32,32,21,0,complete,2026-10-22,
-PEAB B,PEAB-B.ST,PEAB-B.ST,32,50,32,20,0,complete,2026-07-14,
+PEAB B,PEAB-B.ST,PEAB-B.ST,32,50,32,20,0,complete,2026-10-28,
 PLAZ B,PLAZ-B.ST,PLAZ-B.ST,32,2,32,31,0,complete,2026-10-16,
 PNDX B,PNDX-B.ST,PNDX-B.ST,32,12,32,21,0,complete,2026-10-22,
 REJL B,REJL-B.ST,REJL-B.ST,32,9,32,23,0,complete,2026-07-15,
 SAAB B,SAAB-B.ST,SAAB-B.ST,32,50,32,20,0,complete,2026-10-23,
-SAGA A,SAGA-A.ST,SAGA-A.ST,32,0,32,32,0,complete,,Yahoo-historiken är för gammal: senaste datum 2012-10-26 (5114 dagar sedan)
+SAGA A,SAGA-A.ST,SAGA-A.ST,32,0,32,32,0,complete,,Yahoo-historiken är för gammal: senaste datum 2012-10-26 (5116 dagar sedan)
 SAVE,SAVE.ST,SAVE.ST,23,24,23,11,0,complete,2026-10-22,
 SCA B,SCA-B.ST,SCA-B.ST,32,50,32,20,0,complete,2026-10-23,
 SCST,SCST.ST,SCST.ST,32,8,32,23,0,complete,2026-10-20,
@@ -97,24 +97,24 @@ SEB A,SEB-A.ST,SEB-A.ST,32,50,32,20,0,complete,2026-10-22,
 SECARE,SECARE.ST,SECARE.ST,32,20,32,20,0,complete,2026-10-21,
 SECT B,SECT-B.ST,SECT-B.ST,32,5,32,28,0,complete,2026-09-04,
 SECU B,SECU-B.ST,SECU-B.ST,32,50,32,20,0,complete,2026-10-23,
-SFAST,SFAST.ST,SFAST.ST,19,0,19,17,0,complete,,Yahoo-historiken är för gammal: senaste datum 2026-02-19 (250 dagar sedan)
+SFAST,SFAST.ST,SFAST.ST,19,0,19,17,0,complete,,Yahoo-historiken är för gammal: senaste datum 2026-02-19 (252 dagar sedan)
 SHB A,SHB-A.ST,SHB-A.ST,32,50,32,20,0,complete,2026-10-21,
 SHOT,SHOT.ST,SHOT.ST,32,16,32,20,0,complete,2026-07-15,
 SINT,SINT.ST,SINT.ST,32,9,32,22,0,complete,2026-04-29,
-SOBI,SOBI.ST,SOBI.ST,32,50,32,20,0,complete,2026-07-16,
+SOBI,SOBI.ST,SOBI.ST,32,50,32,20,0,complete,2026-10-27,
 SVED B,SVED-B.ST,SVED-B.ST,32,11,32,22,0,complete,2026-07-15,
-SWEC A,SWEC-A.ST,SWEC-B.ST,32,50,32,22,0,complete,2026-07-17,Rapportdatum hämtade via systeraktien SWEC-B.ST
-SWEC B,SWEC-B.ST,SWEC-B.ST,32,50,32,20,0,complete,2026-07-17,
+SWEC A,SWEC-A.ST,SWEC-B.ST,32,50,32,22,0,complete,2026-04-28,Rapportdatum hämtade via systeraktien SWEC-B.ST
+SWEC B,SWEC-B.ST,SWEC-B.ST,32,50,32,20,0,complete,2026-04-28,
 SWED A,SWED-A.ST,SWED-A.ST,32,50,32,20,0,complete,2026-10-22,
 SYSR,SYSR.ST,SYSR.ST,32,19,32,21,0,complete,2026-08-27,
 TEL2 B,TEL2-B.ST,TEL2-B.ST,32,50,32,21,0,complete,2026-10-20,
 THULE,THULE.ST,THULE.ST,32,48,32,21,0,complete,2026-10-22,
 TREL B,TREL-B.ST,TREL-B.ST,32,50,32,21,0,complete,2026-10-23,
-VBG B,VBG-B.ST,VBG-B.ST,32,11,32,20,0,complete,2026-04-27,
+VBG B,VBG-B.ST,VBG-B.ST,32,13,32,20,0,complete,2026-10-27,
 VIT B,VIT-B.ST,VIT-B.ST,32,50,32,22,0,complete,2026-10-23,
 VITR,VITR.ST,VITR.ST,32,4,32,22,0,complete,2026-10-22,
 VIVA,VIVA.ST,VIVA.ST,19,0,19,9,0,complete,,
 VOLV A,VOLV-A.ST,VOLV-A.ST,32,0,32,32,0,complete,,
 WALL B,WALL-B.ST,WALL-B.ST,32,2,32,22,0,complete,2026-10-15,
-WIHL,WIHL.ST,WIHL.ST,32,0,32,23,0,complete,,Yahoo-historiken är för gammal: senaste datum 2025-10-23 (369 dagar sedan)
-ZZ B,ZZ-B.ST,ZZ-B.ST,32,0,32,25,0,complete,,Yahoo-historiken är för gammal: senaste datum 2025-11-19 (342 dagar sedan)
+WIHL,WIHL.ST,WIHL.ST,32,0,32,23,0,complete,,Yahoo-historiken är för gammal: senaste datum 2025-10-23 (371 dagar sedan)
+ZZ B,ZZ-B.ST,ZZ-B.ST,32,0,32,25,0,complete,,Yahoo-historiken är för gammal: senaste datum 2025-11-19 (344 dagar sedan)
