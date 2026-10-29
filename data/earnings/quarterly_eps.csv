@@ -475,6 +475,7 @@ BOL.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,7.99,SEK,Yahoo Finance / quart
 BOL.ST,2025-03-31,2025-04-23,2026-10-26,reportedEPS,7.99,SEK,Yahoo Finance / Reported EPS
 BOL.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,2.02,SEK,Yahoo Finance / quarterlyDilutedEPS
 BOL.ST,2025-06-30,2025-07-18,2026-10-26,reportedEPS,2.02,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2025-09-30,,2026-10-29,manualDilutedEPS,8.07,SEK,https://investors.boliden.com/sites/boliden-ir/files/pr/202610291842-1.pdf | official diluted Q3 2025 comparative
 BOL.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,8.07,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 BOL.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,15.31,SEK,Yahoo Finance / quarterlyDilutedEPS
 BOL.ST,2025-12-31,2026-02-03,2026-10-26,reportedEPS,15.31,SEK,Yahoo Finance / Reported EPS
@@ -482,6 +483,7 @@ BOL.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,13.45,SEK,Yahoo Finance / quar
 BOL.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,13.45,SEK,Yahoo Finance / Reported EPS
 BOL.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,7.81,SEK,Yahoo Finance / quarterlyDilutedEPS
 BOL.ST,2026-06-30,2026-07-21,2026-10-26,reportedEPS,7.81,SEK,Yahoo Finance / Reported EPS
+BOL.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,13.69,SEK,https://investors.boliden.com/sites/boliden-ir/files/pr/202610291842-1.pdf
 BORG.ST,2024-06-30,2024-08-16,2026-10-26,reportedEPS,0.26,SEK,Yahoo Finance / Reported EPS
 BORG.ST,2024-09-30,2024-11-15,2026-10-26,reportedEPS,1.39,SEK,Yahoo Finance / Reported EPS
 BORG.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1461,12 +1463,14 @@ NOLA-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / qu
 NOLA-B.ST,2025-03-31,2025-05-06,2026-10-26,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
 NOLA-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / quarterlyDilutedEPS
 NOLA-B.ST,2025-06-30,2025-07-18,2026-10-26,reportedEPS,0.79,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2025-09-30,,2026-10-29,manualDilutedEPS,0.8,SEK,https://storage.mfn.se/f882041f-1f6f-4c47-9101-62c0016c2c6b/nolato-q3-2026-kvartalsrapport.pdf | official diluted Q3 2025 comparative
 NOLA-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.79,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 NOLA-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.56,SEK,Yahoo Finance / quarterlyDilutedEPS
 NOLA-B.ST,2025-12-31,2026-02-05,2026-10-26,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
 NOLA-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.67,SEK,Yahoo Finance / quarterlyDilutedEPS
 NOLA-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.63,SEK,Yahoo Finance / quarterlyDilutedEPS
 NOLA-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
+NOLA-B.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,0.64,SEK,https://storage.mfn.se/f882041f-1f6f-4c47-9101-62c0016c2c6b/nolato-q3-2026-kvartalsrapport.pdf
 NORION.ST,2023-09-30,2023-10-20,2026-10-26,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2023-12-31,2024-02-07,2026-10-26,reportedEPS,1.51,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2024-03-31,2024-04-23,2026-10-26,reportedEPS,1.53,SEK,Yahoo Finance / Reported EPS
@@ -1853,10 +1857,12 @@ SVED-B.ST,2026-09-30,,2026-10-26,quarterlyDilutedEPS,0.76,SEK,Yahoo Finance / qu
 SWEC-A.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.65,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2025-09-30,,2026-10-29,manualDilutedEPS,1.17,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736 | official diluted Q3 2025 comparative"
 SWEC-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SWEC-A.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
+SWEC-A.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,1.44,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736"
 SWEC-B.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,0.86,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2023-12-31,2024-02-09,2026-10-26,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2024-03-31,2024-05-16,2026-10-26,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
@@ -1868,6 +1874,7 @@ SWEC-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.78,SEK,Yahoo Finance / qu
 SWEC-B.ST,2025-03-31,2025-04-29,2026-10-26,reportedEPS,1.87,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.37,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-B.ST,2025-06-30,2025-07-16,2026-10-26,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2025-09-30,,2026-10-29,manualDilutedEPS,1.17,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736 | official diluted Q3 2025 comparative"
 SWEC-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SWEC-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-B.ST,2025-12-31,2026-02-11,2026-10-26,reportedEPS,1.97,SEK,Yahoo Finance / Reported EPS
@@ -1875,6 +1882,7 @@ SWEC-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / qu
 SWEC-B.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,1.76,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,1.77,SEK,Yahoo Finance / Reported EPS
+SWEC-B.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,1.44,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736"
 SWED-A.ST,2023-09-30,2023-10-26,2026-10-26,reportedEPS,8.09,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2023-12-31,2024-01-24,2026-10-26,reportedEPS,7.38,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,7.47,SEK,Yahoo Finance / Reported EPS
