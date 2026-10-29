@@ -139,8 +139,8 @@
     $('home-strategy-description').textContent = ({standard:'Köp under 1 och sälj över 99.',standard_stop_loss_10:'Standard med fast stop loss 10 % under köpkursen.',standard_two_positions:'Högst två delpositioner. Nytt köp kräver poäng minst 5; ny sälj kräver högst 95. Fem handelsdagar mellan köp respektive sälj.',ma200:'Köp endast över MA200. Säljregeln är oförändrad.',report_avoidance:'Inga köp inom 10 handelsdagar före rapport. Sälj handelsdagen före rapport.'})[state.strategy];
     const rules = state.dashboard.meta?.rules || {};
     const rows = [
-      ['Köp', `Score ${rules.buy_score ?? 1}`],
-      ['Sälj', `Score ${rules.sell_score ?? 99}`],
+      ['Köp', `Värderingspoäng ${rules.buy_score ?? 1}`],
+      ['Sälj', `Värderingspoäng ${rules.sell_score ?? 99}`],
       ['Cooldown', `${rules.cooldown_trading_days ?? 5} handelsdagar`],
       ['Max positioner', `${state.strategy === 'standard_two_positions' ? 2 : rules.max_active_positions_per_stock ?? rules.max_buys_per_cycle ?? 1} per aktie`],
       ['Exekvering', rules.execution || 'Nästa öppning']
@@ -438,7 +438,7 @@
           markPoint: { data: signalPoints, tooltip: { show: false } }
         },
         {
-          name: 'Score', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#2f6fb0' },
+          name: 'Värderingspoäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#2f6fb0' },
           areaStyle: { color: 'rgba(47,111,176,.05)' },
           markArea: { silent: true, data: [[{ yAxis: 0, itemStyle: { color: 'rgba(31,143,103,.10)' } }, { yAxis: 25 }], [{ yAxis: 75, itemStyle: { color: 'rgba(199,71,71,.10)' } }, { yAxis: 100 }]] },
         },

@@ -226,7 +226,7 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
         return {
             "type": "NONE",
             "label": "Ingen signal",
-            "detail": "Score aktiveras när komplett EPS- och GBM-underlag finns.",
+            "detail": "Värderingspoäng aktiveras när komplett EPS- och GBM-underlag finns.",
         }
     if not strategy:
         return {"type": "NONE", "label": "Ingen signal", "detail": "Ingen exekverbar signal."}
@@ -238,7 +238,7 @@ def _next_action(strategy: dict[str, object] | None, score_ready: bool) -> dict[
     side = str(pending.get("side", ""))
     label = "Köp nästa öppning" if side == "BUY" else "Sälj nästa öppning"
     execute_on = pending.get("execute_on")
-    detail = f"Score {float(pending.get('score', 0)):.2f}"
+    detail = f"Värderingspoäng {float(pending.get('score', 0)):.2f}"
     if execute_on:
         detail += f" · planerad {execute_on}"
     else:

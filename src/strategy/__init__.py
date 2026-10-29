@@ -267,8 +267,8 @@ def _replay_net_cashflows(
                 if not net_state.empty and pd.notna(net_state.iloc[-1]["UnrealizedPct"])
                 else None
             ),
-            "buy_condition": "Score < 1",
-            "sell_condition": "Score > 99",
+            "buy_condition": "Värderingspoäng < 1",
+            "sell_condition": "Värderingspoäng > 99",
             "commission_buy_pct": 0.25,
             "commission_sell_pct": 0.25,
             "dividends_in_trade_returns": True,

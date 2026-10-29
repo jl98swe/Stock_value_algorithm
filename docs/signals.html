@@ -62,7 +62,7 @@
           </div>
           <div class="table-scroll">
             <table class="overview-table">
-              <thead><tr><th>Aktie</th><th>Riktning</th><th>Score</th><th>Närhet</th><th>Stängningsgräns <button type="button" class="info-tip" aria-label="Information om stängningsgränsen" data-tooltip="Närmaste beräknade kursgräns för nästa börsdags stängning, med oförändrad EPS. Under/över gäller nära den visade gränsen: modellen kan ha fler signalintervall. Kurserna är ungefärliga. Beräkningen söker mellan 25 och 400 procent av senaste kursen. MA200, rapportskydd, återaktivering, cooldown och handelsspärr måste också tillåta handeln. En signal vid stängning avser följande börsdags öppning.">?</button></th><th>Position</th><th>Återaktiverad <span class="info-tip" tabindex="0" role="img" aria-label="Information om återaktivering" data-tooltip="Visar om samma typ av signal kan utlösas igen. Efter köp måste scoren först lämna köpområdet; efter sälj måste den först lämna säljområdet.">?</span></th><th>Spärr</th><th>Kommentar</th></tr></thead>
+              <thead><tr><th>Aktie</th><th>Riktning</th><th aria-label="Värderingspoäng">Värderings-<br>poäng</th><th>Närhet</th><th>Stängningsgräns <button type="button" class="info-tip" aria-label="Information om stängningsgränsen" data-tooltip="Närmaste beräknade kursgräns för nästa börsdags stängning, med oförändrad EPS. Under/över gäller nära den visade gränsen: modellen kan ha fler signalintervall. Kurserna är ungefärliga. Beräkningen söker mellan 25 och 400 procent av senaste kursen. MA200, rapportskydd, återaktivering, cooldown och handelsspärr måste också tillåta handeln. En signal vid stängning avser följande börsdags öppning.">?</button></th><th>Position</th><th>Återaktiverad <span class="info-tip" tabindex="0" role="img" aria-label="Information om återaktivering" data-tooltip="Visar om samma typ av signal kan utlösas igen. Efter köp måste värderingspoängen först lämna köpområdet; efter sälj måste den först lämna säljområdet.">?</span></th><th>Spärr</th><th>Kommentar</th></tr></thead>
               <tbody id="upcoming-signals-body"></tbody>
             </table>
           </div>
@@ -75,7 +75,7 @@
           </div>
           <div class="table-scroll">
             <table class="overview-table recent-signals-table">
-              <thead><tr><th>Aktie</th><th>Signal</th><th>Utförd</th><th>Kurs</th><th>Score</th></tr></thead>
+              <thead><tr><th>Aktie</th><th>Signal</th><th>Utförd</th><th>Kurs</th><th aria-label="Värderingspoäng">Värderings-<br>poäng</th></tr></thead>
               <tbody id="recent-signals-body"></tbody>
             </table>
           </div>
