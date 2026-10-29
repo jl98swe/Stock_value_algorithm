@@ -342,3 +342,37 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-10-28,SECARE.ST,2026-Q3,7,2026-10-21,2026-10-21,calendar_date_preserved,MFN / bolagets rapportkalender
 2026-10-28,SHB-A.ST,2026-Q3,7,2026-10-21,2026-10-21,calendar_date_preserved,Börskollen / rapportkalender
 2026-10-28,WIHL.ST,2026-Q3,7,2026-10-21,2026-10-21,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ADDT-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ARJO-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ATCO-A.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ATCO-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,AXFO.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,BEIJ-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,BETS-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,BIOG-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,BOL.ST,2026-Q3,0,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,CAST.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,COOR.ST,2026-Q3,7,2026-10-22,,manual_date_preserved,
+2026-10-29,DOM.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,EAST.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ERIC-B.ST,2026-Q3,14,2026-10-15,2026-10-15,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,ESSITY-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,HOLM-A.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,HPOL-B.ST,YAHOO-2026-09-30,7,2026-10-23,,manual_date_preserved,
+2026-10-29,HTRO.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,MYCR.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,NDA-SE.ST,2026-Q3,14,2026-10-15,2026-10-15,calendar_date_preserved,Börskollen / rapportkalender
+2026-10-29,NOLA-B.ST,2026-Q3,0,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,NORION.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,PACT.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,PNDX-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SAGA-A.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SAVE.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SEB-A.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,Börskollen / rapportkalender
+2026-10-29,SVED-B.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SWEC-A.ST,2026-Q3,0,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SWEC-B.ST,2026-Q3,0,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,SWED-A.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,THULE.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,VITR.ST,2026-Q3,7,2026-10-22,2026-10-22,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-10-29,WALL-B.ST,2026-Q3,14,2026-10-15,2026-10-15,calendar_date_preserved,MFN / bolagets rapportkalender

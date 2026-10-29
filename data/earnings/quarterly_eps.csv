@@ -788,6 +788,7 @@ EPI-A.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,1.75,SEK,Yahoo Finance / R
 EPI-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-A.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
 EPI-A.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,2.0,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf
+EPI-A.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,2.0,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.96,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.82,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -797,6 +798,7 @@ EPI-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.94,SEK,Yahoo Finance / qua
 EPI-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.01,SEK,Yahoo Finance / quarterlyDilutedEPS
 EPI-B.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,2.0,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://www.epirocgroup.com/content/dam/epiroc/corporate/documents/quarterly-results-presentations-/2026-q3/english/Epiroc%20Interim%20Report%20Q3%202026.pdf
+EPI-B.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,2.0,SEK,Yahoo Finance / quarterlyDilutedEPS
 EQL.ST,2024-03-31,2024-05-14,2026-10-26,reportedEPS,0.16,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2024-06-30,2024-08-08,2026-10-26,reportedEPS,0.42,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2024-09-30,2024-11-06,2026-10-26,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
@@ -1471,6 +1473,7 @@ NOLA-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.67,SEK,Yahoo Finance / qu
 NOLA-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.63,SEK,Yahoo Finance / quarterlyDilutedEPS
 NOLA-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,0.63,SEK,Yahoo Finance / Reported EPS
 NOLA-B.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,0.64,SEK,https://storage.mfn.se/f882041f-1f6f-4c47-9101-62c0016c2c6b/nolato-q3-2026-kvartalsrapport.pdf
+NOLA-B.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,0.64,SEK,Yahoo Finance / quarterlyDilutedEPS
 NORION.ST,2023-09-30,2023-10-20,2026-10-26,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2023-12-31,2024-02-07,2026-10-26,reportedEPS,1.51,SEK,Yahoo Finance / Reported EPS
 NORION.ST,2024-03-31,2024-04-23,2026-10-26,reportedEPS,1.53,SEK,Yahoo Finance / Reported EPS
@@ -1532,6 +1535,7 @@ PEAB-B.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,-0.6,SEK,Yahoo Finance / 
 PEAB-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.09,SEK,Yahoo Finance / quarterlyDilutedEPS
 PEAB-B.ST,2026-06-30,2026-07-14,2026-10-26,reportedEPS,2.45,SEK,Yahoo Finance / Reported EPS
 PEAB-B.ST,2026-09-30,2026-10-28,2026-10-28,manualDilutedEPS,3.45,SEK,Bolagets Q3 2026 / IFRS diluted EPS / https://mb.cision.com/Main/424/4416131/4341946.pdf
+PEAB-B.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,3.45,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2024-09-30,2025-01-28,2026-10-26,reportedEPS,2.64,SEK,Yahoo Finance / Reported EPS
 PLAZ-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.6,SEK,Yahoo Finance / quarterlyDilutedEPS
 PLAZ-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.55,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1835,6 +1839,7 @@ SOBI.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,4.07,SEK,Yahoo Finance / Re
 SOBI.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,3.14,SEK,Yahoo Finance / quarterlyDilutedEPS
 SOBI.ST,2026-06-30,2026-07-16,2026-10-26,reportedEPS,3.96,SEK,Yahoo Finance / Reported EPS
 SOBI.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,6.69,SEK,Sobi Q3 2026 p. 1 | https://www.sobi.com/sites/sobi/files/pr/202610269994-1.pdf
+SOBI.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,6.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 SVED-B.ST,2023-12-31,2024-02-29,2026-10-26,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
 SVED-B.ST,2024-03-31,2024-04-24,2026-10-26,reportedEPS,0.95,SEK,Yahoo Finance / Reported EPS
 SVED-B.ST,2024-06-30,2024-07-18,2026-10-26,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
@@ -1863,6 +1868,7 @@ SWEC-A.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.84,SEK,Yahoo Finance / qu
 SWEC-A.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.63,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-A.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,1.44,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736"
+SWEC-A.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,1.44,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-B.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,0.86,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2023-12-31,2024-02-09,2026-10-26,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2024-03-31,2024-05-16,2026-10-26,reportedEPS,1.63,SEK,Yahoo Finance / Reported EPS
@@ -1883,6 +1889,7 @@ SWEC-B.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,1.76,SEK,Yahoo Finance / 
 SWEC-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.66,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWEC-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,1.77,SEK,Yahoo Finance / Reported EPS
 SWEC-B.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,1.44,SEK,"https://news.cision.com/sweco/r/interim-report-january---september-2026-sweco-ab--publ-,c4416736"
+SWEC-B.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,1.44,SEK,Yahoo Finance / quarterlyDilutedEPS
 SWED-A.ST,2023-09-30,2023-10-26,2026-10-26,reportedEPS,8.09,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2023-12-31,2024-01-24,2026-10-26,reportedEPS,7.38,SEK,Yahoo Finance / Reported EPS
 SWED-A.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,7.47,SEK,Yahoo Finance / Reported EPS
@@ -2006,6 +2013,7 @@ VBG-B.ST,2026-03-31,2026-04-27,2026-10-26,reportedEPS,4.53,SEK,Yahoo Finance / R
 VBG-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,3.58,SEK,Yahoo Finance / quarterlyDilutedEPS
 VBG-B.ST,2026-06-30,2026-07-17,2026-10-26,reportedEPS,3.58,SEK,Yahoo Finance / Reported EPS
 VBG-B.ST,2026-09-30,2026-10-27,2026-10-27,manualDilutedEPS,4.16,SEK,VBG Q3 2026 p. 2 | https://storage.mfn.se/b6a02146-a068-4392-aca1-fef8796f23da/vbg-group-q3-2026.pdf
+VBG-B.ST,2026-09-30,,2026-10-29,quarterlyDilutedEPS,4.16,SEK,Yahoo Finance / quarterlyDilutedEPS
 VIT-B.ST,2023-09-30,2023-10-19,2026-10-26,reportedEPS,2.26,SEK,Yahoo Finance / Reported EPS
 VIT-B.ST,2024-03-31,2024-04-18,2026-10-26,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
 VIT-B.ST,2024-06-30,2024-07-12,2026-10-26,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS

@@ -75,7 +75,8 @@
     "anchor": "2026-10-15",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "INDU-A.ST|2026-Q3": {
@@ -90,14 +91,16 @@
     "anchor": "2026-10-15",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "WALL-B.ST|2026-Q3": {
     "anchor": "2026-10-15",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "AZA.ST|2026-Q3": {
@@ -222,127 +225,148 @@
   "ADDT-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ARJO-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "AXFO.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BEIJ-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BIOG-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "CAST.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "COOR.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "DOM.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ESSITY-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "HOLM-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "HTRO.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MYCR.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "NORION.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "PACT.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "PNDX-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SAVE.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SEB-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SVED-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SWED-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "THULE.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "VITR.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "AAK.ST|2026-Q3": {
@@ -372,13 +396,15 @@
   "ATCO-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ATCO-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BALD-B.ST|2026-Q3": {
@@ -432,7 +458,8 @@
   "EAST.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "EVO.ST|2026-Q3": {
@@ -492,7 +519,8 @@
   "SAGA-A.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SCA-B.ST|2026-Q3": {
@@ -528,7 +556,8 @@
   "BETS-B.ST|2026-Q3": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "HEXA-B.ST|2026-Q3": {
@@ -540,7 +569,8 @@
   "HPOL-B.ST|YAHOO-2026-09-30": {
     "anchor": "2026-10-22",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "INTRUM.ST|2026-Q3": {
@@ -599,6 +629,30 @@
   },
   "PEAB-B.ST|2026-Q3": {
     "anchor": "2026-10-28",
+    "completed": [
+      0
+    ]
+  },
+  "BOL.ST|2026-Q3": {
+    "anchor": "2026-10-29",
+    "completed": [
+      0
+    ]
+  },
+  "NOLA-B.ST|2026-Q3": {
+    "anchor": "2026-10-29",
+    "completed": [
+      0
+    ]
+  },
+  "SWEC-A.ST|2026-Q3": {
+    "anchor": "2026-10-29",
+    "completed": [
+      0
+    ]
+  },
+  "SWEC-B.ST|2026-Q3": {
+    "anchor": "2026-10-29",
     "completed": [
       0
     ]

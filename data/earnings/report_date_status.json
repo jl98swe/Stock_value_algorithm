@@ -1,6 +1,9 @@
 {
-  "checked_at": "2026-10-28",
-  "counts": {},
+  "checked_at": "2026-10-29",
+  "counts": {
+    "calendar_date_preserved": 32,
+    "manual_date_preserved": 2
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -749,8 +752,11 @@
     "ASSA-B.ST",
     "BALD-B.ST",
     "CTT.ST",
+    "EPI-A.ST",
+    "EPI-B.ST",
     "HANZA.ST",
     "NDA-SE.ST",
+    "PEAB-B.ST",
     "SCA-B.ST",
     "SEB-A.ST",
     "SHB-A.ST",
