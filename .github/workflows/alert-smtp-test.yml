@@ -1,0 +1,26 @@
+name: Test Gmail alert delivery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  send-self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify SMTP secrets are configured
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          test -n "$GMAIL_ADDRESS" || { echo "GMAIL_ADDRESS is missing"; exit 1; }
+          test -n "$GMAIL_APP_PASSWORD" || { echo "GMAIL_APP_PASSWORD is missing"; exit 1; }
+      - name: Send test only to sender mailbox
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/test_alert_smtp.py
