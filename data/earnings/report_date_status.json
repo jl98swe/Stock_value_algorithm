@@ -1,6 +1,8 @@
 {
-  "checked_at": "2026-10-29",
-  "counts": {},
+  "checked_at": "2026-10-30",
+  "counts": {
+    "calendar_date_preserved": 32
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -748,16 +750,20 @@
     "ALLEI.ST",
     "ASSA-B.ST",
     "BALD-B.ST",
+    "BOL.ST",
     "CTT.ST",
     "EPI-A.ST",
     "EPI-B.ST",
     "HANZA.ST",
     "NDA-SE.ST",
+    "NOLA-B.ST",
     "PEAB-B.ST",
     "SCA-B.ST",
     "SEB-A.ST",
     "SHB-A.ST",
     "SOBI.ST",
+    "SWEC-A.ST",
+    "SWEC-B.ST",
     "VBG-B.ST"
   ],
   "calendar_source_conflicts": [

@@ -486,6 +486,7 @@ BOL.ST,2026-03-31,2026-04-28,2026-10-26,reportedEPS,13.45,SEK,Yahoo Finance / Re
 BOL.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,7.81,SEK,Yahoo Finance / quarterlyDilutedEPS
 BOL.ST,2026-06-30,2026-07-21,2026-10-26,reportedEPS,7.81,SEK,Yahoo Finance / Reported EPS
 BOL.ST,2026-09-30,2026-10-29,2026-10-29,manualDilutedEPS,13.69,SEK,https://investors.boliden.com/sites/boliden-ir/files/pr/202610291842-1.pdf
+BOL.ST,2026-09-30,,2026-10-30,quarterlyDilutedEPS,13.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 BORG.ST,2024-06-30,2024-08-16,2026-10-26,reportedEPS,0.26,SEK,Yahoo Finance / Reported EPS
 BORG.ST,2024-09-30,2024-11-15,2026-10-26,reportedEPS,1.39,SEK,Yahoo Finance / Reported EPS
 BORG.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS

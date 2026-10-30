@@ -107,21 +107,24 @@
     "anchor": "2026-10-16",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "INVE-A.ST|2026-Q3": {
     "anchor": "2026-10-16",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "PLAZ-B.ST|2026-Q3": {
     "anchor": "2026-10-16",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ABB.ST|2026-Q3": {
@@ -372,25 +375,29 @@
   "AAK.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ALIG.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ALIV-SDB.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ANOD-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ATCO-A.ST|2026-Q3": {
@@ -410,49 +417,57 @@
   "BALD-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BEIA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BILI-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BORG.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BRAV.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "CATE.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "DIOS.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "DUNI.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "EAST.ST|2026-Q3": {
@@ -465,55 +480,64 @@
   "EVO.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "INDT.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "KNOW.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "LAGR-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "LIFCO-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MCAP.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MSAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MTRS.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SAAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SAGA-A.ST|2026-Q3": {
@@ -526,31 +550,36 @@
   "SCA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "SECU-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "TREL-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "VIT-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "VOLV-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "BETS-B.ST|2026-Q3": {
@@ -563,7 +592,8 @@
   "HEXA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "HPOL-B.ST|YAHOO-2026-09-30": {
@@ -576,7 +606,8 @@
   "INTRUM.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ALLEI.ST|2026-Q3": {
@@ -653,6 +684,12 @@
   },
   "SWEC-B.ST|2026-Q3": {
     "anchor": "2026-10-29",
+    "completed": [
+      0
+    ]
+  },
+  "LOOMIS.ST|2026-Q3": {
+    "anchor": "2026-10-30",
     "completed": [
       0
     ]
