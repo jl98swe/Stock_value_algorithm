@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from .entry_drawdown import enrich_aggregate
 from .config import ROOT
 from .index_benchmark import INDEX_FILE
 from .method_metrics import equity_metrics, hold_curve, trade_metrics
@@ -141,7 +142,7 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
         result["periods"][period] = {"start_date": start, "end_date": end, "strategies": summaries,
                                    "reference_trades": {"buy_and_hold": benchmarks, "omxsgi": index_trades},
                                    "benchmark_pct": summaries["buy_and_hold"]["return_pct"], "benchmark_count": len(benchmarks)}
-    return result
+    return enrich_aggregate(result, ready, index_candles or [])
 
 
 def write_aggregate(stocks: dict, generated_at: str, directory: Path | None = None) -> dict:

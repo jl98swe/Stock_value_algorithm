@@ -48,7 +48,7 @@ test('homepage comparison render ignores active strategy and chart range', () =>
     backtests:{'TEST.ST':variants},indexData:index,expanded:{trades:new Set()}};
   const render = new Function('state','window','$','prettyDate','pct','holdingDays','fmt','updateToggle',
     `${functionSource}; return renderTables;`)(state,
-      {backtestMetrics:{fullHistoryRows},strategySelection:{names:{standard:'Standard',ma200:'MA200',report_avoidance:'Rapportundvikande'}}},
+      {backtestMetrics:require('../docs/assets/method.js'),strategySelection:{names:{standard:'Standard',ma200:'MA200',report_avoidance:'Rapportundvikande'}}},
       $, value=>value || '–', value=>value == null ? '–' : String(value),()=>0,{format:String},()=>{});
   render({candles,closed_trades:[],open_lots:[]});
   const initial = $('strategy-table').innerHTML;

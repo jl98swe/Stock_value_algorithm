@@ -11,10 +11,10 @@
   <meta name="description" content="Transparent värderingsalgoritm, signaler, rapportdata och trades.">
   <link rel="stylesheet" href="./assets/style.css?v=20261021-navigation">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="./assets/method.js?v=20261014-3"></script>
+  <script defer src="./assets/method.js?v=20261030-entry-drawdown"></script>
   <script defer src="./assets/company-news.js?v=20261009-1"></script>
   <script defer src="./assets/intraday.js?v=20261021-close-display"></script>
-  <script defer src="./assets/app.js?v=20261029-next-report"></script>
+  <script defer src="./assets/app.js?v=20261030-entry-drawdown"></script>
   <script defer src="./assets/mobile-stock-picker.js?v=20261013-2"></script>
   <script defer src="./assets/compact-stock-list-v2.js"></script>
   <script defer src="./assets/chart-enhancements.js?v=20261021-navigation"></script>
@@ -229,6 +229,7 @@
                 </div>
               </div>
               <div class="table-wrap"><table id="strategy-table" class="data-table"></table></div>
+              <span class="info-tip" data-tooltip="Största nedgång från köpkursen, beräknad på stängningskurser under innehavet. Strategiraden visar den sämsta avslutade affären.">i</span>
               <p id="comparison-difference" class="comparison-difference"></p>
             </article>
 
@@ -236,7 +237,7 @@
               <div class="panel-header">
                 <div>
                   <span class="eyebrow">Historik</span>
-                  <h2 id="trades-title">Senaste avslut</h2>
+                  <h2 id="trades-title">Senaste avslut <span class="info-tip" data-tooltip="Största nedgång från köpkursen, beräknad på stängningskurser under innehavet. Strategiraden visar den sämsta avslutade affären.">i</span></h2>
                 </div>
               </div>
               <div class="home-strategy-control" style="margin-bottom:16px">
