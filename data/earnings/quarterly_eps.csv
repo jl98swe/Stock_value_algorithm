@@ -303,6 +303,7 @@ AZN.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.87,USD,Yahoo Finance / quart
 AZN.ST,2025-03-31,2025-04-29,2026-10-26,reportedEPS,2.49,USD,Yahoo Finance / Reported EPS
 AZN.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.57,USD,Yahoo Finance / quarterlyDilutedEPS
 AZN.ST,2025-06-30,2025-07-29,2026-10-26,reportedEPS,2.17,USD,Yahoo Finance / Reported EPS
+AZN.ST,2025-09-30,,2026-10-30,manualDilutedEPS,1.62,USD,Official Q3 2026 diluted EPS | https://www.astrazeneca.com/content/dam/az/PDF/2026/9mq3/9M-and-Q3-2026-results-announcement.pdf
 AZN.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.6100000000000003,USD,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 AZN.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.49,USD,Yahoo Finance / quarterlyDilutedEPS
 AZN.ST,2025-12-31,2026-02-10,2026-10-26,reportedEPS,2.12,USD,Yahoo Finance / Reported EPS
@@ -310,6 +311,7 @@ AZN.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.97,USD,Yahoo Finance / quart
 AZN.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,2.58,USD,Yahoo Finance / Reported EPS
 AZN.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.61,USD,Yahoo Finance / quarterlyDilutedEPS
 AZN.ST,2026-06-30,2026-07-27,2026-10-26,reportedEPS,2.63,USD,Yahoo Finance / Reported EPS
+AZN.ST,2026-09-30,2026-10-30,2026-10-30,manualDilutedEPS,2.0,USD,Official Q3 2026 diluted EPS | https://www.astrazeneca.com/content/dam/az/PDF/2026/9mq3/9M-and-Q3-2026-results-announcement.pdf
 BAHN-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.47,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.54,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2025-03-31,2025-05-06,2026-10-26,reportedEPS,0.54,SEK,Yahoo Finance / Reported EPS
@@ -1259,6 +1261,7 @@ LOOMIS.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,5.56,SEK,Yahoo Finance / qu
 LOOMIS.ST,2025-03-31,2025-05-07,2026-10-26,reportedEPS,6.8,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,6.99,SEK,Yahoo Finance / quarterlyDilutedEPS
 LOOMIS.ST,2025-06-30,2025-07-25,2026-10-26,reportedEPS,7.99,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2025-09-30,,2026-10-30,manualDilutedEPS,7.77,SEK,Official Q3 2026 diluted EPS | https://mb.cision.com/Main/51/4417527/4346980.pdf
 LOOMIS.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,7.790000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 LOOMIS.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,2.87,SEK,Yahoo Finance / quarterlyDilutedEPS
 LOOMIS.ST,2025-12-31,2026-02-04,2026-10-26,reportedEPS,6.06,SEK,Yahoo Finance / Reported EPS
@@ -1266,6 +1269,7 @@ LOOMIS.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,7.88,SEK,Yahoo Finance / qu
 LOOMIS.ST,2026-03-31,2026-05-07,2026-10-26,reportedEPS,7.88,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,9.06,SEK,Yahoo Finance / quarterlyDilutedEPS
 LOOMIS.ST,2026-06-30,2026-07-24,2026-10-26,reportedEPS,9.37,SEK,Yahoo Finance / Reported EPS
+LOOMIS.ST,2026-09-30,2026-10-30,2026-10-30,manualDilutedEPS,10.26,SEK,"Loomis Q3 2026 pp. 1, 10 | https://mb.cision.com/Main/51/4417527/4346980.pdf"
 LUMI.ST,2023-09-30,2023-11-01,2026-10-26,reportedEPS,0.11,USD,Yahoo Finance / Reported EPS
 LUMI.ST,2023-12-31,2024-02-22,2026-10-26,reportedEPS,0.1,USD,Yahoo Finance / Reported EPS
 LUMI.ST,2024-03-31,2024-05-01,2026-10-26,reportedEPS,0.06,USD,Yahoo Finance / Reported EPS

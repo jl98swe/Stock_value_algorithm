@@ -109,7 +109,7 @@ def test_daily_workflows_have_independent_collection_and_only_serialize_publicat
     assert w["jobs"]["update"]["concurrency"]["group"] == "stock-data-${{ github.ref }}"
     assert w.get("on",w.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"15 13 * * 1-5","timezone":"Europe/Stockholm"}]
     a=yaml.safe_load((root/"avanza_closing.yml").read_text())
-    assert a.get("on",a.get(True))["schedule"] == [{"cron":"30 18 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"0 14 * * 1-5","timezone":"Europe/Stockholm"}]
+    assert a.get("on",a.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"0 14 * * 1-5","timezone":"Europe/Stockholm"}]
     assert a["jobs"]["daily"]["with"]["source"] == "Avanza"
 
 
