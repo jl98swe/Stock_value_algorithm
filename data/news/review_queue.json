@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-10-29T22:49:27+01:00",
+  "generated_at": "2026-10-30T22:39:26+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-10-30T19:58:22+01:00",
+      "title": "Atlas Copco Group Celebrates Expansion Week in the United States",
+      "link": "https://mfn.se/one/a/atlas-copco/atlas-copco-group-celebrates-expansion-week-in-the-united-states-02b88352",
+      "source": "MFN",
+      "summary": "Atlas Copco Group Celebrates Expansion Week in the United States 2026-10-30 19:58:22 PARSIPPANY, N.J., Oct. 30, 2026 (GLOBE NEWSWIRE) -- Atlas Copco Group has completed Expansion Week US, a coordinated series of openings and expansion announcements highlighting three strategic investments in US manufacturing. From October 26–29, 2026, the Group celebrated projects at two sites in New York and one in South Carolina. The investments expand production of oil-free compressors, dry vacuum pumps, and gas and process equipment, supporting shorter lead times, stronger supply chains, and production closer to customers. Voorheesville, New York: Atlas C",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "548315e78ad32441"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-30T13:00:00+01:00",
+      "title": "Enersense and Elering sign an agreement on the design of a new 110 kV transmission tower solution in Estonia",
+      "link": "https://mfn.se/a/enersense-international/enersense-and-elering-sign-an-agreement-on-the-design-of-a-new-110-kv-transmission-tower-solution-in-estonia",
+      "source": "MFN",
+      "summary": "Enersense and Elering sign an agreement on the design of a new 110 kV transmission tower solution in Estonia 2026-10-30 13:00:00 Enersense International Plc | Press Release | October 30, 2026 at 14:00:00 EET Enersense has signed an agreement with the Estonian transmission system operator Elering AS for the design of a new modular 110 kV transmission tower solution. The new standardised tower solution can be used in future overhead power line projects across Estonia. The agreement covers the design, prototyping and testing of a new narrow-base, modular transmission tower solution. The solution will be designed for both single- and double-circu",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cb95c449195e7928"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-30T13:00:00+01:00",
+      "title": "Enersense ja Viron kantaverkkoyhtiö Elering sopivat uuden 110 kV:n voimajohtopylvään suunnittelusta Virossa",
+      "link": "https://mfn.se/a/enersense-international/enersense-ja-viron-kantaverkkoyhtio-elering-sopivat-uuden-110-kv-n-voimajohtopylvaan-suunnittelusta-virossa",
+      "source": "MFN",
+      "summary": "Enersense ja Viron kantaverkkoyhtiö Elering sopivat uuden 110 kV:n voimajohtopylvään suunnittelusta Virossa 2026-10-30 13:00:00 Enersense International Oyj | Lehdistötiedote | 30.10.2026 klo 14:00:00 EET Enersense ja Viron kantaverkkoyhtiö Elering AS:n ovat solmineet sopimuksen uuden muunneltavan 110 kV:n voimajohtopylväsratkaisun suunnittelusta. Uutta standardoitua pylväsratkaisua voidaan hyödyntää tulevissa voimajohtohankkeissa eri puolilla Viroa. Sopimus kattaa uuden kapeapohjaisen ja muunneltavan voimajohtopylvään suunnittelun, prototyypin valmistuksen ja testauksen. Ratkaisu suunnitellaan sekä yksi- että kaksivirtapiirisille 110 kV:n voi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "36c4cbe130ba6049"
+    },
+    {
+      "ticker": "INDU-A.ST",
+      "company": "AB Industrivärden (publ)",
+      "published_at": "2026-10-30T10:00:00+01:00",
+      "title": "Nytt antal röster och utestående aktier",
+      "link": "https://mfn.se/a/industrivarden/nytt-antal-roster-och-utestaende-aktier-13",
+      "source": "MFN",
+      "summary": "Nytt antal röster och utestående aktier 2026-10-30 10:00:00 Bolaget har en skyldighet enligt lag att offentliggöra uppgifter om en förändring i totala antalet aktier eller röster i bolaget. Vid årsstämman 2011 infördes ett omvandlingsförbehåll i Industrivärdens bolagsordning. Aktieägare har rätt att när som helst begära omvandling av A-aktier till C-aktier. Under oktober månad 2026 omvandlades 855 A-aktier till 855 C-aktier. Efter omvandlingarna uppgår antalet röster i bolaget till 232 756 804,6. Det totala antalet registrerade aktier i bolaget uppgår till 431 899 108, varav 210 629 882 A-aktier och 221 269 226 C-aktier. Stockholm den 30 okto",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "92b760765e3a3fe8"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-10-30T08:00:39+01:00",
+      "title": "Resultat för AstraZeneca: Första nio månaderna samt tredje kvartalet 2026",
+      "link": "https://mfn.se/cis/a/astrazeneca/resultat-for-astrazeneca-forsta-nio-manaderna-samt-tredje-kvartalet-2026-0a99e6c3",
+      "source": "MFN",
+      "summary": "Resultat för AstraZeneca: Första nio månaderna samt tredje kvartalet 2026 2026-10-30 08:00:39 Fortsatt starka kommersiella prestationer och positiva resultat för 12 fas III-program under året till dags dato Intäkter och Vinst per aktie - sammanfattning 9M 2026 Förändring % Q3 2026 Förändring % MUSD Utfall I fasta valutakurser 1 MUSD Utfall I fasta valutakurser - Produktförsäljning 43 962 7 5 15 066 5 5 - Alliansintäkter 2 806 33 32 1 107 36 36 Produktintäkter 46 768 8 6 16 173 7 7 Intäkter från samarbeten 113 22 23 36 >3x >3x Totala intäkter 46 881 8 7 16 209 7 7 Redovisad vinst per aktie (USD) 5,62 10 11 2,02 23 26 Vinst per aktie för kärnve",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "90376c684fa28c68"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-10-30T08:00:00+01:00",
+      "title": "Agreement for Enersense on preparations for a battery energy storage and substation expansion project",
+      "link": "https://mfn.se/a/enersense-international/agreement-for-enersense-on-preparations-for-a-battery-energy-storage-and-substation-expansion-project",
+      "source": "MFN",
+      "summary": "Agreement for Enersense on preparations for a battery energy storage and substation expansion project 2026-10-30 08:00:00 Enersense International Plc | Press Release | October 30, 2026 at 09:00:00 EET Enersense and a developer of renewable energy projects have signed a Limited Notice to Proceed (LNTP) agreement for a battery energy storage project in Finland. In addition to the construction of the battery energy storage system (BESS), the project includes the expansion of an existing substation. Under the LNTP agreement, Enersense can begin preparatory work for the project prior to the final investment decision, which is expected to be made i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c48fb41365513121"
+    },
     {
       "ticker": "FOI-B.ST",
       "company": "Fenix Outdoor International AG",
