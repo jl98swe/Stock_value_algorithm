@@ -19,3 +19,15 @@ test('open positions exclude preliminary prices and summary takes worst closed l
   assert(Math.abs(worstEntryDrawdown(candles,[trade,{...trade,entry_price:80}])+5)<1e-10);
   assert.equal(worstEntryDrawdown(candles,[]),null);
 });
+
+test('both pages load the information popover and rightmost two-line heading',()=>{
+  const fs=require('node:fs'), path=require('node:path');
+  for(const name of ['index','method']) {
+    const html=fs.readFileSync(path.join(__dirname,`../docs/${name}.html`),'utf8');
+    assert(html.includes('help-popovers.js'));
+    assert(html.includes('beräknad på stängningskurser'));
+  }
+  const app=fs.readFileSync(path.join(__dirname,'../docs/assets/app.js'),'utf8');
+  assert(app.includes('<th>MAX<br>DRAWDOWN</th></tr>'));
+  assert(app.includes('<th>TID I<br>POSITION</th>'));
+});
