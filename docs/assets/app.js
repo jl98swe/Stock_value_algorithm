@@ -280,7 +280,7 @@
 
   function renderTables(data) {
     const rows = window.backtestMetrics.fullHistoryRows(state.dashboard.stocks[state.selectedTicker], state.backtests[state.selectedTicker], state.indexData);
-    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct, false)}</td></tr>`).join('')}</tbody>`;
+    $('strategy-table').innerHTML = `<thead><tr><th>Strategi / jämförelse</th><th>Period</th><th>Avkastning</th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th><th>MAX<br>DRAWDOWN</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${prettyDate(row.start)}–${prettyDate(row.end)}</td><td>${pct(row.return_pct)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct, false)}</td><td>${window.backtestMetrics.drawdownPercent(row.entry_drawdown_pct)}</td></tr>`).join('')}</tbody>`;
     $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
@@ -296,8 +296,8 @@
     const expanded = state.expanded.trades.has(state.selectedTicker);
     const visibleTrades = expanded ? trades : trades.slice(0, 4);
     $('trades-table').innerHTML = `
-      <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>Tid i position</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th></tr></thead>
-      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa ${window.strategySelection.names[state.strategy]} i Metod &amp; backtest" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td></tr>`).join('') : '<tr><td colspan="6">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
+      <thead><tr><th>Köpdatum</th><th>Säljdatum</th><th>TID I<br>POSITION</th><th>Köpkurs</th><th>Säljkurs</th><th>Resultat</th><th>MAX<br>DRAWDOWN</th></tr></thead>
+      <tbody>${visibleTrades.length ? visibleTrades.map((row) => `<tr tabindex="0" role="link" aria-label="Visa ${window.strategySelection.names[state.strategy]} i Metod &amp; backtest" data-method-link="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}" class="trade-${row.return_pct > 5 ? 'win' : row.return_pct < -5 ? 'loss' : 'flat'}"><td>${prettyDate(row.entry_date)}</td><td>${row.open ? 'Öppen' : prettyDate(row.exit_date)}</td><td>${holdingDays(row.entry_date, row.open ? latestDate : row.exit_date)}</td><td>${fmt.format(row.entry_price)}</td><td>${row.open ? '–' : fmt.format(row.exit_price)}</td><td>${pct(row.return_pct)}${row.open ? ' (orealiserat)' : ''}</td><td>${window.backtestMetrics.drawdownPercent(window.backtestMetrics.entryDrawdown(data.candles,row,latestDate))}</td></tr>`).join('') : '<tr><td colspan="7">Inga historiska köp eller sälj.</td></tr>'}</tbody>`;
     $('trades-table').querySelectorAll('[data-method-link]').forEach(row => {
       row.style.cursor = 'pointer';
       row.addEventListener('click', () => { window.location.href = row.dataset.methodLink; });
