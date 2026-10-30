@@ -33,6 +33,8 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
         assert workflow["concurrency"] == {"group": "shared-intraday-cache", "cancel-in-progress": False, "queue": "max"}
         lock = workflow["jobs"]["executions"]["concurrency"]
         assert workflow["jobs"]["executions"]["needs"] == "quotes"
+    elif path.name == "ci.yml":
+        lock = workflow["jobs"]["publish-entry-drawdown"]["concurrency"]
     else:
         lock = workflow["jobs"]["update"]["concurrency"] if path.name == "daily_update.yml" else workflow["concurrency"]
     assert lock == {
@@ -40,10 +42,11 @@ def test_writers_queue_on_same_branch_and_checkout_latest_tip(path: Path) -> Non
         "cancel-in-progress": False,
         "queue": "max",
     }
-    for job in workflow["jobs"].values():
+    jobs = [workflow["jobs"]["publish-entry-drawdown"]] if path.name == "ci.yml" else workflow["jobs"].values()
+    for job in jobs:
         checkout = next(step for step in job["steps"] if str(step.get("uses", "")).startswith("actions/checkout@"))
         assert checkout["with"]["ref"] == "${{ github.ref_name }}"
-    text = path.read_text()
+    text = "\n".join(step.get("run", "") for job in jobs for step in job["steps"]) if path.name == "ci.yml" else path.read_text()
     assert "origin main" not in text  # a branch run must never write into main
     if "python -m src.pipeline" in text and "git add" in text:
         assert "valuation_score_history.csv.gz" in text
