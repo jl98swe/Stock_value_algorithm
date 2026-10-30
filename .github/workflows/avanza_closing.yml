@@ -1,8 +1,8 @@
-name: Dagskurser 18.30 · Avanza
+name: Dagskurser 17.30 · Avanza
 
 on:
   schedule:
-    - cron: "30 18 * * 1-5"
+    - cron: "30 17 * * 1-5"
       timezone: "Europe/Stockholm"
     - cron: "0 14 * * 1-5"
       timezone: "Europe/Stockholm"
@@ -17,4 +17,4 @@ jobs:
     uses: ./.github/workflows/daily_update.yml
     with:
       source: Avanza
-      planned: ${{ github.event.schedule == '0 14 * * 1-5' && '14:00' || '18:30' }}
+      planned: ${{ github.event.schedule == '0 14 * * 1-5' && '14:00' || '17:30' }}
