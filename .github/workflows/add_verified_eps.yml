@@ -8,6 +8,7 @@ on:
       - "data/manual/report_submissions.csv"
       - "data/earnings/quarterly_eps.csv"
       - "src/reporting.py"
+      - "src/report_date_revisions.py"
   workflow_dispatch:
     inputs:
       ticker:
@@ -51,6 +52,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: stock-data-${{ github.ref }}
@@ -143,3 +145,8 @@ jobs:
           git commit -m "fundamentals: publicera verifierade EPS och omräknade webbdata"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
+
+      - name: Publicera omräknade webbdata på GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds
