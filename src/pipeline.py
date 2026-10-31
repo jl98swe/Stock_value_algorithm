@@ -38,7 +38,7 @@ from .model_data import ensure_gbm_model
 from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
-from .report_date_revisions import changed_date_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
+from .report_date_revisions import changed_date_cutoffs, changed_eps_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
 from .score_history import (
     SCORE_HISTORY_FILE,
     apply_frozen_scores,
@@ -630,11 +630,14 @@ def build_dashboard(
     # detectable until the final successful build saves its report snapshot.
     snapshot_path = score_history_file.parent / "report_score_dates.csv"
     previous_score_dates = load_score_dates(snapshot_path)
-    for ticker, cutoff in changed_date_cutoffs(reports, previous_score_dates).items():
+    report_cutoffs = changed_date_cutoffs(reports, previous_score_dates)
+    for ticker, cutoff in changed_eps_cutoffs(reports, previous_score_dates).items():
+        report_cutoffs[ticker] = min(cutoff, report_cutoffs.get(ticker, cutoff))
+    for ticker, cutoff in report_cutoffs.items():
         if ticker in recalculation_cutoffs:
             cutoff = min(cutoff, pd.Timestamp(recalculation_cutoffs[ticker]))
         recalculation_cutoffs[ticker] = cutoff
-        print(f"Rapportdatum ändrat: {ticker}, räknar om poäng från {cutoff.date()}.")
+        print(f"Rapportunderlag ändrat: {ticker}, räknar om poäng från {cutoff.date()}.")
     for ticker, cutoff_value in recalculation_cutoffs.items():
         cutoff = pd.Timestamp(cutoff_value).tz_localize(None).normalize()
         score_history = score_history.loc[
@@ -651,7 +654,7 @@ def build_dashboard(
         print(f"VARNING: GBM-modellen kunde inte aktiveras: {exc}")
 
     if recalculation_cutoffs and model is None:
-        raise RuntimeError("Rapportdatum ändrat men modellen saknas; datumrevisionen konsumeras inte.")
+        raise RuntimeError("Rapportunderlag ändrat men modellen saknas; revisionen konsumeras inte.")
 
     stock_list: list[dict[str, object]] = []
     dashboard_stocks: dict[str, object] = {}
