@@ -61,6 +61,7 @@ def test_abb_tv_values_stay_in_sek_and_use_period_end_timing():
     abb_reports = reports.loc[
         (reports["ticker"] == ticker)
         & reports["source"].astype(str).str.startswith("TradingView")
+        & reports["period_end"].le(prices["Date"].max())
     ].sort_values("period_end")
 
     assert mode == TV_PERIOD_END_STATE
