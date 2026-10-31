@@ -62,6 +62,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [ -d data/earnings/yahoo_observations ]; then git add data/earnings/yahoo_observations; fi
           git add docs/data data/earnings/earnings_initial.csv data/fx/fx_initial.csv data/fundamentals/reports.csv data/derived/valuation_score_history.csv.gz
+          git add data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           if [ -f data/prices/price_updates.csv ]; then
             git add data/prices/price_updates.csv
           fi

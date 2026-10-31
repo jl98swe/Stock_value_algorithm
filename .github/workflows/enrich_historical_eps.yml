@@ -198,6 +198,7 @@ jobs:
           git add data/derived/historical_valuation_audit.csv
           git add data/derived/latest_eps_yahoo_comparison.csv
           git add data/derived/valuation_score_history.csv.gz
+          git add data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           git add docs/data/backtests docs/data/dashboard.json docs/data/dashboard docs/data/stocks.json docs/data/earnings.json docs/data/reports.json docs/data/events.json
           git add docs/data/strategy_overviews.json docs/data/signal_prices.json docs/data/manual_reports.json
 
