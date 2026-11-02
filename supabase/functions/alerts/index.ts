@@ -92,7 +92,7 @@ Deno.serve(async (request) => {
   confirmationUrl.pathname=confirmationUrl.pathname.replace(/\/subscribe$/,"/confirm");
   confirmationUrl.search="?token="+token;
   const unsubscribeUrl=new URL(confirmationUrl.toString());
-  unsubscribeUrl.pathname=unsubscribeUrl.pathname.replace(/\\/confirm$/,"/unsubscribe");
+  unsubscribeUrl.pathname=confirmationUrl.pathname.slice(0,-"confirm".length)+"unsubscribe";
   unsubscribeUrl.search="?token="+unsubscribeToken;
   const mail=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"Authorization":"Bearer "+resendKey,"Content-Type":"application/json"},body:JSON.stringify({from:sender,to:[email],subject:"Bekräfta dina bevakningar – Stock Value Algorithm",text:"Bekräfta din mejladress inom 24 timmar genom att öppna länken:\n"+confirmationUrl.toString()+"\n\nAvsluta prenumerationen: "+unsubscribeUrl.toString()+"\\n\\nOm du inte begärt detta kan du bortse från mejlet."})}).catch(()=>null);
   if (!mail?.ok) return json({error:"mail_unavailable"},503,origin);
