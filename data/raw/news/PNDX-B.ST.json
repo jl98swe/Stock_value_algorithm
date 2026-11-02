@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-30T22:38:19+01:00",
+  "generated_at": "2026-11-03T00:54:19+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/pandox",
   "items": [
+    {
+      "ticker": "PNDX-B.ST",
+      "company": "Pandox AB (publ)",
+      "published_at": "2026-11-02T15:10:00+01:00",
+      "title": "Pandox slutför legal uppdelning av Dalata samt tidigare kommunicerad avyttring av hotelloperatörsverksamheten till Scandic",
+      "link": "https://mfn.se/a/pandox/pandox-slutfor-legal-uppdelning-av-dalata-samt-tidigare-kommunicerad-avyttring-av-hotelloperatorsverksamheten-till-scandic",
+      "source": "MFN",
+      "summary": "Pandox slutför legal uppdelning av Dalata samt tidigare kommunicerad avyttring av hotelloperatörsverksamheten till Scandic 2026-11-02 15:10:00 Pandox AB (publ) (\"Pandox\") har idag slutfört avyttringen av Dalata Hotel Groups (”Dalata”) hotelloperatörsverksamhet till Scandic Hotels Group AB (\"Scandic\"). Köpeskillingen baseras på ett underliggande företagsvärde om 500 MEUR och likviden har i sin helhet använts för att återbetala finansiering från DNB Bank ASA, vilken har redovisats i balansräkningen som Skulder hänförliga till tillgångar som innehas för försäljning. Den slutliga kontanta likviden är föremål för sedvanliga justeringar för kassa, ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "33cd8564de539bc5"
+    },
     {
       "ticker": "PNDX-B.ST",
       "company": "Pandox AB (publ)",

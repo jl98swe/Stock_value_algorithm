@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-30T22:38:29+01:00",
+  "generated_at": "2026-11-03T00:54:29+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/nordnet",
   "items": [
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-02T07:30:00+01:00",
+      "title": "Fondsstatistikk oktober: Kundene parkerer pengene i likviditet - full retrett fra high yield",
+      "link": "https://mfn.se/cis/a/nordnet/fondsstatistikk-oktober-kundene-parkerer-pengene-i-likviditet-full-retrett-fra-high-yield-8932251e",
+      "source": "MFN",
+      "summary": "Fondsstatistikk oktober: Kundene parkerer pengene i likviditet - full retrett fra high yield 2026-11-02 07:30:00 Risikoappetitten i renteuniverset bråsnudde blant fondskundene hos Nordnet i oktober. I kjølvannet av uro, kredittap og bratt verdifall i profilerte fond, viser Nordnets fondskunder risikodisiplin og kutter risikoen i høyrentefond. Kapitalen flyttes i stedet over i rene likviditetsfond og brede globale indeksfond. Kraftig smell i høyrente utløser salgsbølge Høyrentefond har over lang tid levert god avkastning og vært favoritter hos norske renteinvestorer. I oktober snudde derimot stemningen markant, hele seks av de ti mest solgte f",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "capital"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:capital",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1cc2b44835011965"
+    },
     {
       "ticker": "SAVE.ST",
       "company": "Nordnet AB (publ)",

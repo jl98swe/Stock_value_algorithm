@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-30T22:37:00+01:00",
+  "generated_at": "2026-11-03T00:53:02+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hexagon",
   "items": [
+    {
+      "ticker": "HEXA-B.ST",
+      "company": "Hexagon AB (publ)",
+      "published_at": "2026-11-02T08:00:00+01:00",
+      "title": "Hexagon slutför förvärvet av Waygate Technologies",
+      "link": "https://mfn.se/cis/a/hexagon/hexagon-slutfor-forvarvet-av-waygate-technologies-e4da0b31",
+      "source": "MFN",
+      "summary": "Hexagon slutför förvärvet av Waygate Technologies 2026-11-02 08:00:00 Stockholm - 2 november 2026 - Hexagon, den globala ledaren inom mätteknik, meddelade idag att bolaget har slutfört det tidigare offentliggjorda förvärvet av Waygate Technologies, en global ledare inom icke-förstörande provning (NDT), från Baker Hughes. Waygate Technologies erbjuder lösningar för industriell radiografi och datortomografi (CT), visuell fjärrinspektion (RVI), ultraljudsprovning och bildlösningar, byggda på mer än 130 års inspektionsexpertis. Verksamheten har ungefär 1 500 anställda i 25 regioner och hade en omsättning på cirka 630 miljoner dollar under räkensk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6deadf8f3999e8ec"
+    },
     {
       "ticker": "HEXA-B.ST",
       "company": "Hexagon AB (publ)",

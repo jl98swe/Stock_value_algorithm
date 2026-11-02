@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-30T22:35:21+01:00",
+  "generated_at": "2026-11-03T00:51:24+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/beijer-alma",
   "items": [
+    {
+      "ticker": "BEIA-B.ST",
+      "company": "Beijer Alma",
+      "published_at": "2026-11-02T12:30:00+01:00",
+      "title": "Beijer Almas dotterbolag Beijer Tech förvärvar Ventilteknik i Motala",
+      "link": "https://mfn.se/a/beijer-alma/beijer-almas-dotterbolag-beijer-tech-forvarvar-ventilteknik-i-motala",
+      "source": "MFN",
+      "summary": "Beijer Almas dotterbolag Beijer Tech förvärvar Ventilteknik i Motala 2026-11-02 12:30:00 Beijer Tech har idag, den 2 november 2026, tecknat avtal om att förvärva majoriteten av aktierna i Ventilteknik i Motala AB, en svensk aktör inom ventilservice, tillverkning och packningar. Ventilteknik i Motala (”VTM”) är en välkänd svensk aktör som erbjuder ventilservice, ventilrenovering och packningar. Bolaget erbjuder service och jour dygnet runt samt har en välutrustad maskinpark för att renovera ventiler och tillverka reservdelar. Bolaget har 20 anställda och omsätter cirka 70 miljoner kronor med god lönsamhet. För ytterligare information hänvisas ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d59cc7befe74c53a"
+    },
     {
       "ticker": "BEIA-B.ST",
       "company": "Beijer Alma",

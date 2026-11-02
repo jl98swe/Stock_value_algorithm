@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-10-30T22:36:57+01:00",
+  "generated_at": "2026-11-03T00:52:59+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hanza",
-  "items": []
+  "items": [
+    {
+      "ticker": "HANZA.ST",
+      "company": "Hanza AB (publ)",
+      "published_at": "2026-11-02T15:42:00+01:00",
+      "title": "HANZA slutför förvärv och tillträder fem fabriker från Fortaco",
+      "link": "https://mfn.se/a/hanza/hanza-slutfor-forvarv-och-tilltrader-fem-fabriker-fran-fortaco",
+      "source": "MFN",
+      "summary": "HANZA slutför förvärv och tillträder fem fabriker från Fortaco 2026-11-02 15:42:00 HANZA har i dag slutfört förvärvet och tillträtt fem fabriker från kontraktstillverkaren Fortaco. Verksamheterna är belägna i Finland, Estland och Polen och tillför cirka 1 300 medarbetare med en årsomsättning motsvarande cirka 1,9 miljarder SEK. Förvärvet stärker HANZAs erbjudande inom tungmekanik och komplex montering samt skapar nya möjligheter för organisk tillväxt. ”Det här är ett förvärv där vi förenar våra styrkor och skapar nya affärsmöjligheter. De fem fabrikerna tillför HANZA viktig kapacitet inom tungmekanik och komplex montering – samtidigt som dera",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7c066d0d778868f4"
+    }
+  ]
 }

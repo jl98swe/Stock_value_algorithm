@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-10-30T22:38:41+01:00",
+  "generated_at": "2026-11-03T00:54:43+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandic-hotels-group",
   "items": [
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-11-02T15:10:00+01:00",
+      "title": "Scandic Hotels Group AB: Scandic Hotels Group slutför förvärvet av Dalatas hotellverksamhet",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/scandic-hotels-group-ab-scandic-hotels-group-slutfor-forvarvet-av-dalatas-hotellverksamhet-81d5cdb6",
+      "source": "MFN",
+      "summary": "Scandic Hotels Group AB: Scandic Hotels Group slutför förvärvet av Dalatas hotellverksamhet 2026-11-02 15:10:00 PRESSMEDDELANDE 2 november 2026 Scandic Hotels Group AB (publ) (\"Scandic\") har idag slutfört förvärvet av hotellverksamheten i Dalata Hotel Group (\"Dalata\"). Förvärvet omfattar 57 hotell med cirka 12 500 rum samt en pipeline med ytterligare cirka 1 600 rum. I samband med slutförandet av förvärvet har Scandic betalat köpeskillingen om 500 miljoner euro på kassa- och skuldfri basis. Förvärvet har finansierats med likvida medel och lånefaciliteter inom det långsiktiga finansieringsramverk som Scandic offentliggjorde i juli 2026. Från o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8677fb10c2af5481"
+    },
     {
       "ticker": "SHOT.ST",
       "company": "Scandic Hotels Group AB (publ)",
