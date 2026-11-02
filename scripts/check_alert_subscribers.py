@@ -10,7 +10,7 @@ if not base.startswith("https://") or not base.endswith(".supabase.co"):
     raise SystemExit("SUPABASE_URL must be a Supabase project URL, without /rest/v1")
 request = urllib.request.Request(
     base + "/rest/v1/alert_subscribers?select=id,status&limit=5",
-    headers={"apikey": key, "Authorization": "Bearer " + key, "Accept": "application/json"},
+    headers={"apikey": key, "Accept": "application/json"},
 )
 try:
     with urllib.request.urlopen(request, timeout=20) as response:
