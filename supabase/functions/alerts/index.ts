@@ -1,6 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const allowedOrigin = "https://jl98swe.github.io";
+const MAX_SUBSCRIBERS = 4;
 const site = "https://jl98swe.github.io/Stock_value_algorithm/";
 const encoder = new TextEncoder();
 const topicsAllowed = ["signals","near_signals","reports_upcoming","reports_updated","stop_loss","data_issues"];
@@ -67,6 +68,11 @@ Deno.serve(async (request) => {
   if (lookupError) return json({error:"database_unavailable"},503,origin);
   if (existing?.status==="active") return json(generic,200,origin);
   if (existing && Date.now()-Date.parse(existing.updated_at)<15*60*1000) return json(generic,200,origin);
+  if (!existing) {
+    const {count, error:capacityError}=await db.from("alert_subscribers").select("id",{count:"exact",head:true}).in("status",["pending","active"]);
+    if (capacityError) return json({error:"database_unavailable"},503,origin);
+    if ((count ?? MAX_SUBSCRIBERS) >= MAX_SUBSCRIBERS) return json(generic,200,origin);
+  }
   let subscriberId=existing?.id;
   if (!subscriberId) {
     const {data:created,error:ce}=await db.from("alert_subscribers").insert({email,status:"pending"}).select("id").single();
