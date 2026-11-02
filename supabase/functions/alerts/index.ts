@@ -1,7 +1,7 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const allowedOrigin = "https://jl98swe.github.io";
-const MAX_SUBSCRIBERS = 4;
+const MAX_SUBSCRIBERS = 10;
 const site = "https://jl98swe.github.io/Stock_value_algorithm/";
 const encoder = new TextEncoder();
 const topicsAllowed = ["signals","near_signals","reports_upcoming","reports_updated","stop_loss","data_issues"];
