@@ -63,9 +63,6 @@ Deno.serve(async (request) => {
       !tickers.every(x=>typeof x==="string" && /^[A-Z0-9.-]{1,24}$/.test(x))) {
     return json({error:"invalid_input"},400,origin);
   }
-  const resendKey=Deno.env.get("RESEND_API_KEY");
-  const sender=Deno.env.get("ALERT_FROM_EMAIL");
-  if (!resendKey || !sender) return json({error:"mail_not_configured"},503,origin);
   const {data:existing,error:lookupError}=await db.from("alert_subscribers").select("id,status,updated_at").eq("email_normalized",email).maybeSingle();
   if (lookupError) return json({error:"database_unavailable"},503,origin);
   if (existing?.status==="active") return json(generic,200,origin);
@@ -94,7 +91,13 @@ Deno.serve(async (request) => {
   const unsubscribeUrl=new URL(confirmationUrl.toString());
   unsubscribeUrl.pathname=confirmationUrl.pathname.slice(0,-"confirm".length)+"unsubscribe";
   unsubscribeUrl.search="?token="+unsubscribeToken;
-  const mail=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"Authorization":"Bearer "+resendKey,"Content-Type":"application/json"},body:JSON.stringify({from:sender,to:[email],subject:"Bekräfta dina bevakningar – Stock Value Algorithm",text:"Bekräfta din mejladress inom 24 timmar genom att öppna länken:\n"+confirmationUrl.toString()+"\n\nAvsluta prenumerationen: "+unsubscribeUrl.toString()+"\\n\\nOm du inte begärt detta kan du bortse från mejlet."})}).catch(()=>null);
-  if (!mail?.ok) return json({error:"mail_unavailable"},503,origin);
+  const {error:queueError}=await db.from("alert_email_queue").insert({
+    subscriber_id:subscriberId,
+    recipient:email,
+    subject:"Bekräfta dina bevakningar – Stock Value Algorithm",
+    body:"Bekräfta din mejladress inom 24 timmar:\\n"+confirmationUrl.toString()+"\\n\\nAvsluta prenumerationen: "+unsubscribeUrl.toString()+"\\n\\nOm du inte begärt detta kan du bortse från mejlet.",
+    status:"pending"
+  });
+  if (queueError) return json({error:"queue_unavailable"},503,origin);
   return json(generic,200,origin);
 });
