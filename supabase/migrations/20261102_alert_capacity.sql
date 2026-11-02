@@ -10,7 +10,7 @@ begin
     perform pg_advisory_xact_lock(847291, 4);
     if (select count(*) from public.alert_subscribers
         where status in ('pending','active')
-          and id is distinct from new.id) >= 4 then
+          and id is distinct from new.id) >= 10 then
       raise exception 'subscription capacity reached' using errcode = 'P0001';
     end if;
   end if;
