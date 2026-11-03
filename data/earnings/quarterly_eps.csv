@@ -908,6 +908,7 @@ FOI-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.209,EUR,Yahoo Finance / de
 FOI-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,-0.46,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.37,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.92,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2026-09-30,,2026-11-03,quarterlyDilutedEPS,1.65,EUR,Yahoo Finance / quarterlyDilutedEPS
 GENO.ST,2023-09-30,2023-11-15,2026-10-26,reportedEPS,0.06,SEK,Yahoo Finance / Reported EPS
 GENO.ST,2024-03-31,2024-05-15,2026-10-26,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
 GENO.ST,2024-06-30,2024-08-20,2026-10-26,reportedEPS,0.03,SEK,Yahoo Finance / Reported EPS
@@ -1271,6 +1272,7 @@ LOOMIS.ST,2026-03-31,2026-05-07,2026-10-26,reportedEPS,7.88,SEK,Yahoo Finance / 
 LOOMIS.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,9.06,SEK,Yahoo Finance / quarterlyDilutedEPS
 LOOMIS.ST,2026-06-30,2026-07-24,2026-10-26,reportedEPS,9.37,SEK,Yahoo Finance / Reported EPS
 LOOMIS.ST,2026-09-30,2026-10-30,2026-10-30,manualDilutedEPS,10.26,SEK,"Loomis Q3 2026 pp. 1, 10 | https://mb.cision.com/Main/51/4417527/4346980.pdf"
+LOOMIS.ST,2026-09-30,,2026-11-03,quarterlyDilutedEPS,10.26,SEK,Yahoo Finance / quarterlyDilutedEPS
 LUMI.ST,2023-09-30,2023-11-01,2026-10-26,reportedEPS,0.11,USD,Yahoo Finance / Reported EPS
 LUMI.ST,2023-12-31,2024-02-22,2026-10-26,reportedEPS,0.1,USD,Yahoo Finance / Reported EPS
 LUMI.ST,2024-03-31,2024-05-01,2026-10-26,reportedEPS,0.06,USD,Yahoo Finance / Reported EPS
@@ -1583,6 +1585,7 @@ REJL-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,2.96,SEK,Yahoo Finance / qu
 REJL-B.ST,2025-03-31,2025-04-24,2026-10-26,reportedEPS,2.96,SEK,Yahoo Finance / Reported EPS
 REJL-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.74,SEK,Yahoo Finance / quarterlyDilutedEPS
 REJL-B.ST,2025-06-30,2025-07-15,2026-10-26,reportedEPS,1.88,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2025-09-30,2025-10-23,2026-11-03,manualDilutedEPS,1.23,SEK,"Rejlers Q3 2026, pp. 1, 13 | https://mb.cision.com/Main/6235/4418974/4351978.pdf"
 REJL-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.16,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 REJL-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,2.88,SEK,Yahoo Finance / quarterlyDilutedEPS
 REJL-B.ST,2025-12-31,2026-02-05,2026-10-26,reportedEPS,2.91,SEK,Yahoo Finance / Reported EPS
@@ -1590,6 +1593,7 @@ REJL-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.19,SEK,Yahoo Finance / qu
 REJL-B.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,2.88,SEK,Yahoo Finance / Reported EPS
 REJL-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.21,SEK,Yahoo Finance / quarterlyDilutedEPS
 REJL-B.ST,2026-06-30,2026-07-15,2026-10-26,reportedEPS,1.45,SEK,Yahoo Finance / Reported EPS
+REJL-B.ST,2026-09-30,2026-11-03,2026-11-03,manualDilutedEPS,1.19,SEK,"Rejlers Q3 2026, pp. 1, 13 | https://mb.cision.com/Main/6235/4418974/4351978.pdf"
 SAAB-B.ST,2023-09-30,2023-10-26,2026-10-26,reportedEPS,1.21,SEK,Yahoo Finance / Reported EPS
 SAAB-B.ST,2023-12-31,2024-02-09,2026-10-26,reportedEPS,2.27,SEK,Yahoo Finance / Reported EPS
 SAAB-B.ST,2024-03-31,2024-04-26,2026-10-26,reportedEPS,1.43,SEK,Yahoo Finance / Reported EPS
@@ -2132,5 +2136,3 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
-REJL-B.ST,2025-09-30,2025-10-23,2026-11-03,manualDilutedEPS,1.23,SEK,"Rejlers Q3 2026, pp. 1, 13 | https://mb.cision.com/Main/6235/4418974/4351978.pdf"
-REJL-B.ST,2026-09-30,2026-11-03,2026-11-03,manualDilutedEPS,1.19,SEK,"Rejlers Q3 2026, pp. 1, 13 | https://mb.cision.com/Main/6235/4418974/4351978.pdf"
