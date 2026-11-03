@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-03T00:50:56+01:00",
+  "generated_at": "2026-11-03T23:18:01+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/autoliv",
-  "items": []
+  "items": [
+    {
+      "ticker": "ALIV-SDB.ST",
+      "company": "Autoliv",
+      "published_at": "2026-11-03T08:00:00+01:00",
+      "title": "Autoliv Expands Its Commercial Vehicle Safety Business with the Acquisition of MCF Safety Belts",
+      "link": "https://mfn.se/cis/a/autoliv/autoliv-expands-its-commercial-vehicle-safety-business-with-the-acquisition-of-mcf-safety-belts-2a26d834",
+      "source": "MFN",
+      "summary": "Autoliv Expands Its Commercial Vehicle Safety Business with the Acquisition of MCF Safety Belts 2026-11-03 08:00:00 (Stockholm, Sweden, November 3, 2026) - Autoliv, Inc. (NYSE: ALV and SSE: ALIV.sdb), the worldwide leader in automotive safety systems, today announced that it has completed the acquisition of MCF Safety Belts S.r.l., an Italian specialist in seatbelts for commercial and specialty vehicles, following final regulatory approval. The acquisition supports Autoliv's broader strategic agenda to drive growth in adjacent markets. The acquisition expands Autoliv's business further into off-road and specialty commercial vehicle markets an",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d3325fc0668f94e5"
+    }
+  ]
 }

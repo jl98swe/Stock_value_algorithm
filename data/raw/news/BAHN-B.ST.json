@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T00:51:21+01:00",
+  "generated_at": "2026-11-03T23:18:35+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bahnhof",
   "items": [
+    {
+      "ticker": "BAHN-B.ST",
+      "company": "Bahnhof",
+      "published_at": "2026-11-03T09:04:14+01:00",
+      "title": "Konkurrensverket godkänner Telenors förvärv av Bahnhof",
+      "link": "https://mfn.se/cis/a/bahnhof/konkurrensverket-godkanner-telenors-forvarv-av-bahnhof-01133ec0",
+      "source": "MFN",
+      "summary": "Konkurrensverket godkänner Telenors förvärv av Bahnhof 2026-11-03 09:04:14 Konkurrensverket har godkänt Telenors förvärv av Bahnhof. Den 8 juli 2026 offentliggjorde Bahnhof att huvudägarna Jon Karlung och Andreas Norman samt Öresund Investment hade ingått avtal med Telenor om att sälja sina aktier i Bahnhof. Konkurrensverkets beslut finns tillgängligt på myndighetens webbplats: https://www.konkurrensverket.se/informationsmaterial/nyhetsarkiv/2026/telenors-forvarv-av-bahnhof-kan-genomforas/ När transaktionen har slutförts blir Telenor majoritetsägare i Bahnhof. Presskontakt Markus Eriksson, Marknads- och kommunikationschef Bahnhof markus.eriks",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b1301355a222d1fc"
+    },
     {
       "ticker": "BAHN-B.ST",
       "company": "Bahnhof",

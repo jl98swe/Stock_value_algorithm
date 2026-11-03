@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T00:52:52+01:00",
+  "generated_at": "2026-11-03T23:20:25+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/enersense-international",
   "items": [
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-11-03T09:00:00+01:00",
+      "title": "Enersense signs two power line contracts in Sweden, including one supporting data centre development",
+      "link": "https://mfn.se/a/enersense-international/enersense-signs-two-power-line-contracts-in-sweden-including-one-supporting-data-centre-development",
+      "source": "MFN",
+      "summary": "Enersense signs two power line contracts in Sweden, including one supporting data centre development 2026-11-03 09:00:00 Enersense International Plc | Press Release | November 03, 2026 at 10:00:00 EET Enersense is strengthening its presence in Sweden's electricity infrastructure market with two new contracts signed with E.ON Energidistribution AB. The projects involve the construction of new 130 kV overhead power lines and the reconstruction of an existing line. With a combined contract value of approximately EUR 15 million, both projects will be delivered by Enersense's experienced high-voltage power line team from Latvia. The projects are l",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "distress"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:distress",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "96c1e0cfa0f2709c"
+    },
     {
       "ticker": "FOI-B.ST",
       "company": "Fenix Outdoor International AG",

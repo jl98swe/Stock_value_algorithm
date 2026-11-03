@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T00:52:36+01:00",
+  "generated_at": "2026-11-03T23:20:08+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-11-03T13:00:00+01:00",
+      "title": "EQT-backed SatPort Infrastructure completes acquisition of teleport business from Speedcast to expand its satellite ground infrastructure platform globally",
+      "link": "https://mfn.se/cis/a/eqt/eqt-backed-satport-infrastructure-completes-acquisition-of-teleport-business-from-speedcast-to-expand-its-satellite-ground-infrastructure-platform-globally-1c005829",
+      "source": "MFN",
+      "summary": "EQT-backed SatPort Infrastructure completes acquisition of teleport business from Speedcast to expand its satellite ground infrastructure platform globally 2026-11-03 13:00:00 The acquisition adds 12 teleports across five continents, establishing SatPort Infrastructure as a global, dedicated, carrier-neutral ground infrastructure platform for satellite operators, governments, and enterprise customers SatPort provides secure and resilient teleport and gateway infrastructure for low Earth orbit (LEO), medium Earth orbit (MEO), and geostationary (GEO) constellations The acquisition follows a build-to-suit agreement between SatPort Infrastructure",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9870cdcb39accb8c"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",

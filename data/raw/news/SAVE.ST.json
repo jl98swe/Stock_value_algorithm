@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T00:54:29+01:00",
+  "generated_at": "2026-11-03T23:22:17+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/nordnet",
   "items": [
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-03T18:00:00+01:00",
+      "title": "Nordnet slutför aktieåterköpsprogram som lanserades i September 2026",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-slutfor-aktieaterkopsprogram-som-lanserades-i-september-2026-3d990ec7",
+      "source": "MFN",
+      "summary": "Nordnet slutför aktieåterköpsprogram som lanserades i September 2026 2026-11-03 18:00:00 Nordnet meddelar idag att man under perioden 21 september 2026 - 28 oktober 2026 har återköpt 755 177 egna aktier för totalt 250 miljoner SEK till ett genomsnittligt pris per aktie om 331,0 SEK. Därmed är återköpsprogrammet slutfört. Det program som nu har avslutats lanserades den 21 september 2026. Enligt villkoren för programmet var det högsta sammanlagda förvärvsbeloppet 250 miljoner SEK, och det skulle avslutas senast den 23 december 2026. Efter avslutat återköpsprogram uppgår det totala antalet stamaktier i Nordnet till 248 561 399, varav det egna in",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d57e8d415234da13"
+    },
     {
       "ticker": "SAVE.ST",
       "company": "Nordnet AB (publ)",
