@@ -496,7 +496,7 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 .preliminary-info-heading button { border: 0; background: transparent; color: var(--muted); padding: 4px 8px; font-size: 22px; cursor: pointer; }
 .preliminary-info p:last-child { margin-bottom: 0; }
 .preliminary-note[hidden] { display: none; }
-.preliminary-key { width: 18px; margin-right: 6px; border-top: 2px dashed #8056b3; }
+.preliminary-key { width: 18px; margin-right: 6px; border-top: 2px solid #8056b3; }
 .score-card.is-preliminary { border: 1px dashed #8056b3; background: repeating-linear-gradient(135deg, #fdfbff 0 8px, #f5f0fa 8px 10px); }
 .score-card.is-preliminary .zone-pill { background: #eee6f8; color: #69428f; }
 
