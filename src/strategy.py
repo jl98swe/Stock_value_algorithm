@@ -151,7 +151,7 @@ def run_strategy(
                 signals.append({
                     "signal_id": _signal_id(ticker, date_string, "SELL", signal_sequence),
                     "ticker": ticker, "side": "SELL", "signal_date": date_string,
-                    "score": score, "status": "pending", "status_reason": "Inför rapport",
+                    "score": score if np.isfinite(score) else None, "status": "pending", "status_reason": "Inför rapport",
                     "exit_reason": "report", "execute_on": date_string,
                 })
                 pending = {"execute_index": index, "signal_list_index": len(signals) - 1,
@@ -312,7 +312,7 @@ def run_strategy(
                 signals.append({
                     "signal_id": _signal_id(ticker, date_string, "SELL", signal_sequence),
                     "ticker": ticker, "side": "SELL", "signal_date": date_string,
-                    "score": score, "status": "executed", "status_reason": "Stop loss 10%" if p.stop_loss_pct == 10 else "Stop loss",
+                    "score": score if np.isfinite(score) else None, "status": "executed", "status_reason": "Stop loss 10%" if p.stop_loss_pct == 10 else "Stop loss",
                     "exit_reason": "stop_loss", "stop_price": stop_price,
                     "execute_on": date_string, "execution_date": date_string,
                     "execution_price": execution_price, "lot_id": lot.lot_id, "quantity": lot.quantity,

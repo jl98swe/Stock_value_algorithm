@@ -16,7 +16,7 @@ import requests
 
 from .config import ROOT
 from .fetch_data import (BASE_DATA_FILE, UPDATES_FILE, RAW_PRICE_COLUMNS, _download,
-                         _validate_ohlc, _updates_with_ma200)
+                         _validate_ohlc, _updates_with_ma200, last_completed_session)
 from .intraday import (AVANZA_URL, TZ, instant, number, parse_avanza,
                        parse_avanza_open, session_bounds)
 from .utils import read_json, write_json_atomic
@@ -49,28 +49,34 @@ def fetch_avanza_daily(instrument, now):
 
 
 def collect(source, planned, *, now=None, stocks=None, instruments=None,
-            yahoo=_download, avanza=fetch_avanza_daily):
+            yahoo=_download, avanza=fetch_avanza_daily, catch_up=False):
     now = instant() if now is None else now
-    day = now.date().isoformat()
-    bounds = session_bounds(now)
+    if catch_up and source != "Yahoo":
+        raise ValueError("Historisk återhämtning kräver Yahoo")
+    session_day = last_completed_session(now).date() if catch_up else now.date()
+    day = session_day.isoformat()
+    bounds = session_bounds(now.replace(year=session_day.year, month=session_day.month, day=session_day.day))
     payload = {"schema_version": 1, "source": source, "session_date": day,
                "planned_at": f"{day}T{planned}:00{now.strftime('%z')[:3]}:{now.strftime('%z')[3:]}",
                "started_at": now.isoformat(), "run_id": os.getenv("GITHUB_RUN_ID", "local"),
                "rows": [], "errors": [], "state": "not_due"}
-    if not bounds or now < bounds[1] or instant(payload["planned_at"]) < bounds[1]:
+    if not bounds or now < bounds[1] or (not catch_up and instant(payload["planned_at"]) < bounds[1]):
         payload["state"] = "not_trading_day" if not bounds else "not_due"
         payload["completed_at"] = instant().isoformat()
         return payload
     stocks = stocks if stocks is not None else read_json("docs/data/stocks.json")["stocks"]
+    if catch_up and all(str(s.get("latest_date", "")) >= day for s in stocks if s.get("active_for_updates", True)):
+        payload["state"] = "up_to_date"
+        return payload
     tickers = sorted(s["ticker"] for s in stocks if s.get("active_for_updates", True))
     payload["expected"] = len(tickers)
     if source == "Yahoo":
         started = instant().isoformat()
         try:
-            frame = yahoo(tickers, start=day, end=(now.date() + timedelta(days=1)).isoformat())
+            frame = yahoo(tickers, start=day, end=(session_day + timedelta(days=1)).isoformat())
             finished = instant().isoformat()
             for row in frame.to_dict("records"):
-                if row.get("ticker") not in tickers or pd.Timestamp(row["date"]).date() != now.date():
+                if row.get("ticker") not in tickers or pd.Timestamp(row["date"]).date() != session_day:
                     continue
                 values = {k: row[k] for k in RAW_PRICE_COLUMNS}
                 values["volume"] = None if pd.isna(values["volume"]) else float(values["volume"])
@@ -126,8 +132,12 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
     if source not in {"Yahoo", "Avanza"}:
         raise ValueError("Okänd kurskälla")
     received = instant() if now is None else now
-    bounds = session_bounds(instant(payload["started_at"]))
-    if not bounds or instant(payload["started_at"]) < bounds[1] or day != received.date().isoformat():
+    started = instant(payload["started_at"])
+    session_day = pd.Timestamp(day).date()
+    bounds = session_bounds(started.replace(year=session_day.year, month=session_day.month, day=session_day.day))
+    if (not bounds or started < bounds[1] or
+            session_day > last_completed_session(received).date() or
+            session_day != last_completed_session(started).date()):
         raise ValueError("Snapshot gäller inte dagens avslutade handelssession")
     base = pd.read_parquet(base_file)
     base["date"] = pd.to_datetime(base.date)
@@ -187,9 +197,10 @@ def main():
     parser.add_argument("--planned", default="17:30")
     parser.add_argument("--file", type=Path, default=ROOT / ".cache/closing_snapshot.json")
     parser.add_argument("--defer-score-history", action="store_true")
+    parser.add_argument("--catch-up", action="store_true")
     args = parser.parse_args()
     if args.mode == "collect":
-        result = collect(args.source, args.planned)
+        result = collect(args.source, args.planned, catch_up=args.catch_up)
         write_json_atomic(args.file, result)
         print(json.dumps({k:v for k,v in result.items() if k != "rows"}, ensure_ascii=False))
         if output := os.getenv("GITHUB_OUTPUT"):
