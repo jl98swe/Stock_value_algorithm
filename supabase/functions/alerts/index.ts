@@ -92,16 +92,16 @@ Deno.serve(async (request) => {
   const {error:unsubError}=await db.from("alert_tokens").insert({token_hash:await digest(unsubscribeToken),subscriber_id:subscriberId,purpose:"unsubscribe",expires_at:new Date(Date.now()+365*24*60*60*1000).toISOString()});
   if (unsubError) return json({error:"database_unavailable"},503,origin);
   const confirmationUrl=new URL(request.url);
-  confirmationUrl.pathname=confirmationUrl.pathname.replace(/\/subscribe$/,"/confirm");
+  confirmationUrl.pathname="/functions/v1/alerts/confirm";
   confirmationUrl.search="?token="+token;
   const unsubscribeUrl=new URL(confirmationUrl.toString());
-  unsubscribeUrl.pathname=confirmationUrl.pathname.slice(0,-"confirm".length)+"unsubscribe";
+  unsubscribeUrl.pathname="/functions/v1/alerts/unsubscribe";
   unsubscribeUrl.search="?token="+unsubscribeToken;
   const {error:queueError}=await db.from("alert_email_queue").insert({
     subscriber_id:subscriberId,
     recipient:email,
     subject:"Bekräfta dina bevakningar – Stock Value Algorithm",
-    body:"Bekräfta din mejladress inom 24 timmar:\\n"+confirmationUrl.toString()+"\\n\\nAvsluta prenumerationen: "+unsubscribeUrl.toString()+"\\n\\nOm du inte begärt detta kan du bortse från mejlet.",
+    body:"Bekräfta din mejladress inom 24 timmar:\n"+confirmationUrl.toString()+"\n\nAvsluta prenumerationen: "+unsubscribeUrl.toString()+"\n\nOm du inte begärt detta kan du bortse från mejlet.",
     status:"pending"
   });
   if (queueError) return json({error:"queue_unavailable"},503,origin);
