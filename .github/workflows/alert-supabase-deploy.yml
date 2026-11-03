@@ -22,4 +22,4 @@ jobs:
         run: |
           test -n "$SUPABASE_ACCESS_TOKEN" || { echo "Missing SUPABASE_ACCESS_TOKEN"; exit 1; }
           test -n "$SUPABASE_PROJECT_REF" || { echo "Missing SUPABASE_PROJECT_REF"; exit 1; }
-          supabase functions deploy alerts --project-ref "$SUPABASE_PROJECT_REF" --no-verify-jwt
+          supabase functions deploy alerts --remote="$SUPABASE_PROJECT_REF" --no-verify-jwt --yes
