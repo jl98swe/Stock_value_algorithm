@@ -172,5 +172,14 @@ def test_catchup_does_not_download_already_published_session():
     def forbidden(*a, **k):
         pytest.fail('Already current')
     result = collect('Yahoo', '17:30', now=datetime.fromisoformat('2026-10-20T08:15:00+02:00'),
-                     stocks=[{**STOCKS[0], 'latest_date': '2026-10-19'}], yahoo=forbidden, catch_up=True)
+                     stocks=[{**STOCKS[0], 'latest_date': '2026-10-19'}], yahoo=forbidden, catch_up=True,
+                     provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Yahoo'}])
     assert result['state'] == 'up_to_date'
+
+
+def test_catchup_still_checks_yahoo_when_avanza_published_first():
+    result = collect('Yahoo', '17:30', now=NOW,
+                     stocks=[{**STOCKS[0], 'latest_date': '2026-10-19'}],
+                     yahoo=lambda *a, **k: pd.DataFrame([row()]), catch_up=True,
+                     provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Avanza'}])
+    assert result['available'] == 1

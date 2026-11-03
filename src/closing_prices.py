@@ -49,7 +49,7 @@ def fetch_avanza_daily(instrument, now):
 
 
 def collect(source, planned, *, now=None, stocks=None, instruments=None,
-            yahoo=_download, avanza=fetch_avanza_daily, catch_up=False):
+            yahoo=_download, avanza=fetch_avanza_daily, catch_up=False, provenance=None):
     now = instant() if now is None else now
     if catch_up and source != "Yahoo":
         raise ValueError("Historisk återhämtning kräver Yahoo")
@@ -65,10 +65,15 @@ def collect(source, planned, *, now=None, stocks=None, instruments=None,
         payload["completed_at"] = instant().isoformat()
         return payload
     stocks = stocks if stocks is not None else read_json("docs/data/stocks.json")["stocks"]
-    if catch_up and all(str(s.get("latest_date", "")) >= day for s in stocks if s.get("active_for_updates", True)):
-        payload["state"] = "up_to_date"
-        return payload
     tickers = sorted(s["ticker"] for s in stocks if s.get("active_for_updates", True))
+    if catch_up:
+        provenance = (pd.read_csv(PROVENANCE).to_dict("records") if PROVENANCE.exists() else []) if provenance is None else provenance
+        yahoo_done = {r["ticker"] for r in provenance if str(r["date"])[:10] == day and r["source"] == "Yahoo"}
+        if tickers and set(tickers).issubset(yahoo_done) and all(
+                str(s.get("latest_date", "")) >= day for s in stocks if s.get("active_for_updates", True)):
+            payload["state"] = "up_to_date"
+            payload["completed_at"] = instant().isoformat()
+            return payload
     payload["expected"] = len(tickers)
     if source == "Yahoo":
         started = instant().isoformat()
