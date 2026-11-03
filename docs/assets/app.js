@@ -384,6 +384,8 @@
       axisPointer: { link: [{ xAxisIndex: 'all' }], label: { backgroundColor: '#40515b' } },
       tooltip: {
         trigger: 'axis',
+        triggerOn: 'mousemove|click',
+        confine: true,
         axisPointer: { type: 'cross' },
         borderWidth: 1,
         borderColor: '#dfe6ea',
@@ -411,7 +413,7 @@
       ],
       xAxis: [
         { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
-        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisPointer: { snap: true }, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
         // Sparse event data must never determine the date extent when toggled.
         { type: 'category', gridIndex: 2, data: dates, boundaryGap: true, show: false, axisPointer: { show: false }, min: 0, max: dates.length - 1 }
       ],
@@ -420,7 +422,7 @@
           min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
           max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
           axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
-        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
+        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisPointer: { show: false }, axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
         { gridIndex: 2, min: 0, max: 2, show: false, axisPointer: { show: false } }
       ],
       dataZoom: [
@@ -434,7 +436,7 @@
           markPoint: { data: signalPoints, tooltip: { show: false } }
         },
         {
-          name: 'Värderingspoäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'none', smooth: false, lineStyle: { width: 2.5, color: '#D5A62E' },
+          name: 'Värderingspoäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1, data: scores, symbol: 'circle', showSymbol: false, symbolSize: 7, itemStyle: { color: '#D5A62E' }, smooth: false, lineStyle: { width: 2.5, color: '#D5A62E' },
           areaStyle: { color: 'rgba(47,111,176,.05)' },
           markArea: { silent: true, data: [[{ yAxis: 0, itemStyle: { color: 'rgba(31,143,103,.10)' } }, { yAxis: 25 }], [{ yAxis: 75, itemStyle: { color: 'rgba(199,71,71,.10)' } }, { yAxis: 100 }]] },
         },
@@ -442,7 +444,7 @@
           symbol: 'emptyCircle', symbolSize: 10, itemStyle: { color: preview?.preliminary === false ? '#2f6fb0' : '#8056b3', borderWidth: 2 }, z: 6 },
         { name: 'Preliminär poäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1,
           data: dates.map((d, i) => preview?.preliminary && preview.score != null && (d === preview.candle.date || i === dates.length - 2) ? scoreMap.get(d) ?? null : null),
-          symbol: 'none', lineStyle: { type: 'solid', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
+          symbol: 'circle', showSymbol: false, symbolSize: 7, lineStyle: { type: 'solid', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
       ]
     };
     state.chart.setOption(option, true);
