@@ -442,7 +442,7 @@
           symbol: 'emptyCircle', symbolSize: 10, itemStyle: { color: preview?.preliminary === false ? '#2f6fb0' : '#8056b3', borderWidth: 2 }, z: 6 },
         { name: 'Preliminär poäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1,
           data: dates.map((d, i) => preview?.preliminary && preview.score != null && (d === preview.candle.date || i === dates.length - 2) ? scoreMap.get(d) ?? null : null),
-          symbol: 'emptyCircle', symbolSize: 7, lineStyle: { type: 'dashed', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
+          symbol: 'none', lineStyle: { type: 'solid', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
       ]
     };
     state.chart.setOption(option, true);
