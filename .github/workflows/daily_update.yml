@@ -37,6 +37,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   collect:
@@ -234,3 +235,8 @@ jobs:
           git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
+
+      - name: Publicera uppdaterade webbdata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
