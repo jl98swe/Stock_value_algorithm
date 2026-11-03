@@ -208,15 +208,13 @@
     const position = data.position || {};
     const action = data.next_action || {};
 
-    const shownScore = provisionalScore ?? latest.score;
+    const shownScore = preview ? provisionalScore : latest.score;
     $('metric-score').textContent = shownScore == null ? '–' : fmt.format(shownScore);
-    $('metric-score-status').textContent = preview ? (provisionalScore == null ? 'Senaste slutliga poäng · ny poäng saknas' : isPreliminary ? 'Preliminär · kan ändras före stängning' : '') : '';
-    $('metric-score-status').hidden = !$('metric-score-status').textContent;
     $('metric-score').closest('.score-card').classList.toggle('is-preliminary', provisionalScore != null && isPreliminary);
     $('metric-score').style.color = provisionalScore != null && isPreliminary ? '#8056b3' : scoreColor(shownScore);
     $('metric-zone').textContent = provisionalScore != null
       ? (isPreliminary ? 'Preliminär' : shownScore >= 80 ? 'Övervärderad' : shownScore >= 60 ? 'Relativt dyr' : shownScore >= 40 ? 'Neutral' : shownScore >= 20 ? 'Relativt attraktiv' : 'Undervärderad')
-      : latest.zone || '–';
+      : preview ? '–' : latest.zone || '–';
     $('metric-zone').className = `zone-pill ${zoneClass(shownScore)}`;
     $('metric-pe').textContent = latest.pe_ttm == null ? '–' : fmt.format(latest.pe_ttm);
     $('metric-eps').textContent = `EPS TTM ${formatModelEps(data)}`;
@@ -224,8 +222,6 @@
     $('metric-unrealized').textContent = position.lots ? `Orealiserat ${pct(position.unrealized_pct)}` : 'Ingen aktiv modellposition';
     $('metric-action').textContent = action.label || 'Ingen signal';
     $('metric-action').className = `metric-value metric-action ${action.type === 'BUY' ? 'positive' : action.type === 'SELL' ? 'negative' : ''}`;
-    $('metric-action-detail').textContent = ['BUY', 'SELL'].includes(action.type) ? '' : action.detail || '';
-    $('metric-action-detail').hidden = !$('metric-action-detail').textContent;
   }
 
   function renderStatus(data) {

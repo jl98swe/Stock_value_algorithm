@@ -244,7 +244,8 @@ def test_publish_only_updates_disposable_branch_without_parents(monkeypatch):
         q.publish({})
 
 
-def test_scoring_accepts_trades_that_arrive_during_collection(monkeypatch, tmp_path):
+@pytest.mark.parametrize("cleanup", [False, True])
+def test_scoring_accepts_trades_that_arrive_during_collection(monkeypatch, tmp_path, cleanup):
     # Synthetic clock: a batch starts before its last valid quote is received.
     from src import intraday_valuation
     times = iter([NOW, NOW + q.timedelta(minutes=3)])
@@ -253,9 +254,10 @@ def test_scoring_accepts_trades_that_arrive_during_collection(monkeypatch, tmp_p
     monkeypatch.setattr(q, "read_json", lambda path: {"stocks": STOCKS} if "stocks.json" in path else INSTRUMENTS)
     output = {"session_date": "2026-10-15", "stocks": {}, "coverage": {"available": 0, "expected": 0}}
     monkeypatch.setattr(q, "collect", lambda *args: output)
+    monkeypatch.setattr(q, "prune", lambda *args: output)
     scored_at = []
     monkeypatch.setattr(intraday_valuation, "add_preliminary_scores", lambda payload, stocks, now: scored_at.append(now))
-    monkeypatch.setattr("sys.argv", ["intraday", "--output", str(tmp_path / "cache.json")])
+    monkeypatch.setattr("sys.argv", ["intraday", "--output", str(tmp_path / "cache.json")] + (["--cleanup"] if cleanup else []))
     q.main()
     assert scored_at == [NOW + q.timedelta(minutes=3)]
 

@@ -203,7 +203,7 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   Object.assign(api.state,{selectedTicker:'EXAMPLE.ST',range:'all',chart:{setOption(value){option=value}},stocksPayload:{stocks:[]}});
   const data={latest:{date:'2026-10-14',score:50},candles:[{date:'2026-10-14',open:99,high:101,low:98,close:100}],scores:[{date:'2026-10-14',value:50}]};
   api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
-  assert.match(element('metric-score-status').textContent,/Preliminär/);
+  assert.equal(element('metric-score').textContent,'42');
   assert.equal(element('chart-preliminary-note').hidden,false);
   assert.equal(option.series[0].data.at(-1).itemStyle.color,'#8056b3');
   const preliminaryTooltip=option.tooltip.formatter([{axisValue:'2026-10-15'}]);
@@ -211,7 +211,6 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   assert.match(preliminaryTooltip,/O 100 · H 105 · L 99 · C 102/);
   preview.preliminary=false;preview.candle.preliminary=false;
   api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
-  assert.doesNotMatch(element('metric-score-status').textContent,/Preliminär/);
   assert.equal(element('metric-score').classList['is-preliminary'],false);
   assert.notEqual(element('metric-score').style.color,'#8056b3');
   assert.equal(element('chart-preliminary-note').hidden,true);
@@ -222,11 +221,14 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   assert.doesNotMatch(tooltip,/Efter stängning|Senaste avslut|13:15|Score/);
   assert.match(tooltip,/O 100 · H 105 · L 99 · C 102/);
   assert.match(tooltip,/Värderingspoäng <strong>42/);
-  assert.equal(element('metric-score-status').hidden,true);
   assert.equal(element('metric-zone').textContent,'Neutral');
   const historicalTooltip=option.tooltip.formatter([{axisValue:'2026-10-14'}]);
   assert.match(historicalTooltip,/Värderingspoäng/);
   assert.doesNotMatch(historicalTooltip,/Score/);
+  preview.score=null;
+  api.renderMetrics(data);
+  assert.equal(element('metric-score').textContent,'–');
+  assert.doesNotMatch(fs.readFileSync('docs/index.html','utf8'),/metric-action-detail|metric-score-status/);
 });
 
 // Synthetic example: a closing fetch uses the ordinary closing label, without trade time.
