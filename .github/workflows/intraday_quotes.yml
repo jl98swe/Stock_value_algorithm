@@ -22,7 +22,7 @@ on:
     - cron: "7,22,37,52 7-18 * * 1-5"
   workflow_dispatch:
   workflow_run:
-    workflows: [Daglig marknadsuppdatering, Dagskurser 18.30 · Avanza]
+    workflows: [Daglig marknadsuppdatering, Dagskurser 17.30 · Avanza]
     types: [completed]
     branches: [main]
 

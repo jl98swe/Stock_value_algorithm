@@ -17,6 +17,9 @@ on:
     # Only collects on early-close sessions; full days return not_due.
     - cron: "15 13 * * 1-5"
       timezone: "Europe/Stockholm"
+    # Recover a delayed or missed close on the next morning.
+    - cron: "15 8 * * 1-5"
+      timezone: "Europe/Stockholm"
   workflow_dispatch:
     inputs:
       source:
@@ -34,6 +37,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   collect:
@@ -59,7 +63,12 @@ jobs:
         env:
           PRICE_SOURCE: ${{ inputs.source || 'Yahoo' }}
           PLANNED_TIME: ${{ inputs.planned || (github.event.schedule == '15 13 * * 1-5' && '13:15') || '17:30' }}
-        run: python -m src.closing_prices collect --source "$PRICE_SOURCE" --planned "$PLANNED_TIME"
+        run: |
+          if [ "$PRICE_SOURCE" = "Yahoo" ]; then
+            python -m src.closing_prices collect --source "$PRICE_SOURCE" --planned "$PLANNED_TIME" --catch-up
+          else
+            python -m src.closing_prices collect --source "$PRICE_SOURCE" --planned "$PLANNED_TIME"
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -102,6 +111,10 @@ jobs:
 
       - name: Uppdatera valutakurser
         run: python -m src.fx
+
+      - name: Återhämta saknade avslutade handelsdagar
+        if: ${{ (inputs.source || 'Yahoo') == 'Yahoo' }}
+        run: python -m src.fetch_data
 
       - name: Slå ihop med senast publicerade dagsdata
         run: python -m src.closing_prices apply
@@ -222,3 +235,8 @@ jobs:
           git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
+
+      - name: Publicera uppdaterade webbdata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent

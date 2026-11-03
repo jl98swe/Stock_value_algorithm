@@ -107,7 +107,7 @@ def test_daily_workflows_have_independent_collection_and_only_serialize_publicat
     assert "concurrency" not in w["jobs"]["collect"]
     assert w["jobs"]["update"]["needs"] == "collect"
     assert w["jobs"]["update"]["concurrency"]["group"] == "stock-data-${{ github.ref }}"
-    assert w.get("on",w.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"15 13 * * 1-5","timezone":"Europe/Stockholm"}]
+    assert w.get("on",w.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"15 13 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"15 8 * * 1-5","timezone":"Europe/Stockholm"}]
     a=yaml.safe_load((root/"avanza_closing.yml").read_text())
     assert a.get("on",a.get(True))["schedule"] == [{"cron":"30 17 * * 1-5","timezone":"Europe/Stockholm"}, {"cron":"0 14 * * 1-5","timezone":"Europe/Stockholm"}]
     assert a["jobs"]["daily"]["with"]["source"] == "Avanza"
@@ -149,3 +149,37 @@ def test_calendar_controls_early_closing_collection(date,time,expected,source):
                    instruments={'EXAMPLE.ST':{}},yahoo=yahoo,avanza=avanza)
     assert bool(calls) is expected
     assert bool(result['rows']) is expected
+
+
+def test_yahoo_catchup_after_midnight_collects_last_completed_session():
+    calls = []
+    def yahoo(tickers, **kwargs):
+        calls.append(kwargs)
+        return pd.DataFrame([row()])
+    result = collect('Yahoo', '17:30', now=datetime.fromisoformat('2026-10-20T00:40:00+02:00'),
+                     stocks=STOCKS, yahoo=yahoo, catch_up=True)
+    assert result['session_date'] == '2026-10-19'
+    assert result['available'] == 1
+    assert calls == [{'start': '2026-10-19', 'end': '2026-10-20'}]
+
+
+def test_snapshot_can_publish_after_midnight(paths):
+    paths['now'] = datetime.fromisoformat('2026-10-20T00:40:00+02:00')
+    assert apply_snapshot(snapshot('Yahoo'), **paths)['applied'] == 1
+
+
+def test_catchup_does_not_download_already_published_session():
+    def forbidden(*a, **k):
+        pytest.fail('Already current')
+    result = collect('Yahoo', '17:30', now=datetime.fromisoformat('2026-10-20T08:15:00+02:00'),
+                     stocks=[{**STOCKS[0], 'latest_date': '2026-10-19'}], yahoo=forbidden, catch_up=True,
+                     provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Yahoo'}])
+    assert result['state'] == 'up_to_date'
+
+
+def test_catchup_still_checks_yahoo_when_avanza_published_first():
+    result = collect('Yahoo', '17:30', now=NOW,
+                     stocks=[{**STOCKS[0], 'latest_date': '2026-10-19'}],
+                     yahoo=lambda *a, **k: pd.DataFrame([row()]), catch_up=True,
+                     provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Avanza'}])
+    assert result['available'] == 1

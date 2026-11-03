@@ -67,3 +67,21 @@ def test_fundamental_lock_blocks_without_consuming_buy_boundary():
     assert executed[0]["side"] == "BUY"
     assert executed[0]["signal_date"] == dates[2].date().isoformat()
     assert executed[0]["execution_date"] == dates[3].date().isoformat()
+
+
+def test_opening_gap_stop_has_no_invented_score_and_exports_as_json():
+    # Synthetic opening observation: the close score is intentionally unknown.
+    import json
+    import numpy as np
+    frame = pd.DataFrame({
+        'Date': pd.bdate_range('2026-10-19', periods=3),
+        'Open': [100., 100., 85.], 'Close': [100., 100., 85.],
+        'Low': [100., 100., 85.], 'Score': [0., 50., np.nan],
+        'OpeningOnly': [False, False, True],
+    })
+    result = run_strategy(frame, 'EXAMPLE.ST', stop_loss_pct=10)
+    stop = [s for s in result['signals'] if s.get('exit_reason') == 'stop_loss']
+    assert len(stop) == 1
+    assert stop[0]['score'] is None
+    assert stop[0]['execution_price'] == 85.
+    json.dumps(result['signals'], allow_nan=False)
