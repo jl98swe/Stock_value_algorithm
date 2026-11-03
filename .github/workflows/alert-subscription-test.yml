@@ -1,0 +1,25 @@
+name: Test alert email subscription
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Email address to register (not stored in repository)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register test subscription and verify queue
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TEST_ALERT_EMAIL: ${{ inputs.test_email }}
+        run: python scripts/test_alert_subscription.py
