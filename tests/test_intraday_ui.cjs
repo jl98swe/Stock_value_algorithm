@@ -201,7 +201,7 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
     CustomEvent:class{},echarts:{}});
   const api=window.testing;
   Object.assign(api.state,{selectedTicker:'EXAMPLE.ST',range:'all',chart:{setOption(value){option=value}},stocksPayload:{stocks:[]}});
-  const data={latest:{date:'2026-10-14',score:50},candles:[{date:'2026-10-14',open:99,high:101,low:98,close:100}],scores:[{date:'2026-10-14',value:50}]};
+  const data={latest:{date:'2026-10-14',score:50,zone:'Neutral'},candles:[{date:'2026-10-14',open:99,high:101,low:98,close:100}],scores:[{date:'2026-10-14',value:50}]};
   api.renderMetrics(data);api.renderChart('EXAMPLE.ST',data);
   assert.equal(element('metric-score').textContent,'42');
   assert.equal(element('chart-preliminary-note').hidden,false);
@@ -225,9 +225,16 @@ test('homepage score and chart use ordinary styling for data fetched after 17:30
   const historicalTooltip=option.tooltip.formatter([{axisValue:'2026-10-14'}]);
   assert.match(historicalTooltip,/Värderingspoäng/);
   assert.doesNotMatch(historicalTooltip,/Score/);
-  preview.score=null;
+  preview.score=null;preview.preliminary=true;
   api.renderMetrics(data);
-  assert.equal(element('metric-score').textContent,'–');
+  assert.equal(element('metric-score').textContent,'50');
+  assert.equal(element('metric-zone').textContent,'Neutral');
+  assert.equal(element('metric-score').classList['is-preliminary'],false);
+  assert.notEqual(element('metric-score').style.color,'#8056b3');
+  preview.score=0;
+  api.renderMetrics(data);
+  assert.equal(element('metric-score').textContent,'0');
+  assert.equal(element('metric-zone').textContent,'Preliminär');
   assert.doesNotMatch(fs.readFileSync('docs/index.html','utf8'),/metric-action-detail|metric-score-status/);
 });
 
