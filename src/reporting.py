@@ -28,6 +28,7 @@ from .config import ROOT
 from .events import load_report_calendar
 from .fundamentals import REPORT_CURRENCY_NOTE_PATTERN
 from .manual_eps import find_prior_year_diluted_eps
+from .eps_conversion import conversion_metadata
 from .quarterly_eps import DILUTED_METRIC, MANUAL_METRIC, load_quarterly_eps
 from .utils import write_json_atomic
 
@@ -730,10 +731,12 @@ def _upcoming_rows(
                 "current_score": _json_number(latest.get("Score")),
                 "current_eps_ttm": _json_number(latest.get("EPS_TTM"), None),
                 "previous_eps_ttm": previous_eps,
+                "previous_eps_conversion": conversion_metadata(latest_report),
                 "previous_eps_ttm_currency": previous_currency,
                 "eps_ttm_currency": price_currencies.get(ticker, "SEK") or "SEK",
                 "new_eps_ttm": _json_number(new_report.get("eps_ttm"), None) if new_report is not None else None,
                 "new_eps_ttm_currency": new_currency,
+                "new_eps_conversion": conversion_metadata(new_report),
                 "next_period_end": _iso_date(next_period) if period_is_plausible else None,
                 "neutral_quarter_eps": _json_number(prior.get("eps"), 6) if prior is not None else None,
                 "neutral_eps_currency": str(prior.get("eps_currency") or "") if prior is not None else None,
@@ -803,6 +806,7 @@ def _report_eps_change(report: pd.Series, reports: pd.DataFrame, quarterly: pd.D
     ].sort_values(["effective_date", "published_at"])
     before, before_currency, before_period = None, None, None
     basis = "missing"
+    previous = None
     if not prior.empty:
         previous = prior.iloc[-1]
         before, before_currency = _report_eps(previous, fallback_currency)
@@ -814,6 +818,8 @@ def _report_eps_change(report: pd.Series, reports: pd.DataFrame, quarterly: pd.D
             basis = "four_quarters"
     after, after_currency = _report_eps(report, fallback_currency)
     return {"eps_ttm_before": before, "eps_ttm_after": after,
+            "eps_ttm_before_conversion": conversion_metadata(previous) if before is not None else None,
+            "eps_ttm_after_conversion": conversion_metadata(report) if after is not None else None,
             "eps_ttm_currency": before_currency if before_currency == after_currency else None,
             "eps_ttm_before_currency": before_currency, "eps_ttm_after_currency": after_currency,
             "eps_ttm_before_period": before_period, "eps_ttm_after_period": str(report["report_period"]),
@@ -867,7 +873,8 @@ def _recent_rows(
                 "name": names.get(ticker) or ticker.removesuffix(".ST").replace("-", " "),
                 "report_period": str(report.report_period or ""),
                 "report_date": published_date or _iso_date(effective),
-                "report_date_verified": published_date is not None or (ticker, str(report.report_period)) in pinned_dates,
+                "report_date_verified": published_date is not None or (ticker, str(report.report_period)) in pinned_dates
+                    or conversion_metadata(report._asdict()) is not None,
                 "report_date_source": ("published_at" if published_date is not None else
                                        "verified_date_override" if (ticker, str(report.report_period)) in pinned_dates
                                        else "effective_date_fallback"),

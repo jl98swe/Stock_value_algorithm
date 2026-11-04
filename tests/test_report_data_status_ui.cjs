@@ -63,10 +63,10 @@ const shown = main => main.children.flatMap(panel => panel.children.at(-1).child
   const overview=fs.readFileSync(path.join(root,'docs/assets/overview.js'),'utf8');
   const renderSource=overview.slice(overview.indexOf('  function renderPositions('),overview.indexOf('  function signalCandidate('));
   const nodes={};
-  const render=new Function('window','$','stockMeta','textIncludes','stockHref','esc','money','number','pct','score','prettyDate',`${renderSource}; return renderPositions;`)(
+  const render=new Function('window','$','stockMeta','textIncludes','stockHref','esc','money','number','pct','score','prettyDate','fxIcon',`${renderSource}; return renderPositions;`)(
     {reportDataStatus:test.api}, id=>nodes[id] ||= {}, (_,ticker)=>({name:ticker}),
     (row,needle)=>!needle || row.ticker.includes(needle), value=>value, value=>value,
-    value=>value, Number, value=>value, value=>value, value=>value);
+    value=>value, Number, value=>value, value=>value, value=>value, ()=> '');
   const dashboard={stocks:{'AAA.ST':{position:{lots:1}},'BBB.ST':{position:{lots:0}},'CCC.ST':{position:{lots:2}},'DDD.ST':{position:{lots:1},active_for_updates:false}}};
   render(dashboard,{},'');
   assert.deepEqual(shown(test.main),['AAA.ST','CCC.ST']);

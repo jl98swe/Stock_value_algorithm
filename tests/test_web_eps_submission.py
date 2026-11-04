@@ -22,6 +22,7 @@ def payload(monkeypatch):
     {"period_end": "2026-02-30"}, {"published_at": "2099-01-01"}, {"request_id": "../bad"},
     {"source": ""}, {"metric": "reportedEPS"}, {"currency": ""},
     {"notes": "report_currency=USD"}, {"notes": "manual_report_submission_v1"},
+    {"notes": "eps_fx_fallback_v1; fx_rate=10"},
 ])
 def test_invalid_inputs_are_rejected_before_writes(payload, change):
     with pytest.raises(ValueError):
@@ -39,7 +40,9 @@ def setup_storage(monkeypatch, tmp_path):
 
 def test_currency_review_is_saved_without_changing_canonical_ttm(payload, monkeypatch, tmp_path):
     audit = setup_storage(monkeypatch, tmp_path)
-    monkeypatch.setattr(web, "add_report", lambda **kw: pytest.fail("Must not apply foreign-currency EPS"))
+    def no_rate(**kw):
+        raise ValueError("Saknar valutakurs före rapportdagen")
+    monkeypatch.setattr(web, "add_report", no_rate)
     result = web.submit({**payload, "currency": "EUR"})
     assert result["status"] == "currency_review"
     assert result["result_eps_ttm"] is None
@@ -80,3 +83,43 @@ def test_direct_sek_ttm_overrides_foreign_reporting_currency(payload, monkeypatc
     assert row["submission_id"] == payload["request_id"]
     assert web.submit({**payload, "value": 0}) == result
     assert len(load_manual_submissions(audit)) == 1
+
+
+def test_foreign_ttm_uses_pinned_fx_and_retry_keeps_original_input(payload, monkeypatch, tmp_path):
+    import src.eps_conversion as conversion
+    monkeypatch.setattr(conversion, 'record_conversion', lambda row: None)
+    import src.fx as fx_module
+    from src.eps_conversion import conversion_metadata
+    audit = setup_storage(monkeypatch, tmp_path)
+    captured = []
+    monkeypatch.setattr(reports_module, "load_reports", empty_reports)
+    monkeypatch.setattr(reports_module, "save_reports", lambda frame: captured.append(frame))
+    monkeypatch.setattr(reports_module, "load_stock_currencies", web.load_stock_currencies)
+    monkeypatch.setattr(reports_module, "append_manual_submission", lambda **kw: append_manual_submission(**kw, path=audit))
+    monkeypatch.setattr(reports_module, "publish_manual_reports", lambda frame: None)
+    monkeypatch.setattr(fx_module, "load_fx_history", lambda: pd.DataFrame([
+        dict(date='2026-10-22',base_currency='EUR',quote_currency='SEK',rate=10),
+        dict(date='2026-10-23',base_currency='EUR',quote_currency='SEK',rate=20)]))
+    item = {**payload, 'value': 1.3, 'currency': 'EUR'}
+    result = web.submit(item)
+    assert result['status'] == 'applied' and result['currency'] == 'SEK'
+    assert result['result_eps_ttm'] == 13
+    assert conversion_metadata(captured[0].iloc[0])['rate_date'] == '2026-10-22'
+    assert web.submit(item) == result
+    assert len(load_manual_submissions(audit)) == 1
+
+
+def test_fx_cannot_replace_existing_manual_sek_ttm(payload, monkeypatch):
+    from src.fundamentals import normalise_reports
+    import src.fx as fx_module
+    existing = normalise_reports(pd.DataFrame([dict(ticker='TEST.ST',report_period='2026-Q3',
+        period_end='2026-09-30',effective_date='2026-10-23',eps_ttm=13,
+        verified=True,source='TradingView / diluted',notes='report_currency=SEK')]))
+    monkeypatch.setattr(reports_module, 'load_reports', lambda: existing)
+    monkeypatch.setattr(reports_module, 'load_stock_currencies', web.load_stock_currencies)
+    monkeypatch.setattr(fx_module,'load_fx_history', lambda:pd.DataFrame([
+        dict(date='2026-10-22',base_currency='EUR',quote_currency='SEK',rate=10)]))
+    monkeypatch.setattr(reports_module,'save_reports',lambda _:pytest.fail('Must preserve manual TTM'))
+    with pytest.raises(ValueError,match='manuellt EPS'):
+        reports_module.add_report(ticker='TEST.ST',report_period='2026-Q3',period_end='2026-09-30',
+            published_at='2026-10-23',source='Example issuer',eps_ttm=1.3,eps_currency='EUR')

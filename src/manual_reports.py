@@ -11,6 +11,7 @@ import pandas as pd
 from .config import ROOT
 from .fundamentals import load_reports, normalise_reports
 from .utils import write_json_atomic
+from .eps_conversion import conversion_metadata
 
 AUDIT_FILE = ROOT / "data" / "manual" / "report_submissions.csv"
 WEB_FILE = ROOT / "docs" / "data" / "manual_reports.json"
@@ -110,13 +111,17 @@ def publish_manual_reports(
     submissions = load_manual_submissions(audit_path)
     items: list[dict[str, object]] = []
     represented: set[tuple[str, str, str]] = set()
+    canonical = normalise_reports(reports) if reports is not None else load_reports()
+    conversions = {(str(row.ticker), str(row.report_period), str(float(row.eps_ttm))):
+                   conversion_metadata(row._asdict()) for row in canonical.itertuples(index=False)
+                   if pd.notna(row.eps_ttm)}
 
     for row in submissions.to_dict("records"):
-        item = {**row, "origin": "submission"}
+        item = {**row, "origin": "submission", "eps_conversion": conversion_metadata(row) or
+                conversions.get((row["ticker"], row["report_period"], row["result_eps_ttm"]))}
         items.append(item)
         represented.add((row["ticker"], row["report_period"], row["result_eps_ttm"]))
 
-    canonical = normalise_reports(reports) if reports is not None else load_reports()
     canonical = canonical.loc[
         canonical["verified"]
         & ~canonical["source"].astype(str).str.startswith("Yahoo Finance")
@@ -147,6 +152,7 @@ def publish_manual_reports(
                 "eps_currency": currency_match.group(1).upper() if currency_match else "",
                 "source": str(row["source"]),
                 "notes": "",
+                "eps_conversion": conversion_metadata(row),
                 "submitted_at": _iso(row["verified_at"]),
                 "origin": "canonical",
             }

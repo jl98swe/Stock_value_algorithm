@@ -184,6 +184,7 @@ jobs:
           git add data/fundamentals/eps_ttm_history_aligned.csv
           git add data/fundamentals/yahoo_history_all.csv
           git add data/fundamentals/reports.csv
+          git add data/fundamentals/eps_fx_conversions.csv
           git add data/metadata/stocks_yahoo.csv
           git add data/derived/eps_report_date_audit.csv
           git add data/derived/eps_report_date_missing.csv

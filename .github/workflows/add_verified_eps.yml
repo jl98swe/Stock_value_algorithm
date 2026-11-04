@@ -8,6 +8,8 @@ on:
       - "data/manual/report_submissions.csv"
       - "data/earnings/quarterly_eps.csv"
       - "src/reporting.py"
+      - "src/eps_conversion.py"
+      - "src/pipeline.py"
       - "src/report_date_revisions.py"
   workflow_dispatch:
     inputs:
@@ -126,6 +128,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/fundamentals/reports.csv data/manual/report_submissions.csv docs/data
+          git add data/fundamentals/eps_fx_conversions.csv
           git add data/derived/valuation_score_history.csv.gz
           git add data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           git add data/earnings/quarterly_eps.csv
