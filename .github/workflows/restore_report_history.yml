@@ -44,7 +44,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/manual/history_corrections.json data/derived data/fundamentals docs/data
+          git add data/manual/history_corrections.json data/fundamentals docs/data
+          git add data/derived/valuation_score_history.csv.gz
+          git add data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           git diff --cached --quiet && exit 0
           git commit -m "fix: återställ publicerade poäng och affärer före rapportdagen"
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
