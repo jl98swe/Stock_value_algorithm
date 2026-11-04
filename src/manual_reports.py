@@ -128,7 +128,7 @@ def publish_manual_reports(
         & canonical["eps_ttm"].notna()
     ]
     canonical = (
-        canonical.sort_values(["ticker", "effective_date", "period_end"])
+        canonical.sort_values(["ticker", "effective_date", "period_end"], na_position="first")
         .groupby("ticker", as_index=False, sort=False)
         .tail(1)
     )

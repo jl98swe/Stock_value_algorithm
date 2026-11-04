@@ -119,3 +119,18 @@ def test_manual_eps_always_has_priority_over_yahoo() -> None:
     assert not _is_replaceable_generated_report(manual_direct)
     assert not _is_replaceable_generated_report(manual_quarterly)
     assert _is_replaceable_generated_report(yahoo)
+
+
+def test_latest_dated_conversion_is_not_hidden_by_an_undated_old_report(tmp_path):
+    from src.eps_conversion import convert_ttm
+    fx = pd.DataFrame([dict(date='2026-11-03',rate=10,base_currency='EUR',quote_currency='SEK')])
+    notes = convert_ttm(1.3,'EUR','SEK','2026-11-04',fx)['notes'] + '; report_currency=SEK'
+    rows = pd.DataFrame([
+        dict(ticker='EXAMPLE.ST',report_period='2026-Q3',period_end='2026-09-30',
+             effective_date='2026-11-04',verified=True,eps_ttm=13,source='Example issuer',notes=notes),
+        dict(ticker='EXAMPLE.ST',report_period='2018-Q3',period_end='2018-09-30',
+             effective_date=None,verified=True,eps_ttm=4,source='TradingView',notes='report_currency=SEK')])
+    data = publish_manual_reports(rows,audit_path=tmp_path/'missing.csv',output_path=tmp_path/'manual.json')
+    assert len(data['submissions']) == 1
+    assert data['submissions'][0]['report_period'] == '2026-Q3'
+    assert data['submissions'][0]['eps_conversion']['original_eps_ttm'] == 1.3
