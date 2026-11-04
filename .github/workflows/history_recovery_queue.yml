@@ -1,0 +1,30 @@
+name: Frigör kö för historikrättelse
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/history_recovery_queue.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  unblock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stoppa kända äldre och dubblerade datakörningar
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // One-time IDs observed during the 4 Nov history repair.
+            // Do not cancel the recovery run or any subsequent market run.
+            const ids = [41894831460,41899725694,41894831327,41894831454,41896244777,41900290451,41900290366,41900290348,41900290752,41900290498];
+            for (const run_id of ids) {
+              const {data: run} = await github.rest.actions.getWorkflowRun({...context.repo, run_id});
+              if (run.status === 'completed') continue;
+              await github.rest.actions.cancelWorkflowRun({...context.repo, run_id});
+              core.info('Stopped stale/duplicate run ' + run_id);
+            }
