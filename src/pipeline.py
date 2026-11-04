@@ -38,6 +38,7 @@ from .model_data import ensure_gbm_model
 from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
+from .eps_conversion import apply_fx_fallbacks, conversion_metadata
 from .report_date_revisions import changed_date_cutoffs, changed_eps_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
 from .score_history import (
     SCORE_HISTORY_FILE,
@@ -298,6 +299,7 @@ def _report_payload(
     return {
         "period": str(latest.get("report_period") or ""),
         "eps_ttm": _json_number(latest.get("eps_ttm")),
+        "eps_conversion": conversion_metadata(latest),
         "effective_date": _iso_date(latest.get("effective_date")),
         "verified": bool(latest.get("verified", False)),
         **upcoming,
@@ -438,6 +440,10 @@ def _stock_payload(
     ]
     write_json_atomic(DOCS_DATA / "backtests" / f"{ticker}.json", backtests)
     report_payload = _report_payload(ticker, reports, calendar, schedule=report_schedule)
+    conversion = report_payload.get("eps_conversion")
+    # Show provenance only for the EPS actually used by the current valuation.
+    if conversion and (latest_eps is None or abs(latest_eps - float(report_payload["eps_ttm"])) > 1e-8):
+        conversion = None
     dashboard_stock = {
         "latest": {
             "date": _iso_date(latest_price["date"]),
@@ -445,6 +451,7 @@ def _stock_payload(
             "change_pct": _json_number(change_pct, 4),
             "score": latest_score,
             "eps_ttm": latest_eps,
+            "eps_conversion": conversion,
             "pe_ttm": latest_pe,
             "zone": latest_zone,
             "fundamental_lock": locked,
@@ -614,7 +621,7 @@ def build_dashboard(
     score_recalculation_cutoffs: dict[str, object] | None = None,
 ) -> dict[str, object]:
     prices = load_price_history(base_file, updates_file)
-    reports = load_reports()
+    reports = apply_fx_fallbacks(load_reports())
     reviews = load_reviews()
     calendar = load_report_calendar()
     report_schedule = _combined_schedule(load_auto_report_calendar(), calendar)

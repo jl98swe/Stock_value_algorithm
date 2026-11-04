@@ -75,16 +75,35 @@ def add_report(
     requested_currency = str(eps_currency or "").strip().upper()
     eps_currency: str
     input_metric: str
+    conversion_note = ""
     if eps is not None:
-        derivation = derive_manual_eps_ttm_safe(
-            ticker=ticker.strip(),
-            period_end=period_end,
-            current_period_eps=float(eps),
-        )
+        try:
+            derivation = derive_manual_eps_ttm_safe(
+                ticker=ticker.strip(), period_end=period_end, current_period_eps=float(eps),
+            )
+        except ValueError as error:
+            if "Valutakonflikt" not in str(error):
+                raise
+            from .eps_conversion import native_ttm, convert_ttm
+            from .quarterly_eps import load_quarterly_eps
+            from .manual_eps import find_prior_year_diluted_eps
+            from .earnings import load_earnings_history
+            from .fx import load_fx_history
+            quarterly = load_quarterly_eps()
+            prior = find_prior_year_diluted_eps(ticker, period_end, quarterly)
+            native_currency = requested_currency or (str(prior.eps_currency) if prior is not None else "")
+            currencies = load_stock_currencies().set_index("ticker")
+            native = native_ttm(ticker, period_end, float(eps), native_currency, quarterly,
+                                load_earnings_history(), load_reports())
+            converted = convert_ttm(native["eps_ttm"], native_currency, currencies.loc[ticker, "price_currency"],
+                                    same_day, load_fx_history())
+            conversion_note = f"{converted['notes']}; {native['notes']}"
+            derivation = {"eps_ttm": converted["eps_ttm"], "eps_currency": native_currency,
+                          "audit_note": conversion_note, "target_currency": converted["currency"]}
         if requested_currency and requested_currency != derivation["eps_currency"]:
             raise ValueError("Valutan för inmatad kvartals-EPS skiljer sig från TTM-underlaget")
         final_eps_ttm = float(derivation["eps_ttm"])
-        eps_currency = str(derivation["eps_currency"])
+        eps_currency = str(derivation.get("target_currency", derivation["eps_currency"]))
         input_metric = "quarterly_eps"
         derivation_note = str(derivation["audit_note"])
         final_notes = f"{final_notes}; {derivation_note}" if final_notes else derivation_note
@@ -96,6 +115,19 @@ def add_report(
             raise ValueError(f"Rapportvaluta saknas för {ticker.strip()}")
         eps_currency = requested_currency or str(match.iloc[-1]).strip().upper()
         input_metric = "eps_ttm"
+
+    input_currency = str(derivation["eps_currency"]) if eps is not None else eps_currency
+    meta = load_stock_currencies()
+    meta = meta.loc[meta.ticker.eq(ticker.strip())]
+    if not meta.empty and eps_currency != str(meta.iloc[-1].get("price_currency", eps_currency)):
+        from .eps_conversion import convert_ttm
+        from .fx import load_fx_history
+        converted = convert_ttm(final_eps_ttm, eps_currency, str(meta.iloc[-1].get("price_currency", eps_currency)),
+                                same_day, load_fx_history())
+        conversion_note = converted["notes"]
+        final_eps_ttm = converted["eps_ttm"]
+        eps_currency = converted["currency"]
+        final_notes = f"{final_notes}; {conversion_note}" if final_notes else conversion_note
 
     audit_marker = (
         f"manual_report_submission_v1; input_metric={input_metric}; "
@@ -131,12 +163,23 @@ def add_report(
         raise ValueError(f"Rapportposten saknar giltiga fält: {', '.join(missing)}")
 
     existing = load_reports()
+    if conversion_note:
+        from .eps_conversion import conversion_metadata
+        from .sync_yahoo_eps_reports import _is_replaceable_generated_report
+        same = existing.loc[existing.ticker.eq(ticker.strip())
+                            & existing.period_end.eq(pd.Timestamp(period_end))]
+        if any(conversion_metadata(old) is None and not _is_replaceable_generated_report(old)
+               for _, old in same.iterrows()):
+            raise ValueError("Verifierat manuellt EPS finns redan för perioden; valutaomräkning ersätter det inte.")
     keep = ~(
         (existing["ticker"] == item["ticker"])
         & (existing["report_period"] == item["report_period"])
     )
     combined = pd.concat([existing.loc[keep], row], ignore_index=True)
     save_reports(combined)
+    if conversion_note:
+        from .eps_conversion import record_conversion
+        record_conversion(row.iloc[0])
 
     if eps is not None and derivation is not None:
         upsert_manual_quarterly_eps(
@@ -157,7 +200,7 @@ def add_report(
         input_metric=input_metric,
         input_eps=float(eps if eps is not None else eps_ttm),
         result_eps_ttm=final_eps_ttm,
-        eps_currency=eps_currency,
+        eps_currency=input_currency,
         source=source.strip(),
         notes=user_notes,
         submission_id=submission_id,

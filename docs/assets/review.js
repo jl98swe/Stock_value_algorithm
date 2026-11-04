@@ -165,8 +165,8 @@
     const activeEps = state.activeStock?.latest?.eps_ttm;
     const activeReport = state.activeStock?.report;
     $('eps-candidate-title').textContent = 'Nuvarande EPS TTM';
-    $('eps-candidate-summary').textContent = Number.isFinite(Number(activeEps))
-      ? `${formatNumber(activeEps)}${activeReport?.period ? ` för ${activeReport.period}` : ''}${activeReport?.effective_date ? `, används från ${activeReport.effective_date}` : ''}.`
+    $('eps-candidate-summary').innerHTML = activeEps != null && Number.isFinite(Number(activeEps))
+      ? `${window.epsProvenance.value(formatNumber(activeEps), state.activeStock?.latest?.eps_conversion, state.selectedTicker)}${activeReport?.period ? ` för ${activeReport.period}` : ''}${activeReport?.effective_date ? `, används från ${activeReport.effective_date}` : ''}.`
       : '–';
 
     const details = [];
@@ -192,7 +192,7 @@
         <div><strong>${esc(item.report_period || 'Rapport')}</strong><span>${esc(dateLabel)}</span></div>
         <dl>
           <div><dt>${inputLabel}</dt><dd>${esc(formatNumber(item.input_eps))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
-          <div><dt>Sparat EPS TTM</dt><dd>${esc(formatNumber(item.result_eps_ttm))}${item.eps_currency ? ` ${esc(item.eps_currency)}` : ''}</dd></div>
+          <div><dt>Sparat EPS TTM</dt><dd>${window.epsProvenance.value(`${formatNumber(item.result_eps_ttm)} ${item.eps_conversion?.target_currency || item.eps_currency || ''}`, item.eps_conversion, state.selectedTicker)}</dd></div>
           <div><dt>Status</dt><dd>${esc(item.status === 'pending_ttm' ? 'Sparat – underlag saknas' : item.status === 'currency_review' ? 'Kontrollera valuta' : 'Tillämpat')}</dd></div>
           <div><dt>Källa</dt><dd>${esc(item.source || '–')}</dd></div>
           <div><dt>Registrerad</dt><dd>${esc(formatDate(item.submitted_at))}</dd></div>

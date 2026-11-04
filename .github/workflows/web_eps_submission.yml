@@ -67,6 +67,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/fundamentals/reports.csv data/manual/report_submissions.csv data/earnings/quarterly_eps.csv docs/data
+          git add data/fundamentals/eps_fx_conversions.csv
           git add data/derived/valuation_score_history.csv.gz data/derived/report_score_dates.csv data/derived/report_date_score_revisions.csv
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fundamentals: registrera webb-EPS $REQUEST_ID"

@@ -11,6 +11,7 @@
   let strategy = 'standard';
   let priceBoundaries = {};
   let marketDate = null;
+  const fxIcon = (info, ticker) => window.epsProvenance?.icon(info, ticker) || '';
   const stockHref = ticker => `./index.html?ticker=${encodeURIComponent(ticker)}&strategy=${strategy}`;
 
   function number(value) {
@@ -65,7 +66,7 @@
       const latest = row.data.latest || {};
       const action = row.data.next_action || {};
       return `<tr>
-        <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a></td>
+        <td><a class="stock-link" href="${stockHref(row.ticker)}"><strong>${esc(row.ticker)}</strong><span>${esc(row.name)}</span></a>${fxIcon(row.data.latest?.eps_conversion, row.ticker)}</td>
         <td>Aktiv</td>
         <td>${money(p.avg_entry, row.currency)}</td>
         <td>${money(latest.close, row.currency)}</td>
@@ -138,6 +139,7 @@
       name: meta.name || ticker,
       score: value,
       latestDate: latest.date,
+      epsConversion: latest.eps_conversion,
       preliminary,
       side,
       distance,
@@ -177,7 +179,7 @@
 
     $('upcoming-count').textContent = String(upcoming.length);
     $('upcoming-signals-body').innerHTML = upcoming.length ? upcoming.map((row) => `<tr>
-      <td><a class="stock-link" href="${stockHref(row.ticker)}" title="${esc(row.name)}"><strong>${esc(row.ticker)}</strong></a></td>
+      <td><a class="stock-link" href="${stockHref(row.ticker)}" title="${esc(row.name)}"><strong>${esc(row.ticker)}</strong></a>${fxIcon(row.epsConversion, row.ticker)}</td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span></td>
       <td>${score(row.score)}<span class="cell-detail">${row.preliminary ? `${row.preliminary.preliminary ? "Preliminär" : "Efter stängning"} · ${clockFmt.format(new Date(row.preliminary.as_of))}` : `Stängning ${prettyDate(row.latestDate)}`}</span></td>
       <td>${row.reportExit ? `<strong>Inför rapport</strong>${row.reportDays !== null ? `<span class="cell-detail">${row.reportDays} börsdagar till rapport</span>` : ''}` : row.reached ? `<strong>${row.preliminary?.preliminary ? 'Preliminär gräns nådd' : 'Signalgräns nådd'}</strong>` : `${fmt.format(row.distance)} p från gräns`}</td>

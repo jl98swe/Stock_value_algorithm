@@ -158,6 +158,7 @@ jobs:
           git add docs/data
           git add data/prices/closing_sources.csv data/prices/closing_audit
           git add data/fundamentals/reports.csv
+          git add data/fundamentals/eps_fx_conversions.csv
           git add data/derived/valuation_score_history.csv.gz
           git add data/derived/report_score_dates.csv
           if [ -f data/derived/report_date_score_revisions.csv ]; then

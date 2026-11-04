@@ -6,6 +6,7 @@
   const scoreFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const percentFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFormat = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  const fxValue = (text, info, ticker) => typeof window !== 'undefined' && window.epsProvenance ? window.epsProvenance.value(text, info, ticker) : text;
   const $ = (id) => document.getElementById(id);
   const todayFormat = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit' });
   let payload = null;
@@ -138,8 +139,8 @@
         <td><span class="days-chip ${row.urgent ? 'urgent' : ''}">${daysLabel(row.trading_days_to_report)}</span></td>
         <td>${formatMoney(row.current_price, row.price_currency)}</td>
         <td><strong>${formatScore(row.current_score)}</strong></td>
-        <td>${row.previous_eps_ttm == null ? '–' : `<strong>${formatEps(row.previous_eps_ttm)} ${escapeHtml(row.previous_eps_ttm_currency || '')}</strong>`}</td>
-        <td>${row.new_eps_ttm == null ? ((payload.missing_data || []).some(item => item.ticker === row.ticker) ? missingEpsLink(row) : '–') : `<strong>${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}</strong>`}</td>
+        <td>${row.previous_eps_ttm == null ? '–' : `<strong>${fxValue(`${formatEps(row.previous_eps_ttm)} ${escapeHtml(row.previous_eps_ttm_currency || '')}`, row.previous_eps_conversion, row.ticker)}</strong>`}</td>
+        <td>${row.new_eps_ttm == null ? ((payload.missing_data || []).some(item => item.ticker === row.ticker) ? missingEpsLink(row) : '–') : `<strong>${fxValue(`${formatEps(row.new_eps_ttm)} ${escapeHtml(row.new_eps_ttm_currency || '')}`, row.new_eps_conversion, row.ticker)}</strong>`}</td>
         <td>${neutralEps(row)}</td>
         <td>${expectedEps(row)}</td>
       </tr>`).join('') : '<tr><td colspan="9" class="report-empty">Inga bevakade aktier har ett registrerat rapportdatum inom de kommande tio handelsdagarna.</td></tr>';
@@ -152,8 +153,8 @@
   }
 
   function epsPair(row) {
-    const value = (eps, currency) => eps == null ? '–' : `${formatEps(eps)} ${escapeHtml(currency || '')}`;
-    return `<span class="value-pair"><span>${value(row.eps_ttm_before, row.eps_ttm_before_currency ?? row.eps_ttm_currency)}</span><span aria-hidden="true">→</span><strong>${value(row.eps_ttm_after, row.eps_ttm_after_currency ?? row.eps_ttm_currency)}</strong></span>`;
+    const value = (eps, currency, info) => eps == null ? '–' : fxValue(`${formatEps(eps)} ${escapeHtml(currency || '')}`, info, row.ticker);
+    return `<span class="value-pair"><span>${value(row.eps_ttm_before, row.eps_ttm_before_currency ?? row.eps_ttm_currency, row.eps_ttm_before_conversion)}</span><span aria-hidden="true">→</span><strong>${value(row.eps_ttm_after, row.eps_ttm_after_currency ?? row.eps_ttm_currency, row.eps_ttm_after_conversion)}</strong></span>`;
   }
 
   function scorePair(before, after) {

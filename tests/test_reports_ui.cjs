@@ -124,7 +124,7 @@ test('homepage manual EPS action follows stock changes and opens the form on the
   const section = app.slice(app.indexOf('  function renderStatus('), app.indexOf('  function isCompanyNews('));
   const state = {selectedTicker:'FIRST.ST', dashboard:{meta:{}}};
   const nodes = {};
-  const render = new Function('state','$','prettyDate','formatModelEps', section + '; return renderStatus;')(state, id=>nodes[id] ||= {}, x=>x || '–', ()=> '–');
+  const render = new Function('window','state','$','prettyDate','formatModelEps', section + '; return renderStatus;')({epsProvenance:{value:text=>text}},state, id=>nodes[id] ||= {}, x=>x || '–', ()=> '–');
   render({});
   assert.equal(nodes['report-workflow-link'].href, './review.html?ticker=FIRST.ST#eps-form-title');
   state.selectedTicker='SECOND-B.ST';

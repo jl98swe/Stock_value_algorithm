@@ -1,0 +1,8 @@
+.eps-fx-note{display:inline;padding:0;border:0;border-radius:0;background:none;color:inherit;font:inherit;font-weight:inherit;line-height:inherit;text-decoration-line:underline;text-decoration-style:dashed;text-decoration-color:#9aa2a8;text-underline-offset:4px;text-decoration-thickness:1px;cursor:help}
+.eps-fx-note:focus-visible{outline:2px solid #6785a0;outline-offset:4px;border-radius:2px}
+.eps-fx-icon{margin-left:6px;color:#7b858d;font-size:13px;font-weight:400;text-decoration:none;cursor:pointer;vertical-align:baseline}
+.eps-fx-popover{position:fixed;inset:auto;margin:0;padding:14px 16px;width:300px;max-width:calc(100vw - 24px);box-sizing:border-box;border:1px solid #dce1e5;border-radius:10px;background:#fff;color:#34414d;box-shadow:0 6px 24px #17293922;z-index:10000;font:13px/1.5 system-ui,sans-serif;text-align:left}
+.eps-fx-popover[hidden]{display:none}
+.eps-fx-popover strong{font-size:13px}
+.eps-fx-popover p{margin:6px 0 10px}
+.eps-fx-popover a{color:#49647c;text-underline-offset:3px}
