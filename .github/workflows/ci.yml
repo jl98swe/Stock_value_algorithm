@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checka ut repot
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Installera Node
         uses: actions/setup-node@v4
@@ -68,6 +70,9 @@ jobs:
 
       - name: Verifiera inbäddad GBM-modell
         run: python -m src.model_data
+
+      - name: Applicera dokumenterad historikrättelse i testkopian
+        run: python -m src.restore_discovered_history
 
       - name: Bygg webbdata utan nätverkshämtning
         run: python -m src.pipeline --skip-fetch --skip-dividends

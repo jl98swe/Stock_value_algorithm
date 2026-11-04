@@ -476,3 +476,18 @@ gäller bara den angivna Git-versionen och dessa aktier/datum; det är ingen
 permanent avstängning. `--recalculate-score-from TICKER=YYYY-MM-DD` kan användas
 för själva omräkningen. Granska differensen och kör valideringen före commit.
 En rättelse som saknar en matchande dokumenterad post stoppas av kontrollen.
+
+Kalenderuppgifter får inte skapa äldre köp i Rapportundvikande. För nya
+rapportdatum används den första arkiverade kalenderobservationen som tidigaste
+kunskapsdatum, även när rapporten senare blir historisk. Vid nästa öppning
+används endast information som var känd på signaldagen. Okänd observationstid
+får inte antas vara känd tidigare.
+
+`data/manual/report_calendar_knowledge_overrides.csv` dokumenterar övergången:
+redan publicerade äldre simuleringar bevaras uttryckligen utan att deras
+ursprungliga observationstid gissas. De fem verifierade kalenderfallen från
+119-aktiegranskningen använder däremot sina verkliga arkiverade kunskapsdatum.
+Återställningen av de ytterligare EPS-fallen är idempotent, bevarar manuella
+rapportregistreringar och räknar nytillagda referenslösa dagar med endast de
+rapporter som var publicerade den dagen. `src.verify_discovered_restoration`
+kontrollerar samtliga tio EPS-fall och kalenderfallen före publicering.

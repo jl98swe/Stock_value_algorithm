@@ -24,7 +24,10 @@ def observation(price=102):
 @pytest.mark.parametrize("side", ["BUY", "SELL"])
 def test_all_variants_execute_once_and_reconcile_at_close(variant, side, monkeypatch):
     import src.strategy_backtests as variants
-    monkeypatch.setattr(variants, "automatic_calendar", lambda: pd.DataFrame())
+    # Synthetic calendar already known before the opening being tested.
+    monkeypatch.setattr(variants, "automatic_calendar", lambda: pd.DataFrame({
+        "ticker": ["TEST.ST"], "report_date_start": [pd.Timestamp("2027-01-28")],
+        "observed_date": [pd.Timestamp("2026-09-01")]}))
     monkeypatch.setattr(variants, "_combined_schedule", lambda *args: pd.DataFrame({
         "ticker": ["TEST.ST"], "report_date_start": [pd.Timestamp("2027-01-28")]}))
     scores = [50.] * 15 + [.4] if side == "BUY" else [.4] + [50.] * 14 + [99.2]
