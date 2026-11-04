@@ -1,120 +1,120 @@
-ticker,name,eps_repainting_confirmed,executed_trades_changed_by_eps,eps_history_restored,remaining_pre_report_score_dates,first_remaining_date,last_remaining_date,calendar_dependent_retroactive_buy,calendar_buy_date,calendar_observed_date,audited_commit
-AAK.ST,AAK,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ABB.ST,ABB,True,False,False,14,2026-09-30,2026-10-19,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ADDT-B.ST,Addtech,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ALIG.ST,Alimak,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ALIV-SDB.ST,Autoliv,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ALLEI.ST,Alleima,False,False,,0,,,True,2026-10-28,2026-11-01,ec7ffa92150a31375f7c68f50720924bbba5c949
-ANOD-B.ST,Addnode,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ARJO-B.ST,Arjo,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ASSA-B.ST,Assa Abloy,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ATCO-A.ST,Atlas Copco A,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ATCO-B.ST,Atlas Copco B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ATRLJ-B.ST,Atrium Ljungberg,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ATT.ST,Attendo,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-AXFO.ST,Axfood,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-AZA.ST,Avanza Bank,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-AZN.ST,AstraZeneca,True,True,False,22,2026-09-30,2026-10-29,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BAHN-B.ST,Bahnhof,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BALD-B.ST,Fast Balder,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BEIA-B.ST,Beijer Alma,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BEIJ-B.ST,Beijer Ref AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BERG-B.ST,Bergman & Beving,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BETS-B.ST,Betsson,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BILI-A.ST,Bilia,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BIOG-B.ST,BioGaia,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BOL.ST,Boliden,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BORG.ST,Björn Borg,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BRAV.ST,Bravida,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-BTS-B.ST,BTS Group,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CAST.ST,Castellum,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CATE.ST,Catena,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CIBUS.ST,Cibus Real Estate,True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CLA-B.ST,Cloetta,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CLAS-B.ST,Clas Ohlson,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-COOR.ST,Coor Service Management,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-CTT.ST,CTT Systems,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-DIOS.ST,Diös Fastigheter,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-DOM.ST,Dometic,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-DUNI.ST,Duni,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-DYVOX.ST,Dynavox Group,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EAST.ST,Eastnine,True,False,False,10,2026-09-30,2026-10-21,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EKTA-B.ST,Elekta,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EMBRAC-B.ST,Embracer,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EPI-A.ST,Epiroc A,False,False,,0,,,True,2026-10-30,2026-11-01,ec7ffa92150a31375f7c68f50720924bbba5c949
-EPI-B.ST,Epiroc B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EQL.ST,EQL Pharma,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EQT.ST,EQT,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ERIC-B.ST,Ericsson B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ESSITY-B.ST,Essity B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-EVO.ST,Evolution,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-FABG.ST,Fabege,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-FOI-B.ST,Fenix Outdoor International AG,True,True,False,23,2026-09-30,2026-10-30,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-GENO.ST,Genovis AB (publ.),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-GETI-B.ST,Getinge AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HANZA.ST,Hanza AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HEXA-B.ST,Hexagon AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HMS.ST,HMS Networks AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HOLM-A.ST,Holmen AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HPOL-B.ST,HEXPOL AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HTRO.ST,Hexatronic Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-HUFV-A.ST,Hufvudstaden AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-INDT.ST,Indutrade AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-INDU-A.ST,AB Industrivärden (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-INTRUM.ST,Intrum AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-INVE-A.ST,Investor AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-INWI.ST,Inwido AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-KAMBI.ST,Kambi Group plc,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-KNOW.ST,Knowit AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-LAGR-B.ST,Lagercrantz Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-LIFCO-B.ST,Lifco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-LIME.ST,Lime Technologies AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-LOOMIS.ST,Loomis AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-LUMI.ST,Lundin Mining Corporation,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MCAP.ST,MedCap AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MCOV-B.ST,Medicover AB (publ),True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MSAB-B.ST,Micro Systemation AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MTG-B.ST,Modern Times Group MTG AB,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MTRS.ST,Munters Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-MYCR.ST,Mycronic AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-NDA-SE.ST,Nordea Bank Abp,False,False,,0,,,True,2026-10-19,2026-10-31,ec7ffa92150a31375f7c68f50720924bbba5c949
-NEWA-B.ST,New Wave Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-NIBE-B.ST,NIBE Industrier AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-NMAN.ST,Nederman Holding AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-NOLA-B.ST,Nolato AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-NORION.ST,Norion Bank AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-PACT.ST,Proact IT Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-PEAB-B.ST,Peab AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-PLAZ-B.ST,Platzer Fastigheter Holding AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-PNDX-B.ST,Pandox AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-REJL-B.ST,Rejlers AB (publ),True,False,False,16,2026-10-09,2026-10-30,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SAAB-B.ST,Saab AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SAGA-A.ST,AB Sagax (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SAVE.ST,Nordnet AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SCA-B.ST,Svenska Cellulosa Aktiebolaget SCA (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SCST.ST,Scandi Standard AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SEB-A.ST,Skandinaviska Enskilda Banken AB (publ),False,False,,0,,,True,2026-10-26,2026-10-31,ec7ffa92150a31375f7c68f50720924bbba5c949
-SECARE.ST,Swedencare AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SECT-B.ST,Sectra AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SECU-B.ST,Securitas AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SFAST.ST,Stenhus Fastigheter i Norden AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SHB-A.ST,Svenska Handelsbanken AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SHOT.ST,Scandic Hotels Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SINT.ST,SinterCast AB (publ),True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SOBI.ST,Swedish Orphan Biovitrum AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SVED-B.ST,Svedbergs Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SWEC-A.ST,Sweco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SWEC-B.ST,Sweco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SWED-A.ST,Swedbank AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-SYSR.ST,Systemair AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-TEL2-B.ST,Tele2 AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-THULE.ST,Thule Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-TREL-B.ST,Trelleborg AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-VBG-B.ST,VBG Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-VIT-B.ST,Vitec Software Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-VITR.ST,Vitrolife AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-VIVA.ST,Viva Wine Group AB,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-VOLV-A.ST,AB Volvo (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-WALL-B.ST,Wallenstam AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-WIHL.ST,Wihlborgs Fastigheter AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
-ZZ-B.ST,Zinzino AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949
+ticker,name,eps_repainting_confirmed,executed_trades_changed_by_eps,eps_history_restored,remaining_pre_report_score_dates,first_remaining_date,last_remaining_date,calendar_dependent_retroactive_buy,calendar_buy_date,calendar_observed_date,audited_commit,calendar_history_restored,restoration_base_commit
+AAK.ST,AAK,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ABB.ST,ABB,True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ADDT-B.ST,Addtech,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ALIG.ST,Alimak,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ALIV-SDB.ST,Autoliv,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ALLEI.ST,Alleima,False,False,,0,,,True,2026-10-28,2026-11-01,ec7ffa92150a31375f7c68f50720924bbba5c949,True,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ANOD-B.ST,Addnode,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ARJO-B.ST,Arjo,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ASSA-B.ST,Assa Abloy,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ATCO-A.ST,Atlas Copco A,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ATCO-B.ST,Atlas Copco B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ATRLJ-B.ST,Atrium Ljungberg,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ATT.ST,Attendo,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+AXFO.ST,Axfood,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+AZA.ST,Avanza Bank,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+AZN.ST,AstraZeneca,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,True,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BAHN-B.ST,Bahnhof,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BALD-B.ST,Fast Balder,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BEIA-B.ST,Beijer Alma,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BEIJ-B.ST,Beijer Ref AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BERG-B.ST,Bergman & Beving,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BETS-B.ST,Betsson,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BILI-A.ST,Bilia,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BIOG-B.ST,BioGaia,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BOL.ST,Boliden,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BORG.ST,Björn Borg,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BRAV.ST,Bravida,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+BTS-B.ST,BTS Group,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CAST.ST,Castellum,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CATE.ST,Catena,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CIBUS.ST,Cibus Real Estate,True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CLA-B.ST,Cloetta,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CLAS-B.ST,Clas Ohlson,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+COOR.ST,Coor Service Management,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+CTT.ST,CTT Systems,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+DIOS.ST,Diös Fastigheter,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+DOM.ST,Dometic,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+DUNI.ST,Duni,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+DYVOX.ST,Dynavox Group,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EAST.ST,Eastnine,True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EKTA-B.ST,Elekta,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EMBRAC-B.ST,Embracer,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EPI-A.ST,Epiroc A,False,False,,0,,,True,2026-10-30,2026-11-01,ec7ffa92150a31375f7c68f50720924bbba5c949,True,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EPI-B.ST,Epiroc B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EQL.ST,EQL Pharma,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EQT.ST,EQT,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ERIC-B.ST,Ericsson B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ESSITY-B.ST,Essity B,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+EVO.ST,Evolution,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+FABG.ST,Fabege,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+FOI-B.ST,Fenix Outdoor International AG,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+GENO.ST,Genovis AB (publ.),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+GETI-B.ST,Getinge AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HANZA.ST,Hanza AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HEXA-B.ST,Hexagon AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HMS.ST,HMS Networks AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HOLM-A.ST,Holmen AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HPOL-B.ST,HEXPOL AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HTRO.ST,Hexatronic Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+HUFV-A.ST,Hufvudstaden AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+INDT.ST,Indutrade AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+INDU-A.ST,AB Industrivärden (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+INTRUM.ST,Intrum AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+INVE-A.ST,Investor AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+INWI.ST,Inwido AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+KAMBI.ST,Kambi Group plc,True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+KNOW.ST,Knowit AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+LAGR-B.ST,Lagercrantz Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+LIFCO-B.ST,Lifco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+LIME.ST,Lime Technologies AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+LOOMIS.ST,Loomis AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+LUMI.ST,Lundin Mining Corporation,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MCAP.ST,MedCap AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MCOV-B.ST,Medicover AB (publ),True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MSAB-B.ST,Micro Systemation AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MTG-B.ST,Modern Times Group MTG AB,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MTRS.ST,Munters Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+MYCR.ST,Mycronic AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NDA-SE.ST,Nordea Bank Abp,False,False,,0,,,True,2026-10-19,2026-10-31,ec7ffa92150a31375f7c68f50720924bbba5c949,True,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NEWA-B.ST,New Wave Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NIBE-B.ST,NIBE Industrier AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NMAN.ST,Nederman Holding AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NOLA-B.ST,Nolato AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+NORION.ST,Norion Bank AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+PACT.ST,Proact IT Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+PEAB-B.ST,Peab AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+PLAZ-B.ST,Platzer Fastigheter Holding AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+PNDX-B.ST,Pandox AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+REJL-B.ST,Rejlers AB (publ),True,False,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SAAB-B.ST,Saab AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SAGA-A.ST,AB Sagax (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SAVE.ST,Nordnet AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SCA-B.ST,Svenska Cellulosa Aktiebolaget SCA (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SCST.ST,Scandi Standard AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SEB-A.ST,Skandinaviska Enskilda Banken AB (publ),False,False,,0,,,True,2026-10-26,2026-10-31,ec7ffa92150a31375f7c68f50720924bbba5c949,True,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SECARE.ST,Swedencare AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SECT-B.ST,Sectra AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SECU-B.ST,Securitas AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SFAST.ST,Stenhus Fastigheter i Norden AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SHB-A.ST,Svenska Handelsbanken AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SHOT.ST,Scandic Hotels Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SINT.ST,SinterCast AB (publ),True,True,True,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SOBI.ST,Swedish Orphan Biovitrum AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SVED-B.ST,Svedbergs Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SWEC-A.ST,Sweco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SWEC-B.ST,Sweco AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SWED-A.ST,Swedbank AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+SYSR.ST,Systemair AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+TEL2-B.ST,Tele2 AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+THULE.ST,Thule Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+TREL-B.ST,Trelleborg AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+VBG-B.ST,VBG Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+VIT-B.ST,Vitec Software Group AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+VITR.ST,Vitrolife AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+VIVA.ST,Viva Wine Group AB,False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+VOLV-A.ST,AB Volvo (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+WALL-B.ST,Wallenstam AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+WIHL.ST,Wihlborgs Fastigheter AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f
+ZZ-B.ST,Zinzino AB (publ),False,False,,0,,,False,,,ec7ffa92150a31375f7c68f50720924bbba5c949,,7a27a63612684a574b6b6b65ce3b68f769e9094f

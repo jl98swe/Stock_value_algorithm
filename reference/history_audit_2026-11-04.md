@@ -7,20 +7,39 @@ versionen den 4 november 2026. Första jämförelsen använder föräldern till
 införandecommitten. Ingen källkod, rapport-EPS eller handelsdata ändras av denna
 granskning; endast granskningsfiler sparas.
 
+## Efterföljande återställning 4 november 2026
+
+Samtliga tio EPS-fall är nu återställda och kontrollerade mot respektive
+publicerad referens före felet. Senare dagar som saknade en referens räknades
+om med endast de rapporter som var publicerade den dagen. De verifierade
+manuella rapportregistreringarna är bevarade byte för byte.
+
+De fyra kalenderköpen och AstraZenecas kalenderberoende äldre affärer har
+rättats med arkiverad observationstid. För nya kalenderdatum används den
+första sparade observationen även när rapporten senare blir historisk.
+En migrationslista bevarar redan publicerade äldre simuleringar för övriga
+aktier; den gör inget påstående om när deras kalenderinformation först var känd.
+En uppdaterad kalender får inte ge tillåtelse till köp före observationen.
+Äldre simuleringar bevaras, med en uttrycklig rättelse för AstraZenecas
+rapport 30 oktober enligt kalenderobservationen 15 september.
+
+Statusen i tabellen och 119-radersfilen är uppdaterad efter återställningen.
+Den ursprungliga granskningsmetoden och fynden nedan behålls som kontrollspår.
+
 ## Resultat
 
 Tio aktier fick publicerade poäng före respektive rapportdag ändrade genom
 omräkning från periodslut i stället för publicering. För fem av dessa ändrades
-även utförda modellaffärer. Fem aktiers historik är återställd i den granskade
-versionen. Fem ytterligare har kvar ändrad historik och behöver rättas separat.
+även utförda modellaffärer. Vid granskningen var fem aktier återställda och fem ytterligare återstod.
+Efterföljande återställning ovan omfattar samtliga tio.
 
 | Aktie | Första felaktiga dataexport (commit) | Poäng ändrade före rapportdagen | Ändrade modellaffärer | Status |
 |---|---|---:|---|---|
-| ABB | d617015c, 31 oktober | 14 datum | Nej | Kvar att återställa före 20 oktober |
-| Eastnine | d617015c, 31 oktober | 10 datum | Nej | Kvar att återställa före 22 oktober |
-| AstraZeneca | 33b58c59, 3 november | 22 datum | Ja | Kvar att återställa före 30 oktober |
-| Rejlers B | 33b58c59, 3 november | 16 datum | Nej | Kvar att återställa före 3 november |
-| Fenix Outdoor B | 1c30e9b9, 3 november | 23 tidigare publicerade datum | Ja | Kvar att återställa före 5 november |
+| ABB | d617015c, 31 oktober | 14 datum | Nej | Återställd |
+| Eastnine | d617015c, 31 oktober | 10 datum | Nej | Återställd |
+| AstraZeneca | 33b58c59, 3 november | 22 datum | Ja | Återställd |
+| Rejlers B | 33b58c59, 3 november | 16 datum | Nej | Återställd |
+| Fenix Outdoor B | 1c30e9b9, 3 november | 23 tidigare publicerade datum | Ja | Återställd |
 | Cloetta | e74ec88c, 4 november | 25 datum | Ja | Återställd |
 | SinterCast | e74ec88c, 4 november | 25 datum | Ja | Återställd |
 | Cibus | e3533f5a, 4 november | 20 datum | Nej | Återställd |
@@ -101,8 +120,9 @@ algoritmen eller av perioder före införandet den 31 oktober.
    Castellum och Lundin Mining ändrade inte affärernas datum eller riktning och
    räknas inte som nya eller flyttade affärer.
 6. Aktuell fryst historik jämfördes åter med respektive version omedelbart före
-   den felaktiga omräkningen, begränsat till datum före rapportdagen. Alla fem
-   tidigare återställda aktier matchar referensen. De fem nyupptäckta gör det inte.
+   den felaktiga omräkningen, begränsat till datum före rapportdagen. Vid granskningen matchade de fem tidigare återställda aktierna
+   referensen medan de fem nyupptäckta inte gjorde det. Efter återställningen
+   matchar samtliga tio sina respektive referenser.
 
 ABB/Eastnines första felaktiga version publicerades via GitHub Pages
 31 oktober kl. 10.54.46 svensk tid (run `41190541980`). Detta korrigerar den

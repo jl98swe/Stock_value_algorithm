@@ -11,5 +11,58 @@
       "KAMBI.ST": "2026-09-30",
       "MCOV-B.ST": "2026-09-30"
     }
+  },
+  {
+    "correction_id": "restore-additional-audit-cases-2026-11-04",
+    "base_commit": "7a27a63612684a574b6b6b65ce3b68f769e9094f",
+    "reason": "Återställ samtliga ytterligare EPS-fall från granskningen av 119 aktier. Rätta även kalenderberoende retroaktiva köp med arkiverad observationstid. Verifierade EPS-värden och marknadsdata bevaras.",
+    "repairs": [
+      {
+        "ticker": "ABB.ST",
+        "source_commit": "56c7b0848524166753112b4de1b13bb444ef57dc",
+        "before": "2026-10-20",
+        "restored_dates": 14,
+        "newly_recomputed_dates": 0
+      },
+      {
+        "ticker": "EAST.ST",
+        "source_commit": "56c7b0848524166753112b4de1b13bb444ef57dc",
+        "before": "2026-10-22",
+        "restored_dates": 16,
+        "newly_recomputed_dates": 0
+      },
+      {
+        "ticker": "AZN.ST",
+        "source_commit": "1b387cdab94aee6dd6c2647566d5856ceb210185",
+        "before": "2026-10-30",
+        "restored_dates": 22,
+        "newly_recomputed_dates": 0
+      },
+      {
+        "ticker": "REJL-B.ST",
+        "source_commit": "1b387cdab94aee6dd6c2647566d5856ceb210185",
+        "before": "2026-11-03",
+        "restored_dates": 24,
+        "newly_recomputed_dates": 1
+      },
+      {
+        "ticker": "FOI-B.ST",
+        "source_commit": "33b58c59141b7473333ee14d96b33f24d510a31d",
+        "before": "2026-11-05",
+        "restored_dates": 25,
+        "newly_recomputed_dates": 2
+      }
+    ],
+    "from": {
+      "ABB.ST": "2026-09-30",
+      "EAST.ST": "2026-09-30",
+      "AZN.ST": "2026-08-03",
+      "REJL-B.ST": "2026-09-30",
+      "FOI-B.ST": "2026-09-30",
+      "ALLEI.ST": "2026-10-27",
+      "EPI-A.ST": "2026-10-29",
+      "NDA-SE.ST": "2026-10-16",
+      "SEB-A.ST": "2026-10-23"
+    }
   }
 ]
