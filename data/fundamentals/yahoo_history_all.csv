@@ -181,6 +181,7 @@ AZN.ST,2025-06-30,2025-07-29,29,5.31,USD,yahoo_trailing_diluted,Yahoo Finance / 
 AZN.ST,2025-12-31,2026-02-10,41,6.54,USD,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 AZN.ST,2026-03-31,2026-04-29,29,6.64,USD,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 AZN.ST,2026-06-30,2026-07-27,27,6.68,USD,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
+AZN.ST,2026-09-30,2026-10-30,30,7.06,USD,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BAHN-B.ST,2023-09-30,2023-11-07,38,1.86,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BAHN-B.ST,2023-12-31,2024-02-13,44,2.0,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 BAHN-B.ST,2024-03-31,2024-05-07,37,2.05,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
@@ -579,7 +580,7 @@ FOI-B.ST,2025-06-30,2025-07-22,22,-0.542,EUR,yahoo_trailing_diluted,Yahoo Financ
 FOI-B.ST,2025-12-31,2026-02-05,36,0.039,EUR,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 FOI-B.ST,2026-03-31,2026-04-27,27,0.399,EUR,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 FOI-B.ST,2026-06-30,2026-07-21,21,0.179,EUR,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
-FOI-B.ST,2026-09-30,,,0.379,EUR,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,missing
+FOI-B.ST,2026-09-30,2026-11-05,36,0.379,EUR,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 GENO.ST,2023-09-30,2023-11-15,46,0.83,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 GENO.ST,2023-12-31,2024-02-15,46,0.94,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical
 GENO.ST,2024-03-31,2024-05-15,45,0.46,SEK,yahoo_trailing_diluted,Yahoo Finance / trailingDilutedEPS historical timeseries,existing_canonical

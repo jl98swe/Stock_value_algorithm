@@ -14,7 +14,7 @@ ATRLJ-B.ST,,2026-09-30,,2026-07-02,,no_same_period_history,,,0.96,SEK,,no_same_p
 ATT.ST,2026-Q2,2026-06-30,2026-08-20,2026-08-19,1.0,near,6.61,SEK,6.61,SEK,0.0,match,yahoo_trailing_diluted,2026-08-23
 AXFO.ST,,2026-09-30,,2026-10-22,,no_same_period_history,,,11.38,SEK,,no_same_period_history,,2026-10-26
 AZA.ST,,2026-09-30,,2026-10-15,,no_same_period_history,,,18.43,SEK,,no_same_period_history,,2026-10-26
-AZN.ST,2026-Q2,2026-06-30,2026-07-27,2026-07-27,0.0,match,6.68,USD,6.68,USD,0.0,match,yahoo_trailing_diluted,2026-08-15
+AZN.ST,,2026-09-30,,2026-10-30,,no_same_period_history,,,7.06,USD,,no_same_period_history,,2026-11-03
 BAHN-B.ST,2026-Q2,2026-06-30,2026-08-18,2026-02-17,182.0,mismatch,1.74,SEK,1.74,SEK,0.0,match,yahoo_trailing_diluted,2026-09-16
 BALD-B.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,4.63,SEK,,no_same_period_history,,2026-10-26
 BEIA-B.ST,,2026-09-30,,2026-10-23,,no_same_period_history,,,13.7,SEK,,no_same_period_history,,2026-10-26

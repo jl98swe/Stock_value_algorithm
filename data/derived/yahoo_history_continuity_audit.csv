@@ -77,7 +77,6 @@ FOI-B.ST,leading_missing_report_date,,2023-09-30,,,Första Yahoo-perioden saknar
 FOI-B.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 FOI-B.ST,leading_missing_report_date,2023-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 FOI-B.ST,internal_missing_report_date,2023-12-31,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
-FOI-B.ST,trailing_missing_report_date,2026-09-30,,,,EPS-värdet finns hos Yahoo men kan inte aktiveras historiskt utan säkert rapportdatum.
 GETI-B.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 HANZA.ST,internal_missing_yahoo_period,2025-06-30,2025-12-31,184,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
 HEXA-B.ST,internal_missing_yahoo_period,2024-12-31,2025-06-30,181,1,Yahoo diluted TTM har en lucka mellan två observerade perioder.
