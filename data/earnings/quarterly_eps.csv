@@ -2137,3 +2137,13 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.23,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
+CIBUS.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.35,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
+CLA-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.66,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
+CLA-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.86,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
+KAMBI.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.036,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
+KAMBI.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.126,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
+MCOV-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.129,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
+MCOV-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.169,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
+SINT.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.62,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
+SINT.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,1.74,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
