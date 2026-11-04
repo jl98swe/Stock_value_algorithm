@@ -1,0 +1,15 @@
+[
+  {
+    "correction_id": "restore-pre-publication-history-2026-11-04",
+    "base_commit": "0717e938ba6b308949d3c45b9d78126403b41684",
+    "source_commit": "6b69657027c54546ebf2576bd393e78eb4616103",
+    "reason": "Återställ poäng före rapportdagen som skrevs över vid rapportimporten 4 november. Referens: publicerad historik från 3 november. Rapportvärden och rapportdatum bevaras.",
+    "from": {
+      "CLA-B.ST": "2026-09-30",
+      "SINT.ST": "2026-09-30",
+      "CIBUS.ST": "2026-09-30",
+      "KAMBI.ST": "2026-09-30",
+      "MCOV-B.ST": "2026-09-30"
+    }
+  }
+]
