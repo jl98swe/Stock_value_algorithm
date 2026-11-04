@@ -24,18 +24,18 @@ def test_eps_currency_and_verification_changes_invalidate_same_date(current):
     assert changed_eps_cutoffs(current, old) == {"EXAMPLE.ST": pd.Timestamp("2026-10-20")}
 
 
-def test_tv_correction_starts_at_model_period_end_and_keeps_other_tickers():
+def test_tv_correction_starts_at_publication_and_keeps_other_tickers():
     old = reports(source="TradingView / diluted TTM")
     current = reports(3, source="TradingView / diluted TTM")
-    assert changed_eps_cutoffs(current, score_snapshot(old)) == {"EXAMPLE.ST": pd.Timestamp("2026-09-30")}
+    assert changed_eps_cutoffs(current, score_snapshot(old)) == {"EXAMPLE.ST": pd.Timestamp("2026-10-20")}
 
 
 def test_added_removed_and_retimed_report_uses_earliest_affected_model_date():
     old = score_snapshot(reports(source="TradingView / diluted TTM"))
-    assert changed_eps_cutoffs(reports().iloc[:0], old) == {"EXAMPLE.ST": pd.Timestamp("2026-09-30")}
+    assert changed_eps_cutoffs(reports().iloc[:0], old) == {"EXAMPLE.ST": pd.Timestamp("2026-10-20")}
     new = reports(3, source="TradingView / diluted TTM")
-    new["period_end"] = pd.Timestamp("2026-09-29")
-    assert changed_eps_cutoffs(new, old) == {"EXAMPLE.ST": pd.Timestamp("2026-09-29")}
+    new["period_end"] = pd.Timestamp("2026-10-20")
+    assert changed_eps_cutoffs(new, old) == {"EXAMPLE.ST": pd.Timestamp("2026-10-20")}
 
 
 def test_successful_snapshot_roundtrip_is_idempotent_and_description_does_not_rebase(tmp_path):

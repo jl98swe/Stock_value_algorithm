@@ -72,6 +72,7 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fundamentals: registrera webb-EPS $REQUEST_ID"
           git pull --rebase origin "$GITHUB_REF_NAME"
+          python -m src.history_guard --base-ref "origin/$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
       # GITHUB_TOKEN commits do not start branch-based Pages builds themselves.
       - name: Starta publicering på GitHub Pages

@@ -42,7 +42,7 @@ def score_snapshot(reports: pd.DataFrame) -> pd.DataFrame:
 
 
 def changed_eps_cutoffs(reports: pd.DataFrame, previous: pd.DataFrame) -> dict[str, pd.Timestamp]:
-    """Invalidate from the earliest old/new model date, only for changed inputs.
+    """Invalidate from the earliest old/new publication date, never period end.
 
     Legacy date-only snapshots acquire EPS on their next successful build.
     They cannot prove an EPS change retrospectively.
@@ -68,7 +68,7 @@ def changed_eps_cutoffs(reports: pd.DataFrame, previous: pd.DataFrame) -> dict[s
                 and pd.to_datetime(before.valuation_date) == pd.to_datetime(after.valuation_date))
         if same:
             continue
-        days = [pd.Timestamp(row.valuation_date).normalize() for row, ok in ((before, a), (after, b)) if ok]
+        days = [pd.Timestamp(row.effective_date).normalize() for row, ok in ((before, a), (after, b)) if ok]
         day = min(days)
         ticker = str(key[0])
         cutoffs[ticker] = min(day, cutoffs.get(ticker, day))
