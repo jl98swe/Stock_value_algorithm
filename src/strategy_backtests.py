@@ -8,7 +8,8 @@ import exchange_calendars as xcals
 import numpy as np
 import pandas as pd
 
-from .reporting import _combined_schedule, load_auto_report_calendar
+from .reporting import _combined_schedule, load_auto_report_calendar, CALENDAR_HISTORY_FILE
+from .config import ROOT
 from .strategy import run_strategy
 
 
@@ -17,7 +18,8 @@ def automatic_calendar() -> pd.DataFrame:
     return load_auto_report_calendar()
 
 
-def report_filters(frame: pd.DataFrame, report_dates: list[pd.Timestamp]) -> pd.DataFrame:
+def report_filters(frame: pd.DataFrame, report_dates: list[pd.Timestamp],
+                   known_from: dict[pd.Timestamp, pd.Timestamp] | None = None) -> pd.DataFrame:
     """Count exchange sessions, never weekdays or available price rows."""
     data = frame.copy()
     dates = pd.DatetimeIndex(pd.to_datetime(data["Date"]).dt.normalize())
@@ -31,23 +33,73 @@ def report_filters(frame: pd.DataFrame, report_dates: list[pd.Timestamp]) -> pd.
                                   end=max(dates.max(), max(report_dates)) + pd.Timedelta(days=15)).sessions
     sessions = sessions.tz_localize(None) if sessions.tz is not None else sessions
     reports = pd.DatetimeIndex(report_dates)
-    next_indices = reports.searchsorted(dates, side="left")
-    valid = next_indices < len(reports)
-    next_dates = reports[np.minimum(next_indices, len(reports) - 1)]
+    knowledge = known_from or {}
+    known = pd.DatetimeIndex([knowledge.get(day, pd.Timestamp('1900-01-01')) for day in reports])
+    # Calendar information must already be known on the signal day. A later
+    # observation must not unlock an earlier historical purchase.
+    available = (reports.values[None, :] >= dates.values[:, None]) & (known.values[None, :] <= dates.values[:, None])
+    valid = available.any(axis=1)
+    next_dates = reports[available.argmax(axis=1)]
     distances = sessions.searchsorted(next_dates, side="right") - sessions.searchsorted(dates, side="right")
     allowed = valid & (distances > 10) & (next_dates > dates)
     data["BuyExecutionAllowed"] = allowed
     # Both the signal day and the actual next opening must be outside the block.
     next_sessions = sessions[sessions.searchsorted(dates, side="right")]
-    next_report_indices = reports.searchsorted(next_sessions, side="left")
-    next_valid = next_report_indices < len(reports)
-    next_reports = reports[np.minimum(next_report_indices, len(reports) - 1)]
+    next_available = (reports.values[None, :] >= next_sessions.values[:, None]) & (known.values[None, :] <= dates.values[:, None])
+    next_valid = next_available.any(axis=1)
+    next_reports = reports[next_available.argmax(axis=1)]
     next_distances = sessions.searchsorted(next_reports, side="right") - sessions.searchsorted(next_sessions, side="right")
     data["BuyAllowed"] = allowed & next_valid & (next_reports > next_sessions) & (next_distances > 10)
     exits = {sessions[sessions.searchsorted(day, side="left") - 1] for day in reports
-             if sessions.searchsorted(day, side="left") > 0}
+             if sessions.searchsorted(day, side="left") > 0
+             and knowledge.get(day, pd.Timestamp('1900-01-01')) <= sessions[sessions.searchsorted(day, side="left") - 1]}
     data["ForceReportExit"] = dates.isin(exits)
     return data
+
+
+
+@lru_cache(maxsize=1)
+def calendar_history() -> pd.DataFrame:
+    return load_auto_report_calendar(CALENDAR_HISTORY_FILE)
+
+
+@lru_cache(maxsize=1)
+def legacy_calendar_knowledge() -> pd.DataFrame:
+    path = ROOT / 'data/manual/report_calendar_knowledge_overrides.csv'
+    return pd.read_csv(path) if path.exists() else pd.DataFrame(columns=['ticker', 'report_date', 'known_from'])
+
+
+def report_knowledge(ticker: str, dates: list[pd.Timestamp]) -> dict[pd.Timestamp, pd.Timestamp]:
+    """Preserve legacy simulations; freeze observation timing for new cycles.
+
+    Announcements from the next report cycle (5 Nov 2026 onward) use their first
+    archived observation, also after that report becomes a realised report.
+    The migration manifest preserves previously published simulations unless
+    an audited correction supplies an actual observation date. It does not
+    pretend that legacy announcement timestamps are known.
+    """
+    frames = [f for f in (calendar_history(), automatic_calendar()) if not f.empty]
+    evidence = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    if not evidence.empty:
+        evidence = evidence.loc[evidence.ticker.astype(str).eq(ticker)].copy()
+        evidence['report_date_start'] = pd.to_datetime(evidence.report_date_start)
+        evidence['observed_date'] = pd.to_datetime(evidence.observed_date)
+    knowledge = {}
+    for day in sorted(set(dates)):
+        if day < pd.Timestamp('2026-11-05'):
+            continue
+        matching = evidence.loc[evidence.report_date_start.eq(day), 'observed_date'] if not evidence.empty else pd.Series(dtype='datetime64[ns]')
+        # Missing knowledge cannot grant a historical buy. Fallback is the
+        # release day; no observation date is invented.
+        knowledge[day] = matching.min() if matching.notna().any() else day
+    overrides = legacy_calendar_knowledge()
+    for row in overrides.loc[overrides.ticker.eq(ticker)].itertuples(index=False):
+        day = pd.Timestamp(row.report_date)
+        if str(getattr(row, 'legacy_preserve', False)).lower() == 'true':
+            knowledge.pop(day, None)
+        else:
+            knowledge[day] = pd.Timestamp(row.known_from)
+    return knowledge
 
 
 def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataFrame,
@@ -74,7 +126,8 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
     ma["BuyAllowed"] = (ma["Close"] > ma["MA200"]) & ma["MA200"].notna()
     # At the next open only the previous close's completed MA200 is known.
     ma["BuyExecutionAllowed"] = ma["BuyAllowed"].shift(1, fill_value=False) & (ma["Open"] > ma["MA200"].shift(1))
-    report_frame = report_filters(frame, dates)
+    knowledge = report_knowledge(ticker, dates)
+    report_frame = report_filters(frame, dates, knowledge)
     variants = {"standard": standard, "ma200": run_strategy(ma, ticker),
                 "report_avoidance": run_strategy(report_frame, ticker),
                 "standard_stop_loss_10": run_strategy(frame, ticker, stop_loss_pct=10),
@@ -89,7 +142,7 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
                                   end=max([latest_day + pd.Timedelta(days=30), *dates])).sessions
     sessions = sessions.tz_localize(None) if sessions.tz is not None else sessions
     next_session = sessions[sessions.searchsorted(latest_day, side="right")]
-    next_report = min((day for day in dates if day >= latest_day), default=None)
+    next_report = min((day for day in dates if day >= latest_day and knowledge.get(day, pd.Timestamp("1900-01-01")) <= latest_day), default=None)
     report_exit = sessions[sessions.searchsorted(next_report, side="left") - 1] if next_report is not None else None
     filter_info = {
         "standard": {"buy_allowed": True, "buy_block_reason": ""},
@@ -115,7 +168,7 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
                        "end_date": frame["Date"].max().date().isoformat()}
         if live_payload_builder is not None:
             result[key]["overview"] = live_payload_builder(variant, filter_info[key])
-    result["report_avoidance"]["report_date_basis"] = "final_report_dates"
+    result["report_avoidance"]["report_date_basis"] = "archived_calendar_observations_for_new_cycles"
     result["report_avoidance"]["report_dates_count"] = len(set(dates))
     result["report_avoidance"]["missing_next_report_days"] = int((~report_frame["BuyExecutionAllowed"] & ~report_frame["ForceReportExit"]).sum()) if not dates else int((frame["Date"] > max(dates)).sum())
     return result
