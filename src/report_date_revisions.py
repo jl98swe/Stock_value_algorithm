@@ -64,8 +64,10 @@ def changed_eps_cutoffs(reports: pd.DataFrame, previous: pd.DataFrame) -> dict[s
             continue
         same = (a and b and np.isclose(float(before.eps_ttm), float(after.eps_ttm), rtol=0, atol=1e-12)
                 and str(before.eps_currency) == str(after.eps_currency)
-                and str(before.calculation_mode) == str(after.calculation_mode)
-                and pd.to_datetime(before.valuation_date) == pd.to_datetime(after.valuation_date))
+                and pd.to_datetime(before.effective_date) == pd.to_datetime(after.effective_date))
+        # Adding the first TradingView report can switch the ticker-wide model
+        # state. That is not permission to rewrite older, unchanged reports.
+        # A deliberate mode-only historical rebuild needs an explicit correction.
         if same:
             continue
         days = [pd.Timestamp(row.effective_date).normalize() for row, ok in ((before, a), (after, b)) if ok]

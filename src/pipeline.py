@@ -373,10 +373,10 @@ def _stock_payload(
     )
 
     news = load_news(ticker)
-    calculation_mode = valuation_calculation_mode(ticker, reports)
     # A report not yet published at the last price date must not enter that
     # valuation state (e.g. yesterday's close on this morning's report day).
     available_reports = reports.loc[reports["effective_date"].le(pd.Timestamp(latest_price["date"]))]
+    calculation_mode = valuation_calculation_mode(ticker, available_reports)
     working = _valuation_input(frame, ticker, available_reports, calculation_mode)
     locks = build_lock_series(
         working["Date"],

@@ -127,3 +127,14 @@ def test_gate_uses_git_baseline_after_local_snapshot_has_been_overwritten(tmp_pa
         save('data/derived/valuation_score_history.csv.gz', history.assign(score=73.26))
     with pytest.raises(ValueError, match='publicerad poäng'):
         validate_history(root=tmp_path)
+
+
+def test_first_tradingview_report_cannot_reopen_older_publication_dates():
+    reports, _ = snapshots()
+    reports.loc[0, 'source'] = 'Synthetic official report'
+    reports.loc[1, 'source'] = 'TradingView / diluted TTM'
+    previous = score_snapshot(reports.iloc[:1])
+    current = score_snapshot(reports)
+    assert previous.calculation_mode.iloc[0] != current.calculation_mode.iloc[0]
+    assert changed_eps_cutoffs(reports, previous) == {'EXAMPLE.ST': pd.Timestamp('2026-11-04')}
+    assert publication_cutoffs(previous, current) == {'EXAMPLE.ST': '2026-11-04'}

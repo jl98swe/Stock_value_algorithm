@@ -23,7 +23,7 @@ def publication_cutoffs(old: pd.DataFrame, new: pd.DataFrame) -> dict[str, str]:
 
     Model/quarter-end dates must NEVER grant permission to rewrite history.
     """
-    fields = ['effective_date', 'eps_ttm', 'eps_currency', 'verified', 'calculation_mode']
+    fields = ['effective_date', 'eps_ttm', 'eps_currency', 'verified']
     def rows(frame):
         return {(str(r['ticker']), str(r['report_period'])): r for r in frame.to_dict('records')}
     before, after = rows(old), rows(new)
