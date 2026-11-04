@@ -11,6 +11,7 @@ on:
       - "src/eps_conversion.py"
       - "src/pipeline.py"
       - "src/report_date_revisions.py"
+      - "src/history_guard.py"
   workflow_dispatch:
     inputs:
       ticker:
@@ -147,6 +148,7 @@ jobs:
           fi
           git commit -m "fundamentals: publicera verifierade EPS och omräknade webbdata"
           git pull --rebase origin "$GITHUB_REF_NAME"
+          python -m src.history_guard --base-ref "origin/$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
 
       - name: Publicera omräknade webbdata på GitHub Pages

@@ -223,6 +223,7 @@ jobs:
 
           git commit -m "data: daglig marknadsuppdatering"
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          python -m src.history_guard --base-ref "origin/$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
 
       - name: Spara Yahoo-observationer även om ett senare steg misslyckas
@@ -235,6 +236,7 @@ jobs:
           if git diff --cached --quiet -- data/earnings/yahoo_observations; then exit 0; fi
           git commit --only -m "data: bevara hämtade Yahoo EPS-observationer" -- data/earnings/yahoo_observations
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          python -m src.history_guard --base-ref "origin/$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
 
       - name: Publicera uppdaterade webbdata

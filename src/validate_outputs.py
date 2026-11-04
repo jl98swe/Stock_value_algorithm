@@ -538,6 +538,8 @@ def validate() -> None:
     _validate_fx()
     _validate_historical_eps_dates()
     _validate_dashboard(prices)
+    from .history_guard import validate_history
+    validate_history()
     print(
         f"Validering OK: {prices['ticker'].nunique()} tickers, "
         f"{len(prices):,} prisrader, GBM 100 träd, FX och Yahoo trailingDilutedEPS konsistenta."

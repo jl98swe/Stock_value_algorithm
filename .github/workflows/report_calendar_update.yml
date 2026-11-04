@@ -77,4 +77,5 @@ jobs:
           fi
           git commit -m "data: uppdatera rapportkalender"
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          python -m src.history_guard --base-ref "origin/$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"

@@ -452,3 +452,27 @@ nästa öppning, courtage och utdelningar följer Standard.
 Backtestet visar avslutade delpositioner med gemensam kassa och öppna
 delpositioner separat. Överlappande affärer räknas inte som varsin investering
 av hela kapitalet. Poänghistoriken och övriga strategiers regler ändras inte.
+
+
+### Skydd av publicerad historik
+
+En ny rapport får påverka publicerade värderingspoäng och signaler tidigast på
+rapportens `effective_date`. TradingViews periodslut får fortfarande användas
+inne i modellens beräkningsstat, men ger aldrig tillstånd att skriva om poäng
+före publiceringen. Tidigare publicerade poäng fryses separat.
+
+`python -m src.validate_outputs` jämför frysta poäng, exporterade poäng och
+utförda affärer i alla fem strategier mot Git HEAD. Publiceringsflödena gör
+även en oberoende kontroll mot `origin/main` efter rebase, före push. Ändringar,
+borttagna poster och nytillkomna affärer bakåt i tiden stoppar publiceringen.
+Nya handelsdagar och omräkning från en ändrad rapports publiceringsdatum tillåts.
+Kontrollen räknar inte fram sin gräns från modellens periodslut och läser
+referensen ur Git, även om pipelinen redan har skrivit över sin lokala snapshot.
+
+Avsiktliga historiska rättelser kräver en post i
+`data/manual/history_corrections.json`: exakt `base_commit`, en begriplig
+`reason` och `from` med ticker och första tillåtna rättelsedatum. Tillståndet
+gäller bara den angivna Git-versionen och dessa aktier/datum; det är ingen
+permanent avstängning. `--recalculate-score-from TICKER=YYYY-MM-DD` kan användas
+för själva omräkningen. Granska differensen och kör valideringen före commit.
+En rättelse som saknar en matchande dokumenterad post stoppas av kontrollen.
