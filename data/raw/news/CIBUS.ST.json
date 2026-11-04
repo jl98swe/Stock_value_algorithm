@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-03T23:19:15+01:00",
+  "generated_at": "2026-11-04T23:41:12+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/cibus-real-estate",
-  "items": []
+  "items": [
+    {
+      "ticker": "CIBUS.ST",
+      "company": "Cibus Real Estate",
+      "published_at": "2026-11-04T07:30:00+01:00",
+      "title": "Cibus förvärvar fastigheter för 12,5 MEUR i Finland",
+      "link": "https://mfn.se/beq/a/cibus-real-estate/cibus-forvarvar-fastigheter-for-12-5-meur-i-finland-7f2e7c74",
+      "source": "MFN",
+      "summary": "Cibus förvärvar fastigheter för 12,5 MEUR i Finland 2026-11-04 07:30:00 Cibus Real Estate AB (publ) (\"Cibus\") har i två separata transaktioner förvärvat 4 fastigheter i Finland. Förvärvspriset uppgår till 12,5 MEUR och den årliga hyresintäkten är 1,1 MEUR. Hyresgästen är Kesko i samtliga fastigheter och andelen dagligvaruhyresgäster 98 procent av portföljen. Den genomsnittliga kontraktslängden är 12,3 år och den totala uthyrningsbara ytan uppgår till 4 587 kvm. Uthyrningsgraden är 100 procent och tillträdet sker i det fjärde kvartalet 2026 för 42 procent av portföljen och resterande 58 blir färdigställt december 2027. En av fastigheterna best",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a498333e4d70d32e"
+    }
+  ]
 }

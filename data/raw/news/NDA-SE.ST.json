@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-11-04T23:43:50+01:00",
+  "source": "MFN",
+  "source_url": "https://mfn.se/all/a/noba",
+  "items": [
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-03T08:15:00+01:00",
+      "title": "The nomination committee proposes the election of Patrick Lapveteläinen as new chairman of the board of directors",
+      "link": "https://mfn.se/a/noba/the-nomination-committee-proposes-the-election-of-patrick-lapvetelainen-as-new-chairman-of-the-board-of-directors",
+      "source": "MFN",
+      "summary": "The nomination committee proposes the election of Patrick Lapveteläinen as new chairman of the board of directors 2026-11-03 08:15:00 NOBA Bank Group AB (publ) (\"NOBA\") has today been informed that its nomination committee proposes the election of Patrick Lapveteläinen as new chairman of the board of directors to the extraordinary general meeting of NOBA to be held at the end of November 2026. Patrick Lapveteläinen succeeds Hans-Ole Jochumsen who will step down from the board of directors in connection with the extraordinary general meeting. Patrick Lapveteläinen has been a member of the board of directors of NOBA since the 2026 annual genera",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f75cffea49b1589e"
+    }
+  ]
+}

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T23:23:00+01:00",
+  "generated_at": "2026-11-04T23:45:32+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/thule-group",
   "items": [
+    {
+      "ticker": "THULE.ST",
+      "company": "Thule Group AB (publ)",
+      "published_at": "2026-11-04T16:25:00+01:00",
+      "title": "Thule to hold investor update event",
+      "link": "https://mfn.se/a/thule-group/thule-to-hold-investor-update-event",
+      "source": "MFN",
+      "summary": "Thule to hold investor update event 2026-11-04 16:25:00 Thule is pleased to invite investors, analysts and media to an online investor update, one year after the latest capital markets day. The online event will take place on Tuesday, December 15, 2026. One year has passed since Thule hosted its capital markets day where the strategy and updated financial targets were presented. The purpose of the investor update is to present Thule’s progress towards the targets and learnings from the past year. The event is held online, starting at 14.00 CET. The event is planned for approximately 1.5 – 2 hours depending on the number of questions. Presenta",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "08d4aa4c86499922"
+    },
     {
       "ticker": "THULE.ST",
       "company": "Thule Group AB (publ)",

@@ -1,7 +1,227 @@
 {
-  "generated_at": "2026-11-03T23:23:25+01:00",
+  "generated_at": "2026-11-04T23:45:57+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-04T16:30:00+01:00",
+      "title": "NOBA Bank Group AB (publ) har framgångsrikt emitterat ”Senior Preferred”-obligationer",
+      "link": "https://mfn.se/a/noba/noba-bank-group-ab-publ-har-framgangsrikt-emitterat-senior-preferred-obligationer-6",
+      "source": "MFN",
+      "summary": "NOBA Bank Group AB (publ) har framgångsrikt emitterat ”Senior Preferred”-obligationer 2026-11-04 16:30:00 NOBA Bank Group AB (publ) (” NOBA ”) har framgångsrikt emitterat ”Senior Preferred”-obligationer om SEK 600m. Obligationerna har en löptid på 3.25 år till en ränta motsvarande 3-månaders STIBOR + 120bps. Obligationerna kommer listas på Nasdaq Stockholm. Likviddag för emissionen blir 11 november 2026. Obligationerna emitterades under NOBAs existerande MTN-program vilket har ett totalt rambelopp om SEK 10 miljarder. Nordea och Swedbank agerade lead managers i samband med transaktionen. För mer information kontakta gärna: Arash Bigloo, Head ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e8d4cb0b27240080"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-04T13:15:00+01:00",
+      "title": "Peabs podd vinner Publishingpriset",
+      "link": "https://mfn.se/cis/a/peab/peabs-podd-vinner-publishingpriset-27101807",
+      "source": "MFN",
+      "summary": "Peabs podd vinner Publishingpriset 2026-11-04 13:15:00 Peabs podcast om säkerhet i byggbranschen vann under tisdagkvällen Publishingpriset i kategorin nischad podcast. I podden Livsviktigt - en podd om att inte dö på jobbet delar Peabs egna medarbetare med sig av personliga erfarenheter från olyckor och allvarliga händelser. Peab arbetar löpande med att stärka fokus på hur allvarliga arbetsrelaterade olyckor i byggbranschen kan förebyggas. Som ett led i arbetet lanserades under 2025 en podcast, där medarbetare från Peab personligt och öppet delar med sig av egna erfarenheter från olyckor och allvarliga händelser de varit med om. - Vi är så im",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d8cdaf930e6136d1"
+    },
+    {
+      "ticker": "ZZ-B.ST",
+      "company": "Zinzino AB (publ)",
+      "published_at": "2026-11-04T09:00:00+01:00",
+      "title": "ZINZINO AB (PUBL.): PRELIMINÄR FÖRSÄLJNINGSRAPPORT OKTOBER 2026",
+      "link": "https://mfn.se/cis/a/zinzino/zinzino-ab-publ-preliminar-forsaljningsrapport-oktober-2026-d4b55309",
+      "source": "MFN",
+      "summary": "ZINZINO AB (PUBL.): PRELIMINÄR FÖRSÄLJNINGSRAPPORT OKTOBER 2026 2026-11-04 09:00:00 Zinzinos totala intäkter ökade med 1% jämfört med föregående år. Intäkterna för Zinzinos försäljningsmarknader i oktober 2026 ökade med 1% och uppgick till 325,1 (323,3) mSEK. Faun Pharmas externa försäljning ökade med 33% och uppgick till 3,6 (2,7) mSEK. Sammanlagt ökade koncernen intäkterna med 1% till 328,7 (326,0) mSEK jämfört med föregående år. Koncernens ackumulerade försäljning januari - oktober 2026 ökade med 19% till 3 128,0 (2 628,2) mSEK. Intäkterna fördelade sig enligt följande: Regioner,MSEK 26-Okt 25-Okt Förändring Ack 2026 Ack 2025 Förändring No",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "51760ee2d93ca18a"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-11-04T08:35:00+01:00",
+      "title": "Mount Sinai Health System först i USA med Sectras lösning för svarsskrivning - samlar bilder, AI och svar i ett och samma system",
+      "link": "https://mfn.se/cis/a/sectra/mount-sinai-health-system-forst-i-usa-med-sectras-losning-for-svarsskrivning-samlar-bilder-ai-och-svar-i-ett-och-samma-system-71e1769f",
+      "source": "MFN",
+      "summary": "Mount Sinai Health System först i USA med Sectras lösning för svarsskrivning - samlar bilder, AI och svar i ett och samma system 2026-11-04 08:35:00 Linköping - 4 november, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) har tecknat ett avtal med Mount Sinai Health System i New York om att leverera Sectra Reporting. Modulen för svarsskrivning är inbyggd i Sectras helhetslösning för medicinsk bildhantering och levereras som molntjänst genom Sectra One Cloud. Radiologerna på Mount Sinai kommer att kunna gå från arbetslista till signerat svar i ett och samma arbetsflöde utan att byta system, vilket bidr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "32f1b495bb64d8c5"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-04T08:30:00+01:00",
+      "title": "Rejlers bidrar till framtidens VA-infrastruktur genom nytt ramavtal med Gryaab",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-bidrar-till-framtidens-va-infrastruktur-genom-nytt-ramavtal-med-gryaab-3bcf1a86",
+      "source": "MFN",
+      "summary": "Rejlers bidrar till framtidens VA-infrastruktur genom nytt ramavtal med Gryaab 2026-11-04 08:30:00 Rejlers har tecknat ett fyraårigt ramavtal med Gryaab avseende tekniska konsulttjänster inom VA-processanläggningar. Avtalet ger Rejlers möjlighet att bidra till utvecklingen av Göteborgsregionens avloppsrening, där växande kapacitetsbehov och skärpta miljökrav driver på omfattande investeringar. Ramavtalet omfattar bland annat process- och maskinteknik, byggkonstruktion, el, VVS, geoteknik och VA-teknik samt projekt- och projekteringsledning och stöd vid byggnation, drift och underhåll. Rejlers kan stötta Gryaab genom hela kedjan, från tidiga u",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "eacf1a0d503745aa"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-04T08:30:00+01:00",
+      "title": "Nordnet: Månadsstatistik oktober",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-manadsstatistik-oktober-a09003b7",
+      "source": "MFN",
+      "summary": "Nordnet: Månadsstatistik oktober 2026-11-04 08:30:00 I oktober gjordes 5 547 300 avslut i marknadsnoterade finansiella instrument av Nordnets kunder, vilket motsvarar 254 500 avslut per börsdag. Nya kunder uppgick i oktober till 26 900 och den årliga kundtillväxten är 11,9 procent. Det totala antalet kunder uppgick i slutet av oktober till 2 592 800. Nettosparandet i oktober var 7,7 miljarder SEK och det totala nettosparandet under 2026 är 88,1 miljarder SEK. Sparkapitalet den sista oktober var 1 437 miljarder SEK och utlåningen 33,2 miljarder SEK. Oktober September Förändring Oktober Förändring 2026¹ 2026 en månad 2025 ett år Kunder och spar",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "13d89e70e3d45528"
+    },
+    {
+      "ticker": "ALLEI.ST",
+      "company": "Alleima",
+      "published_at": "2026-11-04T08:15:00+01:00",
+      "title": "Alleima når milstolpe - får första ordern på rör till nästa generations kärnreaktor",
+      "link": "https://mfn.se/cis/a/alleima/alleima-nar-milstolpe-far-forsta-ordern-pa-ror-till-nasta-generations-karnreaktor-9d9a443b",
+      "source": "MFN",
+      "summary": "Alleima når milstolpe - får första ordern på rör till nästa generations kärnreaktor 2026-11-04 08:15:00 Alleima har fått sin första order på ånggeneratorrör till nästa generations heliumkylda små modulära reaktorer, SMR, från Doosan Enerbility. Rören kommer att levereras till X-energys avancerade reaktorprogram Xe-100 i USA. ​ Från vänster : Jacobus Steyn, chef för affärsenheten Energy på Alleima, Hanhee Lee, VP Management Division Growth/Procurement på Doosan Enerbility, Göran Björkman, vd på Alleima, Alistair Black, VP UK Operations på X-energy; Robert Leone Sr Director Supply Chain på X-Energy, samt Carl von Schantz, divisionschef Tube på ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7124efbc86e3d126"
+    },
+    {
+      "ticker": "INVE-A.ST",
+      "company": "Investor AB (publ)",
+      "published_at": "2026-11-04T08:15:00+01:00",
+      "title": "Investor håller Capital Markets Update idag",
+      "link": "https://mfn.se/cis/a/investor/investor-haller-capital-markets-update-idag-4b378449",
+      "source": "MFN",
+      "summary": "Investor håller Capital Markets Update idag 2026-11-04 08:15:00 Klockan 13:00 idag håller Investor en Capital Markets Update med fokus på vår strategi och våra affärsområden. Talare är: Christian Cederholm, CEO Jessica Häggström, Head of Human Resources Lovisa Cavalli Wallenberg, HR Business Partner & Analytics Wallenberg Investments Jenny Ashman Haquinius, CFO Daniel Nodhäll, Head of Listed Companies Edward Flyborg, Head of Investments in EQT Thomas Kidane, Co-head Patricia Industries Yuriy Prilutskiy, Co-head Patricia Industries Brian LaDuke, CEO Sarnova Scott Nelson, CEO BraunAbility Chris Smith, CEO Laborie Byron Selman, CEO Nova Biomedic",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "81f690d20fd8250c"
+    },
+    {
+      "ticker": "KAMBI.ST",
+      "company": "Kambi Group plc",
+      "published_at": "2026-11-04T07:45:00+01:00",
+      "title": "Kambi Group plc Q3 Report 2026",
+      "link": "https://mfn.se/a/kambi-group/kambi-group-plc-q3-report-2026",
+      "source": "MFN",
+      "summary": "Kambi Group plc Q3 Report 2026 2026-11-04 07:45:00 “Kambi continued its positive trajectory in Q3, driven by a robust financial performance, new partner wins and further strategic progress. Supported by our powerful network, proven technology and a clear strategic focus, I believe the business is well positioned to deliver sustainable long-term value for both partners and shareholders alike.” – Werner Becher, CEO of Kambi Group Financial highlights Revenue in the third quarter of 2026 totalled €46.0m (37.4m), an increase of 23%. Revenue for the period January to September 2026 was €135.4m (119.3m), an increase of 13.5%. Gross profit in the qu",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7c50ed1af68cc73d"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-04T07:30:00+01:00",
+      "title": "Yksityissijoittajien lokakuu - Q3-tuloskauden siivittämänä hurja ostokuukausi Nordean ja Nokian johdolla",
+      "link": "https://mfn.se/cis/a/nordnet/yksityissijoittajien-lokakuu-q3-tuloskauden-siivittamana-hurja-ostokuukausi-nordean-ja-nokian-johdolla-ca7236a5",
+      "source": "MFN",
+      "summary": "Yksityissijoittajien lokakuu - Q3-tuloskauden siivittämänä hurja ostokuukausi Nordean ja Nokian johdolla 2026-11-04 07:30:00 Helsingin pörssin yleisindeksi laski lokakuussa lähes viisi prosenttia. Koko kuukausi oli mollivoittoinen, mutta käynnissä olevalla Q3-tuloskaudella ja Yhdysvaltain välivaaleilla on mahdollisuus palauttaa trendi nousujohteiseksi. Suomalaiset yksityissijoittajat kasvattivat sijoituksiaan lokakuun Q3-tulosjulkistajista erityisesti Nordeassa ja Nokiassa sekä totuttuun tapaan tuntuvasti myös ETF- ja rahastosijoituksissa. Koko Helsingin pörssin euromääräinen vaihto nousi vuodentakaisesta lokakuusta 11,9 prosenttia. Pörssin k",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0844891193f8e5ca"
+    },
     {
       "ticker": "INVE-A.ST",
       "company": "Investor AB (publ)",
@@ -23,6 +243,50 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "a5f236e471c42249"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-03T12:10:00+01:00",
+      "title": "Correction: Missing attachment to previous press release \"Notice of an extraordinary general meeting of NOBA Bank Group AB (publ)\"",
+      "link": "https://mfn.se/a/noba/missing-attachment-to-previous-press-release-notice-of-an-extraordinary-general-meeting-of-noba-bank-group-ab-publ",
+      "source": "MFN",
+      "summary": "Correction: Missing attachment to previous press release \"Notice of an extraordinary general meeting of NOBA Bank Group AB (publ)\" 2026-11-03 12:10:00 NOBA Bank Group AB (publ) hereby issues a correction to the notice of the extraordinary general meeting published earlier today. The correction relates to the fact that the press release was published without the complete notice of the extraordinary general meeting attached as an appendix. The full press release is set out below. An extraordinary general meeting of NOBA Bank Group AB (publ), reg. no. 556647-7286, (\"NOBA\" or the \"company\") will be held on Thursday 26 November 2026 at 11:00 CET a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e3ffabd416ac2712"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-03T09:30:00+01:00",
+      "title": "Notice of an extraordinary general meeting of NOBA Bank Group AB (publ)",
+      "link": "https://mfn.se/a/noba/notice-of-an-extraordinary-general-meeting-of-noba-bank-group-ab-publ",
+      "source": "MFN",
+      "summary": "Notice of an extraordinary general meeting of NOBA Bank Group AB (publ) 2026-11-03 09:30:00 An extraordinary general meeting of NOBA Bank Group AB (publ), reg. no. 556647-7286, (\"NOBA\" or the \"company\") will be held on Thursday 26 November 2026 at 11:00 CET at Advokatfirman Cederquist's premises, Hovslagargatan 3 in Stockholm, Sweden. Registration for the meeting will commence at 10:30 CET. The board of directors has resolved that shareholders may also exercise their voting rights at the meeting by postal voting pursuant to the provisions in the articles of association of NOBA. The notice is attached to this press release, and is also availab",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "075b1d3dcf64ca1e"
     },
     {
       "ticker": "SHOT.ST",
@@ -419,6 +683,28 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "36c4cbe130ba6049"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-10-30T11:15:00+01:00",
+      "title": "Increased number of shares and votes in NOBA Bank Group AB (publ)",
+      "link": "https://mfn.se/a/noba/increased-number-of-shares-and-votes-in-noba-bank-group-ab-publ",
+      "source": "MFN",
+      "summary": "Increased number of shares and votes in NOBA Bank Group AB (publ) 2026-10-30 11:15:00 During October 2026, the number of shares and votes in NOBA Bank Group AB (publ) (\" NOBA \") increased following the exercise of warrants to subscribe for a total of 95,518 shares. The newly issued shares have been allotted to current and previous members of NOBA’s management team pursuant to restricted stock units (RSU) that were granted in connection with the admission to trading of NOBA’s shares on Nasdaq Stockholm in September 2025. Today, the last trading day of the month, there are a total of 500,095,518 shares and votes in NOBA. For further information",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e2f0f89f0b65d042"
     },
     {
       "ticker": "INDU-A.ST",
@@ -2399,6 +2685,28 @@
       "review_note": "",
       "event_type": "news",
       "event_id": "273b9382770d92a8"
+    },
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-10-16T16:15:00+02:00",
+      "title": "Inbjudan – NOBAs resultat för det tredje kvartalet 2026",
+      "link": "https://mfn.se/a/noba/inbjudan-nobas-resultat-for-det-tredje-kvartalet-2026",
+      "source": "MFN",
+      "summary": "Inbjudan – NOBAs resultat för det tredje kvartalet 2026 2026-10-16 16:15:00 Tisdagen 3 november, cirka klockan 07.30 (CET), offentliggörs NOBAs resultat för det tredje kvartalet 2026. Därtill kommer presentationsmaterial och faktabok att finnas tillgängligt här: https://www.noba.bank/sv/investor-relations . Telefonkonferens I samband med publiceringen av resultatet hålls en telefonkonferens för investerare, analytiker och media. Under denna telefonkonferens kommer NOBAs CEO, Jacob Lundblad, samt CFO, Patrick MacArthur presentera resultatet, varefter det finns tillfälle att ställa frågor. Presentationen och frågestunden hålls på engelska. Tele",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ae75d5bf125c0958"
     },
     {
       "ticker": "BORG.ST",

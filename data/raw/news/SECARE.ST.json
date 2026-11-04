@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-03T23:22:23+01:00",
+  "generated_at": "2026-11-04T23:44:46+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/swedencare",
-  "items": []
+  "items": [
+    {
+      "ticker": "SECARE.ST",
+      "company": "Swedencare AB (publ)",
+      "published_at": "2026-11-04T08:30:00+01:00",
+      "title": "Swedencare utser Kristy Murphy till tillförordnad VD för NaturVet",
+      "link": "https://mfn.se/a/swedencare/swedencare-utser-kristy-murphy-till-tillforordnad-vd-for-naturvet",
+      "source": "MFN",
+      "summary": "Swedencare utser Kristy Murphy till tillförordnad VD för NaturVet 2026-11-04 08:30:00 Swedencare meddelar att Kristy Murphy, Chief Revenue Officer, från och med idag har utsetts till tillförordnad VD för NaturVet. Hon efterträder Geoff Granger, som lämnar sin roll som VD med omedelbar verkan. Parallellt med rollen som tillförordnad VD kommer Kristy Murphy att fortsätta leda den kommersiella organisationen. Hon har mer än 20 års erfarenhet av kommersiellt ledarskap inom djurhälsa och konsumentvaror. Innan hon började på Swedencare hade hon ledande kommersiella befattningar på Made by Nacho, Simply Protein for Pets och Solid Gold Pet, efter nio",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b02a73bff4a496b2"
+    }
+  ]
 }

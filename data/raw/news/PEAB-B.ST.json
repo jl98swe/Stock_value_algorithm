@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-03T23:21:57+01:00",
+  "generated_at": "2026-11-04T23:44:06+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-04T08:00:00+01:00",
+      "title": "Peab och Brukspecialisten tecknar rikstäckande avtal för att öka återbruk av tegel",
+      "link": "https://mfn.se/cis/a/peab/peab-och-brukspecialisten-tecknar-rikstackande-avtal-for-att-oka-aterbruk-av-tegel-7639e319",
+      "source": "MFN",
+      "summary": "Peab och Brukspecialisten tecknar rikstäckande avtal för att öka återbruk av tegel 2026-11-04 08:00:00 Peab och Brukspecialisten har tecknat ett tvåårigt rikstäckande ramavtal för att skala upp återbruket av tegel från rivningsprojekt. Genom att förenkla insamlingen och skapa ekonomiska incitament för återbruk vill parterna bidra till ett mer effektivt och långsiktigt materialflöde, där tegel tas till vara i stället för att bli avfall. För att återbruk av tegel ska kunna växa krävs fungerande system som gör det enkelt att ta hand om material från rivningar och föra tillbaka det till marknaden. Det handlar både om att fånga upp teglet i tid oc",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "75cb2126e6af0038"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",
