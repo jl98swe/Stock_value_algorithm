@@ -592,6 +592,7 @@ CATE.ST,2026-09-30,2026-10-23,2026-10-26,reportedEPS,5.9,SEK,Yahoo Finance / Rep
 CIBUS.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,0.03,EUR,Yahoo Finance / quarterlyDilutedEPS
 CIBUS.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.42,EUR,Yahoo Finance / quarterlyDilutedEPS
 CIBUS.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.17,EUR,Yahoo Finance / quarterlyDilutedEPS
+CIBUS.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.23,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
 CIBUS.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.2199999999999998,EUR,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 CIBUS.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.33,EUR,Yahoo Finance / quarterlyDilutedEPS
 CIBUS.ST,2025-12-31,2026-03-19,2026-10-26,reportedEPS,0.22,EUR,Yahoo Finance / Reported EPS
@@ -599,6 +600,7 @@ CIBUS.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.3,EUR,Yahoo Finance / quar
 CIBUS.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,0.21,EUR,Yahoo Finance / Reported EPS
 CIBUS.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
 CIBUS.ST,2026-06-30,2026-07-16,2026-10-26,reportedEPS,0.23,EUR,Yahoo Finance / Reported EPS
+CIBUS.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.35,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
 CLA-B.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2023-12-31,2024-01-26,2026-10-26,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2024-03-31,2024-04-26,2026-10-26,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
@@ -610,6 +612,7 @@ CLA-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.89,SEK,Yahoo Finance / qua
 CLA-B.ST,2025-03-31,2025-05-07,2026-10-26,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.41,SEK,Yahoo Finance / quarterlyDilutedEPS
 CLA-B.ST,2025-06-30,2025-07-17,2026-10-26,reportedEPS,0.27,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.66,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
 CLA-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.6599999999999997,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 CLA-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
 CLA-B.ST,2025-12-31,2026-02-04,2026-10-26,reportedEPS,0.8,SEK,Yahoo Finance / Reported EPS
@@ -617,6 +620,7 @@ CLA-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.74,SEK,Yahoo Finance / qua
 CLA-B.ST,2026-03-31,2026-05-06,2026-10-26,reportedEPS,0.74,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.77,SEK,Yahoo Finance / quarterlyDilutedEPS
 CLA-B.ST,2026-06-30,2026-07-15,2026-10-26,reportedEPS,0.77,SEK,Yahoo Finance / Reported EPS
+CLA-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.86,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
 CLAS-B.ST,2024-07-31,2024-09-04,2026-10-26,reportedEPS,2.3,SEK,Yahoo Finance / Reported EPS
 CLAS-B.ST,2024-10-31,2024-12-04,2026-10-26,reportedEPS,3.63,SEK,Yahoo Finance / Reported EPS
 CLAS-B.ST,2025-01-31,,2026-10-26,quarterlyDilutedEPS,6.68,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -812,12 +816,14 @@ EQL.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.44,SEK,Yahoo Finance / quart
 EQL.ST,2025-03-31,2025-05-08,2026-10-26,reportedEPS,0.44,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
 EQL.ST,2025-06-30,2025-08-08,2026-10-26,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
+EQL.ST,2025-09-30,2025-11-05,2026-11-05,manualDilutedEPS,-0.11,SEK,EQL Pharma H1 FY2026/27 PDF p.13 | https://mb.cision.com/Main/11664/4420272/4358509.pdf
 EQL.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,-0.1200000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 EQL.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
 EQL.ST,2025-12-31,2026-02-03,2026-10-26,reportedEPS,0.33,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,-0.13,SEK,Yahoo Finance / quarterlyDilutedEPS
 EQL.ST,2026-03-31,2026-05-08,2026-10-26,reportedEPS,-0.13,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.57,SEK,Yahoo Finance / quarterlyDilutedEPS
+EQL.ST,2026-09-30,2026-11-05,2026-11-05,manualDilutedEPS,0.4,SEK,EQL Pharma H1 FY2026/27 PDF p.13 | https://mb.cision.com/Main/11664/4420272/4358509.pdf
 ERIC-B.ST,2023-09-30,2023-10-17,2026-10-26,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2023-12-31,2024-01-23,2026-10-26,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2024-03-31,2024-04-16,2026-10-26,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
@@ -1164,6 +1170,7 @@ KAMBI.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.027,EUR,Yahoo Finance / qu
 KAMBI.ST,2025-03-31,2025-04-30,2026-10-26,reportedEPS,0.03,EUR,Yahoo Finance / Reported EPS
 KAMBI.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.009,EUR,Yahoo Finance / quarterlyDilutedEPS
 KAMBI.ST,2025-06-30,2025-07-23,2026-10-26,reportedEPS,0.01,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.036,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
 KAMBI.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.03,EUR,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 KAMBI.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.172,EUR,Yahoo Finance / quarterlyDilutedEPS
 KAMBI.ST,2025-12-31,2026-02-18,2026-10-26,reportedEPS,0.2,EUR,Yahoo Finance / Reported EPS
@@ -1171,6 +1178,7 @@ KAMBI.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.086,EUR,Yahoo Finance / qu
 KAMBI.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,0.09,EUR,Yahoo Finance / Reported EPS
 KAMBI.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.127,EUR,Yahoo Finance / quarterlyDilutedEPS
 KAMBI.ST,2026-06-30,2026-07-22,2026-10-26,reportedEPS,0.14,EUR,Yahoo Finance / Reported EPS
+KAMBI.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.126,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
 KNOW.ST,2023-09-30,2023-10-25,2026-10-26,reportedEPS,1.46,SEK,Yahoo Finance / Reported EPS
 KNOW.ST,2023-12-31,2024-02-08,2026-10-26,reportedEPS,3.32,SEK,Yahoo Finance / Reported EPS
 KNOW.ST,2024-03-31,2024-05-03,2026-10-26,reportedEPS,2.23,SEK,Yahoo Finance / Reported EPS
@@ -1290,6 +1298,7 @@ LUMI.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.33,USD,Yahoo Finance / quar
 LUMI.ST,2026-03-31,2026-05-06,2026-10-26,reportedEPS,0.31,USD,Yahoo Finance / Reported EPS
 LUMI.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.34,USD,Yahoo Finance / quarterlyDilutedEPS
 LUMI.ST,2026-06-30,2026-08-06,2026-10-26,reportedEPS,0.3,USD,Yahoo Finance / Reported EPS
+LUMI.ST,2026-09-30,2026-11-04,2026-11-05,manualDilutedEPS,0.28,USD,"Lundin Mining Q3 2026 MD&A p.24; financial statements p.2 (PDF pp.25,45) | https://lundinmining.com/_resources/financials/2026-q3.pdf"
 MCAP.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.8,SEK,Yahoo Finance / quarterlyDilutedEPS
 MCAP.ST,2024-12-31,2025-01-31,2026-10-26,reportedEPS,2.8,SEK,Yahoo Finance / Reported EPS
 MCAP.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,3.4,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1309,6 +1318,7 @@ MCOV-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.133,EUR,Yahoo Finance / q
 MCOV-B.ST,2025-03-31,2025-04-29,2026-10-26,reportedEPS,0.15,EUR,Yahoo Finance / Reported EPS
 MCOV-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.127,EUR,Yahoo Finance / quarterlyDilutedEPS
 MCOV-B.ST,2025-06-30,2025-07-24,2026-10-26,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.129,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
 MCOV-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.129,EUR,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 MCOV-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.124,EUR,Yahoo Finance / quarterlyDilutedEPS
 MCOV-B.ST,2025-12-31,2026-02-10,2026-10-26,reportedEPS,0.15,EUR,Yahoo Finance / Reported EPS
@@ -1316,6 +1326,7 @@ MCOV-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.146,EUR,Yahoo Finance / q
 MCOV-B.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
 MCOV-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.161,EUR,Yahoo Finance / quarterlyDilutedEPS
 MCOV-B.ST,2026-06-30,2026-07-22,2026-10-26,reportedEPS,0.16,EUR,Yahoo Finance / Reported EPS
+MCOV-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.169,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
 MSAB-B.ST,2023-09-30,2023-10-26,2026-10-26,reportedEPS,1.06,SEK,Yahoo Finance / Reported EPS
 MSAB-B.ST,2023-12-31,2024-01-25,2026-10-26,reportedEPS,0.05,SEK,Yahoo Finance / Reported EPS
 MSAB-B.ST,2024-03-31,2024-04-30,2026-10-26,reportedEPS,0.64,SEK,Yahoo Finance / Reported EPS
@@ -1347,6 +1358,7 @@ MTG-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / qua
 MTG-B.ST,2025-03-31,2025-04-29,2026-10-26,reportedEPS,3.2,SEK,Yahoo Finance / Reported EPS
 MTG-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,-0.52,SEK,Yahoo Finance / quarterlyDilutedEPS
 MTG-B.ST,2025-06-30,2025-07-18,2026-10-26,reportedEPS,2.71,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2025-09-30,2025-11-13,2026-11-05,manualDilutedEPS,0.33,SEK,MTG Q3 2026 | https://www.mtg.com/press-releases/another-solid-quarter-with-sek-3-bn-net-sales-23-adjusted-ebitda-margin/
 MTG-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,0.33,SEK,Yahoo Finance / quarterlyDilutedEPS
 MTG-B.ST,2025-09-30,2025-11-13,2026-10-26,reportedEPS,3.08,SEK,Yahoo Finance / Reported EPS
 MTG-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,-0.9,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1355,6 +1367,7 @@ MTG-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.16,SEK,Yahoo Finance / qua
 MTG-B.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,4.62,SEK,Yahoo Finance / Reported EPS
 MTG-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.83,SEK,Yahoo Finance / quarterlyDilutedEPS
 MTG-B.ST,2026-06-30,2026-07-21,2026-10-26,reportedEPS,3.93,SEK,Yahoo Finance / Reported EPS
+MTG-B.ST,2026-09-30,2026-11-05,2026-11-05,manualDilutedEPS,1.25,SEK,MTG Q3 2026 | https://www.mtg.com/press-releases/another-solid-quarter-with-sek-3-bn-net-sales-23-adjusted-ebitda-margin/
 MTRS.ST,2023-09-30,2023-10-24,2026-10-26,reportedEPS,1.57,SEK,Yahoo Finance / Reported EPS
 MTRS.ST,2023-12-31,2024-01-22,2026-10-26,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
 MTRS.ST,2024-03-31,2024-04-24,2026-10-26,reportedEPS,1.36,SEK,Yahoo Finance / Reported EPS
@@ -1823,12 +1836,14 @@ SINT.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.08,SEK,Yahoo Finance / quar
 SINT.ST,2025-03-31,2025-04-30,2026-10-26,reportedEPS,1.08,SEK,Yahoo Finance / Reported EPS
 SINT.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.24,SEK,Yahoo Finance / quarterlyDilutedEPS
 SINT.ST,2025-06-30,2025-08-20,2026-10-26,reportedEPS,1.24,SEK,Yahoo Finance / Reported EPS
+SINT.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.62,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
 SINT.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,0.6200000000000001,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 SINT.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
 SINT.ST,2025-12-31,2026-02-17,2026-10-26,reportedEPS,0.55,SEK,Yahoo Finance / Reported EPS
 SINT.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.73,SEK,Yahoo Finance / quarterlyDilutedEPS
 SINT.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,0.73,SEK,Yahoo Finance / Reported EPS
 SINT.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
+SINT.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,1.74,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
 SOBI.ST,2023-09-30,2023-10-30,2026-10-26,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
 SOBI.ST,2023-12-31,2024-02-08,2026-10-26,reportedEPS,3.18,SEK,Yahoo Finance / Reported EPS
 SOBI.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
@@ -2137,13 +2152,3 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
-CIBUS.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.23,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
-CIBUS.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.35,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
-CLA-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.66,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
-CLA-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.86,SEK,"Cloetta Q3 2026 | https://news.cision.com/se/cloetta-ab/r/cloetta-ab-s-delarsrapport-juli--september-2026--stark-organisk-volymtillvaxt-och-lonsamhetsmalet-pa,c4419641"
-KAMBI.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.036,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
-KAMBI.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.126,EUR,Kambi Q3 2026 p.1 | https://storage.mfn.se/0bf62f1d-d58d-4015-b32f-cf072d186f00/kambi-group-plc-q3-2026-report.pdf
-MCOV-B.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.129,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
-MCOV-B.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.169,EUR,Medicover Q3 2026 Group total | https://mfn.se/a/medicover/interim-report-july-september-2026
-SINT.ST,2025-09-30,,2026-11-04,manualDilutedEPS,0.62,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
-SINT.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,1.74,SEK,SinterCast Q3 2026 p.16 | https://storage.mfn.se/95acdedc-174e-4994-8ef6-cfb613b4f368/interim-report-3q-2026-se-3-november-2026.pdf
