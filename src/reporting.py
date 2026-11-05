@@ -573,7 +573,18 @@ def _combined_schedule(auto: pd.DataFrame, manual: pd.DataFrame) -> pd.DataFrame
     automatic = automatic.sort_values(
         ["ticker", "schedule_priority", "observed_date", "report_date_start"],
         ascending=[True, True, False, True],
-    ).drop_duplicates("ticker", keep="first")
+    )
+    # Source priority resolves competing dates for one reporting cycle. It
+    # must not let a high-priority next-quarter date erase a nearer report.
+    selected = []
+    for _, candidates in automatic.groupby("ticker", sort=False):
+        retained = []
+        for index, row in candidates.iterrows():
+            if not any(abs(row.report_date_start - day) <= pd.Timedelta(days=45)
+                       for day in retained):
+                selected.append(index)
+                retained.append(row.report_date_start)
+    automatic = automatic.loc[selected]
     manual_rows = _manual_schedule_rows(manual)
     # Manual dates take precedence even when sources disagree by a few days.
     for row in manual_rows.itertuples(index=False):

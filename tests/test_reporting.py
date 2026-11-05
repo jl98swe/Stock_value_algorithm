@@ -173,6 +173,21 @@ def test_upcoming_uses_xsto_sessions_and_hides_unverified_estimate() -> None:
     assert rows[0]["estimate_status"] == "unverified_definition"
 
 
+def test_source_priority_keeps_distinct_report_cycles():
+    # Synthetic example: next quarter's issuer calendar must not erase this
+    # quarter's release from another source. Within one cycle MFN still wins.
+    auto = pd.DataFrame([
+        _calendar_row(report_date_start='2026-11-05', report_date_end='2026-11-05',
+                      source=reporting.BORSKOLLEN_SOURCE),
+        _calendar_row(report_date_start='2027-02-04', report_date_end='2027-02-04',
+                      source=reporting.MFN_SOURCE),
+        _calendar_row(report_date_start='2027-02-05', report_date_end='2027-02-05',
+                      source=reporting.BORSKOLLEN_SOURCE),
+    ])
+    schedule = reporting._combined_schedule(auto, pd.DataFrame())
+    assert schedule.report_date_start.dt.strftime('%Y-%m-%d').tolist() == ['2026-11-05', '2027-02-04']
+
+
 def test_verified_diluted_estimate_may_be_displayed() -> None:
     schedule = reporting._combined_schedule(
         reporting._normalise_calendar(

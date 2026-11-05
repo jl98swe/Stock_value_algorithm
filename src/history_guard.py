@@ -69,7 +69,32 @@ def assert_score_history(old: pd.DataFrame, new: pd.DataFrame, cutoffs: dict[str
                          + str(bad.head(5).to_dict('records')))
 
 
-def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str]) -> None:
+def approved_report_exits(records: list) -> Counter:
+    """Explicit, addition-only execution repairs never grant score cutoffs."""
+    result = Counter()
+    for record in records:
+        for repair in record.get('report_exit_additions', []):
+            if not str(record.get('reason', '')).strip() or not str(repair.get('source', '')).strip():
+                raise ValueError('Historikskydd: rapportaffärsrättelse kräver orsak och källa')
+            report = pd.Timestamp(repair['report_date']).normalize()
+            day = pd.Timestamp(repair['execution_date']).normalize()
+            known = pd.Timestamp(repair['known_from']).normalize()
+            import exchange_calendars as xcals
+            calendar = xcals.get_calendar('XSTO', start=report - pd.Timedelta(days=15),
+                                          end=report + pd.Timedelta(days=1))
+            sessions = calendar.sessions.tz_localize(None)
+            prior_session = sessions[sessions.searchsorted(report, side='left') - 1]
+            if day != prior_session or known > day:
+                raise ValueError('Historikskydd: rapportförsäljning kräver föregående handelsdag och tidigare kalenderkunskap')
+            event = json.dumps([repair['ticker'], 'exit', day.date().isoformat(),
+                                day.date().isoformat(), round(float(repair['price']), 8),
+                                repair['lot_id']], ensure_ascii=False)
+            result[event] += 1
+    return result
+
+
+def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str],
+                         report_exit_additions: Counter | None = None) -> None:
     """Compare executions, including entries that move from open to closed lots.
 
     Exclude returns/drawdown that legitimately evolve as more prices arrive.
@@ -93,6 +118,20 @@ def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str]) -> None:
                                              ensure_ascii=False))
             return Counter(events)
         a, b = executions(previous), executions(current)
+        if strategy == 'report_avoidance' and report_exit_additions:
+            # Only add the audited report exit of an existing published lot.
+            # Changed entries, prices, dates, other strategies and removals
+            # remain protected, even after this repair has been published.
+            open_ids = {(r['ticker'], r.get('lot_id')) for r in previous.get('open_lots', [])}
+            eligible = Counter()
+            for r in current.get('closed_trades', []):
+                if r.get('exit_reason') != 'report' or (r['ticker'], r.get('lot_id')) not in open_ids:
+                    continue
+                event = json.dumps([r['ticker'], 'exit', r.get('exit_signal_date'), r.get('exit_date'),
+                                    round(float(r['exit_price']), 8), r.get('lot_id')], ensure_ascii=False)
+                eligible[event] += 1
+            allowed = (b - a) & report_exit_additions & eligible
+            b -= allowed
         if a != b:
             changes = list((a - b).elements()) + list((b - a).elements())
             raise ValueError(f'Historikskydd: publicerad affär ändrad i {strategy}: {changes[:3]}')
@@ -138,7 +177,8 @@ def validate_history(*, root: Path = ROOT, base_ref: str = 'HEAD') -> None:
                             columns=['ticker', 'date', 'score'])
     assert_score_history(exported(old_dashboard), exported(new_dashboard), cutoffs)
     assert_trade_history(json.loads(prior('docs/data/backtests/all.json')),
-                         json.loads((root / 'docs/data/backtests/all.json').read_text()), cutoffs)
+                         json.loads((root / 'docs/data/backtests/all.json').read_text()), cutoffs,
+                         approved_report_exits(records))
     print(f'Historikskydd OK mot {base[:12]}: publicerade poäng och affärer bevarade före tillåtna datum.')
 
 
