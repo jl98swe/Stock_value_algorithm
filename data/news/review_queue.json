@@ -1,7 +1,117 @@
 {
-  "generated_at": "2026-11-04T23:45:57+01:00",
+  "generated_at": "2026-11-05T23:49:39+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "FABG.ST",
+      "company": "Fabege",
+      "published_at": "2026-11-05T13:01:36+01:00",
+      "title": "Flera nya hyresgäster väljer Fabege i kvarteret Drabanten",
+      "link": "https://mfn.se/cis/a/fabege/flera-nya-hyresgaster-valjer-fabege-i-kvarteret-drabanten-8a7503a9",
+      "source": "MFN",
+      "summary": "Flera nya hyresgäster väljer Fabege i kvarteret Drabanten 2026-11-05 13:01:36 Fabege har tecknat två hyresavtal i Stockholms innerstad om sammanlagt cirka 1 275 kvm med läkemedelsföretaget Chiesi Pharma och Kungsbron Borevision i kvarteret Drabanten på Kungsbroplan 3. Bildtext: Drabanten 3, Kungsbroplan 3, Kungsholmen Byggnaden uppfördes 1907 och ritades av arkitekten Fredrik Falkenberg. Huset har fem entréer, och Chiesi Pharma hyr 840 kvm på Kungsbro Plan 3a och revisionsbolaget Kungsbron Borevision hyr 435kvm på Kungsbro Strand 31. Tillträde sker under maj och september 2027 och avtalen löper i fem år vardera. - Vi ser verkligen fram emot a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1fee6ca09cd1fb6f"
+    },
+    {
+      "ticker": "HUFV-A.ST",
+      "company": "Hufvudstaden AB (publ)",
+      "published_at": "2026-11-05T08:46:44+01:00",
+      "title": "Hufvudstaden erhåller kreditbetyget A3 av Moody's med stabila utsikter",
+      "link": "https://mfn.se/cis/a/hufvudstaden/hufvudstaden-erhaller-kreditbetyget-a3-av-moodys-med-stabila-utsikter-603855bc",
+      "source": "MFN",
+      "summary": "Hufvudstaden erhåller kreditbetyget A3 av Moody's med stabila utsikter 2026-11-05 08:46:44 Moody's har idag för första gången tilldelat Hufvudstaden det långsiktiga kreditbetyget A3 med stabila utsikter. Kreditbetyget stöds av bolagets högkvalitativa fastighetsbestånd och starka marknadsposition inom kontor och retail i Sveriges mest attraktiva lägen, tillsammans med en lång historik av hyrestillväxt och en kapitalstruktur med låg belåning. \"Vi är stolta över kreditbetyget och ser det som en bekräftelse på det långsiktiga arbete som ligger bakom Hufvudstadens starka finansiella ställning. Betyget bidrar till fortsatt goda förutsättningar för ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5b816ae14bdf8cef"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-05T08:30:00+01:00",
+      "title": "Rejlers wins contract as Skanska builds new facility for Hydro on Karmøy",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-wins-contract-as-skanska-builds-new-facility-for-hydro-on-karmoy-ef0821a6",
+      "source": "MFN",
+      "summary": "Rejlers wins contract as Skanska builds new facility for Hydro on Karmøy 2026-11-05 08:30:00 Rejlers and Aventi have jointly secured a contract from Skanska, which is building a new aluminium wire production facility at Hydro's existing plant on Karmøy in Norway. The assignment includes electrical and high-voltage engineering design, automation support and responsibility for project management in the assignment. Aventi and Rejlers will carry out the assignment as a turnkey subcontract for Skanska. Rejlers is responsible for electrical and high-voltage engineering design and will also contribute expertise in automation. The scope also includes",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4727060e2666df17"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-05T08:30:00+01:00",
+      "title": "Rejlers vinner uppdrag när Skanska bygger ny anläggning för Hydro på Karmøy",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-vinner-uppdrag-nar-skanska-bygger-ny-anlaggning-for-hydro-pa-karmoy-6fa2c143",
+      "source": "MFN",
+      "summary": "Rejlers vinner uppdrag när Skanska bygger ny anläggning för Hydro på Karmøy 2026-11-05 08:30:00 Rejlers och Aventi har tillsammans vunnit ett uppdrag från Skanska, som bygger en ny produktionsanläggning för aluminiumtråd vid Hydros befintliga fabrik på Karmøy i Norge. I uppdraget ingår projektering inom el och högspänning, stöd inom automation samt ansvar för uppdragets projektledning. Aventi och Rejlers genomför uppdraget som en totalunderentreprenad åt Skanska. Rejlers ansvarar för projektering inom el och högspänning och bidrar inom automation. Uppdraget omfattar även projektledning och projektstöd för totalunderentreprenaden i form av grä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f444f73bce089d16"
+    },
+    {
+      "ticker": "FOI-B.ST",
+      "company": "Fenix Outdoor International AG",
+      "published_at": "2026-11-05T07:30:00+01:00",
+      "title": "Vahvaa kasvua Enersensen kolmannella neljänneksellä",
+      "link": "https://mfn.se/a/enersense-international/vahvaa-kasvua-enersensen-kolmannella-neljanneksella",
+      "source": "MFN",
+      "summary": "Vahvaa kasvua Enersensen kolmannella neljänneksellä 2026-11-05 07:30:00 Enersense International Oyj | Pörssitiedote | 05.11.2026 klo 08:30:00 EET Liiketoimintakatsaus tammi-syyskuu 2026 Tiedotteen luvut ovat tilintarkastamattomia. Heinä–syyskuu 2026 Liikevaihto oli 87,1 (81,1) miljoonaa euroa, kasvua 7,4 %. Liikevaihto ilman vuonna 2025 myytyjä tai lopetettuja toimintoja oli 87,0 (76,4) miljoonaa euroa, kasvua 13,9 %. Käyttökate oli 2,9 (5,8) miljoonaa euroa, käyttökatemarginaali oli 3,4 (7,1) %. Vertailukauden lukuun sisältyy 1,9 miljoonan euron voitto meriteollisuusyksikön myynnistä. Oikaistu käyttökate oli 5,5 (9,2) miljoonaa euroa ja oika",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b91c5ab08d71b6ec"
+    },
     {
       "ticker": "NDA-SE.ST",
       "company": "Nordea Bank Abp",

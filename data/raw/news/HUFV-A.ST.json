@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-04T23:42:45+01:00",
+  "generated_at": "2026-11-05T23:47:07+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/hufvudstaden",
-  "items": []
+  "items": [
+    {
+      "ticker": "HUFV-A.ST",
+      "company": "Hufvudstaden AB (publ)",
+      "published_at": "2026-11-05T08:46:44+01:00",
+      "title": "Hufvudstaden is assigned an A3 credit rating by Moody's with a stable outlook",
+      "link": "https://mfn.se/cis/a/hufvudstaden/hufvudstaden-is-assigned-an-a3-credit-rating-by-moodys-with-a-stable-outlook-1f7711bb",
+      "source": "MFN",
+      "summary": "Hufvudstaden is assigned an A3 credit rating by Moody's with a stable outlook 2026-11-05 08:46:44 Moody's has today assigned Hufvudstaden its first long-term credit rating of A3 with a stable outlook. The rating is underpinned by the company's exceptional asset quality, its strong position in Sweden's prime office and premium retail markets, combined with its long track record of rental growth and modestly leveraged capital structure. \"We are proud to have received the credit rating and view it as recognition of the long-term efforts that have contributed to Hufvudstaden's strong financial position. The rating further enhances our funding div",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6bd845c16721e2c3"
+    }
+  ]
 }

@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-04T23:42:00+01:00",
+  "generated_at": "2026-11-05T23:46:20+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eql-pharma",
-  "items": []
+  "items": [
+    {
+      "ticker": "EQL.ST",
+      "company": "EQL Pharma",
+      "published_at": "2026-11-05T07:00:00+01:00",
+      "title": "Halvårsrapport April - september 2026",
+      "link": "https://mfn.se/cis/a/eql-pharma/halvarsrapport-april-september-2026-4107bc70",
+      "source": "MFN",
+      "summary": "Halvårsrapport April - september 2026 2026-11-05 07:00:00 Fokus är att komma ur den tuffa perioden starkare och redo för nästa tillväxtfas VD har ordet Det andra kvartalet på räkenskapsåret 2026/27 var ett starkt kvartal. Försäljningen uppgick till 157,2 (86,4) MSEK vilket motsvarar en tillväxt på 82%. Bruttomarginalen återhämtar sig från det första kvartalet till 36% (38%) trots nedskrivningar av fordringar och varulager om 15 MSEK. Även EBITDA-marginalen på 19% (10%) återhämtar sig jämfört med Q1 och föregående års Q2. Inga produkter lanserades och två adderades till pipeline. Mellozzan har lanserats i Turkiet och Memprex har lanserats i Fr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "restructuring"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:restructuring",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a9779ec0a8343c07"
+    }
+  ]
 }
