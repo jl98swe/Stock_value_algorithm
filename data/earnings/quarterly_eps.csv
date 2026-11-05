@@ -1075,6 +1075,7 @@ HUFV-A.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / qua
 HUFV-A.ST,2025-03-31,2025-05-08,2026-10-26,reportedEPS,1.18,SEK,Yahoo Finance / Reported EPS
 HUFV-A.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.91,SEK,Yahoo Finance / quarterlyDilutedEPS
 HUFV-A.ST,2025-06-30,2025-08-20,2026-10-26,reportedEPS,1.19,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2025-09-30,2025-11-06,2026-11-05,manualDilutedEPS,1.3,SEK,Hufvudstaden Q3 2026 koncernrapport s.8 | https://hufvudstaden.se/contentassets/21e1e13d3cc5486993b2033edae27691/hufvudstaden-delarsrapport-januari-september-2026.pdf
 HUFV-A.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.2799999999999994,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 HUFV-A.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.59,SEK,Yahoo Finance / quarterlyDilutedEPS
 HUFV-A.ST,2025-12-31,2026-02-12,2026-10-26,reportedEPS,1.27,SEK,Yahoo Finance / Reported EPS
@@ -1082,6 +1083,7 @@ HUFV-A.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.51,SEK,Yahoo Finance / qu
 HUFV-A.ST,2026-03-31,2026-05-08,2026-10-26,reportedEPS,1.3,SEK,Yahoo Finance / Reported EPS
 HUFV-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.54,SEK,Yahoo Finance / quarterlyDilutedEPS
 HUFV-A.ST,2026-06-30,2026-08-20,2026-10-26,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
+HUFV-A.ST,2026-09-30,2026-11-05,2026-11-05,manualDilutedEPS,1.62,SEK,Hufvudstaden Q3 2026 koncernrapport s.8 | https://hufvudstaden.se/contentassets/21e1e13d3cc5486993b2033edae27691/hufvudstaden-delarsrapport-januari-september-2026.pdf
 INDT.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,2.2,SEK,Yahoo Finance / Reported EPS
 INDT.ST,2023-12-31,2024-02-01,2026-10-26,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
 INDT.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,1.92,SEK,Yahoo Finance / Reported EPS
