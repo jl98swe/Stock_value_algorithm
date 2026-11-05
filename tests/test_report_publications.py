@@ -100,7 +100,8 @@ def test_future_eps_cannot_change_published_score_prefix():
         dict(ticker='EXAMPLE.ST', report_period='2026-Q3', period_end='2026-09-30',
              effective_date='2026-11-05', eps_ttm=10, verified=True, publication_time_verified=True),
     ]))
-    model = GBMModel.load()
+    from src.model_data import ensure_gbm_model
+    model = GBMModel.load(ensure_gbm_model())
     def valued(r):
         return calculate_valuation(attach_eps_ttm(frame, 'EXAMPLE.ST', r,
             stock_metadata=pd.DataFrame(), calculation_mode=TV_PERIOD_END_STATE), model=model)
