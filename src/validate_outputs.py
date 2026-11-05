@@ -313,7 +313,8 @@ def _validate_report_exports(
     }
     for report in verified.itertuples(index=False):
         event_id = f"report:{report.ticker}:{report.report_period}"
-        day = pd.Timestamp(report.effective_date).date().isoformat()
+        from .report_publications import publication_metadata
+        day = publication_metadata(report._asdict())["report_date"]
         if event_days.get(event_id) != day:
             raise ValueError(f"Rapporthändelse saknas eller har fel datum: {event_id} ({day})")
 
@@ -335,9 +336,8 @@ def _validate_report_exports(
         if analysis.get("calendar_as_of_date") != calendar_as_of.date().isoformat():
             raise ValueError("reports.json har fel kalenderdatum för byggtidpunkten")
     start = _recent_window_start(calendar_as_of)
-    release_dates = pd.to_datetime(verified["published_at"], utc=True, errors="coerce")
-    release_dates = release_dates.dt.tz_convert("Europe/Stockholm").dt.tz_localize(None).dt.normalize()
-    release_dates = release_dates.fillna(verified["effective_date"])
+    from .report_publications import publication_metadata
+    release_dates = pd.to_datetime(verified.apply(lambda row: publication_metadata(row)["report_date"], axis=1))
     expected_recent: set[tuple[str, str]] = set()
     for ticker, stock in stocks.items():
         latest_report = latest_verified_report(ticker, reports)

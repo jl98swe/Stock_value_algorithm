@@ -109,3 +109,20 @@ def test_future_eps_cannot_change_published_score_prefix():
     after = valued(reports)
     prefix = dates < pd.Timestamp('2026-11-05')
     np.testing.assert_allclose(before.loc[prefix, 'Score'], after.loc[prefix, 'Score'], equal_nan=True)
+
+
+def test_export_validator_separates_official_marker_and_effective_date():
+    from src.validate_outputs import _validate_report_exports
+    # Synthetic example: issuer date precedes Swedish midnight and first usable close.
+    reports = normalise_reports(pd.DataFrame([dict(ticker='EXAMPLE.ST', report_period='2026-Q3',
+        period_end='2026-09-30', report_date='2026-11-04', effective_date='2026-11-05',
+        published_at='2026-11-04T15:30:00-08:00', eps_ttm=10, verified=True,
+        publication_time_verified=True)]))
+    stocks = {'EXAMPLE.ST': {'latest': {'date':'2026-11-05'},
+        'report': {'period':'2026-Q3', 'effective_date':'2026-11-05', 'eps_ttm':10, 'verified':True}}}
+    events = [dict(event_id='report:EXAMPLE.ST:2026-Q3', event_type='report', event_date='2026-11-04')]
+    analysis = dict(as_of_date='2026-11-05', recent=[dict(ticker='EXAMPLE.ST', report_date='2026-11-04')])
+    _validate_report_exports(reports, stocks, events, analysis)
+    events[0]['event_date'] = '2026-11-05'
+    with pytest.raises(ValueError, match='Rapporthändelse'):
+        _validate_report_exports(reports, stocks, events, analysis)

@@ -80,6 +80,15 @@ def impact(base_ref: str):
                 assert stock[field] == new_dashboard[ticker][field], f'{field} changed: {ticker}'
     a, b = old_dashboard[TICKER], new_dashboard[TICKER]
     signal_changes = []
+    def record_signal_changes(strategy, previous_rows, current_rows):
+        def keyed(rows):
+            return {(r.get('signal_date', r.get('date')), r['side'], r.get('status')): r for r in rows}
+        previous, current = keyed(previous_rows), keyed(current_rows)
+        for key in sorted(previous.keys() | current.keys(), key=str):
+            x, y = previous.get(key), current.get(key)
+            if x != y:
+                signal_changes.append(dict(strategy=strategy, date=key[0], side=key[1], status=key[2], before=x, after=y))
+    record_signal_changes('standard_full_history', a['signals'], b['signals'])
     for strategy in b['strategies']:
         def signals(stock):
             return {(r.get('signal_date', r.get('date')), r['side'], r.get('status')):r
@@ -100,7 +109,11 @@ def impact(base_ref: str):
                           'closed_trades_after':len(y.get('closed_trades', [])),
                           'open_lots_before':len(x.get('open_lots', [])),
                           'open_lots_after':len(y.get('open_lots', [])),
-                          'overview_before':x.get('overview'), 'overview_after':y.get('overview')}
+                          'overview_before':x.get('overview'), 'overview_after':y.get('overview'),
+                          'closed_trades_before_full':x.get('closed_trades'),
+                          'closed_trades_after_full':y.get('closed_trades'),
+                          'open_lots_before_full':x.get('open_lots'),
+                          'open_lots_after_full':y.get('open_lots')}
     summary = dict(base_ref=base_ref, checked_reports=33, changed_score_rows=len(changes),
         newly_available_scores=int(changes.score_before.isna().sum()),
         first_changed_date=changes.date.min() if not changes.empty else None,
