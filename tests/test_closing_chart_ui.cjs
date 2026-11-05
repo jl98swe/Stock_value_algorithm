@@ -36,13 +36,23 @@ test('desktop and mobile show a cached score, expire it, and replace it with the
       await page.route('https://closing-ui.test/**',async r=>{
         const url=new URL(r.request().url());
         if(url.pathname.endsWith('/THULE.ST.json'))return r.fulfill({json:published?final:old});
+        if(url.pathname.endsWith('/strategy_overviews.json')) {
+          // selectedData merges this latest row over the stock payload. Keep
+          // both synthetic inputs on the same session even after real EOD
+          // data has advanced in the repository.
+          const views=JSON.parse(await fs.readFile(path.join(docs,'data/strategy_overviews.json'),'utf8'));
+          for(const view of Object.values(views.strategies)) {
+            view.stocks['THULE.ST'].latest=(published?final:old).latest;
+          }
+          return r.fulfill({json:views});
+        }
         const file=path.join(docs,url.pathname==='/'?'index.html':decodeURIComponent(url.pathname));
         await r.fulfill({body:await fs.readFile(file),contentType:({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json'})[path.extname(file)]});
       });
       const option=()=>page.evaluate(()=>echarts.getInstanceByDom(document.getElementById('market-chart')).getOption());
       const ready=()=>page.waitForFunction(()=>document.getElementById('stock-name').textContent.includes('Thule')&&window.echarts?.getInstanceByDom(document.getElementById('market-chart'))?.getOption()?.series?.some(s=>s.name==='MA200'));
       await page.goto('https://closing-ui.test/?ticker=THULE.ST');await ready();
-      await page.waitForFunction(()=>document.getElementById('metric-score').textContent==='80,95');
+      await page.waitForFunction(()=>document.getElementById('metric-score').textContent==='80,95'&&document.getElementById('metric-zone').textContent==='Preliminär');
       let o=await option();
       assert.equal(o.series.find(s=>s.name==='Preliminär poäng').data.at(-1),80.9451);
       assert.equal(o.series.find(s=>s.name==='Värderingspoäng').data.at(-1),null);
