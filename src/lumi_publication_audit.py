@@ -14,6 +14,7 @@ from .report_publications import PUBLICATIONS, publication_session
 
 TICKER = 'LUMI.ST'
 PREFIX = ROOT / 'reference/lumi_publication_2026-11-05'
+ORIGINAL_PUBLICATION = '7da8622533db5704d12eb37e169ab2ef689bb32d'
 
 
 def apply_inputs():
@@ -70,6 +71,18 @@ def impact(base_ref: str):
     different = merged['_merge'].ne('both') | ~np.isclose(merged.score_before, merged.score_after, atol=1e-10, rtol=0, equal_nan=True)
     changes = merged.loc[different, ['ticker', 'date', 'score_before', 'score_after']]
     assert changes.ticker.eq(TICKER).all(), 'Other ticker score history changed'
+    # Compare LUMI's full correction to the original publication even if another
+    # queued normal build already applied the verified inputs. Guards above use
+    # this run's checkout, so legitimate intervening market updates stay protected.
+    original_history = pd.read_csv(BytesIO(subprocess.check_output(
+        ['git', '-C', str(ROOT), 'show', f'{ORIGINAL_PUBLICATION}:{path}'])),
+        compression='gzip', float_precision='round_trip')
+    merged_lumi = original_history.loc[original_history.ticker.eq(TICKER)].merge(
+        b.loc[b.ticker.eq(TICKER)], on=['ticker', 'date'], how='outer',
+        suffixes=('_before', '_after'), indicator=True)
+    changed_lumi = merged_lumi['_merge'].ne('both') | ~np.isclose(
+        merged_lumi.score_before, merged_lumi.score_after, atol=1e-10, rtol=0, equal_nan=True)
+    changes = merged_lumi.loc[changed_lumi, ['ticker', 'date', 'score_before', 'score_after']]
     changes.to_csv(str(PREFIX) + '_score_changes.csv', index=False)
     old_dashboard = json.loads(old('docs/data/dashboard.json'))['stocks']
     new_dashboard = json.loads((ROOT / 'docs/data/dashboard.json').read_text())['stocks']
@@ -78,7 +91,9 @@ def impact(base_ref: str):
         if ticker != TICKER:
             for field in ('scores', 'signals', 'closed_trades', 'open_lots', 'strategies'):
                 assert stock[field] == new_dashboard[ticker][field], f'{field} changed: {ticker}'
-    a, b = old_dashboard[TICKER], new_dashboard[TICKER]
+    original_dashboard = json.loads(subprocess.check_output(
+        ['git', '-C', str(ROOT), 'show', f'{ORIGINAL_PUBLICATION}:docs/data/dashboard.json']))
+    a, b = original_dashboard['stocks'][TICKER], new_dashboard[TICKER]
     signal_changes = []
     def record_signal_changes(strategy, previous_rows, current_rows):
         def keyed(rows):
@@ -99,7 +114,8 @@ def impact(base_ref: str):
             if x != y:
                 signal_changes.append(dict(strategy=strategy, date=key[0], side=key[1], status=key[2], before=x, after=y))
     Path(str(PREFIX) + '_signal_changes.json').write_text(json.dumps(signal_changes, ensure_ascii=False, indent=2)+'\n')
-    old_backtests = json.loads(old('docs/data/backtests/LUMI.ST.json'))
+    old_backtests = json.loads(subprocess.check_output(
+        ['git', '-C', str(ROOT), 'show', f'{ORIGINAL_PUBLICATION}:docs/data/backtests/LUMI.ST.json']))
     new_backtests = json.loads((ROOT / 'docs/data/backtests/LUMI.ST.json').read_text())
     backtests = {}
     for name in old_backtests:
@@ -114,7 +130,7 @@ def impact(base_ref: str):
                           'closed_trades_after_full':y.get('closed_trades'),
                           'open_lots_before_full':x.get('open_lots'),
                           'open_lots_after_full':y.get('open_lots')}
-    summary = dict(base_ref=base_ref, checked_reports=33, changed_score_rows=len(changes),
+    summary = dict(base_ref=base_ref, impact_reference=ORIGINAL_PUBLICATION, checked_reports=33, changed_score_rows=len(changes),
         newly_available_scores=int(changes.score_before.isna().sum()),
         first_changed_date=changes.date.min() if not changes.empty else None,
         last_changed_date=changes.date.max() if not changes.empty else None,
