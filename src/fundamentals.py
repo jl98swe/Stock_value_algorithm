@@ -14,6 +14,8 @@ REPORT_COLUMNS = [
     "period_end",
     "report_period",
     "published_at",
+    "report_date",
+    "publication_time_verified",
     "effective_date",
     "eps_ttm",
     "source",
@@ -61,6 +63,8 @@ def normalise_reports(frame: pd.DataFrame) -> pd.DataFrame:
     result["verified_at"] = pd.to_datetime(result["verified_at"], errors="coerce", utc=True)
     result["eps_ttm"] = pd.to_numeric(result["eps_ttm"], errors="coerce")
     result["verified"] = _bool_series(result["verified"])
+    result["publication_time_verified"] = _bool_series(result["publication_time_verified"])
+    result["report_date"] = pd.to_datetime(result["report_date"], errors="coerce").dt.tz_localize(None).dt.normalize()
 
     result = result.dropna(subset=["ticker", "report_period"])
     result = result.loc[result["ticker"].str.len().fillna(0) > 0]
@@ -133,7 +137,7 @@ def save_reports(frame: pd.DataFrame, path: str | Path = REPORTS_FILE) -> None:
     if target.resolve() == REPORTS_FILE.resolve():
         from .report_date_revisions import apply_date_evidence
         output = normalise_reports(apply_date_evidence(output))
-    for column in ("period_end", "effective_date"):
+    for column in ("period_end", "report_date", "effective_date"):
         output[column] = output[column].dt.strftime("%Y-%m-%d")
     for column in ("published_at", "verified_at"):
         output[column] = output[column].map(lambda value: value.isoformat() if pd.notna(value) else "")
@@ -167,6 +171,8 @@ def valuation_calculation_mode(
     reports = verified_reports(frame)
     subset = reports.loc[reports["ticker"].astype(str) == str(ticker)]
     if subset.empty:
+        return REPORT_DATE_STATE
+    if subset["publication_time_verified"].any():
         return REPORT_DATE_STATE
     sources = subset["source"].fillna("").astype(str).str.strip()
     return TV_PERIOD_END_STATE if sources.str.startswith(TRADINGVIEW_SOURCE_PREFIX).any() else REPORT_DATE_STATE
@@ -260,10 +266,11 @@ def attach_eps_ttm(
     """Lägg point-in-time EPS TTM på varje handelsdag utan look-ahead.
 
     Endast verifierade rapporter med explicit ``effective_date`` används. I
-    ``report_date_state`` börjar EPS gälla på rapportdagen. I
+    ``report_date_state`` börjar EPS gälla på effective_date. I
     ``tv_period_end_state`` placeras rapportens värde på periodslutet inne i
     beräkningsstaten. Publicerade poäng fryses separat, så en ny rapport skriver
-    inte om dagar före rapportdagen.
+    inte om dagar före rapportdagen. Verifierad publiceringstid har alltid
+    företräde: dessa rapporter använder effective_date även i TradingView-läget.
 
     ``EPS_TTM_RAW`` behåller rapporterad EPS i originalvaluta och ``EPS_TTM``
     är det valutajusterade värdet som ska användas i P/E-beräkningen.
@@ -301,7 +308,9 @@ def attach_eps_ttm(
         .str.extract(REPORT_CURRENCY_NOTE_PATTERN, expand=False)
         .str.upper()
     )
-    if calculation_mode == TV_PERIOD_END_STATE:
+    # Verified publication timing takes precedence over period-end calibration.
+    timed = verified.loc[verified["ticker"].eq(ticker), "publication_time_verified"].any()
+    if calculation_mode == TV_PERIOD_END_STATE and not timed:
         usable_period_end = subset["period_end"].where(
             subset["period_end"].notna()
             & subset["period_end"].le(subset["effective_date"])

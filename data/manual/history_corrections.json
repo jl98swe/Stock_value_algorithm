@@ -79,5 +79,13 @@
         "source": "data/earnings/report_calendar_history.csv: MTG-B.ST 2026-11-05 observed 2026-09-15; data/prices/opening_sessions.json; issuer Q3 2026 publication 2026-11-05 07:30 CET"
       }
     ]
+  },
+  {
+    "correction_id": "lumi-verified-publication-timing-2026-11-05",
+    "base_commit": "7da8622533db5704d12eb37e169ab2ef689bb32d",
+    "reason": "Verified issuer publication times for all 33 LUMI reports; correct missing/early EPS dates, remove period-end look-ahead for LUMI, explicitly rebuild frozen scores and trades. See reference/lumi_publication_audit_2026-11-05.csv. Prices and EPS amounts unchanged.",
+    "from": {
+      "LUMI.ST": "2018-10-24"
+    }
   }
 ]

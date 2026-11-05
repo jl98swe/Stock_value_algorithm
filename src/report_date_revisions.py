@@ -32,6 +32,8 @@ def score_snapshot(reports: pd.DataFrame) -> pd.DataFrame:
     verified = reports.verified.astype(str).str.lower().isin(["true", "1"])
     usable = verified & reports.effective_date.notna() & reports.eps_ttm.notna()
     tv = set(reports.loc[usable & reports.source.astype(str).str.strip().str.startswith(TRADINGVIEW_SOURCE_PREFIX), "ticker"])
+    timed = set(reports.loc[reports.get("publication_time_verified", pd.Series(False, index=reports.index)).astype(str).str.lower().isin(["true", "1"]), "ticker"])
+    tv -= timed
     result["calculation_mode"] = result.ticker.map(
         lambda ticker: TV_PERIOD_END_STATE if ticker in tv else REPORT_DATE_STATE)
     effective = pd.to_datetime(result.effective_date, errors="coerce")
@@ -131,7 +133,8 @@ def apply_date_evidence(reports: pd.DataFrame, *, manual_path: Path = MANUAL_DAT
                     result.loc[mask, "published_at"] = pd.to_datetime(row.published_at, utc=True)
                 else:
                     result.loc[mask, "published_at"] = pd.NaT
-    return result
+    from .report_publications import apply_publications
+    return apply_publications(result)
 
 
 def verified_date_keys(reports: pd.DataFrame, path: Path = MANUAL_DATES, *,
@@ -144,6 +147,11 @@ def verified_date_keys(reports: pd.DataFrame, path: Path = MANUAL_DATES, *,
         from .calendar_date_evidence import calendar_dates
         calendar = calendar_dates(reports)
         keys.update(zip(calendar.ticker, calendar.report_period))
+    from .report_publications import PUBLICATIONS
+    if PUBLICATIONS.exists():
+        for row in pd.read_csv(PUBLICATIONS).itertuples(index=False):
+            mask = _date_mask(reports, row.ticker, row.report_period, include_aliases=True)
+            keys.update((str(row.ticker), str(p)) for p in reports.loc[mask, "report_period"])
     return keys
 
 

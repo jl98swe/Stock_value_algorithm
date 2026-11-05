@@ -7,6 +7,8 @@ unverified estimate into an EPS TTM or a projected valuation score.
 
 from __future__ import annotations
 
+from .report_publications import publication_metadata
+
 from .listing_status import active_tickers
 
 import argparse
@@ -849,8 +851,7 @@ def _recent_rows(
     start = _recent_window_start(as_of)
     from .report_date_revisions import verified_date_keys
     pinned_dates = verified_date_keys(reports)
-    release_dates = reports["published_at"].map(_stockholm_date)
-    release_dates = pd.to_datetime(release_dates).fillna(reports["effective_date"])
+    release_dates = pd.to_datetime(reports.apply(lambda row: publication_metadata(row)["report_date"], axis=1))
     recent = reports.loc[
         reports["verified"]
         & reports["effective_date"].notna()
@@ -883,7 +884,8 @@ def _recent_rows(
                 "ticker": ticker,
                 "name": names.get(ticker) or ticker.removesuffix(".ST").replace("-", " "),
                 "report_period": str(report.report_period or ""),
-                "report_date": published_date or _iso_date(effective),
+                **publication_metadata(report._asdict()),
+                "effective_date": _iso_date(effective),
                 "report_date_verified": published_date is not None or (ticker, str(report.report_period)) in pinned_dates
                     or conversion_metadata(report._asdict()) is not None,
                 "report_date_source": ("published_at" if published_date is not None else

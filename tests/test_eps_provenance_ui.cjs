@@ -85,3 +85,17 @@ test('report page marks each side independently, including converted zero',async
   assert.match(html,/4,0000 SEK<\/span>/);
   assert.match(html,/0,0000 SEK<\/button>/);
 });
+
+test('verified after-close publication has a neutral, keyboard and mobile accessible note',()=>{
+  const {api,events,roots,button}=setup(320);
+  const note='Rapporten publicerades efter börsstängning och används därför från nästa handelsdag.';
+  assert.equal(api.publication({published_after_close:true,publication_note:note}),'');
+  assert.equal(api.publication({publication_time_verified:true,published_after_close:false}),'');
+  const html=api.publication({publication_time_verified:true,published_after_close:true,publication_note:note});
+  assert.match(html,/ⓘ/); assert.match(html,/aria-expanded="false"/);
+  assert.doesNotMatch(html,/warning|alert/);
+  const b=button(); b.dataset.epsFx=JSON.stringify({publication_note:note});
+  events.focusin({target:b}); assert.equal(roots[0].children[0].textContent,note);
+  events.click({target:b}); assert.equal(roots[0].hidden,false);
+  events.click({target:{closest:()=>null}}); assert.equal(roots[0].hidden,true);
+});

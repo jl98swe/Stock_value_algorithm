@@ -111,6 +111,9 @@ def build_strategy_backtests(frame: pd.DataFrame, ticker: str, reports: pd.DataF
         published = pd.to_datetime(getattr(row, "published_at", None), errors="coerce", utc=True)
         day = (published.tz_convert("Europe/Stockholm").tz_localize(None).normalize()
                if pd.notna(published) else pd.to_datetime(getattr(row, "effective_date", None), errors="coerce"))
+        official = pd.to_datetime(getattr(row, "report_date", None), errors="coerce")
+        if pd.notna(official):
+            day = official
         if pd.notna(day):
             dates.append(pd.Timestamp(day).normalize())
     schedule = _combined_schedule(automatic_calendar(), manual_calendar)
