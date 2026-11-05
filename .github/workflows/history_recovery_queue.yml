@@ -15,21 +15,25 @@ jobs:
   unblock:
     runs-on: ubuntu-latest
     steps:
-      - name: Stoppa dubblerade EPS-körningar från kursåterställningen
+      - name: Stoppa dubblerade körningar från kursåterställningen
         uses: actions/github-script@v7
         with:
           script: |
-            // These automatic EPS rebuilds duplicate the market recovery.
+            // These observed runs duplicate the already completed market recovery.
             // Never cancel manual requests, collection or the recovery itself.
-            const expectedHead = '11fddc3867aa32c8b0f6a54b9defe4046c09725a';
-            const ids = [42052781814, 42052781813];
-            for (const run_id of ids) {
+            const duplicates = [
+              {id: 42052781814, head: '11fddc3867aa32c8b0f6a54b9defe4046c09725a', event: 'push'},
+              {id: 42052781813, head: '11fddc3867aa32c8b0f6a54b9defe4046c09725a', event: 'push'},
+              {id: 42054964264, head: '415d7d12ada840402950d982eb27fa8d678a4a1d', event: 'schedule'}
+            ];
+            for (const duplicate of duplicates) {
+              const run_id = duplicate.id;
               const {data: run} = await github.rest.actions.getWorkflowRun({...context.repo, run_id});
               if (run.status === 'completed') continue;
-              if (run.head_sha !== expectedHead || run.event !== 'push' || run.head_branch !== 'main') {
+              if (run.head_sha !== duplicate.head || run.event !== duplicate.event || run.head_branch !== 'main') {
                 core.warning('Unexpected run identity, leaving untouched: ' + run_id);
                 continue;
               }
               await github.rest.actions.cancelWorkflowRun({...context.repo, run_id});
-              core.info('Stopped duplicate EPS rebuild ' + run_id);
+              core.info('Stopped duplicate rebuild ' + run_id);
             }
