@@ -204,3 +204,15 @@ def test_historical_catchup_rejects_unflagged_snapshot(paths):
     historical["started_at"] = "2026-10-20T09:00:00+02:00"
     with pytest.raises(ValueError):
         apply_snapshot(historical, **{**paths, "now": datetime.fromisoformat("2026-10-20T09:01:00+02:00")})
+
+
+def test_historical_catchup_inserts_missing_day_once(paths):
+    historical = snapshot("Yahoo")
+    historical["started_at"] = "2026-10-21T09:00:00+02:00"
+    historical["catch_up"] = True
+    kwargs = {**paths, "now": datetime.fromisoformat("2026-10-21T09:01:00+02:00")}
+    first = apply_snapshot(historical, **kwargs)
+    second = apply_snapshot(historical, **kwargs)
+    assert first["applied"] == 1
+    assert second["kept"] == 1
+    assert len(pd.read_csv(paths["updates_file"])) == 1
