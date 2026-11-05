@@ -26,7 +26,7 @@ test('1M clamps a month-end cutoff instead of rolling into the next month', () =
   const sliced = ui.sliceData({ candles: [candle('2026-02-27'), candle('2026-02-28'), candle('2026-03-31')], scores: [] });
   assert.equal(sliced.candles[0].date, '2026-02-28');
 });
-test('provisional score is a separate dashed series and missing OHLC uses a price point', () => {
+test('provisional score is a separate solid series and missing OHLC uses a price point', () => {
   const ui = setup(); ui.state.range = '1m';
   const data = { latest: { date: '2026-10-15' }, candles: [candle('2026-10-15')], scores: [{ date: '2026-10-15', value: 30 }] };
   ui.setPreview({ preliminary: true, candle: { date: '2026-10-16', close: 102, preliminary: true, completeOHLC: false }, score: 42 });
@@ -34,14 +34,36 @@ test('provisional score is a separate dashed series and missing OHLC uses a pric
   assert.equal(ui.option.xAxis[0].data.at(-1), '2026-10-16');
   assert.equal(ui.option.series.find(s => s.name === 'Pris').data.at(-1).value, '-');
   assert.equal(ui.option.series.find(s => s.name === 'Preliminär kurs').data.at(-1), 102);
-  assert.equal(ui.option.series.find(s => s.name === 'Score').data.at(-1), null);
+  assert.equal(ui.option.series.find(s => s.name === 'Värderingspoäng').data.at(-1), null);
   assert.equal(ui.option.series.find(s => s.name === 'Preliminär poäng').data.at(-1), 42);
-  assert.equal(ui.option.series.find(s => s.name === 'Preliminär poäng').lineStyle.type, 'dashed');
+  assert.equal(ui.option.series.find(s => s.name === 'Preliminär poäng').lineStyle.type, 'solid');
   assert.equal(data.candles.length, 1);
   assert.equal(ui.rendered.stock.candles.length, 2, 'enhancements receive the same provisional date extent');
   ui.setPreview(null); ui.renderChart('EXAMPLE.ST', data);
   assert.equal(ui.option.xAxis[0].data.at(-1), '2026-10-15');
   assert.equal(ui.element('chart-preliminary-note').hidden, true);
+});
+
+test('preliminary score bridges a missing score date without changing historical rows', () => {
+  const ui = setup();
+  const data = { latest:{date:'2026-11-03'}, candles:[candle('2026-11-02'), candle('2026-11-03')],
+    scores:[{date:'2026-11-02',value:65}] };
+  ui.setPreview({preliminary:true, candle:{date:'2026-11-04',close:210.2,preliminary:true,completeOHLC:false},score:80.9451});
+  ui.renderChart('EXAMPLE.ST',data);
+  const series = ui.option.series.find(s=>s.name==='Preliminär poäng');
+  assert.deepEqual(Array.from(series.data),[65,null,80.9451]);
+  assert.equal(series.connectNulls,true);
+  assert.equal(series.showSymbol,false);
+  assert.equal(data.scores.length,1);
+});
+
+test('published close suppresses obsolete opening fallback', () => {
+  const ui = setup();
+  const data = {latest:{date:'2026-11-04'},candles:[candle('2026-11-04')],scores:[],
+    opening_candle:{date:'2026-11-04',close:100,completeOHLC:false}};
+  ui.renderChart('EXAMPLE.ST',data);
+  assert.equal(ui.option.xAxis[0].data.length,1);
+  assert.equal(ui.element('chart-preliminary-note').hidden,true);
 });
 
 test('complete preliminary OHLC renders a normal solid purple candle', () => {

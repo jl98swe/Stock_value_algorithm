@@ -331,13 +331,16 @@
     if (!state.chart) state.chart = echarts.init(container, null, { renderer: 'canvas' });
 
     const preview = window.intradayQuotes?.preview(ticker, data.latest?.date)
-      || (data.opening_candle ? {candle:data.opening_candle, score:null, preliminary:true} : null);
+      || (data.opening_candle?.date > (data.latest?.date || '')
+        ? {candle:data.opening_candle, score:null, preliminary:true, openingOnly:true} : null);
     const chartData = preview ? { ...data,
       candles: [...(data.candles || []), preview.candle],
       scores: [...(data.scores || []), { date: preview.candle.date, value: preview.score }]
     } : data;
     $('chart-preliminary-note').hidden = !preview?.preliminary;
-    $('chart-preliminary-description').textContent = preview?.score != null ? 'Lila färg markerar dagens preliminära kurs och värderingspoäng.' : 'Lila färg markerar dagens preliminära kurs. Preliminär värderingspoäng saknas; poängen avser senaste stängning.';
+    $('chart-preliminary-description').textContent = preview?.openingOnly
+      ? 'Markeringen visar öppningskursen. Slutkurs för handelsdagen har ännu inte publicerats; värderingspoängen avser senaste publicerade stängning.'
+      : preview?.score != null ? 'Lila färg markerar dagens preliminära kurs och värderingspoäng.' : 'Lila färg markerar dagens preliminära kurs. Preliminär värderingspoäng saknas; poängen avser senaste stängning.';
     if (!preview?.preliminary) $('preliminary-info').hidePopover?.();
     const sliced = sliceData(chartData);
     const firstClose = Number(state.range === 'ytd'
@@ -352,6 +355,10 @@
       itemStyle: { color: '#8056b3', color0: '#8056b3', borderColor: '#8056b3', borderColor0: '#8056b3', borderWidth: 1 }
     } : d.completeOHLC === false ? '-' : [d.open, d.close, d.low, d.high]);
     const scoreMap = new Map(sliced.scores.map((d) => [d.date, d.value]));
+    // Bridge from the latest actual score, even if an opening-only date lies
+    // between it and the cached quote. A single point with showSymbol=false
+    // otherwise makes a valid preliminary score invisible.
+    const scoreAnchor = dates.filter(d => d < preview?.candle.date && Number.isFinite(scoreMap.get(d))).at(-1);
     const scores = dates.map((d) => d === preview?.candle.date && preview.preliminary ? null : scoreMap.get(d) ?? null);
     const startDate = dates[0];
     const endDate = dates[dates.length - 1];
@@ -443,7 +450,8 @@
         { name: preview?.preliminary === false ? 'Senaste kurs' : 'Preliminär kurs', type: 'scatter', data: dates.map(d => d === preview?.candle.date && !preview.candle.completeOHLC ? preview.candle.close : null),
           symbol: 'emptyCircle', symbolSize: 10, itemStyle: { color: preview?.preliminary === false ? '#2f6fb0' : '#8056b3', borderWidth: 2 }, z: 6 },
         { name: 'Preliminär poäng', type: 'line', xAxisIndex: 1, yAxisIndex: 1,
-          data: dates.map((d, i) => preview?.preliminary && preview.score != null && (d === preview.candle.date || i === dates.length - 2) ? scoreMap.get(d) ?? null : null),
+          data: dates.map(d => preview?.preliminary && preview.score != null && (d === preview.candle.date || d === scoreAnchor) ? scoreMap.get(d) ?? null : null),
+          connectNulls: true,
           symbol: 'circle', showSymbol: false, symbolSize: 7, lineStyle: { type: 'solid', color: '#8056b3', width: 2.5 }, itemStyle: { color: '#8056b3' }, z: 6 }
       ]
     };

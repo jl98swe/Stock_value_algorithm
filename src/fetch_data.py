@@ -114,7 +114,7 @@ def load_price_history(
     if updates_file.exists() and updates_file.stat().st_size:
         # MA200 i update-filen är ett lagrat resultat för inspektion. Vid läsning
         # räknas det alltid om från hela historiken för att garantera korrekthet.
-        updates = _normalise_stored(pd.read_csv(updates_file)).drop(columns=["ma200"], errors="ignore")
+        updates = _normalise_stored(pd.read_csv(updates_file, float_precision="round_trip")).drop(columns=["ma200"], errors="ignore")
         frames.append(updates[RAW_PRICE_COLUMNS])
 
     completed = _completed_rows(pd.concat(frames, ignore_index=True), last_completed_session(as_of))
@@ -231,7 +231,7 @@ def update_prices(
 
     old_updates = pd.DataFrame(columns=RAW_PRICE_COLUMNS)
     if updates_file.exists() and updates_file.stat().st_size:
-        old_updates = _completed_rows(_normalise_stored(pd.read_csv(updates_file))[RAW_PRICE_COLUMNS], cutoff)
+        old_updates = _completed_rows(_normalise_stored(pd.read_csv(updates_file, float_precision="round_trip"))[RAW_PRICE_COLUMNS], cutoff)
 
     keep = fresh.apply(
         lambda row: row["date"] > base_last.get(row["ticker"], pd.Timestamp.min),
@@ -244,7 +244,9 @@ def update_prices(
     elif candidate_updates.empty:
         raw_updates = old_updates.copy()
     else:
-        raw_updates = pd.concat([old_updates, candidate_updates], ignore_index=True)
+        # A catch-up download only fills holes. Source upgrades for the latest
+        # session are reconciled explicitly by closing_prices with provenance.
+        raw_updates = pd.concat([candidate_updates, old_updates], ignore_index=True)
 
     raw_updates = (
         raw_updates.sort_values(["ticker", "date"])

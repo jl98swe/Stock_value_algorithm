@@ -216,3 +216,43 @@ def test_historical_catchup_inserts_missing_day_once(paths):
     assert first["applied"] == 1
     assert second["kept"] == 1
     assert len(pd.read_csv(paths["updates_file"])) == 1
+
+
+def test_recovery_fills_internal_and_latest_gaps_without_replacing_prices(paths):
+    # Synthetic example: Tuesday exists, Monday and Wednesday are missing.
+    pd.DataFrame([{**row(107.), "date": "2026-10-20"}]).to_csv(paths["updates_file"], index=False)
+    now = datetime.fromisoformat("2026-10-22T09:00:00+02:00")
+    calls = []
+    def yahoo(tickers, *, start, end):
+        calls.append(start)
+        return pd.DataFrame([{**row(), "date": start}])
+    kwargs = {**paths, "now": now, "stocks": [STOCKS[0]], "yahoo": yahoo}
+    report = closing.recover_missing(**kwargs)
+    assert calls == ["2026-10-19", "2026-10-21"]
+    assert report["applied"] == 2
+    assert report["remaining"] == {}
+    assert pd.read_csv(paths["updates_file"]).set_index("date").loc["2026-10-20", "close"] == 107.
+    assert closing.recover_missing(**kwargs)["applied"] == 0
+
+
+def test_recovery_rejects_partial_response_and_wrong_dates(paths):
+    for frame in [pd.DataFrame(columns=closing.RAW_PRICE_COLUMNS),
+                  pd.DataFrame([{**row(), "date": "2026-10-16"}])]:
+        with pytest.raises(RuntimeError, match="Ofullständiga stängningskurser"):
+            closing.recover_missing(**paths, stocks=[STOCKS[0]], yahoo=lambda *a, **k: frame)
+    assert not paths["updates_file"].exists()
+
+
+def test_missing_only_recovery_preserves_existing_even_for_latest_session(paths):
+    pd.DataFrame([row(107.)]).to_csv(paths["updates_file"], index=False)
+    payload = snapshot("Yahoo")
+    payload.update(catch_up=True, missing_only=True)
+    assert apply_snapshot(payload, **paths)["kept"] == 1
+    assert pd.read_csv(paths["updates_file"]).close.iloc[0] == 107.
+
+
+def test_explicit_recovery_cannot_collect_unfinished_or_unflagged_day():
+    with pytest.raises(ValueError):
+        collect("Yahoo", "17:30", now=NOW, session_date="2026-10-16")
+    with pytest.raises(ValueError):
+        collect("Yahoo", "17:30", now=NOW, catch_up=True, session_date="2026-10-20")
