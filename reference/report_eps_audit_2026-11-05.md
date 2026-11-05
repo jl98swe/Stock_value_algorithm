@@ -20,4 +20,10 @@ Rimlighetskontroll: kvartalsbryggan antar jämförbar EPS-definition och behöve
 
 Hufvudstaden återstår. Rapport 5 november är planerad kl.12:00 CET enligt MFN-kalendern; bolagets rapportsida listade ännu halvårsrapporten vid morgonkontrollen. Ingen EPS hittas på. Varningen behålls. EQT:s dokumenterade kvartalsredogörelse utan EPS kvarstår som separat undantag.
 
+## Bevarad handelshistorik
+
+Historikskyddet upptäckte en nytillkommen simulerad MTG-försäljning 4 november till 119,20 SEK i Rapportundvikande (lot MTG-B-ST-lot-18). Den saknades i tidigare publicerad version 12f2d7ab. Kalenderns aktuella sammanfogning hade redan valt nästa rapport 4 februari 2027; registreringen av det faktiska novemberutfallet gjorde därför att novemberrapporten återkom i simuleringen. Arkivet innehåller verklig kalenderobservation från 15 september, men den nya rapportregistreringen får inte lägga till en tidigare opublicerad affär före rapportdagen.
+
+Befintlig migrationsmekanism i report_calendar_knowledge_overrides.csv används därför med en uttrycklig simuleringsgräns 5 november för just MTG:s novemberrapport. Detta är inte ett påstående om ursprunglig kalenderkunskap; observationen 15 september ligger kvar. Den redan publicerade simuleringen bevaras, inklusive frånvaron av försäljningen 4 november. Ingen annan affär i någon av de fem strategierna ändrades. Denna konservativa bevaring innebär att den historiska simuleringen fortfarande saknar en försäljning som den arkiverade kalendern annars hade motiverat. Ingen generell handelsregel eller historikgrind stängs av.
+
 Validering sker med ordinarie pipeline utan ny kurs-/utdelningshämtning, limit_dashboard_window, validate_outputs, report_data_status och history_guard. Sparade slutkurser når 3 november; dessa rapporter kan inte skapa en ny slutlig rapportdagspoäng innan motsvarande kurser finns. Rapportdata och preliminära beräkningsunderlag uppdateras, medan historik och strategier byggs med tillgängliga priser.
