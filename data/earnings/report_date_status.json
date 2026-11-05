@@ -1,6 +1,9 @@
 {
-  "checked_at": "2026-11-03",
-  "counts": {},
+  "checked_at": "2026-11-05",
+  "counts": {
+    "calendar_date_preserved": 51,
+    "manual_date_preserved": 2
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -747,8 +750,15 @@
     "ALIV-SDB.ST",
     "AZN.ST",
     "BALD-B.ST",
+    "CIBUS.ST",
+    "CLA-B.ST",
+    "KAMBI.ST",
     "LOOMIS.ST",
-    "SHB-A.ST"
+    "LUMI.ST",
+    "MCOV-B.ST",
+    "REJL-B.ST",
+    "SHB-A.ST",
+    "SINT.ST"
   ],
   "calendar_source_conflicts": [
     {
