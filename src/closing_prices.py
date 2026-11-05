@@ -148,7 +148,9 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
     started = instant(payload["started_at"])
     session_day = pd.Timestamp(day).date()
     bounds = session_bounds(started.replace(year=session_day.year, month=session_day.month, day=session_day.day))
-    historical = session_day < last_completed_session(started).date()
+    # A queued producer may be reconciled several sessions later. Protect
+    # history relative to publication time, not just collection time.
+    historical = session_day < last_completed_session(received).date()
     if (not bounds or started < bounds[1] or
             session_day > last_completed_session(received).date() or
             (historical and (source != "Yahoo" or not payload.get("catch_up"))) or

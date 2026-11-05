@@ -265,3 +265,12 @@ def test_publisher_applies_available_source_before_recovery_and_verifies_complet
     validation = next(c for c in commands if 'src.validate_outputs' in c)
     assert 'src.closing_prices verify' in validation
     assert not any('python -m src.fetch_data' in c for c in commands)
+
+
+def test_delayed_snapshot_cannot_replace_a_session_that_has_become_historical(paths):
+    pd.DataFrame([row(107.)]).to_csv(paths['updates_file'],index=False)
+    payload=snapshot('Yahoo')
+    payload['catch_up']=True
+    result=apply_snapshot(payload,**{**paths,'now':datetime.fromisoformat('2026-10-21T09:00:00+02:00')})
+    assert result['kept']==1
+    assert pd.read_csv(paths['updates_file']).close.iloc[0]==107.
