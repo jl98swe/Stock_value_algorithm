@@ -15,16 +15,43 @@ jobs:
   unblock:
     runs-on: ubuntu-latest
     steps:
-      - name: Stoppa dubblerade körningar från kursåterställningen
+      - name: Stoppa automatiska extrakörningar från LUMI-rättelsen
         uses: actions/github-script@v7
         with:
           script: |
-            // These observed runs duplicate the already completed market recovery.
-            // Never cancel manual requests, collection or the recovery itself.
+            // Exact push runs triggered by this LUMI correction only.
+            // Retain the dedicated correction and latest CI; never touch scheduled/manual runs.
             const duplicates = [
-              {id: 42052781814, head: '11fddc3867aa32c8b0f6a54b9defe4046c09725a', event: 'push'},
-              {id: 42052781813, head: '11fddc3867aa32c8b0f6a54b9defe4046c09725a', event: 'push'},
-              {id: 42054964264, head: '415d7d12ada840402950d982eb27fa8d678a4a1d', event: 'schedule'}
+              {
+                "id": 42092632631,
+                "head": "a4a5f7366b906868c8724cedafbc5756d51f4a09",
+                "event": "push"
+              },
+              {
+                "id": 42092633369,
+                "head": "a4a5f7366b906868c8724cedafbc5756d51f4a09",
+                "event": "push"
+              },
+              {
+                "id": 42092633199,
+                "head": "a4a5f7366b906868c8724cedafbc5756d51f4a09",
+                "event": "push"
+              },
+              {
+                "id": 42093027245,
+                "head": "8c5051d281f9b5e7f5413c4c2e6ade3044ab488e",
+                "event": "push"
+              },
+              {
+                "id": 42092633393,
+                "head": "a4a5f7366b906868c8724cedafbc5756d51f4a09",
+                "event": "push"
+              },
+              {
+                "id": 42093027767,
+                "head": "8c5051d281f9b5e7f5413c4c2e6ade3044ab488e",
+                "event": "push"
+              }
             ];
             for (const duplicate of duplicates) {
               const run_id = duplicate.id;
