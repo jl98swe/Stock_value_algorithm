@@ -256,3 +256,12 @@ def test_explicit_recovery_cannot_collect_unfinished_or_unflagged_day():
         collect("Yahoo", "17:30", now=NOW, session_date="2026-10-16")
     with pytest.raises(ValueError):
         collect("Yahoo", "17:30", now=NOW, catch_up=True, session_date="2026-10-20")
+
+
+def test_publisher_applies_available_source_before_recovery_and_verifies_completeness():
+    workflow = yaml.safe_load(Path('.github/workflows/daily_update.yml').read_text())
+    commands = [s.get('run', '') for s in workflow['jobs']['update']['steps']]
+    assert commands.index('python -m src.closing_prices apply') < commands.index('python -m src.closing_prices recover')
+    validation = next(c for c in commands if 'src.validate_outputs' in c)
+    assert 'src.closing_prices verify' in validation
+    assert not any('python -m src.fetch_data' in c for c in commands)

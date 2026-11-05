@@ -112,11 +112,11 @@ jobs:
       - name: Uppdatera valutakurser
         run: python -m src.fx
 
-      - name: Återhämta saknade avslutade handelsdagar
-        run: python -m src.closing_prices recover
-
       - name: Slå ihop med senast publicerade dagsdata
         run: python -m src.closing_prices apply
+
+      - name: Återhämta saknade avslutade handelsdagar
+        run: python -m src.closing_prices recover
 
       - name: Uppdatera poäng och utdelningar utan ny kurshämtning
         run: python -m src.closing_prices build --defer-score-history
