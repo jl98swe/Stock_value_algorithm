@@ -35,7 +35,7 @@ from .fundamentals import (
 )
 from .fx import load_fx_history, load_stock_currencies
 from .model_data import ensure_gbm_model
-from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
+from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint, preserve_published_openings
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
 from .eps_conversion import apply_fx_fallbacks, conversion_metadata
@@ -405,6 +405,9 @@ def _stock_payload(
         valued["LockReason"] = working["LockReason"].to_numpy()
         strategy_frame = valued.loc[valued["Date"] >= HISTORY_START_DATE].reset_index(drop=True)
         strategy_frame = append_opening(strategy_frame, ticker, read_json(OPENINGS_FILE, default={}))
+        strategy_frame = preserve_published_openings(
+            strategy_frame, ticker, read_json(OPENINGS_FILE, default={}),
+            read_json(DOCS_DATA / 'backtests' / f'{ticker}.json', default={}))
         if len(strategy_frame) and bool(strategy_frame.iloc[-1].get("OpeningOnly", False)):
             opening_locks = build_lock_series(strategy_frame[["Date"]].iloc[-1:]["Date"],
                                              ticker, news, reviews, reports, calendar)
