@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from src.opening_sessions import append_opening, ingest, opening_fingerprint, export_pending
+from src.opening_sessions import append_opening, ingest, opening_fingerprint, export_pending, preserve_published_openings
 from src.strategy import run_strategy
 from src.strategy_backtests import build_strategy_backtests
 
@@ -17,6 +17,23 @@ def frame(scores):
 
 def observation(price=102):
     return {"2026-10-23": {"TEST.ST": {"price": price}}}
+
+
+@pytest.mark.parametrize('side',['entry','exit'])
+@pytest.mark.parametrize('variant',['standard','standard_two_positions','ma200','report_avoidance','standard_stop_loss_10'])
+def test_published_execution_survives_yahoo_float32_open(side,variant):
+    # Synthetic example reproducing decimal opening -> Yahoo float32 OHLC.
+    raw=frame([50.]).assign(Date=pd.Timestamp('2026-10-23'),Open=float(np.float32(280.1)))
+    published={variant:{'closed_trades':[{'ticker':'TEST.ST',side+'_date':'2026-10-23',side+'_price':280.1}]}}
+    reconciled=preserve_published_openings(raw,'TEST.ST',observation(280.1),published)
+    assert reconciled.Open.iloc[0]==280.1
+    assert raw.Open.iloc[0]==float(np.float32(280.1))
+    pd.testing.assert_series_equal(raw.Score,reconciled.Score)
+    # Real deviations, absent observation or an execution at another price
+    # cannot be silently normalized.
+    assert preserve_published_openings(raw.assign(Open=280.2),'TEST.ST',observation(280.1),published).Open.iloc[0]==280.2
+    assert preserve_published_openings(raw,'TEST.ST',{},published).Open.iloc[0]==raw.Open.iloc[0]
+    assert preserve_published_openings(raw,'TEST.ST',observation(280.2),published).Open.iloc[0]==raw.Open.iloc[0]
 
 
 @pytest.mark.parametrize("variant", ["standard", "ma200", "report_avoidance",

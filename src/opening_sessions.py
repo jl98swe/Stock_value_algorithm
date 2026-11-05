@@ -80,6 +80,34 @@ def append_opening(frame: pd.DataFrame, ticker: str, observations: dict) -> pd.D
     return pd.concat([frame, pd.DataFrame([row])], ignore_index=True)
 
 
+def preserve_published_openings(frame: pd.DataFrame, ticker: str, observations: dict,
+                               published: dict) -> pd.DataFrame:
+    """Keep an executed opening when Yahoo differs only by float32 storage.
+
+    Requires both the original opening observation and a published execution
+    at that exact price/date. Only the strategy copy changes; raw OHLC, scores
+    and the independent history guard remain untouched.
+    """
+    result = frame.copy()
+    known = {}
+    for payload in published.values():
+        if not isinstance(payload, dict):
+            continue
+        for trade in payload.get('closed_trades', []) + payload.get('open_lots', []):
+            for side in ('entry', 'exit'):
+                day, price = trade.get(side + '_date'), trade.get(side + '_price')
+                quote = observations.get(day, {}).get(ticker, {})
+                if day and price is not None and quote.get('price') == price:
+                    known[day] = float(price)
+    for day, price in known.items():
+        mask = pd.to_datetime(result.Date).eq(pd.Timestamp(day))
+        for index in result.index[mask]:
+            current = result.at[index, 'Open']
+            if np.isfinite(current) and np.float32(current) == np.float32(price):
+                result.at[index, 'Open'] = price
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("snapshot", type=Path)

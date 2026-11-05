@@ -54,3 +54,16 @@ def test_download_and_saved_updates_exclude_intraday_even_if_yahoo_returns_it(tm
     assert requested == ["2026-09-15"]
     assert actual.date.max() == pd.Timestamp("2026-09-14")
     assert pd.read_csv(updates).date.tolist() == ["2026-09-14"]
+
+
+def test_overlap_fills_gap_without_changing_published_ohlc(tmp_path, monkeypatch):
+    base, updates = tmp_path / "base.parquet", tmp_path / "updates.csv"
+    _prices(["2026-09-11"]).to_parquet(base)
+    _prices(["2026-09-14"]).to_csv(updates, index=False)
+    fresh = _prices(["2026-09-14", "2026-09-15"])
+    fresh.loc[0, ["open", "close"]] = 10.0000061
+    monkeypatch.setattr(fetch_data, "_download", lambda *a, **k: fresh)
+    fetch_data.update_prices(base, updates, as_of="2026-09-15T18:00:00Z")
+    saved = pd.read_csv(updates).set_index("date")
+    assert saved.loc["2026-09-14", "open"] == 10.
+    assert "2026-09-15" in saved.index

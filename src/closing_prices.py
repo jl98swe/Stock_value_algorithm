@@ -13,6 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 import requests
+import exchange_calendars as xcals
 
 from .config import ROOT
 from .fetch_data import (BASE_DATA_FILE, UPDATES_FILE, RAW_PRICE_COLUMNS, _download,
@@ -49,11 +50,17 @@ def fetch_avanza_daily(instrument, now):
 
 
 def collect(source, planned, *, now=None, stocks=None, instruments=None,
-            yahoo=_download, avanza=fetch_avanza_daily, catch_up=False, provenance=None):
+            yahoo=_download, avanza=fetch_avanza_daily, catch_up=False, provenance=None,
+            session_date=None):
     now = instant() if now is None else now
     if catch_up and source != "Yahoo":
         raise ValueError("Historisk återhämtning kräver Yahoo")
-    session_day = last_completed_session(now).date() if catch_up else now.date()
+    if session_date is not None and not catch_up:
+        raise ValueError("Explicit historiskt datum kräver catch-up")
+    session_day = (pd.Timestamp(session_date).date() if session_date is not None else
+                   last_completed_session(now).date() if catch_up else now.date())
+    if session_day > last_completed_session(now).date() and catch_up:
+        raise ValueError("Handelssessionen är inte avslutad")
     day = session_day.isoformat()
     bounds = session_bounds(now.replace(year=session_day.year, month=session_day.month, day=session_day.day))
     payload = {"schema_version": 1, "source": source, "session_date": day,
@@ -74,6 +81,7 @@ def collect(source, planned, *, now=None, stocks=None, instruments=None,
             payload["state"] = "up_to_date"
             payload["completed_at"] = instant().isoformat()
             return payload
+    payload["catch_up"] = bool(catch_up)
     payload["expected"] = len(tickers)
     if source == "Yahoo":
         started = instant().isoformat()
@@ -140,13 +148,17 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
     started = instant(payload["started_at"])
     session_day = pd.Timestamp(day).date()
     bounds = session_bounds(started.replace(year=session_day.year, month=session_day.month, day=session_day.day))
+    # A queued producer may be reconciled several sessions later. Protect
+    # history relative to publication time, not just collection time.
+    historical = session_day < last_completed_session(received).date()
     if (not bounds or started < bounds[1] or
             session_day > last_completed_session(received).date() or
-            session_day != last_completed_session(started).date()):
-        raise ValueError("Snapshot gäller inte dagens avslutade handelssession")
+            (historical and (source != "Yahoo" or not payload.get("catch_up"))) or
+            (not historical and session_day != last_completed_session(started).date())):
+        raise ValueError("Snapshot gäller inte en tillåten avslutad handelssession")
     base = pd.read_parquet(base_file)
     base["date"] = pd.to_datetime(base.date)
-    updates = pd.read_csv(updates_file) if Path(updates_file).exists() else pd.DataFrame(columns=RAW_PRICE_COLUMNS)
+    updates = pd.read_csv(updates_file, float_precision="round_trip") if Path(updates_file).exists() else pd.DataFrame(columns=RAW_PRICE_COLUMNS)
     updates["date"] = pd.to_datetime(updates.date)
     provenance = pd.read_csv(provenance_file).to_dict("records") if Path(provenance_file).exists() else []
     by_key = {(str(r["ticker"]), str(r["date"])[:10]): r for r in provenance}
@@ -163,6 +175,9 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
         _validate_ohlc(pd.DataFrame([row]))
         key = (row["ticker"], day)
         old = existing.get(key)
+        if (historical or payload.get("missing_only")) and old is not None:
+            report["kept"] += 1
+            continue
         previous = by_key.get(key, {"source": "Yahoo", "fetched_at": ""})
         if old is not None:
             report["differences"].append({"ticker": row["ticker"], "incoming_source": source,
@@ -195,28 +210,104 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
     return report
 
 
+def missing_sessions(*, base_file=BASE_DATA_FILE, updates_file=UPDATES_FILE, now=None, stocks=None):
+    """Find every post-base gap, including holes before a ticker's latest row."""
+    now = instant() if now is None else now
+    cutoff = last_completed_session(now)
+    base = pd.read_parquet(base_file)
+    base["date"] = pd.to_datetime(base.date)
+    frames = [base]
+    if Path(updates_file).exists():
+        frames.append(pd.read_csv(updates_file))
+    prices = pd.concat(frames, ignore_index=True)
+    prices["date"] = pd.to_datetime(prices.date)
+    stocks = read_json("docs/data/stocks.json")["stocks"] if stocks is None else stocks
+    from .listing_status import last_trading_dates
+    ended = last_trading_dates()
+    calendar = xcals.get_calendar("XSTO")
+    gaps = {}
+    for stock in stocks:
+        ticker = stock["ticker"]
+        baseline = base.loc[base.ticker.eq(ticker), "date"]
+        if baseline.empty:
+            raise ValueError(f"Fryst prisbas saknas för {ticker}")
+        end = min(cutoff, ended.get(ticker, cutoff))
+        start = baseline.max() + pd.Timedelta(days=1)
+        if start > end:
+            continue
+        expected = calendar.sessions_in_range(start, end).tz_localize(None)
+        present = pd.DatetimeIndex(prices.loc[prices.ticker.eq(ticker), "date"])
+        for day in expected.difference(present):
+            gaps.setdefault(day.date().isoformat(), []).append(ticker)
+    return dict(sorted(gaps.items()))
+
+
+def recover_missing(*, base_file=BASE_DATA_FILE, updates_file=UPDATES_FILE,
+                    provenance_file=PROVENANCE, now=None, stocks=None, yahoo=_download,
+                    audit_dir=None):
+    """Insert validated Yahoo bars only; fail publication if any session remains missing."""
+    now = instant() if now is None else now
+    kwargs = dict(base_file=base_file, updates_file=updates_file, now=now, stocks=stocks)
+    gaps = missing_sessions(**kwargs)
+    reports, cutoffs = [], {}
+    for day, tickers in gaps.items():
+        selected = [{"ticker": t} for t in tickers]
+        payload = collect("Yahoo", "17:30", now=now, stocks=selected, yahoo=yahoo,
+                          catch_up=True, provenance=[], session_date=day)
+        payload["missing_only"] = True
+        report = apply_snapshot(payload, base_file=base_file, updates_file=updates_file,
+                                provenance_file=provenance_file, now=now)
+        if audit_dir is not None:
+            write_json_atomic(Path(audit_dir) / day / f"Yahoo-recovery-{payload['run_id']}.json", report)
+        reports.append(report)
+        for ticker, date in report["recalculate_from"].items():
+            cutoffs[ticker] = min(date, cutoffs.get(ticker, date))
+    remaining = missing_sessions(**kwargs)
+    if remaining:
+        raise RuntimeError(f"Ofullständiga stängningskurser: {remaining}")
+    return {"sessions": len(gaps), "applied": sum(r["applied"] for r in reports),
+            "recalculate_from": cutoffs, "remaining": remaining}
+
+
+def save_cutoffs(incoming):
+    cutoffs = read_json(CUTOFFS, {})
+    for ticker, day in incoming.items():
+        cutoffs[ticker] = min(day, cutoffs.get(ticker, day))
+    write_json_atomic(CUTOFFS, cutoffs)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=["collect", "apply", "build"])
+    parser.add_argument("mode", choices=["collect", "apply", "build", "recover", "verify"])
     parser.add_argument("--source", choices=["Yahoo", "Avanza"], default="Yahoo")
     parser.add_argument("--planned", default="17:30")
     parser.add_argument("--file", type=Path, default=ROOT / ".cache/closing_snapshot.json")
     parser.add_argument("--defer-score-history", action="store_true")
     parser.add_argument("--catch-up", action="store_true")
     args = parser.parse_args()
-    if args.mode == "collect":
+    if args.mode == "recover":
+        result = recover_missing(audit_dir=ROOT / "data/prices/closing_audit")
+        save_cutoffs(result["recalculate_from"])
+        print(json.dumps(result, ensure_ascii=False))
+    elif args.mode == "verify":
+        gaps = missing_sessions()
+        if gaps:
+            raise RuntimeError(f"Ofullständiga stängningskurser: {gaps}")
+        print("Alla avslutade handelssessioner efter fryst prisbas är kompletta.")
+    elif args.mode == "collect":
         result = collect(args.source, args.planned, catch_up=args.catch_up)
         write_json_atomic(args.file, result)
         print(json.dumps({k:v for k,v in result.items() if k != "rows"}, ensure_ascii=False))
         if output := os.getenv("GITHUB_OUTPUT"):
             with open(output, "a", encoding="utf-8") as f:
-                f.write(f"ready={'true' if result.get('rows') else 'false'}\n")
+                ready = bool(result.get('rows')) or (args.catch_up and bool(missing_sessions()))
+                f.write(f"ready={'true' if ready else 'false'}\n")
         if result["state"] == "failed":
             raise RuntimeError("Källan gav ingen giltig dagsdata")
     elif args.mode == "apply":
         payload = json.loads(args.file.read_text())
         result = apply_snapshot(payload)
-        write_json_atomic(CUTOFFS, result["recalculate_from"])
+        save_cutoffs(result["recalculate_from"])
         audit = ROOT / "data/prices/closing_audit" / payload["session_date"] / f"{payload['source']}-{payload['run_id']}.json"
         write_json_atomic(audit, result)
         print(json.dumps({k:v for k,v in result.items() if k not in {"observed", "differences"}}, ensure_ascii=False))

@@ -26,7 +26,7 @@ permissions:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checka ut repot
         uses: actions/checkout@v6
@@ -39,7 +39,7 @@ jobs:
           node-version: "22"
 
       - name: Testa mobilväljare och händelseband
-        run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs tests/test_company_news.cjs tests/test_two_positions.cjs tests/test_reports_ui.cjs tests/test_report_data_status_ui.cjs tests/test_intraday_ui.cjs tests/test_intraday_signals_ui.cjs tests/test_published_refresh.cjs tests/test_eps_entry.cjs tests/test_eps_provenance_ui.cjs
+        run: node --test tests/test_mobile_stock_picker.cjs tests/test_event_strip.cjs tests/test_company_news.cjs tests/test_two_positions.cjs tests/test_reports_ui.cjs tests/test_report_data_status_ui.cjs tests/test_intraday_ui.cjs tests/test_intraday_signals_ui.cjs tests/test_published_refresh.cjs tests/test_eps_entry.cjs tests/test_eps_provenance_ui.cjs tests/test_preliminary_chart.cjs
 
       - name: Testa ritade ikonpositioner med ECharts
         run: |
@@ -51,6 +51,12 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+
+      - name: Testa kurs och poäng i mobil och desktop
+        run: |
+          npm install --prefix "$RUNNER_TEMP/closing-ui-tests" --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+          "$RUNNER_TEMP/closing-ui-tests/node_modules/.bin/playwright" install --with-deps chromium
+          NODE_PATH="$RUNNER_TEMP/closing-ui-tests/node_modules" ECHARTS_TEST_FILE="$RUNNER_TEMP/chart-tests/node_modules/echarts/dist/echarts.min.js" node --test tests/test_closing_chart_ui.cjs
 
       - name: Installera beroenden
         run: |

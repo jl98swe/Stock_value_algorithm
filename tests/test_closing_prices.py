@@ -183,3 +183,94 @@ def test_catchup_still_checks_yahoo_when_avanza_published_first():
                      yahoo=lambda *a, **k: pd.DataFrame([row()]), catch_up=True,
                      provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Avanza'}])
     assert result['available'] == 1
+
+
+def test_historical_catchup_accepts_missing_completed_day(paths):
+    historical = snapshot("Yahoo")
+    historical["session_date"] = "2026-10-16"
+    historical["rows"][0]["date"] = "2026-10-16"
+    historical["started_at"] = "2026-10-20T09:00:00+02:00"
+    historical["catch_up"] = True
+    # The frozen base already contains this date: it must never be overwritten.
+    result = apply_snapshot(historical, **{**paths, "now": datetime.fromisoformat("2026-10-20T09:01:00+02:00")})
+    assert result["kept"] == 1
+    assert result["applied"] == 0
+
+
+def test_historical_catchup_rejects_unflagged_snapshot(paths):
+    historical = snapshot("Yahoo")
+    historical["session_date"] = "2026-10-16"
+    historical["rows"][0]["date"] = "2026-10-16"
+    historical["started_at"] = "2026-10-20T09:00:00+02:00"
+    with pytest.raises(ValueError):
+        apply_snapshot(historical, **{**paths, "now": datetime.fromisoformat("2026-10-20T09:01:00+02:00")})
+
+
+def test_historical_catchup_inserts_missing_day_once(paths):
+    historical = snapshot("Yahoo")
+    historical["started_at"] = "2026-10-21T09:00:00+02:00"
+    historical["catch_up"] = True
+    kwargs = {**paths, "now": datetime.fromisoformat("2026-10-21T09:01:00+02:00")}
+    first = apply_snapshot(historical, **kwargs)
+    second = apply_snapshot(historical, **kwargs)
+    assert first["applied"] == 1
+    assert second["kept"] == 1
+    assert len(pd.read_csv(paths["updates_file"])) == 1
+
+
+def test_recovery_fills_internal_and_latest_gaps_without_replacing_prices(paths):
+    # Synthetic example: Tuesday exists, Monday and Wednesday are missing.
+    pd.DataFrame([{**row(107.), "date": "2026-10-20"}]).to_csv(paths["updates_file"], index=False)
+    now = datetime.fromisoformat("2026-10-22T09:00:00+02:00")
+    calls = []
+    def yahoo(tickers, *, start, end):
+        calls.append(start)
+        return pd.DataFrame([{**row(), "date": start}])
+    kwargs = {**paths, "now": now, "stocks": [STOCKS[0]], "yahoo": yahoo}
+    report = closing.recover_missing(**kwargs)
+    assert calls == ["2026-10-19", "2026-10-21"]
+    assert report["applied"] == 2
+    assert report["remaining"] == {}
+    assert pd.read_csv(paths["updates_file"]).set_index("date").loc["2026-10-20", "close"] == 107.
+    assert closing.recover_missing(**kwargs)["applied"] == 0
+
+
+def test_recovery_rejects_partial_response_and_wrong_dates(paths):
+    for frame in [pd.DataFrame(columns=closing.RAW_PRICE_COLUMNS),
+                  pd.DataFrame([{**row(), "date": "2026-10-16"}])]:
+        with pytest.raises(RuntimeError, match="Ofullständiga stängningskurser"):
+            closing.recover_missing(**paths, stocks=[STOCKS[0]], yahoo=lambda *a, **k: frame)
+    assert not paths["updates_file"].exists()
+
+
+def test_missing_only_recovery_preserves_existing_even_for_latest_session(paths):
+    pd.DataFrame([row(107.)]).to_csv(paths["updates_file"], index=False)
+    payload = snapshot("Yahoo")
+    payload.update(catch_up=True, missing_only=True)
+    assert apply_snapshot(payload, **paths)["kept"] == 1
+    assert pd.read_csv(paths["updates_file"]).close.iloc[0] == 107.
+
+
+def test_explicit_recovery_cannot_collect_unfinished_or_unflagged_day():
+    with pytest.raises(ValueError):
+        collect("Yahoo", "17:30", now=NOW, session_date="2026-10-16")
+    with pytest.raises(ValueError):
+        collect("Yahoo", "17:30", now=NOW, catch_up=True, session_date="2026-10-20")
+
+
+def test_publisher_applies_available_source_before_recovery_and_verifies_completeness():
+    workflow = yaml.safe_load(Path('.github/workflows/daily_update.yml').read_text())
+    commands = [s.get('run', '') for s in workflow['jobs']['update']['steps']]
+    assert commands.index('python -m src.closing_prices apply') < commands.index('python -m src.closing_prices recover')
+    validation = next(c for c in commands if 'src.validate_outputs' in c)
+    assert 'src.closing_prices verify' in validation
+    assert not any('python -m src.fetch_data' in c for c in commands)
+
+
+def test_delayed_snapshot_cannot_replace_a_session_that_has_become_historical(paths):
+    pd.DataFrame([row(107.)]).to_csv(paths['updates_file'],index=False)
+    payload=snapshot('Yahoo')
+    payload['catch_up']=True
+    result=apply_snapshot(payload,**{**paths,'now':datetime.fromisoformat('2026-10-21T09:00:00+02:00')})
+    assert result['kept']==1
+    assert pd.read_csv(paths['updates_file']).close.iloc[0]==107.
