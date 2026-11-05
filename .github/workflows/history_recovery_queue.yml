@@ -15,16 +15,21 @@ jobs:
   unblock:
     runs-on: ubuntu-latest
     steps:
-      - name: Stoppa kända äldre och dubblerade datakörningar
+      - name: Stoppa dubblerade EPS-körningar från kursåterställningen
         uses: actions/github-script@v7
         with:
           script: |
-            // One-time IDs observed during the 4 Nov history repair.
-            // Do not cancel the recovery run or any subsequent market run.
-            const ids = [41894831460,41899725694,41894831327,41894831454,41896244777,41900290451,41900290366,41900290348,41900290752,41900290498];
+            // These automatic EPS rebuilds duplicate the market recovery.
+            // Never cancel manual requests, collection or the recovery itself.
+            const expectedHead = '11fddc3867aa32c8b0f6a54b9defe4046c09725a';
+            const ids = [42052781814, 42052781813];
             for (const run_id of ids) {
               const {data: run} = await github.rest.actions.getWorkflowRun({...context.repo, run_id});
               if (run.status === 'completed') continue;
+              if (run.head_sha !== expectedHead || run.event !== 'push' || run.head_branch !== 'main') {
+                core.warning('Unexpected run identity, leaving untouched: ' + run_id);
+                continue;
+              }
               await github.rest.actions.cancelWorkflowRun({...context.repo, run_id});
-              core.info('Stopped stale/duplicate run ' + run_id);
+              core.info('Stopped duplicate EPS rebuild ' + run_id);
             }
