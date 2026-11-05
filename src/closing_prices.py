@@ -74,6 +74,7 @@ def collect(source, planned, *, now=None, stocks=None, instruments=None,
             payload["state"] = "up_to_date"
             payload["completed_at"] = instant().isoformat()
             return payload
+    payload["catch_up"] = bool(catch_up)
     payload["expected"] = len(tickers)
     if source == "Yahoo":
         started = instant().isoformat()
@@ -140,10 +141,12 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
     started = instant(payload["started_at"])
     session_day = pd.Timestamp(day).date()
     bounds = session_bounds(started.replace(year=session_day.year, month=session_day.month, day=session_day.day))
+    historical = session_day < last_completed_session(started).date()
     if (not bounds or started < bounds[1] or
             session_day > last_completed_session(received).date() or
-            session_day != last_completed_session(started).date()):
-        raise ValueError("Snapshot gäller inte dagens avslutade handelssession")
+            (historical and (source != "Yahoo" or not payload.get("catch_up"))) or
+            (not historical and session_day != last_completed_session(started).date())):
+        raise ValueError("Snapshot gäller inte en tillåten avslutad handelssession")
     base = pd.read_parquet(base_file)
     base["date"] = pd.to_datetime(base.date)
     updates = pd.read_csv(updates_file) if Path(updates_file).exists() else pd.DataFrame(columns=RAW_PRICE_COLUMNS)
@@ -163,6 +166,9 @@ def apply_snapshot(payload, *, base_file=BASE_DATA_FILE, updates_file=UPDATES_FI
         _validate_ohlc(pd.DataFrame([row]))
         key = (row["ticker"], day)
         old = existing.get(key)
+        if historical and old is not None:
+            report["kept"] += 1
+            continue
         previous = by_key.get(key, {"source": "Yahoo", "fetched_at": ""})
         if old is not None:
             report["differences"].append({"ticker": row["ticker"], "incoming_source": source,
