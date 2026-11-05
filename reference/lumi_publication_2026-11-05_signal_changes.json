@@ -1,0 +1,1777 @@
+[
+  {
+    "strategy": "standard_full_history",
+    "date": "2019-10-24",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2019-10-24-buy-1",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2019-10-24",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2019-10-25",
+      "execution_date": "2019-10-25",
+      "execution_price": 50.2999992370606,
+      "lot_id": "LUMI-ST-lot-1",
+      "quantity": 0.019831138161906996,
+      "commission_fee": 0.002493765586034913,
+      "date": "2019-10-24"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-01-13",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-01-13-sell-2",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2020-01-13",
+      "score": 99.835399,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2020-01-14",
+      "execution_date": "2020-01-14",
+      "execution_price": 58.2000007629395,
+      "lot_id": "LUMI-ST-lot-1",
+      "quantity": 0.019831138161906996,
+      "commission_fee": 0.002885430640382365,
+      "date": "2020-01-13"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-01-31",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-01-31-buy-3",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-01-31",
+      "score": 0.700743,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2020-02-03",
+      "execution_date": "2020-02-03",
+      "execution_price": 50.5499992370606,
+      "lot_id": "LUMI-ST-lot-2",
+      "quantity": 0.022798973694265014,
+      "commission_fee": 0.0028812202571271528,
+      "date": "2020-01-31"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-02-21",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-02-21-buy-suppressed_capacity-4",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-02-21",
+      "score": 0.181459,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2020-02-21"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-04-29",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-04-29-sell-5",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2020-04-29",
+      "score": 100.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2020-04-30",
+      "execution_date": "2020-04-30",
+      "execution_price": 48.0,
+      "lot_id": "LUMI-ST-lot-2",
+      "quantity": 0.022798973694265014,
+      "commission_fee": 0.002735876843311802,
+      "date": "2020-04-29"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-07-30",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-07-30-buy-6",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-07-30",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2020-07-31",
+      "execution_date": "2020-07-31",
+      "execution_price": 50.0999984741211,
+      "lot_id": "LUMI-ST-lot-3",
+      "quantity": 0.021858982233327873,
+      "commission_fee": 0.0027378374413389167,
+      "date": "2020-07-30"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-09-16",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-09-16-buy-suppressed_capacity-7",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-09-16",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2020-09-16"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-09-28",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-09-28-buy-suppressed_capacity-8",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-09-28",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2020-09-28"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-10-29",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-10-29-buy-suppressed_capacity-9",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2020-10-29",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2020-10-29"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2020-12-30",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2020-12-30-sell-10",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2020-12-30",
+      "score": 99.665224,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-01-04",
+      "execution_date": "2021-01-04",
+      "execution_price": 73.0,
+      "lot_id": "LUMI-ST-lot-3",
+      "quantity": 0.021858982233327873,
+      "commission_fee": 0.003989264257582337,
+      "date": "2020-12-30"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-03-25",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-03-25-buy-11",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-03-25",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-03-26",
+      "execution_date": "2021-03-26",
+      "execution_price": 86.0,
+      "lot_id": "LUMI-ST-lot-4",
+      "quantity": 0.01860136079028032,
+      "commission_fee": 0.00399929256991027,
+      "date": "2021-03-25"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-03-29",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-03-29-buy-suppressed_capacity-12",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-03-29",
+      "score": 0.8017279999999999,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2021-03-29"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-04-16",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-04-16-sell-13",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2021-04-16",
+      "score": 99.492512,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-04-19",
+      "execution_date": "2021-04-19",
+      "execution_price": 107.300003051758,
+      "lot_id": "LUMI-ST-lot-4",
+      "quantity": 0.01860136079028032,
+      "commission_fee": 0.004989815173909825,
+      "date": "2021-04-16"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-04-29",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-04-29-buy-14",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-04-29",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-04-30",
+      "execution_date": "2021-04-30",
+      "execution_price": 103.599998474121,
+      "lot_id": "LUMI-ST-lot-5",
+      "quantity": 0.019169607676885476,
+      "commission_fee": 0.004964928315187083,
+      "date": "2021-04-29"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-06-17",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-06-17-buy-suppressed_capacity-15",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-06-17",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2021-06-17"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-07-30",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-07-30-buy-suppressed_capacity-16",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-07-30",
+      "score": 0.5808859999999999,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2021-07-30"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-09-14",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-09-14-buy-suppressed_capacity-17",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-09-14",
+      "score": 0.5614510000000003,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2021-09-14"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-10-14",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-10-14-sell-18",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2021-10-14",
+      "score": 99.334536,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-10-15",
+      "execution_date": "2021-10-15",
+      "execution_price": 72.9499969482422,
+      "lot_id": "LUMI-ST-lot-5",
+      "quantity": 0.019169607676885476,
+      "commission_fee": 0.0034960570538194896,
+      "date": "2021-10-14"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2021-12-21",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2021-12-21-buy-19",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2021-12-21",
+      "score": 0.8399030000000002,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2021-12-22",
+      "execution_date": "2021-12-22",
+      "execution_price": 65.3000030517578,
+      "lot_id": "LUMI-ST-lot-6",
+      "quantity": 0.021790809397423856,
+      "commission_fee": 0.003557349800380126,
+      "date": "2021-12-21"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-01-20",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-01-20-sell-20",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2022-01-20",
+      "score": 99.442028118274,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2022-01-21",
+      "execution_date": "2022-01-21",
+      "execution_price": 79.5,
+      "lot_id": "LUMI-ST-lot-6",
+      "quantity": 0.021790809397423856,
+      "commission_fee": 0.0043309233677379915,
+      "date": "2022-01-20"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-04-28",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-04-28-buy-21",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2022-04-28",
+      "score": 0.7265729999999998,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2022-04-29",
+      "execution_date": "2022-04-29",
+      "execution_price": 90.8000030517578,
+      "lot_id": "LUMI-ST-lot-7",
+      "quantity": 0.01898380003349186,
+      "commission_fee": 0.004309322752437552,
+      "date": "2022-04-28"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-06-16",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-06-16-buy-suppressed_capacity-22",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2022-06-16",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2022-06-16"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-06-20",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-06-20-buy-suppressed_capacity-23",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2022-06-20",
+      "score": 0.8484760000000002,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2022-06-20"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-06-22",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-06-22-buy-suppressed_capacity-24",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2022-06-22",
+      "score": 0.5476850000000003,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2022-06-22"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2022-08-16",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2022-08-16-sell-25",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2022-08-16",
+      "score": 100.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2022-08-17",
+      "execution_date": "2022-08-17",
+      "execution_price": 59.9199981689453,
+      "lot_id": "LUMI-ST-lot-7",
+      "quantity": 0.01898380003349186,
+      "commission_fee": 0.0028437731581161404,
+      "date": "2022-08-16"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-02-22",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-02-22-buy-26",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2023-02-22",
+      "score": 0.8032809999999999,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2023-02-23",
+      "execution_date": "2023-02-23",
+      "execution_price": 64.0,
+      "lot_id": "LUMI-ST-lot-8",
+      "quantity": 0.017867669534075002,
+      "commission_fee": 0.0028588271254520003,
+      "date": "2023-02-22"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-03-01",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-03-01-sell-27",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2023-03-01",
+      "score": 100.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2023-03-02",
+      "execution_date": "2023-03-02",
+      "execution_price": 69.1999969482422,
+      "lot_id": "LUMI-ST-lot-8",
+      "quantity": 0.017867669534075002,
+      "commission_fee": 0.003091106693075476,
+      "date": "2023-03-01"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-08-03",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-08-03-buy-28",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2023-08-03",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2023-08-04",
+      "execution_date": "2023-08-04",
+      "execution_price": 92.0500030517578,
+      "lot_id": "LUMI-ST-lot-9",
+      "quantity": 0.013365299728923082,
+      "commission_fee": 0.0030756897020875686,
+      "date": "2023-08-03"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-10-03",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-10-03-buy-suppressed_capacity-29",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2023-10-03",
+      "score": 0.7110389999999996,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2023-10-03"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-10-18",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-10-18-buy-suppressed_capacity-30",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2023-10-18",
+      "score": 0.518111,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2023-10-18"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-11-07",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-11-07-buy-suppressed_capacity-31",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2023-11-07",
+      "score": 0.35959200000000036,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2023-11-07"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2023-12-11",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2023-12-11-sell-32",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2023-12-11",
+      "score": 99.611648,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2023-12-12",
+      "execution_date": "2023-12-12",
+      "execution_price": 77.1999969482422,
+      "lot_id": "LUMI-ST-lot-9",
+      "quantity": 0.013365299728923082,
+      "commission_fee": 0.0025795027457130104,
+      "date": "2023-12-11"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-06-04",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2024-06-04-buy-1",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-06-04",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2024-06-05",
+      "execution_date": "2024-06-05",
+      "execution_price": 114.5,
+      "lot_id": "LUMI-ST-lot-1",
+      "quantity": 0.008711844842043364,
+      "commission_fee": 0.002493765586034913,
+      "date": "2024-06-04"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-06-12",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-06-12-buy-suppressed_capacity-2",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-06-12",
+      "score": 0.20662400000000022,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-06-12"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-06-14",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-06-14-buy-suppressed_capacity-3",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-06-14",
+      "score": 0.5999169999999999,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-06-14"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-07-31",
+    "side": "BUY",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2024-07-31-buy-33",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-07-31",
+      "score": 0.45106999999999975,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2024-08-01",
+      "execution_date": "2024-08-01",
+      "execution_price": 107.5,
+      "lot_id": "LUMI-ST-lot-10",
+      "quantity": 0.009703463400400387,
+      "commission_fee": 0.002607805788857604,
+      "date": "2024-07-31"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-08-01",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-08-01-buy-suppressed_capacity-4",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-08-01",
+      "score": 0.5440620000000003,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-08-01"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-08-14",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-08-14-buy-suppressed_capacity-5",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-08-14",
+      "score": 0.19475300000000006,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-08-14"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-08-16",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-08-16-buy-suppressed_capacity-6",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-08-16",
+      "score": 0.2746590000000002,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-08-16"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-09-05",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-09-05-buy-suppressed_capacity-7",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-09-05",
+      "score": 0.7616570416753619,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-09-05"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-11-07",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2024-11-07-buy-suppressed_capacity-34",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-11-07",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-11-07"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-12-17",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-12-17-buy-suppressed_capacity-8",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-12-17",
+      "score": 0.29171400000000036,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-12-17"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2024-12-30",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2024-12-30-buy-suppressed_capacity-9",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-12-30",
+      "score": 0.44522600000000007,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-12-30"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2024-12-30-buy-suppressed_capacity-35",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2024-12-30",
+      "score": 0.3323030000000003,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2024-12-30"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-01-28",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-01-28-buy-suppressed_capacity-10",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-01-28",
+      "score": 0.1747730000000001,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-01-28"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-01-31",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-01-31-buy-suppressed_capacity-36",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-01-31",
+      "score": 0.5776242658292785,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-01-31"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-02-03",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-02-03-buy-suppressed_capacity-11",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-02-03",
+      "score": 0.15349699999999994,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-02-03"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-02-05",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-02-05-buy-suppressed_capacity-12",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-02-05",
+      "score": 0.177468,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-02-05"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-02-05-buy-suppressed_capacity-37",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-02-05",
+      "score": 0.177468,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-02-05"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-02-20",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-02-20-buy-suppressed_capacity-13",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-02-20",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-02-20"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-02-20-buy-suppressed_capacity-38",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-02-20",
+      "score": 0.8746480000000018,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-02-20"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-03-18",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-03-18-buy-suppressed_capacity-39",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-03-18",
+      "score": 0.031007000000000964,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-03-18"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-03-24",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-03-24-buy-suppressed_capacity-40",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-03-24",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-03-24"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-03-31",
+    "side": "SELL",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2025-03-31-sell-14",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2025-03-31",
+      "score": 99.41069999999998,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2025-04-01",
+      "execution_date": "2025-04-01",
+      "execution_price": 82.0,
+      "lot_id": "LUMI-ST-lot-1",
+      "quantity": 0.008711844842043364,
+      "commission_fee": 0.0017859281926188898,
+      "date": "2025-03-31"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-05-08",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2025-05-08-buy-15",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-05-08",
+      "score": 0.21582800000000102,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2025-05-09",
+      "execution_date": "2025-05-09",
+      "execution_price": 81.0999984741211,
+      "lot_id": "LUMI-ST-lot-2",
+      "quantity": 0.008963120961669268,
+      "commission_fee": 0.0018172727407868511,
+      "date": "2025-05-08"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-05-08",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-05-08-buy-suppressed_capacity-41",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-05-08",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-05-08"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-06-26",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-06-26-buy-suppressed_capacity-16",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-06-26",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-06-26"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-06-26-buy-suppressed_capacity-42",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-06-26",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-06-26"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-08-06",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-08-06-buy-suppressed_capacity-17",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-08-06",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-08-06"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-08-07",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-08-07-buy-suppressed_capacity-43",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-08-07",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-08-07"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-08-22",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-08-22-buy-suppressed_capacity-18",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-08-22",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-08-22"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-03",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-09-03-buy-suppressed_capacity-19",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-03",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-03"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-09-03-buy-suppressed_capacity-44",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-03",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-03"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-05",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-09-05-buy-suppressed_capacity-20",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-05",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-05"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-09",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-09-09-buy-suppressed_capacity-21",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-09",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-09"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-15",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-09-15-buy-suppressed_capacity-22",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-15",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-15"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-18",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-09-18-buy-suppressed_capacity-45",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-18",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-18"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-09-19",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-09-19-buy-suppressed_capacity-23",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-09-19",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-09-19"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-10-20",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-10-20-buy-suppressed_capacity-24",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-10-20",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-10-20"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-10-20-buy-suppressed_capacity-46",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-10-20",
+      "score": 0.21582800000000102,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-10-20"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-10-27",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2025-10-27-buy-suppressed_capacity-25",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-10-27",
+      "score": 0.206949000000001,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-10-27"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2025-10-27-buy-suppressed_capacity-47",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2025-10-27",
+      "score": 0.206949000000001,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2025-10-27"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-11-17",
+    "side": "SELL",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2025-11-17-sell-26",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2025-11-17",
+      "score": 99.780303,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2025-11-18",
+      "execution_date": "2025-11-18",
+      "execution_price": 168.800003051758,
+      "lot_id": "LUMI-ST-lot-2",
+      "quantity": 0.008963120961669268,
+      "commission_fee": 0.003782437114207622,
+      "date": "2025-11-17"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2025-12-29",
+    "side": "SELL",
+    "status": "executed",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2025-12-29-sell-48",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2025-12-29",
+      "score": 99.766298,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2025-12-30",
+      "execution_date": "2025-12-30",
+      "execution_price": 197.800003051758,
+      "lot_id": "LUMI-ST-lot-10",
+      "quantity": 0.009703463400400387,
+      "commission_fee": 0.004798362725529547,
+      "date": "2025-12-29"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-02-20",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-02-20-buy-27",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-02-20",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-02-23",
+      "execution_date": "2026-02-23",
+      "execution_price": 258.0,
+      "lot_id": "LUMI-ST-lot-3",
+      "quantity": 0.005848126057845158,
+      "commission_fee": 0.003772041307310127,
+      "date": "2026-02-20"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-02-20-buy-49",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-02-20",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-02-23",
+      "execution_date": "2026-02-23",
+      "execution_price": 258.0,
+      "lot_id": "LUMI-ST-lot-11",
+      "quantity": 0.0074931612671454055,
+      "commission_fee": 0.004833089017308787,
+      "date": "2026-02-20"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-03-20",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2026-03-20-buy-suppressed_capacity-28",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-03-20",
+      "score": 0.9772437345263567,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-03-20"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-04-13",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2026-04-13-buy-suppressed_capacity-50",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-04-13",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-04-13"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-06-02",
+    "side": "SELL",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-06-02-sell-29",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2026-06-02",
+      "score": 99.53092,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-06-03",
+      "execution_date": "2026-06-03",
+      "execution_price": 294.0,
+      "lot_id": "LUMI-ST-lot-3",
+      "quantity": 0.005848126057845158,
+      "commission_fee": 0.004298372652516191,
+      "date": "2026-06-02"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-06-23",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": null,
+    "after": {
+      "signal_id": "LUMI-ST-2026-06-23-buy-suppressed_capacity-51",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-06-23",
+      "score": 0.4306750000000001,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-06-23"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-06-24",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-06-24-buy-30",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-06-24",
+      "score": 0.4049379999999999,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-06-25",
+      "execution_date": "2026-06-25",
+      "execution_price": 226.100006103516,
+      "lot_id": "LUMI-ST-lot-4",
+      "quantity": 0.0075714114782698015,
+      "commission_fee": 0.004279740453622583,
+      "date": "2026-06-24"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-06-29",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2026-06-29-buy-suppressed_capacity-31",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-06-29",
+      "score": 0.6177360000000001,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-06-29"
+    },
+    "after": null
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-07-07",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2026-07-07-buy-suppressed_capacity-32",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-07-07",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-07-07"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-07-07-buy-suppressed_capacity-52",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-07-07",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-07-07"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-08-05",
+    "side": "SELL",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-08-05-sell-33",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2026-08-05",
+      "score": 99.63329,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-08-06",
+      "execution_date": "2026-08-06",
+      "execution_price": 256.299987792969,
+      "lot_id": "LUMI-ST-lot-4",
+      "quantity": 0.0075714114782698015,
+      "commission_fee": 0.004851381673640238,
+      "date": "2026-08-05"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-08-05-sell-53",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2026-08-05",
+      "score": 99.659463,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-08-06",
+      "execution_date": "2026-08-06",
+      "execution_price": 256.299987792969,
+      "lot_id": "LUMI-ST-lot-11",
+      "quantity": 0.0074931612671454055,
+      "commission_fee": 0.004801242853250288,
+      "date": "2026-08-05"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-09-15",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-09-15-buy-34",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-09-15",
+      "score": 0.0,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-09-16",
+      "execution_date": "2026-09-16",
+      "execution_price": 227.1999969482422,
+      "lot_id": "LUMI-ST-lot-5",
+      "quantity": 0.0084985657062575,
+      "commission_fee": 0.0048271852563153495,
+      "date": "2026-09-15"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-09-15-buy-54",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-09-15",
+      "score": 0.5739559999999999,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-09-16",
+      "execution_date": "2026-09-16",
+      "execution_price": 227.1999969482422,
+      "lot_id": "LUMI-ST-lot-12",
+      "quantity": 0.008423393239157246,
+      "commission_fee": 0.004784487295575925,
+      "date": "2026-09-15"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-10-22",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2026-10-22-buy-suppressed_capacity-35",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-10-22",
+      "score": 0.872198,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-10-22"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-10-22-buy-suppressed_capacity-55",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-10-22",
+      "score": 0.872198,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-10-22"
+    }
+  },
+  {
+    "strategy": "standard_full_history",
+    "date": "2026-10-30",
+    "side": "BUY",
+    "status": "suppressed_capacity",
+    "before": {
+      "signal_id": "LUMI-ST-2026-10-30-buy-suppressed_capacity-36",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-10-30",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-10-30"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-10-30-buy-suppressed_capacity-56",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-10-30",
+      "score": 0.0,
+      "status": "suppressed_capacity",
+      "status_reason": "Max 1 aktiva positioner per aktie",
+      "execute_on": null,
+      "date": "2026-10-30"
+    }
+  },
+  {
+    "strategy": "report_avoidance",
+    "date": "2026-11-03",
+    "side": "SELL",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-11-03-sell-35",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2026-11-03",
+      "score": 0.5614730000000003,
+      "status": "executed",
+      "status_reason": "Inför rapport",
+      "exit_reason": "report",
+      "execute_on": "2026-11-03",
+      "execution_date": "2026-11-03",
+      "execution_price": 206.3000030517578,
+      "lot_id": "LUMI-ST-lot-8",
+      "quantity": 0.006296276480507302,
+      "commission_fee": 0.0032473046428584187,
+      "date": "2026-11-03"
+    },
+    "after": {
+      "signal_id": "LUMI-ST-2026-11-03-sell-59",
+      "ticker": "LUMI.ST",
+      "side": "SELL",
+      "signal_date": "2026-11-03",
+      "score": 0.5614730000000003,
+      "status": "executed",
+      "status_reason": "Inför rapport",
+      "exit_reason": "report",
+      "execute_on": "2026-11-03",
+      "execution_date": "2026-11-03",
+      "execution_price": 206.3000030517578,
+      "lot_id": "LUMI-ST-lot-20",
+      "quantity": 0.004658778240110826,
+      "commission_fee": 0.0024027649128808156,
+      "date": "2026-11-03"
+    }
+  },
+  {
+    "strategy": "standard_two_positions",
+    "date": "2026-10-22",
+    "side": "BUY",
+    "status": "executed",
+    "before": {
+      "signal_id": "LUMI-ST-2026-10-22-buy-29",
+      "ticker": "LUMI.ST",
+      "side": "BUY",
+      "signal_date": "2026-10-22",
+      "score": 0.872198,
+      "status": "executed",
+      "status_reason": "",
+      "execute_on": "2026-10-23",
+      "execution_date": "2026-10-23",
+      "execution_price": 211.0,
+      "lot_id": "LUMI-ST-lot-8",
+      "quantity": 0.004702971532004519,
+      "commission_fee": 0.0024808174831323837,
+      "date": "2026-10-22"
+    },
+    "after": null
+  }
+]
