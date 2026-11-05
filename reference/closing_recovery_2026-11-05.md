@@ -52,3 +52,7 @@ Samtliga 119 publika aktiefiler verifierades mot huvudexporten och det senaste k
 Vid kontrollen den 5 november visade THULE:s cache kursen 218,80 kr (avslut 15:56) och preliminär poäng 100 för 5 november. Detta är en annan dag än den återställda slutliga poängen 80,9451 för 4 november. Båda värdena visas korrekt i den publicerade grafen.
 
 Ett extra webbläsartest efter publiceringen visade att det syntetiska testets aktiefil och strategiöversikt använde olika datum när repots verkliga data hade avancerat. Testunderlaget korrigerades i [0164b85fffdd](https://github.com/jl98swe/Stock_value_algorithm/commit/0164b85fffdd19313edc62c3c439d419fb9b8384); omkörningens mobil- och desktoptest passerade. Produktbeteendet ändrades inte av denna testfix.
+
+Den avslutande [CI-körningen 42058822952](https://github.com/jl98swe/Stock_value_algorithm/actions/runs/42058822952) passerade därefter samtliga steg, inklusive det korrigerade mobil- och desktoptestet, 460 Python-tester, full modellbyggnad och historikskydd. Även det efterföljande publiceringssteget för Max drawdown slutfördes.
+
+Den publicerade exporten med öppningsobservationer för 5 november sparades i [be3805947ecc](https://github.com/jl98swe/Stock_value_algorithm/commit/be3805947eccec88e0df3822e08e8ca6e2903e2a). Den slutliga grafen kontrollerades även i det levande webbgränssnittet. Inga återstående kursluckor efter den frysta prisbasen hittades vid kontrollen före stängning den 5 november.
