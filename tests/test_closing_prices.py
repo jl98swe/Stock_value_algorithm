@@ -183,3 +183,24 @@ def test_catchup_still_checks_yahoo_when_avanza_published_first():
                      yahoo=lambda *a, **k: pd.DataFrame([row()]), catch_up=True,
                      provenance=[{'ticker': 'EXAMPLE.ST', 'date': '2026-10-19', 'source': 'Avanza'}])
     assert result['available'] == 1
+
+
+def test_historical_catchup_accepts_missing_completed_day(paths):
+    historical = snapshot("Yahoo")
+    historical["session_date"] = "2026-10-16"
+    historical["rows"][0]["date"] = "2026-10-16"
+    historical["started_at"] = "2026-10-20T09:00:00+02:00"
+    historical["catch_up"] = True
+    # The frozen base already contains this date: it must never be overwritten.
+    result = apply_snapshot(historical, **{**paths, "now": datetime.fromisoformat("2026-10-20T09:01:00+02:00")})
+    assert result["kept"] == 1
+    assert result["applied"] == 0
+
+
+def test_historical_catchup_rejects_unflagged_snapshot(paths):
+    historical = snapshot("Yahoo")
+    historical["session_date"] = "2026-10-16"
+    historical["rows"][0]["date"] = "2026-10-16"
+    historical["started_at"] = "2026-10-20T09:00:00+02:00"
+    with pytest.raises(ValueError):
+        apply_snapshot(historical, **{**paths, "now": datetime.fromisoformat("2026-10-20T09:01:00+02:00")})
