@@ -238,6 +238,7 @@
     $('report-content').innerHTML = `
       <div class="status-stack">
         <div class="status-line"><span>Senaste rapport</span><strong>${report.period || '–'}</strong></div>
+        <div class="status-line"><span>Rapportdatum</span><strong>${prettyDate(report.report_date)} ${window.epsProvenance.publication?.(report) || ''}</strong></div>
         <div class="status-line"><span>EPS TTM</span><strong>${window.epsProvenance.value(formatModelEps(data), data.latest?.eps_conversion, state.selectedTicker)}</strong></div>
         <div class="status-line"><span>Effektiv handelsdag</span><strong>${prettyDate(report.effective_date)}</strong></div>
         <div class="status-line"><span>Verifierad</span><strong>${report.verified ? 'Ja' : 'Nej'}</strong></div>

@@ -7,7 +7,9 @@
   }
   window.epsProvenance = {
     value: (text, info, ticker) => trigger(text, info, ticker, false),
-    icon: (info, ticker) => trigger('', info, ticker, true)
+    icon: (info, ticker) => trigger('', info, ticker, true),
+    publication: info => info?.publication_time_verified && info?.published_after_close
+      ? `<button type="button" class="eps-fx-note eps-fx-icon" data-eps-fx="${esc(JSON.stringify({publication_note: info.publication_note}))}" aria-label="${esc(info.publication_note)}" aria-expanded="false" aria-controls="eps-fx-popover">ⓘ</button>` : ''
   };
 
   let popup, active, pinned = false, timer;
@@ -45,13 +47,16 @@
     }
     popup.replaceChildren();
     const title = document.createElement('strong');
-    title.textContent = 'Valutaomräknat EPS';
+    title.textContent = info.publication_note ? 'Rapportinformation' : 'Valutaomräknat EPS';
     const text = document.createElement('p');
     text.textContent = `${button.dataset.epsKind === 'valuation' ? 'Värderingen bygger på valutaomräknad EPS. ' : ''}Beräknat från ${fmt.format(info.original_eps_ttm)} ${info.original_currency} till ${info.target_currency} med valutakurs ${fmt.format(info.rate)} från ${info.rate_date}.`;
     const link = document.createElement('a');
     link.href = `./review.html?ticker=${encodeURIComponent(button.dataset.epsTicker)}#eps-form-title`;
     link.textContent = 'Komplettera med verifierat TradingView-värde';
-    popup.append(title, text, link);
+    if (info.publication_note) {
+      text.textContent = info.publication_note;
+      popup.append(text);
+    } else popup.append(title, text, link);
     active = button;
     active.setAttribute('aria-expanded', 'true');
     popup.hidden = false;

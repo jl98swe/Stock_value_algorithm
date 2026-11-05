@@ -39,6 +39,7 @@ from .opening_sessions import OPENINGS_FILE, append_opening, opening_fingerprint
 from .reporting import build_reports_payload, _combined_schedule, load_auto_report_calendar
 from .manual_reports import publish_manual_reports
 from .eps_conversion import apply_fx_fallbacks, conversion_metadata
+from .report_publications import publication_metadata
 from .report_date_revisions import changed_date_cutoffs, changed_eps_cutoffs, load_score_dates, save_score_dates, log_score_date_revisions
 from .score_history import (
     SCORE_HISTORY_FILE,
@@ -298,6 +299,7 @@ def _report_payload(
         }
     return {
         "period": str(latest.get("report_period") or ""),
+        **publication_metadata(latest),
         "eps_ttm": _json_number(latest.get("eps_ttm")),
         "eps_conversion": conversion_metadata(latest),
         "effective_date": _iso_date(latest.get("effective_date")),
@@ -556,8 +558,10 @@ def _report_events(reports: pd.DataFrame, *, stock_metadata: pd.DataFrame | None
             {
                 "event_id": f"report:{row.ticker}:{period}",
                 "ticker": row.ticker,
+                **publication_metadata(row._asdict()),
                 "published_at": published_at or f"{effective_date}T00:00:00+02:00",
-                "event_date": effective_date or (published_at or "")[:10],
+                "event_date": publication_metadata(row._asdict())["report_date"],
+                "effective_date": effective_date,
                 "event_type": "report",
                 "categories": ["report", "earnings"],
                 "source": str(row.source or "Rapportdata"),

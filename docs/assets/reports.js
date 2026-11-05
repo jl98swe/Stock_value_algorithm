@@ -6,6 +6,7 @@
   const scoreFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const percentFormat = new Intl.NumberFormat('sv-SE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const dateFormat = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  const publicationNote = row => typeof window !== 'undefined' ? (window.epsProvenance?.publication?.(row) || '') : '';
   const fxValue = (text, info, ticker) => typeof window !== 'undefined' && window.epsProvenance ? window.epsProvenance.value(text, info, ticker) : text;
   const $ = (id) => document.getElementById(id);
   const todayFormat = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -179,7 +180,7 @@
       const priceClass = priceChange === null ? '' : priceChange > 0 ? 'positive' : priceChange < 0 ? 'negative' : '';
       return `<tr>
         <td>${stockLink(row)}</td>
-        <td><strong>${formatDate(row.report_date)}</strong>${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
+        <td><strong>${formatDate(row.report_date)}</strong> ${publicationNote(row)}${row.report_date_verified ? '' : '<span class="date-status-chip">Rapportdatum ej verifierat</span>'}<span class="cell-note">${escapeHtml(row.report_period || '')}</span></td>
         <td>${row.reported_quarter_eps == null ? '–' : `<strong>${formatEps(row.reported_quarter_eps)} ${escapeHtml(row.reported_eps_currency || '')}</strong>`}</td>
         <td>${row.prior_year_quarter_eps == null ? '–' : `${formatEps(row.prior_year_quarter_eps)} ${escapeHtml(row.prior_year_eps_currency || '')}`}</td>
         <td>${epsPair(row)}${row.eps_ttm_after == null ? `<span class="cell-note">${missingEpsLink(row)}</span>` : ''}</td>
