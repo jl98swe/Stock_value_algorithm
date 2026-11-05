@@ -43,6 +43,26 @@ def test_missing_report_dates_blocks_buys():
     assert not result["trades"]
 
 
+def test_nearer_calendar_report_forces_exit_before_eps_is_registered(monkeypatch):
+    import src.strategy_backtests as backtests
+    from src.reporting import BORSKOLLEN_SOURCE, MFN_SOURCE
+    calendar = pd.DataFrame([
+        dict(ticker='SYNTHETIC.ST', report_date_start=day, report_date_end=day,
+             source=source, date_status='confirmed', observed_date='2026-09-15')
+        for day, source in [('2026-11-05', BORSKOLLEN_SOURCE), ('2027-02-04', MFN_SOURCE)]
+    ])
+    monkeypatch.setattr(backtests, 'automatic_calendar', lambda: calendar)
+    monkeypatch.setattr(backtests, 'calendar_history', lambda: calendar)
+    data = frame(['2026-09-16', '2026-09-17', '2026-11-03', '2026-11-04'], [0, 50, 50, 50])
+    data['OpeningOnly'] = [False, False, False, True]
+    variants = build_strategy_backtests(data, 'SYNTHETIC.ST', pd.DataFrame(columns=['ticker']),
+                                       pd.DataFrame(), run_strategy(data, 'SYNTHETIC.ST'))
+    trade = variants['report_avoidance']['closed_trades'][0]
+    assert trade['entry_date'] == '2026-09-17'
+    assert trade['exit_date'] == '2026-11-04'
+    assert trade['exit_reason'] == 'report'
+
+
 def test_ma200_is_strict_and_does_not_filter_sales(monkeypatch):
     import src.strategy_backtests as backtests
     monkeypatch.setattr(backtests, "automatic_calendar", lambda: pd.DataFrame())

@@ -64,5 +64,20 @@
       "NDA-SE.ST": "2026-10-16",
       "SEB-A.ST": "2026-10-23"
     }
+  },
+  {
+    "correction_id": "restore-mtg-report-exit-2026-11-05",
+    "reason": "User confirms that the correct report-avoidance sale must be included. MTG report 5 November was archived from 15 September; next-quarter source priority wrongly erased it. Remove the preservation override. Authorize only addition of this exact report exit; no score-history permission.",
+    "report_exit_additions": [
+      {
+        "ticker": "MTG-B.ST",
+        "report_date": "2026-11-05",
+        "known_from": "2026-09-15",
+        "execution_date": "2026-11-04",
+        "price": 119.2,
+        "lot_id": "MTG-B-ST-lot-18",
+        "source": "data/earnings/report_calendar_history.csv: MTG-B.ST 2026-11-05 observed 2026-09-15; data/prices/opening_sessions.json; issuer Q3 2026 publication 2026-11-05 07:30 CET"
+      }
+    ]
   }
 ]

@@ -469,6 +469,17 @@ Nya handelsdagar och omräkning från en ändrad rapports publiceringsdatum till
 Kontrollen räknar inte fram sin gräns från modellens periodslut och läser
 referensen ur Git, även om pipelinen redan har skrivit över sin lokala snapshot.
 
+Kalenderns källprioritering gäller datum för samma rapporttillfälle. En senare
+kvartalsrapport får inte tränga undan en närmare rapport. Kalenderfel kan därför
+rättas utan att nya EPS-värden flyttas bakåt till kvartalsslutet. I
+Rapportundvikande kan den korrekta försäljningen ligga handelsdagen före rapporten.
+En granskad, tidigare saknad sådan affär dokumenteras som `report_exit_additions`
+i `history_corrections.json`: exakt aktie, position, rapportdatum, tidigare
+kalenderkunskap, försäljningsdag, pris och källa. Grinden tillåter bara att just
+den rapportförsäljningen läggs till för en redan publicerad öppen position.
+Det tillåter inga tidigare poängändringar, andra affärer eller senare borttagning
+av den rättade affären.
+
 Avsiktliga historiska rättelser kräver en post i
 `data/manual/history_corrections.json`: exakt `base_commit`, en begriplig
 `reason` och `from` med ticker och första tillåtna rättelsedatum. Tillståndet

@@ -106,4 +106,3 @@ VOLV-A.ST,2027-01-27,,True,Preserve pre-repair published simulation; baseline 10
 WALL-B.ST,2027-02-05,,True,Preserve pre-repair published simulation; baseline 1013a7b5; not a claim of original announcement time
 WIHL.ST,2027-02-16,,True,Preserve pre-repair published simulation; baseline 1013a7b5; not a claim of original announcement time
 ZZ-B.ST,2026-11-17,,True,Preserve pre-repair published simulation; baseline 1013a7b5; not a claim of original announcement time
-MTG-B.ST,2026-11-05,2026-11-05,False,Preserve published simulation at 12f2d7ab: realised report must not insert a new exit on 2026-11-04. Simulation preservation boundary only; actual calendar first archived 2026-09-15 remains in report_calendar_history.csv.

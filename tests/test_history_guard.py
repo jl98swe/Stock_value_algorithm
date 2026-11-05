@@ -6,7 +6,7 @@ import pytest
 
 from src.fundamentals import normalise_reports
 from src.history_guard import (assert_score_history, assert_trade_history,
-                               correction_cutoffs, publication_cutoffs, validate_history)
+                               approved_report_exits, correction_cutoffs, publication_cutoffs, validate_history)
 from src.report_date_revisions import changed_eps_cutoffs, score_snapshot
 from src.score_history import apply_frozen_scores
 from src.strategy import run_strategy
@@ -87,6 +87,66 @@ def test_correction_requires_reason_and_is_bound_to_one_base_commit():
     records[0]['reason'] = ' '
     with pytest.raises(ValueError, match='orsak'):
         correction_cutoffs(records, 'abc')
+
+
+def report_exit_repair():
+    return [{'reason': 'Synthetic verified calendar repair', 'report_exit_additions': [
+        dict(ticker='EXAMPLE.ST', report_date='2026-11-05', known_from='2026-09-15',
+             execution_date='2026-11-04', price=119.2, lot_id='lot-1', source='Synthetic archived calendar')]}]
+
+
+def test_audited_report_exit_repair_does_not_reopen_scores_or_other_trades():
+    records = report_exit_repair()
+    allowed = approved_report_exits(records)
+    lot = dict(ticker='EXAMPLE.ST', lot_id='lot-1', entry_signal_date='2026-08-18',
+               entry_date='2026-08-19', entry_price=131.5)
+    old = {'meta': {'end_date': '2026-11-04'}, 'report_avoidance': {'open_lots': [lot]}}
+    closed = {**lot, 'exit_date': '2026-11-04', 'exit_signal_date': '2026-11-04',
+              'exit_price': 119.2, 'exit_reason': 'report'}
+    new = {'report_avoidance': {'closed_trades': [closed]}}
+    with pytest.raises(ValueError, match='publicerad affär'):
+        assert_trade_history(old, new, {})
+    assert_trade_history(old, new, {}, allowed)
+    with pytest.raises(ValueError, match='publicerad affär.*ma200'):
+        assert_trade_history({'meta': old['meta'], 'ma200': old['report_avoidance']},
+                             {'ma200': new['report_avoidance']}, {}, allowed)
+    # Once published, deleting the repaired sale is forbidden.
+    with pytest.raises(ValueError, match='publicerad affär'):
+        assert_trade_history(new, old, {}, allowed)
+    for field, value in [('entry_price', 130), ('exit_price', 118),
+                         ('exit_date', '2026-11-03'), ('exit_reason', 'score'), ('lot_id', 'lot-2')]:
+        bad = deepcopy(new)
+        bad['report_avoidance']['closed_trades'][0][field] = value
+        with pytest.raises(ValueError, match='publicerad affär'):
+            assert_trade_history(old, bad, {}, allowed)
+    assert correction_cutoffs(records, 'any-commit') == {}
+    scores = pd.DataFrame([dict(ticker='EXAMPLE.ST', date='2026-11-04', score=50)])
+    with pytest.raises(ValueError, match='publicerad poäng'):
+        assert_score_history(scores, scores.assign(score=10), {'EXAMPLE.ST': '2026-11-05'})
+
+
+@pytest.mark.parametrize('field,value', [('known_from', '2026-11-05'),
+                                        ('execution_date', '2026-11-03'), ('source', '')])
+def test_report_exit_repair_rejects_late_or_missing_evidence(field, value):
+    records = report_exit_repair()
+    records[0]['report_exit_additions'][0][field] = value
+    with pytest.raises(ValueError):
+        approved_report_exits(records)
+
+
+def test_corrected_report_date_can_change_scores_from_release_not_period_end():
+    reports, _ = snapshots()
+    reports.loc[1, 'effective_date'] = pd.Timestamp('2026-11-06')
+    before = score_snapshot(reports)
+    reports.loc[1, 'effective_date'] = pd.Timestamp('2026-11-05')
+    cutoffs = publication_cutoffs(before, score_snapshot(reports))
+    assert cutoffs == {'EXAMPLE.ST': '2026-11-05'}
+    for date in ['2026-10-21', '2026-11-04']:
+        scores = pd.DataFrame([dict(ticker='EXAMPLE.ST', date=date, score=50)])
+        with pytest.raises(ValueError, match='publicerad poäng'):
+            assert_score_history(scores, scores.assign(score=10), cutoffs)
+    release = scores.assign(date='2026-11-05')
+    assert_score_history(release, release.assign(score=10), cutoffs)
 
 
 def test_publication_gate_fails_closed_without_git_baseline(tmp_path):
