@@ -28,7 +28,12 @@ test('both pages load the information popover and rightmost two-line heading',()
     assert(html.includes('beräknad på stängningskurser'));
   }
   const app=fs.readFileSync(path.join(__dirname,'../docs/assets/app.js'),'utf8');
-  assert(app.includes('<th>MAX<br>DRAWDOWN</th></tr>'));
+  assert.match(app, /<th>MAX<br>DRAWDOWN <span class="info-tip"/);
+  assert(app.includes('window.initializeHelpPopovers?.()'));
+  for (const name of ['index', 'method']) {
+    const html = fs.readFileSync(path.join(__dirname, `../docs/${name}.html`), 'utf8');
+    assert(html.includes('help-popovers.js?v=20261106-drawdown-help'));
+  }
   assert(app.includes('<th>TID I<br>POSITION</th>'));
 });
 
