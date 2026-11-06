@@ -198,3 +198,38 @@ def test_first_tradingview_report_cannot_reopen_older_publication_dates():
     assert previous.calculation_mode.iloc[0] != current.calculation_mode.iloc[0]
     assert changed_eps_cutoffs(reports, previous) == {'EXAMPLE.ST': pd.Timestamp('2026-11-04')}
     assert publication_cutoffs(previous, current) == {'EXAMPLE.ST': '2026-11-04'}
+
+
+def test_exact_report_exit_replacement_preserves_other_history():
+    from copy import deepcopy
+    from src.history_guard import assert_trade_history
+    # Synthetic example: a known release corrects an already closed position.
+    lot = dict(ticker='EXAMPLE.ST', lot_id='lot-1', entry_signal_date='2026-08-17',
+               entry_date='2026-08-18', entry_price=100)
+    before = dict(signal_date='2026-10-27', date='2026-10-28', price=95, reason='score')
+    repair = dict(ticker='EXAMPLE.ST', lot_id='lot-1', report_date='2026-10-28',
+                  execution_date='2026-10-27', known_from='2026-09-15', price=90,
+                  source='Synthetic example', reason='Verified calendar correction', before=before,
+                  after=dict(signal_date='2026-10-27', date='2026-10-27', price=90))
+    old = {'meta': {'end_date': '2026-11-05'}, 'report_avoidance': {'closed_trades': [
+        dict(lot, exit_signal_date=before['signal_date'], exit_date=before['date'],
+             exit_price=before['price'], exit_reason='score')]}}
+    new = deepcopy(old)
+    new['report_avoidance']['closed_trades'][0].update(
+        exit_signal_date='2026-10-27', exit_date='2026-10-27', exit_price=90, exit_reason='report')
+    with pytest.raises(ValueError):
+        assert_trade_history(old, new, {})
+    assert_trade_history(old, new, {}, report_exit_replacements=[repair])
+    assert_trade_history(new, new, {}, report_exit_replacements=[repair])
+    with pytest.raises(ValueError):
+        assert_trade_history(new, old, {}, report_exit_replacements=[repair])
+    for field,value in [('entry_price',99),('exit_price',89),('exit_reason','score'),('lot_id','lot-2')]:
+        bad=deepcopy(new);bad['report_avoidance']['closed_trades'][0][field]=value
+        with pytest.raises(ValueError):
+            assert_trade_history(old,bad,{},report_exit_replacements=[repair])
+    late=deepcopy(repair);late['known_from']='2026-10-28'
+    with pytest.raises(ValueError):
+        assert_trade_history(old,new,{},report_exit_replacements=[late])
+    with pytest.raises(ValueError):
+        assert_trade_history({'meta':old['meta'],'ma200':old['report_avoidance']},
+                             {'ma200':new['report_avoidance']},{},report_exit_replacements=[repair])

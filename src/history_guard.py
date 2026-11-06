@@ -94,7 +94,8 @@ def approved_report_exits(records: list) -> Counter:
 
 
 def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str],
-                         report_exit_additions: Counter | None = None) -> None:
+                         report_exit_additions: Counter | None = None,
+                         report_exit_replacements: list[dict] | None = None) -> None:
     """Compare executions, including entries that move from open to closed lots.
 
     Exclude returns/drawdown that legitimately evolve as more prices arrive.
@@ -118,6 +119,29 @@ def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str],
                                              ensure_ascii=False))
             return Counter(events)
         a, b = executions(previous), executions(current)
+        if strategy == 'report_avoidance':
+            for repair in report_exit_replacements or []:
+                # Both executions are exact, documented values. This grants
+                # no score cutoff, entry change, or reversal of a correction.
+                before, after = repair['before'], repair['after']
+                allowed = approved_report_exits([{'reason': repair['reason'],
+                    'report_exit_additions': [repair]}])
+                target = next(iter(allowed))
+                expected = json.dumps([repair['ticker'], 'exit', before['signal_date'],
+                    before['date'], round(float(before['price']), 8), repair['lot_id']],
+                    ensure_ascii=False)
+                if after != {'signal_date': repair['execution_date'],
+                             'date': repair['execution_date'], 'price': repair['price']}:
+                    raise ValueError('Historikskydd: rapportaffärsrättelse har motstridigt mål')
+                matching_old = any(r['ticker'] == repair['ticker'] and r.get('lot_id') == repair['lot_id']
+                    and r.get('exit_reason') == before['reason'] for r in previous.get('closed_trades', []))
+                matching_new = any(r['ticker'] == repair['ticker'] and r.get('lot_id') == repair['lot_id']
+                    and r.get('exit_reason') == 'report' for r in current.get('closed_trades', []))
+                if matching_old and matching_new and (a - b)[expected] == 1 and (b - a)[target] == 1:
+                    a[expected] -= 1
+                    b[target] -= 1
+            a += Counter()
+            b += Counter()
         if strategy == 'report_avoidance' and report_exit_additions:
             # Only add the audited report exit of an existing published lot.
             # Changed entries, prices, dates, other strategies and removals
@@ -178,7 +202,9 @@ def validate_history(*, root: Path = ROOT, base_ref: str = 'HEAD') -> None:
     assert_score_history(exported(old_dashboard), exported(new_dashboard), cutoffs)
     assert_trade_history(json.loads(prior('docs/data/backtests/all.json')),
                          json.loads((root / 'docs/data/backtests/all.json').read_text()), cutoffs,
-                         approved_report_exits(records))
+                         approved_report_exits(records),
+                         [dict(repair, reason=record['reason']) for record in records
+                          for repair in record.get('report_exit_replacements', [])])
     print(f'Historikskydd OK mot {base[:12]}: publicerade poäng och affärer bevarade före tillåtna datum.')
 
 
