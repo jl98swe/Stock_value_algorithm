@@ -134,11 +134,18 @@ def assert_trade_history(old: dict, new: dict, cutoffs: dict[str, str],
                              'date': repair['execution_date'], 'price': repair['price']}:
                     raise ValueError('Historikskydd: rapportaffärsrättelse har motstridigt mål')
                 matching_old = any(r['ticker'] == repair['ticker'] and r.get('lot_id') == repair['lot_id']
-                    and r.get('exit_reason') == before['reason'] for r in previous.get('closed_trades', []))
+                    and r.get('exit_reason') == before['reason']
+                    and r.get('exit_signal_date') == before['signal_date']
+                    and r.get('exit_date') == before['date']
+                    and round(float(r['exit_price']), 8) == round(float(before['price']), 8)
+                    for r in previous.get('closed_trades', []))
                 matching_new = any(r['ticker'] == repair['ticker'] and r.get('lot_id') == repair['lot_id']
                     and r.get('exit_reason') == 'report' for r in current.get('closed_trades', []))
-                if matching_old and matching_new and (a - b)[expected] == 1 and (b - a)[target] == 1:
-                    a[expected] -= 1
+                if matching_old and matching_new and (b - a)[target] == 1:
+                    # The original exit may already lie on/after the EPS
+                    # cutoff. Its exact committed values are still required.
+                    if (a - b)[expected] == 1:
+                        a[expected] -= 1
                     b[target] -= 1
             a += Counter()
             b += Counter()

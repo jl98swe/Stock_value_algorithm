@@ -39,6 +39,7 @@ def test_all_lumi_reports_verified_and_no_future_eps():
     reports = load_reports()
     lumi = reports.loc[reports.ticker.eq('LUMI.ST')].sort_values('effective_date')
     evidence = pd.read_csv(PUBLICATIONS)
+    evidence = evidence.loc[evidence.ticker.eq('LUMI.ST')]
     assert len(lumi) == len(evidence) == 33
     assert set(lumi.report_period) == set(evidence.report_period)
     assert lumi.publication_time_verified.all()
@@ -127,3 +128,26 @@ def test_export_validator_separates_official_marker_and_effective_date():
     events[0]['event_date'] = '2026-11-05'
     with pytest.raises(ValueError, match='Rapporthändelse'):
         _validate_report_exports(reports, stocks, events, analysis)
+
+
+def test_verified_intraday_publication_releases_calendar_lock(tmp_path, monkeypatch):
+    from src import report_publications, calendar_date_evidence
+    from src.events import build_lock_series
+    # Synthetic example: corrected date plus verified time, after a date-only override.
+    reports = normalise_reports(pd.DataFrame([dict(ticker='EXAMPLE.ST',report_period='2026-Q3',
+        period_end='2026-09-30',effective_date='2026-11-05',eps_ttm=5.78,verified=True)]))
+    evidence = tmp_path / 'publications.csv'
+    pd.DataFrame([dict(ticker='EXAMPLE.ST',report_period='2026-Q3',report_date='2026-10-28',
+        published_at='2026-10-28T15:00:00+01:00',source='Synthetic issuer release')]).to_csv(evidence,index=False)
+    manual = tmp_path / 'dates.csv'
+    pd.DataFrame([dict(ticker='EXAMPLE.ST',report_period='2026-Q3',report_date='2026-10-28',
+        source='Synthetic date correction')]).to_csv(manual,index=False)
+    monkeypatch.setattr(calendar_date_evidence,'calendar_dates',lambda reports: pd.DataFrame())
+    monkeypatch.setattr(report_publications,'apply_publications',lambda reports: apply_publications(reports,path=evidence))
+    reports = apply_date_evidence(reports,manual_path=manual,auto_path=tmp_path/'absent.csv')
+    calendar = pd.DataFrame([dict(ticker='EXAMPLE.ST',report_period='2026-Q3',
+        scheduled_at=pd.Timestamp('2026-10-28T00:00:00Z'),lock_from_date=pd.NaT)])
+    dates = pd.Series(pd.to_datetime(['2026-10-27','2026-10-28','2026-11-05']))
+    locks = build_lock_series(dates,'EXAMPLE.ST',[],[],reports,calendar)
+    assert locks.FundamentalLock.tolist() == [True,False,False]
+    assert reports.iloc[0].published_at == pd.Timestamp('2026-10-28T14:00:00Z')

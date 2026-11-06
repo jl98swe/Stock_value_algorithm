@@ -220,6 +220,7 @@ def test_exact_report_exit_replacement_preserves_other_history():
     with pytest.raises(ValueError):
         assert_trade_history(old, new, {})
     assert_trade_history(old, new, {}, report_exit_replacements=[repair])
+    assert_trade_history(old, new, {'EXAMPLE.ST': '2026-10-28'}, report_exit_replacements=[repair])
     assert_trade_history(new, new, {}, report_exit_replacements=[repair])
     with pytest.raises(ValueError):
         assert_trade_history(new, old, {}, report_exit_replacements=[repair])
