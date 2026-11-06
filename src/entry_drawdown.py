@@ -6,30 +6,36 @@ import math
 from pathlib import Path
 
 
-def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None) -> float | None:
+def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
     price = trade.get('entry_price')
     first = trade.get('entry_date')
     last = trade.get('exit_date') or trade.get('valuation_date') or end
     if not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 0 or not first or not last:
-        return None
-    worst = 0.0
-    for candle in candles:
+        return {'entry_drawdown_pct': None, 'entry_drawdown_days': None}
+    lowest, days, session = math.inf, None, 0
+    for candle in sorted(candles, key=lambda c: c['date']):
         day, close = candle['date'], candle.get('close')
-        # Strategy exits execute at the open or intraday (stop loss): that day's
-        # close occurs after ownership ends. Benchmark exits use the closing price.
+        # Opening/intraday exits exclude that day's close; benchmarks exit at close.
         if candle.get('preliminary') or not first <= day <= last:
             continue
         if trade.get('exit_date') == day and trade.get('exit_reason') != 'period_end':
             continue
-        if isinstance(close, (int, float)) and math.isfinite(close) and close > 0:
-            worst = min(worst, (close / price - 1) * 100)
-    return worst
+        if day > first:
+            session += 1
+        if isinstance(close, (int, float)) and math.isfinite(close) and 0 < close < lowest:
+            lowest, days = close, session
+    return {'entry_drawdown_pct': min(0.0, (lowest / price - 1) * 100) if math.isfinite(lowest) else 0.0,
+            'entry_drawdown_days': days}
+
+
+def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None) -> float | None:
+    return entry_drawdown_metrics(candles, trade, end)['entry_drawdown_pct']
 
 
 def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict]) -> dict:
     def annotate(trade, end):
         candles = index_candles if trade.get('ticker') == 'OMXSGI' else stocks.get(trade.get('ticker'), {}).get('candles', [])
-        trade['entry_drawdown_pct'] = entry_drawdown(candles, trade, end)
+        trade.update(entry_drawdown_metrics(candles, trade, end))
         return trade
 
     for key, variant in payload.items():
@@ -45,8 +51,10 @@ def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict]) -> 
             trades = period.get('reference_trades', {}).get(key)
             if trades is None:
                 trades = [t for t in payload[key]['closed_trades'] if period['start_date'] <= t['entry_date'] <= t['exit_date'] <= period['end_date']]
-            values = [t['entry_drawdown_pct'] for t in trades if t.get('entry_drawdown_pct') is not None]
-            summary['entry_drawdown_pct'] = min(values) if values else None
+            values = [t for t in trades if t.get('entry_drawdown_pct') is not None]
+            worst = min(values, key=lambda t: t['entry_drawdown_pct']) if values else {}
+            summary['entry_drawdown_pct'] = worst.get('entry_drawdown_pct')
+            summary['entry_drawdown_days'] = worst.get('entry_drawdown_days')
     return payload
 
 
