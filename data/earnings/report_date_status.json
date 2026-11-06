@@ -1,7 +1,8 @@
 {
-  "checked_at": "2026-11-05",
+  "checked_at": "2026-11-06",
   "counts": {
-    "calendar_date_preserved": 1
+    "calendar_date_preserved": 32,
+    "manual_date_preserved": 1
   },
   "missing_historical_dates": [
     {
@@ -671,6 +672,9 @@
     "BALD-B.ST",
     "CIBUS.ST",
     "CLA-B.ST",
+    "EQL.ST",
+    "FOI-B.ST",
+    "HUFV-A.ST",
     "KAMBI.ST",
     "LOOMIS.ST",
     "LUMI.ST",

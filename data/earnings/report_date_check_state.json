@@ -411,28 +411,32 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ALIG.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ALIV-SDB.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ANOD-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ATCO-A.ST|2026-Q3": {
@@ -455,56 +459,64 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BEIA-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BILI-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BORG.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BRAV.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "CATE.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "DIOS.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "DUNI.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "EAST.ST|2026-Q3": {
@@ -519,63 +531,72 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "INDT.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "KNOW.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "LAGR-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "LIFCO-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "MCAP.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "MSAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "MTRS.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "SAAB-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "SAGA-A.ST|2026-Q3": {
@@ -590,35 +611,40 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "SECU-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "TREL-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "VIT-B.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "VOLV-A.ST|2026-Q3": {
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BETS-B.ST|2026-Q3": {
@@ -633,7 +659,8 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "HPOL-B.ST|YAHOO-2026-09-30": {
@@ -648,7 +675,8 @@
     "anchor": "2026-10-23",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "ALLEI.ST|2026-Q3": {
@@ -745,13 +773,15 @@
   "LOOMIS.ST|2026-Q3": {
     "anchor": "2026-10-30",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "AZN.ST|2026-Q3": {
     "anchor": "2026-10-30",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "REJL-B.ST|2026-Q3": {
@@ -818,6 +848,25 @@
     "anchor": "2026-11-05",
     "completed": [
       0
+    ]
+  },
+  "ATT.ST|2026-Q3": {
+    "anchor": "2026-11-06",
+    "completed": [
+      0
+    ]
+  },
+  "BTS-B.ST|2026-Q3": {
+    "anchor": "2026-11-06",
+    "completed": [
+      0
+    ]
+  },
+  "FOI-B.ST|2026-Q3": {
+    "anchor": "2026-10-28",
+    "completed": [
+      0,
+      7
     ]
   }
 }
