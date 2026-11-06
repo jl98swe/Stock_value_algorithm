@@ -505,6 +505,9 @@
 
   function bindControls() {
     window.intradayQuotes?.onRefresh(refreshPublishedData);
+    window.addEventListener('stock-data-version', () => {
+      refreshPublishedData().catch(error => console.warn('Liveuppdatering väntar', error));
+    });
     const strategyControls = [$('home-strategy'), $('history-strategy')];
     $('history-strategy').innerHTML = $('home-strategy').innerHTML;
     strategyControls.forEach(control => {
