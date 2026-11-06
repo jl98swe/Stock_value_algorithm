@@ -20,7 +20,7 @@ Rimlighetskontroll: kvartalsbryggan antar jämförbara EPS-definitioner. Ändrat
 
 Inga förfallna rapporter med förväntad EPS saknar nya värden efter kompletteringen. EQT:s Q3-redogörelse 15 oktober innehåller ingen EPS; detta dokumenterade undantag behålls och äldre TTM används. Fullständig tickerinventering: recent_report_eps_audit_2026-11-06.csv.
 
-Validering: 43 relevanta tester godkända. Ordinarie pipeline --skip-fetch --skip-dividends, limit_dashboard_window, validate_outputs, report_data_status och history_guard körs före publicering. Inga ändringar av handelsregler eller generella historikundantag.
+Validering: 477 Python-tester och 14 UI-tester godkända. Ordinarie pipeline --skip-fetch --skip-dividends, limit_dashboard_window, validate_outputs, report_data_status och history_guard körs före publicering. Inga ändringar av handelsregler eller generella historikundantag.
 
 ## Fenix: manuell prioritet och rätt rapportförsäljning
 
@@ -29,3 +29,11 @@ Den kanoniska Yahoo-aliasen för samma Q3-period konkurrerade med den nya manuel
 Kalenderarkivet innehåller korrekt 28 oktober från Yahoo 15 september och Börskollen 26 september; senare MFN-observationer från 11 oktober pekade felaktigt på 5 november. Den tidigare granskningen noterade att MFN-kopplingen pekade på Enersense. Manuell korrigering och arkiverad kunskap används. Rapportundvikande får därmed en korrekt rapportförsäljning 27 oktober till sparad öppningskurs 299,00 SEK för FOI-B-ST-lot-6, i stället för tidigare poängförsäljning 28 oktober till 319,50 SEK. Historikgrinden utökas med en dokumenterad exakt ersättning av dessa två exekveringar. Den medger ingen ändring av köp, andra positioner, andra strategier eller poäng före 28 oktober, och förbjuder att rättelsen återställs senare.
 
 Verifierad publiceringstid för Fenix sparas även i report_publications.csv, så datumoverride inte tappar tidpunkten och lämnar en onödig EPS-spärr. Arkivdatumet används som bevis för rapportförsäljningen; den äldre simuleringens köphistorik ändras inte genom en ny kalenderkunskapsgräns.
+
+## Slutlig verifiering
+
+Ordinarie pipeline, limit_dashboard_window, validate_outputs, report_data_status och history_guard är godkända lokalt mot a75690001b03. Samtliga 477 Python-tester och 14 relevanta UI-tester är godkända. Endast Fenix har ändrade publicerade poäng: sju handelsdagar 28 oktober–5 november. Senaste poäng 99,7385 → 99,5326; slutkurs 328,50 SEK oförändrad. Övriga 118 aktiers poäng är oförändrade. Attendo/BTS har nya rapportvärden från 6 november men inga nya slutliga poäng före dagens stängningsdata.
+
+Fenix rapportspärr är borttagen från 28 oktober. Rapportundvikande behåller köpet 18 augusti till 339,50 SEK och ersätter exakt försäljningen 28 oktober 319,50 SEK med rapportförsäljning 27 oktober 299,00 SEK. Andra skyddade affärer bevaras. Historikgrindens ersättningsregel verifierar även den gamla exekveringens exakta värden när den ligger på EPS-gränsen och därför inte ingår i det skyddade intervallet.
+
+MFN-källan i data/news/mfn_sources.csv pekade på Enersense International. Den är rättad till https://mfn.se/all/a/fenix-outdoor för framtida kalender- och nyhetshämtningar. LUMI:s separata granskningsskript filtrerar nu manifestet på ticker innan perioder matchas, så andra bolags Q3-publiceringar inte kan användas som LUMI-bevis.
