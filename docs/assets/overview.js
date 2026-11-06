@@ -230,7 +230,7 @@
 
   async function init() {
     try {
-      const [stocksPayload, overviews, forecasts] = await Promise.all([
+      let [stocksPayload, overviews, forecasts] = await Promise.all([
         fetch('./data/stocks.json', { cache: 'no-store' }).then((r) => {
           if (!r.ok) throw new Error(`stocks.json: HTTP ${r.status}`);
           return r.json();
@@ -274,6 +274,26 @@
       $('overview-strategy').addEventListener('change', render);
       if (page === 'signals') window.intradayQuotes?.onUpdate(render);
       render();
+      // Apply a complete matching snapshot without resetting search or strategy.
+      window.addEventListener('stock-data-version', async (event) => {
+        if (event.detail?.version === overviews.meta?.generated_at) return;
+        try {
+          const [nextStocks, nextOverviews, nextForecasts] = await Promise.all([
+            fetch('./data/stocks.json', {cache:'no-store'}).then(r => {if(!r.ok) throw Error('stocks');return r.json();}),
+            fetch('./data/strategy_overviews.json', {cache:'no-store'}).then(r => {if(!r.ok) throw Error('overviews');return r.json();}),
+            page === 'signals' ? fetch('./data/signal_prices.json', {cache:'no-store'}).then(r => {if(!r.ok) throw Error('prices');return r.json();}) : Promise.resolve({stocks:{}})
+          ]);
+          const version = nextStocks.generated_at;
+          if (!version || nextOverviews.meta?.generated_at !== version ||
+              (page === 'signals' && nextForecasts.meta?.generated_at && nextForecasts.meta.generated_at !== version)) return;
+          stocksPayload = nextStocks;
+          overviews = nextOverviews;
+          priceBoundaries = nextForecasts.stocks || {};
+          marketDate = overviews.meta?.trading_dates?.at(-1) || null;
+          $('last-updated').textContent = new Date(version).toLocaleString('sv-SE');
+          render();
+        } catch (error) { console.warn('Liveuppdatering väntar på komplett publicering', error); }
+      });
       $('loading-state').hidden = true;
       $('overview-content').hidden = false;
     } catch (error) {
