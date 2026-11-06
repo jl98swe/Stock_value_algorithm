@@ -175,6 +175,12 @@ def add_report(
         (existing["ticker"] == item["ticker"])
         & (existing["report_period"] == item["report_period"])
     )
+    # Retain raw Yahoo observations in earnings history, but do not let a
+    # generated alias compete with the verified manual value in model inputs.
+    from .sync_yahoo_eps_reports import _is_replaceable_generated_report
+    generated = existing.apply(_is_replaceable_generated_report, axis=1)
+    keep &= ~(existing.ticker.eq(item["ticker"])
+              & existing.period_end.eq(item["period_end"]) & generated)
     combined = pd.concat([existing.loc[keep], row], ignore_index=True)
     save_reports(combined)
     if conversion_note:

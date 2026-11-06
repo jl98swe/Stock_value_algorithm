@@ -134,3 +134,28 @@ def test_latest_dated_conversion_is_not_hidden_by_an_undated_old_report(tmp_path
     assert len(data['submissions']) == 1
     assert data['submissions'][0]['report_period'] == '2026-Q3'
     assert data['submissions'][0]['eps_conversion']['original_eps_ttm'] == 1.3
+
+
+def test_manual_report_supersedes_generated_alias_and_preserves_prior_manual(monkeypatch):
+    from src.fundamentals import normalise_reports, latest_verified_report
+    # Synthetic example: alias and manual period share a corrected release day.
+    old = normalise_reports(pd.DataFrame([
+        dict(ticker='EXAMPLE.ST', report_period='2026-Q2', period_end='2026-06-30',
+             effective_date='2026-07-21', eps_ttm=5.69, verified=True,
+             source='TradingView / EARNINGS_PER_SHARE_DILUTED TTM'),
+        dict(ticker='EXAMPLE.ST', report_period='YAHOO-2026-09-30', period_end='2026-09-30',
+             effective_date='2026-10-28', eps_ttm=.379, verified=True,
+             source='Yahoo Finance / trailingDilutedEPS', notes=AUTO_MARKER)]))
+    monkeypatch.setattr(add_report_module, 'load_reports', lambda: old.copy())
+    monkeypatch.setattr(add_report_module, 'save_reports', lambda frame: None)
+    monkeypatch.setattr(add_report_module, 'load_stock_currencies', lambda: pd.DataFrame([
+        dict(ticker='EXAMPLE.ST',report_currency='SEK',price_currency='SEK')]))
+    monkeypatch.setattr(add_report_module, 'append_manual_submission', lambda **kwargs: None)
+    monkeypatch.setattr(add_report_module, 'publish_manual_reports', lambda frame: None)
+    result = add_report_module.add_report(ticker='EXAMPLE.ST',report_period='2026-Q3',
+        period_end='2026-09-30',published_at='2026-10-28T15:00:00+01:00',
+        eps_ttm=5.78,eps_currency='SEK',source='Synthetic issuer report')
+    assert latest_verified_report('EXAMPLE.ST',result).eps_ttm == 5.78
+    assert result.loc[result.report_period.eq('2026-Q2'),'eps_ttm'].tolist() == [5.69]
+    assert len(result) == 2
+    assert old.loc[old.report_period.str.startswith('YAHOO-'),'eps_ttm'].tolist() == [.379]

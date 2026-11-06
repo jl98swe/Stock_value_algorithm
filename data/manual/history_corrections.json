@@ -87,5 +87,31 @@
     "from": {
       "LUMI.ST": "2018-10-24"
     }
+  },
+  {
+    "correction_id": "fenix-q3-report-exit-2026-11-06",
+    "reason": "Correct Fenix Q3 release from erroneous MFN mapping 5 November to issuer 28 October. Correct date archived 15 September. Exact replacement of one report-avoidance exit; no score or entry permission.",
+    "report_exit_replacements": [
+      {
+        "ticker": "FOI-B.ST",
+        "lot_id": "FOI-B-ST-lot-6",
+        "report_date": "2026-10-28",
+        "execution_date": "2026-10-27",
+        "known_from": "2026-09-15",
+        "price": 299.0,
+        "source": "data/earnings/report_calendar_history.csv | Yahoo 2026-09-15; issuer PDF bfe390a5-ea02-49eb-8536-211d267062b7; stored opening price 2026-10-27",
+        "before": {
+          "signal_date": "2026-10-27",
+          "date": "2026-10-28",
+          "price": 319.5,
+          "reason": "score"
+        },
+        "after": {
+          "signal_date": "2026-10-27",
+          "date": "2026-10-27",
+          "price": 299.0
+        }
+      }
+    ]
   }
 ]

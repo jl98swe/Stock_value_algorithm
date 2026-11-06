@@ -246,6 +246,7 @@ ATT.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.87,SEK,Yahoo Finance / quart
 ATT.ST,2025-03-31,2025-05-07,2026-10-26,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
 ATT.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.59,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATT.ST,2025-06-30,2025-07-18,2026-10-26,reportedEPS,0.85,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2025-09-30,2025-10-24,2026-11-06,manualDilutedEPS,2.23,SEK,https://www.inderes.se/en/releases/attendos-third-quarter-report-2026-long-term-focus-on-quality-underpins-yet-another-quarter-of-strong-results | Q3 2026 comparative diluted EPS
 ATT.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,2.21,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 ATT.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,1.75,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATT.ST,2025-12-31,2026-02-05,2026-10-26,reportedEPS,1.65,SEK,Yahoo Finance / Reported EPS
@@ -253,6 +254,7 @@ ATT.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.33,SEK,Yahoo Finance / quart
 ATT.ST,2026-03-31,2026-05-06,2026-10-26,reportedEPS,1.33,SEK,Yahoo Finance / Reported EPS
 ATT.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.32,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATT.ST,2026-06-30,2026-08-20,2026-10-26,reportedEPS,1.32,SEK,Yahoo Finance / Reported EPS
+ATT.ST,2026-09-30,2026-11-06,2026-11-06,manualDilutedEPS,2.68,SEK,https://www.inderes.se/en/releases/attendos-third-quarter-report-2026-long-term-focus-on-quality-underpins-yet-another-quarter-of-strong-results
 AXFO.ST,2023-09-30,2023-10-25,2026-10-26,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,2.59,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2024-06-30,2024-07-12,2026-10-26,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
@@ -540,6 +542,7 @@ BTS-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.33,SEK,Yahoo Finance / qua
 BTS-B.ST,2025-03-31,2025-05-16,2026-10-26,reportedEPS,1.33,SEK,Yahoo Finance / Reported EPS
 BTS-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,2.026415,SEK,Yahoo Finance / quarterlyDilutedEPS
 BTS-B.ST,2025-06-30,2025-08-22,2026-10-26,reportedEPS,2.03,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2025-09-30,2025-11-12,2026-11-06,manualDilutedEPS,0.69,SEK,https://www.inderes.se/releases/bts-group-ab-publ-delarsrapport-januari-september-2026 | Q3 2026 comparative diluted EPS
 BTS-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,0.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 BTS-B.ST,2025-09-30,2025-11-12,2026-10-26,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
 BTS-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,2.84,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -548,6 +551,7 @@ BTS-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,1.42,SEK,Yahoo Finance / qua
 BTS-B.ST,2026-03-31,2026-05-21,2026-10-26,reportedEPS,1.42,SEK,Yahoo Finance / Reported EPS
 BTS-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.06,SEK,Yahoo Finance / quarterlyDilutedEPS
 BTS-B.ST,2026-06-30,2026-08-14,2026-10-26,reportedEPS,-6.0,SEK,Yahoo Finance / Reported EPS
+BTS-B.ST,2026-09-30,2026-11-06,2026-11-06,manualDilutedEPS,2.12,SEK,https://www.inderes.se/releases/bts-group-ab-publ-delarsrapport-januari-september-2026
 CAST.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2023-12-31,2024-02-14,2026-10-26,reportedEPS,2.6,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2024-03-31,2024-05-03,2026-10-26,reportedEPS,2.04,SEK,Yahoo Finance / Reported EPS
@@ -911,10 +915,12 @@ FABG.ST,2026-09-30,2026-10-21,2026-10-26,reportedEPS,0.95,SEK,Yahoo Finance / Re
 FOI-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,-0.23,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.01,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,-0.72,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2025-09-30,2025-10-31,2026-11-06,manualDilutedEPS,1.5,EUR,https://ml-eu.globenewswire.com/Resource/Download/bfe390a5-ea02-49eb-8536-211d267062b7 | p.5 diluted EPS per B share
 FOI-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.209,EUR,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 FOI-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,-0.46,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.37,EUR,Yahoo Finance / quarterlyDilutedEPS
 FOI-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.92,EUR,Yahoo Finance / quarterlyDilutedEPS
+FOI-B.ST,2026-09-30,2026-10-28,2026-11-06,manualDilutedEPS,1.64,EUR,https://ml-eu.globenewswire.com/Resource/Download/bfe390a5-ea02-49eb-8536-211d267062b7 | p.5 diluted EPS per B share
 FOI-B.ST,2026-09-30,,2026-11-03,quarterlyDilutedEPS,1.65,EUR,Yahoo Finance / quarterlyDilutedEPS
 GENO.ST,2023-09-30,2023-11-15,2026-10-26,reportedEPS,0.06,SEK,Yahoo Finance / Reported EPS
 GENO.ST,2024-03-31,2024-05-15,2026-10-26,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
