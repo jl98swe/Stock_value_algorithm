@@ -20,7 +20,7 @@ ORIGINAL_PUBLICATION = '7da8622533db5704d12eb37e169ab2ef689bb32d'
 def apply_inputs():
     """Change timing only, retaining every original EPS string and source."""
     with PUBLICATIONS.open() as handle:
-        evidence = {r['report_period']: r for r in csv.DictReader(handle)}
+        evidence = {r['report_period']: r for r in csv.DictReader(handle) if r['ticker'] == TICKER}
     path = ROOT / 'data/fundamentals/reports.csv'
     with path.open() as handle:
         reader = csv.DictReader(handle)
