@@ -532,3 +532,6 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 #eps-entry-form .fine-print { margin: 8px 0; }
 
 #eps-form-title { scroll-margin-top: 90px; }
+
+/* Shared help icon for drawdown table explanations. */
+.info-tip[data-drawdown-help] { display: inline-grid; place-items: center; width: 15px; height: 15px; margin-left: 3px; padding: 0; border: 1px solid currentColor; border-radius: 50%; background: transparent; color: inherit; font-family: inherit; font-size: 10px; font-weight: 600; line-height: 1; vertical-align: middle; cursor: pointer; }
