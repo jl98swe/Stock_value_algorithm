@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-05T23:46:07+01:00",
+  "generated_at": "2026-11-06T23:05:24+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/embracer-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "EMBRAC-B.ST",
+      "company": "Embracer",
+      "published_at": "2026-11-06T08:30:00+01:00",
+      "title": "DECA GROUP FÖRVÄRVAR ISLAND HOPPERS",
+      "link": "https://mfn.se/a/embracer-group/deca-group-forvarvar-island-hoppers",
+      "source": "MFN",
+      "summary": "DECA GROUP FÖRVÄRVAR ISLAND HOPPERS 2026-11-06 08:30:00 Embracer Group AB (”Embracer Group”) har genom A Thinking Ape Entertainment (”ATA”), ett helägt dotterbolag till DECA Group (”DECA”), förvärvat samtliga tillgångar och rättigheter till mobiltiteln Island Hoppers från Nexters Global LTD, som ägs av GDEV Inc. Island Hoppers lanserades i oktober 2023 och är ett free-to-play-spel som kombinerar casual- och äventyrselement, där spelaren får utforska öar, genomföra berättelsedrivna uppdrag, lösa pussel, odla och rusta upp en familjegård. Spelet är tillgängligt på iOS, Android och i webbläsare. ATA kommer att leda utgivningen och utvecklingen a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a0f767e819a5cc00"
+    }
+  ]
 }

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-05T23:46:11+01:00",
+  "generated_at": "2026-11-06T23:05:29+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/epiroc",
   "items": [
+    {
+      "ticker": "EPI-A.ST",
+      "company": "Epiroc A",
+      "published_at": "2026-11-06T08:30:00+01:00",
+      "title": "Epiroc förvärvar Aramine, leverantör av reservdelar till gruvindustrin",
+      "link": "https://mfn.se/cis/a/epiroc/epiroc-forvarvar-aramine-leverantor-av-reservdelar-till-gruvindustrin-8c809934",
+      "source": "MFN",
+      "summary": "Epiroc förvärvar Aramine, leverantör av reservdelar till gruvindustrin 2026-11-06 08:30:00 Stockholm: Epiroc AB, en ledande produktivitets- och hållbarhetspartner för gruv- och infrastrukturindustrierna, har tecknat avtal om att förvärva Aramine SAS, en fransk leverantör av reservdelar och relaterade tjänster för gruvdrift under jord. Aramine har sitt säte i Aix-en-Provence i Frankrike. Bolaget, som har över fem decenniers gedigen branscherfarenhet, har cirka 65 anställda och kunder i över 70 länder. Utöver ett brett utbud av högkvalitativa reservdelar tillhandahåller Aramine renovering av komponenter och ombyggnad av maskiner. Det förvärvade",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a5e65e5d534abc9f"
+    },
     {
       "ticker": "EPI-A.ST",
       "company": "Epiroc A",

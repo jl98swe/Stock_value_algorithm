@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-05T23:49:39+01:00",
+  "generated_at": "2026-11-06T23:08:51+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "BTS-B.ST",
+      "company": "BTS Group",
+      "published_at": "2026-11-06T17:20:00+01:00",
+      "title": "Kommuniké från BTS Group AB:s extra bolagsstämma",
+      "link": "https://mfn.se/one/a/bts-group/kommunike-fran-bts-group-ab-s-extra-bolagsstamma-10dc7419",
+      "source": "MFN",
+      "summary": "Kommuniké från BTS Group AB:s extra bolagsstämma 2026-11-06 17:20:00 Bolagsstämman beslutade i enlighet med styrelsens förslag om godkännande och inrättande av personaloptionsprogram 2026/2031 samt säkringsåtgärder härför. Programmet, som säkerställs med teckningsoptioner utgivna utan vederlag till det helägda dotterbolaget BTS Sverige AB, omfattar högst 475 000 personaloptioner. Personaloptionerna är av två serier och har intjänandeperioder på tre år (serie 2026/2029) respektive fem år (serie 2026/2031), som kräver bibehållen anställning inom koncernen, och först härefter kan optionerna utnyttjas. En personaloption, oavsett serie, berättigar",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "42ae85d79974c775"
+    },
+    {
+      "ticker": "NIBE-B.ST",
+      "company": "NIBE Industrier AB (publ)",
+      "published_at": "2026-11-06T11:00:00+01:00",
+      "title": "Invitation to telephone conference in connection with NIBE Industrier AB's Q3 report, 2026",
+      "link": "https://mfn.se/a/nibe-industrier/invitation-to-telephone-conference-in-connection-with-nibe-industrier-abs-q3-report-2026",
+      "source": "MFN",
+      "summary": "Invitation to telephone conference in connection with NIBE Industrier AB's Q3 report, 2026 2026-11-06 11:00:00 NIBE Industrier AB (publ) will publish its Q3 report 2026 on Tuesday, November 17, 2026, at 08:00 AM (CET). In connection with the release of the report, the Company will hold a teleconference and webcast presentation for investors and analysts. Managing Director and CEO Gerteric Lindquist and CFO Hans Backman will present and discuss the report. After the presentation, there will be an opportunity to ask questions. The presentation, as well as the Q&A session, will be held in English. Date and time Tuesday, November 17, 2026, at 11:",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5f61419dc656545c"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-11-06T11:00:00+01:00",
+      "title": "Saab får order på att utrusta Sveriges nya fregatter",
+      "link": "https://mfn.se/cis/a/saab/saab-far-order-pa-att-utrusta-sveriges-nya-fregatter-71a026a8",
+      "source": "MFN",
+      "summary": "Saab får order på att utrusta Sveriges nya fregatter 2026-11-06 11:00:00 Saab har tecknat ett kontrakt med det franska försvarsföretaget Naval Group om att leverera och integrera eldledningssystem och sensorer på fyra FDI-fregatter till Sverige. Ordervärdet uppgår till cirka 2 miljarder kronor och Saabs leveranser till Naval Group kommer att ske mellan 2027 och 2034. − Vi är stolta över att utrusta svenska fartyg med våra avancerade produkter. Det visar att Saab fortsätter att utveckla och leverera lösningar som möter den svenska marinens behov, och att vi gör det genom nära samarbeten. Sverige får avancerade och integrerade förmågor att uppt",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c93838f607e6d7a4"
+    },
+    {
+      "ticker": "SINT.ST",
+      "company": "SinterCast AB (publ)",
+      "published_at": "2026-11-06T09:37:00+01:00",
+      "title": "Europeisk fordonstillverkare beställer SinterCast-teknologiför ny global CGI-motorplattform",
+      "link": "https://mfn.se/a/sintercast/europeisk-fordonstillverkare-bestaller-sintercast-teknologifor-ny-global-cgi-motorplattform",
+      "source": "MFN",
+      "summary": "Europeisk fordonstillverkare beställer SinterCast-teknologiför ny global CGI-motorplattform 2026-11-06 09:37:00 Pressmeddelande För omedelbar distribution SinterCast System 4000 Plus ska installeras vid fordonstillverkarens eget gjuteri före årsskiftet Serieproduktionen av den nya 13-litersmotorn för tunga fordon inleds före årsskiftet Tillsammans med tidigare offentliggjorda volymer för samma globala motorprogram vid SinterCast-licensierade gjuterier motsvarar den totala ordern en ökning med mer än 20 % jämfört med SinterCasts nuvarande produktionsvolym [Stockholm, 6 november 2026] – SinterCast har ingått ett licensavtal med en ledande europ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2bbb6818aad3dcf4"
+    },
+    {
+      "ticker": "SINT.ST",
+      "company": "SinterCast AB (publ)",
+      "published_at": "2026-11-06T09:37:00+01:00",
+      "title": "European OEM orders SinterCast technology for new global CGI engine platform",
+      "link": "https://mfn.se/a/sintercast/european-oem-orders-sintercast-technology-for-new-global-cgi-engine-platform",
+      "source": "MFN",
+      "summary": "European OEM orders SinterCast technology for new global CGI engine platform 2026-11-06 09:37:00 Press Release For Immediate Distribution SinterCast System 4000 Plus to be installed at OEM’s captive foundry before year-end Start of series production before year-end for the new 13-litre engine programme for commercial vehicles Combined with previously announced volumes for the same global engine programme at SinterCast-licensed foundries, the total order represents an increase of more than 20% on the current SinterCast production volume [Stockholm, 6 November 2026] – A leading European truck manufacturer and SinterCast have entered into an agr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bd3a38d1d9e2fa8a"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-06T08:00:00+01:00",
+      "title": "Mycronic erhåller order på en SLX-maskritare",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-en-slx-maskritare-28",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på en SLX-maskritare 2026-11-06 08:00:00 Mycronic AB (publ) har erhållit en order på en SLX-maskritare från en ny SLX-kund i Asien. Ordervärdet ligger i intervallet 4-5 MUSD. Systemet är planerat att levereras under det första kvartalet 2027. Den laserbaserade maskritaren SLX möter en stigande efterfrågan på fotomasker till halvledarindustrin, samt ett ersättnings- och moderniseringsbehov. Fotomasker tillverkade av laserbaserade maskritare är mycket viktiga och står för en majoritet av alla producerade fotomasker för halvledartillverkning. SLX är en modern och energisnål maskritare baserad på samma teknologi som Mycron",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "78c9ae1acadbf4f5"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-11-06T07:00:00+01:00",
+      "title": "Attendos rapport för tredje kvartalet 2026: Långsiktigt fokus på kvalitet ligger till grund för ytterligare ett kvartal med starkt resultat",
+      "link": "https://mfn.se/a/attendo/attendos-rapport-for-tredje-kvartalet-2026-langsiktigt-fokus-pa-kvalitet-ligger-till-grund-for-ytterligare-ett-kvartal-med-starkt-resultat",
+      "source": "MFN",
+      "summary": "Attendos rapport för tredje kvartalet 2026: Långsiktigt fokus på kvalitet ligger till grund för ytterligare ett kvartal med starkt resultat 2026-11-06 07:00:00 Det tredje kvartalet 2026 var Attendos starkaste hittills. Fritt kassaflöde förbättrades från redan höga nivåer och det finansiella resultatet fortsatte att överträffa målen. Samtidigt ökar Attendo takten ytterligare i sina investeringar för att tillföra ny kapacitet. Att Attendo kommer ur kvartalet så starkt beror på fantastiska medarbetares dagliga insatser, förbättrade arbetssätt med stöd av teknik och det förtroende bolaget har fått från kommuner och välfärdsregioner. Kommentar frå",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5870637fbffd5df9"
+    },
     {
       "ticker": "FABG.ST",
       "company": "Fabege",

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-05T23:48:27+01:00",
+  "generated_at": "2026-11-06T23:07:38+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/saab",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-11-06T11:00:00+01:00",
+      "title": "Saab receives order to equip Sweden's new frigates",
+      "link": "https://mfn.se/cis/a/saab/saab-receives-order-to-equip-swedens-new-frigates-1f2ae629",
+      "source": "MFN",
+      "summary": "Saab receives order to equip Sweden's new frigates 2026-11-06 11:00:00 Saab has signed a contract with the French defence company Naval Group to deliver and integrate weapon control systems and sensors for four FDI frigates to Sweden. The order value is approximately SEK 2 billion and Saab's deliveries to Naval Group will take place between 2027 and 2034. \"We are proud to equip Swedish ships with our cutting-edge products. This shows that Saab not only continues to provide capabilities with the highest relevance to our home market, but also that we achieve it through cooperations. The Swedish Navy will gain advanced and integrated capabilitie",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6d0b928973ed4479"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",

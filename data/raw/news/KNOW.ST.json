@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-05T23:47:24+01:00",
+  "generated_at": "2026-11-06T23:06:35+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/knowit",
   "items": [
+    {
+      "ticker": "KNOW.ST",
+      "company": "Knowit AB (publ)",
+      "published_at": "2026-11-06T07:30:00+01:00",
+      "title": "Maria Hedengren appointed new CFO of Knowit",
+      "link": "https://mfn.se/a/knowit/maria-hedengren-appointed-new-cfo-of-knowit",
+      "source": "MFN",
+      "summary": "Maria Hedengren appointed new CFO of Knowit 2026-11-06 07:30:00 Knowit has appointed Maria Hedengren as Chief Financial Officer (CFO) and member of the Group Management Team. She will take up the position on December 1, 2026. Maria Hedengren has extensive experience from international technology companies, including strategic leadership roles as CFO of NetEnt and iZettle and as CEO of Readly. She has led companies and finance functions through international growth, capital markets processes, and transformation. In recent years, she has primarily served as a board member and advisor to listed and private companies. “With our strategy and new o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "leadership_major"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:leadership_major",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a14c3b7e0f59a66d"
+    },
     {
       "ticker": "KNOW.ST",
       "company": "Knowit AB (publ)",

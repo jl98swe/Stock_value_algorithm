@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-05T23:47:32+01:00",
+  "generated_at": "2026-11-06T23:06:44+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lime-technologies",
-  "items": []
+  "items": [
+    {
+      "ticker": "LIME.ST",
+      "company": "Lime Technologies AB (publ)",
+      "published_at": "2026-11-06T07:50:13+01:00",
+      "title": "Lime förvärvar AI-produkten Trale",
+      "link": "https://mfn.se/nir/a/lime-technologies/lime-forvarvar-ai-produkten-trale-0aa338f7",
+      "source": "MFN",
+      "summary": "Lime förvärvar AI-produkten Trale 2026-11-06 07:50:13 6.11.2026 07:50:10 CET | Lime Technologies AB (publ) | Nyheter för investerare Lime Technologies har förvärvat 51 procent av aktierna i norska Supercompany AS, bolaget bakom AI-produkten Trale. Detviktigaste i ett företag sägs ofta i möten och samtal, men hamnar sällan i systemen. Trale ändrar på det genom attförbereda medarbetaren inför möten, dokumentera och uppdatera relevant kunddata utifrån vad som sägs och slutligenanalysera innehållet. Integrationen med Lime CRM är redo att lanseras och tjänsten fortsätter även att säljas som enfristående produkt. Trale lanserades i början av 2025 o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a7b5ab1a6914156e"
+    }
+  ]
 }

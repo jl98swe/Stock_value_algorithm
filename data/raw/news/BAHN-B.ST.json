@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-05T23:44:52+01:00",
+  "generated_at": "2026-11-06T23:04:09+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bahnhof",
   "items": [
+    {
+      "ticker": "BAHN-B.ST",
+      "company": "Bahnhof",
+      "published_at": "2026-11-06T09:03:03+01:00",
+      "title": "Kommentar från Bahnhof AB (publ):s oberoende kommitté med anledning av Telenor Sverige AB:s budpliktsbud",
+      "link": "https://mfn.se/cis/a/bahnhof/kommentar-fran-bahnhof-ab-publ-s-oberoende-kommitte-med-anledning-av-telenor-sverige-ab-s-budpliktsbud-d74bb999",
+      "source": "MFN",
+      "summary": "Kommentar från Bahnhof AB (publ):s oberoende kommitté med anledning av Telenor Sverige AB:s budpliktsbud 2026-11-06 09:03:03 Telenor Sverige AB (\" Telenor \") offentliggjorde tidigare idag, den 6 november 2026, att de förvärvat samtliga aktier i Bahnhof AB (publ) (\" Bahnhof \" eller \" Bolaget \") som innehades av Jon Karlung, Andreas Norman och deras helägda bolag K.N. Telecom AB (\" KNT \"), samt av Investment AB Öresund, vilket sammanlagt motsvarar 57,5 procent av aktierna och 87,9 procent av rösterna i Bahnhof (gemensamt \" Förvärven \"). I samband härmed offentliggjorde Telenor även ett budpliktsbud avseende förvärv av samtliga resterande aktier",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8b8954eb369587b0"
+    },
     {
       "ticker": "BAHN-B.ST",
       "company": "Bahnhof",

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-05T23:45:38+01:00",
+  "generated_at": "2026-11-06T23:04:55+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/clas-ohlson",
   "items": [
+    {
+      "ticker": "CLAS-B.ST",
+      "company": "Clas Ohlson",
+      "published_at": "2026-11-06T07:00:00+01:00",
+      "title": "Clas Ohlsons försäljning ökade i oktober jämfört med föregående år",
+      "link": "https://mfn.se/a/clas-ohlson/clas-ohlsons-forsaljning-okade-i-oktober-jamfort-med-foregaende-ar",
+      "source": "MFN",
+      "summary": "Clas Ohlsons försäljning ökade i oktober jämfört med föregående år 2026-11-06 07:00:00 Nettoomsättningen i oktober uppgick till 1 254 Mkr (1 053), en ökning med 19 procent, varav 12 procent avser organisk tillväxt 1 , 2 procent förvärv 2 och 5 procent valutaeffekter. Jämfört med samma månad föregående år har butiksbeståndet ökat med 10 butiker. Vid periodens utgång uppgick det totala antalet butiker till 254 (244). Den totala nettoomsättningen under perioden maj-oktober 2026 uppgick till 6 806 Mkr (5 824), en ökning med 17 procent, varav 11 procent avser organisk tillväxt 1 , 3 procent förvärv 2 och 3 procent valutaeffekter. Fördelning försäl",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "21fd627e616bd213"
+    },
     {
       "ticker": "CLAS-B.ST",
       "company": "Clas Ohlson",
