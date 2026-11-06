@@ -1,5 +1,9 @@
 (() => {
   'use strict';
+  // Keep popup presentation with its behavior, including pages with cached styles.
+  const style = document.createElement('style');
+  style.textContent = "/* Help content lives outside scrolling table containers. */\n.info-tip[data-help-ready]::after { content: none !important; display: none !important; }\n.help-popover {\n  position: fixed;\n  inset: auto;\n  margin: 0;\n  width: min(300px, calc(100vw - 24px));\n  max-height: calc(100dvh - 24px);\n  overflow: auto;\n  padding: 12px;\n  border: 0;\n  border-radius: 8px;\n  background: #252423;\n  color: #fff;\n  box-shadow: 0 6px 24px #17212b33;\n  font-family: inherit;\n  font-size: 12px;\n  line-height: 1.5;\n}\n.info-tip[data-help-ready] { padding: 0; background: transparent; color: inherit; cursor: pointer; }\n.info-tip[data-help-ready]:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }\n\n";
+  document.head.append(style);
   let nextId = 0;
   const active = new Map();
   function initialize() {
