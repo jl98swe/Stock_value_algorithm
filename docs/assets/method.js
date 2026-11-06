@@ -247,6 +247,21 @@
       await loadStock();
     } catch(error) { $('loading-state').hidden=true; $('error-state').hidden=false; $('error-message').textContent=error.message; }
   }
+  window.addEventListener('stock-data-version', async () => {
+    try {
+      const nextMeta = await json('./data/stocks.json');
+      if (nextMeta.generated_at === stockMeta?.generated_at) return;
+      const selected = $('method-stock').value;
+      const previousVisible = visibleTrades;
+      const nextIndex = await json('./data/benchmarks/omxsgi.json').catch(() => indexData);
+      const nextData = selected === 'all' ? null : await json('./data/dashboard/${encodeURIComponent(selected)}.json');
+      const nextTests = await json(selected === 'all' ? './data/backtests/all.json' : `./data/backtests/${encodeURIComponent(selected)}.json`);
+      stockMeta = nextMeta; indexData = nextIndex; stock = nextData; variants = nextTests;
+      visibleTrades = previousVisible;
+      $('last-updated').textContent = nextMeta.generated_at?.slice(0,10) || '–';
+      render();
+    } catch(error) { console.warn('Metod: ny publicering ännu inte komplett', error); }
+  });
   init();
 })();
 
