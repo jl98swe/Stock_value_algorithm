@@ -14,3 +14,5 @@
 
 .method-trades-header {display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between}
 .method-trades-header .form-field {min-width:180px;max-width:100%;width:240px}
+
+.method-description #method-summary {white-space:pre-line}
