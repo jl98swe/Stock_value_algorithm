@@ -277,7 +277,9 @@
       $('method-stock').innerHTML = '<option value="all">Alla aktier</option>' + stockMeta.stocks.map(s => `<option value="${esc(s.ticker)}">${esc(s.name)} · ${esc(s.ticker)}</option>`).join('');
       const wantedTicker = params.get('ticker') === 'all' ? 'all' : window.strategySelection.getTicker();
       if (stockMeta.stocks.some(s => s.ticker === wantedTicker)) $('method-stock').value = wantedTicker;
-      $('method-strategy').value = names[params.get('strategy')] ? params.get('strategy') : window.strategySelection.get();
+      const requestedStrategy = params.get('strategy') || window.strategySelection.get();
+      $('method-strategy').value = Array.from($('method-strategy').options).some(option => option.value === requestedStrategy)
+        ? requestedStrategy : 'standard';
       if (['all','1','3','5'].includes(params.get('period'))) $('method-period').value = params.get('period');
       $('method-strategy-top').value = $('method-strategy').value;
       $('method-stock').addEventListener('change', loadStock);
