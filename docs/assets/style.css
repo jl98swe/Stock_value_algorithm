@@ -535,3 +535,25 @@ img.brand-mark { display:block; width:42px; height:42px; object-fit:cover; paddi
 
 /* Shared help icon for drawdown table explanations. */
 .info-tip[data-drawdown-help], .info-tip[data-upside-help] { display: inline-grid; place-items: center; width: 15px; height: 15px; margin-left: 3px; padding: 0; border: 1px solid currentColor; border-radius: 50%; background: transparent; color: inherit; font-family: inherit; font-size: 10px; font-weight: 600; line-height: 1; vertical-align: middle; cursor: pointer; }
+
+/* Pull-to-refresh is only active on touch devices. */
+@media (any-pointer: coarse) {
+  html { overscroll-behavior-y: none; }
+  body { padding-top: var(--pull-refresh-distance, 0px); }
+}
+.pull-refresh-indicator {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  color: var(--brand);
+  box-shadow: var(--shadow);
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+}
