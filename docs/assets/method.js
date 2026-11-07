@@ -19,7 +19,7 @@
       if (c.preliminary || c.date < trade.entry_date || c.date > last ||
           (trade.exit_date && c.date === last && trade.exit_reason !== 'period_end')) continue;
       if (c.date > trade.entry_date) session++;
-      if (Number.isFinite(c.close) && c.close > 0 && c.close < lowest) {
+      if (Number.isFinite(c.close) && c.close > 0 && c.close <= lowest) {
         lowest = c.close;
         days = session;
       }

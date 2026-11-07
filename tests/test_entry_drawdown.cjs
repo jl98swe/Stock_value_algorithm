@@ -37,17 +37,17 @@ test('both pages load the information popover and rightmost two-line heading',()
   assert(app.includes('<th>TID I<br>POSITION</th>'));
 });
 
-// Synthetic sessions span a weekend; repeated lows retain the first occurrence.
-test('days to lowest close count sessions from zero and preserve first tied low',()=>{
+// Synthetic sessions span a weekend; repeated lows retain the latest occurrence.
+test('days to lowest close count sessions from zero and preserve latest tied low',()=>{
   const {entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays} = require('../docs/assets/method.js');
   const sessions = [['2026-10-23',99],['2026-10-26',95],['2026-10-27',95],['2026-10-28',90]].map(([date,close])=>({date,close}));
   const t = {entry_date:'2026-10-23',entry_price:100,exit_date:'2026-10-28'};
-  assert.equal(entryDrawdownMetrics(sessions,t).entry_drawdown_days,1);
+  assert.equal(entryDrawdownMetrics(sessions,t).entry_drawdown_days,2);
   assert.equal(entryDrawdownMetrics(sessions,{...t,exit_reason:'period_end'}).entry_drawdown_days,3);
   assert.equal(entryDrawdownMetrics(sessions.slice(0,1),t).entry_drawdown_days,0);
-  assert.equal(entryDrawdownMetrics([...sessions].reverse(),t).entry_drawdown_days,1);
-  assert.equal(entryDrawdownMetrics(sessions,{...t,exit_date:null},'2026-10-27').entry_drawdown_days,1);
+  assert.equal(entryDrawdownMetrics([...sessions].reverse(),t).entry_drawdown_days,2);
+  assert.equal(entryDrawdownMetrics(sessions,{...t,exit_date:null},'2026-10-27').entry_drawdown_days,2);
   assert.equal(entryDrawdownMetrics([{...sessions[3],preliminary:true}],t).entry_drawdown_days,null);
-  assert.equal(worstEntryDrawdownMetrics(sessions,[t,{...t,entry_price:110}]).entry_drawdown_days,1);
+  assert.equal(worstEntryDrawdownMetrics(sessions,[t,{...t,entry_price:110}]).entry_drawdown_days,2);
   assert.match(drawdownWithDays(-5,0),/0 dagar/);
 });

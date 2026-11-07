@@ -22,7 +22,7 @@ def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = N
             continue
         if day > first:
             session += 1
-        if isinstance(close, (int, float)) and math.isfinite(close) and 0 < close < lowest:
+        if isinstance(close, (int, float)) and math.isfinite(close) and 0 < close <= lowest:
             lowest, days = close, session
     return {'entry_drawdown_pct': min(0.0, (lowest / price - 1) * 100) if math.isfinite(lowest) else 0.0,
             'entry_drawdown_days': days}

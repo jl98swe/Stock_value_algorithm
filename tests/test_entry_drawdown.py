@@ -28,9 +28,9 @@ def test_trading_days_weekend_ties_and_open_lots():
     from src.entry_drawdown import entry_drawdown_metrics
     candles = [{'date': d, 'close': c} for d, c in [('2026-10-23',99),('2026-10-26',95),('2026-10-27',95),('2026-10-28',90)]]
     trade = {'entry_date':'2026-10-23', 'entry_price':100, 'exit_date':'2026-10-28'}
-    assert entry_drawdown_metrics(candles, trade)['entry_drawdown_days'] == 1
+    assert entry_drawdown_metrics(candles, trade)['entry_drawdown_days'] == 2
     assert entry_drawdown_metrics(candles, dict(trade, exit_reason='period_end'))['entry_drawdown_days'] == 3
     assert entry_drawdown_metrics(candles[:1], trade)['entry_drawdown_days'] == 0
-    assert entry_drawdown_metrics(list(reversed(candles)), trade)['entry_drawdown_days'] == 1
-    assert entry_drawdown_metrics(candles, dict(trade, exit_date=None), '2026-10-27')['entry_drawdown_days'] == 1
+    assert entry_drawdown_metrics(list(reversed(candles)), trade)['entry_drawdown_days'] == 2
+    assert entry_drawdown_metrics(candles, dict(trade, exit_date=None), '2026-10-27')['entry_drawdown_days'] == 2
     assert entry_drawdown_metrics([], trade)['entry_drawdown_days'] is None
