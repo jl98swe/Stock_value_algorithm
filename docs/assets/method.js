@@ -200,6 +200,7 @@
     const ticker = $('method-stock').value, all = ticker === 'all';
     window.strategySelection.setTicker(ticker);
     const key = $('method-strategy').value, period = $('method-period').value;
+    $('method-strategy-top').value = key;
     window.strategySelection.set(key);
     const end = all ? variants.meta.end_date : stock.candles.at(-1).date;
     const first = all ? variants.meta.start_date : stock.candles[0].date;
@@ -278,9 +279,17 @@
       if (stockMeta.stocks.some(s => s.ticker === wantedTicker)) $('method-stock').value = wantedTicker;
       $('method-strategy').value = names[params.get('strategy')] ? params.get('strategy') : window.strategySelection.get();
       if (['all','1','3','5'].includes(params.get('period'))) $('method-period').value = params.get('period');
+      $('method-strategy-top').value = $('method-strategy').value;
       $('method-stock').addEventListener('change', loadStock);
       const reset = () => { visibleTrades = 50; render(); };
-      $('method-strategy').addEventListener('change', reset); $('method-period').addEventListener('change', reset);
+      $('method-strategy-top').addEventListener('change', () => {
+        $('method-strategy').value = $('method-strategy-top').value;
+        reset();
+      });
+      $('method-strategy').addEventListener('change', () => {
+        $('method-strategy-top').value = $('method-strategy').value;
+        reset();
+      }); $('method-period').addEventListener('change', reset);
       $('method-trades-more').addEventListener('click', () => { visibleTrades += 50; render(); });
       $('method-details-toggle').addEventListener('click', () => {
         const expanded = $('method-details-toggle').getAttribute('aria-expanded') !== 'true';

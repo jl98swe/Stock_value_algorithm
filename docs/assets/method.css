@@ -1,5 +1,10 @@
-.method-controls {display:flex;flex-wrap:wrap;gap:16px;align-items:end}
-.method-controls .form-field {min-width:180px;flex:1}
+.method-controls {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end}
+.method-controls .form-field {min-width:0}
+.method-controls .form-field:first-child, .method-strategy-control {grid-column:1 / -1}
+.method-strategy-control {grid-row:3}
+.method-controls #method-stock-link {grid-column:2;grid-row:2}
+.method-controls select {width:100%;min-width:0}
+@media (max-width:360px) {.method-controls {grid-template-columns:minmax(0,1fr)} .method-controls #method-stock-link {grid-column:1;grid-row:4}}
 .method-description p {max-width:1050px;color:var(--muted);font-size:13px;line-height:1.65}
 .method-description h2 {font-size:22px}
 [data-method-link]:focus-visible {outline:2px solid var(--brand);outline-offset:-2px}
