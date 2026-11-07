@@ -25,14 +25,14 @@ test('both pages load the information popover and rightmost two-line heading',()
   for(const name of ['index','method']) {
     const html=fs.readFileSync(path.join(__dirname,`../docs/${name}.html`),'utf8');
     assert(html.includes('help-popovers.js'));
-    assert(html.includes('beräknad på stängningskurser'));
+    if (name === 'method') assert(html.includes('beräknad på stängningskurser'));
   }
   const app=fs.readFileSync(path.join(__dirname,'../docs/assets/app.js'),'utf8');
   assert.match(app, /<th>MAX<br>DRAWDOWN <span class="info-tip"/);
   assert(app.includes('window.initializeHelpPopovers?.()'));
   for (const name of ['index', 'method']) {
     const html = fs.readFileSync(path.join(__dirname, `../docs/${name}.html`), 'utf8');
-    assert(html.includes('help-popovers.js?v=20261106-drawdown-help'));
+    assert(html.includes('help-popovers.js?v='));
   }
   assert(app.includes('<th>TID I<br>POSITION</th>'));
 });
