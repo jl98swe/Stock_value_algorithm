@@ -30,6 +30,7 @@ BRAV.ST,2026-09-30,2026-10-23,2026-10-26,7.36,SEK,Yahoo Finance / trailingDilute
 BTS-B.ST,2026-06-30,2026-08-14,2026-09-07,4.9,SEK,Yahoo Finance / trailingDilutedEPS
 CAST.ST,2026-09-30,2026-10-21,2026-10-26,5.94,SEK,Yahoo Finance / trailingDilutedEPS
 CATE.ST,2026-09-30,2026-10-22,2026-10-26,35.72,SEK,Yahoo Finance / trailingDilutedEPS
+CLA-B.ST,2026-09-30,2026-11-04,2026-11-09,3.19,SEK,Yahoo Finance / trailingDilutedEPS
 CLAS-B.ST,2026-07-31,2026-09-02,2026-09-07,19.75,SEK,Yahoo Finance / trailingDilutedEPS
 COOR.ST,2026-09-30,2026-10-20,2026-10-26,2.78,SEK,Yahoo Finance / trailingDilutedEPS
 CTT.ST,2026-09-30,2023-02-07,2026-10-28,3.15,SEK,Yahoo Finance / trailingDilutedEPS
@@ -63,13 +64,17 @@ INTRUM.ST,2026-09-30,2026-10-22,2026-10-26,-10.29528,SEK,Yahoo Finance / trailin
 INTRUM.ST,2026-09-30,2026-10-22,2026-11-03,-5.026373,SEK,Yahoo Finance / trailingDilutedEPS
 INVE-A.ST,2026-09-30,2018-01-23,2026-10-26,70.05,SEK,Yahoo Finance / trailingDilutedEPS
 INWI.ST,2026-09-30,2026-10-20,2026-10-26,9.92,SEK,Yahoo Finance / trailingDilutedEPS
+KAMBI.ST,2026-09-30,2026-11-03,2026-11-09,0.501,EUR,Yahoo Finance / trailingDilutedEPS
 KNOW.ST,2026-09-30,2026-10-23,2026-10-26,-10.06,SEK,Yahoo Finance / trailingDilutedEPS
 LAGR-B.ST,2026-09-30,2026-10-23,2026-10-26,6.45,SEK,Yahoo Finance / trailingDilutedEPS
 LIFCO-B.ST,2026-09-30,2026-10-23,2026-10-26,8.67,SEK,Yahoo Finance / trailingDilutedEPS
 LIME.ST,2026-09-30,2026-10-20,2026-10-26,9.21,SEK,Yahoo Finance / trailingDilutedEPS
 LOOMIS.ST,2026-09-30,2026-10-30,2026-11-03,30.06,SEK,Yahoo Finance / trailingDilutedEPS
+LUMI.ST,2026-09-30,2026-11-04,2026-11-09,1.83,USD,Yahoo Finance / trailingDilutedEPS
 MCAP.ST,2026-09-30,2026-10-22,2026-10-26,18.3,SEK,Yahoo Finance / trailingDilutedEPS
+MCOV-B.ST,2026-09-30,2026-11-04,2026-11-09,0.599,EUR,Yahoo Finance / trailingDilutedEPS
 MSAB-B.ST,2026-09-30,2026-07-16,2026-10-26,4.82,SEK,Yahoo Finance / trailingDilutedEPS
+MTG-B.ST,2026-09-30,2026-11-05,2026-11-09,2.35,SEK,Yahoo Finance / trailingDilutedEPS
 MTRS.ST,2026-09-30,2026-10-23,2026-10-26,2.907276,SEK,Yahoo Finance / trailingDilutedEPS
 MYCR.ST,2026-09-30,2026-10-22,2026-10-26,10.19,SEK,Yahoo Finance / trailingDilutedEPS
 NDA-SE.ST,2026-09-30,2026-10-15,2026-10-26,1.36,EUR,Yahoo Finance / trailingDilutedEPS

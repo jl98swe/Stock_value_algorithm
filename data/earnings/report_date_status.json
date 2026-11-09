@@ -1,6 +1,8 @@
 {
-  "checked_at": "2026-11-06",
-  "counts": {},
+  "checked_at": "2026-11-09",
+  "counts": {
+    "calendar_date_preserved": 1
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -664,37 +666,22 @@
     }
   ],
   "missing_upcoming_tickers": [
-    "ALIV-SDB.ST",
     "AZN.ST",
     "BALD-B.ST",
-    "CIBUS.ST",
-    "CLA-B.ST",
-    "EQL.ST",
     "FOI-B.ST",
-    "HUFV-A.ST",
-    "KAMBI.ST",
-    "LOOMIS.ST",
-    "LUMI.ST",
-    "MCOV-B.ST",
-    "REJL-B.ST",
-    "SHB-A.ST",
-    "SINT.ST"
+    "LUMI.ST"
   ],
   "calendar_source_conflicts": [
     {
-      "ticker": "MTG-B.ST",
+      "ticker": "NDA-SE.ST",
       "observations": [
         {
           "source": "Börskollen / rapportkalender",
-          "date": "2026-11-05"
-        },
-        {
-          "source": "Yahoo Finance / calendarEvents",
-          "date": "2026-11-05"
+          "date": "2027-01-28"
         },
         {
           "source": "MFN / bolagets rapportkalender",
-          "date": "2027-02-04"
+          "date": "2027-02-02"
         }
       ]
     }
