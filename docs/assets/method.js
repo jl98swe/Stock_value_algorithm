@@ -42,7 +42,7 @@
   const drawdownWithDays = (value, days) => `${drawdownPercent(value)}${Number.isInteger(days) && days >= 0 ? ` · ${days} dagar` : ''}`;
 
 
-  // Highest held close relative to entry; count sessions through the sale day.
+  // Highest held close relative to entry; count sessions through sale or the latest held close.
   function entryUpsideMetrics(candles, trade, end) {
     const empty = {entry_upside_pct:null, entry_upside_days:null};
     const last = trade.exit_date || trade.valuation_date || end;
@@ -58,7 +58,7 @@
     }
     if (peakSession == null) return empty;
     return {entry_upside_pct:(highest / trade.entry_price - 1) * 100,
-      entry_upside_days:trade.exit_date && !trade.open ? session - peakSession : null};
+      entry_upside_days:session - peakSession};
   }
   function bestEntryUpsideMetrics(candles, trades, end) {
     return trades.map(t => entryUpsideMetrics(candles,t,end)).filter(v => v.entry_upside_pct != null)
