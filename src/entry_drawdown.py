@@ -48,7 +48,7 @@ def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = Non
     if peak_session is None:
         return empty
     return {'entry_upside_pct': (highest / price - 1) * 100,
-            'entry_upside_days': session - peak_session if trade.get('exit_date') and not trade.get('open') else None}
+            'entry_upside_days': session - peak_session}
 
 
 def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None) -> float | None:
