@@ -1,0 +1,47 @@
+name: Återställ misslyckad webbpublicering
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  # Also catches missed events and retries beyond workflow_run chain limits.
+  schedule:
+    - cron: "17,47 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/pages_recovery.yml", ".github/scripts/recover-pages.cjs", "tests/test_pages_recovery.cjs"]
+  pull_request:
+    paths: [".github/workflows/pages_recovery.yml", ".github/scripts/recover-pages.cjs", "tests/test_pages_recovery.cjs"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: node --test tests/test_pages_recovery.cjs
+
+  recover:
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+    concurrency:
+      group: pages-publication-recovery
+      cancel-in-progress: false
+    steps:
+      # Never execute code from a workflow_run payload's branch or artifact.
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const recover = require('./.github/scripts/recover-pages.cjs');
+            await recover({ github, context, core });
