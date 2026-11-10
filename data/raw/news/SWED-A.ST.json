@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T01:43:21+01:00",
+  "generated_at": "2026-11-10T23:21:29+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/swedbank",
   "items": [
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-11-10T07:00:00+01:00",
+      "title": "Swedbank Economic Outlook: Svensk ekonomi växlar ned efter stark återhämtning",
+      "link": "https://mfn.se/cis/a/swedbank/swedbank-economic-outlook-svensk-ekonomi-vaxlar-ned-efter-stark-aterhamtning-fc4030be",
+      "source": "MFN",
+      "summary": "Swedbank Economic Outlook: Svensk ekonomi växlar ned efter stark återhämtning 2026-11-10 07:00:00 Svensk ekonomi återhämtade sig snabbare än väntat under 2026, men väntas växa i något långsammare takt framöver. Stigande inflation, högre räntor och en mindre expansiv ekonomisk politik bromsar utvecklingen under de kommande åren. Samtidigt ökar riskerna i världsekonomin till följd av kriget i Mellanöstern, hög skuldsättning och osäkerhet kring den AI-drivna investeringsboomen. Det visar Swedbanks konjunkturrapport Swedbank Economic Outlook. Svensk BNP väntas växa med 2,6 procent under 2026. Återhämtningen har drivits av ökad konsumtion, högre i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0d5a38072236181c"
+    },
     {
       "ticker": "SWED-A.ST",
       "company": "Swedbank AB (publ)",

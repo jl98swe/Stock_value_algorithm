@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T01:43:05+01:00",
+  "generated_at": "2026-11-10T23:21:09+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/scandic-hotels-group",
   "items": [
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-11-10T07:35:00+01:00",
+      "title": "Scandic Hotels Group AB: Scandic publicerar proforma information efter förvärvet av Dalatas hotellverksamhet",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/scandic-hotels-group-ab-scandic-publicerar-proforma-information-efter-forvarvet-av-dalatas-hotellverksamhet-83ad2dc2",
+      "source": "MFN",
+      "summary": "Scandic Hotels Group AB: Scandic publicerar proforma information efter förvärvet av Dalatas hotellverksamhet 2026-11-10 07:35:00 Scandic Hotels Group publicerar idag indikativ finansiell proforma-information efter förvärvet av Dalatas hotellverksamhet som slutfördes den 2 november 2026. Information omfattar tolvmånadersperioden som slutade den 30 september 2026 och avspeglar de kombinerade verksamheterna som om den förvärvade hotellverksamheten skulle ha ägts under hela perioden. Kombinerade proforma-intäkter uppgick till 30 415 MSEK och justerad EBITDA till 3 353 MSEK, motsvarande en justerad EBITDA-marginal på 11,0 procent. Proforma-resulta",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e799ecf074a65d6e"
+    },
     {
       "ticker": "SHOT.ST",
       "company": "Scandic Hotels Group AB (publ)",

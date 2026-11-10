@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-10T01:43:51+01:00",
+  "generated_at": "2026-11-10T23:22:04+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "LOOMIS.ST",
+      "company": "Loomis AB (publ)",
+      "published_at": "2026-11-10T13:00:00+01:00",
+      "title": "Loomis AB: Loomis utses till partner för Batopin i Belgien",
+      "link": "https://mfn.se/cis/a/loomis/loomis-ab-loomis-utses-till-partner-for-batopin-i-belgien-c9d6ad0f",
+      "source": "MFN",
+      "summary": "Loomis AB: Loomis utses till partner för Batopin i Belgien 2026-11-10 13:00:00 Loomis har valts ut som en av två partners till Batopin, som driver Belgiens bankgemensamma nätverk av uttagsautomater, och har tecknat ett femårigt avtal om att tillhandahålla kontanthanteringstjänster för delar av Batopins rikstäckande nätverk. Batopin driver Belgiens bankgemensamma nätverk av uttagsautomater på uppdrag av sina fyra ägarbanker Belfius, BNP Paribas Fortis, ING och KBC. Inom ramen för det femåriga avtalet kommer Loomis att tillhandahålla kontantpåfyllning och relaterade kontanthanteringstjänster, inklusive transporter och uppräkning, för den del av",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "73a0089a8765d10c"
+    },
+    {
+      "ticker": "DUNI.ST",
+      "company": "Duni",
+      "published_at": "2026-11-10T09:00:00+01:00",
+      "title": "From Vätternrundan to the Göta Canal: compost used for tree planting",
+      "link": "https://mfn.se/cis/a/duni/from-vatternrundan-to-the-gota-canal-compost-used-for-tree-planting-742fbfeb",
+      "source": "MFN",
+      "summary": "From Vätternrundan to the Göta Canal: compost used for tree planting 2026-11-10 09:00:00 Compost produced from food waste and compostable packaging at Vätternrundan 2026 is now being used for tree planting along the Göta Canal. The initiative is a collaboration between Duni Group, Vätternrundan, Renall and the Göta Canal and demonstrates how resources from a large-scale event can be given new life through local circular systems. Vätternrundan 2026 focused on more circular solutions for serving and waste management. At the Jönköping rest stop, where around 12,000 meals were served, food waste and compostable packaging were collected and proces",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "77e317bf4ab7f966"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-10T08:30:00+01:00",
+      "title": "Rejlers projekterar utbyggnaden av Smørfjord transformatorstation för Area Nett i Norge",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-projekterar-utbyggnaden-av-smorfjord-transformatorstation-for-area-nett-i-norge-95bbcfe0",
+      "source": "MFN",
+      "summary": "Rejlers projekterar utbyggnaden av Smørfjord transformatorstation för Area Nett i Norge 2026-11-10 08:30:00 Rejlers har vunnit ett uppdrag från Area Nett AS att projektera utbyggnaden av Smørfjord transformatorstation i Porsangers kommun i Finnmark, Norge. Projektet är en del av en större uppgradering av elnätet i västra Finnmark, som ska öka nätkapaciteten och bidra till en mer robust och tillförlitlig elförsörjning i regionen. Area Nett ska modernisera och bygga ut Smørfjord transformatorstation med nya transformator- och ställverksanläggningar samt tillhörande byggnader och teknisk infrastruktur. Rejlers ansvarar för samordnad projekt- och",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b05da09aed5155bc"
+    },
+    {
+      "ticker": "COOR.ST",
+      "company": "Coor Service Management",
+      "published_at": "2026-11-10T08:00:00+01:00",
+      "title": "Coor tecknar avtal med norska fastighetsbolaget Entra",
+      "link": "https://mfn.se/cis/a/coor-service-management-holding/coor-tecknar-avtal-med-norska-fastighetsbolaget-entra-115a941a",
+      "source": "MFN",
+      "summary": "Coor tecknar avtal med norska fastighetsbolaget Entra 2026-11-10 08:00:00 Efter en omfattande upphandlingsprocess har Entra valt Coor i Norge som serviceleverantör för lokalvård, restaurang och reception i cirka 40 fastigheter i Oslo, Bergen och Sandvika. Avtalets löper över tre år med möjlighet till förlängning och har ett årligt värde av cirka 275 MSEK. Uppstart kommer att ske under Q2 2027 och är ett av årets största IFM-avtal i Norge. Samarbetet bygger på en partnerskapsmodell med gemensamma mål för kundupplevelse, kvalitet och hållbarhet. Coor får ansvaret för att utveckla tjänsterna tillsammans med Entra och anpassa dem till hyresgäster",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c6ee42d3ed5a89e3"
+    },
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-11-10T07:30:00+01:00",
+      "title": "God tillväxt, starkt resultat och kassaflöde - nästa steg i tillväxtresan",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/god-tillvaxt-starkt-resultat-och-kassaflode-nasta-steg-i-tillvaxtresan-3513466d",
+      "source": "MFN",
+      "summary": "God tillväxt, starkt resultat och kassaflöde - nästa steg i tillväxtresan 2026-11-10 07:30:00 Sammanfattning tredje kvartalet, 1 juli - 30 september 2026 · Nettoomsättningen ökade med 7,9 procent till 6 877 MSEK (6 372). Organiskt ökade tillväxten med 4,5 procent. · Genomsnittlig beläggningsgrad uppgick till 75,5 procent (74,2). · Genomsnittlig intäkt per tillgängligt rum (RevPAR) ökade till 1 031 SEK (966). · Rörelseresultatet uppgick till 1 312 MSEK (1 174). · Justerat EBITDA uppgick till 1 330 MSEK (1 088). · Exklusive IFRS 16 justeringar uppgick resultat per aktie till 3,86 SEK (3,00). · Fritt kassaflöde uppgick till 945 MSEK (593). · Rän",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c121d64bc07a1496"
+    },
+    {
+      "ticker": "ALIV-SDB.ST",
+      "company": "Autoliv",
+      "published_at": "2026-11-10T06:21:00+01:00",
+      "title": "Autoliv Appoints Joachim Rosenberg to its Board of Directors",
+      "link": "https://mfn.se/cis/a/autoliv/autoliv-appoints-joachim-rosenberg-to-its-board-of-directors-66893e23",
+      "source": "MFN",
+      "summary": "Autoliv Appoints Joachim Rosenberg to its Board of Directors 2026-11-10 06:21:00 (Boston, USA, November 10, 2026) - Autoliv, Inc. (NYSE: ALV and SSE: ALIVsdb), the worldwide leader in automotive safety systems, announces that it has added a new independent member to its Board of Directors effective today. On November 10, 2026, Autoliv announced that its Board of Directors has appointed Mr. Joachim Rosenberg as an independent director to the Autoliv Board of Directors. With the addition of Mr. Rosenberg, Autoliv has expanded its Board size from nine to ten directors Mr. Rosenberg most recently served as Executive Vice President, Volvo Group St",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c21b497bde63757f"
+    },
+    {
+      "ticker": "DIOS.ST",
+      "company": "Diös Fastigheter",
+      "published_at": "2026-11-10T06:00:00+01:00",
+      "title": "Diös tecknar tioårigt hyresavtal med gymsatsning i centrala Östersund",
+      "link": "https://mfn.se/a/dios/dios-tecknar-tioarigt-hyresavtal-med-gymsatsning-i-centrala-ostersund",
+      "source": "MFN",
+      "summary": "Diös tecknar tioårigt hyresavtal med gymsatsning i centrala Östersund 2026-11-10 06:00:00 Diös hyr ut cirka 1 300 kvadratmeter till Active by Stina på Prästgatan i centrala Östersund. Satsningen innebär att en vakant lokal som tidigare inrymt bland annat biograf och nattklubb får ny, långsiktig användning genom ett modernt gym- och hälsokoncept. Inflyttning beräknas ske i juni 2027. Gymsatsningen sker i fastigheten Staben 10 som är belägen precis vid entrén till gågatans handelsstråk. I utvecklingen av ytan tas lokalens unika karaktär tillvara och blir en del av upplevelsen i gymkonceptet. Diös kommer bland annat att tillskapa ett entresolpla",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "8dc51c68f0000efa"
+    },
     {
       "ticker": "ALIV-SDB.ST",
       "company": "Autoliv",

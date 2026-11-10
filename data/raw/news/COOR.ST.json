@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T01:40:26+01:00",
+  "generated_at": "2026-11-10T23:18:00+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/coor-service-management-holding",
   "items": [
+    {
+      "ticker": "COOR.ST",
+      "company": "Coor Service Management",
+      "published_at": "2026-11-10T08:00:00+01:00",
+      "title": "Coor signs agreement with Norwegian property company Entra",
+      "link": "https://mfn.se/cis/a/coor-service-management-holding/coor-signs-agreement-with-norwegian-property-company-entra-e5f352f7",
+      "source": "MFN",
+      "summary": "Coor signs agreement with Norwegian property company Entra 2026-11-10 08:00:00 Following an extensive tender process, Entra has selected Coor in Norway as its service provider for cleaning, catering and reception services at around 40 properties in Oslo, Bergen and Sandvika. The contract runs for three years, with an option to extend, and has an annual value of approximately SEK 275 million. Work is due to commence in Q2 2027, and this is one of the year's largest IFM contracts in Norway. The collaboration is based on a partnership model with shared objectives for customer experience, quality and sustainability. Coor will be responsible for d",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f137332631613d34"
+    },
     {
       "ticker": "COOR.ST",
       "company": "Coor Service Management",

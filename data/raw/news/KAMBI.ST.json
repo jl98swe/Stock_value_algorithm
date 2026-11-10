@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-10T01:41:47+01:00",
+  "generated_at": "2026-11-10T23:19:35+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/kambi-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "KAMBI.ST",
+      "company": "Kambi Group plc",
+      "published_at": "2026-11-10T12:15:00+01:00",
+      "title": "Kambi to power Allwyn’s sportsbook technology consolidation in source code licensing agreement",
+      "link": "https://mfn.se/a/kambi-group/kambi-to-power-allwyns-sportsbook-technology-consolidation-in-source-code-licensing-agreement",
+      "source": "MFN",
+      "summary": "Kambi to power Allwyn’s sportsbook technology consolidation in source code licensing agreement 2026-11-10 12:15:00 Kambi to support the global operator in moving its sports betting brands onto a single sportsbook platform, alongside a long-term agreement for Kambi’s pricing and trading services. Together, the agreements are expected to contribute approximately €45 - 50 million to Kambi’s operating profit over 2027–2031. Kambi Group plc (“Kambi”), the world-leading provider of cutting-edge sports betting technology and services, has entered into agreements with Allwyn AG (“Allwyn”), a multi-national lottery-led gaming entertainment company. Un",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cae82213f9d787da"
+    }
+  ]
 }

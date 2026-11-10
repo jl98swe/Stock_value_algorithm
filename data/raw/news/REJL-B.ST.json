@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T01:42:41+01:00",
+  "generated_at": "2026-11-10T23:20:39+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/rejlers",
   "items": [
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-10T08:30:00+01:00",
+      "title": "Rejlers to design the expansion of Smørfjord substation for Area Nett in Norway",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-to-design-the-expansion-of-smorfjord-substation-for-area-nett-in-norway-80105aae",
+      "source": "MFN",
+      "summary": "Rejlers to design the expansion of Smørfjord substation for Area Nett in Norway 2026-11-10 08:30:00 Rejlers has been awarded a contract by Area Nett AS to design the expansion of Smørfjord substation in the municipality of Porsanger in Finnmark, Norway. The project is part of a major upgrade of the power grid in western Finnmark, aimed at increasing grid capacity and contributing to a more robust and reliable electricity supply in the region. Area Nett will modernise and expand Smørfjord substation with new transformers and switchgear, along with associated buildings and technical infrastructure. Rejlers will be responsible for overall projec",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0a2fa6011536f387"
+    },
     {
       "ticker": "REJL-B.ST",
       "company": "Rejlers AB (publ)",

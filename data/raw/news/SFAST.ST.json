@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-10T01:43:01+01:00",
+  "generated_at": "2026-11-10T23:21:01+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/stenhus-fastigheter",
-  "items": []
+  "items": [
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-11-10T08:30:00+01:00",
+      "title": "Stenhus Fastigheter har förvärvat fyra, samt sålt sju fastigheter under Q3 och Q4 2026",
+      "link": "https://mfn.se/a/stenhus-fastigheter/stenhus-fastigheter-har-forvarvat-fyra-samt-salt-sju-fastigheter-under-q3-och-q4-2026",
+      "source": "MFN",
+      "summary": "Stenhus Fastigheter har förvärvat fyra, samt sålt sju fastigheter under Q3 och Q4 2026 2026-11-10 08:30:00 Stenhus Fastigheter i Norden AB (publ) (”Stenhus Fastigheter” eller ”Bolaget”) har förvärvat fyra fastigheter inom segmenten lager/lättindustri/logistik och sällanköps-/dagligvaruhandel för 76,6 MSEK före marknadsmässigt avdrag för latent skatt. Förvärvet finansieras med egna medel och förutsätter ingen bankfinansiering. Bolaget har också avyttrat och frånträtt sju fastigheter, fem fastigheter med LSS-verksamhet, en fastighet med ett HVB-hem samt en fastighet med hyresgästen Dollarstore. Underliggande fastighetsvärde uppgår till 192,5 MS",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "00b55bc363135fb2"
+    }
+  ]
 }
