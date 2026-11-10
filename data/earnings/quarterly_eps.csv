@@ -255,6 +255,7 @@ ATT.ST,2026-03-31,2026-05-06,2026-10-26,reportedEPS,1.33,SEK,Yahoo Finance / Rep
 ATT.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.32,SEK,Yahoo Finance / quarterlyDilutedEPS
 ATT.ST,2026-06-30,2026-08-20,2026-10-26,reportedEPS,1.32,SEK,Yahoo Finance / Reported EPS
 ATT.ST,2026-09-30,2026-11-06,2026-11-06,manualDilutedEPS,2.68,SEK,https://www.inderes.se/en/releases/attendos-third-quarter-report-2026-long-term-focus-on-quality-underpins-yet-another-quarter-of-strong-results
+ATT.ST,2026-09-30,,2026-11-10,quarterlyDilutedEPS,2.68,SEK,Yahoo Finance / quarterlyDilutedEPS
 AXFO.ST,2023-09-30,2023-10-25,2026-10-26,reportedEPS,3.57,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,2.59,SEK,Yahoo Finance / Reported EPS
 AXFO.ST,2024-06-30,2024-07-12,2026-10-26,reportedEPS,2.67,SEK,Yahoo Finance / Reported EPS
@@ -552,6 +553,7 @@ BTS-B.ST,2026-03-31,2026-05-21,2026-10-26,reportedEPS,1.42,SEK,Yahoo Finance / R
 BTS-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.06,SEK,Yahoo Finance / quarterlyDilutedEPS
 BTS-B.ST,2026-06-30,2026-08-14,2026-10-26,reportedEPS,-6.0,SEK,Yahoo Finance / Reported EPS
 BTS-B.ST,2026-09-30,2026-11-06,2026-11-06,manualDilutedEPS,2.12,SEK,https://www.inderes.se/releases/bts-group-ab-publ-delarsrapport-januari-september-2026
+BTS-B.ST,2026-09-30,,2026-11-10,quarterlyDilutedEPS,2.12,SEK,Yahoo Finance / quarterlyDilutedEPS
 CAST.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,1.72,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2023-12-31,2024-02-14,2026-10-26,reportedEPS,2.6,SEK,Yahoo Finance / Reported EPS
 CAST.ST,2024-03-31,2024-05-03,2026-10-26,reportedEPS,2.04,SEK,Yahoo Finance / Reported EPS
@@ -605,6 +607,7 @@ CIBUS.ST,2026-03-31,2026-04-29,2026-10-26,reportedEPS,0.21,EUR,Yahoo Finance / R
 CIBUS.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.18,EUR,Yahoo Finance / quarterlyDilutedEPS
 CIBUS.ST,2026-06-30,2026-07-16,2026-10-26,reportedEPS,0.23,EUR,Yahoo Finance / Reported EPS
 CIBUS.ST,2026-09-30,2026-11-04,2026-11-04,manualDilutedEPS,0.35,EUR,Cibus Q3 2026 p.22 | https://cdn.bequoted.com/media/1/abc66dbc-7b11-483a-abe2-0590b4fd1cf9/Cibus-Interim-report-Jan-Sep-2026_ENG.pdf
+CIBUS.ST,2026-09-30,,2026-11-10,quarterlyDilutedEPS,0.35,EUR,Yahoo Finance / quarterlyDilutedEPS
 CLA-B.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,0.56,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2023-12-31,2024-01-26,2026-10-26,reportedEPS,0.48,SEK,Yahoo Finance / Reported EPS
 CLA-B.ST,2024-03-31,2024-04-26,2026-10-26,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
@@ -829,6 +832,7 @@ EQL.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,-0.13,SEK,Yahoo Finance / quar
 EQL.ST,2026-03-31,2026-05-08,2026-10-26,reportedEPS,-0.13,SEK,Yahoo Finance / Reported EPS
 EQL.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,-0.57,SEK,Yahoo Finance / quarterlyDilutedEPS
 EQL.ST,2026-09-30,2026-11-05,2026-11-05,manualDilutedEPS,0.4,SEK,EQL Pharma H1 FY2026/27 PDF p.13 | https://mb.cision.com/Main/11664/4420272/4358509.pdf
+EQL.ST,2026-09-30,,2026-11-10,quarterlyDilutedEPS,0.4,SEK,Yahoo Finance / quarterlyDilutedEPS
 ERIC-B.ST,2023-09-30,2023-10-17,2026-10-26,reportedEPS,0.76,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2023-12-31,2024-01-23,2026-10-26,reportedEPS,1.48,SEK,Yahoo Finance / Reported EPS
 ERIC-B.ST,2024-03-31,2024-04-16,2026-10-26,reportedEPS,0.98,SEK,Yahoo Finance / Reported EPS
@@ -1093,6 +1097,7 @@ HUFV-A.ST,2026-03-31,2026-05-08,2026-10-26,reportedEPS,1.3,SEK,Yahoo Finance / R
 HUFV-A.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.54,SEK,Yahoo Finance / quarterlyDilutedEPS
 HUFV-A.ST,2026-06-30,2026-08-20,2026-10-26,reportedEPS,1.28,SEK,Yahoo Finance / Reported EPS
 HUFV-A.ST,2026-09-30,2026-11-05,2026-11-05,manualDilutedEPS,1.62,SEK,Hufvudstaden Q3 2026 koncernrapport s.8 | https://hufvudstaden.se/contentassets/21e1e13d3cc5486993b2033edae27691/hufvudstaden-delarsrapport-januari-september-2026.pdf
+HUFV-A.ST,2026-09-30,,2026-11-10,quarterlyDilutedEPS,1.62,SEK,Yahoo Finance / quarterlyDilutedEPS
 INDT.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,2.2,SEK,Yahoo Finance / Reported EPS
 INDT.ST,2023-12-31,2024-02-01,2026-10-26,reportedEPS,2.29,SEK,Yahoo Finance / Reported EPS
 INDT.ST,2024-03-31,2024-04-25,2026-10-26,reportedEPS,1.92,SEK,Yahoo Finance / Reported EPS
