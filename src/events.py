@@ -112,12 +112,19 @@ def _next_verified_report_effective_date(
     reports: pd.DataFrame,
     ticker: str,
     after: pd.Timestamp,
+    *,
+    inclusive: bool = False,
 ) -> pd.Timestamp | pd.NaT:
+    # A scheduled release and its verified report may share a timestamp,
+    # especially when both sources supply only a date (midnight UTC).
+    # News locks still require a later report, as before.
+    publication_matches = (reports["published_at"] >= after if inclusive
+                           else reports["published_at"] > after)
     subset = reports.loc[
         (reports["ticker"] == ticker)
         & reports["verified"]
         & reports["published_at"].notna()
-        & (reports["published_at"] > after)
+        & publication_matches
         & reports["effective_date"].notna()
     ].sort_values("effective_date")
     return subset.iloc[0]["effective_date"] if not subset.empty else pd.NaT
@@ -289,7 +296,7 @@ def build_lock_series(
         scheduled = row.get("scheduled_at")
         end = pd.NaT
         if not pd.isna(scheduled):
-            end = _next_verified_report_effective_date(reports, ticker, scheduled)
+            end = _next_verified_report_effective_date(reports, ticker, scheduled, inclusive=True)
         period = row.get("report_period")
         period = "" if pd.isna(period) else str(period).strip()
         label = f"Rapport {period}" if period else "Rapport"
