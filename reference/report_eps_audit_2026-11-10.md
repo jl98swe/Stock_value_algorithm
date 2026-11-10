@@ -24,3 +24,13 @@ Kvartalsbryggan antar jämförbara EPS-definitioner. Avrundning och ändrat väg
 Inga förfallna EPS-luckor efter kompletteringen. EQT:s Q3-redogörelse 15 oktober saknar EPS enligt tidigare verifierat undantag; äldre TTM behålls. Full tickerinventering: recent_report_eps_audit_2026-11-10.csv.
 
 57 relevanta Python-tester godkända: manuell inmatning, senaste rapport-EPS, rapportvarningar, publiceringstid, valuta, TradingView-prioritet och datumrättelser. Pipeline och historikgrind verifieras före merge. Vid körning före dagens stängning kan inga nya slutliga poäng eller slutliga stängningssignaler för 10 november skapas utan dagens slutkurs; befintlig preliminärberäkning ska använda nya EPS från rapportdagen.
+
+## Slutförd publiceringskontroll
+
+PR #142 mergad som a2fdbad77913798fae4f8d1736f8afea7881b48f. GitHubs fullständiga kontroll 42846592821 är godkänd: 478 Python-tester, gränssnittstester, ordinarie pipeline och exportvalidering. Ytterligare 29 lokala tester för historikskydd, EPS-spärrar och poängrevisioner är godkända.
+
+Den gemensamma intradagscachen har räknats om och publicerats via körning 42727879039. För de bevarade kurserna Genovis 23,60 SEK och Scandic 105,50 SEK blev preliminär poäng 99,7711 respektive 33,8894, med EPS 0,2501 respektive 3,8047.
+
+Manifeständringen startade även en redan befintlig LUMI-ombyggnad (42848086612), som passerade historikskydd och publicerade exporten i 918a7111. Jämförelse av poängfiler före/efter den körningen visar noll ändrade publicerade poäng. GitHub Pages-körning 42848944773 är godkänd. HTTP-kontroll av den publicerade reports.json och båda aktieexporterna bekräftar rätt rapportdatum, publiceringstid, EPS före/efter och inga saknade EPS-varningar.
+
+Den separata automatiska Yahoo-granskningen 42848086606 stoppades av sin breda single-EPS-kontroll för LUMI.ST. Den ändrar inte de verifierade rapporterna för Genovis/Scandic. Råa nya Yahoo-observationer sparades separat. Befintligt EPS-publiceringsflöde fortsätter från main. Webbens kvartalsunderlag publiceras också från samma verifierade quarterly_eps.csv så att manuell jämförelse 2,59 för Scandic är tillgänglig i inmatningsvyn.
