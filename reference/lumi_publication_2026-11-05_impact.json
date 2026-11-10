@@ -1,12 +1,12 @@
 {
-  "base_ref": "44cbe8aaa0901846dff57de31474f748e0cd264a",
+  "base_ref": "a2fdbad77913798fae4f8d1736f8afea7881b48f",
   "impact_reference": "7da8622533db5704d12eb37e169ab2ef689bb32d",
   "checked_reports": 33,
-  "changed_score_rows": 1838,
-  "newly_available_scores": 1237,
+  "changed_score_rows": 1841,
+  "newly_available_scores": 1240,
   "first_changed_date": "2018-12-28",
-  "last_changed_date": "2026-11-04",
-  "changed_signal_records": 81,
+  "last_changed_date": "2026-11-09",
+  "changed_signal_records": 83,
   "other_118_histories_unchanged": true,
   "prices_and_eps_amounts_unchanged": true,
   "standard_comparison_before": [
@@ -33,8 +33,8 @@
     {
       "strategy": "Originalstrategi",
       "start_date": "2019-09-02",
-      "end_date": "2026-11-05",
-      "return_pct": 84.47,
+      "end_date": "2026-11-10",
+      "return_pct": 86.74,
       "max_drawdown_pct": -68.6,
       "trades": 11,
       "win_rate_pct": 54.55
@@ -42,8 +42,8 @@
     {
       "strategy": "Köp och behåll",
       "start_date": "2019-09-02",
-      "end_date": "2026-11-05",
-      "return_pct": 402.67,
+      "end_date": "2026-11-10",
+      "return_pct": 410.56,
       "max_drawdown_pct": -48.28,
       "trades": null,
       "win_rate_pct": null
@@ -85,9 +85,9 @@
           "buy_rearm_score": null,
           "sell_rearm_score": null,
           "avg_entry": 227.2,
-          "unrealized_pct": -3.8495,
+          "unrealized_pct": -2.6641,
           "last_buy_date": "2026-09-16",
-          "buy_armed": true,
+          "buy_armed": false,
           "sell_armed": true
         },
         "next_action": {
@@ -392,9 +392,9 @@
           "entry_fee": 0.002607805788857604,
           "exit_fee": 0.004798362725529547,
           "commission_total": 0.00740616851438715,
-          "dividend_per_share": 2.42407968,
-          "dividends_received": 0.023521968454534282,
-          "return_pct": 85.33163159462147,
+          "dividend_per_share": 2.4226909200000004,
+          "dividends_received": 0.023508492672702344,
+          "return_pct": 85.33034294647439,
           "holding_trading_days": 353,
           "status": "closed"
         },
@@ -409,13 +409,13 @@
           "exit_reason": "score",
           "exit_date": "2026-08-06",
           "exit_price": 256.299987792969,
-          "quantity": 0.0074931612671454055,
-          "entry_fee": 0.004833089017308787,
-          "exit_fee": 0.004801242853250288,
-          "commission_total": 0.009634331870559076,
-          "dividend_per_share": 0.3848185,
-          "dividends_received": 0.0028835070790809944,
-          "return_pct": -1.0056036948378866,
+          "quantity": 0.007493109165686526,
+          "entry_fee": 0.004833055411867809,
+          "exit_fee": 0.004801209469242102,
+          "commission_total": 0.00963426488110991,
+          "dividend_per_share": 0.38204098,
+          "dividends_received": 0.0028626747689058625,
+          "return_pct": -1.006677568293779,
           "holding_trading_days": 113,
           "status": "closed"
         }
@@ -440,18 +440,18 @@
           "entry_signal_date": "2026-09-15",
           "entry_date": "2026-09-16",
           "entry_price": 227.1999969482422,
-          "quantity": 0.008423393239157246,
-          "entry_fee": 0.004784487295575925,
+          "quantity": 0.008423243294784461,
+          "entry_fee": 0.0047844021271733275,
           "dividends_received": 0.0,
-          "current_return_pct": -3.8495298103266684
+          "current_return_pct": -2.664113054563555
         }
       ]
     },
     "standard_stop_loss_10": {
       "closed_trades_before": 7,
-      "closed_trades_after": 23,
+      "closed_trades_after": 24,
       "open_lots_before": 1,
-      "open_lots_after": 1,
+      "open_lots_after": 0,
       "overview_before": {
         "position": {
           "lots": 1,
@@ -479,14 +479,14 @@
       },
       "overview_after": {
         "position": {
-          "lots": 1,
+          "lots": 0,
           "max_lots": 1,
           "buy_rearm_score": null,
           "sell_rearm_score": null,
-          "avg_entry": 227.2,
-          "unrealized_pct": -3.8495,
+          "avg_entry": null,
+          "unrealized_pct": null,
           "last_buy_date": "2026-09-16",
-          "buy_armed": true,
+          "buy_armed": false,
           "sell_armed": true
         },
         "next_action": {
@@ -494,12 +494,31 @@
           "label": "Ingen signal",
           "detail": "Ingen signal vid senaste stängning."
         },
-        "signals": [],
+        "signals": [
+          {
+            "signal_id": "LUMI-ST-2026-11-05-sell-69",
+            "ticker": "LUMI.ST",
+            "side": "SELL",
+            "signal_date": "2026-11-05",
+            "score": 0.2887220000000002,
+            "status": "executed",
+            "status_reason": "Stop loss 10%",
+            "exit_reason": "stop_loss",
+            "stop_price": 204.47999725341796,
+            "execute_on": "2026-11-05",
+            "execution_date": "2026-11-05",
+            "execution_price": 204.47999725341796,
+            "lot_id": "LUMI-ST-lot-24",
+            "quantity": 0.006200440913661229,
+            "commission_fee": 0.003169665352488571,
+            "date": "2026-11-05"
+          }
+        ],
         "strategy_filter": {
           "buy_allowed": true,
           "buy_block_reason": "",
           "stop_loss_pct": 10,
-          "stop_price": 204.47999725341796
+          "stop_price": null
         }
       },
       "closed_trades_before_full": [
@@ -1066,9 +1085,9 @@
           "entry_fee": 0.0017787615442547522,
           "exit_fee": 0.004338335949466277,
           "commission_total": 0.0061170974937210295,
-          "dividend_per_share": 0.5713125,
-          "dividends_received": 0.005012225518481708,
-          "return_pct": 143.38268910601184,
+          "dividend_per_share": 0.56992374,
+          "dividends_received": 0.005000041681595508,
+          "return_pct": 143.38098097187603,
           "holding_trading_days": 161,
           "status": "closed"
         },
@@ -1083,13 +1102,13 @@
           "exit_reason": "stop_loss",
           "exit_date": "2026-03-09",
           "exit_price": 221.399993896484,
-          "quantity": 0.006711934386342385,
-          "entry_fee": 0.004329197679190839,
-          "exit_fee": 0.003715055580424513,
-          "commission_total": 0.008044253259615351,
+          "quantity": 0.006711887279934428,
+          "entry_fee": 0.004329167295557706,
+          "exit_fee": 0.0037150295070284274,
+          "commission_total": 0.008044196802586133,
           "dividend_per_share": 0.0,
           "dividends_received": 0.0,
-          "return_pct": -14.614048633554578,
+          "return_pct": -14.614048633554566,
           "holding_trading_days": 10,
           "status": "closed"
         },
@@ -1104,13 +1123,13 @@
           "exit_reason": "stop_loss",
           "exit_date": "2026-04-28",
           "exit_price": 237.5099945068356,
-          "quantity": 0.005602920364387963,
-          "entry_fee": 0.0036965266249111735,
-          "exit_fee": 0.003326873962420056,
-          "commission_total": 0.00702340058733123,
+          "quantity": 0.005602881041379537,
+          "entry_fee": 0.003696500681556964,
+          "exit_fee": 0.003326850613401268,
+          "commission_total": 0.007023351294958232,
           "dividend_per_share": 0.0,
           "dividends_received": 0.0,
-          "return_pct": -10.44887780548629,
+          "return_pct": -10.448877805486278,
           "holding_trading_days": 10,
           "status": "closed"
         },
@@ -1125,14 +1144,35 @@
           "exit_reason": "score",
           "exit_date": "2026-08-06",
           "exit_price": 256.299987792969,
-          "quantity": 0.005524040245259948,
-          "entry_fee": 0.0033102810748269385,
-          "exit_fee": 0.003539528618569985,
-          "commission_total": 0.006849809693396923,
+          "quantity": 0.005524001475856318,
+          "entry_fee": 0.0033102578422621086,
+          "exit_fee": 0.003539503777075792,
+          "commission_total": 0.006849761619337901,
           "dividend_per_share": 0.0,
           "dividends_received": 0.0,
           "return_pct": 6.3920262249802295,
           "holding_trading_days": 31,
+          "status": "closed"
+        },
+        {
+          "ticker": "LUMI.ST",
+          "cycle_id": null,
+          "lot_id": "LUMI-ST-lot-24",
+          "entry_signal_date": "2026-09-15",
+          "entry_date": "2026-09-16",
+          "entry_price": 227.1999969482422,
+          "exit_signal_date": "2026-11-05",
+          "exit_reason": "stop_loss",
+          "exit_date": "2026-11-05",
+          "exit_price": 204.47999725341796,
+          "quantity": 0.006200440913661229,
+          "entry_fee": 0.003521850391653968,
+          "exit_fee": 0.003169665352488571,
+          "commission_total": 0.0066915157441425396,
+          "dividend_per_share": 0.0,
+          "dividends_received": 0.0,
+          "return_pct": -10.44887780548629,
+          "holding_trading_days": 36,
           "status": "closed"
         }
       ],
@@ -1149,19 +1189,7 @@
           "current_return_pct": -3.849529810326646
         }
       ],
-      "open_lots_after_full": [
-        {
-          "lot_id": "LUMI-ST-lot-24",
-          "cycle_id": null,
-          "entry_signal_date": "2026-09-15",
-          "entry_date": "2026-09-16",
-          "entry_price": 227.1999969482422,
-          "quantity": 0.006200484430557,
-          "entry_fee": 0.003521875109250434,
-          "dividends_received": 0.0,
-          "current_return_pct": -3.8495298103266573
-        }
-      ]
+      "open_lots_after_full": []
     },
     "standard_two_positions": {
       "closed_trades_before": 6,
@@ -1215,8 +1243,8 @@
           "max_lots": 2,
           "buy_rearm_score": 5,
           "sell_rearm_score": 95,
-          "avg_entry": 244.8981,
-          "unrealized_pct": -10.7225,
+          "avg_entry": 244.8982,
+          "unrealized_pct": -9.6233,
           "last_buy_date": "2026-09-16",
           "buy_armed": false,
           "sell_armed": true
@@ -1671,9 +1699,9 @@
           "entry_fee": 0.0014535383085610746,
           "exit_fee": 0.002674510529016072,
           "commission_total": 0.004128048837577147,
-          "dividend_per_share": 2.42407968,
-          "dividends_received": 0.013110670429337565,
-          "return_pct": 85.33163159462147,
+          "dividend_per_share": 2.4226909200000004,
+          "dividends_received": 0.013103159300550971,
+          "return_pct": 85.33034294647442,
           "holding_trading_days": 353,
           "status": "closed"
         },
@@ -1692,9 +1720,9 @@
           "entry_fee": 0.0014618680828013646,
           "exit_fee": 0.003088828650123488,
           "commission_total": 0.004550696732924853,
-          "dividend_per_share": 1.8064906200000002,
-          "dividends_received": 0.00962058617799197,
-          "return_pct": 111.88057555360449,
+          "dividend_per_share": 1.8051018600000002,
+          "dividends_received": 0.009613190244067581,
+          "return_pct": 111.87931389903287,
           "holding_trading_days": 299,
           "status": "closed"
         },
@@ -1709,13 +1737,13 @@
           "exit_reason": "score",
           "exit_date": "2026-08-06",
           "exit_price": 256.299987792969,
-          "quantity": 0.0044829077492579755,
-          "entry_fee": 0.0028914754982713943,
-          "exit_fee": 0.0028724230035295627,
-          "commission_total": 0.005763898501800957,
-          "dividend_per_share": 0.3848185,
-          "dividends_received": 0.0017251058357078302,
-          "return_pct": -1.0056036948378866,
+          "quantity": 0.00448287893164559,
+          "entry_fee": 0.0028914569109114055,
+          "exit_fee": 0.002872404538645306,
+          "commission_total": 0.005763861449556712,
+          "dividend_per_share": 0.38204098,
+          "dividends_received": 0.001712643460267234,
+          "return_pct": -1.0066775682937568,
           "holding_trading_days": 113,
           "status": "closed"
         }
@@ -1751,10 +1779,10 @@
           "entry_signal_date": "2026-04-13",
           "entry_date": "2026-04-14",
           "entry_price": 263.899993896484,
-          "quantity": 0.004385944024218676,
-          "entry_fee": 0.0028936265030540726,
-          "dividends_received": 0.0016877924004837946,
-          "current_return_pct": -17.075509946632938
+          "quantity": 0.004385892297834022,
+          "entry_fee": 0.0028935923765725864,
+          "dividends_received": 0.0016755905916389616,
+          "current_return_pct": -16.05599638027155
         },
         {
           "lot_id": "LUMI-ST-lot-19",
@@ -1762,10 +1790,10 @@
           "entry_signal_date": "2026-09-15",
           "entry_date": "2026-09-16",
           "entry_price": 227.1999969482422,
-          "quantity": 0.004709032044575581,
-          "entry_fee": 0.002674730165391867,
+          "quantity": 0.004708949608236142,
+          "entry_fee": 0.0026746833415516942,
           "dividends_received": 0.0,
-          "current_return_pct": -3.8495298103266684
+          "current_return_pct": -2.664113054563566
         }
       ]
     },
@@ -2069,9 +2097,9 @@
           "entry_fee": 0.002000958910394983,
           "exit_fee": 0.0036817644519308848,
           "commission_total": 0.005682723362325868,
-          "dividend_per_share": 2.42407968,
-          "dividends_received": 0.018048311944942955,
-          "return_pct": 85.3316315946215,
+          "dividend_per_share": 2.4226909200000004,
+          "dividends_received": 0.018037972031654026,
+          "return_pct": 85.33034294647439,
           "holding_trading_days": 353,
           "status": "closed"
         },
@@ -2086,13 +2114,13 @@
           "exit_reason": "score",
           "exit_date": "2026-08-06",
           "exit_price": 256.299987792969,
-          "quantity": 0.005749472552206175,
-          "entry_fee": 0.0037084097961729828,
-          "exit_fee": 0.003683974362366132,
-          "commission_total": 0.007392384158539114,
-          "dividend_per_share": 0.3848185,
-          "dividends_received": 0.002212503403331152,
-          "return_pct": -1.0056036948378977,
+          "quantity": 0.005749432574965984,
+          "entry_fee": 0.0037083840108530597,
+          "exit_fee": 0.0036839487469507,
+          "commission_total": 0.00739233275780376,
+          "dividend_per_share": 0.38204098,
+          "dividends_received": 0.002196518855383928,
+          "return_pct": -1.00667756829379,
           "holding_trading_days": 113,
           "status": "closed"
         }
@@ -2182,14 +2210,14 @@
             "execution_date": "2026-11-03",
             "execution_price": 206.3000030517578,
             "lot_id": "LUMI-ST-lot-20",
-            "quantity": 0.004658778240110826,
-            "commission_fee": 0.0024027649128808156,
+            "quantity": 0.004658750026361965,
+            "commission_fee": 0.0024027503616396257,
             "date": "2026-11-03"
           }
         ],
         "strategy_filter": {
           "buy_allowed": false,
-          "basis_date": "2026-11-05",
+          "basis_date": "2026-11-10",
           "buy_block_reason": "Nästa rapportdatum saknas",
           "next_report_date": null,
           "trading_days_to_report": null,
@@ -2740,9 +2768,9 @@
           "entry_fee": 0.003002064382418664,
           "exit_fee": 0.002672768137519353,
           "commission_total": 0.005674832519938017,
-          "dividend_per_share": 0.19240925,
-          "dividends_received": 0.0008955425678649432,
-          "return_pct": -11.338647100902243,
+          "dividend_per_share": 0.19102049,
+          "dividends_received": 0.0008890787741723419,
+          "return_pct": -11.33918403763019,
           "holding_trading_days": 48,
           "status": "closed"
         },
@@ -2757,10 +2785,10 @@
           "exit_reason": "report",
           "exit_date": "2026-08-04",
           "exit_price": 239.5,
-          "quantity": 0.004441670304950502,
-          "entry_fee": 0.002661670896354331,
-          "exit_fee": 0.002659450095089113,
-          "commission_total": 0.005321120991443444,
+          "quantity": 0.004441643406016049,
+          "entry_fee": 0.0026616547771680654,
+          "exit_fee": 0.0026594339893521095,
+          "commission_total": 0.005321088766520175,
           "dividend_per_share": 0.0,
           "dividends_received": 0.0,
           "return_pct": -0.5817733340454878,
@@ -2778,13 +2806,13 @@
           "exit_reason": "report",
           "exit_date": "2026-11-03",
           "exit_price": 206.3000030517578,
-          "quantity": 0.004658778240110826,
-          "entry_fee": 0.002646186004839292,
-          "exit_fee": 0.0024027649128808156,
-          "commission_total": 0.005048950917720108,
+          "quantity": 0.004658750026361965,
+          "entry_fee": 0.002646169979430154,
+          "exit_fee": 0.0024027503616396257,
+          "commission_total": 0.00504892034106978,
           "dividend_per_share": 0.0,
           "dividends_received": 0.0,
-          "return_pct": -9.651814210850851,
+          "return_pct": -9.65181421085084,
           "holding_trading_days": 34,
           "status": "closed"
         }
