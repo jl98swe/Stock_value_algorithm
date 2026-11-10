@@ -3,7 +3,7 @@
 import pandas as pd
 import pytest
 
-from src.events import build_lock_series, load_report_calendar
+from src.events import build_lock_series, load_report_calendar, _next_verified_report_effective_date
 
 
 def _locks(days, scheduled, *, period=None, explicit=None, reports=None):
@@ -74,3 +74,42 @@ def test_empty_calendar_period_is_normalised(tmp_path):
     path.write_text("ticker,scheduled_at,report_period\nEXAMPLE.ST,2026-11-17,\n")
     result = load_report_calendar(path)
     assert result.report_period.tolist() == [""]
+
+
+@pytest.mark.parametrize("scheduled,published,effective,expected", [
+    ("2026-10-07T00:00:00Z", "2026-10-07T00:00:00Z", "2026-10-07", [True, False, False]),
+    ("2026-10-07T07:00:00+02:00", "2026-10-07T05:00:00Z", "2026-10-07", [True, False, False]),
+    ("2026-10-07T18:00:00+02:00", "2026-10-07T18:00:00+02:00", "2026-10-08", [False, True, False]),
+])
+def test_equal_publication_clears_calendar_lock_only_on_effective_date(
+        scheduled, published, effective, expected):
+    # Synthetic examples: date-only, equal instants in different time zones,
+    # and an after-close release that cannot clear until the next session.
+    reports = pd.DataFrame([dict(ticker="EXAMPLE.ST", verified=True,
+        published_at=pd.Timestamp(published), effective_date=pd.Timestamp(effective))])
+    result = _locks(["2026-10-06", "2026-10-07", "2026-10-08"],
+                    scheduled, reports=reports)
+    assert result.FundamentalLock.tolist() == expected
+
+
+@pytest.mark.parametrize("published,verified,effective,ticker", [
+    ("2026-10-06T00:00:00Z", True, "2026-10-06", "EXAMPLE.ST"),
+    ("2026-10-07T00:00:00Z", False, "2026-10-07", "EXAMPLE.ST"),
+    ("2026-10-07T00:00:00Z", True, None, "EXAMPLE.ST"),
+    ("2026-10-07T00:00:00Z", True, "2026-10-07", "OTHER.ST"),
+])
+def test_calendar_lock_rejects_old_unverified_undated_or_other_ticker_report(
+        published, verified, effective, ticker):
+    reports = pd.DataFrame([dict(ticker=ticker, verified=verified,
+        published_at=pd.Timestamp(published),
+        effective_date=pd.Timestamp(effective) if effective else pd.NaT)])
+    result = _locks(["2026-10-06", "2026-10-07", "2026-10-08"],
+                    "2026-10-07T00:00:00Z", reports=reports)
+    assert result.FundamentalLock.tolist() == [True, True, True]
+
+
+def test_news_still_requires_report_strictly_after_event():
+    published = pd.Timestamp("2026-10-07T00:00:00Z")
+    reports = pd.DataFrame([dict(ticker="EXAMPLE.ST", verified=True,
+        published_at=published, effective_date=pd.Timestamp("2026-10-07"))])
+    assert pd.isna(_next_verified_report_effective_date(reports, "EXAMPLE.ST", published))
