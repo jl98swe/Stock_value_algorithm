@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-06T23:08:51+01:00",
+  "generated_at": "2026-11-10T01:43:51+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "ALIV-SDB.ST",
+      "company": "Autoliv",
+      "published_at": "2026-11-09T23:00:00+01:00",
+      "title": "Autoliv Declares Increased Quarterly Dividend",
+      "link": "https://mfn.se/cis/a/autoliv/autoliv-declares-increased-quarterly-dividend-9d2cc8c6",
+      "source": "MFN",
+      "summary": "Autoliv Declares Increased Quarterly Dividend 2026-11-09 23:00:00 (Boston, USA, November 9, 2026) - Autoliv, Inc. (NYSE: ALV and SSE: ALIV.sdb), the worldwide leader in automotive safety systems, today announced that its Board of Directors has declared a quarterly dividend for the fourth quarter of 2026 . Autoliv's quarterly dividend is increased by 15% to one dollar per share, from 87 cents, for the fourth quarter of 2026. Assuming number of shares outstanding as of November 9, 2026, this equals an annualized total dividend of approximately $287 million. \"This substantial dividend increase reflects the Board's confidence in the strength of o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "aaf8be9f410a8438"
+    },
+    {
+      "ticker": "GETI-B.ST",
+      "company": "Getinge AB (publ)",
+      "published_at": "2026-11-09T16:00:00+01:00",
+      "title": "Getinge utser Stacy Beske till President Acute Care Therapies",
+      "link": "https://mfn.se/cis/a/getinge/getinge-utser-stacy-beske-till-president-acute-care-therapies-81fc8395",
+      "source": "MFN",
+      "summary": "Getinge utser Stacy Beske till President Acute Care Therapies 2026-11-09 16:00:00 Getinge har utsett Stacy Beske till President Acute Care Therapies och medlem av koncernledningen. Hon kommer att rapportera till Mattias Perjos, VD och koncernchef, och tillträder rollen den 1 december, 2026. Stacy Beske kommer till Getinge från Philips, där hon senast var Senior Vice President, Business Unit Leader för Image Guided Therapy Devices. Hon har en doktorsexamen inom Cardiovascular Physiology, omfattande forskningsbakgrund och över 20 års ledarerfarenhet inom medtech, bland annat inom bildstyrd terapi, diabetes, elektrofysiologi, diagnostik och kard",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "2a552f3ab96174e8"
+    },
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-11-09T15:00:00+01:00",
+      "title": "Buybacks of shares of series B in Trelleborg during week 45, 2026",
+      "link": "https://mfn.se/a/trelleborg/buybacks-of-shares-of-series-b-in-trelleborg-during-week-45-2026",
+      "source": "MFN",
+      "summary": "Buybacks of shares of series B in Trelleborg during week 45, 2026 2026-11-09 15:00:00 During the period November 2, 2026, to November 6, 2026, Trelleborg AB (LEI code 213800XY16PAWG2PAD14) has repurchased in total 87,150 own shares of series B (ISIN: SE0000114837) as part of the buyback program initiated by the Board of Directors. The purpose is to adjust the company's capital structure and thereby contribute to increased shareholder value. Repurchases are also made to ensure the delivery of shares and related costs, such as social security contributions, for the Performance Share Program (PSP) 2026/2028. The share buybacks form part of the b",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b37473f252af0963"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-09T13:00:00+01:00",
+      "title": "Allt fler ingenjörer vill jobba på Peab",
+      "link": "https://mfn.se/cis/a/peab/allt-fler-ingenjorer-vill-jobba-pa-peab-c459e3fe",
+      "source": "MFN",
+      "summary": "Allt fler ingenjörer vill jobba på Peab 2026-11-09 13:00:00 Peab stärker sin position som en av Sveriges mest attraktiva arbetsgivare för ingenjörer. I årets ranking från företaget Universum avancerar Peab till plats 5 bland yrkesverksamma ingenjörer och till plats 7 bland teknikstudenter. Den positiva utvecklingen visar att Peab fortsätter att stärka sitt arbetsgivarvarumärke både bland unga talanger som står inför sitt första karriärval och bland erfarna yrkespersoner som redan etablerat sig på arbetsmarknaden. Peabs nya kompetensförsörjningstrategi fastslår att bolaget ska ha en hög andel egna medarbetare, både tjänstemän och hantverkare o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c502979f0a5960f6"
+    },
+    {
+      "ticker": "INTRUM.ST",
+      "company": "Intrum AB (publ)",
+      "published_at": "2026-11-09T08:59:00+01:00",
+      "title": "Intrum offentliggör utfallet av återköpserbjudandena avseende utestående seniora säkerställda utbytesobligationer utgivna av Intrum Investments and Financing AB",
+      "link": "https://mfn.se/a/intrum/intrum-offentliggor-utfallet-av-aterkopserbjudandena-avseende-utestaende-seniora-sakerstallda-utbytesobligationer-utgivna-av-intrum-investments-and-financing-ab-4",
+      "source": "MFN",
+      "summary": "Intrum offentliggör utfallet av återköpserbjudandena avseende utestående seniora säkerställda utbytesobligationer utgivna av Intrum Investments and Financing AB 2026-11-09 08:59:00 EJ FÖR OFFENTLIGGÖRANDE, PUBLICERING ELLER DISTRIBUTION I, TILL ELLER TILL NÅGON PERSON SOM ÄR BOSATT ELLER UPPEHÅLLER SIG I USA INKLUSIVE DESS TERRITORIER (INKLUSIVE PUERTO RICO, U.S. VIRGIN ISLANDS, GUAM, AMERICAN SAMOA, WAKE ISLAND OCH NORTHERN MARIANA ISLANDS), NÅGON AV DESS DELSTATER OCH DISTRICT OF COLOMBIA (\"USA\") ELLER NÅGON AMERIKANSK MEDBORGARE (ENLIGT DEFINITIONEN I REGULATION S I USA'S SECURITIES ACT FRÅN 1933 (\"SECURITIES ACT\") (VARJE SÅDAN PERSON EN \"",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "56eb061fcd9e11a4"
+    },
+    {
+      "ticker": "CAST.ST",
+      "company": "Castellum",
+      "published_at": "2026-11-09T08:00:00+01:00",
+      "title": "Förändring i Castellums koncernledning",
+      "link": "https://mfn.se/a/castellum/forandring-i-castellums-koncernledning",
+      "source": "MFN",
+      "summary": "Förändring i Castellums koncernledning 2026-11-09 08:00:00 Som en del av Castellums tidigare kommunicerade organisationsförändring lämnar Anna-Karin Nyman rollen som kommunikationsdirektör och koncernledningen för att tillträda som affärsområdeschef i Stockholm. I den nya rollen får Anna-Karin Nyman fullt resultatansvar för en fastighetsportfölj om cirka 20 mdkr i Stockholm. Rollen som kommunikationsdirektör kommer inte längre att ingå i Castellums koncernledning. – Jag blev glad när Anna-Karin berättade att hon ville växla till förvaltning. Hon har nyligen avslutat sin Executive MBA och nu får hon möjlighet att använda sina kunskaper i en ny",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "707f8c32a9ba24a1"
+    },
+    {
+      "ticker": "EVO.ST",
+      "company": "Evolution",
+      "published_at": "2026-11-09T07:55:00+01:00",
+      "title": "Acquisitions of own shares in Evolution AB (publ)",
+      "link": "https://mfn.se/a/evolution/acquisitions-of-own-shares-in-evolution-ab-publ-18",
+      "source": "MFN",
+      "summary": "Acquisitions of own shares in Evolution AB (publ) 2026-11-09 07:55:00 Evolution AB (publ) (“Evolution”) has, during the period 2 November 2026 – 6 November 2026, acquired a total of 413,000 own shares within the framework of the repurchase program introduced by the board of directors to optimize the capital structure of Evolution by reducing the capital, and thereby creating added shareholder value. The repurchase program, which Evolution announced on 18 May 2026, is being implemented in accordance with the EU Market Abuse Regulation No 596/2014 (“MAR”) and the Commission Delegated Regulation No 2016/1052 (“Safe Harbour Regulation”). During t",
+      "is_regulatory": true,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1c00e7bc4de5fa78"
+    },
     {
       "ticker": "BTS-B.ST",
       "company": "BTS Group",

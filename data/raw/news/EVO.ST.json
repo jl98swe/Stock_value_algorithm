@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-06T23:05:50+01:00",
+  "generated_at": "2026-11-10T01:41:05+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/evolution",
-  "items": []
+  "items": [
+    {
+      "ticker": "EVO.ST",
+      "company": "Evolution",
+      "published_at": "2026-11-08T16:05:00+01:00",
+      "title": "Styrelsen för Evolution AB (publ) har beslutat om en fortsättning av det tidigare offentliggjorda återköpsprogrammet om 2 miljarder euro",
+      "link": "https://mfn.se/a/evolution/styrelsen-for-evolution-ab-publ-har-beslutat-om-en-fortsattning-av-det-tidigare-offentliggjorda-aterkopsprogrammet-om-2-miljarder-euro",
+      "source": "MFN",
+      "summary": "Styrelsen för Evolution AB (publ) har beslutat om en fortsättning av det tidigare offentliggjorda återköpsprogrammet om 2 miljarder euro 2026-11-08 16:05:00 Styrelsen för Evolution AB (publ) (”Evolution” eller ”Bolaget”) har, med stöd av bemyndigandet från årsstämman 2026, beslutat att Bolaget ska fortsätta förvärva egna aktier under det återköpsprogram om 2 miljarder euro som Evolution offentliggjorde den 18 maj 2026. Syftet med förvärven av egna aktier är att optimera Bolagets kapitalstruktur genom att minska aktiekapitalet och därigenom skapa ytterligare aktieägarvärde. Den 18 maj 2026 offentliggjorde Evolution ett återköpsprogram om 2 mil",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0a72e4989205f6f1"
+    }
+  ]
 }
