@@ -2,3 +2,5 @@ ticker,period_end,report_date,observed_date,metric,eps,eps_currency,source
 LUMI.ST,2025-09-30,,2026-08-31,manualDilutedEPS,0.19,USD,Lundin Mining Q3 2025 financial statements / Diluted EPS attributable to shareholders
 GENO.ST,2025-09-30,,2026-11-10,manualDilutedEPS,0.12,SEK,"https://storage.mfn.se/806642c9-5924-41ca-ae40-17c6b17e5198/genovis-kvartalsrapport-januari-september-2026.pdf / Q3 2025 comparative, unadjusted diluted EPS"
 SHOT.ST,2025-09-30,,2026-11-10,manualDilutedEPS,2.59,SEK,"https://www.scandichotelsgroup.com/files/Main/13379/4422204/scandic-q3-report-2026-en.pdf / Q3 2025 comparative, unadjusted diluted EPS"
+EMBRAC-B.ST,2025-09-30,,2026-11-11,manualDilutedEPS,-0.11,SEK,"https://storage.mfn.se/948e7aea-0a5b-4730-b16c-18b2f5f6d6f8/embracer-group-interim-report-q2-2026-27.pdf / July-September 2025 comparative, unadjusted total-Group diluted EPS"
+NEWA-B.ST,2025-09-30,,2026-11-11,manualDilutedEPS,1.25,SEK,"https://storage.mfn.se/848730ac-8dec-41ad-819f-d63c7d22ef54/q3-nwg-2026-sv-11-10-lq.pdf / July-September 2025 comparative, unadjusted total-Group diluted EPS"

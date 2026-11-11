@@ -777,6 +777,7 @@ EMBRAC-B.ST,2024-12-31,2025-02-13,2026-10-26,reportedEPS,0.97,SEK,Yahoo Finance 
 EMBRAC-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,36.26,SEK,Yahoo Finance / quarterlyDilutedEPS
 EMBRAC-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,-1.97,SEK,Yahoo Finance / quarterlyDilutedEPS
 EMBRAC-B.ST,2025-06-30,2025-08-14,2026-10-26,reportedEPS,-0.69,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2025-09-30,,2026-11-11,manualDilutedEPS,-0.11,SEK,"https://storage.mfn.se/948e7aea-0a5b-4730-b16c-18b2f5f6d6f8/embracer-group-interim-report-q2-2026-27.pdf / July-September 2025 comparative, unadjusted total-Group diluted EPS"
 EMBRAC-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,-0.1,SEK,Yahoo Finance / quarterlyDilutedEPS
 EMBRAC-B.ST,2025-09-30,2025-11-13,2026-10-26,reportedEPS,-0.67,SEK,Yahoo Finance / Reported EPS
 EMBRAC-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,6.82,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -785,6 +786,7 @@ EMBRAC-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,-32.08,SEK,Yahoo Finance 
 EMBRAC-B.ST,2026-03-31,2026-05-20,2026-10-26,reportedEPS,0.51,SEK,Yahoo Finance / Reported EPS
 EMBRAC-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.18,SEK,Yahoo Finance / quarterlyDilutedEPS
 EMBRAC-B.ST,2026-06-30,2026-08-13,2026-10-26,reportedEPS,1.03,SEK,Yahoo Finance / Reported EPS
+EMBRAC-B.ST,2026-09-30,2026-11-11,2026-11-11,manualDilutedEPS,0.7,SEK,https://storage.mfn.se/948e7aea-0a5b-4730-b16c-18b2f5f6d6f8/embracer-group-interim-report-q2-2026-27.pdf
 EPI-A.ST,2023-09-30,2023-10-27,2026-10-26,reportedEPS,1.86,SEK,Yahoo Finance / Reported EPS
 EPI-A.ST,2024-03-31,2024-04-23,2026-10-26,reportedEPS,1.74,SEK,Yahoo Finance / Reported EPS
 EPI-A.ST,2024-06-30,2024-07-19,2026-10-26,reportedEPS,1.9,SEK,Yahoo Finance / Reported EPS
@@ -1457,6 +1459,7 @@ NEWA-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.09,SEK,Yahoo Finance / qu
 NEWA-B.ST,2025-03-31,2025-04-24,2026-10-26,reportedEPS,1.09,SEK,Yahoo Finance / Reported EPS
 NEWA-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.26,SEK,Yahoo Finance / quarterlyDilutedEPS
 NEWA-B.ST,2025-06-30,2025-08-14,2026-10-26,reportedEPS,1.26,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2025-09-30,,2026-11-11,manualDilutedEPS,1.25,SEK,"https://storage.mfn.se/848730ac-8dec-41ad-819f-d63c7d22ef54/q3-nwg-2026-sv-11-10-lq.pdf / July-September 2025 comparative, unadjusted total-Group diluted EPS"
 NEWA-B.ST,2025-09-30,,2026-08-31,quarterlyDilutedEPS,1.2400000000000002,SEK,Yahoo Finance / derived from trailingDilutedEPS and quarterlyDilutedEPS / next-period TTM bridge
 NEWA-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,2.31,SEK,Yahoo Finance / quarterlyDilutedEPS
 NEWA-B.ST,2025-12-31,2026-02-05,2026-10-26,reportedEPS,2.31,SEK,Yahoo Finance / Reported EPS
@@ -1464,6 +1467,7 @@ NEWA-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.97,SEK,Yahoo Finance / qu
 NEWA-B.ST,2026-03-31,2026-04-23,2026-10-26,reportedEPS,0.97,SEK,Yahoo Finance / Reported EPS
 NEWA-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,1.52,SEK,Yahoo Finance / quarterlyDilutedEPS
 NEWA-B.ST,2026-06-30,2026-08-20,2026-10-26,reportedEPS,1.52,SEK,Yahoo Finance / Reported EPS
+NEWA-B.ST,2026-09-30,2026-11-11,2026-11-11,manualDilutedEPS,1.77,SEK,https://storage.mfn.se/848730ac-8dec-41ad-819f-d63c7d22ef54/q3-nwg-2026-sv-11-10-lq.pdf
 NIBE-B.ST,2023-09-30,2023-11-15,2026-10-26,reportedEPS,0.6,SEK,Yahoo Finance / Reported EPS
 NIBE-B.ST,2023-12-31,2024-02-16,2026-10-26,reportedEPS,0.49,SEK,Yahoo Finance / Reported EPS
 NIBE-B.ST,2024-03-31,2024-05-16,2026-10-26,reportedEPS,0.02,SEK,Yahoo Finance / Reported EPS
