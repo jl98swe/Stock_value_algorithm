@@ -249,8 +249,10 @@ a { color: inherit; }
 .marker-toggles label { cursor: pointer; white-space: nowrap; }
 .marker-toggles input { accent-color: var(--brand); vertical-align: middle; }
 .comparison-difference { font-size: 12px; font-weight: 700; color: var(--brand); }
-.trade-win { background: #e7f5eb; }
-.trade-loss { background: #fcebec; }
+.trade-win { background: #c7e8d0; }
+.trade-loss { background: #f4c9cd; }
+#trades-table .trade-win td:nth-child(6) { color: #126c45; font-weight: 700; }
+#trades-table .trade-loss td:nth-child(6) { color: #a92332; font-weight: 700; }
 .trade-flat { background: #f1f3f4; }
 .legend-swatch { width: 8px; height: 8px; display: inline-block; border-radius: 50%; margin-right: 5px; }
 .legend-buy { background: var(--green); }
