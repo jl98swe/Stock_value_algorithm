@@ -1,8 +1,74 @@
 {
-  "generated_at": "2026-11-10T23:20:05+01:00",
+  "generated_at": "2026-11-12T00:28:26+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/munters-group",
   "items": [
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-11-11T18:00:00+01:00",
+      "title": "Munters CMD 2026: Expanding position in precision climate control",
+      "link": "https://mfn.se/cis/a/munters-group/munters-cmd-2026-expanding-position-in-precision-climate-control-41a3841b",
+      "source": "MFN",
+      "summary": "Munters CMD 2026: Expanding position in precision climate control 2026-11-11 18:00:00 Stockholm, Sweden, Nov 11, 2026 - Munters Group today at a Capital Markets Day presented its strategic direction for the coming years: To build on its leadership in precision climate control and expand its position across selected parts of the applied HVAC market, by leveraging its strong portfolio of solutions for humidity, thermal and air quality control. Munters as a whole will sharpen its focus on climate control. Following a potential divestment of the FoodTech business area (as communicated on 16 June), the company will have three main application area",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cb109c955125bfc7"
+    },
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-11-11T12:00:00+01:00",
+      "title": "Munters Group AB: Munters announces investments to strengthen data center supply chain and capacity",
+      "link": "https://mfn.se/cis/a/munters-group/munters-group-ab-munters-announces-investments-to-strengthen-data-center-supply-chain-and-capacity-c1dd0607",
+      "source": "MFN",
+      "summary": "Munters Group AB: Munters announces investments to strengthen data center supply chain and capacity 2026-11-11 12:00:00 Munters Group today announced it has entered into an agreement with Lordan, a producer of high-quality fin and tube heat exchangers, to establish a joint venture for coil manufacturing in the US. The company also said it plans to expand its facility for chiller production in Italy. US joint venture Munters will invest MUSD 9.5 (approximately MSEK 90) and hold 45% in the joint venture company, with Lordan holding the remaining 55%. The joint venture will now proceed to establish a facility for coil manufacturing near Munters ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0b9b0928b80304fa"
+    },
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-11-11T08:30:00+01:00",
+      "title": "Munters Group AB: Munters uppdaterar sina finansiella mål",
+      "link": "https://mfn.se/cis/a/munters-group/munters-group-ab-munters-uppdaterar-sina-finansiella-mal-214ccaac",
+      "source": "MFN",
+      "summary": "Munters Group AB: Munters uppdaterar sina finansiella mål 2026-11-11 08:30:00 Stockholm, 11 november 2026 - Munters Group, en global ledare inom teknologier som optimerar klimat, presenterar i dag vid en kapitalmarknadsdag uppdaterade finansiella mål, inklusive ett modifierat marginalmål och ett nytt mål för avkastning på sysselsatt kapital (ROCE). Munters behåller samtidigt sitt mål för genomsnittlig årlig tillväxt. Munters finansiella mål på medellång sikt (3-5 år): Genomsnittlig årlig total tillväxt i nettoomsättningen på mer än 14 procent (oförändrat mål) Justerad EBITA-marginal över 14% (oförändrad målnivå; ny EBITA-definition*) Justerad",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0a0ab4cf9d355490"
+    },
     {
       "ticker": "MTRS.ST",
       "company": "Munters Group AB (publ)",

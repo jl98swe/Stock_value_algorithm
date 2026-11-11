@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-10T23:20:27+01:00",
+  "generated_at": "2026-11-12T00:28:49+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/proact-it-group",
-  "items": []
+  "items": [
+    {
+      "ticker": "PACT.ST",
+      "company": "Proact IT Group AB (publ)",
+      "published_at": "2026-11-11T08:20:00+01:00",
+      "title": "Proact introducerar nya finansiella mål för 2030",
+      "link": "https://mfn.se/a/proact-it-group/proact-introducerar-nya-finansiella-mal-for-2030",
+      "source": "MFN",
+      "summary": "Proact introducerar nya finansiella mål för 2030 2026-11-11 08:20:00 Proact IT Group AB (publ) presenterar idag nya finansiella mål för 2030 vid bolagets kapitalmarknadsdag i Stockholm. Med fokus på organisk tillväxt, operationell effektivitet och selektiva förvärv är målet att fördubbla justerat resultat per aktie jämfört med 2025. Proact är en betrodd europeisk partner som levererar samhälls- och affärskritisk datainfrastruktur till företag och organisationer. Växande datamängder, AI och ökade krav på säkerhet och regelefterlevnad driver efterfrågan, och med närvaro i 12 länder är Proact väl positionerat för ökad tillväxt, fortsatt god löns",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "744fb93d89099b78"
+    }
+  ]
 }

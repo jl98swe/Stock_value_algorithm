@@ -1,7 +1,95 @@
 {
-  "generated_at": "2026-11-10T23:22:04+01:00",
+  "generated_at": "2026-11-12T00:30:39+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "MTRS.ST",
+      "company": "Munters Group AB (publ)",
+      "published_at": "2026-11-11T12:00:00+01:00",
+      "title": "Munters Group AB: Munters investerar i att stärka försörjningskedjan och kapaciteten till datacenter",
+      "link": "https://mfn.se/cis/a/munters-group/munters-group-ab-munters-investerar-i-att-starka-forsorjningskedjan-och-kapaciteten-till-datacenter-b5077326",
+      "source": "MFN",
+      "summary": "Munters Group AB: Munters investerar i att stärka försörjningskedjan och kapaciteten till datacenter 2026-11-11 12:00:00 Munters Group har ingått ett avtal med Lordan, en tillverkare av högkvalitativa rör- och lamellvärmeväxlare, om att bilda ett joint venture för tillverkning av värmeväxlarslingor i USA. Munters meddelade även att bolaget avser utöka sin fabrik för chillers i Italien. Joint venture i USA Munters investerar 9,5 MUSD (cirka 90 MSEK) och kommer att äga 45 procent av det gemensamma bolaget, medan Lordan äger resterande 55 procent. Det gemensamma bolaget går nu vidare med att etablera en anläggning för tillverkning av slingorna i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "01083b82908e3eec"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-11-11T08:45:00+01:00",
+      "title": "Saab får order på avancerade träningssystem från Danmark",
+      "link": "https://mfn.se/cis/a/saab/saab-far-order-pa-avancerade-traningssystem-fran-danmark-8ffff141",
+      "source": "MFN",
+      "summary": "Saab får order på avancerade träningssystem från Danmark 2026-11-11 08:45:00 Saab har fått en order på ytterligare träningsutrustning från danska försvarets inköps- och logistikorganisation (DALO). Detta stärker Danmarks förmåga att träna för det moderna slagfältet. Ordervärdet är 350 miljoner kronor och leveranser kommer att ske 2026-2028. Dagens stridsmiljöer förändras snabbt. Drönare, långräckviddiga precisionsvapen och nya sätt att genomföra militära uppdrag ställer nya krav på hur försvarsmakter utbildar och förbereder sina förband. Ordern stärker Danmarks förmåga att träna i realistiska miljöer som speglar denna utveckling och gör det m",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "93334a28d0a3c323"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-11-11T08:30:00+01:00",
+      "title": "Attendo tecknar avtal om nytt äldreboende med 102 platser i Täby",
+      "link": "https://mfn.se/a/attendo/attendo-tecknar-avtal-om-nytt-aldreboende-med-102-platser-i-taby",
+      "source": "MFN",
+      "summary": "Attendo tecknar avtal om nytt äldreboende med 102 platser i Täby 2026-11-11 08:30:00 Attendo har tecknat ett 15-årigt hyresavtal med fastighetsägaren Resona Holding om ett nytt äldreboende i Roslags Näsby i Täby, norr om Stockholm. Boendet får 102 lägenheter för äldre med behov av demensomsorg och somatisk vård. Det beräknas öppna under 2028. Det nya äldreboendet blir ett tillskott till äldreomsorgen i Täby, där behovet av omsorgsplatser väntas öka i takt med att befolkningen blir äldre. Boendet får ett centralt läge i Roslags Näsby, med närhet till Roslagsbanan, service och Täby centrum. Läget gör det enkelt för närstående att hälsa på och f",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ec03ce3fa73fd659"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-11T08:00:00+01:00",
+      "title": "Mycronic erhåller order på en Prexision 8 Evo",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-en-prexision-8-evo-5",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på en Prexision 8 Evo 2026-11-11 08:00:00 Mycronic AB (publ) har erhållit en inbytesorder på en Prexision 8 Evo från en befintlig kund i Asien. Ordervärdet ligger i intervallet 21-24 MUSD. Systemet är planerat att levereras under det fjärde kvartalet 2027. Maskritaren Prexision 8 Evo tillgodoser marknadens krav på komplexa mönster gällande fotomasker för bildskärmar. ”Mycronics inbytesprogram fortsätter stödja kunden vid moderniseringen av sin maskinpark och vi är både glada och tacksamma för det uppvisade förtroendet vid uppgraderingen av kundens maskritare”, säger Mikael Wahlsten, Sr VP Pattern Generators på Mycronic",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b63c8061ad26c530"
+    },
     {
       "ticker": "LOOMIS.ST",
       "company": "Loomis AB (publ)",

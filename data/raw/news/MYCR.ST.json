@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T23:20:06+01:00",
+  "generated_at": "2026-11-12T00:28:28+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/mycronic",
   "items": [
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-11T08:00:00+01:00",
+      "title": "Mycronic receives order for a Prexision 8 Evo",
+      "link": "https://mfn.se/a/mycronic/mycronic-receives-order-for-a-prexision-8-evo-5",
+      "source": "MFN",
+      "summary": "Mycronic receives order for a Prexision 8 Evo 2026-11-11 08:00:00 Mycronic AB (publ) has received a replacement order for a Prexision 8 Evo from an existing customer in Asia. The order value is in the range of USD 21-24 million. Delivery of the system is planned for the fourth quarter of 2027. The Prexision 8 Evo mask writer meets the market’s requirements regarding complex patterns for display photomasks. “Mycronic’s trade-in program continues to support the customer in modernizing its installed base, and we are both pleased and grateful for the trust shown in us, as the customer upgrades its mask writers”, says Mikael Wahlsten, Sr VP Patter",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0417fadffd2d0d00"
+    },
     {
       "ticker": "MYCR.ST",
       "company": "Mycronic AB (publ)",

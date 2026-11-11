@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-10T23:22:04+01:00",
+  "generated_at": "2026-11-12T00:30:39+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/zinzino",
-  "items": []
+  "items": [
+    {
+      "ticker": "ZZ-B.ST",
+      "company": "Zinzino AB (publ)",
+      "published_at": "2026-11-11T15:30:00+01:00",
+      "title": "ZINZINO AB (PUBL.): Zinzino förvärvar Uzesta för ökad distributionskraft i APAC-regionen",
+      "link": "https://mfn.se/cis/a/zinzino/zinzino-ab-publ-zinzino-forvarvar-uzesta-for-okad-distributionskraft-i-apac-regionen-ccb85a38",
+      "source": "MFN",
+      "summary": "ZINZINO AB (PUBL.): Zinzino förvärvar Uzesta för ökad distributionskraft i APAC-regionen 2026-11-11 15:30:00 Zinzino har idag via ett inkråmsförvärv övertagit rättigheterna till USA-baserade direktförsäljningsbolaget Uzestas Global LLC:s distributörsdatabas och tillhörande kundregister, varulager och IP-rättigheter via bolagets dotterbolag i Taiwan, Hongkong och Thailand. Detta är ytterligare ett strategiskt viktigt steg i Zinzinos tillväxtplaner med fokus på att förbättra personlig hälsa och välbefinnande på global nivå med nyskapande bioteknik och en banbrytande produktportfölj som marknadsförs genom direktförsäljning . Uzesta är ett direkt",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "548ac3cd6a1595d5"
+    }
+  ]
 }

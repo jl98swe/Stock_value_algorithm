@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-10T23:20:41+01:00",
+  "generated_at": "2026-11-12T00:29:03+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/saab",
   "items": [
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-11-11T08:45:00+01:00",
+      "title": "Saab receives order for advanced live training systems from Denmark",
+      "link": "https://mfn.se/cis/a/saab/saab-receives-order-for-advanced-live-training-systems-from-denmark-ec6519f7",
+      "source": "MFN",
+      "summary": "Saab receives order for advanced live training systems from Denmark 2026-11-11 08:45:00 Saab has received an order from the Danish Defence Acquisition and Logistics Organisation for additional live training equipment, further strengthening Denmark's ability to train for the realities of modern warfare. The order value is SEK 350 million and deliveries will take place 2026-2028. Modern battlefields are changing rapidly, with drones, long-range precision effects and new ways of operating reshaping how armed forces need to prepare. The new order expands Denmark's live training capability to reflect these developments, allowing soldiers and units",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "080dfd01a522417b"
+    },
     {
       "ticker": "SAAB-B.ST",
       "company": "Saab AB (publ)",
