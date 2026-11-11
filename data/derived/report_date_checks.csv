@@ -528,3 +528,10 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-11-11,NEWA-B.ST,2026-Q3,0,2026-11-11,,manual_date_preserved,
 2026-11-11,PEAB-B.ST,2026-Q3,14,2026-10-28,2026-10-28,calendar_date_preserved,MFN / bolagets rapportkalender
 2026-11-11,SINT.ST,2026-Q3,7,2026-11-04,2026-11-04,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,BOL.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,EQL.ST,2026-Q3,7,2026-11-05,2026-11-05,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,HUFV-A.ST,2026-Q3,7,2026-11-05,2026-11-05,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,MTG-B.ST,2026-Q3,7,2026-11-05,2026-11-05,calendar_date_preserved,Börskollen / rapportkalender
+2026-11-12,NOLA-B.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,SWEC-A.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-12,SWEC-B.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
