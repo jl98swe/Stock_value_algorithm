@@ -731,21 +731,24 @@
     "anchor": "2026-10-28",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "EPI-B.ST|2026-Q3": {
     "anchor": "2026-10-28",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "PEAB-B.ST|2026-Q3": {
     "anchor": "2026-10-28",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "BOL.ST|2026-Q3": {
@@ -800,13 +803,15 @@
   "CIBUS.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "CLA-B.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "EQL.ST|2026-Q3": {
@@ -824,19 +829,22 @@
   "KAMBI.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "LUMI.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MCOV-B.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "MTG-B.ST|2026-Q3": {
@@ -848,7 +856,8 @@
   "SINT.ST|2026-Q3": {
     "anchor": "2026-11-04",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "HUFV-A.ST|2026-Q3": {
@@ -873,7 +882,8 @@
     "anchor": "2026-10-28",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "GENO.ST|2026-Q3": {
@@ -884,6 +894,18 @@
   },
   "SHOT.ST|2026-Q3": {
     "anchor": "2026-11-10",
+    "completed": [
+      0
+    ]
+  },
+  "EMBRAC-B.ST|2026-Q3": {
+    "anchor": "2026-11-11",
+    "completed": [
+      0
+    ]
+  },
+  "NEWA-B.ST|2026-Q3": {
+    "anchor": "2026-11-11",
     "completed": [
       0
     ]

@@ -1,6 +1,9 @@
 {
-  "checked_at": "2026-11-10",
-  "counts": {},
+  "checked_at": "2026-11-11",
+  "counts": {
+    "calendar_date_preserved": 8,
+    "manual_date_preserved": 4
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -667,7 +670,9 @@
     "AZN.ST",
     "BALD-B.ST",
     "FOI-B.ST",
-    "LUMI.ST"
+    "GENO.ST",
+    "LUMI.ST",
+    "SHOT.ST"
   ],
   "calendar_source_conflicts": [
     {
