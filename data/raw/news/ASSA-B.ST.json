@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-12T00:25:22+01:00",
+  "generated_at": "2026-11-12T23:45:32+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/assa-abloy",
   "items": [
+    {
+      "ticker": "ASSA-B.ST",
+      "company": "Assa Abloy",
+      "published_at": "2026-11-12T08:00:00+01:00",
+      "title": "ASSA ABLOY förvärvar Rometal i Brasilien",
+      "link": "https://mfn.se/cis/a/assa-abloy/assa-abloy-forvarvar-rometal-i-brasilien-4fb70837",
+      "source": "MFN",
+      "summary": "ASSA ABLOY förvärvar Rometal i Brasilien 2026-11-12 08:00:00 ASSA ABLOY har tecknat avtal om förvärv av Rometal, en brasiliansk tillverkare av aluminiumlösningar och tillbehör, däribland system för innerdörrar, skåpdörrar, karmar och handtag. \"Det är med glädje jag välkomnar Rometal till ASSA ABLOY. Detta förvärv ligger i linje med vår strategi att stärka vår position på tillväxtmarknader genom att tillföra kompletterande produkter och lösningar till vår kärnverksamhet\", säger Nico Delvaux, VD och koncernchef ASSA ABLOY. \"Rometal har byggt en stark verksamhet med ett gott anseende för innovativa lösningar av hög kvalitet som kombinerar funkti",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "553598f51a6a184c"
+    },
     {
       "ticker": "ASSA-B.ST",
       "company": "Assa Abloy",

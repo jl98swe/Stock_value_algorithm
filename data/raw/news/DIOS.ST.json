@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-12T00:26:31+01:00",
+  "generated_at": "2026-11-12T23:46:32+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/dios",
-  "items": []
+  "items": [
+    {
+      "ticker": "DIOS.ST",
+      "company": "Diös Fastigheter",
+      "published_at": "2026-11-12T12:00:00+01:00",
+      "title": "Correctional facility project in Östersund cancelled and Diös’ sale of the project reversed",
+      "link": "https://mfn.se/a/dios/correctional-facility-project-in-ostersund-cancelled-and-dios-sale-of-the-project-reversed",
+      "source": "MFN",
+      "summary": "Correctional facility project in Östersund cancelled and Diös’ sale of the project reversed 2026-11-12 12:00:00 The Swedish Prison and Probation Service has announced that it will not proceed with the 15-year lease agreement for the planned Category 2 correctional facility on Frösön in Östersund. As a result, Diös’ SEK 117.5 million sale of the project property to Stenvalvet, announced on 12 February 2026, will be reversed and the project cancelled. The sale was conditional upon the lease agreement remaining valid. As the condition relating to the building permit has not been fulfilled and the deadline has expired, the Swedish Prison and Prob",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "70d24da65ae81a73"
+    }
+  ]
 }

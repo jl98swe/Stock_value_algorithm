@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-12T00:28:50+01:00",
+  "generated_at": "2026-11-12T23:48:36+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-12T08:00:00+01:00",
+      "title": "Peab builds the E22 Söderköping Bypass",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-the-e22-soderkoping-bypass-254564d9",
+      "source": "MFN",
+      "summary": "Peab builds the E22 Söderköping Bypass 2026-11-12 08:00:00 Peab has been commissioned to build the E22 Söderköping Bypass. The customer is the Swedish Transport Administration, and the project will be implemented as Sweden's first alliance contract in the civil engineering industry. The contract is worth SEK 2.2 billion. The new bypass is a long road of just over 10 km that will steer through traffic along the E22 southwest of Söderköping. The project also includes a new aqueduct on the Göta Canal, four interchanges and twelve bridges. The Söderköping bypass will be a safer road separated with a center guardrail that is planned to open for tr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "65ae76101653e4a1"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

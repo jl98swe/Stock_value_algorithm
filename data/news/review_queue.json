@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-11-12T00:30:39+01:00",
+  "generated_at": "2026-11-12T23:49:59+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "MTG-B.ST",
+      "company": "Modern Times Group MTG AB",
+      "published_at": "2026-11-12T13:00:00+01:00",
+      "title": "Nimbus Sport Tender 35 till boot Düsseldorf med två stora internationella prisnomineringar",
+      "link": "https://mfn.se/a/nimbus-group/nimbus-sport-tender-35-till-boot-dusseldorf-med-tva-stora-internationella-prisnomineringar",
+      "source": "MFN",
+      "summary": "Nimbus Sport Tender 35 till boot Düsseldorf med två stora internationella prisnomineringar 2026-11-12 13:00:00 Nimbus Sport Tender 35 kommer till boot Düsseldorf 2027 med nomineringar till två stora internationella utmärkelser inom båtbranschen: European Powerboat of the Year 2027 och 2027 Motor Boat Awards. Efter lanseringen 2026 har den första modellen i den nya Sport Cruiser 35-serien uppmärksammats av två separata internationella jurygrupper. Sport Tender 35 nominerades tidigare i år till European Powerboat of the Year i kategorin 10 till 14 meter och har nu även utsetts till finalist för Motor Boat Awards i kategorin Weekender (open). ”V",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "eb893c34691e1eab"
+    },
+    {
+      "ticker": "GETI-B.ST",
+      "company": "Getinge AB (publ)",
+      "published_at": "2026-11-12T12:30:00+01:00",
+      "title": "Getinge etablerar ramverk för hållbar finansiering",
+      "link": "https://mfn.se/cis/a/getinge/getinge-etablerar-ramverk-for-hallbar-finansiering-fc67ab29",
+      "source": "MFN",
+      "summary": "Getinge etablerar ramverk för hållbar finansiering 2026-11-12 12:30:00 Getinge har etablerat ett ramverk för hållbar finansiering (Sustainable Financing Framework), som anger de principer och kriterier som gäller för medicinteknikbolagets gröna eller sociala hållbarhetsfinansiering för kvalificerade projekt med miljömässiga och/eller sociala fördelar. Sustainable Fitch har gjort en oberoende granskning av ramverket, som gav betyget \"Excellent\" för användning av medel, utvärdering och urval av projekt samt rapportering och transparens, och \"Good\" för hantering av medel. Svenska Handelsbanken AB (publ) (SHB) har varit rådgivare i utvecklingen a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cb1adf2a5ace6a19"
+    },
+    {
+      "ticker": "DIOS.ST",
+      "company": "Diös Fastigheter",
+      "published_at": "2026-11-12T12:00:00+01:00",
+      "title": "Anstaltsprojektet i Östersund avbryts och Diös försäljning av projektet återgår",
+      "link": "https://mfn.se/a/dios/anstaltsprojektet-i-ostersund-avbryts-och-dios-forsaljning-av-projektet-atergar",
+      "source": "MFN",
+      "summary": "Anstaltsprojektet i Östersund avbryts och Diös försäljning av projektet återgår 2026-11-12 12:00:00 Kriminalvården har meddelat att de inte fullföljer det 15-åriga hyresavtalet för den planerade klass 2-anstalten på Frösön i Östersund. Därmed återgår Diös försäljning av projektfastigheten till Stenvalvet om 117,5 mkr, som offentliggjordes den 12 februari 2026, och projektet avbryts. Försäljningen var villkorad av hyresavtalets giltighet. Då villkoret för bygglov inte är uppfyllt och tidsfristen löpt ut har Kriminalvården valt att inte gå vidare med hyresavtalet vilket innebär att affären inte genomförs. Beskedet medför en negativ orealiserad ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1b2a0894a702f7a4"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-12T08:30:00+01:00",
+      "title": "Rejlers awarded further contract in the development of Gävle Hospital",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-awarded-further-contract-in-the-development-of-gavle-hospital-1f7c2264",
+      "source": "MFN",
+      "summary": "Rejlers awarded further contract in the development of Gävle Hospital 2026-11-12 08:30:00 Rejlers has won a new contract for ByggPartner, where the end customer is Region Gävleborg in heating, sanitation and ventilation in connection with the extensive renovation and expansion of Gävle Hospital. Rejlers has previously participated in the design and will now continue to be trusted as the project moves forward in the construction phase. The assignment is part of Framtidsbygget, which will create modern healthcare facilities and better conditions for patients and healthcare staff. The assignment includes phase 2 in heating and sanitation as well",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f1c73a19a9fc6c77"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-12T08:30:00+01:00",
+      "title": "Rejlers får fortsatt förtroende i utvecklingen av framtidens sjukvård i Gävle",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-far-fortsatt-fortroende-i-utvecklingen-av-framtidens-sjukvard-i-gavle-2ee62b14",
+      "source": "MFN",
+      "summary": "Rejlers får fortsatt förtroende i utvecklingen av framtidens sjukvård i Gävle 2026-11-12 08:30:00 Rejlers har vunnit ett nytt uppdrag åt ByggPartner där slutkund är Region Gävleborg inom värme, sanitet och ventilation i samband med den omfattande om- och utbyggnaden av Gävle sjukhus. Rejlers har tidigare medverkat i projekteringen och får nu fortsatt förtroende när projektet går vidare i byggfasen. Uppdraget är en del av Framtidsbygget, som ska skapa moderna vårdlokaler och bättre förutsättningar för patienter och vårdpersonal. Uppdraget omfattar fas 2 inom värme och sanitet samt luftbehandling i Hus 29. Genom kunskapen från den tidigare proj",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "39909067f53af596"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-12T08:00:00+01:00",
+      "title": "Peab bygger E22 Förbifart Söderköping",
+      "link": "https://mfn.se/cis/a/peab/peab-bygger-e22-forbifart-soderkoping-27118689",
+      "source": "MFN",
+      "summary": "Peab bygger E22 Förbifart Söderköping 2026-11-12 08:00:00 Peab har fått uppdraget att bygga E22 Förbifart Söderköping. Beställare är Trafikverket och projektet genomförs som Sveriges första allianskontrakt inom anläggningsbranschen. Kontraktssumman uppgår till 2,2 miljarder svenska kronor. Den nya förbifarten är en lång väg på drygt en mil, som ska leda genomfartstrafiken längs E22 sydväst om Söderköping. Projektet omfattar även en ny akvedukt vid Göta kanal, fyra trafikplatser och tolv broar. Förbifart Söderköping blir en säkrare och mötesfri väg som planeras att öppna för trafik sommaren 2030. Projektet genomförs enligt en alliansmodell som",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b8e7d2ac9c0d93c9"
+    },
     {
       "ticker": "MTRS.ST",
       "company": "Munters Group AB (publ)",

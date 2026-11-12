@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-12T00:27:43+01:00",
+  "generated_at": "2026-11-12T23:47:41+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/indutrade",
   "items": [
+    {
+      "ticker": "INDT.ST",
+      "company": "Indutrade AB (publ)",
+      "published_at": "2026-11-12T13:00:00+01:00",
+      "title": "Indutrade förvärvar Acoma – specialist inom förbrukningsvaror för industriellt tryck",
+      "link": "https://mfn.se/a/indutrade/indutrade-forvarvar-acoma-specialist-inom-forbrukningsvaror-for-industriellt-tryck",
+      "source": "MFN",
+      "summary": "Indutrade förvärvar Acoma – specialist inom förbrukningsvaror för industriellt tryck 2026-11-12 13:00:00 Indutrade har tecknat avtal om förvärv av samtliga aktier i det italienska bolaget Acoma S.r.l., www.acomasrl.com , med en årsomsättning om cirka 130 miljoner SEK. Acoma är en specialiserad tillverkare av tryckdukar och lackdukar för den globala marknaden för industriellt tryck. Produkterna används främst i förpackningsapplikationer inom bland annat livsmedelsindustrin, läkemedelsindustrin och tillverkningsindustrin. Bolaget har en diversifierad kundbas som bland annat omfattar industriella distributörer och tillverkare av tryckmaterial. A",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a481bb9a2fe8a70a"
+    },
     {
       "ticker": "INDT.ST",
       "company": "Indutrade AB (publ)",
