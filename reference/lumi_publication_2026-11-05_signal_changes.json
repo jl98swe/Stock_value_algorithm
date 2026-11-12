@@ -1428,8 +1428,8 @@
       "execution_date": "2026-02-23",
       "execution_price": 258.0,
       "lot_id": "LUMI-ST-lot-11",
-      "quantity": 0.0074931184514033435,
-      "commission_fee": 0.0048330614011551564,
+      "quantity": 0.007493154870576712,
+      "commission_fee": 0.004833084891521979,
       "date": "2026-02-20"
     }
   },
@@ -1612,8 +1612,8 @@
       "execution_date": "2026-08-06",
       "execution_price": 256.299987792969,
       "lot_id": "LUMI-ST-lot-11",
-      "quantity": 0.0074931184514033435,
-      "commission_fee": 0.004801215419064869,
+      "quantity": 0.007493154870576712,
+      "commission_fee": 0.004801238754649093,
       "date": "2026-08-05"
     }
   },
@@ -1650,8 +1650,8 @@
       "execution_date": "2026-09-16",
       "execution_price": 227.1999969482422,
       "lot_id": "LUMI-ST-lot-12",
-      "quantity": 0.008423270018338192,
-      "commission_fee": 0.004784417306151643,
+      "quantity": 0.008423374830209274,
+      "commission_fee": 0.004784476839293617,
       "date": "2026-09-15"
     }
   },
@@ -1764,8 +1764,8 @@
       "execution_date": "2026-11-03",
       "execution_price": 206.3000030517578,
       "lot_id": "LUMI-ST-lot-20",
-      "quantity": 0.0046587550547217815,
-      "commission_fee": 0.002402752955016239,
+      "quantity": 0.004658774776269571,
+      "commission_fee": 0.0024027631264046624,
       "date": "2026-11-03"
     }
   },
@@ -1789,8 +1789,8 @@
       "execution_date": "2026-11-05",
       "execution_price": 204.47999725341796,
       "lot_id": "LUMI-ST-lot-24",
-      "quantity": 0.0062004486694051085,
-      "commission_fee": 0.0031696693172247894,
+      "quantity": 0.006200479087927081,
+      "commission_fee": 0.003169684867173012,
       "date": "2026-11-05"
     }
   },
