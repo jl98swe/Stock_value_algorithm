@@ -1,6 +1,8 @@
 {
-  "checked_at": "2026-11-12",
-  "counts": {},
+  "checked_at": "2026-11-13",
+  "counts": {
+    "calendar_date_preserved": 4
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",
@@ -671,6 +673,7 @@
     "GENO.ST",
     "LUMI.ST",
     "NEWA-B.ST",
+    "SFAST.ST",
     "SHOT.ST"
   ],
   "calendar_source_conflicts": [

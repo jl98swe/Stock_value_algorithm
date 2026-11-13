@@ -536,3 +536,7 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-11-12,SWEC-A.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
 2026-11-12,SWEC-B.ST,2026-Q3,14,2026-10-29,2026-10-29,calendar_date_preserved,MFN / bolagets rapportkalender
 2026-11-12,SFAST.ST,2026-Q3,0,2026-11-12,,manual_date_preserved,
+2026-11-13,ATT.ST,2026-Q3,7,2026-11-06,2026-11-06,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-13,AZN.ST,2026-Q3,14,2026-10-30,2026-10-30,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-13,BTS-B.ST,2026-Q3,7,2026-11-06,2026-11-06,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-13,LOOMIS.ST,2026-Q3,14,2026-10-30,2026-10-30,calendar_date_preserved,MFN / bolagets rapportkalender
