@@ -1,7 +1,95 @@
 {
-  "generated_at": "2026-11-12T23:49:59+01:00",
+  "generated_at": "2026-11-13T23:34:36+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-13T12:46:21+01:00",
+      "title": "AstraZeneca: Baxfendy (baxdrostat) recommended for approval in the EU for the treatment of adults with hypertension",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-baxfendy-baxdrostat-recommended-for-approval-in-the-eu-for-the-treatment-of-adults-with-hypertension-eaa7e44e",
+      "source": "MFN",
+      "summary": "AstraZeneca: Baxfendy (baxdrostat) recommended for approval in the EU for the treatment of adults with hypertension 2026-11-13 12:46:21 Based on Phase III results showing statistically significant and clinically meaningful reductions in systolic blood pressure in patients with uncontrolled or resistant hypertension. Baxfendy 2mg lowered office systolic blood pressure by 15.7 mmHg from baseline in BaxHTN trial and 24-hour ambulatory systolic blood pressure by 16.6 mmHg from baseline in Bax24 trial. If approved, Baxfendy will be the first and only aldosterone synthase inhibitor in the EU. AstraZeneca's Baxfendy (baxdrostat) has been recommended",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cff7bcc6577cfb87"
+    },
+    {
+      "ticker": "WALL-B.ST",
+      "company": "Wallenstam AB (publ)",
+      "published_at": "2026-11-13T08:08:00+01:00",
+      "title": "Sergelskrapans nya uttryck tar form - 60-talsarkitekturen möter framtidens premiumkontor",
+      "link": "https://mfn.se/cis/a/wallenstam/sergelskrapans-nya-uttryck-tar-form-60-talsarkitekturen-moter-framtidens-premiumkontor-801e5172",
+      "source": "MFN",
+      "summary": "Sergelskrapans nya uttryck tar form - 60-talsarkitekturen möter framtidens premiumkontor 2026-11-13 08:08:00 Utvecklingen av Sergelskrapan i Stockholm går in i nästa fas. I januari nästa år planeras monteringen av den nya fasaden att starta, samtidigt som 18 kontorsplan utvecklas till kontorsmiljöer i premiumsegmentet. Inflyttning är planerad till första kvartalet 2028. - Vår ambition är tydlig: Sergelskrapan ska vara en av Stockholms främsta kontorsfastigheter. Därför lägger vi stor kraft på kvaliteten i varje del, från fasaden och entrén till de nya kontorsmiljöerna. För företag som etablerar sig här ska både adressen och arbetsplatsen erbj",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5a19e1cff9b371fc"
+    },
+    {
+      "ticker": "DIOS.ST",
+      "company": "Diös Fastigheter",
+      "published_at": "2026-11-13T08:00:00+01:00",
+      "title": "Diös selected to develop new courthouse in Sundsvall",
+      "link": "https://mfn.se/a/dios/dios-selected-to-develop-new-courthouse-in-sundsvall",
+      "source": "MFN",
+      "summary": "Diös selected to develop new courthouse in Sundsvall 2026-11-13 08:00:00 Diös has been awarded the assignment to develop a new courthouse for the Swedish National Courts Administration on Skepparegatan in central Sundsvall following a public procurement process under the Swedish Public Procurement Act (LOU). The planned 15-year lease is subject to government approval before signing. The building will comprise approximately 6,500 square metres on the Noten 10 property, adjacent to Clarion Hotel Sundsvall. Following a judicial review, the procurement decision has now become final and legally binding. The Swedish National Courts Administration i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a929a84692525f66"
+    },
+    {
+      "ticker": "ESSITY-B.ST",
+      "company": "Essity B",
+      "published_at": "2026-11-13T08:00:00+01:00",
+      "title": "Essity investerar i ökad produktionskapacitet för Tork i Lilla Edet",
+      "link": "https://mfn.se/cis/a/essity/essity-investerar-i-okad-produktionskapacitet-for-tork-i-lilla-edet-b426b7fa",
+      "source": "MFN",
+      "summary": "Essity investerar i ökad produktionskapacitet för Tork i Lilla Edet 2026-11-13 08:00:00 Hygien- och hälsobolaget Essity investerar cirka 850 miljoner kronor i en ny mjukpappersmaskin vid produktionsanläggningen i Lilla Edet. Investeringen, som sker under en treårsperiod, skapar bättre förutsättningar för Essity att möta framtida efterfrågan och säkerställa en fortsatt stabil produktion inom affärsområdet Professional Hygiene och det globala varumärket Tork. Den nya mjukpappersmaskinen, som beräknas tas i drift under fjärde kvartalet 2028, ger ökad flexibilitet i produktionen och kan tillverka olika typer av mjukpappersprodukter, såsom pappers",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d27f28f0f8da58e6"
+    },
     {
       "ticker": "MTG-B.ST",
       "company": "Modern Times Group MTG AB",

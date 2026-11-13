@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-12T23:46:22+01:00",
+  "generated_at": "2026-11-13T23:30:38+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/cibus-real-estate",
   "items": [
+    {
+      "ticker": "CIBUS.ST",
+      "company": "Cibus Real Estate",
+      "published_at": "2026-11-13T07:30:00+01:00",
+      "title": "Cibus acquires properties from Coop Väst in Sweden for EUR 36.0 million and extends existing leases with Coop",
+      "link": "https://mfn.se/beq/a/cibus-real-estate/cibus-acquires-properties-from-coop-vast-in-sweden-for-eur-36-0-million-and-extends-existing-leases-with-coop-226fc660",
+      "source": "MFN",
+      "summary": "Cibus acquires properties from Coop Väst in Sweden for EUR 36.0 million and extends existing leases with Coop 2026-11-13 07:30:00 Cibus Real Estate AB (publ) (\"Cibus\") has signed an agreement to acquire 13 properties in Sweden and has simultaneously extended 17 leases with Coop in its existing portfolio. Cibus has signed an agreement to acquire 13 grocery store properties let to Coop Väst. The total investment amounts to EUR 36.0 million, with annual rental income of EUR 2.4 million. Coop Väst accounts for approximately 92 per cent of the rental income and has signed new 12-year triple-net leases for all stores. The properties are fully let a",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "08eb0fb7ec489f98"
+    },
     {
       "ticker": "CIBUS.ST",
       "company": "Cibus Real Estate",

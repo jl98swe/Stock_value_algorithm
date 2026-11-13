@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-12T23:45:50+01:00",
+  "generated_at": "2026-11-13T23:30:01+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/bahnhof",
   "items": [
+    {
+      "ticker": "BAHN-B.ST",
+      "company": "Bahnhof",
+      "published_at": "2026-11-13T08:10:00+01:00",
+      "title": "Uttalande från Bahnhof AB (publ):s oberoende kommitté med anledning av Telenor Sverige AB:s budpliktsbud",
+      "link": "https://mfn.se/cis/a/bahnhof/uttalande-fran-bahnhof-ab-publ-s-oberoende-kommitte-med-anledning-av-telenor-sverige-ab-s-budpliktsbud-19bb68ef",
+      "source": "MFN",
+      "summary": "Uttalande från Bahnhof AB (publ):s oberoende kommitté med anledning av Telenor Sverige AB:s budpliktsbud 2026-11-13 08:10:00 Den oberoende kommittén i styrelsen för Bahnhof AB (publ) rekommenderar enhälligt att bolagets aktieägare ska acceptera budpliktsbudet om 62 kronor kontant per aktie från Telenor Sverige AB. Telenor Sverige AB (\" Telenor Sverige \") offentliggjorde genom pressmeddelande den 6 november 2026 att man förvärvat samtliga aktier i Bahnhof AB (publ) (\" Bahnhof \" eller \" Bolaget \") som innehades av Jon Karlung, Andreas Norman och deras helägda bolag K.N. Telecom AB (\" KNT \"), samt av Investment AB Öresund (\" Öresund \"), vilket s",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b731fe47052f9cfe"
+    },
     {
       "ticker": "BAHN-B.ST",
       "company": "Bahnhof",
