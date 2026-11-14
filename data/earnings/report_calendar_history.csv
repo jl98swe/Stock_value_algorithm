@@ -71,6 +71,7 @@ ALIG.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalende
 ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 ALIV-SDB.ST,2026-10-23,2026-10-23,confirmed,2.14267,1.918,2.33,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 ALIV-SDB.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 ALIV-SDB.ST,2026-10-23,2026-10-23,confirmed,2.14267,1.918,2.33,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -119,6 +120,7 @@ ANOD-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalen
 ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 ARJO-B.ST,2026-10-22,2026-10-22,confirmed,0.40413,0.40413,0.40413,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 ARJO-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 ARJO-B.ST,2026-10-22,2026-10-22,confirmed,0.40413,0.40413,0.40413,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -210,6 +212,7 @@ ATT.ST,2026-11-06,2026-11-06,confirmed,2.54,2.54,2.54,SEK,Yahoo EPS Estimate (de
 ATT.ST,2026-11-06,2026-11-06,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 ATT.ST,2027-02-04,2027-02-04,confirmed,1.86,1.86,1.86,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-08
 ATT.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+ATT.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 AXFO.ST,2026-10-22,2026-10-22,confirmed,3.59333,3.54,3.63,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 AXFO.ST,2026-10-22,2026-10-22,confirmed,3.54333,3.48,3.61,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 AXFO.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
@@ -245,6 +248,7 @@ AZN.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,MFN / bolagets rapportkalender
 AZN.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-19
 AZN.ST,2026-10-30,2026-10-30,confirmed,2.59667,2.56,2.63,USD,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-25
 AZN.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
+AZN.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 BAHN-B.ST,2026-11-17,2026-11-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-10
 BAHN-B.ST,2026-11-17,2026-11-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-11
 BAHN-B.ST,2026-11-17,2026-11-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-18
@@ -255,6 +259,7 @@ BALD-B.ST,2026-10-23,2026-10-23,confirmed,1.34,1.34,1.34,SEK,Yahoo EPS Estimate 
 BALD-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 BALD-B.ST,2026-10-23,2026-10-23,confirmed,1.34,1.34,1.34,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 BALD-B.ST,2026-10-23,2026-10-23,confirmed,1.31,1.31,1.31,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
+BALD-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 BEIA-B.ST,2026-10-23,2026-10-23,confirmed,3.54907,3.34722,3.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 BEIA-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 BEIA-B.ST,2026-10-23,2026-10-23,confirmed,3.54907,3.34722,3.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -357,6 +362,7 @@ BIOG-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalen
 BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 BOL.ST,2026-10-29,2026-10-29,confirmed,10.72369,9.34,11.52,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 BOL.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 BOL.ST,2026-10-29,2026-10-29,confirmed,10.72369,9.34,11.52,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -401,6 +407,7 @@ BRAV.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalende
 BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 BTS-B.ST,2026-11-06,2026-11-06,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 BTS-B.ST,2026-11-06,2026-11-06,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 BTS-B.ST,2026-11-06,2026-11-06,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
@@ -427,6 +434,7 @@ CAST.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalende
 CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 CATE.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 CATE.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 CATE.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -485,6 +493,7 @@ COOR.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalende
 COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 CTT.ST,2026-10-27,2026-10-27,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 CTT.ST,2026-10-27,2026-10-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 CTT.ST,2026-10-27,2026-10-27,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -513,6 +522,7 @@ DIOS.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalende
 DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 DOM.ST,2026-10-22,2026-10-22,confirmed,0.46218,0.42,0.51655,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 DOM.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 DOM.ST,2026-10-22,2026-10-22,confirmed,0.46218,0.42,0.51655,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -579,6 +589,7 @@ EAST.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalende
 EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 EKTA-B.ST,2026-11-25,2026-11-25,confirmed,0.81377,0.7,0.94587,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 EKTA-B.ST,2026-11-25,2026-11-25,confirmed,0.77951,0.57397,0.94587,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
 EKTA-B.ST,2026-11-25,2026-11-25,confirmed,0.75443,0.57397,0.94587,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
@@ -595,6 +606,7 @@ EMBRAC-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkal
 EMBRAC-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 EMBRAC-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 EMBRAC-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 EPI-A.ST,2026-10-28,2026-10-28,confirmed,2.18219,1.9819,2.32,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 EPI-A.ST,2026-10-28,2026-10-28,confirmed,2.18406,1.99314,2.32,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
 EPI-A.ST,2026-10-28,2026-10-28,confirmed,2.17406,1.99314,2.32,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
@@ -652,6 +664,7 @@ ERIC-B.ST,2026-10-15,2026-10-15,confirmed,,,,,,False,MFN / bolagets rapportkalen
 ERIC-B.ST,2026-10-15,2026-10-15,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-14
 ERIC-B.ST,2026-10-15,2026-10-15,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-15
 ERIC-B.ST,2027-01-22,2027-01-22,confirmed,2.78373,2.35864,3.27,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-25
+ERIC-B.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,4.5455,4.42649,4.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 ESSITY-B.ST,2026-10-22,2026-10-22,confirmed,4.5455,4.42649,4.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -721,6 +734,7 @@ GENO.ST,2026-11-10,2026-11-10,confirmed,,,,,,False,MFN / bolagets rapportkalende
 GENO.ST,2026-11-10,2026-11-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 GENO.ST,2026-11-10,2026-11-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 GENO.ST,2026-11-10,2026-11-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+GENO.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 GETI-B.ST,2026-10-21,2026-10-21,confirmed,2.64074,2.29074,3.04149,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 GETI-B.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 GETI-B.ST,2026-10-21,2026-10-21,confirmed,2.64074,2.29074,3.04149,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -849,6 +863,7 @@ HUFV-A.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,MFN / bolagets rapportkalen
 HUFV-A.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 HUFV-A.ST,2026-11-05,2026-11-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 HUFV-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+HUFV-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 INDT.ST,2026-10-23,2026-10-23,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 INDT.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 INDT.ST,2026-10-23,2026-10-23,confirmed,2.3,2.3,2.3,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -921,6 +936,7 @@ INWI.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,MFN / bolagets rapportkalende
 INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 KAMBI.ST,2026-11-04,2026-11-04,confirmed,0.18,0.18,0.18,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 KAMBI.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-03
 KAMBI.ST,2026-11-04,2026-11-04,confirmed,0.18,0.18,0.18,EUR,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
@@ -999,6 +1015,7 @@ LIME.ST,2026-10-20,2026-10-20,confirmed,,,,,,False,MFN / bolagets rapportkalende
 LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 LOOMIS.ST,2026-10-30,2026-10-30,confirmed,10.325,10.14,10.51,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 LOOMIS.ST,2026-10-30,2026-10-30,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 LOOMIS.ST,2026-10-30,2026-10-30,confirmed,10.325,10.14,10.51,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -1039,6 +1056,7 @@ MCOV-B.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,MFN / bolagets rapportkalen
 MCOV-B.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 MCOV-B.ST,2026-11-04,2026-11-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 MCOV-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+MCOV-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 MSAB-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 MSAB-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-09
 MSAB-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-11
@@ -1110,6 +1128,7 @@ NEWA-B.ST,2026-11-11,2026-11-11,confirmed,1.80333,1.75,1.86,SEK,Yahoo EPS Estima
 NEWA-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 NEWA-B.ST,2026-11-11,2026-11-11,confirmed,1.76667,1.75,1.8,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-08
 NEWA-B.ST,2026-11-11,2026-11-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+NEWA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 NIBE-B.ST,2026-11-17,2026-11-17,confirmed,0.47228,0.44588,0.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 NIBE-B.ST,2026-11-17,2026-11-17,confirmed,0.46357,0.42,0.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-17
 NIBE-B.ST,2026-11-17,2026-11-17,confirmed,0.46177,0.42,0.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
@@ -1137,6 +1156,7 @@ NMAN.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,MFN / bolagets rapportkalende
 NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 NOLA-B.ST,2026-10-29,2026-10-29,confirmed,0.765,0.7,0.83,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 NOLA-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 NOLA-B.ST,2026-10-29,2026-10-29,confirmed,0.765,0.7,0.83,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -1149,6 +1169,7 @@ NOLA-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalen
 NOLA-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 NORION.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 NORION.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-08
 NORION.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-09
@@ -1237,6 +1258,7 @@ REJL-B.ST,2026-11-03,2026-11-03,confirmed,1.74,1.74,1.74,SEK,Yahoo EPS Estimate 
 REJL-B.ST,2026-11-03,2026-11-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 REJL-B.ST,2026-11-03,2026-11-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 REJL-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+REJL-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 SAAB-B.ST,2026-10-23,2026-10-23,confirmed,2.41446,2.04,2.74124,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SAAB-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
 SAAB-B.ST,2026-10-23,2026-10-23,confirmed,2.41446,2.04,2.74124,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -1268,6 +1290,7 @@ SAGA-A.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalen
 SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 SAVE.ST,2026-10-22,2026-10-22,confirmed,3.75292,3.61388,3.96,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SAVE.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 SAVE.ST,2026-10-22,2026-10-22,confirmed,3.75292,3.61388,3.96,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
@@ -1337,6 +1360,7 @@ SECARE.ST,2026-10-21,2026-10-21,confirmed,,,,,,False,MFN / bolagets rapportkalen
 SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 SECT-B.ST,2026-11-25,2026-11-25,confirmed,0.85,0.85,0.85,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SECT-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,Börskollen / rapportkalender,2026-10-10
 SECT-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-11
@@ -1428,6 +1452,7 @@ SWEC-A.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalen
 SWEC-A.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 SWEC-B.ST,2026-10-29,2026-10-29,confirmed,1.63,1.56,1.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SWEC-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-26
 SWEC-B.ST,2026-10-29,2026-10-29,confirmed,1.63,1.56,1.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-27
@@ -1442,6 +1467,7 @@ SWEC-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalen
 SWEC-B.ST,2026-10-29,2026-10-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 SWED-A.ST,2026-10-22,2026-10-22,confirmed,7.49913,7.29,7.70738,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 SWED-A.ST,2026-10-22,2026-10-22,confirmed,7.46684,7.29,7.70738,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-17
 SWED-A.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
@@ -1507,6 +1533,7 @@ THULE.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,MFN / bolagets rapportkalend
 THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 TREL-B.ST,2026-10-22,2026-10-22,confirmed,5.1084,4.95276,5.2,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-10-04
 TREL-B.ST,2026-10-23,2026-10-23,confirmed,5.07482,4.9039,5.3,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 TREL-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-19
@@ -1552,6 +1579,7 @@ VIT-B.ST,2026-10-23,2026-10-23,confirmed,,,,,,False,MFN / bolagets rapportkalend
 VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-10-25
 VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-01
 VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-08
+VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-14
 VITR.ST,2026-10-22,2026-10-22,confirmed,0.88,0.88,0.88,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-15
 VITR.ST,2026-10-22,2026-10-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-09-17
 VITR.ST,2026-10-22,2026-10-22,confirmed,0.88,0.88,0.88,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-09-20
