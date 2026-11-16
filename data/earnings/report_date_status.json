@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-13",
+  "checked_at": "2026-11-16",
   "counts": {},
   "missing_historical_dates": [
     {
@@ -664,15 +664,8 @@
     }
   ],
   "missing_upcoming_tickers": [
-    "AZN.ST",
-    "BALD-B.ST",
-    "EMBRAC-B.ST",
     "FOI-B.ST",
-    "GENO.ST",
-    "LUMI.ST",
-    "NEWA-B.ST",
-    "SFAST.ST",
-    "SHOT.ST"
+    "LUMI.ST"
   ],
   "calendar_source_conflicts": [
     {
