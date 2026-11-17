@@ -321,12 +321,14 @@ BAHN-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.54,SEK,Yahoo Finance / qu
 BAHN-B.ST,2025-03-31,2025-05-06,2026-10-26,reportedEPS,0.54,SEK,Yahoo Finance / Reported EPS
 BAHN-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2025-06-30,2025-08-19,2026-10-26,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
+BAHN-B.ST,2025-09-30,2025-11-11,2026-11-17,manualDilutedEPS,0.53,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf; jämförelsekvartal Q3 2025
 BAHN-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,0.53,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2025-09-30,2025-11-11,2026-10-26,reportedEPS,0.53,SEK,Yahoo Finance / Reported EPS
 BAHN-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.09,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2025-12-31,2026-02-17,2026-10-26,reportedEPS,0.09,SEK,Yahoo Finance / Reported EPS
 BAHN-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.52,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.56,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf
 BALD-B.ST,2023-12-31,2024-02-09,2026-10-26,reportedEPS,1.05,SEK,Yahoo Finance / Reported EPS
 BALD-B.ST,2024-06-30,2024-07-16,2026-10-26,reportedEPS,1.04,SEK,Yahoo Finance / Reported EPS
 BALD-B.ST,2024-09-30,2024-10-25,2026-10-26,reportedEPS,0.9,SEK,Yahoo Finance / Reported EPS
@@ -1482,6 +1484,7 @@ NIBE-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,0.19,SEK,Yahoo Finance / qu
 NIBE-B.ST,2025-03-31,2025-05-15,2026-10-26,reportedEPS,0.19,SEK,Yahoo Finance / Reported EPS
 NIBE-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,0.24,SEK,Yahoo Finance / quarterlyDilutedEPS
 NIBE-B.ST,2025-06-30,2025-08-22,2026-10-26,reportedEPS,0.24,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2025-09-30,2025-11-14,2026-11-17,manualDilutedEPS,0.3,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf; jämförelsekvartal Q3 2025
 NIBE-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,0.3,SEK,Yahoo Finance / quarterlyDilutedEPS
 NIBE-B.ST,2025-09-30,2025-11-14,2026-10-26,reportedEPS,0.3,SEK,Yahoo Finance / Reported EPS
 NIBE-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,0.39,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1490,6 +1493,7 @@ NIBE-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.25,SEK,Yahoo Finance / qu
 NIBE-B.ST,2026-03-31,2026-05-19,2026-10-26,reportedEPS,0.25,SEK,Yahoo Finance / Reported EPS
 NIBE-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.37,SEK,Yahoo Finance / quarterlyDilutedEPS
 NIBE-B.ST,2026-06-30,2026-08-21,2026-10-26,reportedEPS,0.37,SEK,Yahoo Finance / Reported EPS
+NIBE-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.44,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf
 NMAN.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,2.49,SEK,Yahoo Finance / quarterlyDilutedEPS
 NMAN.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 NMAN.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.97,SEK,Yahoo Finance / quarterlyDilutedEPS
@@ -1816,6 +1820,7 @@ SFAST.ST,2025-12-31,2026-02-19,2026-10-26,reportedEPS,0.29,SEK,Yahoo Finance / R
 SFAST.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.55,SEK,Yahoo Finance / quarterlyDilutedEPS
 SFAST.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.24,SEK,Yahoo Finance / quarterlyDilutedEPS
 SFAST.ST,2026-09-30,2026-11-12,2026-11-12,manualDilutedEPS,0.41,SEK,https://storage.mfn.se/86a2f757-dbb5-4a89-9695-91d3b4b012b2/delarsrapport-q3-2026.pdf
+SFAST.ST,2026-09-30,,2026-11-17,quarterlyDilutedEPS,0.41,SEK,Yahoo Finance / quarterlyDilutedEPS
 SHB-A.ST,2023-09-30,2023-10-18,2026-10-26,reportedEPS,4.02,SEK,Yahoo Finance / Reported EPS
 SHB-A.ST,2023-12-31,2024-02-07,2026-10-26,reportedEPS,3.55,SEK,Yahoo Finance / Reported EPS
 SHB-A.ST,2024-03-31,2024-04-24,2026-10-26,reportedEPS,3.43,SEK,Yahoo Finance / Reported EPS
@@ -2180,14 +2185,10 @@ ZZ-B.ST,2024-12-31,,2026-09-19,quarterlyDilutedEPS,1.17,SEK,Yahoo Finance / quar
 ZZ-B.ST,2025-03-31,,2026-10-26,quarterlyDilutedEPS,1.49,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2025-03-31,2025-05-20,2026-10-26,reportedEPS,1.49,SEK,Yahoo Finance / Reported EPS
 ZZ-B.ST,2025-06-30,,2026-10-26,quarterlyDilutedEPS,1.49,SEK,Yahoo Finance / quarterlyDilutedEPS
+ZZ-B.ST,2025-09-30,2025-11-19,2026-11-17,manualDilutedEPS,2.35,SEK,https://mb.cision.com/Main/10976/4425293/4375283.pdf; jämförelsekvartal Q3 2025
 ZZ-B.ST,2025-09-30,,2026-10-26,quarterlyDilutedEPS,2.35,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Reported EPS
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
-BAHN-B.ST,2025-09-30,2025-11-11,2026-11-17,manualDilutedEPS,0.53,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf; jämförelsekvartal Q3 2025
-BAHN-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.56,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf
-NIBE-B.ST,2025-09-30,2025-11-14,2026-11-17,manualDilutedEPS,0.3,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf; jämförelsekvartal Q3 2025
-NIBE-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.44,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf
-ZZ-B.ST,2025-09-30,2025-11-19,2026-11-17,manualDilutedEPS,2.35,SEK,https://mb.cision.com/Main/10976/4425293/4375283.pdf; jämförelsekvartal Q3 2025
 ZZ-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,3.05,SEK,https://mb.cision.com/Main/10976/4425293/4375283.pdf
