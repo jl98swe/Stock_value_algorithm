@@ -2185,3 +2185,9 @@ ZZ-B.ST,2025-09-30,2025-11-19,2026-10-26,reportedEPS,2.35,SEK,Yahoo Finance / Re
 ZZ-B.ST,2025-12-31,,2026-10-26,quarterlyDilutedEPS,3.25,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,2.7,SEK,Yahoo Finance / quarterlyDilutedEPS
 ZZ-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,2.67,SEK,Yahoo Finance / quarterlyDilutedEPS
+BAHN-B.ST,2025-09-30,2025-11-11,2026-11-17,manualDilutedEPS,0.53,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf; jämförelsekvartal Q3 2025
+BAHN-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.56,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf
+NIBE-B.ST,2025-09-30,2025-11-14,2026-11-17,manualDilutedEPS,0.3,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf; jämförelsekvartal Q3 2025
+NIBE-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.44,SEK,https://storage.mfn.se/ca4cb3d5-4a41-4b83-b8df-98e13e1f0bf4/nibe-q3-report-2026-se.pdf
+ZZ-B.ST,2025-09-30,2025-11-19,2026-11-17,manualDilutedEPS,2.35,SEK,https://mb.cision.com/Main/10976/4425293/4375283.pdf; jämförelsekvartal Q3 2025
+ZZ-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,3.05,SEK,https://mb.cision.com/Main/10976/4425293/4375283.pdf
