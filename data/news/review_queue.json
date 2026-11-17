@@ -1,7 +1,139 @@
 {
-  "generated_at": "2026-11-17T01:48:53+01:00",
+  "generated_at": "2026-11-18T00:53:28+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-17T13:00:00+01:00",
+      "title": "Rekordmånga platser på Peabs traineeprogram - nu öppnar ansökan",
+      "link": "https://mfn.se/cis/a/peab/rekordmanga-platser-pa-peabs-traineeprogram-nu-oppnar-ansokan-1d787d14",
+      "source": "MFN",
+      "summary": "Rekordmånga platser på Peabs traineeprogram - nu öppnar ansökan 2026-11-17 13:00:00 Den 17 november öppnar ansökan till Peabs traineeprogram. Programmet, som vänder sig till nyutexaminerade civil- och högskoleingenjörer erbjuder i år över 50 platser i hela landet. För femte året i rad erbjuder Peab ett nationellt traineeprogram för nyutexaminerade ingenjörer. Antalet platser på programmet har ökat årligen och i år erbjuds ett rekordstort antal traineer plats i koncernen. Traineeprogrammet erbjuder de nyblivna ingenjörerna möjlighet att testa många olika delar av koncernens verksamheter. I år finns platser att söka inom bygg, anläggning, grund",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "dc511189c5cac8c5"
+    },
+    {
+      "ticker": "SAAB-B.ST",
+      "company": "Saab AB (publ)",
+      "published_at": "2026-11-17T11:00:00+01:00",
+      "title": "Saab: MANGROVE advances NATO's vision for an integrated underwater battlespace",
+      "link": "https://mfn.se/cis/a/saab/saab-mangrove-advances-natos-vision-for-an-integrated-underwater-battlespace-f5cbfc36",
+      "source": "MFN",
+      "summary": "Saab: MANGROVE advances NATO's vision for an integrated underwater battlespace 2026-11-17 11:00:00 The Saab-led MANGROVE consortium has successfully completed Phase 1 of the Allied Underwater Battlespace Mission Network (AUWB-MN), delivering a major milestone in NATO's ambition to establish a secure, interoperable and resilient mission network for the underwater battlespace. Bringing together expertise from industry, academia and defence specialists from around the world, the MANGROVE consortium has spent the past year developing the architectural, technical and governance foundations required to enable future multinational underwater battles",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7d0fd0dfd87a5b56"
+    },
+    {
+      "ticker": "SOBI.ST",
+      "company": "Swedish Orphan Biovitrum AB (publ)",
+      "published_at": "2026-11-17T09:00:00+01:00",
+      "title": "Swedish Orphan Biovitrum AB: Tryngolza™ (olezarsen) godkänt i EU för svår hypertriglyceridemi (sHTG)",
+      "link": "https://mfn.se/cis/a/swedish-orphan-biovitrum/swedish-orphan-biovitrum-ab-tryngolza-olezarsen-godkant-i-eu-for-svar-hypertriglyceridemi-shtg-5639a91c",
+      "source": "MFN",
+      "summary": "Swedish Orphan Biovitrum AB: Tryngolza™ (olezarsen) godkänt i EU för svår hypertriglyceridemi (sHTG) 2026-11-17 09:00:00 Tryngolza är det första och enda RNA-riktade läkemedlet som godkänts i EU vid sHTG ≥880 mg/dL (≥10 mmol/L) EU-kommissionens beslut baseras på resultat från fas 3-studierna CORE och CORE2, som visar en statistiskt signifikant genomsnittlig sänkning av triglyceridnivåerna om upp till 73% efter 6 månader och en signifikant minskning med 83% av frekvensen av akut pankreatit med Tryngolza (olezarsen) jämfört med placebo Uppskattningsvis 700 000 personer i EU5 beräknas ha triglyceridnivåer ≥880 mg/dL (≥10 mmol/L) [1] och löper dä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ef3747d7a244a758"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-11-17T08:35:00+01:00",
+      "title": "Tre sjukhus i Ontario samlar patologi och radiologi i Sectras molntjänst för bättre cancervård",
+      "link": "https://mfn.se/cis/a/sectra/tre-sjukhus-i-ontario-samlar-patologi-och-radiologi-i-sectras-molntjanst-for-battre-cancervard-5b605ecb",
+      "source": "MFN",
+      "summary": "Tre sjukhus i Ontario samlar patologi och radiologi i Sectras molntjänst för bättre cancervård 2026-11-17 08:35:00 Linköping - 17 november, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) meddelar att tre sjukhus inom ENHANCE Ontario i Kanada utökar sin helhetslösning för medicinsk bildhantering från Sectra med digital patologi. Implementeringen blir Sectras hittills största inom digital patologi i Kanada. Det digitala arbetsflödet ger patologerna nya sätt att granska fall och samarbeta kring dem. Med radiologin i samma system blir det också möjligt att arbeta med integrerad diagnostik inom cancervår",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f10123c52d343079"
+    },
+    {
+      "ticker": "NIBE-B.ST",
+      "company": "NIBE Industrier AB (publ)",
+      "published_at": "2026-11-17T08:02:00+01:00",
+      "title": "VD och koncernchef, Gerteric Lindquist, kommenterar företagets tredje kvartal 2026",
+      "link": "https://mfn.se/a/nibe-industrier/vd-och-koncernchef-gerteric-lindquist-kommenterar-foretagets-tredje-kvartal-2026",
+      "source": "MFN",
+      "summary": "VD och koncernchef, Gerteric Lindquist, kommenterar företagets tredje kvartal 2026 2026-11-17 08:02:00 Stärkt tillväxt och ytterligare förbättrad lönsamhet KVARTAL 3 2026 Fortsatt god tillväxt och förbättrat rörelseresultat I likhet med årets två första kvartal har koncernen under kvartal tre fortsatt uppvisa en god omsättningstillväxt kombinerat med såväl förbättrat rörelseresultat som förbättrad rörelsemarginal. Det är med stor tillfredsställelse vi konstaterar att vi för sjunde kvartalet i rad uppvisat en god underliggande organisk tillväxt jämfört med motsvarande kvartal föregående år. Vissa kvartal har detta, på grund av den svenska kron",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e6f3002440ca125e"
+    },
+    {
+      "ticker": "DUNI.ST",
+      "company": "Duni",
+      "published_at": "2026-11-17T08:00:00+01:00",
+      "title": "Duni Group: Varför hållbara förpackningsval sällan har ett enkelt svar",
+      "link": "https://mfn.se/cis/a/duni/duni-group-varfor-hallbara-forpackningsval-sallan-har-ett-enkelt-svar-40d56be9",
+      "source": "MFN",
+      "summary": "Duni Group: Varför hållbara förpackningsval sällan har ett enkelt svar 2026-11-17 08:00:00 Diskussionen om hållbara förpackningar fokuserar ofta på valet mellan engångs- och flergångslösningar. Men för att bedöma den faktiska miljöpåverkan behöver fler faktorer vägas in. Som leverantör av både återanvändbara och resurseffektiva engångslösningar ser Duni Group behovet av ett bredare systemperspektiv där produkt, användarbeteende och infrastruktur bedöms tillsammans. Från produktval till systemperspektiv Debatten om hållbara förpackningar utgår ofta från en till synes enkel fråga: Är flergångs alltid bättre än engångs? Flergångslösningar har st",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d9fe8f55a9c09782"
+    },
     {
       "ticker": "TREL-B.ST",
       "company": "Trelleborg AB (publ)",

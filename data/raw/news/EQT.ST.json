@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-17T01:46:08+01:00",
+  "generated_at": "2026-11-18T00:50:43+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-11-17T16:30:00+01:00",
+      "title": "EQT to acquire Flatiron Energy, a leading developer and operator of battery energy storage in the Eastern U.S.",
+      "link": "https://mfn.se/cis/a/eqt/eqt-to-acquire-flatiron-energy-a-leading-developer-and-operator-of-battery-energy-storage-in-the-eastern-u-s-95956554",
+      "source": "MFN",
+      "summary": "EQT to acquire Flatiron Energy, a leading developer and operator of battery energy storage in the Eastern U.S. 2026-11-17 16:30:00 Flatiron Energy develops, builds, owns, and operates utility-scale battery storage across the Eastern U.S., with a 24 GWh portfolio, following significant expansion under Hull Street Energy Rising electricity demand, retiring power plants, and state-backed storage programs are driving demand for firm capacity that supports grid reliability and ratepayer affordability EQT will support Flatiron's management team in delivering its contracted projects and scaling its presence, drawing on EQT's deep expertise across en",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fb61e444694591a0"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",
