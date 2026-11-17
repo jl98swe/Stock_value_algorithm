@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-13T23:29:24+01:00",
+  "generated_at": "2026-11-17T01:44:28+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/addtech",
   "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-11-16T15:00:00+01:00",
+      "title": "Addtech förvärvar Hardall International Limited",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-hardall-international-limited-364e82dc",
+      "source": "MFN",
+      "summary": "Addtech förvärvar Hardall International Limited 2026-11-16 15:00:00 Addtech Industry, ett affärsområde inom Addtech-koncernen, har idag tecknat avtal om att förvärva 100% procent av aktierna i Hardall International Limited (\"Hardall\"). Hardall konstruerar, tillverkar och installerar kundanpassade schaktlösningar för avfall, återvinning, tvätt och kliniskt avfall. Bolaget erbjuder även eftermarknadstjänster såsom underhåll, reparationer och utbyte av befintliga schaktlösningar. Hardall har sitt huvudkontor i Dunstable, Storbritannien, har 60 anställda och en årsomsättning om cirka 13 miljoner GBP. Tillträde sker idag och förvärvet bedöms ha en",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "376e48f59ad5a804"
+    },
     {
       "ticker": "ADDT-B.ST",
       "company": "Addtech",

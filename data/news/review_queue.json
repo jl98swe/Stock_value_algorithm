@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-13T23:34:36+01:00",
+  "generated_at": "2026-11-17T01:48:53+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-11-16T15:00:00+01:00",
+      "title": "Buybacks of shares of series B in Trelleborg during week 46, 2026",
+      "link": "https://mfn.se/a/trelleborg/buybacks-of-shares-of-series-b-in-trelleborg-during-week-46-2026",
+      "source": "MFN",
+      "summary": "Buybacks of shares of series B in Trelleborg during week 46, 2026 2026-11-16 15:00:00 During the period November 9, 2026, to November 13, 2026, Trelleborg AB (LEI code 213800XY16PAWG2PAD14) has repurchased in total 85,700 own shares of series B (ISIN: SE0000114837) as part of the buyback program initiated by the Board of Directors. The purpose is to adjust the company's capital structure and thereby contribute to increased shareholder value. Repurchases are also made to ensure the delivery of shares and related costs, such as social security contributions, for the Performance Share Program (PSP) 2026/2028. The share buybacks form part of the ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "74faead25fe7b443"
+    },
+    {
+      "ticker": "AXFO.ST",
+      "company": "Axfood",
+      "published_at": "2026-11-16T08:30:00+01:00",
+      "title": "Förändringar i Axfoods koncernledning",
+      "link": "https://mfn.se/cis/a/axfood/forandringar-i-axfoods-koncernledning-adf8b639",
+      "source": "MFN",
+      "summary": "Förändringar i Axfoods koncernledning 2026-11-16 08:30:00 Jon Johnsson har rekryterats till rollen som ekonomi- och finansdirektör på Axfood och kommer att ingå i Axfoods koncernledning. Jon kommer närmast från Bonava där han idag är CFO och vice vd. Shoan Etemadi, vd för Hemköpskedjan, har valt att lämna Axfood och Tomas Hedman Strömhielm tillträder som tillförordnad vd. Jon Johnsson tillträder rollen som ekonomi- och finansdirektör för Axfood och kommer att ingå i koncernledningen. Jon har över 20 års erfarenhet som CFO och andra ledande roller inom finans och ekonomi på bland annat Atlas Copco, Geely, Karo Healthcare och kommer närmast frå",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "aa39f4024706d687"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-16T08:12:26+01:00",
+      "title": "AstraZeneca: Perioperative approved in the US in novel regimen with neoadjuvant enfortumab vedotin for patients with muscle-invasive bladder cancer",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-perioperative-approved-in-the-us-in-novel-regimen-with-neoadjuvant-enfortumab-vedotin-for-patients-with-muscle-invasive-bladder-cancer-56204494",
+      "source": "MFN",
+      "summary": "AstraZeneca: Perioperative approved in the US in novel regimen with neoadjuvant enfortumab vedotin for patients with muscle-invasive bladder cancer 2026-11-16 08:12:26 Based on VOLGA Phase III trial data which showed a 49% reduction in risk of recurrence and a 42% reduction in risk of death, with a manageable safety profile. Approval reinforces potential of Imfinzi as an immunotherapy backbone across muscle-invasive and non-muscle-invasive bladder cancer. AstraZeneca's Imfinzi (durvalumab) in combination with enfortumab vedotin (EV) as neoadjuvant treatment, followed by Imfinzi monotherapy as adjuvant treatment after radical cystectomy (surge",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ffd584b2f2cd3310"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-16T08:05:44+01:00",
+      "title": "AstraZeneca: Klygefa (gefurulimab) approved in the US for the treatment of generalised myasthenia gravis (gMG) in adult patients",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-klygefa-gefurulimab-approved-in-the-us-for-the-treatment-of-generalised-myasthenia-gravis-gmg-in-adult-patients-da555e5e",
+      "source": "MFN",
+      "summary": "AstraZeneca: Klygefa (gefurulimab) approved in the US for the treatment of generalised myasthenia gravis (gMG) in adult patients 2026-11-16 08:05:44 Approval supported by PREVAIL Phase III results showing statistically significant and clinically meaningful improvements in activities of daily living starting as early as week one and sustained through one year. First and only approved dual-binding nanobody C5 inhibitor in the US, offering once-weekly subcutaneous self-administration via autoinjector with rapid and sustained disease control. Alexion, AstraZeneca Rare Disease's Klygefa (gefurulimab) has been approved in the US for the treatment o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "413810420a354399"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-16T08:02:16+01:00",
+      "title": "AstraZeneca investerar 30 miljoner i obesitasforskning",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-investerar-30-miljoner-i-obesitasforskning-bbdaed14",
+      "source": "MFN",
+      "summary": "AstraZeneca investerar 30 miljoner i obesitasforskning 2026-11-16 08:02:16 AstraZeneca investerar drygt 30 miljoner kronor i fyra forskningsprojekt inom ramen för det strategiska partnerskapet med Karolinska Institutet och Karolinska Universitetssjukhuset. Satsningen genomförs under de kommande fem åren och omfattar forskning inom obesitas, njur- och leversjukdomar. AstraZeneca har utökat sitt strategiska samarbete med världsledande Karolinska Institutet och Karolinska Universitetssjukhuset för att accelerera forskningen inom kardiometabola- och njursjukdomar. Genom att intensifiera det samarbetet skapar projekten förutsättningar för ny kunsk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "83d11e7cdf9ab23d"
+    },
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-16T08:00:00+01:00",
+      "title": "Peab bygger bostäder i Ski",
+      "link": "https://mfn.se/cis/a/peab/peab-bygger-bostader-i-ski-6931c2db",
+      "source": "MFN",
+      "summary": "Peab bygger bostäder i Ski 2026-11-16 08:00:00 Peab har fått uppdraget att bygga den första etappen av den nya stadskärnan Sentrumskvartalet i centrala Ski. Beställare är Stor-Oslo Eiendom och kontraktssumman uppgår till 310 miljoner norska kronor, vilket motsvarar 325 miljoner svenska kronor. Den första byggetappen omfattar två byggnader med sammanlagt 80 bostäder, ett parkeringsgarage och lokaler för kommersiell verksamhet motsvarande totalt drygt 10 600 kvadratmeter. Sentrumskvartalet ligger mellan järnvägsstationen och shoppingcentret i Ski och ska bli en livfull stadsdel där bostäder, butiker och restauranger kombineras med grönområden o",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d96a83c581720b12"
+    },
+    {
+      "ticker": "DYVOX.ST",
+      "company": "Dynavox Group",
+      "published_at": "2026-11-16T07:30:00+01:00",
+      "title": "Dynavox Group justerar tidigare redovisade alternativa nyckeltal",
+      "link": "https://mfn.se/cis/a/dynavox-group/dynavox-group-justerar-tidigare-redovisade-alternativa-nyckeltal-1f1e9a22",
+      "source": "MFN",
+      "summary": "Dynavox Group justerar tidigare redovisade alternativa nyckeltal 2026-11-16 07:30:00 Dynavox Group AB (publ) har identifierat att växelkurser inte har tillämpats konsekvent mellan innevarande period och jämförelseperioder vid beräkningen av de valutaeffekter som används för att fastställa valutajusterad tillväxt och valutajusterad organisk tillväxt. Till följd av detta har tidigare redovisad valutajusterad tillväxt och organisk tillväxt för perioderna från första kvartalet 2025 till och med tredje kvartalet 2026 räknats om med en konsekvent metod. Justeringen påverkar endast alternativa nyckeltal (s.k. APM) och påverkar inte några siffror i k",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "20ab25338e06ac45"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-13T23:30:03+01:00",
+  "generated_at": "2026-11-17T01:45:02+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/beijer-alma",
   "items": [
+    {
+      "ticker": "BEIA-B.ST",
+      "company": "Beijer Alma",
+      "published_at": "2026-11-16T15:00:00+01:00",
+      "title": "Beijer Almas dotterbolag Beijer Tech förvärvar Kompotek",
+      "link": "https://mfn.se/a/beijer-alma/beijer-almas-dotterbolag-beijer-tech-forvarvar-kompotek",
+      "source": "MFN",
+      "summary": "Beijer Almas dotterbolag Beijer Tech förvärvar Kompotek 2026-11-16 15:00:00 Beijer Tech har idag, den 16 november 2026, förvärvat majoriteten av aktierna i Kompotek Sverige AB, en svensk leverantör av ventiler och ventilautomation. Kompotek är en svensk leverantör av ventiler, ventilautomation och annan ventilutrustning. Bolaget har en stark position inom fjärrvärme, VVS och industri och erbjuder sina kunder ett komplett sortiment, hög flexibilitet och kundnära service. Bolaget har sju anställda och omsätter cirka 45 miljoner kronor med god lönsamhet. För ytterligare information hänvisas till bolagets hemsida: www.kompotek.se . Förvärvet är i",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "27e459b57b56e3b9"
+    },
     {
       "ticker": "BEIA-B.ST",
       "company": "Beijer Alma",

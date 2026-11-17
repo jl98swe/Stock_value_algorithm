@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-13T23:33:03+01:00",
+  "generated_at": "2026-11-17T01:47:34+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-16T08:00:00+01:00",
+      "title": "Peab builds homes in Ski",
+      "link": "https://mfn.se/cis/a/peab/peab-builds-homes-in-ski-eb85a86b",
+      "source": "MFN",
+      "summary": "Peab builds homes in Ski 2026-11-16 08:00:00 Peab has been commissioned to build the first stage of the new heart of central Ski, Sentrumskvartalet. The customer is Stor-Oslo Eiendom and the contract is worth NOK 310 million, which corresponds to SEK 325 million. The first phase of construction comprises two buildings with a total of 80 apartments, a parking garage and commercial space totaling more than 10,600 m 2 . Sentrumskvartalet is located between the railway station and the shopping center in Ski and will be a vibrant district where housing, shops and restaurants are combined with green areas and meeting places. A total of around 270 h",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1f8b4b14620f4e52"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",
