@@ -285,7 +285,7 @@
           ]);
           const version = nextStocks.generated_at;
           if (!version || nextOverviews.meta?.generated_at !== version ||
-              (page === 'signals' && nextForecasts.meta?.generated_at && nextForecasts.meta.generated_at !== version)) return;
+              (page === 'signals' && nextForecasts.generated_at !== version)) return;
           stocksPayload = nextStocks;
           overviews = nextOverviews;
           priceBoundaries = nextForecasts.stocks || {};

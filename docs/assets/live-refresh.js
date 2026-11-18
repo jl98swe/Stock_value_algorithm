@@ -1,7 +1,6 @@
 /* Silent published-data polling. Never reload the page or alter user controls. */
 (() => {
   'use strict';
-  let current = null;
   let checking = false;
   async function check() {
     if (document.hidden || checking) return;
@@ -12,10 +11,9 @@
       const payload = await response.json();
       const version = payload.generated_at;
       if (!version) return;
-      if (current !== null && version !== current) {
-        window.dispatchEvent(new CustomEvent('stock-data-version', {detail:{version}}));
-      }
-      current = version;
+      // Consumers compare against their applied version. Repeat the notification
+      // until they can load a complete snapshot, including on the first check.
+      window.dispatchEvent(new CustomEvent('stock-data-version', {detail:{version}}));
     } catch (error) {
       console.warn('Kunde inte kontrollera ny publicering', error);
     } finally { checking = false; }
