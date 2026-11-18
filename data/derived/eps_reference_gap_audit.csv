@@ -430,8 +430,8 @@ INTRUM.ST,2023-Q4,2024-01-25,internal,2023-Q3,2023-10-25,2024-Q1,2024-04-24,92,9
 INTRUM.ST,2024-Q4,2025-01-30,internal,2024-Q3,2024-10-23,2025-Q1,2025-05-07,99,97,97,-6.1444,SEK,issuer_report_or_other_verified_source_required
 INTRUM.ST,2025-Q3,2025-10-30,internal,2025-Q2,2025-07-25,2025-Q4,2026-01-29,97,91,91,-0.2119,SEK,issuer_report_or_other_verified_source_required
 KAMBI.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-07-23,2025-Q4,2026-02-18,105,105,105,0.25,EUR,issuer_report_or_other_verified_source_required
-LUMI.ST,2024-Q4,2025-02-20,internal,2024-Q3,2024-11-06,2025-Q1,2025-05-08,106,77,77,0.0144,USD,issuer_report_or_other_verified_source_required
-LUMI.ST,2025-Q3,2025-11-06,internal,2025-Q2,2025-08-06,2025-Q4,2026-02-20,92,106,106,0.2137,USD,issuer_report_or_other_verified_source_required
+LUMI.ST,2024-Q4,2025-02-19,internal,2024-Q3,2024-11-06,2025-Q1,2025-05-07,105,77,77,0.0144,USD,issuer_report_or_other_verified_source_required
+LUMI.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-08-06,2025-Q4,2026-02-19,91,106,106,0.2137,USD,issuer_report_or_other_verified_source_required
 MCOV-B.ST,2025-Q3,2025-11-05,internal,2025-Q2,2025-07-24,2025-Q4,2026-02-10,104,97,97,0.45,EUR,issuer_report_or_other_verified_source_required
 MSAB-B.ST,2018-Q3,2018-10-26,leading,,,2023-Q3,2023-10-26,,1826,,1.8654,SEK,optional_backfill_requires_verified_source
 MSAB-B.ST,2018-Q4,2019-02-01,leading,,,2023-Q3,2023-10-26,,1728,,1.51,SEK,optional_backfill_requires_verified_source
