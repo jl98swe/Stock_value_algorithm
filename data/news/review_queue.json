@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-18T00:53:28+01:00",
+  "generated_at": "2026-11-19T00:25:41+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-18T16:00:00+01:00",
+      "title": "NOBA Bank Group AB (publ) har framgångsrikt emitterat ”Senior Preferred”-obligationer",
+      "link": "https://mfn.se/a/noba/noba-bank-group-ab-publ-har-framgangsrikt-emitterat-senior-preferred-obligationer-7",
+      "source": "MFN",
+      "summary": "NOBA Bank Group AB (publ) har framgångsrikt emitterat ”Senior Preferred”-obligationer 2026-11-18 16:00:00 NOBA Bank Group AB (publ) (” NOBA ”) har framgångsrikt emitterat ”Senior Preferred”-obligationer om SEK 200m. Vidare har NOBA emitterat SEK 100m i en tap av utestående ”Senior Preferred”-obligationer med förfallodatum i februari 2030. Obligationerna har en löptid på 2,25 år samt 3,25 år till förfall, med en ränta motsvarande STIBOR 3 månader + 0,99 % samt 1,16 %. Obligationerna kommer listas på Nasdaq Stockholm. Likviddag för emissionerna blir 30 november 2026. Obligationerna emitterades under NOBAs existerande MTN-program vilket har ett ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "3dcf627805eab0b3"
+    },
+    {
+      "ticker": "EAST.ST",
+      "company": "Eastnine",
+      "published_at": "2026-11-18T13:00:00+01:00",
+      "title": "Eastnine AB (publ): Eastnine förlänger hyresavtal med Danske Bank",
+      "link": "https://mfn.se/cis/a/eastnine/eastnine-ab-publ-eastnine-forlanger-hyresavtal-med-danske-bank-f90288a2",
+      "source": "MFN",
+      "summary": "Eastnine AB (publ): Eastnine förlänger hyresavtal med Danske Bank 2026-11-18 13:00:00 Eastnine har förlängt ett befintligt hyresavtal med Danske Bank avseende hela fastigheten S7-1 i Vilnius, Litauen. Avtalet omfattar 12 053 kvm och löper till november 2032. \"Att Danske Bank väljer att förlänga hyresavtalet med Eastnine är ett värdefullt förtroende. Det bekräftar styrkan i vårt erbjudande och värdet av långsiktiga kundrelationer, vilket vi ser fram emot att fortsätta förvalta\", säger Kestutis Sasnauskas, vd för Eastnine. \"Vår ambition är att vara bland de bästa arbetsgivarna i Litauen. Det kräver bra människor, en stark kultur och en arbetsmi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "05e953d8f0e9cb0a"
+    },
+    {
+      "ticker": "EAST.ST",
+      "company": "Eastnine",
+      "published_at": "2026-11-18T13:00:00+01:00",
+      "title": "Eastnine AB (publ): Eastnine extends lease agreement with Danske Bank",
+      "link": "https://mfn.se/cis/a/eastnine/eastnine-ab-publ-eastnine-extends-lease-agreement-with-danske-bank-2cad7329",
+      "source": "MFN",
+      "summary": "Eastnine AB (publ): Eastnine extends lease agreement with Danske Bank 2026-11-18 13:00:00 Eastnine has extended an existing lease agreement with Danske Bank for the entire property S7-1 in Vilnius, Lithuania. The agreement covers 12,053 sq.m. and runs until November 2032. \"The fact that Danske Bank has chosen to extend the agreement with Eastnine is a valuable vote of confidence. It confirms the strength of our offering and the value of long-term customer relationships, which we look forward to build on for the years ahead,\" says Kestutis Sasnauskas, CEO of Eastnine. \"Our ambition is to be among the best employers in Lithuania. That takes gre",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "7e712e64e6dac597"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-11-18T09:05:00+01:00",
+      "title": "Sectra på RSNA 2026: AI och kliniska verktyg i en och samma plattform för effektivare diagnostik",
+      "link": "https://mfn.se/cis/a/sectra/sectra-pa-rsna-2026-ai-och-kliniska-verktyg-i-en-och-samma-plattform-for-effektivare-diagnostik-94e399c8",
+      "source": "MFN",
+      "summary": "Sectra på RSNA 2026: AI och kliniska verktyg i en och samma plattform för effektivare diagnostik 2026-11-18 09:05:00 Linköping - 18 november, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) kommer på RSNA 2026 att visa hur AI blir en integrerad del av den dagliga diagnostiken. Exemplen sträcker sig från autonom analys av rutinmässiga lungröntgenundersökningar till tolkning av genetiska varianter med stöd av AI. Sectra visar hur vårdgivare kan minska det manuella arbetet, använda AI i större skala och låta de kliniska experterna lägga sin tid där den gör störst nytta. Allt detta samlas i Sectras helhe",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bb72fa7335ccd627"
+    },
+    {
+      "ticker": "FABG.ST",
+      "company": "Fabege",
+      "published_at": "2026-11-18T08:45:00+01:00",
+      "title": "Moody's bekräftar Fabege rating Baa2, stabila utsikter",
+      "link": "https://mfn.se/cis/a/fabege/moodys-bekraftar-fabege-rating-baa2-stabila-utsikter-a41f4ed8",
+      "source": "MFN",
+      "summary": "Moody's bekräftar Fabege rating Baa2, stabila utsikter 2026-11-18 08:45:00 Fabege är sedan länge en återkommande emittent på kapitalmarknaden genom både certifikat och obligationer. Fabeges starka balansräkning med hög soliditet och låg belåningsgrad bekräftar vår stabila finansiella position. - Moodys kreditrating är en bekräftelse på vår kreditvärdighet. Som återkommande emittent på kapitalmarknaden är vi måna om transparens och förtroende. Total utestående volym i obligationer och certifikat uppgår nu till cirka 15 Mdkr, kommenterar Åsa Bergström, CFO. Fabege AB (publ) För ytterligare information, vänligen kontakta: Åsa Bergström, vVD och ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "254119a1854929b5"
+    },
+    {
+      "ticker": "ATT.ST",
+      "company": "Attendo",
+      "published_at": "2026-11-18T08:00:00+01:00",
+      "title": "Attendo bygger nytt boende inom socialpsykiatri i Uleåborg, Finland",
+      "link": "https://mfn.se/a/attendo/attendo-bygger-nytt-boende-inom-socialpsykiatri-i-uleaborg-finland",
+      "source": "MFN",
+      "summary": "Attendo bygger nytt boende inom socialpsykiatri i Uleåborg, Finland 2026-11-18 08:00:00 Attendo bygger ett nytt boende inom segmentet socialpsykiatri i Sarvikangas i Uleåborg. Boendet får 50 platser och beräknas stå klart i december 2027. Den nya verksamheten erbjuder en lugn och naturnära miljö med närhet till Uleåborgs stad. Boendet byggs i två våningar, och både lägenheterna och de gemensamma utrymmena utformas efter de boendes behov av ett tryggt hem och stöd i vardagen. – Vi är glada över att ett nytt boende nu byggs i Sarvikangas. Vårt mål är att verksamheten ska erbjuda ett tryggt hem för våra boende under tiden de är i behov av rehabi",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f53fcb718733cd67"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-18T08:00:00+01:00",
+      "title": "Mycronic erhåller order på reparationssystem för fotomasker",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-reparationssystem-for-fotomasker",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på reparationssystem för fotomasker 2026-11-18 08:00:00 Mycronic AB (publ) har erhållit en order på ett reparationssystem för fotomasker för halvledare från en befintlig kund i USA. Ordervärdet ligger i intervallet 2-3 MUSD. Systemet är planerat att levereras under det fjärde kvartalet 2026. Laserbaserade system för reparation av fotomasker, som utvecklas och tillverkas av Cowin DST i Sydkorea, reparerar defekter som identifieras vid inspektion, efter att fotomaskerna har exponerats i en maskritare och processats. Detta förbättrar utbytet i tillverkningsprocessen för fotomasker. Mycronic erbjuder system för reparation ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "fc4b4216d4cc105f"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

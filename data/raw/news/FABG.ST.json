@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-18T00:50:47+01:00",
+  "generated_at": "2026-11-19T00:23:03+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/fabege",
-  "items": []
+  "items": [
+    {
+      "ticker": "FABG.ST",
+      "company": "Fabege",
+      "published_at": "2026-11-18T08:45:00+01:00",
+      "title": "Moody's affirms Fabege's rating of Baa2, stable outlook",
+      "link": "https://mfn.se/cis/a/fabege/moodys-affirms-fabeges-rating-of-baa2-stable-outlook-b5945bc7",
+      "source": "MFN",
+      "summary": "Moody's affirms Fabege's rating of Baa2, stable outlook 2026-11-18 08:45:00 Fabege has been a recurring issuer on the capital market for a long time, with its issuing of both certificates and bonds. Fabege's strong balance sheet, with a high equity/assets ratio and a low loan-to-value ratio, confirms our stable financial position. - Moody's credit rating confirms our creditworthiness. As a recurring issuer in the capital market, we are committed to transparency and trust. The total outstanding volume of bonds and commercial paper now amounts to approximately SEK 15bn, comments Åsa Bergström, CFO. Fabege AB (publ) For further information, plea",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4d2ccaaf5e0a9612"
+    }
+  ]
 }

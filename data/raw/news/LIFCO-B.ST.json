@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-18T00:51:32+01:00",
+  "generated_at": "2026-11-19T00:23:49+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
   "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-11-18T13:47:00+01:00",
+      "title": "Lifco förvärvar Decorative Products i Tyskland",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-decorative-products-i-tyskland",
+      "source": "MFN",
+      "summary": "Lifco förvärvar Decorative Products i Tyskland 2026-11-18 13:47:00 Lifco har tecknat avtal om att förvärva majoriteten av aktierna i det tyska bolaget Decorative Products GmbH . Decorative Products är en nischad leverantör av ytprodukter för flygplanskabiner. Decorative Products omsatte cirka 10,6 MEUR 2025. Bolaget är baserat i Ahrensburg, Tyskland och har 14 anställda. Decorative Products kommer att konsolideras i affärsområdet Transportation Products. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat och finansiella ställning under 2026. Läs mer på decorative-products",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bbd5ff5a657783d8"
+    },
     {
       "ticker": "LIFCO-B.ST",
       "company": "Lifco AB (publ)",

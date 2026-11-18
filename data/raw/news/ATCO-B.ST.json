@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-18T00:49:27+01:00",
+  "generated_at": "2026-11-19T00:21:45+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/atlas-copco",
   "items": [
+    {
+      "ticker": "ATCO-B.ST",
+      "company": "Atlas Copco B",
+      "published_at": "2026-11-18T08:30:00+01:00",
+      "title": "Atlas Copco: Distributör av vätskehanteringsutrustning i USA har avyttrats",
+      "link": "https://mfn.se/cis/a/atlas-copco/atlas-copco-distributor-av-vatskehanteringsutrustning-i-usa-har-avyttrats-c9bf3d0d",
+      "source": "MFN",
+      "summary": "Atlas Copco: Distributör av vätskehanteringsutrustning i USA har avyttrats 2026-11-18 08:30:00 Nacka, Sweden, November 18, 2026 : C.H. Spencer LLC (\"C.H. Spencer) has been divested and no longer constitutes a part of Atlas Copco Group. Efter att servicedivisionen inom affärsområdet Energiteknik genomfört en strategisk utvärdering har C.H. Spencer, beläget i Salt Lake City, USA, avyttrats. C.H. Spencer är en distributör av vätskehanteringsutrustning och tillhandahåller både försäljning av utrustning och reservdelar. \"Vi tackar C.H. Spencer med anställda för det hårda arbetet samt för hur de bidragit till Gruppen, och önskar dem all lycka på de",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "69068f014e1f4fef"
+    },
     {
       "ticker": "ATCO-B.ST",
       "company": "Atlas Copco B",
