@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-17",
+  "checked_at": "2026-11-18",
   "counts": {
-    "calendar_date_preserved": 4,
-    "manual_date_preserved": 2
+    "calendar_date_preserved": 5,
+    "manual_date_preserved": 3
   },
   "missing_historical_dates": [
     {
@@ -667,8 +667,11 @@
     }
   ],
   "missing_upcoming_tickers": [
+    "BAHN-B.ST",
     "FOI-B.ST",
-    "LUMI.ST"
+    "LUMI.ST",
+    "NIBE-B.ST",
+    "ZZ-B.ST"
   ],
   "calendar_source_conflicts": [
     {
