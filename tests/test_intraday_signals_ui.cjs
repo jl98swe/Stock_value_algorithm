@@ -12,12 +12,12 @@ test('signals page refreshes preliminary selection and falls back without changi
  const stock=(score)=>({latest:{date:'2026-10-15',score},position:{lots:0,max_lots:1},next_action:{type:'NONE'},strategy_filter:{buy_allowed:true},signals:[]});
  const a=stock(50),b=stock(.5);
  a.signals=[{status:'executed',side:'SELL',execution_date:'2026-10-15',signal_date:'2026-10-14',execution_price:100,score:99.5}];
- const overviews={meta:{trading_dates:['2026-10-15'],rules:{buy_score:1,sell_score:99}},strategies:{standard:{stocks:{'A.ST':a,'B.ST':b}}}};
+ const overviews={meta:{trading_dates:['2026-10-14','2026-10-15'],rules:{buy_score:1,sell_score:99}},strategies:{standard:{stocks:{'A.ST':a,'B.ST':b}}}};
  const cache={schema_version:1,session_date:'2026-10-16',closing_match_start:'2026-10-16T17:29:30+02:00',session_close:'2026-10-16T17:30:00+02:00',generated_at:'2026-10-16T11:20:00+02:00',expires_at:'2026-10-17T00:00:00+02:00',stocks:{}};
  function quote(ticker,score){cache.stocks[ticker]={latest:{price:100,currency:'SEK',as_of:'2026-10-16T11:10:00+02:00'},valuation:{preliminary:true,score,price:100,currency:'SEK',as_of:'2026-10-16T11:10:00+02:00',basis_date:'2026-10-15',session:'2026-10-16'}}}
  quote('A.ST',.25);quote('B.ST',50);
  const document={body:{dataset:{overview:'signals'}},hidden:false,getElementById:el,querySelectorAll:()=>[],addEventListener:(key,fn)=>{events.set(key,fn)}};
- const window={reportDataStatus:{setTickers(){}},strategySelection:{set(){}}};
+ const window={addEventListener(){},reportDataStatus:{setTickers(){}},strategySelection:{set(){}}};
  const context=vm.createContext({window,document,Date:Clock,Intl,URL,URLSearchParams,console,setInterval(){},localStorage:{getItem(){return null}},location:{href:'https://example.test/signals.html',search:''},history:{replaceState(){}},fetch:async url=>({ok:true,json:async()=>{
   if(url.includes('raw.githubusercontent')) return cache;
   if(url.includes('strategy_overviews')) return overviews;
