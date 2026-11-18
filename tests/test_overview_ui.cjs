@@ -94,10 +94,10 @@ const docs=path.resolve(__dirname,'../docs');
   await page.locator('.page-nav a').filter({hasText:'Signaler'}).click();
   await page.waitForSelector('#overview-content:not([hidden])');
   assert.equal(await page.locator('#overview-strategy').inputValue(),'ma200');
-  const dates=data.meta.trading_dates,cutoff=dates[0],end=dates.at(-1);
+  const dates=data.meta.trading_dates,cutoff=dates[0],end=data.meta.latest_execution_date || dates.at(-1);
   for(const key of ['standard','ma200','report_avoidance','standard_stop_loss_10']) {
    await page.locator('#overview-strategy').selectOption(key);
-   const expected=Object.values(data.strategies[key].stocks).flatMap(s=>s.signals).filter(s=>s.status==='executed' && s.execution_date>=cutoff && s.execution_date<=end).length;
+   const expected=Object.values(data.strategies[key].stocks).flatMap(s=>s.signals).filter(s=>['executed','pending','awaiting_next_session'].includes(s.status) && s.signal_date>=cutoff && s.signal_date<=end).length;
    assert.equal(await page.locator('#recent-count').textContent(),String(expected));
   }
   await page.goto('https://overview-ui.test/positions.html');

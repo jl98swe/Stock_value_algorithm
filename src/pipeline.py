@@ -257,8 +257,9 @@ def _strategy_live_payload(strategy: dict | None, filters: dict) -> dict:
                   "execute_on": filters["report_exit_date"], "detail": f"Planerad {filters['report_exit_date']}"}
     state = strategy.get("state") if strategy else None
     cutoff = _iso_date(state.iloc[max(0, len(state) - 20)]["Date"]) if isinstance(state, pd.DataFrame) and not state.empty else None
-    signals = [s for s in _signal_rows(strategy) if s.get("status") == "executed"
-               and s.get("execution_date") and (cutoff is None or s["execution_date"] >= cutoff)]
+    signals = [s for s in _signal_rows(strategy)
+               if s.get("status") in {"executed", "pending", "awaiting_next_session"}
+               and s.get("signal_date") and (cutoff is None or s["signal_date"] >= cutoff)]
     return {"position": position, "next_action": action, "signals": signals, "strategy_filter": filters}
 
 

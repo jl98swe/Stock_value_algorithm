@@ -163,3 +163,36 @@ def test_stop_strategy_has_independent_live_state_and_fixed_stop(monkeypatch):
     assert live['strategy_filter']['stop_price'] is None
     assert live['signals'][-1]['exit_reason'] == 'stop_loss'
     assert variants['standard']['overview']['position']['lots'] == 1
+
+
+def test_confirmed_signal_is_exported_before_open_and_completed_in_place():
+    """Synthetic buy/sell signals survive the close-to-open publication gap."""
+    from src.pipeline import _strategy_live_payload
+    data = frame(['2026-11-16', '2026-11-17'], [50, 0])
+    waiting = run_strategy(data, 'EXAMPLE.ST')
+    before = _strategy_live_payload(waiting, {})['signals']
+    assert len(before) == 1
+    assert before[0]['status'] == 'awaiting_next_session'
+    assert before[0]['signal_date'] == '2026-11-17'
+    assert not before[0].get('execution_date')
+    assert not before[0].get('execution_price')
+    data = frame(['2026-11-16', '2026-11-17', '2026-11-18'], [50, 0, 50])
+    after = _strategy_live_payload(run_strategy(data, 'EXAMPLE.ST'), {})['signals']
+    assert len(after) == 1
+    assert after[0]['signal_id'] == before[0]['signal_id']
+    assert after[0]['status'] == 'executed'
+    assert after[0]['execution_date'] == '2026-11-18'
+    assert after[0]['execution_price'] == 100
+
+
+def test_recent_signal_export_excludes_cancelled_and_suppressed_orders():
+    """Synthetic statuses and 20-session cutoff use the signal date."""
+    from src.pipeline import _strategy_live_payload
+    dates = pd.bdate_range('2026-10-01', periods=22)
+    day = dates[-1].date().isoformat()
+    statuses = ['pending', 'awaiting_next_session', 'executed', 'cancelled_lock',
+                'suppressed_capacity', 'deferred_cooldown', 'cancelled_filter']
+    signals = [dict(signal_id=status, signal_date=day, status=status, side='SELL') for status in statuses]
+    signals.append(dict(signal_id='old', signal_date='2026-10-01', status='executed', execution_date=day))
+    result = _strategy_live_payload({'state': frame(dates, [50]*22), 'signals': signals}, {})
+    assert [s['signal_id'] for s in result['signals']] == statuses[:3]

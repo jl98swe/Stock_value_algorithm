@@ -193,12 +193,12 @@
     const tradingDates = dashboard.meta?.trading_dates || [...new Set(Object.values(dashboard.stocks || {})
       .flatMap((data) => (data.candles || []).map((row) => row.date).filter(Boolean)))].sort();
     const recentCutoff = tradingDates.length > 20 ? tradingDates.at(-20) : tradingDates[0];
-    const latestTradingDate = dashboard.meta?.latest_execution_date || tradingDates.at(-1);
+    const latestSignalDate = dashboard.meta?.latest_execution_date || tradingDates.at(-1);
     const recent = Object.entries(dashboard.stocks || {})
       .flatMap(([ticker, data]) => {
         const meta = stockMeta(stocksPayload, ticker);
         return (data.signals || [])
-          .filter((row) => row.status === 'executed' && row.execution_date)
+          .filter((row) => ['executed', 'pending', 'awaiting_next_session'].includes(row.status) && row.signal_date)
           .map((row) => ({
             ...row,
             ticker,
@@ -206,21 +206,21 @@
             currency: meta.currency || 'SEK'
           }));
       })
-      .filter((row) => (!recentCutoff || row.execution_date >= recentCutoff)
-        && (!latestTradingDate || row.execution_date <= latestTradingDate))
+      .filter((row) => (!recentCutoff || row.signal_date >= recentCutoff)
+        && (!latestSignalDate || row.signal_date <= latestSignalDate))
       .filter((row) => textIncludes(row, needle))
-      .sort((a, b) => b.execution_date.localeCompare(a.execution_date)
-        || String(b.signal_date || '').localeCompare(String(a.signal_date || ''))
+      .sort((a, b) => b.signal_date.localeCompare(a.signal_date)
+        || String(b.execution_date || '').localeCompare(String(a.execution_date || ''))
         || a.ticker.localeCompare(b.ticker, 'sv-SE'));
 
     $('recent-count').textContent = String(recent.length);
     $('recent-signals-body').innerHTML = recent.length ? recent.map((row) => `<tr>
       <td><a class="stock-link" href="${stockHref(row.ticker)}" title="${esc(row.name)}"><strong>${esc(row.ticker)}</strong></a></td>
       <td><span class="status-chip ${row.side === 'BUY' ? 'buy' : 'sell'}">${row.side === 'BUY' ? 'Köp' : 'Sälj'}</span>${row.exit_reason === 'report' ? '<span class="cell-detail">Inför rapport</span>' : row.exit_reason === 'stop_loss' ? '<span class="cell-detail">Stop loss 10 %</span>' : ''}</td>
-      <td><strong>${prettyDate(row.execution_date)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
-      <td>${money(row.execution_price, row.currency)}</td>
+      <td><strong>${prettyDate(row.status === 'executed' ? row.execution_date : null)}</strong><span class="cell-detail">Signal ${prettyDate(row.signal_date)}</span></td>
+      <td>${money(row.status === 'executed' ? row.execution_price : null, row.currency)}</td>
       <td>${score(row.score)}</td>
-    </tr>`).join('') : '<tr><td colspan="5" class="empty-cell">Inga exekverade signaler under de senaste 20 handelsdagarna.</td></tr>';
+    </tr>`).join('') : '<tr><td colspan="5" class="empty-cell">Inga fastställda signaler under de senaste 20 handelsdagarna.</td></tr>';
 
     $('summary-count').textContent = String(upcoming.length + recent.length);
   }
