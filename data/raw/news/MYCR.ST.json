@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-19T00:24:05+01:00",
+  "generated_at": "2026-11-20T00:32:10+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/mycronic",
   "items": [
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-19T08:00:00+01:00",
+      "title": "Mycronic receives order for a photomask repair system",
+      "link": "https://mfn.se/a/mycronic/mycronic-receives-order-for-a-photomask-repair-system-1",
+      "source": "MFN",
+      "summary": "Mycronic receives order for a photomask repair system 2026-11-19 08:00:00 Mycronic AB (publ) has received an order for a display photomask repair system from an existing customer in Asia. The order value is in the range of USD 4-5 million. Delivery of the system is planned for the second quarter of 2027. Laser-based photomask repair systems, developed and manufactured by Cowin DST in South Korea, repair defects identified during inspection, after photomasks have been exposed in a mask writer and processed. This improves yield in the photomask manufacturing process. Mycronic provides photomask repair systems for both the semiconductor and disp",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9787dadf9e5e2bca"
+    },
     {
       "ticker": "MYCR.ST",
       "company": "Mycronic AB (publ)",

@@ -1,7 +1,51 @@
 {
-  "generated_at": "2026-11-19T00:25:41+01:00",
+  "generated_at": "2026-11-20T00:34:04+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-19T08:01:09+01:00",
+      "title": "AstraZeneca: Sonesitatug vedotin granted Priority Review in the US for 2nd and later-line treatment of patients with CLDN18.2-positive advanced gastric/GEJ cancers",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-sonesitatug-vedotin-granted-priority-review-in-the-us-for-2nd-and-later-line-treatment-of-patients-with-cldn18-2-positive-advanced-gastric-gej-cancers-38550fc7",
+      "source": "MFN",
+      "summary": "AstraZeneca: Sonesitatug vedotin granted Priority Review in the US for 2nd and later-line treatment of patients with CLDN18.2-positive advanced gastric/GEJ cancers 2026-11-19 08:01:09 Based on CLARITY-Gastric01 Phase III trial results which showed Sone-Ve reduced the risk of death by 42% in this setting. Consistent Sone-Ve efficacy data across CLDN18.2 expression levels (>25%) supports potential use in up to 60% of patients in this setting. AstraZeneca's Biologics License Application (BLA) for sonesitatug vedotin (Sone-Ve) has been accepted and granted Priority Review in the US for the 2nd and later-line treatment of patients with locally adv",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "052469e80e752dcf"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-19T08:00:00+01:00",
+      "title": "Mycronic erhåller order på reparationssystem för fotomasker",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-reparationssystem-for-fotomasker-1",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på reparationssystem för fotomasker 2026-11-19 08:00:00 Mycronic AB (publ) har erhållit en order på ett reparationssystem för fotomasker för bildskärmar från en befintlig kund i Asien. Ordervärdet ligger i intervallet 4-5 MUSD. Systemet är planerat att levereras under det andra kvartalet 2027. Laserbaserade system för reparation av fotomasker, som utvecklas och tillverkas av Cowin DST i Sydkorea, reparerar defekter som identifieras vid inspektion, efter att fotomaskerna har exponerats i en maskritare och processats. Detta förbättrar utbytet i tillverkningsprocessen för fotomasker. Mycronic erbjuder system för reparatio",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b676f5cd5b6da589"
+    },
     {
       "ticker": "NDA-SE.ST",
       "company": "Nordea Bank Abp",

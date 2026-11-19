@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-19T00:23:49+01:00",
+  "generated_at": "2026-11-20T00:31:49+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
   "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-11-19T14:55:00+01:00",
+      "title": "Lifco förvärvar Colortec i Spanien",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-colortec-i-spanien",
+      "source": "MFN",
+      "summary": "Lifco förvärvar Colortec i Spanien 2026-11-19 14:55:00 Lifco har tecknat avtal om att förvärva majoriteten av aktierna i det spanska bolaget Colortec Química S.L . Colortec tillverkar kundanpassade masterbatcher, pigment och tillsatser för plastprodukter. Colortec omsatte cirka 9,3 MEUR 2025. Bolaget är baserat i Ibi, nära Alicante i Spanien och har 45 anställda. Colortec kommer att konsolideras i affärsområdet Systems Solutions, division Special Products. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat och finansiella ställning under 2026. Läs mer på colortec.es/en . ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "a3045f5c5795e32a"
+    },
     {
       "ticker": "LIFCO-B.ST",
       "company": "Lifco AB (publ)",

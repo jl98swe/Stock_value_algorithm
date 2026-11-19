@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-19T00:22:30+01:00",
+  "generated_at": "2026-11-20T00:30:30+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/coor-service-management-holding",
   "items": [
+    {
+      "ticker": "COOR.ST",
+      "company": "Coor Service Management",
+      "published_at": "2026-11-19T08:00:00+01:00",
+      "title": "Coor förvärvar norsk facility management-koncern och stärker ytterligare sin position i Norden",
+      "link": "https://mfn.se/cis/a/coor-service-management-holding/coor-forvarvar-norsk-facility-management-koncern-och-starker-ytterligare-sin-position-i-norden-93d911b5",
+      "source": "MFN",
+      "summary": "Coor förvärvar norsk facility management-koncern och stärker ytterligare sin position i Norden 2026-11-19 08:00:00 Coor Service Management Holding AB (\"Coor\") har ingått ett avtal om förvärv av en väletablerad norsk facility management-koncern bestående av fyra fristående bolag (tillsammans benämnda \"Insider Group\") (\"Transaktionen\"). Insider Group erbjuder tjänster inom lokalvård, fastighetsservice och mat och dryck, samt tjänster inom tillfälliga personalboenden (\"camps\"). Transaktionen kommer att skapa en rikstäckande närvaro i Norge, en breddad kundbas, stärkta positioner inom lokalvård och fastighetsservice samt förbättrad konkurrenskraf",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "9e6fc7e59078987c"
+    },
     {
       "ticker": "COOR.ST",
       "company": "Coor Service Management",
