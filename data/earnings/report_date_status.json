@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-18",
+  "checked_at": "2026-11-19",
   "counts": {
-    "calendar_date_preserved": 5,
-    "manual_date_preserved": 3
+    "calendar_date_preserved": 3,
+    "manual_date_preserved": 1
   },
   "missing_historical_dates": [
     {
