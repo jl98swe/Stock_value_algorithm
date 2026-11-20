@@ -1,7 +1,73 @@
 {
-  "generated_at": "2026-11-20T00:34:04+01:00",
+  "generated_at": "2026-11-21T00:06:02+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-20T08:30:00+01:00",
+      "title": "Rejlers bidrar med bred teknisk kompetens till ny kriminalvårdsanläggning i Trelleborg",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-bidrar-med-bred-teknisk-kompetens-till-ny-kriminalvardsanlaggning-i-trelleborg-401ae29e",
+      "source": "MFN",
+      "summary": "Rejlers bidrar med bred teknisk kompetens till ny kriminalvårdsanläggning i Trelleborg 2026-11-20 08:30:00 Rejlers får fortsatt förtroende i projekteringen av den nya kriminalvårdsanläggningen i Trelleborg. Uppdraget omfattar el- och telesystem, byggnadskonstruktion och projekteringsledning. Med erfarenhet från projektets tidigare skeden bidrar Rejlers med både specialistkompetens och god kännedom om anläggningens förutsättningar när projekteringen nu går vidare till bygghandlingsskedet. Rejlers arbetar på uppdrag av NCC, som genomför projektet som en totalentreprenad i samverkan med Specialfastigheter. Det fortsatta uppdraget omfattar uppdra",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "36dd66a7afec9bba"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-20T08:30:00+01:00",
+      "title": "Rejlers brings broad technical expertise to new correctional facility in Trelleborg",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-brings-broad-technical-expertise-to-new-correctional-facility-in-trelleborg-d638125e",
+      "source": "MFN",
+      "summary": "Rejlers brings broad technical expertise to new correctional facility in Trelleborg 2026-11-20 08:30:00 Rejlers has been entrusted with continued design work for the new correctional facility in Trelleborg. The assignment covers electrical and telecommunications systems, structural engineering and design management. Drawing on its experience from earlier project stages, Rejlers brings both specialist expertise and a thorough understanding of the facility's requirements as the project now moves into the detailed design phase. Rejlers is working on behalf of NCC, which is delivering the project under a design and build contract in collaboration",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "884f8d5b24398149"
+    },
+    {
+      "ticker": "DIOS.ST",
+      "company": "Diös Fastigheter",
+      "published_at": "2026-11-20T06:00:00+01:00",
+      "title": "Diös bygger 54 nya bostäder i centrala Umeå",
+      "link": "https://mfn.se/a/dios/dios-bygger-54-nya-bostader-i-centrala-umea",
+      "source": "MFN",
+      "summary": "Diös bygger 54 nya bostäder i centrala Umeå 2026-11-20 06:00:00 Fastighetsägaren Diös konverterar cirka 2 500 kvadratmeter vakant kontorsyta till bostäder på Storgatan/Västra Esplanaden i centrala Umeå. Totalt skapas 54 hyresrätter om 1–4 rum och kök med planerad inflyttning under sommaren 2028. Byggstart planeras ske i januari 2027. Fastigheten Njord 28 ligger i korsningen Storgatan 43/Västra Esplanaden 4. Här skapas bostäder ovanför de befintliga verksamheterna i gatuplan, där det i dag finns bland annat restaurang, gym och frisör. Lägenheterna kommer att variera mellan 35 och 90 kvadratmeter, med tonvikt på mindre bostäder om ett rum och k",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "5b09d5e566503f15"
+    },
     {
       "ticker": "AZN.ST",
       "company": "AstraZeneca",
