@@ -34,7 +34,9 @@ test('upside column and circular help work on desktop and mobile',async()=>{
     assert.equal(await cells.count(),url.startsWith('method') ? 11 : 9);
     assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/handelsdagar/);
     await page.locator('button[data-post-sell-help]').click();
-    assert.match(await page.locator('.help-popover:popover-open').innerText(),/säljsignalens stängningskurs/);
+    const postPopup=page.locator('.help-popover:popover-open');
+    await postPopup.waitFor();
+    assert.match(await postPopup.innerText(),/säljsignalens stängningskurs/);
     await page.keyboard.press('Escape');
     if(!url.includes('ticker=all')) assert.match(await cells.nth(url.startsWith('method') ? 9 : 7).innerText(),/%/);
    }
