@@ -1,239 +1,244 @@
 ticker,report_date_start,report_date_end,date_status,expected_eps,expected_eps_low,expected_eps_high,expected_eps_currency,expected_eps_metric,expected_eps_verified,source,observed_date
-AAK.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
 AAK.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ABB.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+AAK.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ABB.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ADDT-B.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ABB.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ADDT-B.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ADDT-B.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ALIV-SDB.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ALIG.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ALIV-SDB.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ALLEI.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-ALLEI.ST,2027-01-27,2027-01-27,confirmed,1.19667,1.17,1.24,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+ALIV-SDB.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ALLEI.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ALLEI.ST,2027-01-27,2027-01-27,confirmed,1.255,1.17,1.43,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+ALLEI.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ARJO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ANOD-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ARJO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ASSA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ARJO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ASSA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ATCO-A.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ASSA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ATCO-A.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ATCO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ATCO-A.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ATCO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ATRLJ-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ATCO-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ATRLJ-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ATT.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-ATT.ST,2027-02-04,2027-02-04,confirmed,1.85,1.85,1.85,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+ATRLJ-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ATT.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-AXFO.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ATT.ST,2027-02-04,2027-02-04,confirmed,1.85,1.85,1.85,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+ATT.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 AXFO.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-AZA.ST,2027-01-22,2027-01-22,confirmed,4.69438,4.45,4.80553,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+AXFO.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 AZA.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-AZN.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+AZA.ST,2027-01-22,2027-01-22,confirmed,4.69438,4.45,4.80553,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
 AZN.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+AZN.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BAHN-B.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+BAHN-B.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BALD-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BEIA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
 BEIA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BEIJ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BEIA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BEIJ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BERG-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BEIJ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BERG-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BETS-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BERG-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BETS-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BILI-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BETS-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BILI-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BILI-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BOL.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BIOG-B.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BOL.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BORG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BOL.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BORG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BORG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-BTS-B.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BRAV.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 BTS-B.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+BTS-B.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CATE.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+CAST.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CATE.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CIBUS.ST,2027-02-18,2027-02-18,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+CATE.ST,2027-02-19,2027-02-19,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CIBUS.ST,2027-02-18,2027-02-18,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CLA-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-CLA-B.ST,2027-02-03,2027-02-03,confirmed,0.66,0.66,0.66,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+CIBUS.ST,2027-02-18,2027-02-18,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CLA-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CLAS-B.ST,2026-12-03,2026-12-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-CLAS-B.ST,2026-12-03,2026-12-03,confirmed,6.15034,6.08102,6.21,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+CLA-B.ST,2027-02-03,2027-02-03,confirmed,0.66,0.66,0.66,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+CLA-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CLAS-B.ST,2026-12-03,2026-12-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+CLAS-B.ST,2026-12-03,2026-12-03,confirmed,6.15034,6.08102,6.21,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+CLAS-B.ST,2026-12-03,2026-12-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-CTT.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+COOR.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 CTT.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+CTT.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-DOM.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+DIOS.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 DOM.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-DUNI.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+DOM.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 DUNI.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-DYVOX.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+DUNI.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 DYVOX.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+DYVOX.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EKTA-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-EKTA-B.ST,2026-11-25,2026-11-25,confirmed,0.7837,0.57397,0.94,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+EAST.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EKTA-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,0.69116,0.68,0.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+EKTA-B.ST,2026-11-25,2026-11-25,confirmed,0.8589,0.74,0.98047,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+EKTA-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EPI-A.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-EPI-A.ST,2027-01-26,2027-01-26,confirmed,2.45859,2.37,2.57,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,0.69116,0.68,0.7,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+EMBRAC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EPI-A.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EPI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-EPI-B.ST,2027-01-26,2027-01-26,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+EPI-A.ST,2027-01-26,2027-01-26,confirmed,2.45859,2.37,2.57,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+EPI-A.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EPI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EQL.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+EPI-B.ST,2027-01-26,2027-01-26,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+EPI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EQL.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EQT.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+EQL.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EQT.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ERIC-B.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-ERIC-B.ST,2027-01-22,2027-01-22,confirmed,2.78373,2.35864,3.27,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+EQT.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ERIC-B.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,4.68442,4.44,5.02,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+ERIC-B.ST,2027-01-22,2027-01-22,confirmed,2.78373,2.35864,3.27,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+ERIC-B.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-EVO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,4.68442,4.44,5.02,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+ESSITY-B.ST,2027-01-21,2027-01-21,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 EVO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-FABG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+EVO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 FABG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+FABG.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 FOI-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-GENO.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+FOI-B.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 GENO.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-GETI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+GENO.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 GETI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HANZA.ST,2027-02-23,2027-02-23,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-HEXA-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+GETI-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
+HANZA.ST,2027-02-23,2027-02-23,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HEXA-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HMS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HEXA-B.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HMS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HOLM-A.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HMS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HOLM-A.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HPOL-B.ST,2027-02-01,2027-02-01,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HOLM-A.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HPOL-B.ST,2027-02-01,2027-02-01,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HTRO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HPOL-B.ST,2027-02-01,2027-02-01,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HTRO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-HUFV-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HTRO.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 HUFV-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-INDT.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+HUFV-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 INDT.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-INDU-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+INDT.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 INDU-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-INTRUM.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-INTRUM.ST,2027-02-04,2027-02-04,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+INDU-A.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 INTRUM.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-INVE-A.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+INTRUM.ST,2027-02-04,2027-02-04,confirmed,,,,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+INTRUM.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 INVE-A.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+INVE-A.ST,2027-01-22,2027-01-22,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-KAMBI.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+INWI.ST,2027-02-09,2027-02-09,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 KAMBI.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-KNOW.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+KAMBI.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 KNOW.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-LAGR-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+KNOW.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 LAGR-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-LIFCO-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+LAGR-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 LIFCO-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+LIFCO-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-LOOMIS.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+LIME.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 LOOMIS.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MCAP.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+LOOMIS.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MCAP.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MCOV-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+MCAP.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MCOV-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MSAB-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+MCOV-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MSAB-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MTG-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-MTG-B.ST,2027-02-04,2027-02-04,confirmed,4.53,4.34,4.72,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+MSAB-B.ST,2027-01-26,2027-01-26,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MTG-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MTRS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+MTG-B.ST,2027-02-04,2027-02-04,confirmed,4.53,4.34,4.72,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+MTG-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MTRS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-MYCR.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+MTRS.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 MYCR.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+MYCR.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NDA-SE.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-NDA-SE.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-NEWA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-NEWA-B.ST,2027-02-04,2027-02-04,confirmed,1.76667,1.75,1.8,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+NDA-SE.ST,2027-02-02,2027-02-02,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NEWA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+NEWA-B.ST,2027-02-04,2027-02-04,confirmed,1.76667,1.75,1.8,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+NEWA-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NIBE-B.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+NIBE-B.ST,2027-02-17,2027-02-17,confirmed,0.59991,0.56,0.65,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+NIBE-B.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+NMAN.ST,2027-02-12,2027-02-12,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-NORION.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+NOLA-B.ST,2027-02-08,2027-02-08,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 NORION.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-PACT.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+NORION.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 PACT.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-PEAB-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+PACT.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 PEAB-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-PLAZ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+PEAB-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 PLAZ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-PNDX-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+PLAZ-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 PNDX-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-REJL-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+PNDX-B.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 REJL-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SAAB-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+REJL-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SAAB-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SAAB-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SAVE.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SAGA-A.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SAVE.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+SAVE.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SCA-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SCST.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
 SCST.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+SCST.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SEB-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
 SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SECT-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-SECT-B.ST,2026-11-25,2026-11-25,confirmed,0.85,0.85,0.85,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+SECARE.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SECT-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SECU-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SECT-B.ST,2026-11-25,2026-11-25,confirmed,0.875,0.87,0.88,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+SECT-B.ST,2026-11-25,2026-11-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SECU-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SFAST.ST,2027-02-25,2027-02-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SECU-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
+SFAST.ST,2027-02-25,2027-02-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SHB-A.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SHOT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
 SHOT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SINT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SHOT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SINT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SOBI.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SINT.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SOBI.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SVED-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SOBI.ST,2027-02-04,2027-02-04,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SVED-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SVED-B.ST,2027-02-03,2027-02-03,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SWEC-A.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SWED-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SWEC-B.ST,2027-02-11,2027-02-11,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SWED-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-SYSR.ST,2026-12-10,2026-12-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
-SYSR.ST,2026-12-10,2026-12-10,confirmed,1.5,1.5,1.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-15
+SWED-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 SYSR.ST,2026-12-10,2026-12-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-TEL2-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+SYSR.ST,2026-12-10,2026-12-10,confirmed,1.5,1.5,1.5,SEK,Yahoo EPS Estimate (definition unverified),False,Yahoo Finance / calendarEvents,2026-11-22
+SYSR.ST,2026-12-10,2026-12-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 TEL2-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+TEL2-B.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-TREL-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+THULE.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 TREL-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-VBG-B.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+TREL-B.ST,2027-01-29,2027-01-29,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 VBG-B.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+VBG-B.ST,2027-02-17,2027-02-17,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-VITR.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+VIT-B.ST,2027-02-10,2027-02-10,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 VITR.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-VOLV-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+VITR.ST,2027-01-28,2027-01-28,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 VOLV-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-WALL-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+VOLV-A.ST,2027-01-27,2027-01-27,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 WALL-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
-WIHL.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-15
+WALL-B.ST,2027-02-05,2027-02-05,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
 WIHL.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,Börskollen / rapportkalender,2026-11-21
+WIHL.ST,2027-02-16,2027-02-16,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
+ZZ-B.ST,2027-02-25,2027-02-25,confirmed,,,,,,False,MFN / bolagets rapportkalender,2026-11-22
