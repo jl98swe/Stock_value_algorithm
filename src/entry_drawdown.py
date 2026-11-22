@@ -31,7 +31,7 @@ def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = N
 def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
     price, first = trade.get('entry_price'), trade.get('entry_date')
     last = trade.get('exit_date') or trade.get('valuation_date') or end
-    empty = {'entry_upside_pct': None, 'entry_upside_days': None}
+    empty = {'entry_upside_pct': None, 'entry_upside_days': None, 'entry_upside_peak_days': None}
     if not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 0 or not first or not last:
         return empty
     highest, peak_session, session = -math.inf, None, 0
@@ -48,7 +48,27 @@ def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = Non
     if peak_session is None:
         return empty
     return {'entry_upside_pct': (highest / price - 1) * 100,
-            'entry_upside_days': session - peak_session}
+            'entry_upside_days': max(session, trade.get('holding_trading_days', 0) or 0) - peak_session, 'entry_upside_peak_days': peak_session}
+
+
+def trade_timing_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
+    """Descriptive timing only; signal close to fifth following session close."""
+    sessions = sorted({c['date']: c for c in candles if not c.get('preliminary')}.values(), key=lambda c: c['date'])
+    first = trade.get('entry_date')
+    last = trade.get('exit_date') or trade.get('valuation_date') or end
+    held = sum(first < c['date'] <= last for c in sessions) if first and last else None
+    if trade.get('exit_date') and isinstance(trade.get('holding_trading_days'), int):
+        held = trade['holding_trading_days']
+    result = {'holding_trading_days': held, 'post_sell_5d_pct': None}
+    signal = trade.get('exit_signal_date')
+    if not trade.get('exit_date') or not signal or trade.get('exit_reason') == 'period_end':
+        return result
+    base = next((c.get('close') for c in sessions if c['date'] == signal), None)
+    following = [c for c in sessions if c['date'] > signal and (not end or c['date'] <= end)]
+    target = following[4].get('close') if len(following) >= 5 else None
+    if all(isinstance(v, (int, float)) and math.isfinite(v) and v > 0 for v in (base, target)):
+        result['post_sell_5d_pct'] = (target / base - 1) * 100
+    return result
 
 
 def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None) -> float | None:
@@ -60,6 +80,7 @@ def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict]) -> 
         candles = index_candles if trade.get('ticker') == 'OMXSGI' else stocks.get(trade.get('ticker'), {}).get('candles', [])
         trade.update(entry_drawdown_metrics(candles, trade, end))
         trade.update(entry_upside_metrics(candles, trade, end))
+        trade.update(trade_timing_metrics(candles, trade, payload['meta']['end_date']))
         return trade
 
     for key, variant in payload.items():
@@ -83,6 +104,7 @@ def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict]) -> 
             best = max(gains, key=lambda t: t['entry_upside_pct']) if gains else {}
             summary['entry_upside_pct'] = best.get('entry_upside_pct')
             summary['entry_upside_days'] = best.get('entry_upside_days')
+            summary['entry_upside_peak_days'] = best.get('entry_upside_peak_days')
     return payload
 
 

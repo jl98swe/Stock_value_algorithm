@@ -5,7 +5,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const docs = path.resolve(__dirname, '../docs');
 test('upside column and circular help work on desktop and mobile',async()=>{
- const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox']});
  try {
   for (const width of [1440,390]) {
    const page=await browser.newPage({viewport:{width,height:1000}});
@@ -31,7 +31,14 @@ test('upside column and circular help work on desktop and mobile',async()=>{
     const box=await popup.boundingBox(); assert(box.x>=0 && box.x+box.width<=width);
     await page.keyboard.press('Escape'); assert.equal(await page.locator('.help-popover:visible').count(),0);
     const cells=page.locator(url.startsWith('method') ? '#method-trades tr:first-child td' : '#trades-table tbody tr:first-child td');
-    if(!url.includes('ticker=all')) assert.match(await cells.last().innerText(),/%/);
+    assert.equal(await cells.count(),url.startsWith('method') ? 11 : 9);
+    assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/handelsdagar/);
+    await page.locator('button[data-post-sell-help]').click();
+    const postPopup=page.locator('.help-popover:popover-open');
+    await postPopup.waitFor();
+    assert.match(await postPopup.innerText(),/säljsignalens stängningskurs/);
+    await page.keyboard.press('Escape');
+    if(!url.includes('ticker=all')) assert.match(await cells.nth(url.startsWith('method') ? 9 : 7).innerText(),/%/);
    }
    assert.deepEqual(errors,[]); await page.close();
   }

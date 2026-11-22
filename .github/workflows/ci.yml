@@ -52,6 +52,9 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      - name: Komplettera historiktabellernas mått i testkopian
+        run: python -m src.entry_drawdown
+
       - name: Testa kurs och poäng i mobil och desktop
         run: |
           npm install --prefix "$RUNNER_TEMP/closing-ui-tests" --no-save --ignore-scripts --package-lock=false playwright@1.56.1
@@ -69,7 +72,7 @@ jobs:
       - name: Kontrollera periodregler för Metod
         run: |
           node tests/test_method_periods.cjs
-          node --test tests/test_home_backtest.cjs tests/test_strategy_order.cjs tests/test_entry_drawdown.cjs tests/test_entry_upside.cjs
+          node --test tests/test_home_backtest.cjs tests/test_strategy_order.cjs tests/test_entry_drawdown.cjs tests/test_entry_upside.cjs tests/test_trade_timing.cjs
 
       - name: Kontrollera översikternas strategifilter
         run: node tests/test_overview_strategy.cjs
