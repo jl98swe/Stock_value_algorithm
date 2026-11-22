@@ -44,7 +44,7 @@
 
   // Highest held close relative to entry; count sessions through sale or the latest held close.
   function entryUpsideMetrics(candles, trade, end) {
-    const empty = {entry_upside_pct:null, entry_upside_days:null};
+    const empty = {entry_upside_pct:null, entry_upside_days:null, entry_upside_peak_days:null};
     const last = trade.exit_date || trade.valuation_date || end;
     if (!(trade.entry_price > 0) || !Number.isFinite(trade.entry_price) || !trade.entry_date || !last) return empty;
     let highest = -Infinity, peakSession = null, session = 0;
@@ -58,15 +58,29 @@
     }
     if (peakSession == null) return empty;
     return {entry_upside_pct:(highest / trade.entry_price - 1) * 100,
-      entry_upside_days:session - peakSession};
+      entry_upside_days:Math.max(session,trade.holding_trading_days || 0) - peakSession, entry_upside_peak_days:peakSession};
   }
   function bestEntryUpsideMetrics(candles, trades, end) {
     return trades.map(t => entryUpsideMetrics(candles,t,end)).filter(v => v.entry_upside_pct != null)
       .reduce((best,v) => best.entry_upside_pct == null || v.entry_upside_pct > best.entry_upside_pct ? v : best,
-        {entry_upside_pct:null, entry_upside_days:null});
+        {entry_upside_pct:null, entry_upside_days:null, entry_upside_peak_days:null});
   }
-  const upsideWithDays = (value, days) => `${percent(value)}${value != null && Number.isInteger(days) && days >= 0 ? ` · ${days} dagar` : ''}`;
+  const upsideWithDays = (value, days, peakDays) => `${percent(value)}${value != null && Number.isInteger(days) && days >= 0 ? ` · ${Number.isInteger(peakDays) ? `${peakDays}/` : ''}${days} dagar` : ''}`;
 
+
+  function tradeTimingMetrics(candles, trade, end) {
+    const sessions = [...new Map((candles || []).filter(c => !c.preliminary).map(c => [c.date,c])).values()].sort((a,b) => a.date.localeCompare(b.date));
+    const first = trade.entry_date, last = trade.exit_date || trade.valuation_date || end;
+    const result = {holding_trading_days:first && last ? sessions.filter(c => c.date > first && c.date <= last).length : null, post_sell_5d_pct:null};
+    if (trade.exit_date && Number.isInteger(trade.holding_trading_days)) result.holding_trading_days = trade.holding_trading_days;
+    const signal = trade.exit_signal_date;
+    if (!trade.exit_date || !signal || trade.exit_reason === 'period_end') return result;
+    const base = sessions.find(c => c.date === signal)?.close;
+    const target = sessions.filter(c => c.date > signal && (!end || c.date <= end))[4]?.close;
+    if ([base,target].every(v => Number.isFinite(v) && v > 0)) result.post_sell_5d_pct = (target/base - 1)*100;
+    return result;
+  }
+  const holdingWithDays = days => Number.isInteger(days) && days >= 0 ? `${days} handelsdagar` : '–';
 
   function periodStart(end, years, first) {
     if (!years || years === 'all') return first;
@@ -184,8 +198,8 @@
     });
   }
   // Also exposed for deterministic tests of the period rules.
-  if (typeof module !== 'undefined') module.exports = {periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays};
-  if (typeof window !== 'undefined') window.backtestMetrics = {fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays};
+  if (typeof module !== 'undefined') module.exports = {periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
+  if (typeof window !== 'undefined') window.backtestMetrics = {fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
   if (typeof document === 'undefined' || !document.getElementById('method-stock')) return;
 
   const params = new URLSearchParams(location.search);
@@ -238,7 +252,7 @@
       const entryGain = all ? summary : bestEntryUpsideMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end);
       const open = trades.open[0];
       const openText = !all && trades.open.length > 1 ? `${trades.open.length} st · ${trades.open.map(t=>percent(t.current_return_pct)).join(' / ')} (preliminärt)` : all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
-      return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days)}</td></tr>`;
+      return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days,entryGain.entry_upside_peak_days)}</td></tr>`;
     }).join('');
     const indexTrades = all ? variants.periods[period].reference_trades?.omxsgi || [] : references.omxsgi.trades;
     $('index-coverage').textContent = indexTrades.length ? `OMXSGI: ${indexTrades[0].entry_date} – ${indexTrades[0].exit_date} · Nasdaq via FRED · Utdelningar återinvesteras före skatt; inga fondavgifter eller courtage.` : 'OMXSGI saknar tillräckligt underlag för perioden.';
@@ -247,10 +261,10 @@
       const entryLoss = all ? t : entryDrawdownMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
       const entryGain = all ? t : entryUpsideMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
       const result = t.open ? t.current_return_pct : t.return_pct;
-      const days = Math.round((Date.parse(t.open ? (t.valuation_date || end) : t.exit_date) - Date.parse(t.entry_date)) / 86400000);
+      const timing = all ? t : tradeTimingMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
       const label = key === 'omxsgi' ? 'OMXSGI' : `<a href="./method.html?ticker=${encodeURIComponent(t.ticker || ticker)}&amp;strategy=${key}&amp;period=${period}">${esc(stockMeta.stocks.find(s => s.ticker === (t.ticker || ticker))?.name || t.ticker || ticker)}</a>`;
-      return `<tr class="trade-${result > 5 ? 'win' : result < -5 ? 'loss' : 'flat'}"><td>${label}</td><td>${esc(t.entry_date)}</td><td>${t.open ? 'Öppen' : esc(t.exit_date)}</td><td>${days} dagar</td><td>${number(t.entry_price)}</td><td>${t.open ? '–' : number(t.exit_price)}</td><td>${percent(result)}${t.open ? ' (preliminärt)' : ''}</td><td>${t.open ? '–' : t.exit_reason === 'period_end' ? 'Periodens slut' : t.exit_reason === 'report' ? 'Inför rapport' : t.exit_reason === 'stop_loss' ? 'Stop loss 10 %' : 'Värderingspoäng'}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days)}</td></tr>`;
-    }).join('') : '<tr><td colspan="10">Inga affärer som uppfyller periodens villkor.</td></tr>';
+      return `<tr class="trade-${result > 5 ? 'win' : result < -5 ? 'loss' : 'flat'}"><td>${label}</td><td>${esc(t.entry_date)}</td><td>${t.open ? 'Öppen' : esc(t.exit_date)}</td><td>${holdingWithDays(timing.holding_trading_days)}</td><td>${number(t.entry_price)}</td><td>${t.open ? '–' : number(t.exit_price)}</td><td>${percent(result)}${t.open ? ' (preliminärt)' : ''}</td><td>${t.open ? '–' : t.exit_reason === 'period_end' ? 'Periodens slut' : t.exit_reason === 'report' ? 'Inför rapport' : t.exit_reason === 'stop_loss' ? 'Stop loss 10 %' : 'Värderingspoäng'}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days,entryGain.entry_upside_peak_days)}</td><td>${percent(timing.post_sell_5d_pct)}</td></tr>`;
+    }).join('') : '<tr><td colspan="11">Inga affärer som uppfyller periodens villkor.</td></tr>';
     $('method-trades-more').hidden = trades.length <= visibleTrades;
     $('method-trades-count').textContent = `Visar ${Math.min(visibleTrades,trades.length)} av ${trades.length} affärer.`;
     $('report-coverage').textContent = key === 'report_avoidance' ? `${variants[key]?.report_dates_count || 0} rapportdatum i underlaget. Nya köp blockeras när nästa rapportdatum saknas.` : '';

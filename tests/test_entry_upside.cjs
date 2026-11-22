@@ -9,23 +9,24 @@ test('last tied high to opening sale counts trading sessions including sale day'
   assert.equal(m.entry_upside_pct,25); assert.equal(m.entry_upside_days,2);
 });
 test('period-end close may be a peak on sale day',()=>{
-  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_reason:'period_end'}),{entry_upside_pct:50,entry_upside_days:0});
+  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_reason:'period_end'}),{entry_upside_pct:50,entry_upside_days:0,entry_upside_peak_days:4});
 });
 test('open lots count since the latest tied peak; preliminary and later closes are excluded',()=>{
-  assert.deepEqual(entryUpsideMetrics(sessions.map((c,i)=>({...c,preliminary:i===4})),{...trade,exit_date:null},'2026-10-29'),{entry_upside_pct:25,entry_upside_days:1});
-  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null},'2026-10-23'),{entry_upside_pct:0,entry_upside_days:0});
+  assert.deepEqual(entryUpsideMetrics(sessions.map((c,i)=>({...c,preliminary:i===4})),{...trade,exit_date:null},'2026-10-29'),{entry_upside_pct:25,entry_upside_days:1,entry_upside_peak_days:2});
+  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null},'2026-10-23'),{entry_upside_pct:0,entry_upside_days:0,entry_upside_peak_days:0});
 });
 test('open lots reset days at a new high and respect valuation date',()=>{
-  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null,open:true},'2026-10-29'),{entry_upside_pct:50,entry_upside_days:0});
-  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null,valuation_date:'2026-10-28'},'2026-10-29'),{entry_upside_pct:25,entry_upside_days:1});
+  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null,open:true},'2026-10-29'),{entry_upside_pct:50,entry_upside_days:0,entry_upside_peak_days:4});
+  assert.deepEqual(entryUpsideMetrics(sessions,{...trade,exit_date:null,valuation_date:'2026-10-28'},'2026-10-29'),{entry_upside_pct:25,entry_upside_days:1,entry_upside_peak_days:2});
 });
 test('missing closes are missing; highest close can be below entry',()=>{
-  assert.deepEqual(entryUpsideMetrics([],trade),{entry_upside_pct:null,entry_upside_days:null});
+  assert.deepEqual(entryUpsideMetrics([],trade),{entry_upside_pct:null,entry_upside_days:null,entry_upside_peak_days:null});
   assert(entryUpsideMetrics(sessions,{...trade,entry_price:200}).entry_upside_pct<0);
   assert.equal(bestEntryUpsideMetrics(sessions,[]).entry_upside_pct,null);
-  assert.deepEqual(bestEntryUpsideMetrics(sessions,[trade,{...trade,entry_price:200}]),{entry_upside_pct:25,entry_upside_days:2});
+  assert.deepEqual(bestEntryUpsideMetrics(sessions,[trade,{...trade,entry_price:200}]),{entry_upside_pct:25,entry_upside_days:2,entry_upside_peak_days:2});
   assert.match(upsideWithDays(25,2),/\+25 % · 2 dagar/);
   assert.equal(upsideWithDays(null,null),'–');
+  assert.match(upsideWithDays(25,1,25),/25\/1 dagar/);
 });
 test('exported metrics match browser calculations and preserve trading data',()=>{
   const {execFileSync}=require('node:child_process');
