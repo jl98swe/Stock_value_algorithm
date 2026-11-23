@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-20",
+  "checked_at": "2026-11-23",
   "counts": {},
   "missing_historical_dates": [
     {
@@ -664,11 +664,7 @@
     }
   ],
   "missing_upcoming_tickers": [
-    "BAHN-B.ST",
-    "FOI-B.ST",
-    "LUMI.ST",
-    "NIBE-B.ST",
-    "ZZ-B.ST"
+    "LUMI.ST"
   ],
   "calendar_source_conflicts": [
     {
