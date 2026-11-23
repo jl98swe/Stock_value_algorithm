@@ -80,7 +80,7 @@
     if ([base,target].every(v => Number.isFinite(v) && v > 0)) result.post_sell_5d_pct = (target/base - 1)*100;
     return result;
   }
-  const holdingWithDays = days => Number.isInteger(days) && days >= 0 ? `${days} handelsdagar` : '–';
+  const holdingWithDays = days => Number.isInteger(days) && days >= 0 ? `${days} dagar` : '–';
 
   function periodStart(end, years, first) {
     if (!years || years === 'all') return first;
