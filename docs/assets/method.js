@@ -8,8 +8,10 @@
   const names = {standard:'Standard',standard_stop_loss_10:'Standard — stop loss 10 %',standard_two_positions:'Standard — två positioner',ma200:'MA200',report_avoidance:'Rapportundvikande',buy_and_hold:'Buy and hold',omxsgi:'OMXSGI'};
   const reference = key => key === 'buy_and_hold' || key === 'omxsgi';
 
-  // Entry-relative price loss, excluding closes after a next-open/intraday exit.
-  function entryDrawdownMetrics(candles, trade, end) {
+  const dividendBetween = (dividends, first, last) => dividends.reduce((sum,d) => sum + (d.date > first && d.date <= last ? Number(d.amount || 0) : 0),0);
+
+  // Entry-relative total return loss, excluding closes after a next-open/intraday exit.
+  function entryDrawdownMetrics(candles, trade, end, dividends = []) {
     const empty = {entry_drawdown_pct:null, entry_drawdown_days:null};
     if (!(trade.entry_price > 0) || !Number.isFinite(trade.entry_price) || !trade.entry_date) return empty;
     const last = trade.exit_date || trade.valuation_date || end;
@@ -19,31 +21,32 @@
       if (c.preliminary || c.date < trade.entry_date || c.date > last ||
           (trade.exit_date && c.date === last && trade.exit_reason !== 'period_end')) continue;
       if (c.date > trade.entry_date) session++;
-      if (Number.isFinite(c.close) && c.close > 0 && c.close <= lowest) {
-        lowest = c.close;
+      const value = c.close + dividendBetween(dividends, trade.entry_date, c.date);
+      if (Number.isFinite(c.close) && c.close > 0 && value <= lowest) {
+        lowest = value;
         days = session;
       }
     }
     return {entry_drawdown_pct:lowest < Infinity ? Math.min(0, (lowest / trade.entry_price - 1) * 100) : 0,
       entry_drawdown_days:days};
   }
-  function entryDrawdown(candles, trade, end) {
-    return entryDrawdownMetrics(candles,trade,end).entry_drawdown_pct;
+  function entryDrawdown(candles, trade, end, dividends = []) {
+    return entryDrawdownMetrics(candles,trade,end,dividends).entry_drawdown_pct;
   }
-  function worstEntryDrawdownMetrics(candles, trades, end) {
-    return trades.map(t => entryDrawdownMetrics(candles,t,end)).filter(v => v.entry_drawdown_pct != null)
+  function worstEntryDrawdownMetrics(candles, trades, end, dividends = []) {
+    return trades.map(t => entryDrawdownMetrics(candles,t,end,dividends)).filter(v => v.entry_drawdown_pct != null)
       .reduce((worst,v) => worst.entry_drawdown_pct == null || v.entry_drawdown_pct < worst.entry_drawdown_pct ? v : worst,
         {entry_drawdown_pct:null, entry_drawdown_days:null});
   }
-  function worstEntryDrawdown(candles, trades, end) {
-    return worstEntryDrawdownMetrics(candles,trades,end).entry_drawdown_pct;
+  function worstEntryDrawdown(candles, trades, end, dividends = []) {
+    return worstEntryDrawdownMetrics(candles,trades,end,dividends).entry_drawdown_pct;
   }
   const drawdownPercent = value => value == null || !Number.isFinite(value) ? '–' : `${new Intl.NumberFormat('sv-SE', {maximumFractionDigits:2}).format(value < -0.005 ? value : 0)} %`;
   const drawdownWithDays = (value, days) => `${drawdownPercent(value)}${Number.isInteger(days) && days >= 0 ? ` · ${days} dagar` : ''}`;
 
 
   // Highest held close relative to entry; count sessions through sale or the latest held close.
-  function entryUpsideMetrics(candles, trade, end) {
+  function entryUpsideMetrics(candles, trade, end, dividends = []) {
     const empty = {entry_upside_pct:null, entry_upside_days:null, entry_upside_peak_days:null};
     const last = trade.exit_date || trade.valuation_date || end;
     if (!(trade.entry_price > 0) || !Number.isFinite(trade.entry_price) || !trade.entry_date || !last) return empty;
@@ -52,23 +55,24 @@
       if (c.preliminary || c.date < trade.entry_date || c.date > last) continue;
       if (c.date > trade.entry_date) session++;
       if (trade.exit_date === c.date && trade.exit_reason !== 'period_end') continue;
-      if (Number.isFinite(c.close) && c.close > 0 && c.close >= highest) {
-        highest = c.close; peakSession = session;
+      const value = c.close + dividendBetween(dividends, trade.entry_date, c.date);
+      if (Number.isFinite(c.close) && c.close > 0 && value >= highest) {
+        highest = value; peakSession = session;
       }
     }
     if (peakSession == null) return empty;
     return {entry_upside_pct:(highest / trade.entry_price - 1) * 100,
       entry_upside_days:Math.max(session,trade.holding_trading_days || 0) - peakSession, entry_upside_peak_days:peakSession};
   }
-  function bestEntryUpsideMetrics(candles, trades, end) {
-    return trades.map(t => entryUpsideMetrics(candles,t,end)).filter(v => v.entry_upside_pct != null)
+  function bestEntryUpsideMetrics(candles, trades, end, dividends = []) {
+    return trades.map(t => entryUpsideMetrics(candles,t,end,dividends)).filter(v => v.entry_upside_pct != null)
       .reduce((best,v) => best.entry_upside_pct == null || v.entry_upside_pct > best.entry_upside_pct ? v : best,
         {entry_upside_pct:null, entry_upside_days:null, entry_upside_peak_days:null});
   }
   const upsideWithDays = (value, days, peakDays) => `${percent(value)}${value != null && Number.isInteger(days) && days >= 0 ? ` · ${Number.isInteger(peakDays) ? `${peakDays}/` : ''}${days} dagar` : ''}`;
 
 
-  function tradeTimingMetrics(candles, trade, end) {
+  function tradeTimingMetrics(candles, trade, end, dividends = []) {
     const sessions = [...new Map((candles || []).filter(c => !c.preliminary).map(c => [c.date,c])).values()].sort((a,b) => a.date.localeCompare(b.date));
     const first = trade.entry_date, last = trade.exit_date || trade.valuation_date || end;
     const result = {holding_trading_days:first && last ? sessions.filter(c => c.date > first && c.date <= last).length : null, post_sell_5d_pct:null};
@@ -76,8 +80,9 @@
     const signal = trade.exit_signal_date;
     if (!trade.exit_date || !signal || trade.exit_reason === 'period_end') return result;
     const base = sessions.find(c => c.date === signal)?.close;
-    const target = sessions.filter(c => c.date > signal && (!end || c.date <= end))[4]?.close;
-    if ([base,target].every(v => Number.isFinite(v) && v > 0)) result.post_sell_5d_pct = (target/base - 1)*100;
+    const targetCandle = sessions.filter(c => c.date > signal && (!end || c.date <= end))[4];
+    const target = targetCandle?.close;
+    if ([base,target].every(v => Number.isFinite(v) && v > 0)) result.post_sell_5d_pct = ((target + dividendBetween(dividends, signal, targetCandle.date))/base - 1)*100;
     return result;
   }
   const holdingWithDays = days => Number.isInteger(days) && days >= 0 ? `${days} dagar` : '–';
@@ -193,8 +198,8 @@
       };
       return { id, name, start: id === 'omxsgi' ? indexDates[0] : start,
         end: id === 'omxsgi' ? indexDates.at(-1) : end, ...summary,
-        ...worstEntryDrawdownMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end),
-        ...bestEntryUpsideMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end) };
+        ...worstEntryDrawdownMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []),
+        ...bestEntryUpsideMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []) };
     });
   }
   // Also exposed for deterministic tests of the period rules.
@@ -236,20 +241,20 @@
     const indexWindow = (indexData?.candles || []).filter(c=>c.date >= (all ? start : dates[0] || start) && c.date <= end);
     const indexDates = all ? [] : dates.filter(d=>indexWindow.length && d>=indexWindow[0].date && d<=indexWindow.at(-1).date);
     const references = all ? null : {
-      buy_and_hold:referenceSummary(windowCandles,variants._dividends || [],dates),
+      buy_and_hold:referenceSummary(windowCandles,variants?._dividends || [],dates),
       omxsgi:referenceSummary(indexWindow,[],indexDates,0)
     };
     const selected = reference(key) ? {closed:all ? variants.periods[period].reference_trades?.[key] || [] : references[key].trades, open:[]} : selectTrades(variants[key] || {}, start, end);
     $('backtest-summary').innerHTML = Object.entries(names).map(([id,name]) => {
       const trades = reference(id) ? {closed:all ? variants.periods[period].reference_trades?.[id] || [] : references[id].trades,open:[]} : selectTrades(variants[id] || {}, start,end), closed = trades.closed;
       const summary = all ? variants.periods[period].strategies[id] || {} : reference(id) ? references[id].summary : {
-        ...equityMetrics(closed.length ? closedEquity(stock.candles,closed,variants._dividends || [],dates,id === 'standard_two_positions' ? 2 : 1) : []),
+        ...equityMetrics(closed.length ? closedEquity(stock.candles,closed,variants?._dividends || [],dates,id === 'standard_two_positions' ? 2 : 1) : []),
         ...(id === 'standard_two_positions' ? {} : {return_pct:compound(closed)}),trade_count:closed.length,
         win_rate_pct:closed.length ? closed.filter(t=>t.return_pct>0).length/closed.length*100 : null,
         average_trade_pct:closed.length ? closed.reduce((sum,t)=>sum+t.return_pct,0)/closed.length : null
       };
-      const entryLoss = all ? summary : worstEntryDrawdownMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end);
-      const entryGain = all ? summary : bestEntryUpsideMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end);
+      const entryLoss = all ? summary : worstEntryDrawdownMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []);
+      const entryGain = all ? summary : bestEntryUpsideMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []);
       const open = trades.open[0];
       const openText = !all && trades.open.length > 1 ? `${trades.open.length} st · ${trades.open.map(t=>percent(t.current_return_pct)).join(' / ')} (preliminärt)` : all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
       return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days,entryGain.entry_upside_peak_days)}</td></tr>`;
@@ -258,10 +263,10 @@
     $('index-coverage').textContent = indexTrades.length ? `OMXSGI: ${indexTrades[0].entry_date} – ${indexTrades[0].exit_date} · Nasdaq via FRED · Utdelningar återinvesteras före skatt; inga fondavgifter eller courtage.` : 'OMXSGI saknar tillräckligt underlag för perioden.';
     const trades = [...selected.closed.map(t => ({...t, open:false})), ...selected.open.map(t => ({...t,open:true}))].sort((a,b) => b.entry_date.localeCompare(a.entry_date));
     $('method-trades').innerHTML = trades.length ? trades.slice(0,visibleTrades).map(t => {
-      const entryLoss = all ? t : entryDrawdownMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
-      const entryGain = all ? t : entryUpsideMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
+      const entryLoss = all ? t : entryDrawdownMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end,key === 'omxsgi' ? [] : variants?._dividends || []);
+      const entryGain = all ? t : entryUpsideMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end,key === 'omxsgi' ? [] : variants?._dividends || []);
       const result = t.open ? t.current_return_pct : t.return_pct;
-      const timing = all ? t : tradeTimingMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end);
+      const timing = all ? t : tradeTimingMetrics(key === 'omxsgi' ? indexWindow : stock.candles,t,end,key === 'omxsgi' ? [] : variants?._dividends || []);
       const label = key === 'omxsgi' ? 'OMXSGI' : `<a href="./method.html?ticker=${encodeURIComponent(t.ticker || ticker)}&amp;strategy=${key}&amp;period=${period}">${esc(stockMeta.stocks.find(s => s.ticker === (t.ticker || ticker))?.name || t.ticker || ticker)}</a>`;
       return `<tr class="trade-${result > 5 ? 'win' : result < -5 ? 'loss' : 'flat'}"><td>${label}</td><td>${esc(t.entry_date)}</td><td>${t.open ? 'Öppen' : esc(t.exit_date)}</td><td>${holdingWithDays(timing.holding_trading_days)}</td><td>${number(t.entry_price)}</td><td>${t.open ? '–' : number(t.exit_price)}</td><td>${percent(result)}${t.open ? ' (preliminärt)' : ''}</td><td>${t.open ? '–' : t.exit_reason === 'period_end' ? 'Periodens slut' : t.exit_reason === 'report' ? 'Inför rapport' : t.exit_reason === 'stop_loss' ? 'Stop loss 10 %' : 'Värderingspoäng'}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days,entryGain.entry_upside_peak_days)}</td><td>${percent(timing.post_sell_5d_pct)}</td></tr>`;
     }).join('') : '<tr><td colspan="11">Inga affärer som uppfyller periodens villkor.</td></tr>';

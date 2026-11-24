@@ -142,7 +142,7 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
         result["periods"][period] = {"start_date": start, "end_date": end, "strategies": summaries,
                                    "reference_trades": {"buy_and_hold": benchmarks, "omxsgi": index_trades},
                                    "benchmark_pct": summaries["buy_and_hold"]["return_pct"], "benchmark_count": len(benchmarks)}
-    return enrich_aggregate(result, ready, index_candles or [])
+    return enrich_aggregate(result, ready, index_candles or [], backtests)
 
 
 def write_aggregate(stocks: dict, generated_at: str, directory: Path | None = None) -> dict:
