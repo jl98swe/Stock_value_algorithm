@@ -1,4 +1,4 @@
-"""Entry-relative close loss; enrich saved exports without rerunning trading rules."""
+"""Entry-relative total return at close; preserve executed trading rules."""
 from __future__ import annotations
 
 import json
@@ -6,7 +6,12 @@ import math
 from pathlib import Path
 
 
-def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
+def dividend_between(dividends: list[dict], first: str, last: str) -> float:
+    """Cash entitlement after the starting observation, including the end ex-date."""
+    return sum(float(d.get('amount') or 0) for d in dividends if first < d['date'] <= last)
+
+
+def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = None, dividends: list[dict] = ()) -> dict:
     price = trade.get('entry_price')
     first = trade.get('entry_date')
     last = trade.get('exit_date') or trade.get('valuation_date') or end
@@ -22,13 +27,14 @@ def entry_drawdown_metrics(candles: list[dict], trade: dict, end: str | None = N
             continue
         if day > first:
             session += 1
-        if isinstance(close, (int, float)) and math.isfinite(close) and 0 < close <= lowest:
-            lowest, days = close, session
+        value = close + dividend_between(dividends, first, day) if isinstance(close, (int, float)) else None
+        if isinstance(close, (int, float)) and math.isfinite(close) and 0 < close and value <= lowest:
+            lowest, days = value, session
     return {'entry_drawdown_pct': min(0.0, (lowest / price - 1) * 100) if math.isfinite(lowest) else 0.0,
             'entry_drawdown_days': days}
 
 
-def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
+def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = None, dividends: list[dict] = ()) -> dict:
     price, first = trade.get('entry_price'), trade.get('entry_date')
     last = trade.get('exit_date') or trade.get('valuation_date') or end
     empty = {'entry_upside_pct': None, 'entry_upside_days': None, 'entry_upside_peak_days': None}
@@ -43,15 +49,16 @@ def entry_upside_metrics(candles: list[dict], trade: dict, end: str | None = Non
             session += 1
         if trade.get('exit_date') == day and trade.get('exit_reason') != 'period_end':
             continue
-        if isinstance(close, (int, float)) and math.isfinite(close) and close > 0 and close >= highest:
-            highest, peak_session = close, session
+        value = close + dividend_between(dividends, first, day) if isinstance(close, (int, float)) else None
+        if isinstance(close, (int, float)) and math.isfinite(close) and close > 0 and value >= highest:
+            highest, peak_session = value, session
     if peak_session is None:
         return empty
     return {'entry_upside_pct': (highest / price - 1) * 100,
             'entry_upside_days': max(session, trade.get('holding_trading_days', 0) or 0) - peak_session, 'entry_upside_peak_days': peak_session}
 
 
-def trade_timing_metrics(candles: list[dict], trade: dict, end: str | None = None) -> dict:
+def trade_timing_metrics(candles: list[dict], trade: dict, end: str | None = None, dividends: list[dict] = ()) -> dict:
     """Descriptive timing only; signal close to fifth following session close."""
     sessions = sorted({c['date']: c for c in candles if not c.get('preliminary')}.values(), key=lambda c: c['date'])
     first = trade.get('entry_date')
@@ -67,20 +74,21 @@ def trade_timing_metrics(candles: list[dict], trade: dict, end: str | None = Non
     following = [c for c in sessions if c['date'] > signal and (not end or c['date'] <= end)]
     target = following[4].get('close') if len(following) >= 5 else None
     if all(isinstance(v, (int, float)) and math.isfinite(v) and v > 0 for v in (base, target)):
-        result['post_sell_5d_pct'] = (target / base - 1) * 100
+        result['post_sell_5d_pct'] = ((target + dividend_between(dividends, signal, following[4]['date'])) / base - 1) * 100
     return result
 
 
-def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None) -> float | None:
-    return entry_drawdown_metrics(candles, trade, end)['entry_drawdown_pct']
+def entry_drawdown(candles: list[dict], trade: dict, end: str | None = None, dividends: list[dict] = ()) -> float | None:
+    return entry_drawdown_metrics(candles, trade, end, dividends)['entry_drawdown_pct']
 
 
-def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict]) -> dict:
+def enrich_aggregate(payload: dict, stocks: dict, index_candles: list[dict], backtests: dict | None = None) -> dict:
     def annotate(trade, end):
         candles = index_candles if trade.get('ticker') == 'OMXSGI' else stocks.get(trade.get('ticker'), {}).get('candles', [])
-        trade.update(entry_drawdown_metrics(candles, trade, end))
-        trade.update(entry_upside_metrics(candles, trade, end))
-        trade.update(trade_timing_metrics(candles, trade, payload['meta']['end_date']))
+        dividends = (backtests or {}).get(trade.get('ticker'), {}).get('_dividends', []) if trade.get('ticker') != 'OMXSGI' else []
+        trade.update(entry_drawdown_metrics(candles, trade, end, dividends))
+        trade.update(entry_upside_metrics(candles, trade, end, dividends))
+        trade.update(trade_timing_metrics(candles, trade, payload['meta']['end_date'], dividends))
         return trade
 
     for key, variant in payload.items():
@@ -114,7 +122,8 @@ def main():
     payload = json.loads(target.read_text())
     stocks = {p.stem: json.loads(p.read_text()) for p in (root / 'dashboard').glob('*.json') if p.stem != 'index'}
     index = json.loads((root / 'benchmarks' / 'omxsgi.json').read_text())
-    enrich_aggregate(payload, stocks, index.get('candles', []))
+    backtests = {p.stem: json.loads(p.read_text()) for p in (root / 'backtests').glob('*.json') if p.stem != 'all'}
+    enrich_aggregate(payload, stocks, index.get('candles', []), backtests)
     target.write_text(json.dumps(payload, ensure_ascii=False, allow_nan=False), encoding='utf-8')
     print(f"Entry drawdown exported for {payload['meta']['stock_count']} stocks; existing trades preserved.")
 

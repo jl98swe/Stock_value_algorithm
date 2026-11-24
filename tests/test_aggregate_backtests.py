@@ -101,3 +101,17 @@ def test_missing_index_data_has_no_invented_return_or_sharpe():
     assert summary["return_pct"] is None
     assert summary["sharpe_ratio"] is None
     assert summary["trade_count"] == 0
+
+
+def test_dividends_flow_to_aggregate_trade_and_period_metrics():
+    stocks, variants = dataset({'EXAMPLE-A': 0})
+    stocks['EXAMPLE-A']['candles'].insert(1, {'date':'2026-10-04','close':96})
+    variants['EXAMPLE-A']['_dividends'] = [{'date':'2026-10-04','amount':10}]
+    result = build_aggregate(stocks, variants)
+    trade = result['standard']['closed_trades'][0]
+    assert trade['entry_upside_pct'] == pytest.approx(6)
+    assert trade['entry_drawdown_pct'] == 0
+    summary = result['periods']['all']['strategies']['standard']
+    assert summary['entry_upside_pct'] == pytest.approx(6)
+    reference = result['periods']['all']['reference_trades']['buy_and_hold'][0]
+    assert reference['entry_upside_pct'] == pytest.approx(10)

@@ -34,7 +34,7 @@ test('both pages load the information popover and rightmost two-line heading',()
     const html = fs.readFileSync(path.join(__dirname, `../docs/${name}.html`), 'utf8');
     assert(html.includes('help-popovers.js?v='));
   }
-  assert(app.includes('<th>TID I POSITION<br>(HANDELSDAGAR)</th>'));
+  assert(app.includes('<th>Tid i<br>position <span class="info-tip"'));
 });
 
 // Synthetic sessions span a weekend; repeated lows retain the latest occurrence.
