@@ -560,3 +560,8 @@ checked_at,ticker,report_period,milestones,old_date,new_date,status,detail
 2026-11-19,SFAST.ST,2026-Q3,7,2026-11-12,,manual_date_preserved,
 2026-11-20,ATT.ST,2026-Q3,14,2026-11-06,2026-11-06,calendar_date_preserved,MFN / bolagets rapportkalender
 2026-11-20,BTS-B.ST,2026-Q3,14,2026-11-06,2026-11-06,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-24,BAHN-B.ST,2026-Q3,7,2026-11-17,2026-11-17,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-24,GENO.ST,2026-Q3,14,2026-11-10,,manual_date_preserved,
+2026-11-24,NIBE-B.ST,2026-Q3,7,2026-11-17,2026-11-17,calendar_date_preserved,MFN / bolagets rapportkalender
+2026-11-24,SHOT.ST,2026-Q3,14,2026-11-10,,manual_date_preserved,
+2026-11-24,ZZ-B.ST,2026-Q3,7,2026-11-17,2026-11-17,calendar_date_preserved,MFN / bolagets rapportkalender

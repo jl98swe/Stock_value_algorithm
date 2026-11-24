@@ -913,14 +913,16 @@
     "anchor": "2026-11-10",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "SHOT.ST|2026-Q3": {
     "anchor": "2026-11-10",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "EMBRAC-B.ST|2026-Q3": {
@@ -947,19 +949,22 @@
   "BAHN-B.ST|2026-Q3": {
     "anchor": "2026-11-17",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "NIBE-B.ST|2026-Q3": {
     "anchor": "2026-11-17",
     "completed": [
-      0
+      0,
+      7
     ]
   },
   "ZZ-B.ST|2026-Q3": {
     "anchor": "2026-11-17",
     "completed": [
-      0
+      0,
+      7
     ]
   }
 }

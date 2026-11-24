@@ -1,6 +1,9 @@
 {
-  "checked_at": "2026-11-23",
-  "counts": {},
+  "checked_at": "2026-11-24",
+  "counts": {
+    "calendar_date_preserved": 3,
+    "manual_date_preserved": 2
+  },
   "missing_historical_dates": [
     {
       "ticker": "EAST.ST",

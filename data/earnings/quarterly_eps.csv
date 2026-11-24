@@ -329,6 +329,7 @@ BAHN-B.ST,2025-12-31,2026-02-17,2026-10-26,reportedEPS,0.09,SEK,Yahoo Finance / 
 BAHN-B.ST,2026-03-31,,2026-10-26,quarterlyDilutedEPS,0.58,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2026-06-30,,2026-10-26,quarterlyDilutedEPS,0.52,SEK,Yahoo Finance / quarterlyDilutedEPS
 BAHN-B.ST,2026-09-30,2026-11-17,2026-11-17,manualDilutedEPS,0.56,SEK,https://mb.cision.com/Main/1351/4425144/4374718.pdf
+BAHN-B.ST,2026-09-30,,2026-11-24,quarterlyDilutedEPS,0.56,SEK,Yahoo Finance / quarterlyDilutedEPS
 BALD-B.ST,2023-12-31,2024-02-09,2026-10-26,reportedEPS,1.05,SEK,Yahoo Finance / Reported EPS
 BALD-B.ST,2024-06-30,2024-07-16,2026-10-26,reportedEPS,1.04,SEK,Yahoo Finance / Reported EPS
 BALD-B.ST,2024-09-30,2024-10-25,2026-10-26,reportedEPS,0.9,SEK,Yahoo Finance / Reported EPS
