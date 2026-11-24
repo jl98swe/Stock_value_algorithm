@@ -417,8 +417,8 @@
         { left: 18, right: 58, top: '61%', height: 24, containLabel: false, show: true, backgroundColor: '#f8fafb', borderWidth: 0 }
       ],
       xAxis: [
-        { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
-        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisPointer: { snap: true }, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', data: dates, boundaryGap: true, axisLine: { show: false }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisPointer: { snap: true }, axisLine: { show: false }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
         // Sparse event data must never determine the date extent when toggled.
         { type: 'category', gridIndex: 2, data: dates, boundaryGap: true, show: false, axisPointer: { show: false }, min: 0, max: dates.length - 1 }
       ],
