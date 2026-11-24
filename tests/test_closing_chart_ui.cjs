@@ -7,7 +7,8 @@ const path = require('node:path');
 const docs = path.resolve(__dirname, '../docs');
 
 test('desktop and mobile show a cached score, expire it, and replace it with the published close', async () => {
-  const browser = await chromium.launch({headless:true,args:['--no-sandbox']});
+  const browser = await chromium.launch({headless:true,args:['--no-sandbox'],
+    ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ? {executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH} : {})});
   try {
     for (const mobile of [false,true]) {
       const context = await browser.newContext({viewport:mobile ? {width:390,height:844} : {width:1440,height:1000},hasTouch:mobile,isMobile:mobile});
@@ -54,6 +55,35 @@ test('desktop and mobile show a cached score, expire it, and replace it with the
       await page.goto('https://closing-ui.test/?ticker=THULE.ST');await ready();
       await page.waitForFunction(()=>document.getElementById('metric-score').textContent==='80,95'&&document.getElementById('metric-zone').textContent==='Preliminär');
       let o=await option();
+      assert.equal(o.dataZoom.find(z=>z.type==='inside').disabled,mobile);
+      for (const axis of o.yAxis.slice(0,2)) {
+        assert.equal(axis.splitLine.show,false);
+        assert.equal(axis.axisPointer.show,false);
+      }
+      if (mobile) {
+        // Start with a restricted window: a full range cannot reveal unwanted panning.
+        await page.evaluate(()=>echarts.getInstanceByDom(document.getElementById('market-chart')).dispatchAction({type:'dataZoom',dataZoomIndex:1,start:20,end:60}));
+        await page.locator('#market-chart').evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-20));
+        const box=await page.locator('#market-chart').boundingBox();
+        const session=await context.newCDPSession(page);
+        const swipe=async (x,y,dx)=>{
+          await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
+          for(let step=1;step<=10;step++) await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+dx*step/10,y}]});
+          await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+          await page.waitForTimeout(150);
+        };
+        const zoom=async()=>{const z=(await option()).dataZoom.find(z=>z.type==='slider');return [z.start,z.end];};
+        const before=await zoom();
+        for(const height of [0.25,0.80]) {
+          await swipe(box.x+box.width*0.55,box.y+box.height*height,-65);
+          assert.deepEqual(await zoom(),before,'Dragging either graph must leave the mobile date range unchanged');
+        }
+        await swipe(box.x+18+(box.width-76)*0.40,box.y+box.height-11,40);
+        assert.notDeepEqual(await zoom(),before,'The bottom slider must still move the shared date range');
+        const moved=await option();
+        assert.deepEqual(Array.from(moved.dataZoom[1].xAxisIndex),[0,1,2]);
+        await session.detach();
+      }
       assert.equal(o.series.find(s=>s.name==='Preliminär poäng').data.at(-1),80.9451);
       assert.equal(o.series.find(s=>s.name==='Värderingspoäng').data.at(-1),null);
       assert.deepEqual(o.series.find(s=>s.name==='Pris').data.at(-1).value,[204.6,210.2,203.4,211]);
@@ -74,3 +104,4 @@ test('desktop and mobile show a cached score, expire it, and replace it with the
     }
   } finally {await browser.close();}
 });
+
