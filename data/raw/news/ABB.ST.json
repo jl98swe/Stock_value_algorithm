@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-21T00:02:12+01:00",
+  "generated_at": "2026-11-24T04:15:05+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/abb",
   "items": [
+    {
+      "ticker": "ABB.ST",
+      "company": "ABB",
+      "published_at": "2026-11-23T07:02:55+01:00",
+      "title": "ABB förvärvar Ziehl-Abegg och breddar erbjudandet inom HVAC och industriella kylapplikationer",
+      "link": "https://mfn.se/cis/a/abb/abb-forvarvar-ziehl-abegg-och-breddar-erbjudandet-inom-hvac-och-industriella-kylapplikationer-aaf388e1",
+      "source": "MFN",
+      "summary": "ABB förvärvar Ziehl-Abegg och breddar erbjudandet inom HVAC och industriella kylapplikationer 2026-11-23 07:02:55 Förvärvet adderar elektroniskt kommuterade fläktar (EC-fläktar), en verksamhetskritisk komponent i kyl- och ventilationssystem, till ABB Motions portfölj av motorer och frekvensomriktare Breddar ABB:s erbjudande inom värme, ventilation och luftkonditionering (HVAC) samt industriell kylning och värmehantering. Hjälper utrustningstillverkare att förbättra systemprestanda och energieffektivitet, samtidigt som integrationen förenklas, utvecklingskostnaderna minskar och time-to-market kortas. ABB har tecknat avtal om att förvärva Ziehl",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "59ef85ab83d6ad38"
+    },
     {
       "ticker": "ABB.ST",
       "company": "ABB",

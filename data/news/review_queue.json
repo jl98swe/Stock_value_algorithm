@@ -1,7 +1,117 @@
 {
-  "generated_at": "2026-11-21T00:06:02+01:00",
+  "generated_at": "2026-11-24T04:19:05+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "TREL-B.ST",
+      "company": "Trelleborg AB (publ)",
+      "published_at": "2026-11-23T15:00:00+01:00",
+      "title": "Buybacks of shares of series B in Trelleborg during week 47, 2026",
+      "link": "https://mfn.se/a/trelleborg/buybacks-of-shares-of-series-b-in-trelleborg-during-week-47-2026",
+      "source": "MFN",
+      "summary": "Buybacks of shares of series B in Trelleborg during week 47, 2026 2026-11-23 15:00:00 During the period November 16, 2026, to November 20, 2026, Trelleborg AB (LEI code 213800XY16PAWG2PAD14) has repurchased in total 86,391 own shares of series B (ISIN: SE0000114837) as part of the buyback program initiated by the Board of Directors. The purpose is to adjust the company's capital structure and thereby contribute to increased shareholder value. Repurchases are also made to ensure the delivery of shares and related costs, such as social security contributions, for the Performance Share Program (PSP) 2026/2028. The share buybacks form part of the",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0cc423d9b507756f"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-11-23T08:35:00+01:00",
+      "title": "Dansk region implementerar Sectra Education Portal för att stärka samarbete och kompetensutveckling inom vården",
+      "link": "https://mfn.se/cis/a/sectra/dansk-region-implementerar-sectra-education-portal-for-att-starka-samarbete-och-kompetensutveckling-inom-varden-560c6196",
+      "source": "MFN",
+      "summary": "Dansk region implementerar Sectra Education Portal för att stärka samarbete och kompetensutveckling inom vården 2026-11-23 08:35:00 Linköping - 23 november, 2026 - Det internationella medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) meddelar att en stor dansk region har gått live med den molnbaserade utbildningsplattformen Sectra Education Portal. Plattformen ingår i regionens tjänst för medicinsk bildhantering från Sectra och ger nu vårdpersonal på regionens sjukhus tillgång till högkvalitativ utbildning baserad på verkliga, anonymiserade patientfall. Det främjar samarbetet mellan sjukhusen, stärker personalens kompetensutveck",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "partnership"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:partnership",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "eb563ead9bf0f999"
+    },
+    {
+      "ticker": "ATCO-A.ST",
+      "company": "Atlas Copco A",
+      "published_at": "2026-11-23T08:30:00+01:00",
+      "title": "Sydkoreanskt vakuumventilföretag blir del av Atlas Copco Group",
+      "link": "https://mfn.se/cis/a/atlas-copco/sydkoreanskt-vakuumventilforetag-blir-del-av-atlas-copco-group-5fd6a17c",
+      "source": "MFN",
+      "summary": "Sydkoreanskt vakuumventilföretag blir del av Atlas Copco Group 2026-11-23 08:30:00 Nacka den 23 november, 2026: Novasen Co., Ltd. (\"Novasen\"), ett sydkoreanskt företag som utvecklar och tillverkar tryckkontrollventiler för halvledarindustrin och industrin för platta bildskärmar, kommer att bli del av Atlas Copco Group. Novasen har sitt säte i Busan, Sydkorea, och har även verksamhet i Kina. Företaget utvecklar och tillverkar avancerade tryckkontrollventiler och därtill relaterade lösningar . Dessa används vid produktion av halvledare och platta bildskärmar. \"Novasen har byggt upp starkt kunnande inom tryckkontrollteknik genom att arbeta nära ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c4c65a53b0fbaf8a"
+    },
+    {
+      "ticker": "AZN.ST",
+      "company": "AstraZeneca",
+      "published_at": "2026-11-23T08:05:30+01:00",
+      "title": "AstraZeneca: Nytt behandlingsalternativ tillgängligt för patienter med HER2-positiv bröstcancer i tidigt stadium",
+      "link": "https://mfn.se/cis/a/astrazeneca/astrazeneca-nytt-behandlingsalternativ-tillgangligt-for-patienter-med-her2-positiv-brostcancer-i-tidigt-stadium-346bf0e2",
+      "source": "MFN",
+      "summary": "AstraZeneca: Nytt behandlingsalternativ tillgängligt för patienter med HER2-positiv bröstcancer i tidigt stadium 2026-11-23 08:05:30 Vuxna patienter med resekterad HER2-positiv bröstcancer i tidigt stadium som har kvarvarande invasiv sjukdom efter neoadjuvant taxanbaserad och HER2-riktad behandling kan nu behandlas med Enhertu (trastuzumab deruxtekan, T-DXd), efter att NT-rådet beslutat att rekommendera behandlingen för denna patientgrupp. Totalt uppskattas ca 200-250 patienter kunna vara aktuella för adjuvant behandling.1,2 Beslutet baseras på resultaten från fas 3-studien DESTINY-Breast05, där T-DXd minskade risken för återfall i invasiv sj",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d9e4506fd2229b58"
+    },
+    {
+      "ticker": "EVO.ST",
+      "company": "Evolution",
+      "published_at": "2026-11-23T08:00:00+01:00",
+      "title": "Acquisitions of own shares in Evolution AB (publ)",
+      "link": "https://mfn.se/a/evolution/acquisitions-of-own-shares-in-evolution-ab-publ-20",
+      "source": "MFN",
+      "summary": "Acquisitions of own shares in Evolution AB (publ) 2026-11-23 08:00:00 Evolution AB (publ) (“Evolution”) has, during the period 16 November 2026 – 20 November 2026, acquired a total of 414,674 own shares within the framework of the repurchase program introduced by the board of directors to optimize the capital structure of Evolution by reducing the share capital, and thereby creating added shareholder value. The repurchases are part of the, in total, EUR 2 billion buyback programs initially announced by Evolution on 18 May 2026, and which continuation was announced on 8 November 2026. The repurchase program is being implemented in accordance w",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c6de580abb74c47e"
+    },
     {
       "ticker": "REJL-B.ST",
       "company": "Rejlers AB (publ)",

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-21T00:02:49+01:00",
+  "generated_at": "2026-11-24T04:15:47+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/boliden",
   "items": [
+    {
+      "ticker": "BOL.ST",
+      "company": "Boliden",
+      "published_at": "2026-11-23T10:23:39+01:00",
+      "title": "Extra bolagsstämma i Boliden AB (publ)",
+      "link": "https://mfn.se/cis/a/boliden/extra-bolagsstamma-i-boliden-ab-publ-9088bf51",
+      "source": "MFN",
+      "summary": "Extra bolagsstämma i Boliden AB (publ) 2026-11-23 10:23:39 Bolidens extra bolagsstämma hölls den 23 november 2026 i Stockholm och genom förhandsröstning (poströstning). Den 27 augusti 2026 ingick Boliden AB och Votorantim S.A. ett slutgiltigt avtal enligt vilket Boliden ska förvärva samtliga Votorantims aktier i Nexa Resources S.A. mot nyemitterade aktier i Boliden. Transaktionens genomförande är villkorat av bland annat att Bolidens aktieägare vid en extra bolagsstämma bemyndigar styrelsen att besluta om apportemission av aktier. Genom dagens beslut har detta villkor uppfyllts. Transaktionens genomförande är fortsatt villkorat av bland annat",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0c6efb750e4760eb"
+    },
     {
       "ticker": "BOL.ST",
       "company": "Boliden",
