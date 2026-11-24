@@ -28,15 +28,17 @@ test('upside column and circular help work on desktop and mobile',async()=>{
     await trigger.click();
     const popup=page.locator('.help-popover:popover-open'); await popup.waitFor();
     assert.match(await popup.innerText(),/handelsdagar.*försäljningen/);
+    assert.match(await popup.innerText(),/kontantutdelningar/);
     const box=await popup.boundingBox(); assert(box.x>=0 && box.x+box.width<=width);
     await page.keyboard.press('Escape'); assert.equal(await page.locator('.help-popover:visible').count(),0);
     const cells=page.locator(url.startsWith('method') ? '#method-trades tr:first-child td' : '#trades-table tbody tr:first-child td');
     assert.equal(await cells.count(),url.startsWith('method') ? 11 : 9);
-    assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/handelsdagar/);
+    assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/dagar/);
     await page.locator('button[data-post-sell-help]').click();
     const postPopup=page.locator('.help-popover:popover-open');
     await postPopup.waitFor();
     assert.match(await postPopup.innerText(),/säljsignalens stängningskurs/);
+    assert.match(await postPopup.innerText(),/Utdelningar.*ingår/);
     await page.keyboard.press('Escape');
     if(!url.includes('ticker=all')) assert.match(await cells.nth(url.startsWith('method') ? 9 : 7).innerText(),/%/);
    }
