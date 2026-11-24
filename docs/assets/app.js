@@ -314,6 +314,10 @@
     return { candles: candles.filter((row) => row.date >= start), scores: scores.filter((row) => row.date >= start) };
   }
 
+  function mobileChartInput() {
+    return window.matchMedia?.('(max-width: 760px), (pointer: coarse)').matches ?? false;
+  }
+
   function renderChart(ticker, data) {
     const container = $('market-chart');
     if (!window.echarts) {
@@ -413,21 +417,22 @@
         { left: 18, right: 58, top: '61%', height: 24, containLabel: false, show: true, backgroundColor: '#f8fafb', borderWidth: 0 }
       ],
       xAxis: [
-        { type: 'category', data: dates, boundaryGap: true, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
-        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisPointer: { snap: true }, axisLine: { lineStyle: { color: '#dfe6ea' } }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', data: dates, boundaryGap: true, axisLine: { show: false }, axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
+        { type: 'category', gridIndex: 1, data: dates, boundaryGap: true, axisPointer: { snap: true }, axisLine: { show: false }, axisLabel: { color: '#687684', fontSize: 10, hideOverlap: true }, axisTick: { show: false }, splitLine: { show: false }, min: 'dataMin', max: 'dataMax' },
         // Sparse event data must never determine the date extent when toggled.
         { type: 'category', gridIndex: 2, data: dates, boundaryGap: true, show: false, axisPointer: { show: false }, min: 0, max: dates.length - 1 }
       ],
       yAxis: [
-        { scale: true, position: 'right',
+        { scale: true, position: 'right', axisPointer: { show: false },
           min: ({ min, max }) => min - Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
           max: ({ min, max }) => max + Math.max(max - min, Math.abs(max) * 0.01, 1) * 32 / Math.max(60, state.chart.getHeight() * 0.53 - 64),
-          axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
-        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisPointer: { show: false }, axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { lineStyle: { color: '#edf1f3' } }, axisLine: { show: false }, axisTick: { show: false } },
+          axisLabel: { color: '#687684', fontSize: 10, formatter: (value) => fmt.format(value) }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
+        { gridIndex: 1, min: 0, max: 100, interval: 25, position: 'right', axisPointer: { show: false }, axisLabel: { color: '#687684', fontSize: 10 }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },
         { gridIndex: 2, min: 0, max: 2, show: false, axisPointer: { show: false } }
       ],
       dataZoom: [
-        { type: 'inside', xAxisIndex: [0, 1, 2], start: 0, end: 100, zoomOnMouseWheel: 'shift', moveOnMouseMove: true },
+        // Mobile navigation belongs to the slider; tapping still shows a date.
+        { id: 'chart-inside-zoom', type: 'inside', disabled: mobileChartInput(), xAxisIndex: [0, 1, 2], start: 0, end: 100, zoomOnMouseWheel: 'shift', moveOnMouseMove: true },
         { type: 'slider', xAxisIndex: [0, 1, 2], bottom: 2, height: 18, borderColor: '#dfe6ea', backgroundColor: '#f6f8f9', fillerColor: 'rgba(15,89,103,.12)', handleStyle: { color: '#0f5967' }, textStyle: { color: '#687684', fontSize: 9 } }
       ],
       series: [
@@ -533,7 +538,11 @@
       expanded.has(state.selectedTicker) ? expanded.delete(state.selectedTicker) : expanded.add(state.selectedTicker);
       renderTables(selectedData());
     });
-    window.addEventListener('resize', () => state.chart?.resize());
+    window.addEventListener('resize', () => {
+      if (!state.chart) return;
+      state.chart.resize();
+      state.chart.setOption({ dataZoom: [{ id: 'chart-inside-zoom', disabled: mobileChartInput() }] });
+    });
     document.addEventListener('intraday-updated', () => {
       if (!state.chart || !state.selectedTicker) return;
       const data = selectedData();
@@ -580,4 +589,5 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
 

@@ -33,7 +33,7 @@ test('upside column and circular help work on desktop and mobile',async()=>{
     await page.keyboard.press('Escape'); assert.equal(await page.locator('.help-popover:visible').count(),0);
     const cells=page.locator(url.startsWith('method') ? '#method-trades tr:first-child td' : '#trades-table tbody tr:first-child td');
     assert.equal(await cells.count(),url.startsWith('method') ? 11 : 9);
-    assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/dagar/);
+    assert.match(await cells.nth(url.startsWith('method') ? 3 : 2).innerText(),/^\d+ dagar$/);
     await page.locator('button[data-post-sell-help]').click();
     const postPopup=page.locator('.help-popover:popover-open');
     await postPopup.waitFor();
