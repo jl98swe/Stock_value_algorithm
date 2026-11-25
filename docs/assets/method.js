@@ -316,6 +316,7 @@
     $('method-trades-more').hidden = trades.length <= visibleTrades;
     $('method-trades-count').textContent = `Visar ${Math.min(visibleTrades,trades.length)} av ${trades.length} affärer.`;
     $('report-coverage').textContent = key === 'report_avoidance' ? `${variants[key]?.report_dates_count || 0} rapportdatum i underlaget. Nya köp blockeras när nästa rapportdatum saknas.` : '';
+    window.initializeHelpPopovers?.();
   }
   async function loadStock() {
     const id = ++requestId, ticker = $('method-stock').value;

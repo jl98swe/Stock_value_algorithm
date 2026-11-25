@@ -34,12 +34,13 @@ test('summary columns, ratios and circular help work on mobile and desktop',asyn
     assert.equal(await trigger.evaluate(el=>getComputedStyle(el).borderRadius),'50%');
     assert.equal(await trigger.evaluate(el=>getComputedStyle(el).borderTopStyle),'solid');
    }
-   const help=page.locator('[data-capital-drawdown-help]');
+   const help=page.locator('button[data-capital-drawdown-help]');
    await help.click();
    assert.match(await page.locator('.help-popover:popover-open').innerText(),/tidigare topp/);
    assert(!/dagar/.test(await page.locator('.help-popover:popover-open').innerText()));
    await page.keyboard.press('Escape');
    await page.locator('#method-stock').selectOption('EXAMPLE.ST');
+   await page.locator('#method-results:not([hidden])').waitFor();
    await page.waitForFunction(()=>document.querySelector('#backtest-summary tr td:nth-child(2)').textContent.includes('8'));
    assert.equal(await page.locator('#backtest-summary tr:first-child td').nth(2).innerText(),'1,67');
    const actual=await page.locator('#backtest-summary-head th').allTextContents();
