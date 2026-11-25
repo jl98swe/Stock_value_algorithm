@@ -272,7 +272,9 @@
     const first = rows[0]?.start, last = rows[0]?.end;
     $('comparison-period').textContent = `${prettyDate(first)} – ${prettyDate(last)}`;
     $('strategy-table').innerHTML = `<thead><tr>${window.backtestMetrics.summaryHeader()}</tr></thead><tbody>${rows.map(row => `<tr><td>${row.name}</td><td>${pct(row.return_pct)}</td><td>${window.backtestMetrics.profitFactorText(row.profit_factor)}</td><td>${pct(row.max_drawdown_pct)}</td><td>${row.sharpe_ratio == null ? '–' : new Intl.NumberFormat('sv-SE',{maximumFractionDigits:2}).format(row.sharpe_ratio)}</td><td>${row.trade_count}</td><td>${pct(row.win_rate_pct, false)}</td><td>${row.open_count ? `${row.open_count} st · ${pct(row.open_return_pct)} (preliminärt)` : 'Ingen'}</td></tr>`).join('')}</tbody>`;
-    $('comparison-difference').innerHTML = `<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
+    const indexRow = rows.find(row => row.id === 'omxsgi');
+    const indexCoverage = indexRow?.start && (indexRow.start !== first || indexRow.end !== last) ? `OMXSGI: ${prettyDate(indexRow.start)} – ${prettyDate(indexRow.end)}. ` : '';
+    $('comparison-difference').innerHTML = `${indexCoverage}<a href="./method.html?ticker=${encodeURIComponent(state.selectedTicker)}&amp;strategy=${state.strategy}&amp;period=all">Visa detaljer och kortare tidsperioder i Metod &amp; backtest</a>`;
 
     const latestDate = data.candles?.at(-1)?.date;
     const trades = [...(data.closed_trades || []).map((trade) => ({ ...trade, open: false }))];

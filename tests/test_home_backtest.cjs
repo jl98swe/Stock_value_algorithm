@@ -63,6 +63,7 @@ test('homepage comparison render ignores active strategy and chart range', () =>
   assert.equal((initial.match(/<tr>/g)||[]).length,8);
   assert($('comparison-period').textContent.includes('2019-09-02'));
   assert(!initial.includes('<th>Period</th>'));
+  assert($('comparison-difference').innerHTML.includes('OMXSGI: 2024-10-09'));
   assert.equal((initial.match(/<th>/g)||[]).length,8);
   assert.equal((initial.match(/<td>/g)||[]).length,56);
 });
