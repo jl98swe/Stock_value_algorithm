@@ -929,14 +929,16 @@
     "anchor": "2026-11-11",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "NEWA-B.ST|2026-Q3": {
     "anchor": "2026-11-11",
     "completed": [
       0,
-      7
+      7,
+      14
     ]
   },
   "SFAST.ST|2026-Q3": {
@@ -965,6 +967,18 @@
     "completed": [
       0,
       7
+    ]
+  },
+  "EKTA-B.ST|2026-Q4": {
+    "anchor": "2026-11-25",
+    "completed": [
+      0
+    ]
+  },
+  "SECT-B.ST|2026-Q4": {
+    "anchor": "2026-11-25",
+    "completed": [
+      0
     ]
   }
 }
