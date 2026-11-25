@@ -19,7 +19,7 @@ test('upside column and circular help work on desktop and mobile',async()=>{
    for(const url of ['method.html?ticker=all','method.html?ticker=AAK.ST','index.html?ticker=AAK.ST']) {
     await page.goto(`https://upside.test/${url}`);
     const triggers=page.locator('button[data-upside-help]');
-    await triggers.first().waitFor(); assert.equal(await triggers.count(),2);
+    await triggers.first().waitFor(); assert.equal(await triggers.count(),1);
     const trigger=triggers.last(); await trigger.scrollIntoViewIfNeeded();
     const heading=trigger.locator('..'); assert.match(await heading.innerText(),/MAX\s+UPPGÅNG/);
     const rect=await trigger.boundingBox(); assert(rect.width<=18 && rect.height<=18);
@@ -46,3 +46,4 @@ test('upside column and circular help work on desktop and mobile',async()=>{
   }
  } finally {await browser.close();}
 });
+

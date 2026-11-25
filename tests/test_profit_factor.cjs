@@ -24,6 +24,17 @@ const rows=fullHistoryRows({candles},{standard:{closed_trades:trades,open_lots:[
 assert(Math.abs(rows.find(r=>r.id==='standard').profit_factor-20/12)<1e-12);
 const fs=require('node:fs');
 const app=fs.readFileSync('docs/assets/app.js','utf8');
-assert(app.includes('<th>Avkastning</th><th>Profit<br>factor '));
+const {summaryHeader} = require('../docs/assets/method.js');
+assert(summaryHeader().indexOf('Avkastning') < summaryHeader().indexOf('Profit<br>factor'));
+assert.equal((summaryHeader().match(/<th>/g)||[]).length,8);
+assert(!/Genomsnitt per affär|UPPGÅNG|data-drawdown-help/.test(summaryHeader()));
+assert(summaryHeader().includes('Öppna<br>positioner'));
+assert(app.includes('window.backtestMetrics.summaryHeader()'));
+assert(fs.readFileSync('docs/assets/method.js','utf8').includes('`<tr>${summaryHeader()}</tr>`'));
+assert(fs.readFileSync('docs/assets/style.css','utf8').includes('.info-tip { display: inline-grid;'));
+assert(fs.readFileSync('docs/index.html','utf8').includes('id="comparison-period"'));
+assert(summaryHeader().includes('data-capital-drawdown-help'));
+assert(!/dagar/.test(summaryHeader().match(/<th>Max<br>drawdown .*?<\/th>/)[0]));
 assert(app.includes('<td>${pct(row.return_pct)}</td><td>${window.backtestMetrics.profitFactorText(row.profit_factor)}</td>'));
 console.log('Profit factor checks passed.');
+

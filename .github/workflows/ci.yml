@@ -59,7 +59,7 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/closing-ui-tests" --no-save --ignore-scripts --package-lock=false playwright@1.56.1
           "$RUNNER_TEMP/closing-ui-tests/node_modules/.bin/playwright" install --with-deps chromium
-          NODE_PATH="$RUNNER_TEMP/closing-ui-tests/node_modules" ECHARTS_TEST_FILE="$RUNNER_TEMP/chart-tests/node_modules/echarts/dist/echarts.min.js" node --test tests/test_closing_chart_ui.cjs tests/test_entry_upside_ui.cjs
+          NODE_PATH="$RUNNER_TEMP/closing-ui-tests/node_modules" ECHARTS_TEST_FILE="$RUNNER_TEMP/chart-tests/node_modules/echarts/dist/echarts.min.js" node --test tests/test_closing_chart_ui.cjs tests/test_entry_upside_ui.cjs tests/test_summary_ui.cjs
 
       - name: Installera beroenden
         run: |
@@ -71,6 +71,7 @@ jobs:
 
       - name: Kontrollera periodregler för Metod
         run: |
+          node tests/test_profit_factor.cjs
           node tests/test_method_periods.cjs
           node --test tests/test_home_backtest.cjs tests/test_strategy_order.cjs tests/test_entry_drawdown.cjs tests/test_entry_upside.cjs tests/test_trade_timing.cjs tests/test_dividend_metrics.cjs
 
@@ -145,8 +146,11 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Komplettera sparade avslut utan ny marknadshämtning
-        run: python -m src.entry_drawdown
+      - name: Komplettera sammanställningar från sparade data
+        run: |
+          python -m pip install numpy==2.2.6 pandas==2.3.3
+          python -m src.aggregate_backtests
+          python -m src.entry_drawdown
       - name: Spara och publicera Max drawdown
         env:
           GH_TOKEN: ${{ github.token }}
@@ -159,3 +163,4 @@ jobs:
           git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git push origin HEAD:"$GITHUB_REF_NAME"
           gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
+
