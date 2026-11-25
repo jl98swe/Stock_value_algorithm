@@ -13,6 +13,9 @@ const variants = {
   standard_stop_loss_10:{closed_trades:[{return_pct:-10}]},
   _dividends:[{date:'2024-10-09',amount:5}]
 };
+for(const [id,variant] of Object.entries(variants)) if(!id.startsWith('_')) {
+  for(const [i,trade] of (variant.closed_trades || []).entries()) Object.assign(trade,{entry_date:candles[i].date,exit_date:candles[i+1].date,entry_price:100});
+}
 const index = {candles:[{date:'2024-10-09',close:200},{date:'2026-10-08',close:240}]};
 
 test('shared calculations load on homepage without starting the method page', () => {
@@ -58,5 +61,9 @@ test('homepage comparison render ignores active strategy and chart range', () =>
     assert.equal($('strategy-table').innerHTML,initial);
   }
   assert.equal((initial.match(/<tr>/g)||[]).length,8);
-  assert(initial.includes('2019-09-02'));
+  assert($('comparison-period').textContent.includes('2019-09-02'));
+  assert(!initial.includes('<th>Period</th>'));
+  assert.equal((initial.match(/<th>/g)||[]).length,8);
+  assert.equal((initial.match(/<td>/g)||[]).length,56);
 });
+

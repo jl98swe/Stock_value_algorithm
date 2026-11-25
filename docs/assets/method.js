@@ -103,8 +103,8 @@
   function compound(trades) {
     return trades.length ? (trades.reduce((v,t) => v * (1 + t.return_pct / 100), 1) - 1) * 100 : null;
   }
-  function profitFactor(candles, trades, dividends = [], maxLots = 1) {
-    if (!trades.length || trades.some(t => !Number.isFinite(t.return_pct))) return null;
+  function profitTotals(candles, trades, dividends = [], maxLots = 1) {
+    if (trades.some(t => !Number.isFinite(t.return_pct))) return null;
     let gains = 0, losses = 0, cash = 1;
     const active = [], entries = new Map(), dividendMap = new Map();
     for (const t of trades) {
@@ -134,7 +134,11 @@
         } else active.push({trade:t,budget,quantity:budget / (t.entry_price * 1.0025),paid:0});
       }
     }
-    return losses > 0 ? gains / losses : gains > 0 ? Infinity : null;
+    return {gains, losses};
+  }
+  function profitFactor(candles, trades, dividends = [], maxLots = 1) {
+    const totals = profitTotals(candles,trades,dividends,maxLots);
+    return totals ? totals.losses > 0 ? totals.gains / totals.losses : totals.gains > 0 ? Infinity : null : null;
   }
   const profitFactorText = value => value === Infinity ? '∞' : ratio(value);
   function equityMetrics(values) {
@@ -227,6 +231,9 @@
     return Object.entries(names).map(([id, name]) => {
       const closed = reference(id) ? references[id].trades : variants?.[id]?.closed_trades || [];
       const summary = reference(id) ? references[id].summary : {
+        ...equityMetrics(closed.length ? closedEquity(candles,closed,variants?._dividends || [],dates,id === 'standard_two_positions' ? 2 : 1) : []),
+        open_count:(variants?.[id]?.open_lots || []).length,
+        open_return_pct:(variants?.[id]?.open_lots || []).length ? (variants[id].open_lots.reduce((sum,t)=>sum+(t.current_return_pct || 0),0)/variants[id].open_lots.length) : null,
         return_pct: id === 'standard_two_positions' ? (closed.length ? equityMetrics(closedEquity(candles,closed,variants?._dividends || [],dates,2)).return_pct : null) : compound(closed), trade_count: closed.length,
         win_rate_pct: closed.length ? closed.filter(t => t.return_pct > 0).length / closed.length * 100 : null
       };
@@ -237,9 +244,10 @@
         ...bestEntryUpsideMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []) };
     });
   }
+  const summaryHeader = () => `<th>STRATEGI / JÄMFÖRELSE <span class="info-tip" data-selection-help aria-label="Förklara strategi" data-tooltip="När alla aktier visas har varje aktie samma kapitalandel. Avslutade affärer återinvesteras inom respektive aktie. Aktier utan avslutade affärer bidrar med 0 %. Alla aktier använder samma tidsfönster, räknat från senaste kursdatum i det gemensamma underlaget.">?</span></th><th>Avkastning <span class="info-tip" data-result-help aria-label="Förklara resultat" data-tooltip="Resultatet avser affärer med både köp och sälj inom perioden. Positioner köpta före perioden utesluts. Nettoresultaten återinvesteras inom respektive aktie. Öppna positioner ingår inte. För två positioner används gemensamt kapital. Buy and hold avser hela jämförelseperioden, även dagar då signalstrategierna står utanför marknaden.">?</span></th><th>Profit<br>factor <span class="info-tip" aria-label="Förklara profit factor" data-tooltip="Summan av vinster delad med summan av förluster för avslutade affärer. Beloppen följer backtestets återinvestering och kapitalfördelning, inklusive utdelningar och courtage. Öppna positioner ingår inte. Över 1 innebär större vinster än förluster. ∞ visas vid vinst utan förlust; streck när underlag saknas eller alla resultat är noll.">?</span></th><th>Max<br>drawdown <span class="info-tip" data-capital-drawdown-help aria-label="Förklara Max drawdown" data-tooltip="Max drawdown visar kapitalets största fall från en tidigare topp, beräknat på dagliga stängningskurser. För signalstrategierna ingår endast affärer med både köp och sälj inom perioden. Samma kapitalutveckling används för resultat, största nedgång och Sharpekvot. För alla aktier används den sammanvägda kapitalutvecklingen.">?</span></th><th>Sharpekvot <span class="info-tip" data-sharpe-help aria-label="Förklara sharpekvot" data-tooltip="Sharpekvoten visar avkastningen i förhållande till dess variation. Kapitalets genomsnittliga dagliga nettoavkastning delas med standardavvikelsen (stickprov) och multipliceras med roten ur 252. Riskfri ränta är 0 %. Dagar med kapital i kontanter ingår. Öppna positioner ingår inte för signalstrategierna. Streck visas vid färre än två observationer eller utan variation. Om en handelsdag saknar observation används senast kända kapitalvärde.">?</span></th><th>Avslutade<br>affärer</th><th>Vinstaffärer</th><th>Öppna<br>positioner <span class="info-tip" data-open-help aria-label="Förklara öppna positioner" data-tooltip="Visar antal öppna positioner och deras genomsnittliga preliminära resultat fram till senaste stängning. Köpcourtage ingår; säljcourtage dras först vid försäljning. Positionerna ingår inte i signalstrategiernas avslutade resultat.">?</span></th>`;
   // Also exposed for deterministic tests of the period rules.
-  if (typeof module !== 'undefined') module.exports = {profitFactor, profitFactorText, periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
-  if (typeof window !== 'undefined') window.backtestMetrics = {profitFactorText, fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
+  if (typeof module !== 'undefined') module.exports = {summaryHeader, profitTotals, profitFactor, profitFactorText, periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
+  if (typeof window !== 'undefined') window.backtestMetrics = {summaryHeader, profitFactorText, fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
   if (typeof document === 'undefined' || !document.getElementById('method-stock')) return;
 
   const params = new URLSearchParams(location.search);
@@ -280,6 +288,7 @@
       omxsgi:referenceSummary(indexWindow,[],indexDates,0)
     };
     const selected = reference(key) ? {closed:all ? variants.periods[period].reference_trades?.[key] || [] : references[key].trades, open:[]} : selectTrades(variants[key] || {}, start, end);
+    $('backtest-summary-head').innerHTML = `<tr>${summaryHeader()}</tr>`;
     $('backtest-summary').innerHTML = Object.entries(names).map(([id,name]) => {
       const trades = reference(id) ? {closed:all ? variants.periods[period].reference_trades?.[id] || [] : references[id].trades,open:[]} : selectTrades(variants[id] || {}, start,end), closed = trades.closed;
       const summary = all ? variants.periods[period].strategies[id] || {} : reference(id) ? references[id].summary : {
@@ -288,11 +297,10 @@
         win_rate_pct:closed.length ? closed.filter(t=>t.return_pct>0).length/closed.length*100 : null,
         average_trade_pct:closed.length ? closed.reduce((sum,t)=>sum+t.return_pct,0)/closed.length : null
       };
-      const entryLoss = all ? summary : worstEntryDrawdownMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []);
-      const entryGain = all ? summary : bestEntryUpsideMetrics(id === 'omxsgi' ? indexWindow : stock.candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []);
-      const open = trades.open[0];
-      const openText = !all && trades.open.length > 1 ? `${trades.open.length} st · ${trades.open.map(t=>percent(t.current_return_pct)).join(' / ')} (preliminärt)` : all ? summary.open_count ? `${summary.open_count} st · snitt ${percent(summary.open_return_pct)} (preliminärt)` : 'Ingen' : open ? `${percent(open.current_return_pct)} (preliminärt)` : 'Ingen';
-      return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${percent(summary.average_trade_pct)}</td><td>${openText}</td><td>${drawdownWithDays(entryLoss.entry_drawdown_pct,entryLoss.entry_drawdown_days)}</td><td>${upsideWithDays(entryGain.entry_upside_pct,entryGain.entry_upside_days,entryGain.entry_upside_peak_days)}</td></tr>`;
+      const pf = all ? summary.gross_loss > 0 ? summary.gross_profit / summary.gross_loss : summary.gross_profit > 0 ? Infinity : null : profitFactor(id === 'omxsgi' ? indexWindow : stock.candles,closed,id === 'omxsgi' ? [] : variants?._dividends || [],id === 'standard_two_positions' ? 2 : 1);
+      const count = all ? summary.open_count || 0 : trades.open.length;
+      const openText = count ? `${count} st · ${all ? percent(summary.open_return_pct) : trades.open.map(t=>percent(t.current_return_pct)).join(' / ')} (preliminärt)` : 'Ingen';
+      return `<tr><td>${name}</td><td>${percent(summary.return_pct)}</td><td>${profitFactorText(pf)}</td><td>${percent(summary.max_drawdown_pct)}</td><td>${ratio(summary.sharpe_ratio)}</td><td>${summary.trade_count ?? closed.length}</td><td>${percent(summary.win_rate_pct)}</td><td>${openText}</td></tr>`;
     }).join('');
     const indexTrades = all ? variants.periods[period].reference_trades?.omxsgi || [] : references.omxsgi.trades;
     $('index-coverage').textContent = indexTrades.length ? `OMXSGI: ${indexTrades[0].entry_date} – ${indexTrades[0].exit_date} · Nasdaq via FRED · Utdelningar återinvesteras före skatt; inga fondavgifter eller courtage.` : 'OMXSGI saknar tillräckligt underlag för perioden.';
@@ -373,3 +381,4 @@
   });
   init();
 })();
+

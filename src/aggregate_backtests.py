@@ -9,8 +9,7 @@ import pandas as pd
 
 from .entry_drawdown import enrich_aggregate
 from .config import ROOT
-from .index_benchmark import INDEX_FILE
-from .method_metrics import equity_metrics, hold_curve, trade_metrics
+from .method_metrics import equity_metrics, hold_curve, trade_metrics, profit_totals
 from .utils import read_json, write_json_atomic
 
 STRATEGIES = ("standard", "standard_stop_loss_10", "standard_two_positions", "ma200", "report_avoidance")
@@ -116,18 +115,26 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
         for strategy in STRATEGIES:
             equity = np.zeros(len(dates))
             closed = []
+            gains, losses = 0.0, 0.0
             opens = []
             for ticker, stock in ready.items():
                 variant = backtests[ticker][strategy]
                 trades = [t for t in variant.get("closed_trades", []) if start <= t["entry_date"] <= t["exit_date"] <= end]
+                totals = profit_totals(stock["candles"], trades, backtests[ticker].get("_dividends", []),
+                    variant.get("max_lots", 2 if strategy == "standard_two_positions" else 1))
+                gains += totals["gross_profit"] / len(ready)
+                losses += totals["gross_loss"] / len(ready)
                 closed.extend(trades)
                 opens.extend(t for t in variant.get("open_lots", []) if start <= t["entry_date"] <= end)
                 equity += closed_equity(stock["candles"], trades, backtests[ticker].get("_dividends", []), dates,
                     variant.get("max_lots", 2 if strategy == "standard_two_positions" else 1)) / len(ready)
             prelim = [t["current_return_pct"] for t in opens if t.get("current_return_pct") is not None]
             summaries[strategy] = {**equity_metrics(equity), **trade_metrics(closed),
+                "gross_profit": gains, "gross_loss": losses,
                 "open_count": len(opens), "open_return_pct": float(np.mean(prelim)) if prelim else None}
         summaries["buy_and_hold"] = {**equity_metrics(hold_equity), **trade_metrics(benchmarks), "open_count": 0, "open_return_pct": None}
+        summaries["buy_and_hold"].update({"gross_profit": sum(max(0, t["return_pct"] / 100) for t in benchmarks) / len(ready),
+                                        "gross_loss": sum(max(0, -t["return_pct"] / 100) for t in benchmarks) / len(ready)})
         # Use the actual index observation window, never pretend a stale quote is today's.
         index_window = [c for c in (index_candles or []) if dates[0] <= c["date"] <= dates[-1]]
         index_dates = [d for d in dates if index_window and index_window[0]["date"] <= d <= index_window[-1]["date"]]
@@ -139,6 +146,8 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
         else:
             summaries["omxsgi"] = {**equity_metrics(np.array([])), **trade_metrics([]), "open_count": 0, "open_return_pct": None}
             index_trades = []
+        summaries["omxsgi"].update({"gross_profit": sum(max(0, t["return_pct"] / 100) for t in index_trades),
+                                    "gross_loss": sum(max(0, -t["return_pct"] / 100) for t in index_trades)})
         result["periods"][period] = {"start_date": start, "end_date": end, "strategies": summaries,
                                    "reference_trades": {"buy_and_hold": benchmarks, "omxsgi": index_trades},
                                    "benchmark_pct": summaries["buy_and_hold"]["return_pct"], "benchmark_count": len(benchmarks)}
@@ -148,7 +157,7 @@ def build_aggregate(stocks: dict, backtests: dict, generated_at: str = "", index
 def write_aggregate(stocks: dict, generated_at: str, directory: Path | None = None) -> dict:
     directory = directory or ROOT / "docs" / "data" / "backtests"
     variants = {ticker: json.loads((directory / f"{ticker}.json").read_text()) for ticker in stocks if (directory / f"{ticker}.json").exists()}
-    payload = build_aggregate(stocks, variants, generated_at, read_json(INDEX_FILE, default={}).get("candles", []))
+    payload = build_aggregate(stocks, variants, generated_at, read_json(ROOT / "docs" / "data" / "benchmarks" / "omxsgi.json", default={}).get("candles", []))
     write_json_atomic(directory / "all.json", payload)
     return payload
 
@@ -157,3 +166,4 @@ if __name__ == "__main__":
     dashboard = json.loads((ROOT / "docs" / "data" / "dashboard.json").read_text())
     payload = write_aggregate(dashboard["stocks"], dashboard["meta"]["generated_at"])
     print(f"Built Method aggregate for {payload['meta']['stock_count']} stocks.")
+

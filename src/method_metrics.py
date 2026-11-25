@@ -53,3 +53,42 @@ def trade_metrics(trades: list[dict]) -> dict:
     return {"trade_count": len(trades),
             "win_rate_pct": sum(r > 0 for r in returns) / len(returns) * 100 if returns else None,
             "average_trade_pct": float(np.mean(returns)) if returns else None}
+
+
+
+def profit_totals(candles: list[dict], trades: list[dict], dividends: list[dict] = (), max_lots: int = 1) -> dict:
+    """Realized money gains/losses per initial capital unit, matching the UI replay."""
+    entries = {}
+    for trade in trades:
+        entries.setdefault(trade['entry_date'], []).append(trade)
+    dividend_map = {}
+    for item in dividends:
+        dividend_map[item['date']] = dividend_map.get(item['date'], 0) + float(item.get('amount') or 0)
+    cash, gains, losses = 1.0, 0.0, 0.0
+    active = []
+    for candle in sorted(candles, key=lambda c: c['date']):
+        day = candle['date']
+        for lot in active:
+            paid = lot['quantity'] * dividend_map.get(day, 0)
+            cash += paid
+            lot['paid'] += paid
+        for lot in list(active):
+            if lot['trade']['exit_date'] == day:
+                pnl = lot['budget'] * lot['trade']['return_pct'] / 100
+                gains += max(0, pnl)
+                losses += max(0, -pnl)
+                cash += lot['budget'] + pnl - lot['paid']
+                active.remove(lot)
+        for trade in entries.get(day, []):
+            capital = cash + sum(lot['quantity'] * trade['entry_price'] for lot in active)
+            budget = min(cash, capital / max_lots)
+            cash -= budget
+            if trade['exit_date'] == day:
+                pnl = budget * trade['return_pct'] / 100
+                gains += max(0, pnl)
+                losses += max(0, -pnl)
+                cash += budget + pnl
+            else:
+                active.append({'trade': trade, 'budget': budget,
+                               'quantity': budget / (trade['entry_price'] * 1.0025), 'paid': 0.0})
+    return {'gross_profit': gains, 'gross_loss': losses}

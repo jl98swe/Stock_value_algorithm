@@ -50,3 +50,26 @@ def test_fewer_than_two_quotes_preserves_cash_without_a_fake_trade():
     equity, trade = hold_curve([{"date": "2026-01-02", "close": 100}], [], ["2026-01-02", "2026-01-05"])
     assert list(equity) == [1,1]
     assert trade is None
+
+
+
+def test_profit_totals_match_browser_with_reinvestment_dividends_and_overlapping_lots():
+    import json
+    import subprocess
+    from src.method_metrics import profit_totals
+    candles = [{'date': f'2026-01-0{day}', 'close': 100} for day in range(1, 7)]
+    def trade(first, last, result):
+        return {'entry_date': candles[first]['date'], 'exit_date': candles[last]['date'],
+                'entry_price': 100, 'return_pct': result}
+    cases = [([], [], 1), ([trade(0, 1, 20), trade(2, 3, -10)], [], 1),
+             ([trade(0, 3, 20), trade(0, 4, -10)], [{'date': candles[1]['date'], 'amount': 5}], 2),
+             ([trade(0, 0, -10), trade(1, 2, 20)], [], 2)]
+    for trades, dividends, lots in cases:
+        actual = profit_totals(candles, trades, dividends, lots)
+        browser = json.loads(subprocess.check_output(['node', '-e',
+            'const m=require("./docs/assets/method.js");const a=JSON.parse(process.argv[1]);console.log(JSON.stringify(m.profitTotals(...a)));',
+            json.dumps([candles, trades, dividends, lots])], text=True))
+        assert actual['gross_profit'] == pytest.approx(browser['gains'])
+        assert actual['gross_loss'] == pytest.approx(browser['losses'])
+    totals = profit_totals(candles, cases[1][0])
+    assert totals['gross_profit'] / totals['gross_loss'] == pytest.approx(20 / 12)

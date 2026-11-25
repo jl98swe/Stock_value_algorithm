@@ -115,3 +115,14 @@ def test_dividends_flow_to_aggregate_trade_and_period_metrics():
     assert summary['entry_upside_pct'] == pytest.approx(6)
     reference = result['periods']['all']['reference_trades']['buy_and_hold'][0]
     assert reference['entry_upside_pct'] == pytest.approx(10)
+
+
+
+def test_profit_factor_sums_equal_capital_money_results_across_stocks():
+    stocks, variants = dataset({'EXAMPLE-A': 20, 'EXAMPLE-B': -10})
+    result = build_aggregate(stocks, variants)
+    for period in ('all', '1', '3', '5'):
+        row = result['periods'][period]['strategies']['standard']
+        assert row['gross_profit'] == pytest.approx(.1)
+        assert row['gross_loss'] == pytest.approx(.05)
+        assert row['gross_profit'] / row['gross_loss'] == pytest.approx(2)
