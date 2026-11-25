@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-24T04:18:24+01:00",
+  "generated_at": "2026-11-25T02:23:51+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/sintercast",
-  "items": []
+  "items": [
+    {
+      "ticker": "SINT.ST",
+      "company": "SinterCast AB (publ)",
+      "published_at": "2026-11-24T11:15:00+01:00",
+      "title": "SinterCast förväntar sig strategisk investering från Daimler Truck",
+      "link": "https://mfn.se/a/sintercast/sintercast-forvantar-sig-strategisk-investering-fran-daimler-truck",
+      "source": "MFN",
+      "summary": "SinterCast förväntar sig strategisk investering från Daimler Truck 2026-11-24 11:15:00 Pressmeddelande För omedelbar distribution SinterCast förväntar sig en inledande investering från Daimler Truck AG genom ett strategiskt minoritetsägande Kommersiellt avtal med Daimler Truck AG:s dotterbolag Atlantis Foundries för CGI-produktion är förväntat Partnerskapet omfattar möjligheter till gemensam utveckling av avancerad processtyrning och AI-baserad prediktionsteknologi [Stuttgart och Stockholm, 24 november 2026] – SinterCast förväntar sig att Daimler Truck AG går in som minoritetsägare för att stödja ett framtida samarbete kring storskalig seriep",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "c69c8842c064813b"
+    }
+  ]
 }

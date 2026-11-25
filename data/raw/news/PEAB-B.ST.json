@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-24T04:17:49+01:00",
+  "generated_at": "2026-11-25T02:23:13+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/peab",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-24T08:00:00+01:00",
+      "title": "Peab expands hotel in Sortland",
+      "link": "https://mfn.se/cis/a/peab/peab-expands-hotel-in-sortland-1a4755db",
+      "source": "MFN",
+      "summary": "Peab expands hotel in Sortland 2026-11-24 08:00:00 Peab has been commissioned to expand Scandic's hotel in Sortland. The customer is Hotelleiendom Nord AS and the order is worth NOK 180 million, which corresponds to SEK 188 million. The project comprises a new wing with 104 hotel rooms, an extension of the existing restaurant as well as new commercial space and parking. The current hotel and the new hotel wing will be connected through a building between them. In total the project covers approximately 6,800 m 2 and after the expansion the hotel, located on the quay in central Sortland, will be among the largest in the region with its 232 hote",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "f73b0fa350dec36b"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

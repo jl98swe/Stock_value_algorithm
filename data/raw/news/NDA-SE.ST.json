@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-24T04:17:34+01:00",
+  "generated_at": "2026-11-25T02:22:56+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/noba",
   "items": [
+    {
+      "ticker": "NDA-SE.ST",
+      "company": "Nordea Bank Abp",
+      "published_at": "2026-11-24T11:07:00+01:00",
+      "title": "NOBA Bank Group AB (publ) receives raised investment grade rating from Nordic Credit Rating (BBB+, stable outlook)",
+      "link": "https://mfn.se/a/noba/noba-bank-group-ab-publ-receives-raised-investment-grade-rating-from-nordic-credit-rating-bbb-stable-outlook",
+      "source": "MFN",
+      "summary": "NOBA Bank Group AB (publ) receives raised investment grade rating from Nordic Credit Rating (BBB+, stable outlook) 2026-11-24 11:07:00 NOBA Bank Group AB (publ) has received raised investment grade rating from the rating institute Nordic Credit Rating. The rating is lifted to BBB+ with stable outlook. For the full report, please visit Nordic Credit Rating: https://nordiccreditrating.com/issuer/noba-bank-group-ab-publ For further information, please contact: Arash Bigloo, Head of Treasury arash.bigloo@noba.bank Rickard Strand, Head of Investor Relations ir@noba.bank About NOBA Bank Group With a diversified offering through our four brands – No",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "guidance"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:guidance",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bac7e8f326ef5ac5"
+    },
     {
       "ticker": "NDA-SE.ST",
       "company": "Nordea Bank Abp",
