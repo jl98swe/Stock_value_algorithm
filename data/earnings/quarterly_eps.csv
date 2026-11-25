@@ -771,6 +771,7 @@ EKTA-B.ST,2026-04-30,,2026-10-26,quarterlyDilutedEPS,-2.27,SEK,Yahoo Finance / q
 EKTA-B.ST,2026-04-30,2026-05-28,2026-10-26,reportedEPS,0.57,SEK,Yahoo Finance / Reported EPS
 EKTA-B.ST,2026-07-31,,2026-10-26,quarterlyDilutedEPS,0.69,SEK,Yahoo Finance / quarterlyDilutedEPS
 EKTA-B.ST,2026-07-31,2026-08-27,2026-10-26,reportedEPS,0.69,SEK,Yahoo Finance / Reported EPS
+EKTA-B.ST,2026-10-31,2026-11-25,2026-11-25,manualDilutedEPS,1.13,SEK,https://storage.mfn.se/7a5fb21a-a9c3-4e8c-be9c-bda6299a418c/elekta-q2-report-2026-2027-eng.pdf
 EMBRAC-B.ST,2023-09-30,2023-11-16,2026-10-26,reportedEPS,4.68,SEK,Yahoo Finance / Reported EPS
 EMBRAC-B.ST,2023-12-31,2024-02-15,2026-10-26,reportedEPS,1.14,SEK,Yahoo Finance / Reported EPS
 EMBRAC-B.ST,2024-03-31,2024-05-23,2026-10-26,reportedEPS,9.0,SEK,Yahoo Finance / Reported EPS
@@ -1791,6 +1792,7 @@ SECT-B.ST,2026-04-30,,2026-10-26,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / qu
 SECT-B.ST,2026-04-30,2026-06-05,2026-10-26,reportedEPS,0.82,SEK,Yahoo Finance / Reported EPS
 SECT-B.ST,2026-07-31,,2026-10-26,quarterlyDilutedEPS,0.82,SEK,Yahoo Finance / quarterlyDilutedEPS
 SECT-B.ST,2026-07-31,2026-09-04,2026-10-26,reportedEPS,0.82,SEK,Yahoo Finance / Reported EPS
+SECT-B.ST,2026-10-31,2026-11-25,2026-11-25,manualDilutedEPS,1.12,SEK,https://investor.sectra.com/wp-content/uploads/sites/2/2026/11/sectras-six-month-report-2026-20271125.pdf
 SECU-B.ST,2023-09-30,2023-11-07,2026-10-26,reportedEPS,2.66,SEK,Yahoo Finance / Reported EPS
 SECU-B.ST,2023-12-31,2024-02-07,2026-10-26,reportedEPS,2.44,SEK,Yahoo Finance / Reported EPS
 SECU-B.ST,2024-03-31,2024-05-08,2026-10-26,reportedEPS,2.12,SEK,Yahoo Finance / Reported EPS
