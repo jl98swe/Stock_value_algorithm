@@ -103,6 +103,40 @@
   function compound(trades) {
     return trades.length ? (trades.reduce((v,t) => v * (1 + t.return_pct / 100), 1) - 1) * 100 : null;
   }
+  function profitFactor(candles, trades, dividends = [], maxLots = 1) {
+    if (!trades.length || trades.some(t => !Number.isFinite(t.return_pct))) return null;
+    let gains = 0, losses = 0, cash = 1;
+    const active = [], entries = new Map(), dividendMap = new Map();
+    for (const t of trades) {
+      if (!entries.has(t.entry_date)) entries.set(t.entry_date, []);
+      entries.get(t.entry_date).push(t);
+    }
+    for (const d of dividends) dividendMap.set(d.date, (dividendMap.get(d.date) || 0) + Number(d.amount || 0));
+    // Replay the same reinvestment and shared cash allocation as the backtest.
+    for (const c of [...candles].sort((a,b) => a.date.localeCompare(b.date))) {
+      for (const lot of active) {
+        const paid = lot.quantity * (dividendMap.get(c.date) || 0);
+        cash += paid; lot.paid += paid;
+      }
+      for (let i = active.length - 1; i >= 0; i--) if (active[i].trade.exit_date === c.date) {
+        const lot = active.splice(i,1)[0], pnl = lot.budget * lot.trade.return_pct / 100;
+        gains += Math.max(0,pnl); losses += Math.max(0,-pnl);
+        cash += lot.budget + pnl - lot.paid;
+      }
+      for (const t of entries.get(c.date) || []) {
+        const capital = cash + active.reduce((sum,lot) => sum + lot.quantity * t.entry_price,0);
+        const budget = Math.min(cash,capital / maxLots);
+        cash -= budget;
+        if (t.exit_date === c.date) {
+          const pnl = budget * t.return_pct / 100;
+          gains += Math.max(0,pnl); losses += Math.max(0,-pnl);
+          cash += budget + pnl;
+        } else active.push({trade:t,budget,quantity:budget / (t.entry_price * 1.0025),paid:0});
+      }
+    }
+    return losses > 0 ? gains / losses : gains > 0 ? Infinity : null;
+  }
+  const profitFactorText = value => value === Infinity ? '∞' : ratio(value);
   function equityMetrics(values) {
     if (!values.length) return {return_pct:null, max_drawdown_pct:null, sharpe_ratio:null};
     let previous = 1, peak = 1, worst = 0;
@@ -198,13 +232,14 @@
       };
       return { id, name, start: id === 'omxsgi' ? indexDates[0] : start,
         end: id === 'omxsgi' ? indexDates.at(-1) : end, ...summary,
+        profit_factor:profitFactor(id === 'omxsgi' ? indexCandles : candles,closed,id === 'omxsgi' ? [] : variants?._dividends || [],id === 'standard_two_positions' ? 2 : 1),
         ...worstEntryDrawdownMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []),
         ...bestEntryUpsideMetrics(id === 'omxsgi' ? indexCandles : candles,closed,end,id === 'omxsgi' ? [] : variants?._dividends || []) };
     });
   }
   // Also exposed for deterministic tests of the period rules.
-  if (typeof module !== 'undefined') module.exports = {periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
-  if (typeof window !== 'undefined') window.backtestMetrics = {fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
+  if (typeof module !== 'undefined') module.exports = {profitFactor, profitFactorText, periodStart, selectTrades, compound, closedDrawdown, closedEquity, equityMetrics, holdCurve, referenceSummary, fullHistoryRows, entryDrawdown, worstEntryDrawdown, drawdownPercent, entryDrawdownMetrics, worstEntryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
+  if (typeof window !== 'undefined') window.backtestMetrics = {profitFactorText, fullHistoryRows, entryDrawdown, drawdownPercent, entryDrawdownMetrics, drawdownWithDays, entryUpsideMetrics, bestEntryUpsideMetrics, upsideWithDays, tradeTimingMetrics, holdingWithDays};
   if (typeof document === 'undefined' || !document.getElementById('method-stock')) return;
 
   const params = new URLSearchParams(location.search);
@@ -338,4 +373,3 @@
   });
   init();
 })();
-
