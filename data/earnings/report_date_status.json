@@ -1,8 +1,7 @@
 {
-  "checked_at": "2026-11-25",
+  "checked_at": "2026-11-26",
   "counts": {
-    "calendar_date_preserved": 2,
-    "manual_date_preserved": 2
+    "manual_date_preserved": 1
   },
   "missing_historical_dates": [
     {
@@ -667,7 +666,9 @@
     }
   ],
   "missing_upcoming_tickers": [
-    "LUMI.ST"
+    "EKTA-B.ST",
+    "LUMI.ST",
+    "SECT-B.ST"
   ],
   "calendar_source_conflicts": [
     {
