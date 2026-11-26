@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-25T02:21:36+01:00",
+  "generated_at": "2026-11-26T01:56:25+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/elekta",
   "items": [
+    {
+      "ticker": "EKTA-B.ST",
+      "company": "Elekta",
+      "published_at": "2026-11-25T07:30:00+01:00",
+      "title": "Second quarter, August–October 2026/27",
+      "link": "https://mfn.se/a/elekta/second-quarter-august-october-2026-27",
+      "source": "MFN",
+      "summary": "Second quarter, August–October 2026/27 2026-11-25 07:30:00 Second quarter In constant exchange rates, net sales increased by 5 percent with growth across all regions except APJ. Reported sales increased by 7 percent amounting to SEK 4,360 M (4,070). 15 percent sales growth for Americas driven by the U. S. following the launch of Elekta Evo and Elekta ONE. The rolling twelve-month book-to-bill ratio was 1.05 (1.04) in Q2 with order growth in all regions except APJ. Improved adjusted gross margin of 39.0 percent (37.9) driven by higher volumes, price increases, refund of U.S. tariffs and cost reductions. Adjusted EBIT amounted to SEK 610 M (411",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material_commercial:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "bbdd6014844c7c1e"
+    },
     {
       "ticker": "EKTA-B.ST",
       "company": "Elekta",

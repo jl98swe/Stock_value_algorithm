@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-25T02:23:42+01:00",
+  "generated_at": "2026-11-26T01:58:25+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/stenhus-fastigheter",
   "items": [
+    {
+      "ticker": "SFAST.ST",
+      "company": "Stenhus Fastigheter i Norden AB (publ)",
+      "published_at": "2026-11-25T07:50:00+01:00",
+      "title": "Stenhus Fastigheter har förvärvat en lager- och lättindustrifastighet i Stockholm för 62 MSEK",
+      "link": "https://mfn.se/a/stenhus-fastigheter/stenhus-fastigheter-har-forvarvat-en-lager-och-lattindustrifastighet-i-stockholm-for-62-msek",
+      "source": "MFN",
+      "summary": "Stenhus Fastigheter har förvärvat en lager- och lättindustrifastighet i Stockholm för 62 MSEK 2026-11-25 07:50:00 Stenhus Fastigheter i Norden AB (publ) (”Stenhus” eller ”Bolaget”) har via en bolagsaffär förvärvat tomträtten till fastigheten Malax 4 i Akalla, Stockholm, av en privat ägare till ett fastighetsvärde om ca 62 MSEK före marknadsmässigt avdrag för latent skatt. Förvärvet finansieras med egna medel. Tillträde skedde 24 november 2026. Fastigheten Malax 4 är belägen i Akalla i norra Stockholm och tillhör segmentet lager/lättindustri/logistik, med en uthyrningsbar area om ca 2 953 kvm. Fastigheten är fullt uthyrd med wault på cirka 7 å",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "d083fd3c38a6ad1b"
+    },
     {
       "ticker": "SFAST.ST",
       "company": "Stenhus Fastigheter i Norden AB (publ)",

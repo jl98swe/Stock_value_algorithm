@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-11-25T02:22:45+01:00",
+  "generated_at": "2026-11-26T01:57:31+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/medicover",
-  "items": []
+  "items": [
+    {
+      "ticker": "MCOV-B.ST",
+      "company": "Medicover AB (publ)",
+      "published_at": "2026-11-25T18:35:00+01:00",
+      "title": "Save the date: Medicovers Investor update den 11 februari 2027",
+      "link": "https://mfn.se/a/medicover/save-the-date-medicovers-investor-update-den-11-februari-2027",
+      "source": "MFN",
+      "summary": "Save the date: Medicovers Investor update den 11 februari 2027 2026-11-25 18:35:00 Medicover AB (publ) kommer att hålla en Investor update torsdag den 11 februari 2027 i Stockholm. John Stubbington, vd och Anand Patel, CFO kommer att ge en uppdatering om verksamheten och strategin efter avyttringen av Medicover Hospitals India. Evenemanget kommer att direktsändas för de som inte har möjlighet att delta på plats. Antalet platser är begränsat. Inbjudan och mer detaljerad information kommer att publiceras närmare evenemanget. Datum: torsdagen den 11 februari 2027 Tid: eftermiddag Plats: Inderes studio Valo, Västra Trädgårdsgatan 19, Stockholm Fö",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "74c406839a3b87e8"
+    },
+    {
+      "ticker": "MCOV-B.ST",
+      "company": "Medicover AB (publ)",
+      "published_at": "2026-11-25T18:20:00+01:00",
+      "title": "Medicover slutför avyttringen av Medicover Hospitals India och stärker fokus på huvudmarknader i Europa",
+      "link": "https://mfn.se/a/medicover/medicover-slutfor-avyttringen-av-medicover-hospitals-india-och-starker-fokus-pa-huvudmarknader-i-europa",
+      "source": "MFN",
+      "summary": "Medicover slutför avyttringen av Medicover Hospitals India och stärker fokus på huvudmarknader i Europa 2026-11-25 18:20:00 Medicover (“Medicover” eller “Koncernen”) har slutfört avyttringen av Medicover Hospital India (”MHI”) till fonder förvaltade av det globala investmentbolaget KKR (”KKR”) (“Transaktionen”). Medicover erhåller en kontant bruttolikvid om cirka 750 MEUR vilket stärker koncernens finansiella ställning, ger ökad flexibilitet att påskynda genomförandet av strategin i Polen, Tyskland och Rumänien. Efter slutförandet av Transaktionen är Medicover strategiskt fokuserat på hälso- och sjukvårds- samt diagnostiktjänster på sina euro",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e2b54180e77f3604"
+    }
+  ]
 }

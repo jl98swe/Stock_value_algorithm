@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-11-25T02:24:35+01:00",
+  "generated_at": "2026-11-26T01:59:12+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-25T16:30:00+01:00",
+      "title": "Nordnet: Vuoden Sijoittaja 2026 on Verneri Pulkkinen ja Vuoden Sijoitusteko 2026 Nuorten Pörssilähettiläs-ohjelma",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-vuoden-sijoittaja-2026-on-verneri-pulkkinen-ja-vuoden-sijoitusteko-2026-nuorten-porssilahettilas-ohjelma-62439c67",
+      "source": "MFN",
+      "summary": "Nordnet: Vuoden Sijoittaja 2026 on Verneri Pulkkinen ja Vuoden Sijoitusteko 2026 Nuorten Pörssilähettiläs-ohjelma 2026-11-25 16:30:00 Vuoden Sijoittaja ja Vuoden Sijoitusteko 2026 -voittajat on palkittu Sijoittaja 2026 -tapahtumassa Messukeskuksessa 25.11. Voittajat valittiin yleisöäänestyksellä 13.10.-11.11.2026, johon saatiin tänä vuonna 2 368 yksilöityä ääntä. Vuoden Sijoittaja 2026 -tittelin voitti 48 %:n äänisaaliilla Verneri Pulkkinen. Vuoden Sijoitusteko 2026 -palkinnosta käytiin tiukka kisa, jonka vei lopulta 27 %:n ääniosuudella Nuorten Pörssilähettiläs-ohjelma. Kilpailu järjestettiin nyt yhdeksättä kertaa. Sen tavoitteena on tuoda e",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "ef050d34313a94d6"
+    },
+    {
+      "ticker": "HPOL-B.ST",
+      "company": "HEXPOL AB (publ)",
+      "published_at": "2026-11-25T14:22:00+01:00",
+      "title": "Förändringar i HEXPOL AB:s (publ) koncernledning",
+      "link": "https://mfn.se/a/hexpol/forandringar-i-hexpol-ab-s-publ-koncernledning",
+      "source": "MFN",
+      "summary": "Förändringar i HEXPOL AB:s (publ) koncernledning 2026-11-25 14:22:00 Peter Li, idag global chef för HEXPOL Wheels, har utsetts till chef för HEXPOL China och ny medlem av koncernledningen från och med den 1 januari 2027. HEXPOL China är en ny organisatorisk enhet som samlar koncernens kinesiska verksamheter inom Rubber Compounding, Thermoplastic Compounding och Wheels under en gemensam ledning. Syftet med omorganisationen är att stärka samordningen och öka det strategiska fokuset på den kinesiska marknaden. Peter Li började på HEXPOL 2008 och har i sin nuvarande roll som global chef för HEXPOL Wheels framgångsrikt drivit lönsam tillväxt tills",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "351f4407c263a893"
+    },
+    {
+      "ticker": "SHOT.ST",
+      "company": "Scandic Hotels Group AB (publ)",
+      "published_at": "2026-11-25T09:22:45+01:00",
+      "title": "Scandic Hotels Group AB: Scandic vinner internationellt hållbarhetspris för sitt miljö- och klimatarbete",
+      "link": "https://mfn.se/cis/a/scandic-hotels-group/scandic-hotels-group-ab-scandic-vinner-internationellt-hallbarhetspris-for-sitt-miljo-och-klimatarbete-3ed5058c",
+      "source": "MFN",
+      "summary": "Scandic Hotels Group AB: Scandic vinner internationellt hållbarhetspris för sitt miljö- och klimatarbete 2026-11-25 09:22:45 Scandic Hotels Group har vunnit kategorin Best Environmental and Climate Impact vid Hospitality Awards 2026 i Paris. Utmärkelsen uppmärksammar bolagets långsiktiga arbete för att minska sin miljö- och klimatpåverkan i hotellverksamheten. Scandic Hotels Group vinner Best Environmental and Climate Impact vid Hospitality Awards 2026 Scandics klimatmål validerades av Science Based Targets initiative (SBTi) under 2026 97 procent av Scandics hotell på de nordiska marknaderna är certifierade enligt Svanen Scandic Hotels Group ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "1458b79e5aeff3c6"
+    },
+    {
+      "ticker": "REJL-B.ST",
+      "company": "Rejlers AB (publ)",
+      "published_at": "2026-11-25T08:30:00+01:00",
+      "title": "Rejlers tecknar ramavtal med ESS - bidrar med teknisk kompetens till en av Europas största forskningssatsningar",
+      "link": "https://mfn.se/cis/a/rejlers/rejlers-tecknar-ramavtal-med-ess-bidrar-med-teknisk-kompetens-till-en-av-europas-storsta-forskningssatsningar-bdf1616a",
+      "source": "MFN",
+      "summary": "Rejlers tecknar ramavtal med ESS - bidrar med teknisk kompetens till en av Europas största forskningssatsningar 2026-11-25 08:30:00 Rejlers har tillsammans med dotterbolagen Rörkraft och Risk Pilot tilldelats ett ramavtal med European Spallation Source (ESS), en av Europas största satsningar på forskningsinfrastruktur. Avtalet omfattar tekniska konsulttjänster inom automation, elteknik, process- och rörkonstruktion samt projektledning och ger Rejlers möjlighet att medverka till utvecklingen av den avancerade forskningsanläggningen i Lund. Ramavtalet omfattar kompetens inom styr- och automationssystem, elektroteknik, process- och rörkonstrukti",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "contract"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:contract",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "54e16c336d7af45b"
+    },
+    {
+      "ticker": "SECT-B.ST",
+      "company": "Sectra AB (publ)",
+      "published_at": "2026-11-25T08:15:00+01:00",
+      "title": "Sectras sexmånadersrapport: Stark utveckling på den nordamerikanska marknaden",
+      "link": "https://mfn.se/cis/a/sectra/sectras-sexmanadersrapport-stark-utveckling-pa-den-nordamerikanska-marknaden-ee1e5802",
+      "source": "MFN",
+      "summary": "Sectras sexmånadersrapport: Stark utveckling på den nordamerikanska marknaden 2026-11-25 08:15:00 Pressmeddelande - Linköping den 25 november 2026 - Medicinteknik- och cybersäkerhetsföretaget Sectra (STO: SECT B) redovisar ökad omsättning och lönsamhet under det första halvåret. Hög kundnöjdhet och fortsatt förtroende från befintliga och nya kunder bidrar till att ytterligare stärka koncernens marknadsposition inom IT för medicinsk bilddiagnostik och cybersäkerhet. Utvecklingen är särskilt positiv i USA och Kanada, som är viktiga tillväxtmotorer inom verksamheten för medicinsk IT. Kvartal 2: augusti-oktober 2026 Kontrakterad orderingång minsk",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "cc5841e57644d72d"
+    },
+    {
+      "ticker": "MYCR.ST",
+      "company": "Mycronic AB (publ)",
+      "published_at": "2026-11-25T08:00:00+01:00",
+      "title": "Mycronic erhåller order på en SLX-maskritare",
+      "link": "https://mfn.se/a/mycronic/mycronic-erhaller-order-pa-en-slx-maskritare-29",
+      "source": "MFN",
+      "summary": "Mycronic erhåller order på en SLX-maskritare 2026-11-25 08:00:00 Mycronic AB (publ) har erhållit en order på en SLX-maskritare från en befintlig kund i Asien. Ordervärdet ligger i intervallet 5-7 MUSD. Systemet är planerat att levereras under det andra kvartalet 2028. Den laserbaserade maskritaren SLX möter en stigande efterfrågan på fotomasker till halvledarindustrin, samt ett ersättnings- och moderniseringsbehov. Fotomasker tillverkade av laserbaserade maskritare är mycket viktiga och står för en majoritet av alla producerade fotomasker för halvledartillverkning. SLX är en modern och energisnål maskritare baserad på samma teknologi som Mycr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "order"
+      ],
+      "relevance": "review",
+      "relevance_reason": "commercial_needs_materiality_review:order",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "0285f71bfa25c927"
+    },
+    {
+      "ticker": "EKTA-B.ST",
+      "company": "Elekta",
+      "published_at": "2026-11-25T07:30:00+01:00",
+      "title": "Andra kvartalet, augusti–oktober 2026/27",
+      "link": "https://mfn.se/a/elekta/andra-kvartalet-augusti-oktober-2026-27",
+      "source": "MFN",
+      "summary": "Andra kvartalet, augusti–oktober 2026/27 2026-11-25 07:30:00 Andra kvartalet Nettoomsättningen ökade med 5 procent i konstanta valutakurser, med tillväxt i samtliga regioner utom APJ. Den rapporterade nettoomsättningen ökade med 7 procent och uppgick till 4 360 miljoner kronor (4 070). Nettoomsättningen ökade med 15 procent i region Amerika, drivet av USA efter lanseringen av Elekta Evo och Elekta ONE. Kvoten book-to-bill för den rullande tolvmånadersperioden var 1,05 (1,04) under andra kvartalet med ordertillväxt i samtliga regioner utom APJ. Den justerade bruttomarginalen förbättrades till 39,0 procent (37,9) drivet av högre volymer, prishö",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "6269cbee22ccd0b7"
+    },
     {
       "ticker": "NDA-SE.ST",
       "company": "Nordea Bank Abp",
