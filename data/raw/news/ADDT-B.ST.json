@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-26T01:55:08+01:00",
+  "generated_at": "2026-11-27T01:59:30+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/addtech",
   "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-11-26T08:00:00+01:00",
+      "title": "Addtech förvärvar Nuova Beta Cavi S.r.l.",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-nuova-beta-cavi-s-r-l-495e376c",
+      "source": "MFN",
+      "summary": "Addtech förvärvar Nuova Beta Cavi S.r.l. 2026-11-26 08:00:00 Addtech Safety, ett affärsområde inom Addtech-koncernen, har tecknat avtal om att förvärva 100 procent av aktierna i Nuova Beta Cavi S.r.l. (\"Beta Cavi\"). Beta Cavi är en marknadsledande producent av nischade specialkablar, främst för kunder inom säkerhetsindustrin. Bolaget tillverkar och säljer också ett brett utbud av fiberoptik- och datatöverföringskablar. Beta Cavi har sitt huvudkontor i Battipaglia Italien, har 46 anställda och en årsomsättning om cirka 19 miljoner EUR. Beta Cavi blir en del av och kompletterar väl befintlig verksamhet inom affärsenheten Protection Solutions. T",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "39c5a718bc3072ad"
+    },
     {
       "ticker": "ADDT-B.ST",
       "company": "Addtech",

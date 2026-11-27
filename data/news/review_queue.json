@@ -1,7 +1,73 @@
 {
-  "generated_at": "2026-11-26T01:59:12+01:00",
+  "generated_at": "2026-11-27T02:03:53+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "PEAB-B.ST",
+      "company": "Peab AB (publ)",
+      "published_at": "2026-11-26T09:45:00+01:00",
+      "title": "Trippelvinst för Peab-projekt i Sweden Green Building Awards 2026",
+      "link": "https://mfn.se/cis/a/peab/trippelvinst-for-peab-projekt-i-sweden-green-building-awards-2026-d5866ad4",
+      "source": "MFN",
+      "summary": "Trippelvinst för Peab-projekt i Sweden Green Building Awards 2026 2026-11-26 09:45:00 Tre projekt där Peab haft en central roll har prisats i Sweden Green Building Awards 2026. Göteborg Grand Central, ACE Powerhouse i Skellefteå och det nya hamnområdet vid Port of Skellefteå utsågs till vinnare i sina respektive kategorier när Sweden Green Building Council delade ut årets priser. Sweden Green Building Awards lyfter varje år fram projekt som driver utvecklingen inom hållbart samhällsbyggande. Att tre projekt där Peab medverkat prisas samma år visar bredden i de projekt som företaget är med och utvecklar tillsammans med kunder och samarbetspart",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "af5e63950307ebbe"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-26T07:05:00+01:00",
+      "title": "Nordnet ændrer i måden at vise omkostninger på ETF'er, investeringsforeninger og fonde",
+      "link": "https://mfn.se/cis/a/nordnet/nordnet-aendrer-i-maden-at-vise-omkostninger-pa-etfer-investeringsforeninger-og-fonde-b77cc635",
+      "source": "MFN",
+      "summary": "Nordnet ændrer i måden at vise omkostninger på ETF'er, investeringsforeninger og fonde 2026-11-26 07:05:00 I dag ændrer Nordnet i måden at vise omkostninger på, når man investerer i ETF'er, investeringsforeninger og fonde. Ændringen kommer som en del af et skifte i den danske investeringskultur og et konstant arbejde, der skal gøre det mere transparent at være privatinvestor. Pressemeddelelse 2026-11-26 Når flere end 720.000 privatinvestorer torsdag logger på Nordnet, vil måden de bliver præsenteret for omkostninger på ETF'er, investeringsforeninger og fonde være ændret. Det sker blandt andet, fordi der de seneste fem år er sket et skifte i, ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "b4b0f143d5593ecb"
+    },
+    {
+      "ticker": "SWED-A.ST",
+      "company": "Swedbank AB (publ)",
+      "published_at": "2026-11-26T06:30:00+01:00",
+      "title": "Swedbank: Två av tre väljer lycka framför mer pengar",
+      "link": "https://mfn.se/cis/a/swedbank/swedbank-tva-av-tre-valjer-lycka-framfor-mer-pengar-c1689824",
+      "source": "MFN",
+      "summary": "Swedbank: Två av tre väljer lycka framför mer pengar 2026-11-26 06:30:00 Pengar spelar roll för människors trygghet och välmående, men det finns andra saker som är viktigare för många. Två av tre skulle välja att öka sin lycka före att öka sin inkomst. Det visar en rapport från Swedbank. - Pengar och lycka hänger ihop, till en viss gräns. De som känner ekonomisk trygghet är betydligt lyckligare än de som känner oro för sin privatekonomi. Därutöver är det andra saker som påverkar hur vi mår, säger Madelén Falkenhäll, ekonom finansiell hälsa på Swedbank. Två av tre väljer mer lycka före högre inkomst om de skulle välja mellan de två. Även bland",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "4809e882325d79ef"
+    },
     {
       "ticker": "SAVE.ST",
       "company": "Nordnet AB (publ)",
