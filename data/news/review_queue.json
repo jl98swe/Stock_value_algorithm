@@ -1,7 +1,51 @@
 {
-  "generated_at": "2026-11-27T02:03:53+01:00",
+  "generated_at": "2026-11-28T01:32:03+01:00",
   "description": "Osäkra MFN-poster som inte visas automatiskt som N.",
   "items": [
+    {
+      "ticker": "WIHL.ST",
+      "company": "Wihlborgs Fastigheter AB (publ)",
+      "published_at": "2026-11-27T07:30:00+01:00",
+      "title": "Wihlborgs Fastigheter AB: Wihlborgs frasælger lager- og logistikejendomme på 62.400 kvadratmeter i København",
+      "link": "https://mfn.se/cis/a/wihlborgs-fastigheter/wihlborgs-fastigheter-ab-wihlborgs-frasaelger-lager-og-logistikejendomme-pa-62-400-kvadratmeter-i-kobenhavn-2130d27f",
+      "source": "MFN",
+      "summary": "Wihlborgs Fastigheter AB: Wihlborgs frasælger lager- og logistikejendomme på 62.400 kvadratmeter i København 2026-11-27 07:30:00 Som led i en strategisk fokusering af ejendomsporteføljen i København har Wihlborgs indgået aftale om salg af syv lager- og logistikejendomme i Storkøbenhavn til en samlet ejendomsværdi på 695 mio. DKK med en unavngiven køber. Ejendommene er beliggende i Storkøbenhavn og omfatter i alt 62.400 kvadratmeter fordelt på 48.600 kvadratmeter lager og 13.800 kvadratmeter kontor. Den aktuelle nettoleje udgør 39 mio DKK. Køber forventes at overtage ejendommene den 14. december 2026. Salget er et led i Wihlborgs's strategi om",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "92a2187c8fee467e"
+    },
+    {
+      "ticker": "SAVE.ST",
+      "company": "Nordnet AB (publ)",
+      "published_at": "2026-11-27T06:00:00+01:00",
+      "title": "Fondsparande november: Spararna sitter still i båten under börsoron - dumpar dyra småbolags- och nischfonder",
+      "link": "https://mfn.se/cis/a/nordnet/fondsparande-november-spararna-sitter-still-i-baten-under-borsoron-dumpar-dyra-smabolags-och-nischfonder-24888458",
+      "source": "MFN",
+      "summary": "Fondsparande november: Spararna sitter still i båten under börsoron - dumpar dyra småbolags- och nischfonder 2026-11-27 06:00:00 - Fondspararna har hållit huvudet kallt trots en betydligt stökigare börsmånad. Vi ser en stark nettoköpstrend bland fondspararna och det är fortsatt breda global- och indexfonder som utgör basen. På säljsidan ser vi däremot ett tydligt skifte - högräntefonderna har ersatts av aktivt förvaltade teknik- och nischfonder, konstaterar Carl-Henrik Söderberg, sparekonom på Nordnet. Aktivt förvaltat och smala teman åker ut Under november har marknaden präglats av ökad oro kring AI-sektorns värderingar och stigande finansie",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "other"
+      ],
+      "relevance": "review",
+      "relevance_reason": "no_high_confidence_rule",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "e39558f5d9934b49"
+    },
     {
       "ticker": "PEAB-B.ST",
       "company": "Peab AB (publ)",

@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-27T02:00:58+01:00",
+  "generated_at": "2026-11-28T01:29:21+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/eqt",
   "items": [
+    {
+      "ticker": "EQT.ST",
+      "company": "EQT",
+      "published_at": "2026-11-27T08:00:00+01:00",
+      "title": "EQT Healthcare Growth to acquire majority stake in specialty European pharmaceutical business, Kelso Pharma",
+      "link": "https://mfn.se/cis/a/eqt/eqt-healthcare-growth-to-acquire-majority-stake-in-specialty-european-pharmaceutical-business-kelso-pharma-ad3a8e84",
+      "source": "MFN",
+      "summary": "EQT Healthcare Growth to acquire majority stake in specialty European pharmaceutical business, Kelso Pharma 2026-11-27 08:00:00 Kelso Pharma is a fast-growing specialty pharmaceutical group with a portfolio of approximately 14 medicines, mainly for endocrine, gastrointestinal and central nervous system conditions The company has built a commercial platform in the UK, with a growing presence across Europe and an expanding portfolio of medicines for niche patient populations EQT will support Kelso Pharma's expansion across Europe through investment in its commercial capabilities, new product launches and selective acquisitions and licensing agr",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "77bd9ad8940626ab"
+    },
     {
       "ticker": "EQT.ST",
       "company": "EQT",

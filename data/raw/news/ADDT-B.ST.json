@@ -1,8 +1,52 @@
 {
-  "generated_at": "2026-11-27T01:59:30+01:00",
+  "generated_at": "2026-11-28T01:27:53+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/addtech",
   "items": [
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-11-27T14:00:00+01:00",
+      "title": "Addtech förvärvar BaSyTec GmbH",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-basytec-gmbh-a1936704",
+      "source": "MFN",
+      "summary": "Addtech förvärvar BaSyTec GmbH 2026-11-27 14:00:00 Addtech Electrification, ett affärsområde inom Addtech-koncernen, har idag tecknat avtal om att förvärva 100 procent av aktierna i BaSyTec GmbH (\"BaSyTec\"). BaSyTec utvecklar och tillverkar avancerade lösningar med egenutvecklad hårdvara och mjukvara för testning och validering av battericeller, moduler och kompletta batteripack. Bolagets kunder finns främst inom industri, batteritillverkning samt forskning och utveckling. BaSyTec har sitt huvudkontor i Asselfingen, Tyskland, har 20 anställda och en årlig omsättning om cirka 4 miljoner EUR. BaSyTec blir en del av och kompletterar väl befintli",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "073947471aa34255"
+    },
+    {
+      "ticker": "ADDT-B.ST",
+      "company": "Addtech",
+      "published_at": "2026-11-27T08:00:00+01:00",
+      "title": "Addtech förvärvar Lott-Lacke Produktions- und Handels GmbH",
+      "link": "https://mfn.se/cis/a/addtech/addtech-forvarvar-lott-lacke-produktions-und-handels-gmbh-4ba3fce2",
+      "source": "MFN",
+      "summary": "Addtech förvärvar Lott-Lacke Produktions- und Handels GmbH 2026-11-27 08:00:00 Addtech Industry, ett affärsområde inom Addtech-koncernen, har tecknat avtal om att förvärva 100 procent av aktierna i Lott-Lacke Produktions- und Handels GmbH (\"Lott-Lacke\"). Lott-Lacke utvecklar, tillverkar och levererar kundanpassade strålningshärdande och vattenburna speciallacker för industriella tillämpningar, med särskild kompetens inom UV-, LED-, excimer- och elektronstråleteknik. Bolaget har en stark internationell närvaro, med mer än hälften av försäljningen utanför Tyskland. Lott-Lacke har sitt huvudkontor i Herford, Tyskland, har cirka 29 anställda och ",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "595774c79f65d20c"
+    },
     {
       "ticker": "ADDT-B.ST",
       "company": "Addtech",

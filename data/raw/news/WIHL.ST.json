@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-27T02:03:49+01:00",
+  "generated_at": "2026-11-28T01:31:59+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/wihlborgs-fastigheter",
   "items": [
+    {
+      "ticker": "WIHL.ST",
+      "company": "Wihlborgs Fastigheter AB (publ)",
+      "published_at": "2026-11-27T07:30:00+01:00",
+      "title": "Wihlborgs Fastigheter AB: Wihlborgs avyttrar lager- och logistikfastigheter om 62 400 kvadratmeter i Köpenhamn",
+      "link": "https://mfn.se/cis/a/wihlborgs-fastigheter/wihlborgs-fastigheter-ab-wihlborgs-avyttrar-lager-och-logistikfastigheter-om-62-400-kvadratmeter-i-kopenhamn-bfb5c471",
+      "source": "MFN",
+      "summary": "Wihlborgs Fastigheter AB: Wihlborgs avyttrar lager- och logistikfastigheter om 62 400 kvadratmeter i Köpenhamn 2026-11-27 07:30:00 I syfte att renodla fastighetsportföljen i Köpenhamn har Wihlborgs tecknat avtal om att sälja sju lager- och logistikfastigheter i Storköpenhamn till ett samlat fastighetsvärde om 695 mdkk till en icke namngiven köpare. Fastigheterna är primärt belägna i de västra delarna av Köpenhamn och omfattar 62 400 kvadratmeter fördelat på 48 600 kvadratmeter lager och 13 800 kvadratmeter kontor. Det aktuella driftsöverskottet uppgår till 39 mdkk. Köparen planeras tillträda fastigheterna den 14 december 2026. Försäljningen ä",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "76c0a5488154a612"
+    },
     {
       "ticker": "WIHL.ST",
       "company": "Wihlborgs Fastigheter AB (publ)",

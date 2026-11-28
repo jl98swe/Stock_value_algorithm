@@ -1,8 +1,30 @@
 {
-  "generated_at": "2026-11-27T02:01:47+01:00",
+  "generated_at": "2026-11-28T01:30:13+01:00",
   "source": "MFN",
   "source_url": "https://mfn.se/all/a/lifco",
   "items": [
+    {
+      "ticker": "LIFCO-B.ST",
+      "company": "Lifco AB (publ)",
+      "published_at": "2026-11-27T15:25:00+01:00",
+      "title": "Lifco förvärvar EG Medical i Italien",
+      "link": "https://mfn.se/a/lifco/lifco-forvarvar-eg-medical-i-italien",
+      "source": "MFN",
+      "summary": "Lifco förvärvar EG Medical i Italien 2026-11-27 15:25:00 Lifco har tecknat avtal om att förvärva samtliga aktier i det italienska bolaget EG Medical S.r.l. EG Medical är en nischad tillverkare av brickor för kirurgiska instrument. EG Medical omsatte cirka 11,9 MEUR 2025. Bolaget är baserat i Villafranca Padovana i Padua i Italien och har 32 anställda. EG Medical kommer att konsolideras i affärsområdet Dental. Konsolidering beräknas ske i fjärde kvartalet 2026. Förvärvet kommer inte att ha någon väsentlig effekt på Lifcos resultat eller finansiella ställning under 2026. Läs mer på egmedical.it . För mer information kontakta gärna: Per Waldemar",
+      "is_regulatory": false,
+      "categories": [
+        "news",
+        "acquisition"
+      ],
+      "relevance": "keep",
+      "relevance_reason": "material:acquisition",
+      "review_status": "unreviewed",
+      "classification": "unreviewed",
+      "lock_action": "none",
+      "review_note": "",
+      "event_type": "news",
+      "event_id": "28ee4ee811918467"
+    },
     {
       "ticker": "LIFCO-B.ST",
       "company": "Lifco AB (publ)",
